@@ -1,0 +1,3 @@
+Aibolit is Java code static analyzer with Machine Learning.
+
+To be continued...
