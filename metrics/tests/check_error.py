@@ -11,6 +11,17 @@ class JavaTestCase(unittest.TestCase):
         super(JavaTestCase, self).setUp()
         from main import CCMetric
 
+        metric = CCMetric('tests/javafiles/')
+        res = metric.run(showoutput=True)
+        data = list(filter(lambda x: x['file'] == 'tests/javafiles/Complicated.java', res['data']))
+        self.assertEqual(data[0]['complexity'], 12)
+
+        data = list(filter(lambda x: x['file'] == 'tests/javafiles/OtherClass.java', res['data']))
+        self.assertEqual(data[0]['complexity'], 3)
+
+        errors = list(filter(lambda x: x['file'] == 'tests/javafiles/ooo.java', res['errors']))
+        self.assertEqual(errors[0]['message'][0:12], 'PMDException')
+
         file = 'tests/javafiles/Complicated.java'
         metric = CCMetric(file)
         res = metric.run(showoutput=True)

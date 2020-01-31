@@ -37,7 +37,7 @@ class CCMetric(object):
         os.makedirs(dirName)
         try:
             if os.path.isdir(self.input):
-                shutil.copytree(self.input, dirName + '/input.java')
+                shutil.copytree(self.input, os.path.join(dirName, self.input))
             elif os.path.isfile(self.input):
                 pos1 = self.input.rfind('/')
                 os.makedirs(dirName + '/' + self.input[0:pos1])
