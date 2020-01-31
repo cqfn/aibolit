@@ -1,6 +1,6 @@
 <img src="/logo.png" height="92px"/>
 
-[![PyPi version](https://img.shields.io/pypi/v/aibolit.svg)](http://badge.fury.io/yegor256/aibolit)
+[![PyPi version](https://img.shields.io/pypi/v/aibolit.svg)](https://pypi.org/project/aibolit/)
 [![Build Status](https://travis-ci.org/yegor256/aibolit.svg)](https://travis-ci.org/yegor256/aibolit)
 [![Hits-of-Code](https://hitsofcode.com/github/yegor256/aibolit)](https://hitsofcode.com/view/github/yegor256/aibolit)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/aibolit/blob/master/LICENSE.txt)
