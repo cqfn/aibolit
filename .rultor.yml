@@ -12,7 +12,7 @@ release:
     sed -i "s/0\.0\.0/${tag}/g" aibolit/__init__.py
     git add aibolit/__init__.py
     git commit -am "${tag}"
-    pip3 install --upgrade pip3
+    pip3 install --upgrade pip
     pip3 install .
     python3 aibolit
     python3 setup.py sdist bdist_wheel
