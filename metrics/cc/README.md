@@ -7,4 +7,11 @@ To run:
   * first parameter is path to current folder run.py
   * second parameter is path to analyzed java file.
 
-
+Usage:
+```
+from main import CCMetric
+input = `myfile.java`
+showlog = True
+metric = CCMetric(input, showlog)
+print(metric.value)
+```
