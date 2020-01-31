@@ -11,7 +11,6 @@ To run:
 
 Java file sample:
 
-```
 public class Complicated {
   public void example() { // This method has a cyclomatic complexity of 12
     int x = 0, y = 1, z = 2, t = 2;
@@ -35,6 +34,5 @@ public class Complicated {
     }
   }
 }
-```
 
 Output: `Total cyclomatic complexity:  12`
