@@ -5,4 +5,17 @@
 
 Aibolit is Java code static analyzer with Machine Learning.
 
-To be continued...
+First, you install it (you must have [Python3+](https://www.python.org/downloads/)
+and [pip](https://pip.pypa.io/en/stable/installing/) installed):
+
+```bash
+$ pip3 install aibolit
+```
+
+Then, you run it to analyze your Java sources, located at `src/java` (for example):
+
+```bash
+$ aibolit src/java
+```
+
+It will tell you where are the problems (if anything found).
