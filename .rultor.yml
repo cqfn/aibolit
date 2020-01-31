@@ -1,0 +1,18 @@
+assets:
+  twine_token: yegor256/home#assets/aibolit/twine_token
+merge:
+  script: |
+    pip install .
+deploy:
+  script: |
+    echo There is nothing to deploy
+    exit 1
+release:
+  script: |-
+    sed -i "s/0\.0\.0/${tag}/g" aibolit/__init__.py
+    git add aibolit/__init__.py
+    git commit -am "${tag}"
+    pip install .
+    python3 aibolit
+    python3 setup.py sdist bdist_wheel
+    twine upload dist/* -u __token__ -p $(cat ../twine_token)
