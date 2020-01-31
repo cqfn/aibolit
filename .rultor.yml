@@ -18,4 +18,5 @@ release:
     pip3 install .
     python3 aibolit
     python3 setup.py sdist bdist_wheel
+    pip3 install twine
     twine upload dist/* -u __token__ -p $(cat ../twine_token)
