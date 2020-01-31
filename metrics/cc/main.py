@@ -6,29 +6,20 @@ import shutil
 from bs4 import BeautifulSoup
 import lxml
 
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
-
 class CCMetric(object):
     """Main Cyclical Complexity class."""
 
     input = ''
+    value = {}
 
-    def __init__(self, input):
+    def __init__(self, input, showoutput=False):
         """Initialize class."""
         super(CCMetric, self).__init__()
         if len(input) == 0:
             raise ValueError('Empty file for analysis')
         else:
             self.input = input
+            self.value = self.run(showoutput=showoutput)
 
     def run(self, showoutput=False):
         """Run Cyclical Complexity analaysis"""
@@ -103,19 +94,3 @@ class CCMetric(object):
     def finishAnalysis(self, root):
         """Finish anayze."""
         shutil.rmtree(root)
-        pass
-
-
-if __name__ == '__main__':
-    metric = CCMetric(sys.argv[1])
-    res = metric.run(showoutput=True)
-    print('Received: ' + str(res))
-    if len(res['errors']) > 0:
-        print(f"{bcolors.FAIL}" + str(res['errors'][0]) + f"{bcolors.ENDC}")
-    elif len(res['data']) > 0:
-        if res['data'][0]['complexity'] <= 10:
-            print(f"{bcolors.OKGREEN}Total cyclomatic complexity: " +
-                  str(res['data'][0]['complexity']) + f"{bcolors.ENDC}")
-        else:
-            print(f"{bcolors.WARNING}Total cyclomatic complexity: " +
-                  str(res['data'][0]['complexity']) + f"{bcolors.ENDC}")
