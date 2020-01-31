@@ -1,4 +1,5 @@
 language: python
 sudo: false
 script:
-  - echo Hello world
+  - pip install .
+  - python3 aibolit
