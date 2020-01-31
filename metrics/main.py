@@ -3,7 +3,8 @@ import subprocess
 import os
 import uuid
 import shutil
-
+from bs4 import BeautifulSoup
+import lxml
 
 class bcolors:
     HEADER = '\033[95m'
@@ -35,10 +36,18 @@ class CCMetric(object):
         dirName = root + '/src/main/java'
         os.makedirs(dirName)
         try:
-            shutil.copyfile(self.input, dirName + '/input.java')
+            if os.path.isdir(self.input):
+                shutil.copytree(self.input, dirName + '/input.java')
+            elif os.path.isfile(self.input):
+                pos1 = self.input.rfind('/')
+                os.makedirs(dirName + '/' + self.input[0:pos1])
+                shutil.copyfile(self.input, os.path.join(dirName, self.input))
+            else:
+                self.finishAnalysis(root)
+                return {'errors': [{'file': self.input, 'message': 'File does not exist'}]}
         except IOError:
             self.finishAnalysis(root)
-            return {'error': 'File ' + self.input + ' does not exist'}
+            return {'errors': [{'file': self.input, 'message': 'File does not exist'}]}
 
         shutil.copyfile('pom.xml', root + '/pom.xml')
         shutil.copyfile('cyclical.xml', root + '/cyclical.xml')
@@ -49,37 +58,64 @@ class CCMetric(object):
                            stdout=subprocess.DEVNULL,
                            stderr=subprocess.DEVNULL)
 
-        f = open(root + "/target/pmd.xml", "r")
+        f = open(root + '/target/pmd.xml', 'r')
         if f is not None:
-            out = f.read()
-            pos1 = out.find('PMDException: Error while parsing')
-            if pos1 >= 0:
-                self.finishAnalysis(root)
-                return {'error': 'Incorrect input file'}
-            else:
+            f.close()
+            res = self.parseFile(root)
+            self.finishAnalysis(root)
+            return res
+        else:
+            self.finishAnalysis(root)
+            return {'errors': [{'file': self.input, 'message': 'File analyze failed'}]}
+
+    def parseFile(self, root):
+        result = {'data': [], 'errors': []}
+        content = []
+        # Read the XML file
+        with open(root + '/target/pmd.xml', 'r') as file:
+            # Read each line in the file, readlines() returns a list of lines
+            content = file.readlines()
+            # Combine the lines in the list into a string
+            content = "".join(content)
+            soup = BeautifulSoup(content, 'lxml')
+            files = soup.find_all("file")
+            for file in files:
+                out = file.violation.string
+                name = file['name']
+                pos1 = name.find(root + '/src/main/java/')
+                pos1 = pos1 + len(root + '/src/main/java/')
+                name = name[pos1:]
                 pos1 = out.find('has a total cyclomatic complexity')
                 pos1 = out.find('of ', pos1)
                 pos1 = pos1 + 3
                 pos2 = out.find('(', pos1)
-                self.finishAnalysis(root)
-                return {'data': int(out[pos1:pos2-1])}
-        else:
-            self.finishAnalysis(root)
-            return {'error': 'File analyze failed'}
+                complexity = int(out[pos1:pos2-1])
+                result['data'].append({'file': name, 'complexity': complexity})
+            errors = soup.find_all("error")
+            for error in errors:
+                name = error['filename']
+                pos1 = name.find(root + '/src/main/java/')
+                pos1 = pos1 + len(root + '/src/main/java/')
+                name = name[pos1:]
+                result['errors'].append({'file': name, 'message': error['msg']})
+        return result
 
     def finishAnalysis(self, root):
         """Finish anayze."""
         shutil.rmtree(root)
+        pass
 
 
 if __name__ == '__main__':
     metric = CCMetric(sys.argv[1])
     res = metric.run(showoutput=True)
-    if 'error' in res:
-        print(f"{bcolors.FAIL}" + res['error'] + f"{bcolors.ENDC}")
-    elif res['data'] <= 10:
-        print(f"{bcolors.OKGREEN}Total cyclomatic complexity: " +
-              str(res['data']) + f"{bcolors.ENDC}")
-    else:
-        print(f"{bcolors.WARNING}Total cyclomatic complexity: " +
-              str(res['data']) + f"{bcolors.ENDC}")
+    print('Received: ' + str(res))
+    if len(res['errors']) > 0:
+        print(f"{bcolors.FAIL}" + str(res['errors'][0]) + f"{bcolors.ENDC}")
+    elif len(res['data']) > 0:
+        if res['data'][0]['complexity'] <= 10:
+            print(f"{bcolors.OKGREEN}Total cyclomatic complexity: " +
+                  str(res['data'][0]['complexity']) + f"{bcolors.ENDC}")
+        else:
+            print(f"{bcolors.WARNING}Total cyclomatic complexity: " +
+                  str(res['data'][0]['complexity']) + f"{bcolors.ENDC}")
