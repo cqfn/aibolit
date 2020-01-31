@@ -1,5 +1,7 @@
 assets:
   twine_token: yegor256/home#assets/aibolit/twine_token
+install: |
+  export LC_ALL=en_US.UTF-8
 merge:
   script: |
     pip3 install .
