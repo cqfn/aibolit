@@ -23,12 +23,9 @@ setup(
     install_requires=[],
     tests_require=[],
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3 :: Only',
         'Environment :: Console',
         'Intended Audience :: Developers',
-        'Intended Audience :: System Administrators',
         'License :: OSI Approved :: MIT License',
         'Topic :: Software Development',
         'Topic :: Utilities'
