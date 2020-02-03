@@ -4,7 +4,7 @@ install: |
   export LC_ALL=en_US.UTF-8
 merge:
   script: |
-    pip3 install .
+    ./build.sh
 deploy:
   script: |
     echo There is nothing to deploy
@@ -15,8 +15,7 @@ release:
     git add aibolit/__init__.py
     git commit -am "${tag}"
     pip3 install --upgrade pip
-    pip3 install .
-    python3 aibolit
-    python3 setup.py sdist bdist_wheel
     pip3 install twine
+    ./build.sh
+    python3 setup.py sdist bdist_wheel
     python3 -m twine upload dist/* -u __token__ -p $(cat ../twine_token)

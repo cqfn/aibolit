@@ -1,5 +1,4 @@
 language: python
 sudo: false
 script:
-  - pip3 install .
-  - python3 aibolit
+  - build.sh
