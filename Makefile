@@ -10,7 +10,7 @@ requirements:
 	gem install xcop
 
 unittest:
-	coverage run -m unittest discover
+	python3 -m coverage run -m unittest discover
 	python3 aibolit --version
 
 install:
