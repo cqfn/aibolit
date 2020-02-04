@@ -12,6 +12,6 @@ Usage:
 from main import CCMetric
 input = `myfile.java`
 showlog = True
-metric = CCMetric(input, showlog)
-print(metric.value)
+metric = CCMetric(input)
+print(metric.value(showlog))
 ```
