@@ -2,13 +2,13 @@
 set -x
 set -e
 
-pip install .
+pip3 install .
 
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 python3 aibolit --version
 
 python3 -m unittest discover
 
-python -m flake8 aibolit test
+python3 -m flake8 aibolit test
 
