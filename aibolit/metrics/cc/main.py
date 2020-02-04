@@ -9,7 +9,6 @@ class CCMetric(object):
     """Main Cyclical Complexity class."""
 
     input = ''
-    value = {}
 
     def __init__(self, input):
         """Initialize class."""
