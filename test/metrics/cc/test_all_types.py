@@ -32,28 +32,17 @@ class JavaTestCase(unittest.TestCase):
         super(JavaTestCase, self).setUp()
         from aibolit.metrics.cc.main import CCMetric
 
-        metric = CCMetric('test/metrics/cc/')
-        res = metric.value(True)
-        data = list(filter(lambda x: x['file'] == 'test/metrics/cc/Complicated.java', res['data']))
-        self.assertEqual(data[0]['complexity'], 12)
-
-        data = list(filter(lambda x: x['file'] == 'test/metrics/cc/OtherClass.java', res['data']))
-        self.assertEqual(data[0]['complexity'], 3)
-
-        errors = list(filter(lambda x: x['file'] == 'test/metrics/cc/ooo.java', res['errors']))
-        self.assertEqual(errors[0]['message'][0:12], 'PMDException')
-
         file = 'test/metrics/cc/Complicated.java'
         metric = CCMetric(file)
         res = metric.value(True)
         self.assertEqual(res['data'][0]['complexity'], 12)
         self.assertEqual(res['data'][0]['file'], file)
 
-        file = 'test/metrics/cc/ooo.java'
-        metric = CCMetric(file)
-        res = metric.value(True)
-        self.assertEqual(res['errors'][0]['message'][0:12], 'PMDException')
-        self.assertEqual(res['errors'][0]['file'], file)
+        with self.assertRaises(Exception) as context:
+            file = 'test/metrics/cc/ooo.java'
+            metric = CCMetric(file)
+            res = metric.value(True)
+        self.assertTrue('PMDException' in str(context.exception))
 
         with self.assertRaises(Exception) as context:
             file = 'test/metrics/cc/ooo1.java'

@@ -25,7 +25,7 @@ import os
 import shutil
 from bs4 import BeautifulSoup
 import tempfile
-
+import uuid
 
 class CCMetric():
     """Main Cyclical Complexity class."""
@@ -41,8 +41,8 @@ class CCMetric():
     def value(self, showoutput=False):
         """Run Cyclical Complexity analaysis"""
         try:
-            root = str(tempfile.TemporaryFile())
-            dirName = root + '/src/main/java'
+            root = os.path.join(tempfile.gettempdir(), uuid.uuid4().hex)
+            dirName = os.path.join(root, 'src/main/java')
             os.makedirs(dirName)
             if os.path.isdir(self.input):
                 shutil.copytree(self.input, os.path.join(dirName, self.input))
@@ -93,5 +93,5 @@ class CCMetric():
                 pos1 = name.find(root + '/src/main/java/')
                 pos1 = pos1 + len(root + '/src/main/java/')
                 name = name[pos1:]
-                result['errors'].append({'file': name, 'message': error['msg']})
+                raise Exception(error['msg'])
         return result
