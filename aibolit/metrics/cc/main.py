@@ -11,16 +11,15 @@ class CCMetric(object):
     input = ''
     value = {}
 
-    def __init__(self, input, showoutput=False):
+    def __init__(self, input):
         """Initialize class."""
         super(CCMetric, self).__init__()
         if len(input) == 0:
             raise ValueError('Empty file for analysis')
         else:
             self.input = input
-            self.value = self.run(showoutput=showoutput)
 
-    def run(self, showoutput=False):
+    def value(self, showoutput=False):
         """Run Cyclical Complexity analaysis"""
         root = uuid.uuid4().hex
         dirName = root + '/src/main/java'
