@@ -23,17 +23,13 @@ class CCMetric(object):
         root = str(tempfile.TemporaryFile())
         dirName = root + '/src/main/java'
         os.makedirs(dirName)
-        try:
-            if os.path.isdir(self.input):
-                shutil.copytree(self.input, os.path.join(dirName, self.input))
-            elif os.path.isfile(self.input):
-                pos1 = self.input.rfind('/')
-                os.makedirs(dirName + '/' + self.input[0:pos1])
-                shutil.copyfile(self.input, os.path.join(dirName, self.input))
-            else:
-                self.finishAnalysis(root)
-                return {'errors': [{'file': self.input, 'message': 'File does not exist'}]}
-        except IOError:
+        if os.path.isdir(self.input):
+            shutil.copytree(self.input, os.path.join(dirName, self.input))
+        elif os.path.isfile(self.input):
+            pos1 = self.input.rfind('/')
+            os.makedirs(dirName + '/' + self.input[0:pos1])
+            shutil.copyfile(self.input, os.path.join(dirName, self.input))
+        else:
             self.finishAnalysis(root)
             return {'errors': [{'file': self.input, 'message': 'File does not exist'}]}
 
