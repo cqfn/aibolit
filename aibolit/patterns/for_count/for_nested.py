@@ -1,10 +1,11 @@
 import javalang
 import click
-from typing import List
+from typing import List, Callable, Optional, Any
 
 
-class ForLoopNumber:
+class ForNested:
     '''
+    Returns lines in the file where 
     Count number of FOR loops
     '''
 
@@ -41,7 +42,32 @@ class ForLoopNumber:
                     continue
                 self.__for_node_depth(node, for_max_depth, for_links, for_before)
 
-    def value(self, filename: str):
+    def __fold_traverse_tree(
+        self,
+        root: javalang.ast.Node,
+        f: Callable[[javalang.ast.Node], Optional[Any]]
+    ) -> [Any]:
+        ''' 
+        Traverse AST tree and apply function to each node
+        Accumulate results in the list and return
+        '''
+        res = []
+        v = f(root)
+        if v is not None:
+            res.append(v)
+
+        for child in root.children:
+            nodes_arr = child if isinstance(child, list) else [child]
+            for node in nodes_arr:
+                if not hasattr(node, 'children'):
+                    continue
+                res += self.__fold_traverse_tree(node, f)
+
+        return res
+
+
+    def value(self, filename: str) -> [int]:
+        '''Return line numbers in the file where patterns are found'''
         tree = self.__file_to_ast(filename)
         for_links = []
         self.__for_node_depth(
@@ -49,17 +75,17 @@ class ForLoopNumber:
             for_max_depth=self.for_max_depth,
             for_links=for_links
         )
-        return len(for_links)
 
+        def find_line_position(node: javalang.ast.Node) -> int:
+            if hasattr(node, '_position'):
+                return node._position.line
+            else:
+                None
 
-@click.command()
-@click.argument('filename')
-@click.option('--for_max_depth', '-md', default=2)
-def main(filename: str, for_max_depth: int = 2):
-    for_loop_n_metric = ForLoopNumber(for_max_depth)
-    n = for_loop_n_metric.value(filename)
-    print(n)
+        n_lines = [
+            self.__fold_traverse_tree(for_node, find_line_position) 
+            for for_node in for_links
+        ]
 
+        return list(map(min, n_lines))
 
-if __name__ == "__main__":
-    main()
