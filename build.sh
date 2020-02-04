@@ -8,7 +8,7 @@ pip3 install -r requirements.txt
 
 python3 aibolit --version
 
-python3 -m unittest discover
+coverage run -m unittest discover
 
 python3 -m flake8 aibolit test
 
