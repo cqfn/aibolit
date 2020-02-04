@@ -7,7 +7,7 @@ clean:
 
 requirements:
 	pip3 install -r requirements.txt
-	sudo gem install xcop
+	gem install xcop
 
 unittest:
 	python3 -m coverage run -m unittest discover
