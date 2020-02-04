@@ -12,3 +12,4 @@ coverage run -m unittest discover
 
 python3 -m flake8 aibolit test
 
+xcop $(find . -name '*.xml')
