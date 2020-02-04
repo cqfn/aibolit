@@ -39,8 +39,8 @@ class CCMetric(object):
             self.finishAnalysis(root)
             return {'errors': [{'file': self.input, 'message': 'File does not exist'}]}
 
-        shutil.copyfile('pom.xml', root + '/pom.xml')
-        shutil.copyfile('cyclical.xml', root + '/cyclical.xml')
+        shutil.copyfile('aibolit/metrics/cc/pom.xml', root + '/pom.xml')
+        shutil.copyfile('aibolit/metrics/cc/cyclical.xml', root + '/cyclical.xml')
         if showoutput:
             subprocess.run(['mvn', 'pmd:pmd'], cwd=root)
         else:
