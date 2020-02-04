@@ -33,9 +33,9 @@ class CCMetric(object):
             else:
                 raise Exception('File ' + self.input + ' does not exist')
 
-            shutil.copyfile(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'pom.xml'), root + '/pom.xml')
-            shutil.copyfile(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'cyclical.xml'),
-                            root + '/cyclical.xml')
+            tmppath = os.path.dirname(os.path.realpath(__file__))
+            shutil.copyfile(os.path.join(tmppath, 'pom.xml'), root + '/pom.xml')
+            shutil.copyfile(os.path.join(tmppath, 'cyclical.xml'), root + '/cyclical.xml')
             if showoutput:
                 subprocess.run(['mvn', 'pmd:pmd'], cwd=root)
             else:
