@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ruleset xmlns="http://pmd.sourceforge.net/ruleset/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="quickstart" xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+  <description>Quickstart configuration of PMD. Includes the rules that are most likely to apply everywhere.</description>
+  <rule ref="category/java/design.xml/CyclomaticComplexity">
+    <properties>
+      <property name="classReportLevel" value="1"/>
+      <property name="methodReportLevel" value="1"/>
+    </properties>
+  </rule>
+</ruleset>
