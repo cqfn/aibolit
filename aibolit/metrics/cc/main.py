@@ -49,7 +49,7 @@ class CCMetric(object):
             else:
                 raise Exception('File ' + self.input + ' analyze failed')
         finally:
-            self.finishAnalysis(root)
+            shutil.rmtree(root)
 
     def parseFile(self, root):
         result = {'data': [], 'errors': []}
@@ -82,7 +82,3 @@ class CCMetric(object):
                 name = name[pos1:]
                 result['errors'].append({'file': name, 'message': error['msg']})
         return result
-
-    def finishAnalysis(self, root):
-        """Finish anayze."""
-        shutil.rmtree(root)
