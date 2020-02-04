@@ -1,11 +1,10 @@
 import javalang
-import click
 from typing import List, Callable, Optional, Any
 
 
 class ForNested:
     '''
-    Returns lines in the file where 
+    Returns lines in the file where
     Count number of FOR loops
     '''
 
@@ -47,7 +46,7 @@ class ForNested:
         root: javalang.ast.Node,
         f: Callable[[javalang.ast.Node], Optional[Any]]
     ) -> [Any]:
-        ''' 
+        '''
         Traverse AST tree and apply function to each node
         Accumulate results in the list and return
         '''
@@ -64,7 +63,6 @@ class ForNested:
                 res += self.__fold_traverse_tree(node, f)
 
         return res
-
 
     def value(self, filename: str) -> [int]:
         '''Return line numbers in the file where patterns are found'''
@@ -83,9 +81,8 @@ class ForNested:
                 None
 
         n_lines = [
-            self.__fold_traverse_tree(for_node, find_line_position) 
+            self.__fold_traverse_tree(for_node, find_line_position)
             for for_node in for_links
         ]
 
         return list(map(min, n_lines))
-
