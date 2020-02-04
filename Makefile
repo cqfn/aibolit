@@ -20,5 +20,5 @@ xcop:
 	xcop $(find . -name '*.xml')
 
 flake8:
-	python3 -m flake8 aibolit test
+	python3 -m flake8 aibolit test setup.py
 
