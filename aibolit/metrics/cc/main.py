@@ -52,7 +52,6 @@ class CCMetric():
                 shutil.copyfile(self.input, os.path.join(dirName, self.input))
             else:
                 raise Exception('File ' + self.input + ' does not exist')
-
             tmppath = os.path.dirname(os.path.realpath(__file__))
             shutil.copyfile(os.path.join(tmppath, 'pom.xml'), root + '/pom.xml')
             shutil.copyfile(os.path.join(tmppath, 'cyclical.xml'), root + '/cyclical.xml')
@@ -62,23 +61,18 @@ class CCMetric():
                 subprocess.run(['mvn', 'pmd:pmd'], cwd=root,
                                stdout=subprocess.DEVNULL,
                                stderr=subprocess.DEVNULL)
-
             if os.path.isfile(root + '/target/pmd.xml'):
-                res = self.parseFile(root)
+                res = self.__parseFile__(root)
                 return res
             raise Exception('File ' + self.input + ' analyze failed')
         finally:
             shutil.rmtree(root)
 
-    def parseFile(self, root):
+    def __parseFile__(self, root):
         result = {'data': [], 'errors': []}
         content = []
-        # Read the XML file
         with open(root + '/target/pmd.xml', 'r') as file:
-            # Read each line in the file, readlines() returns a list of lines
-            content = file.readlines()
-            # Combine the lines in the list into a string
-            content = "".join(content)
+            content = file.read()
             soup = BeautifulSoup(content, 'lxml')
             files = soup.find_all("file")
             for file in files:
