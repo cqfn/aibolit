@@ -4,6 +4,7 @@ clean:
 	rm -rf build
 	rm -rf aibolit.egg-info
 	rm -rf dist
+	rm -rf sphinx html
 
 requirements:
 	pip3 install -r requirements.txt
@@ -21,4 +22,9 @@ xcop:
 
 flake8:
 	python3 -m flake8 aibolit test setup.py
+
+doc:
+	rm -rf sphinx html
+	sphinx-apidoc -o sphinx aibolit --full
+	sphinx-build sphinx html
 
