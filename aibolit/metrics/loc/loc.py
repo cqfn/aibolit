@@ -20,13 +20,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
+import pygount
+import os
 class Loc:
     def __init__(self, path):
         self.path = path
 
     def value(self):
-        with open(self.path) as f:
-            for i, l in enumerate(f):
-                pass
-            return i + 1
+        if os.path.isfile(self.path):
+            analysis = pygount.source_analysis(self.path, 'pygount')
+            return analysis.code
+        else:
+            return 0
