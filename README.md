@@ -19,3 +19,15 @@ $ aibolit src/java
 ```
 
 It will tell you where are the problems (if anything found).
+
+## How to contribute?
+
+First, you fork the repo and make the changes. Then, you make
+sure the build is still clean, by running:
+
+```bash
+$ ./build.sh
+```
+
+If everything is fine, submit
+a [pull request](https://www.yegor256.com/2014/04/15/github-guidelines.html).
