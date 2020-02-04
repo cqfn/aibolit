@@ -1,4 +1,4 @@
-Metric calculated the number of FOR loops of greater or equal to specified depth
+Find in code line with nested FOR loops of depth greater or equal to specified depth
 ---
 
 
