@@ -1,4 +1,9 @@
 language: python
 sudo: false
+install:
+  - gem install xcop
+  - pip install codecov
 script:
   - ./build.sh
+after_success:
+  - codecov
