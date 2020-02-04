@@ -50,7 +50,7 @@ class CCMetric(object):
             return res
         else:
             self.finishAnalysis(root)
-            return {'errors': [{'file': self.input, 'message': 'File analyze failed'}]}
+            raise Exception('File ' + self.input + ' analyze failed')
 
     def parseFile(self, root):
         result = {'data': [], 'errors': []}
