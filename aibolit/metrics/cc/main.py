@@ -15,8 +15,7 @@ class CCMetric(object):
         super(CCMetric, self).__init__()
         if len(input) == 0:
             raise ValueError('Empty file for analysis')
-        else:
-            self.input = input
+        self.input = input
 
     def value(self, showoutput=False):
         """Run Cyclical Complexity analaysis"""
@@ -46,8 +45,7 @@ class CCMetric(object):
             if os.path.isfile(root + '/target/pmd.xml'):
                 res = self.parseFile(root)
                 return res
-            else:
-                raise Exception('File ' + self.input + ' analyze failed')
+            raise Exception('File ' + self.input + ' analyze failed')
         finally:
             shutil.rmtree(root)
 
