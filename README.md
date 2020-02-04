@@ -41,7 +41,7 @@ Then, you fork the repo and make the changes. Then, you make
 sure the build is still clean, by running:
 
 ```bash
-$ ./build.sh
+$ make
 ```
 
 If everything is fine, submit
