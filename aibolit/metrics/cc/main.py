@@ -43,7 +43,7 @@ class CCMetric(object):
                                stdout=subprocess.DEVNULL,
                                stderr=subprocess.DEVNULL)
 
-            if os.path.exists(root + '/target/pmd.xml'):
+            if os.path.isfile(root + '/target/pmd.xml'):
                 res = self.parseFile(root)
                 return res
             else:
