@@ -1,4 +1,4 @@
-all: install requirements unittest flake8 xcop
+all: requirements install unittest flake8 xcop
 
 clean:
 	rm -rf build
@@ -7,6 +7,7 @@ clean:
 
 requirements:
 	pip3 install -r requirements.txt
+	gem install xcop
 
 unittest:
 	coverage run -m unittest discover
@@ -19,5 +20,5 @@ xcop:
 	xcop $(find . -name '*.xml')
 
 flake8:
-	python3 -m flake8 aibolit test
+	python3 -m flake8 aibolit test setup.py
 
