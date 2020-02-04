@@ -62,13 +62,13 @@ class CCMetric():
                                stdout=subprocess.DEVNULL,
                                stderr=subprocess.DEVNULL)
             if os.path.isfile(root + '/target/pmd.xml'):
-                res = self.__parseFile__(root)
+                res = self.__parseFile(root)
                 return res
             raise Exception('File ' + self.input + ' analyze failed')
         finally:
             shutil.rmtree(root)
 
-    def __parseFile__(self, root):
+    def __parseFile(self, root):
         result = {'data': [], 'errors': []}
         content = []
         with open(root + '/target/pmd.xml', 'r') as file:
