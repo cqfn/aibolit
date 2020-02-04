@@ -7,8 +7,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/e90e80a143a9457ee3af/maintainability)](https://codeclimate.com/github/yegor256/aibolit/maintainability)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/aibolit/blob/master/LICENSE.txt)
 
-First, you install it (you must have [Python3+](https://www.python.org/downloads/)
-and [pip](https://pip.pypa.io/en/stable/installing/) installed):
+First, you install it (you must have [Python 3+](https://www.python.org/downloads/)
+and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
 
 ```bash
 $ pip3 install aibolit
@@ -26,8 +26,8 @@ It will tell you where are the problems (if anything found).
 
 First, you need to install:
 
-  * Python 3+
-  * Pip
+  * [Python 3+](https://www.python.org/downloads/)
+  * [Pip](https://pip.pypa.io/en/stable/installing/)
   * Ruby 2.6+
   * [Xcop](https://github.com/yegor256/xcop)
 

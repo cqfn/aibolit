@@ -14,7 +14,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'http = aibolit.__main__:main'
+            'aibolit = aibolit.__main__:main'
         ],
     },
     extras_require={},
