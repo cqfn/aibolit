@@ -20,37 +20,36 @@ class CCMetric(object):
 
     def value(self, showoutput=False):
         """Run Cyclical Complexity analaysis"""
-        root = str(tempfile.TemporaryFile())
-        dirName = root + '/src/main/java'
-        os.makedirs(dirName)
-        if os.path.isdir(self.input):
-            shutil.copytree(self.input, os.path.join(dirName, self.input))
-        elif os.path.isfile(self.input):
-            pos1 = self.input.rfind('/')
-            os.makedirs(dirName + '/' + self.input[0:pos1])
-            shutil.copyfile(self.input, os.path.join(dirName, self.input))
-        else:
-            self.finishAnalysis(root)
-            raise Exception('File ' + self.input + ' does not exist')
+        try:
+            root = str(tempfile.TemporaryFile())
+            dirName = root + '/src/main/java'
+            os.makedirs(dirName)
+            if os.path.isdir(self.input):
+                shutil.copytree(self.input, os.path.join(dirName, self.input))
+            elif os.path.isfile(self.input):
+                pos1 = self.input.rfind('/')
+                os.makedirs(dirName + '/' + self.input[0:pos1])
+                shutil.copyfile(self.input, os.path.join(dirName, self.input))
+            else:
+                raise Exception('File ' + self.input + ' does not exist')
 
-        shutil.copyfile('aibolit/metrics/cc/pom.xml', root + '/pom.xml')
-        shutil.copyfile('aibolit/metrics/cc/cyclical.xml', root + '/cyclical.xml')
-        if showoutput:
-            subprocess.run(['mvn', 'pmd:pmd'], cwd=root)
-        else:
-            subprocess.run(['mvn', 'pmd:pmd'], cwd=root,
-                           stdout=subprocess.DEVNULL,
-                           stderr=subprocess.DEVNULL)
+            shutil.copyfile(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'pom.xml'), root + '/pom.xml')
+            shutil.copyfile(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'cyclical.xml'),
+                            root + '/cyclical.xml')
+            if showoutput:
+                subprocess.run(['mvn', 'pmd:pmd'], cwd=root)
+            else:
+                subprocess.run(['mvn', 'pmd:pmd'], cwd=root,
+                               stdout=subprocess.DEVNULL,
+                               stderr=subprocess.DEVNULL)
 
-        f = open(root + '/target/pmd.xml', 'r')
-        if f is not None:
-            f.close()
-            res = self.parseFile(root)
+            if os.path.exists(root + '/target/pmd.xml'):
+                res = self.parseFile(root)
+                return res
+            else:
+                raise Exception('File ' + self.input + ' analyze failed')
+        finally:
             self.finishAnalysis(root)
-            return res
-        else:
-            self.finishAnalysis(root)
-            raise Exception('File ' + self.input + ' analyze failed')
 
     def parseFile(self, root):
         result = {'data': [], 'errors': []}
