@@ -10,5 +10,5 @@ python3 aibolit --version
 
 python3 -m unittest discover
 
-python -m flake8 aibolit
+python -m flake8 aibolit test
 
