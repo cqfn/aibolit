@@ -1,8 +1,8 @@
 import subprocess
 import os
-import uuid
 import shutil
 from bs4 import BeautifulSoup
+import tempfile
 
 
 class CCMetric(object):
@@ -20,7 +20,7 @@ class CCMetric(object):
 
     def value(self, showoutput=False):
         """Run Cyclical Complexity analaysis"""
-        root = uuid.uuid4().hex
+        root = str(tempfile.TemporaryFile())
         dirName = root + '/src/main/java'
         os.makedirs(dirName)
         try:
