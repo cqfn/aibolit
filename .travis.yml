@@ -1,4 +1,8 @@
 language: python
 sudo: false
+install:
+  - pip install --user codecov
 script:
   - ./build.sh
+after_success:
+  - codecov
