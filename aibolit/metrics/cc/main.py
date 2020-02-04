@@ -1,10 +1,9 @@
-import sys
 import subprocess
 import os
 import uuid
 import shutil
 from bs4 import BeautifulSoup
-import lxml
+
 
 class CCMetric(object):
     """Main Cyclical Complexity class."""
@@ -80,7 +79,7 @@ class CCMetric(object):
                 pos1 = out.find('of ', pos1)
                 pos1 = pos1 + 3
                 pos2 = out.find('(', pos1)
-                complexity = int(out[pos1:pos2-1])
+                complexity = int(out[pos1:pos2 - 1])
                 result['data'].append({'file': name, 'complexity': complexity})
             errors = soup.find_all("error")
             for error in errors:
