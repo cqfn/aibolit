@@ -33,7 +33,7 @@ class TestForNested(TestCase):
 
     def test_single_for_loop(self):
         file = str(Path(self.cur_file_dir, 'SingleFor.java'))
-        assert self.testClass.value(file) == [15]
+        assert self.testClass.value(file) == [3]
 
     def test_nested_for_loops(self):
         file = str(Path(self.cur_file_dir, 'NestedFor.java'))
