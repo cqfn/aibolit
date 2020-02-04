@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 if not os.path.isdir('01/repos'):
     os.makedirs('01/repos')
-f= open('01/found-java-files.txt','w+')
+f = open('01/found-java-files.txt', 'w+')
 r = r.get('https://github.com/trending/java?since=daily')
 soup = BeautifulSoup(r.text)
 for city in soup.find_all('h1', {'class': 'h3 lh-condensed'}):
