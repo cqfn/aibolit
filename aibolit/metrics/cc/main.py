@@ -27,6 +27,7 @@ from bs4 import BeautifulSoup
 import tempfile
 import uuid
 
+
 class CCMetric():
     """Main Cyclical Complexity class."""
 
