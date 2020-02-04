@@ -24,7 +24,14 @@ It will tell you where are the problems (if anything found).
 
 ## How to contribute?
 
-First, you fork the repo and make the changes. Then, you make
+First, you need to install:
+
+  * Python 3+
+  * Pip
+  * Ruby 2.6+
+  * [Xcop](https://github.com/yegor256/xcop)
+
+Then, you fork the repo and make the changes. Then, you make
 sure the build is still clean, by running:
 
 ```bash

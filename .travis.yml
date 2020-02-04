@@ -4,6 +4,6 @@ install:
   - gem install xcop
   - pip install codecov
 script:
-  - ./build.sh
+  - make
 after_success:
   - codecov
