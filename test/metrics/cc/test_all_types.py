@@ -34,11 +34,11 @@ class JavaTestCase(unittest.TestCase):
         self.assertEqual(res['errors'][0]['message'][0:12], 'PMDException')
         self.assertEqual(res['errors'][0]['file'], file)
 
-        file = 'test/metrics/cc/javafiles/ooo1.java'
-        metric = CCMetric(file)
-        res = metric.value(True)
-        self.assertEqual(res['errors'][0]['message'], 'File does not exist')
-        self.assertEqual(res['errors'][0]['file'], file)
+        with self.assertRaises(Exception) as context:
+            file = 'test/metrics/cc/javafiles/ooo1.java'
+            metric = CCMetric(file)
+            res = metric.value(True)
+        self.assertTrue('File test/metrics/cc/javafiles/ooo1.java does not exist' == str(context.exception))
 
         file = 'test/metrics/cc/javafiles/OtherClass.java'
         metric = CCMetric(file)

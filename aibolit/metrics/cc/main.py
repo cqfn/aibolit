@@ -31,7 +31,7 @@ class CCMetric(object):
             shutil.copyfile(self.input, os.path.join(dirName, self.input))
         else:
             self.finishAnalysis(root)
-            return {'errors': [{'file': self.input, 'message': 'File does not exist'}]}
+            raise Exception('File ' + self.input + ' does not exist')
 
         shutil.copyfile('aibolit/metrics/cc/pom.xml', root + '/pom.xml')
         shutil.copyfile('aibolit/metrics/cc/cyclical.xml', root + '/cyclical.xml')
