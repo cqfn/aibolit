@@ -11,9 +11,13 @@ r = r.get('https://github.com/trending/java?since=daily')
 soup = BeautifulSoup(r.text)
 for city in soup.find_all('h1', {'class': 'h3 lh-condensed'}):
     path = city.a['href'].split('/')
-    if not os.path.isdir(os.path.join('01/repos', path[len(path) - 1])):
-        result = subprocess.run(['git', 'clone', 'https://github.com' + city.a['href'] + '.git'], cwd='01/repos')
-    for root, dirs, files in os.walk(os.path.join('01/repos', path[len(path) - 1])):
+    if not os.path.isdir(os.path.join('01/repos', path[len(path) - 2])):
+        os.makedirs(os.path.join('01/repos', path[len(path) - 2]))
+
+    if not os.path.isdir(os.path.join('01/repos', path[len(path) - 2], path[len(path) - 1])):
+        result = subprocess.run(['git', 'clone', 'https://github.com' + city.a['href'] + '.git'],
+                                cwd=os.path.join('01/repos', path[len(path) - 2]))
+    for root, dirs, files in os.walk(os.path.join('01/repos', path[len(path) - 2], path[len(path) - 1])):
         for file in files:
             if file[-5:] == ".java":
                 count = 0
