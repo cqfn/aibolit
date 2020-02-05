@@ -1,4 +1,4 @@
-Find in the variable declaration lines in the middle of method
+Find variable declaration lines in the middle of method
 ---
 
 Python usage example:
