@@ -1,9 +1,6 @@
 import os
 import sys
-sys.path.append('../metrics/cc')
-sys.path.append('../metrics/loc')
-from main import CCMetric
-from loc import Loc
+
 if not os.path.isdir('02'):
     os.makedirs('02')
 f = open('02/metrics.csv', 'w+')
@@ -13,12 +10,18 @@ files = f1.readlines()
 f1.close()
 for file in files:
     try:
+        sys.path.append('../')
+        from metrics.cc.main import CCMetric
+        from metrics.loc.loc import Loc
+        from metrics.npath.main import NPathMetric
         m = CCMetric(file[:-1])
         cc = m.value(True)['data'][0]['complexity']
-        l = Loc(file[:-1])
-        loc = l.value()
+        m = Loc(file[:-1])
+        loc = m.value()
+        m = NPathMetric(file[:-1])
+        npath = m.value(True)['data'][0]['complexity']
         f = open('02/metrics.csv', 'a')
-        f.write('{};{};{}\n'.format(file[:-1], cc, loc))
+        f.write('{};{};{};{}\n'.format(file[:-1], cc, loc, npath))
         f.close()
     except Exception as e:
         print(file, str(e))
