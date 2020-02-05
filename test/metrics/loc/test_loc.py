@@ -20,35 +20,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import os
+from unittest import TestCase
+from aibolit.metrics.loc.loc import Loc
 
-from setuptools import setup, find_packages
-import aibolit
 
-setup(
-    name='aibolit',
-    version=aibolit.__version__,
-    description=aibolit.__doc__.strip(),
-    long_description='Defect Detection with Machine Learning in Mind',
-    url='https://github.com/yegor256/aibolit',
-    download_url='https://github.com/yegor256/aibolit',
-    author=aibolit.__author__,
-    author_email='yegor256@gmail.com',
-    license=aibolit.__licence__,
-    packages=find_packages(),
-    entry_points={
-        'console_scripts': [
-            'aibolit = aibolit.__main__:main'
-        ],
-    },
-    extras_require={},
-    install_requires=[],
-    tests_require=[],
-    classifiers=[
-        'Programming Language :: Python',
-        'Environment :: Console',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT License',
-        'Topic :: Software Development',
-        'Topic :: Utilities'
-    ],
-)
+class LocTest(TestCase):
+    def test_it_works(self):
+        m = Loc(os.path.dirname(os.path.realpath(__file__)) + '/sample-1.java')
+        loc = m.value()
+        self.assertEqual(loc, 5)

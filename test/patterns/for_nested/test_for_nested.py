@@ -20,35 +20,33 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import os
+from unittest import TestCase
+from aibolit.patterns.for_nested.for_nested import ForNested
+from pathlib import Path
 
-from setuptools import setup, find_packages
-import aibolit
 
-setup(
-    name='aibolit',
-    version=aibolit.__version__,
-    description=aibolit.__doc__.strip(),
-    long_description='Defect Detection with Machine Learning in Mind',
-    url='https://github.com/yegor256/aibolit',
-    download_url='https://github.com/yegor256/aibolit',
-    author=aibolit.__author__,
-    author_email='yegor256@gmail.com',
-    license=aibolit.__licence__,
-    packages=find_packages(),
-    entry_points={
-        'console_scripts': [
-            'aibolit = aibolit.__main__:main'
-        ],
-    },
-    extras_require={},
-    install_requires=[],
-    tests_require=[],
-    classifiers=[
-        'Programming Language :: Python',
-        'Environment :: Console',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT License',
-        'Topic :: Software Development',
-        'Topic :: Utilities'
-    ],
-)
+class TestForNested(TestCase):
+    loop_level = 2
+    cur_file_dir = Path(os.path.realpath(__file__)).parent
+    testClass = ForNested(loop_level)
+
+    def test_single_for_loop(self):
+        file = str(Path(self.cur_file_dir, 'SingleFor.java'))
+        assert self.testClass.value(file) == [15, 19]
+
+    def test_nested_for_loops(self):
+        file = str(Path(self.cur_file_dir, 'NestedFor.java'))
+        assert self.testClass.value(file) == [22]
+
+    def test_for_loops_in_different_methods(self):
+        file = str(Path(self.cur_file_dir, 'DifferentMethods.java'))
+        assert self.testClass.value(file) == [28]
+
+    def test_for_loops_in_nested_class(self):
+        file = str(Path(self.cur_file_dir, 'NestedForInNestedClasses.java'))
+        assert self.testClass.value(file) == [9]
+
+    def test_for_loops_in_anonymous_class(self):
+        file = str(Path(self.cur_file_dir, 'ForInAnonymousFile.java'))
+        assert self.testClass.value(file) == [19]
