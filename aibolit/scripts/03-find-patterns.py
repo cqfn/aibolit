@@ -3,6 +3,7 @@ import os
 from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
 from aibolit.patterns.var_middle.var_middle import VarMiddle
 
+
 def format_f(e):
     return f'{e}-{e}'
 
@@ -26,7 +27,7 @@ with open(current_location + FILEPATH_TO_READ) as fp:
         nested_fors = list(map(format_f, pattern_for.value(filename)))
         nested_ifs = list(map(format_f, pattern_if.value(filename)))
         data += [(
-            filename, 
+            filename,
             ';'.join(nested_fors),
             ';'.join(nested_ifs),
             ';'.join(var_middle)
