@@ -24,14 +24,20 @@ import javalang
 from typing import List, Callable, Optional, Any
 
 
-class ForNested:
+class BlockType:
+    FOR = javalang.tree.ForStatement      # FOR Block Statement
+    IF = javalang.tree.IfStatement        # IF Block Statement
+
+
+class NestedBlocks:
     '''
     Returns lines in the file where
-    nested FOR loops are located
+    nested FOR/IF blocks are located
     '''
 
-    def __init__(self, for_max_depth: int):
-        self.for_max_depth = for_max_depth
+    def __init__(self, max_depth: int, block_type=BlockType.FOR):
+        self.max_depth = max_depth
+        self.block_type = block_type
 
     def __file_to_ast(self, filename: str) -> javalang.ast.Node:
         '''Takes path to java class file and returns AST Tree'''
@@ -43,17 +49,17 @@ class ForNested:
     def __for_node_depth(
         self,
         tree: javalang.ast.Node,
-        for_max_depth: int,
+        max_depth: int,
         for_links: List = [],
         for_before: int = 0
     ) -> None:
         '''
         Takes AST tree and returns list of "FOR" AST nodes of depth greater
-        or equal than for_max_depth
+        or equal than max_depth
         '''
-        if (type(tree) == javalang.tree.ForStatement):
+        if (type(tree) == self.block_type):
             for_before += 1
-            if for_before >= for_max_depth:
+            if for_before >= max_depth:
                 for_links += [tree]
 
         for child in tree.children:
@@ -61,7 +67,7 @@ class ForNested:
             for node in nodes_arr:
                 if not hasattr(node, 'children'):
                     continue
-                self.__for_node_depth(node, for_max_depth, for_links, for_before)
+                self.__for_node_depth(node, max_depth, for_links, for_before)
 
     def __fold_traverse_tree(
         self,
@@ -76,14 +82,12 @@ class ForNested:
         v = f(root)
         if v is not None:
             res.append(v)
-
         for child in root.children:
             nodes_arr = child if isinstance(child, list) else [child]
             for node in nodes_arr:
                 if not hasattr(node, 'children'):
                     continue
                 res += self.__fold_traverse_tree(node, f)
-
         return res
 
     def value(self, filename: str) -> List[int]:
@@ -92,7 +96,7 @@ class ForNested:
         for_links = []
         self.__for_node_depth(
             tree,
-            for_max_depth=self.for_max_depth,
+            max_depth=self.max_depth,
             for_links=for_links
         )
 
@@ -101,10 +105,8 @@ class ForNested:
                 return node._position.line
             else:
                 None
-
         n_lines = [
             self.__fold_traverse_tree(for_node, find_line_position)
             for for_node in for_links
         ]
-
         return list(map(min, n_lines))

@@ -22,14 +22,14 @@
 
 import os
 from unittest import TestCase
-from aibolit.patterns.for_nested.for_nested import ForNested
+from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
 from pathlib import Path
 
 
-class TestForNested(TestCase):
-    loop_level = 2
+class TestNestedBlocks(TestCase):
+    depth_level = 2
     cur_file_dir = Path(os.path.realpath(__file__)).parent
-    testClass = ForNested(loop_level)
+    testClass = NestedBlocks(depth_level)
 
     def test_single_for_loop(self):
         file = str(Path(self.cur_file_dir, 'SingleFor.java'))
@@ -50,3 +50,13 @@ class TestForNested(TestCase):
     def test_for_loops_in_anonymous_class(self):
         file = str(Path(self.cur_file_dir, 'ForInAnonymousFile.java'))
         assert self.testClass.value(file) == [19]
+
+    def test_nested_no_nested_if(self):
+        pattern = NestedBlocks(2, BlockType.IF)
+        file = str(Path(self.cur_file_dir, 'NestedNoIF.java'))
+        assert pattern.value(file) == []
+
+    def test_nested_if(self):
+        pattern = NestedBlocks(2, BlockType.IF)
+        file = str(Path(self.cur_file_dir, 'NestedIF.java'))
+        assert pattern.value(file) == [21, 42]
