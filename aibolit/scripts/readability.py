@@ -29,8 +29,7 @@ writer = csv.writer(
 
 
 def log_result(result):
-    # This is called whenever foo_pool(i) returns a result.
-    # result_list is modified only by the main process, not the pool workers.
+    """ Save result to csv file. """
     writer.writerow(result)
     csv_file.flush()
 
