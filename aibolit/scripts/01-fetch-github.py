@@ -22,7 +22,6 @@ for city in soup.find_all('h1', {'class': 'h3 lh-condensed'}):
                         count += 1
                     if count > 50 and count < 300:
                         s = str(os.path.join(root, file))
-                        print(s)
-                        f= open('01/found-java-files.txt', 'a')
+                        f = open('01/found-java-files.txt', 'a')
                         f.write(s + '\n')
                         f.close()
