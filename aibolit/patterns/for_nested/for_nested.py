@@ -27,7 +27,7 @@ from typing import List, Callable, Optional, Any
 class ForNested:
     '''
     Returns lines in the file where
-    Count number of FOR loops
+    nested FOR loops are located
     '''
 
     def __init__(self, for_max_depth: int):
@@ -86,7 +86,7 @@ class ForNested:
 
         return res
 
-    def value(self, filename: str) -> [int]:
+    def value(self, filename: str) -> List[int]:
         '''Return line numbers in the file where patterns are found'''
         tree = self.__file_to_ast(filename)
         for_links = []
