@@ -3,11 +3,8 @@ import sys
 
 if not os.path.isdir('02'):
     os.makedirs('02')
-f = open('02/metrics.csv', 'w+')
-f.close()
-f1 = open("01/found-java-files.txt", "r")
-files = f1.readlines()
-f1.close()
+with open('01/found-java-files.txt', 'r') as f
+    files = f.readlines()
 for file in files:
     try:
         sys.path.append('../')
@@ -20,8 +17,7 @@ for file in files:
         loc = m.value()
         m = NPathMetric(file[:-1])
         npath = m.value(True)['data'][0]['complexity']
-        f = open('02/metrics.csv', 'a')
-        f.write('{};{};{};{}\n'.format(file[:-1], cc, loc, npath))
-        f.close()
+        with open('02/file_metrics.csv', 'a+') as f:
+            f.write('{};{};{};{}\n'.format(file[:-1], cc, loc, npath))
     except Exception as e:
         print(file, str(e))
