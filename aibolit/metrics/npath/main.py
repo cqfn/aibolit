@@ -82,9 +82,9 @@ class NPathMetric():
                 pos1 = name.find('{}{}'.format(root, '/src/main/java/'))
                 pos1 = pos1 + len('{}{}'.format(root, '/src/main/java/'))
                 name = name[pos1:]
-                pos1 = out.find('NPath complexity of')
-                pos1 = out.find('of ', pos1)
-                pos1 = pos1 + 3
+                s = 'NPath complexity of '
+                pos1 = out.find(s)
+                pos1 = pos1 + len(s)
                 complexity = int(out[pos1:])
                 result['data'].append({'file': name, 'complexity': complexity})
             errors = soup.find_all('error')
