@@ -7,6 +7,10 @@ from multiprocessing import Pool
 from pathlib import Path
 import csv
 
+# You need to download the archive here: 
+# https://dibt.unimol.it/report/readability/files/readability.zip
+# Unzip and put it into the executable's current directory
+
 parser = argparse.ArgumentParser(description='Compute Readability score')
 parser.add_argument('--filename',
                     help='path for file with a list of Java files')
