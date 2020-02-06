@@ -13,13 +13,10 @@ import csv
 
 parser = argparse.ArgumentParser(description='Compute Readability score')
 parser.add_argument('--filename',
-                    help='path for file with a list of Java files')
+                    help='path for file with a list of Java files',
+                    required=True)
 
 args = parser.parse_args()
-
-if args.filename is None:
-    print("Usage: python readbility.py --filename <FILENAME>")
-    exit(1)
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 results = {}
@@ -54,7 +51,6 @@ def call_proc(cmd, java_file):
 if __name__ == '__main__':
     t1 = time.time()
     pool = Pool(multiprocessing.cpu_count())
-    jar_path = str(Path(dir_path, r'readability.jar')).strip()
     handled_files = []
 
     with open(args.filename, 'r') as f:
@@ -62,7 +58,7 @@ if __name__ == '__main__':
             java_file = str(Path(dir_path, i)).strip()
             pool.apply_async(
                 call_proc,
-                args=(['java', '-jar', 'rsm.jar', java_file], java_file,),
+                args=(['java', '-jar', 'rsm.jar', java_file], i,),
                 callback=log_result)
 
     pool.close()
