@@ -1,5 +1,9 @@
+/*
+    This file is used only for Unit testing
+*/
 public class Complicated {
-  public void example() { // This method has a cyclomatic complexity of 12
+  // This method has a cyclomatic complexity of 12
+  public void example() {
     int x = 0, y = 1, z = 2, t = 2;
     boolean a = false, b = true, c = false, d = true;
     if (a && b || b && d) {

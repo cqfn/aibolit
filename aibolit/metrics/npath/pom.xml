@@ -5,7 +5,6 @@
   <artifactId>my-app</artifactId>
   <version>1.0-SNAPSHOT</version>
   <properties>
-    <!-- https://maven.apache.org/general.html#encoding-warning -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -53,7 +52,6 @@
     </plugins>
   </build>
   <dependencies>
-    <!-- https://mvnrepository.com/artifact/pmd/pmd -->
     <dependency>
       <groupId>pmd</groupId>
       <artifactId>pmd</artifactId>
