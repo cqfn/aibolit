@@ -16,4 +16,9 @@ of all Java files found. It will also clone GitHub repositories to
 $ ./scripts/02-calculate-metrics.py
 ```
 
+The script will calculate Cyclomatic Complexity, NPath, Lines of Code
+and other metrics. The result will be stored in the file
+`target/02/file-metrics.csv`. It will be a CSV file with the first
+column with the file path and other columns with metric values.
+
 
