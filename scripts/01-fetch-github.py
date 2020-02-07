@@ -26,8 +26,9 @@ import os
 import requests as r
 from bs4 import BeautifulSoup
 
-if not os.path.isdir('target/01/repos'):
-    os.makedirs('target/01/repos')
+repos = 'target/01/repos'
+if not os.path.isdir(repos):
+    os.makedirs(repos)
 txt = 'target/01/found-java-files.txt'
 f = open(txt, 'w+')
 f.close()
@@ -35,12 +36,12 @@ r = r.get('https://github.com/trending/java?since=daily')
 soup = BeautifulSoup(r.text)
 for city in soup.find_all('h1', {'class': 'h3 lh-condensed'}):
     path = city.a['href'].split('/')
-    if not os.path.isdir(os.path.join('01/repos', path[len(path) - 2])):
-        os.makedirs(os.path.join('01/repos', path[len(path) - 2]))
-    if not os.path.isdir(os.path.join('01/repos', path[len(path) - 2], path[len(path) - 1])):
+    if not os.path.isdir(os.path.join(repos, path[len(path) - 2])):
+        os.makedirs(os.path.join(repos, path[len(path) - 2]))
+    if not os.path.isdir(os.path.join(repos, path[len(path) - 2], path[len(path) - 1])):
         result = subprocess.run(['git', 'clone', 'https://github.com' + city.a['href'] + '.git'],
-                                cwd=os.path.join('01/repos', path[len(path) - 2]))
-    for root, dirs, files in os.walk(os.path.join('01/repos', path[len(path) - 2], path[len(path) - 1])):
+                                cwd=os.path.join(repos, path[len(path) - 2]))
+    for root, dirs, files in os.walk(os.path.join(repos, path[len(path) - 2], path[len(path) - 1])):
         for file in files:
             if file[-5:] == ".java":
                 count = 0
