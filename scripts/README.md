@@ -21,4 +21,11 @@ and other metrics. The result will be stored in the file
 `target/02/file-metrics.csv`. It will be a CSV file with the first
 column with the file path and other columns with metric values.
 
-3.
+3. Find all known patterns:
+
+```
+$ ./scripts/03-find-patterns.py
+```
+
+The script will find all known patterns in Java files and will
+store the result in the CSV at `target/01/found-java-files.txt`.
