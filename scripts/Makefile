@@ -18,6 +18,18 @@ filter:
 metrics:
 	python3 ./03-calculate-metrics.py
 
+# Here we go through the list of all Java classes in target/02
+# and attempt to find patterns there. We produce a summary
+# CSV file in target/04-patterns.csv
+patterns:
+	python3 ./04-find-patterns.py
+
+# Here we go through all Java classes in target/02 and calculate
+# readability score per each of them. Then, we save the summary
+# into CSV at target/05-rs.csv
+rs:
+	python3 ./05-calculate-rs.py
+
 clean:
 	rm -rf target
 
