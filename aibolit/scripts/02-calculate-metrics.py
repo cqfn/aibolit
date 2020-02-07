@@ -3,7 +3,7 @@ import sys
 
 if not os.path.isdir('02'):
     os.makedirs('02')
-with open('01/found-java-files.txt', 'r') as f
+with open('01/found-java-files.txt', 'r') as f:
     files = f.readlines()
 for file in files:
     try:
