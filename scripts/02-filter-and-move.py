@@ -43,9 +43,9 @@ parser.add_argument(
 args = parser.parse_args()
 dir_path = os.path.dirname(os.path.realpath(__file__))
 files_list = []
-path = '06'
+path = '02'
 os.makedirs(path, exist_ok=True)
-csv_file = open('06/06_file_type.csv', 'w', newline='\n')
+csv_file = open('02-java-files.csv', 'w', newline='\n')
 debug_log = open('debug.txt', 'w')
 writer = csv.writer(
     csv_file,

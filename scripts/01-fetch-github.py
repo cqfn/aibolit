@@ -26,7 +26,8 @@ import os
 import requests as r
 from bs4 import BeautifulSoup
 
-repos = 'target/01/repos'
+
+repos = 'target/01'
 if not os.path.isdir(repos):
     os.makedirs(repos)
 r = r.get('https://github.com/trending/java?since=daily')
