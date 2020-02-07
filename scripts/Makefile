@@ -1,4 +1,4 @@
-all: samples filter metrics
+all: samples filter metrics patterns rs
 
 # Fetch thousands of Java samples in GitHub and store them
 # all in target/01 directory. We don't filter anything at
