@@ -31,11 +31,17 @@ First, you need to install:
   * Ruby 2.6+
   * [Xcop](https://github.com/yegor256/xcop)
 
+Install the following packages if you don't have :
+
+```bash
+$ apt-get install ruby-dev libz-dev libxml2
+```
+
 Then, you fork the repo and make the changes. Then, you make
 sure the build is still clean, by running:
 
 ```bash
-$ ./build.sh
+$ make
 ```
 
 If everything is fine, submit
