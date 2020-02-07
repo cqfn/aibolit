@@ -29,9 +29,6 @@ from bs4 import BeautifulSoup
 repos = 'target/01/repos'
 if not os.path.isdir(repos):
     os.makedirs(repos)
-txt = 'target/01/found-java-files.txt'
-f = open(txt, 'w+')
-f.close()
 r = r.get('https://github.com/trending/java?since=daily')
 soup = BeautifulSoup(r.text)
 for city in soup.find_all('h1', {'class': 'h3 lh-condensed'}):
