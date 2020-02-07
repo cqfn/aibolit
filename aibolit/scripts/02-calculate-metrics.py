@@ -43,7 +43,7 @@ if __name__ == '__main__':
     if not os.path.isdir('02'):
         os.makedirs('02')
     with open(OUT_FILE_NAME, 'w+') as f:
-        f.write('file;cc;loc;npath')
+        f.write('file;cc;loc;npath\n')
 
     for i in range(THREADS_NUM):
         x = threading.Thread(target=process_files, args=(i, files))
