@@ -32,28 +32,19 @@ import csv
 import shutil
 from pathlib import Path
 import sys
-
+from functools import partial
+import pandas as pd
 
 parser = argparse.ArgumentParser(description='Filter important java files')
 parser.add_argument(
     '--dir',
     help='dir for Java files search',
     required=True)
-parser.add_argument('--max-classes', type=int, required=False, default=sys.maxsize)
+parser.add_argument('--max_classes', type=int, required=False, default=sys.maxsize)
+results = []
 args = parser.parse_args()
-dir_path = os.path.dirname(os.path.realpath(__file__))
+dir_path = Path(os.path.dirname(os.path.realpath(__file__))).absolute()
 files_list = []
-path = '02'
-os.makedirs(path, exist_ok=True)
-csv_file = open('02-java-files.csv', 'w', newline='\n')
-debug_log = open('debug.txt', 'w')
-max_classes = args.max_classes
-
-writer = csv.writer(
-    csv_file,
-    delimiter=';',
-    quotechar='"',
-    quoting=csv.QUOTE_MINIMAL)
 
 
 class ClassType(Enum):
@@ -63,10 +54,6 @@ class ClassType(Enum):
     TEST = 4
     JAVA_PARSE_ERROR = 5
     CLASS = 999
-
-
-counter = 0
-javaCounter = 81889
 
 
 def get_class_type(filename):
@@ -83,9 +70,6 @@ def get_class_type(filename):
                     class_type = ClassType.ENUM
                     break
                 elif type(node) == javalang.tree.ClassDeclaration:
-                    # debug_log.write(filename + ':  {}\n'.format(node.name))
-                    # debug_log.flush()
-                    # print(node.name, 'Test' in node.name)
                     if 'abstract' in node.modifiers:
                         class_type = ClassType.ABSTRACT_CLASS
                         break
@@ -100,55 +84,79 @@ def get_class_type(filename):
         return class_type
 
 
-def worker(filename):
+def worker(filename, target_path):
     """
     Idetify type of class
     :param filename: filename of Java class
     :return: tuple of java file path and it's type
     """
-    global javaCounter, counter
-    print(str(counter / float(javaCounter)))
-    if counter > max_classes:
-        return
+    global results
     if filename.lower().endswith('.java'):
         if filename.lower().endswith('test.java'):
             class_type = ClassType.TEST
-            writer.writerow([filename, class_type.value])
-            csv_file.flush()
+            z = Path(filename).as_posix()
+            # if not z:
+            #     print(filename)
+            # writer.writerow([Path(filename).as_posix(), class_type.value])
+            results.append([Path(filename).as_posix(), class_type.value])
+            # csv_file.flush()
         else:
             class_type = get_class_type(filename)
+            from_path = Path(filename).absolute()
+            d_path = Path(dir_path)
+            filename_posix = from_path.relative_to(d_path)
+            # if not filename_posix:
+            #     print(filename)
+            java_filename_posix = str(Path(filename).as_posix())
+            temp_local_path = java_filename_posix.replace(args.dir + '/', '')
+            to_path = Path(dir_path, target_path, temp_local_path)
             if class_type in [ClassType.CLASS, ClassType.JAVA_PARSE_ERROR]:
-                p = Path(filename)
-                d_path = Path(dir_path)
-                ltd = p.relative_to(d_path)
-                debug_log.write('Path' + str(p) + 'd_path' + str(d_path) + 'ltd' + str(ltd) + '\n')
-                debug_log.flush()
-                new_path = Path('filtered_files', ltd)
-                os.makedirs(new_path.parent, exist_ok=True)
-                shutil.copy(filename, new_path)
-
-            writer.writerow([filename, class_type.value])
-            csv_file.flush()
-            counter += 1
+                if not to_path.parent.exists():
+                    os.makedirs(to_path.parent)
+                if not to_path.exists():
+                    shutil.copy(from_path, to_path)
+            results.append([Path(filename).as_posix(), class_type.value])
 
 
 def walk_in_parallel():
-    # print(1)
-    print('Number of java files :' + str(javaCounter))
-    with multiprocessing.Pool(1) as pool:
+    target_path = 'target/02'
+    csv_output_file = target_path + '/02-java-files.csv'
+    os.makedirs(target_path, exist_ok=True)
+    with open(csv_output_file, 'w', newline='\n', encoding='utf-8') as csv_file:
+        writer = csv.writer(
+            csv_file,
+            delimiter=';',
+            quotechar='"',
+            quoting=csv.QUOTE_MINIMAL)
+        writer.writerow(['filename', 'class_type'])
+
+    with multiprocessing.Pool(20) as pool:
         walk = os.walk(args.dir)
-        # print(list(os.walk(args.dir)))
         fn_gen = itertools.chain.from_iterable(
             (os.path.join(root, file)
              for file in files)
             for root, dirs, files in walk)
 
-        pool.map(worker, fn_gen)
+        func = partial(worker, target_path=target_path)
+        pool.map(func, fn_gen)
 
 
 if __name__ == '__main__':
-    t1 = time.time()
+    start = time.time()
     walk_in_parallel()
-    # print(worker(args.dir))
-    t2 = time.time()
-    print('It took ' + str(t2 - t1) + ' seconds ')
+
+    for result in results:
+        with open('target/02-java-files.csv', 'a', newline='\n', encoding='utf-8') as csv_file:
+            writer = csv.writer(
+                csv_file,
+                delimiter=';',
+                quotechar='"',
+                quoting=csv.QUOTE_MINIMAL)
+
+            writer.writerow([filename_posix.as_posix(), class_type.value])
+
+    df = pd.read_csv('target/02/02-java-files.csv', sep=';')
+    df['filename'].to_csv('target/02/found-java-files.txt', header=None, index=None)
+
+    end = time.time()
+    print('It took ' + str(end - start) + ' seconds')
