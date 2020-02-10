@@ -31,7 +31,6 @@ from enum import Enum
 import csv
 import shutil
 from pathlib import Path
-import glob
 
 
 parser = argparse.ArgumentParser(description='Filter important java files')
@@ -62,8 +61,41 @@ class ClassType(Enum):
     JAVA_PARSE_ERROR = 5
     CLASS = 999
 
+
 counter = 0
 javaCounter = 81889
+
+
+def get_class_type(filename):
+    with open(filename, 'r', encoding='utf-8') as f:
+        text = f.read()
+        class_type = ClassType.CLASS
+        try:
+            tree = javalang.parse.parse(text)
+            for _, node in tree:
+                if type(node) == javalang.tree.InterfaceDeclaration:
+                    class_type = ClassType.INTERFACE
+                    break
+                elif type(node) == javalang.tree.EnumDeclaration:
+                    class_type = ClassType.ENUM
+                    break
+                elif type(node) == javalang.tree.ClassDeclaration:
+                    # debug_log.write(filename + ':  {}\n'.format(node.name))
+                    # debug_log.flush()
+                    # print(node.name, 'Test' in node.name)
+                    if 'abstract' in node.modifiers:
+                        class_type = ClassType.ABSTRACT_CLASS
+                        break
+                    elif 'Test' in node.name:
+                        class_type = ClassType.TEST
+                        break
+                    else:
+                        class_type = ClassType.CLASS
+                        break
+        except Exception:
+            class_type = ClassType.JAVA_PARSE_ERROR
+        return class_type
+
 
 def worker(filename):
     """
@@ -72,46 +104,19 @@ def worker(filename):
     :return: tuple of java file path and it's type
     """
     global javaCounter, counter
-    print(str(counter/float(javaCounter)))
+    print(str(counter / float(javaCounter)))
     if filename.lower().endswith('.java'):
         if filename.lower().endswith('test.java'):
             class_type = ClassType.TEST
             writer.writerow([filename, class_type.value])
             csv_file.flush()
         else:
-            with open(filename, 'r', encoding='utf-8') as f:
-                text = f.read()
-                class_type = ClassType.CLASS
-                try:
-                    tree = javalang.parse.parse(text)
-                    for _, node in tree:
-                        if type(node) == javalang.tree.InterfaceDeclaration:
-                            class_type = ClassType.INTERFACE
-                            break
-                        elif type(node) == javalang.tree.EnumDeclaration:
-                            class_type = ClassType.ENUM
-                            break
-                        elif type(node) == javalang.tree.ClassDeclaration:
-                            #debug_log.write(filename + ':  {}\n'.format(node.name))
-                            #debug_log.flush()
-                            #print(node.name, 'Test' in node.name)
-                            if 'abstract' in node.modifiers:
-                                class_type = ClassType.ABSTRACT_CLASS
-                                break
-                            elif 'Test' in node.name:
-                                class_type = ClassType.TEST
-                                break
-                            else:
-                                class_type = ClassType.CLASS
-                                break
-                except Exception as e:
-                    class_type = ClassType.JAVA_PARSE_ERROR
-
+            class_type = get_class_type(filename)
             if class_type in [ClassType.CLASS, ClassType.JAVA_PARSE_ERROR]:
                 p = Path(filename)
                 d_path = Path(dir_path)
                 ltd = p.relative_to(d_path)
-                debug_log.write('Path' + str(p) + 'd_path'+ str(d_path) + 'ltd'+ str(ltd) + '\n')
+                debug_log.write('Path' + str(p) + 'd_path' + str(d_path) + 'ltd' + str(ltd) + '\n')
                 debug_log.flush()
                 new_path = Path('filtered_files', ltd)
                 os.makedirs(new_path.parent, exist_ok=True)
@@ -119,21 +124,22 @@ def worker(filename):
 
             writer.writerow([filename, class_type.value])
             csv_file.flush()
-            counter+=1
+            counter += 1
 
 
 def walk_in_parallel():
-    #print(1)
+    # print(1)
     print('Number of java files :' + str(javaCounter))
     with multiprocessing.Pool(1) as pool:
         walk = os.walk(args.dir)
-        #print(list(os.walk(args.dir)))
+        # print(list(os.walk(args.dir)))
         fn_gen = itertools.chain.from_iterable(
             (os.path.join(root, file)
              for file in files)
             for root, dirs, files in walk)
 
         pool.map(worker, fn_gen)
+
 
 if __name__ == '__main__':
     t1 = time.time()
