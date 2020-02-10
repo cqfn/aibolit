@@ -31,6 +31,7 @@ from enum import Enum
 import csv
 import shutil
 from pathlib import Path
+import sys
 
 
 parser = argparse.ArgumentParser(description='Filter important java files')
@@ -38,7 +39,7 @@ parser.add_argument(
     '--dir',
     help='dir for Java files search',
     required=True)
-
+parser.add_argument('--max-classes', type=int, required=False, default=sys.maxsize)
 args = parser.parse_args()
 dir_path = os.path.dirname(os.path.realpath(__file__))
 files_list = []
@@ -46,6 +47,8 @@ path = '02'
 os.makedirs(path, exist_ok=True)
 csv_file = open('02-java-files.csv', 'w', newline='\n')
 debug_log = open('debug.txt', 'w')
+max_classes = args.max_classes
+
 writer = csv.writer(
     csv_file,
     delimiter=';',
@@ -105,6 +108,8 @@ def worker(filename):
     """
     global javaCounter, counter
     print(str(counter / float(javaCounter)))
+    if counter > max_classes:
+        return
     if filename.lower().endswith('.java'):
         if filename.lower().endswith('test.java'):
             class_type = ClassType.TEST
