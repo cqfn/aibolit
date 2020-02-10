@@ -45,16 +45,19 @@ def process_file(file):
         from aibolit.metrics.cc.main import CCMetric
         from aibolit.metrics.loc.loc import Loc
         from aibolit.metrics.npath.main import NPathMetric
+        from aibolit.metrics.hv.main import HVMetric
         m = CCMetric(file[:-1])
         cc = m.value(False)['data'][0]['complexity']
         m = Loc(file[:-1])
         loc = m.value()
         m = NPathMetric(file[:-1])
         npath = m.value(False)['data'][0]['complexity']
+        m = HVMetric(file[:-1])
+        hv = m.value()['data'][0]['halsteadvolume']
         lock_path = '{}.lock'.format(OUT_FILE_NAME)
         lock = FileLock(lock_path, timeout=10)
         with lock:
-            open(OUT_FILE_NAME, 'a').write('{};{};{};{}\n'.format(file[:-1], cc, loc, npath))
+            open(OUT_FILE_NAME, 'a').write('{};{};{};{};{}\n'.format(file[:-1], cc, loc, npath, hv))
     except Exception as e:
         print(file, str(e))
 
