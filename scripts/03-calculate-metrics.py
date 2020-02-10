@@ -42,9 +42,9 @@ def process_file(file):
     print(file)
     try:
         sys.path.append('../')
-        from metrics.cc.main import CCMetric
-        from metrics.loc.loc import Loc
-        from metrics.npath.main import NPathMetric
+        from aibolit.metrics.cc.main import CCMetric
+        from aibolit.metrics.loc.loc import Loc
+        from aibolit.metrics.npath.main import NPathMetric
         m = CCMetric(file[:-1])
         cc = m.value(False)['data'][0]['complexity']
         m = Loc(file[:-1])
@@ -62,8 +62,8 @@ def process_file(file):
 if __name__ == '__main__':
     with open('target/01/found-java-files.txt', 'r') as f:
         files = f.readlines()
-    if not os.path.isdir('02'):
-        os.makedirs('02')
+    if not os.path.isdir('target/02'):
+        os.makedirs('target/02')
     with open(OUT_FILE_NAME, 'w+') as f:
         f.write('file;cc;loc;npath\n')
     for i in range(THREADS_NUM):
