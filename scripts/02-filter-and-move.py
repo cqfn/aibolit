@@ -45,7 +45,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 files_list = []
 path = '02'
 os.makedirs(path, exist_ok=True)
-csv_file = open('02-java-files.csv', 'w', newline='\n')
+csv_file = open('target/01/found-java-files.txt', 'w', newline='\n')
 debug_log = open('debug.txt', 'w')
 max_classes = args.max_classes
 
