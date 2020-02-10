@@ -108,7 +108,9 @@ def worker(filename):
     """
     global javaCounter, counter
     print(str(counter / float(javaCounter)))
-    if filename.lower().endswith('.java') and counter < max_classes:
+    if counter > max_classes:
+        return
+    if filename.lower().endswith('.java'):
         if filename.lower().endswith('test.java'):
             class_type = ClassType.TEST
             writer.writerow([filename, class_type.value])
