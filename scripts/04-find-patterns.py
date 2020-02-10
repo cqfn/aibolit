@@ -49,11 +49,15 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 def log_result(result, file_to_write):
     """ Save result to csv file. """
     with open(file_to_write, 'a', newline='\n', encoding='utf-8') as csv_file:
+        p = Path(result[0])
+        d_path = Path(dir_path)
+        relative_path = p.relative_to(d_path)
+
         writer = csv.writer(
             csv_file, delimiter=';',
             quotechar='"', quoting=csv.QUOTE_MINIMAL)
         writer.writerow(
-            [result[0], len(result[1]), len(result[2]), len(result[3]),
+            [relative_path.as_posix(), len(result[1]), len(result[2]), len(result[3]),
              result[4], result[1], result[2], result[3]]
         )
 
