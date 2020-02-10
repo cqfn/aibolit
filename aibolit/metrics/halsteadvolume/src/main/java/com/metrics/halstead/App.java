@@ -4,7 +4,7 @@
 
 /**
  * @author Ahmed Metwally
- *
+ * source: https://github.com/aametwally/Halstead-Complexity-Measures
  */
 
 package com.metrics.halstead;
