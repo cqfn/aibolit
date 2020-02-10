@@ -1,14 +1,14 @@
 import argparse
-import multiprocessing
+import csv
 import os
 import time
+from functools import partial
 from multiprocessing import Pool
 from pathlib import Path
-import csv
-from aibolit.patterns.var_middle.var_middle import VarMiddle
-from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
+
 from aibolit.metrics.entropy.entropy import Entropy
-from functools import partial
+from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
+from aibolit.patterns.var_middle.var_middle import VarMiddle
 
 # You need to download the archive here:
 # https://dibt.unimol.it/report/readability/files/readability.zip
