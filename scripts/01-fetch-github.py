@@ -25,17 +25,27 @@ import subprocess
 import os
 import requests as r
 from bs4 import BeautifulSoup
+import argparse
 
 
-repos = 'target/01'
-if not os.path.isdir(repos):
-    os.makedirs(repos)
-r = r.get('https://github.com/trending/java?since=daily')
-soup = BeautifulSoup(r.text)
-for city in soup.find_all('h1', {'class': 'h3 lh-condensed'}):
-    path = city.a['href'].split('/')
-    if not os.path.isdir(os.path.join(repos, path[len(path) - 2])):
-        os.makedirs(os.path.join(repos, path[len(path) - 2]))
-    if not os.path.isdir(os.path.join(repos, path[len(path) - 2], path[len(path) - 1])):
-        result = subprocess.run(['git', 'clone', 'https://github.com' + city.a['href'] + '.git'],
-                                cwd=os.path.join(repos, path[len(path) - 2]))
+def downloadrepos():
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument('--repos', type=int, required=False, default=100)
+    args = parser.parse_args()
+    repos = args.repos
+    repos = 'target/01'
+    if not os.path.isdir(repos):
+        os.makedirs(repos)
+    r = r.get('https://github.com/trending/java?since=daily')
+    soup = BeautifulSoup(r.text)
+    for city in soup.find_all('h1', {'class': 'h3 lh-condensed'}):
+        path = city.a['href'].split('/')
+        if not os.path.isdir(os.path.join(repos, path[len(path) - 2])):
+            os.makedirs(os.path.join(repos, path[len(path) - 2]))
+        if not os.path.isdir(os.path.join(repos, path[len(path) - 2], path[len(path) - 1])):
+            result = subprocess.run(['git', 'clone', 'https://github.com' + city.a['href'] + '.git'],
+                                    cwd=os.path.join(repos, path[len(path) - 2]))
+
+
+if __name__ == "__main__":
+    downloadrepos()
