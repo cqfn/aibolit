@@ -26,8 +26,8 @@ from enum import Enum
 
 
 class NodeType(Enum):
-    VAR = 1      # Variable Declaration
-    METHOD = 2   # Method Declaration
+    VAR = 1  # Variable Declaration
+    METHOD = 2  # Method Declaration
 
 
 class VarMiddle:
@@ -41,7 +41,7 @@ class VarMiddle:
 
     def __file_to_ast(self, filename: str) -> javalang.ast.Node:
         '''Takes path to java class file and returns AST Tree'''
-        with open(filename) as file:
+        with open(filename, encoding='utf-8') as file:
             tree = javalang.parse.parse(file.read())
 
         return tree
@@ -62,7 +62,6 @@ class VarMiddle:
         ''''''
         line_to_node_map = {}
         tree = self.__file_to_ast(filename)
-
         m_decls = tree.filter(javalang.tree.MethodDeclaration)
         v_decls = tree.filter(javalang.tree.LocalVariableDeclaration)
         m_poss = [(e.position.line, NodeType.METHOD) for _, e in m_decls]
