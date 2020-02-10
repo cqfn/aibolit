@@ -62,6 +62,7 @@ class VarMiddle:
         ''''''
         line_to_node_map = {}
         tree = self.__file_to_ast(filename)
+
         m_decls = tree.filter(javalang.tree.MethodDeclaration)
         v_decls = tree.filter(javalang.tree.LocalVariableDeclaration)
         m_poss = [(e.position.line, NodeType.METHOD) for _, e in m_decls]
