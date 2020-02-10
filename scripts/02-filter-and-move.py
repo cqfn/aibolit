@@ -28,11 +28,8 @@ import os
 import time
 import javalang
 from enum import Enum
-import csv
-import shutil
 from pathlib import Path
 import sys
-from functools import partial
 import pandas as pd
 
 parser = argparse.ArgumentParser(description='Filter important java files')
@@ -41,10 +38,15 @@ parser.add_argument(
     help='dir for Java files search',
     required=True)
 parser.add_argument('--max_classes', type=int, required=False, default=sys.maxsize)
-results = []
 args = parser.parse_args()
-dir_path = Path(os.path.dirname(os.path.realpath(__file__))).absolute()
-files_list = []
+TXT_OUT = 'found-java-files.txt'
+CSV_OUT = '02-java-files.csv'
+
+DIR_TO_CREATE = 'target/02'
+FILE_TO_SAVE = '02-java-files.csv'
+current_location: str = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__))
+)
 
 
 class ClassType(Enum):
@@ -84,52 +86,24 @@ def get_class_type(filename):
         return class_type
 
 
-def worker(filename, target_path):
+def worker(filename):
     """
-    Idetify type of class
+    Identify type of class
     :param filename: filename of Java class
     :return: tuple of java file path and it's type
     """
-    global results
+    results = []
     if filename.lower().endswith('.java'):
         if filename.lower().endswith('test.java'):
             class_type = ClassType.TEST
-            z = Path(filename).as_posix()
-            # if not z:
-            #     print(filename)
-            # writer.writerow([Path(filename).as_posix(), class_type.value])
-            results.append([Path(filename).as_posix(), class_type.value])
-            # csv_file.flush()
         else:
             class_type = get_class_type(filename)
-            from_path = Path(filename).absolute()
-            d_path = Path(dir_path)
-            filename_posix = from_path.relative_to(d_path)
-            # if not filename_posix:
-            #     print(filename)
-            java_filename_posix = str(Path(filename).as_posix())
-            temp_local_path = java_filename_posix.replace(args.dir + '/', '')
-            to_path = Path(dir_path, target_path, temp_local_path)
-            if class_type in [ClassType.CLASS, ClassType.JAVA_PARSE_ERROR]:
-                if not to_path.parent.exists():
-                    os.makedirs(to_path.parent)
-                if not to_path.exists():
-                    shutil.copy(from_path, to_path)
-            results.append([Path(filename).as_posix(), class_type.value])
+        results = [Path(filename).as_posix(), class_type.value]
+
+    return results
 
 
 def walk_in_parallel():
-    target_path = 'target/02'
-    csv_output_file = target_path + '/02-java-files.csv'
-    os.makedirs(target_path, exist_ok=True)
-    with open(csv_output_file, 'w', newline='\n', encoding='utf-8') as csv_file:
-        writer = csv.writer(
-            csv_file,
-            delimiter=';',
-            quotechar='"',
-            quoting=csv.QUOTE_MINIMAL)
-        writer.writerow(['filename', 'class_type'])
-
     with multiprocessing.Pool(20) as pool:
         walk = os.walk(args.dir)
         fn_gen = itertools.chain.from_iterable(
@@ -137,26 +111,22 @@ def walk_in_parallel():
              for file in files)
             for root, dirs, files in walk)
 
-        func = partial(worker, target_path=target_path)
-        pool.map(func, fn_gen)
+        results = pool.map(worker, fn_gen)
+
+    return [v for v in results if len(v) > 0]
 
 
 if __name__ == '__main__':
     start = time.time()
-    walk_in_parallel()
+    results = walk_in_parallel()
 
-    for result in results:
-        with open('target/02-java-files.csv', 'a', newline='\n', encoding='utf-8') as csv_file:
-            writer = csv.writer(
-                csv_file,
-                delimiter=';',
-                quotechar='"',
-                quoting=csv.QUOTE_MINIMAL)
+    if not os.path.isdir(DIR_TO_CREATE):
+        os.makedirs(DIR_TO_CREATE)
 
-            writer.writerow([filename_posix.as_posix(), class_type.value])
-
-    df = pd.read_csv('target/02/02-java-files.csv', sep=';')
-    df['filename'].to_csv('target/02/found-java-files.txt', header=None, index=None)
-
+    path_csv_out = str(Path(current_location, DIR_TO_CREATE, CSV_OUT))
+    path_txt_out = str(Path(current_location, DIR_TO_CREATE, TXT_OUT))
+    df = pd.DataFrame(results, columns=['filename', 'class_type'])
+    df.to_csv(path_csv_out, index=False)
+    df['filename'].to_csv(path_txt_out, header=None, index=None)
     end = time.time()
     print('It took ' + str(end - start) + ' seconds')

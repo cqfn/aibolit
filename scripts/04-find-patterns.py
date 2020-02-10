@@ -32,6 +32,7 @@ from aibolit.metrics.entropy.entropy import Entropy
 from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
 from aibolit.patterns.var_middle.var_middle import VarMiddle
 
+
 # You need to download the archive here:
 # https://dibt.unimol.it/report/readability/files/readability.zip
 # Unzip and put it into the executable's current directory
