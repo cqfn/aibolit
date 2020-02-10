@@ -24,7 +24,6 @@
 import argparse
 import multiprocessing
 import os
-import subprocess
 import time
 from multiprocessing import Pool
 from pathlib import Path
@@ -53,21 +52,23 @@ writer = csv.writer(
     quotechar='"', quoting=csv.QUOTE_MINIMAL)
 writer.writerow(['filename', 'var_middle_number', 'nested_double_for_number'])
 
+
 def log_result(result):
     """ Save result to csv file. """
-    #print(len(result[1]))
+    # print(len(result[1]))
     writer.writerow([result[0], len(result[1]), len(result[2])])
     csv_file.flush()
 
+
 def run_VarMiddle(java_file):
     """ This runs in a separate thread. """
-    #print(java_file)
+    # print(java_file)
     lines = VarMiddle().value(java_file)
-    #print(1)
+    # print(1)
     nested_blocks = NestedBlocks(2).value(java_file)
-    #print(6)
-    #lines = pattern.value(java_file)
-    #print('Variables are declared in the middle there: {}'.format(lines))
+    # print(6)
+    # lines = pattern.value(java_file)
+    # print('Variables are declared in the middle there: {}'.format(lines))
     return java_file, lines, nested_blocks
 
 
