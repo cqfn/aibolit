@@ -22,13 +22,13 @@ metrics:
 # and attempt to find patterns there. We produce a summary
 # CSV file in target/04-patterns.csv
 patterns:
-	python3 ./04-find-patterns.py --filename found-java-files.txt
+	python3 ./04-find-patterns.py --filename target/02/found-java-files.txt
 
 # Here we go through all Java classes in target/02 and calculate
 # readability score per each of them. Then, we save the summary
 # into CSV at target/05-rs.csv
 rs:
-	python3 ./05-calculate-rs.py
+	python3 ./05-calculate-rs.py --filename target/02/found-java-files.txt
 
 clean:
 	rm -rf target

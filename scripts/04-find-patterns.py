@@ -75,9 +75,9 @@ def execute_python_code_in_parallel_thread(file):
 if __name__ == '__main__':
     start = time.time()
 
-    path = '04'
+    path = 'target/04'
     os.makedirs(path, exist_ok=True)
-    filename = '04/04-find-patterns.csv'
+    filename = 'target/04/04-find-patterns.csv'
     with open(filename, 'w', newline='\n', encoding='utf-8') as csv_file:
         writer = csv.writer(
             csv_file, delimiter=';',
