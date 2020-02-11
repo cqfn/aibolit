@@ -38,6 +38,9 @@ subprocess.call([
 df = pd.read_csv('./_tmp/pmd_out.csv')
 df['class'] = 0
 df.loc[df['Description'].str.contains("The class"), 'class'] = 1
+rows_to_remove = df[df['class'] == 1][['File', 'class', 'Rule']]\
+    .groupby(['File', 'Rule']).filter(lambda x: len(x) > 1)['File']\
+    .unique().tolist()
 
 df[df.Rule == 'CyclomaticComplexity']['Description'].str\
     .extract('complexity of (\d+)', expand=True)
@@ -74,7 +77,9 @@ max_method_npath = df[df['class'] == 0][['File', 'npath']].copy().dropna()\
     .rename({'npath': 'npath_method_max'}, axis='columns')
 
 class_ncss = df[df['class'] == 1][['File', 'ncss']].copy().dropna()\
-    .reset_index().set_index('File')
+    .groupby('File').sum().reset_index().set_index('File')
+
+
 avg_method_ncss = df[df['class'] == 0][['File', 'ncss']].copy().dropna()\
     .groupby('File').mean().reset_index().set_index('File')\
     .rename({'ncss': 'ncss_method_avg'}, axis='columns')
@@ -86,6 +91,7 @@ max_method_ncss = df[df['class'] == 0][['File', 'ncss']].copy().dropna()\
     .rename({'ncss': 'ncss_method_max'}, axis='columns')
 
 keys = pd.DataFrame(df.File.unique(), columns=['File']).set_index('File')
+keys = keys.drop(rows_to_remove, axis=0)
 metrics = keys.join(class_cyclo, how='inner')\
     .join(avg_method_cyclo, how='left')\
     .drop(columns=['index'])\
