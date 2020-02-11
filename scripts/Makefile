@@ -30,6 +30,9 @@ patterns:
 rs:
 	python3 ./05-calculate-rs.py --filename target/02/found-java-files.txt
 
+hl:
+	python3 ./06-calculate-halstead.py --filename target/02/found-java-files.txt
+	
 clean:
 	rm -rf target
 
