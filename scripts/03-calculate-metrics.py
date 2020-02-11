@@ -41,11 +41,11 @@ def process_files(nthread, files):
 def process_file(file):
     print(file)
     try:
-        sys.path.append('../')
-        from aibolit.metrics.cc.main import CCMetric
-        from aibolit.metrics.loc.loc import Loc
-        from aibolit.metrics.npath.main import NPathMetric
-        from aibolit.metrics.hv.main import HVMetric
+        sys.path.append('../aibolit')
+        from metrics.cc.main import CCMetric
+        from metrics.loc.loc import Loc
+        from metrics.npath.main import NPathMetric
+        from metrics.hv.main import HVMetric
         m = CCMetric(file[:-1])
         cc = m.value(False)['data'][0]['complexity']
         m = Loc(file[:-1])
