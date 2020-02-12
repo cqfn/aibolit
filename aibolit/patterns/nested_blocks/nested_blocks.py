@@ -81,7 +81,7 @@ class NestedBlocks:
         :param res: 
         :return: 
         """
-        v = None is not hasattr(root, '_position') else node._position.line
+        v = None if not hasattr(root, '_position') else root._position.line
         if v is not None:
             res.append(v)
         for child in root.children:
