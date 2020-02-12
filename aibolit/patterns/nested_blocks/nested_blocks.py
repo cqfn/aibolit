@@ -87,7 +87,7 @@ class NestedBlocks:
             for node in nodes_arr:
                 if not hasattr(node, 'children'):
                     continue
-                res += self.__fold_traverse_tree(node, f)
+                self.__fold_traverse_tree(node, f)
         return res
 
     def value(self, filename: str) -> List[int]:
