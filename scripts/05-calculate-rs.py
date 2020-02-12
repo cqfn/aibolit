@@ -44,12 +44,13 @@ args = parser.parse_args()
 dir_path = os.path.dirname(os.path.realpath(__file__))
 results = {}
 
-path = '05'
+path = 'target/05'
 os.makedirs(path, exist_ok=True)
-csv_file = open('05/05_readability.csv', 'w', newline='\n')
+csv_file = open('target/05/05_readability.csv', 'w', newline='\n')
 writer = csv.writer(
     csv_file, delimiter=';',
     quotechar='"', quoting=csv.QUOTE_MINIMAL)
+writer.writerow(['filename', 'readability'])
 
 
 def log_result(result):
@@ -67,8 +68,8 @@ def call_proc(cmd, java_file):
     if not err:
         score = float(out.decode().split('readability:')[-1].strip())
     else:
-        print('Error when running: {}'.format(out))
-    return java_file, score
+        print('Error when running: {}'.format(err))
+    return java_file.strip(), score
 
 
 if __name__ == '__main__':
