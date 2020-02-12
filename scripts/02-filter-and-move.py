@@ -39,7 +39,6 @@ parser.add_argument(
 parser.add_argument('--max_classes', type=int, required=False, default=None)
 args = parser.parse_args()
 MAX_CLASSES = args.max_classes
-print('MAX_CLASSES', MAX_CLASSES)
 
 TXT_OUT = 'found-java-files.txt'
 CSV_OUT = '02-java-files.csv'

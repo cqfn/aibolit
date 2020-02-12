@@ -29,8 +29,6 @@ import time
 from multiprocessing import Pool
 from pathlib import Path
 import csv
-from zipfile import ZipFile
-import urllib.request
 
 # You need to download the archive here:
 # https://dibt.unimol.it/report/readability/files/readability.zip
@@ -45,19 +43,19 @@ args = parser.parse_args()
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 results = {}
-FILE_NAME = 'readability.zip'
+# FILE_NAME = 'readability.zip'
 
-if not os.path.isfile(FILE_NAME):
-    print('Start downloading readability tool...')
-    urllib.request.urlretrieve(
-        'https://dibt.unimol.it/report/readability/files/readability.zip',
-        FILE_NAME)
-    print('readability tool has downloaded')
+# if not os.path.isfile(FILE_NAME):
+#     print('Start downloading readability tool...')
+#     urllib.request.urlretrieve(
+#         'https://dibt.unimol.it/report/readability/files/readability.zip',
+#         FILE_NAME)
+#     print('readability tool has downloaded')
 
-with ZipFile(FILE_NAME, 'r') as zip:
-    print('Extracting all the files now...')
-    zip.extractall(path='./_tmp')
-    print('Done!')
+# with ZipFile(FILE_NAME, 'r') as zip:
+#     print('Extracting all the files now...')
+#     zip.extractall(path='./_tmp')
+#     print('Done!')
 
 
 path = 'target/05'
