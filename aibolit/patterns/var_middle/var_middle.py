@@ -41,7 +41,7 @@ class VarMiddle:
 
     def __file_to_ast(self, filename: str) -> javalang.ast.Node:
         '''Takes path to java class file and returns AST Tree'''
-        with open(filename) as file:
+        with open(filename, encoding='utf-8') as file:
             tree = javalang.parse.parse(file.read())
 
         return tree
