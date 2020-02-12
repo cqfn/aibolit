@@ -29,6 +29,8 @@ import time
 from multiprocessing import Pool
 from pathlib import Path
 import csv
+from zipfile import ZipFile
+import urllib.request
 
 # You need to download the archive here:
 # https://dibt.unimol.it/report/readability/files/readability.zip
@@ -43,6 +45,20 @@ args = parser.parse_args()
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 results = {}
+FILE_NAME = 'readability.zip'
+
+if not os.path.isfile(FILE_NAME):
+    print('Start downloading readability tool...')
+    urllib.request.urlretrieve(
+        'https://dibt.unimol.it/report/readability/files/readability.zip',
+        FILE_NAME)
+    print('readability tool has downloaded')
+
+with ZipFile(FILE_NAME, 'r') as zip:
+    print('Extracting all the files now...')
+    zip.extractall(path='./_tmp')
+    print('Done!')
+
 
 path = 'target/05'
 os.makedirs(path, exist_ok=True)
@@ -62,7 +78,10 @@ def log_result(result):
 def call_proc(cmd, java_file):
     """ This runs in a separate thread. """
     print('Running ', ' '.join(cmd))
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(
+        cmd,
+        cwd=os.path.dirname(os.path.realpath(__file__)) + '/_tmp',
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     score = None
     if not err:
