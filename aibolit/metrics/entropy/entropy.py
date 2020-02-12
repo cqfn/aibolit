@@ -32,7 +32,7 @@ class Entropy:
 
     def __file_to_tokens(self, filename: str) -> List[str]:
         '''Takes path to java class file and returns tokens'''
-        with open(filename) as file:
+        with open(filename, encoding='utf-8') as file:
             tokens = javalang.tokenizer.tokenize(file.read())
 
         return list(map(lambda v: v.value, tokens))
