@@ -31,10 +31,10 @@ class SpacesCounter:
 
     def remove_comments(self, string):
         # remove all occurrences streamed comments (/*COMMENT */) from string
-        string = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "",
+        string = re.sub(re.compile(r"/\*.*?\*/", re.DOTALL), "",
                         string)
         # remove all occurrence single-line comments (//COMMENT\n ) from string
-        string = re.sub(re.compile("//.*?\n"), "",
+        string = re.sub(re.compile(r"//.*?\n"), "",
                         string)
         return string
 
