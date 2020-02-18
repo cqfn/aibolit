@@ -38,7 +38,7 @@ class TestSpaces(TestCase):
         lines = pattern.value(self.dir_path + '/NoLeftSpaces.java')
         assert lines[-2] == 0 and lines[-1] == 55
 
-    def test_class_without_left_spaces(self):
+    def test_class_without_right_spaces(self):
         pattern = SpacesCounter()
         lines = pattern.value(self.dir_path + '/NoRightSpaces.java')
         assert lines[-2] == 57 and lines[-1] == 0
