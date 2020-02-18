@@ -29,7 +29,6 @@ import time
 import javalang
 from enum import Enum
 from pathlib import Path
-import sys
 import pandas as pd
 
 parser = argparse.ArgumentParser(description='Filter important java files')
@@ -37,8 +36,11 @@ parser.add_argument(
     '--dir',
     help='dir for Java files search',
     required=True)
-parser.add_argument('--max_classes', type=int, required=False, default=sys.maxsize)
+parser.add_argument('--max_classes', type=int, required=False, default=None)
 args = parser.parse_args()
+MAX_CLASSES = args.max_classes
+print('MAX_CLASSES', MAX_CLASSES)
+
 TXT_OUT = 'found-java-files.txt'
 CSV_OUT = '02-java-files.csv'
 
@@ -113,7 +115,8 @@ def walk_in_parallel():
 
         results = pool.map(worker, fn_gen)
 
-    return [v for v in results if len(v) > 0]
+    top_n = MAX_CLASSES if MAX_CLASSES is not None else len(results)
+    return [v for v in results if len(v) > 0][0: top_n]
 
 
 if __name__ == '__main__':

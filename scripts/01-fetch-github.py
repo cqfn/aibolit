@@ -30,9 +30,9 @@ import argparse
 
 def downloadrepos():
     parser = argparse.ArgumentParser(add_help=False)
-    parser.add_argument('--repos', type=int, required=False, default=100)
+    parser.add_argument('--nrepos', type=int, required=False, default=100)
     args = parser.parse_args()
-    numrepos = args.repos
+    numrepos = args.nrepos
     repos = 'target/01'
     if not os.path.isdir(repos):
         os.makedirs(repos)
