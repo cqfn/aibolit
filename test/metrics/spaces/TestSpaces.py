@@ -23,37 +23,34 @@
 import os
 from unittest import TestCase
 from aibolit.metrics.spaces.SpaceCounter import SpacesCounter
+from pathlib import Path
 
 
 class TestSpaces(TestCase):
-    dir_path = os.path.dirname(os.path.realpath(__file__))
+    dir_path = Path(os.path.realpath(__file__)).parent
+    print(dir_path)
+    pattern = SpacesCounter()
 
     def test_class_with_best_ident(self):
-        pattern = SpacesCounter()
-        lines = pattern.value(self.dir_path + '/BestIdent.java')
+        lines = self.pattern.value(Path(self.dir_path, 'BestIdent.java'))
         assert lines[-2] == 44 and lines[-1] == 113
 
     def test_class_without_left_spaces(self):
-        pattern = SpacesCounter()
-        lines = pattern.value(self.dir_path + '/NoLeftSpaces.java')
+        lines = self.pattern.value(Path(self.dir_path, 'NoLeftSpaces.java'))
         assert lines[-2] == 0 and lines[-1] == 55
 
     def test_class_without_right_spaces(self):
-        pattern = SpacesCounter()
-        lines = pattern.value(self.dir_path + '/NoRightSpaces.java')
+        lines = self.pattern.value(Path(self.dir_path, 'NoRightSpaces.java'))
         assert lines[-2] == 57 and lines[-1] == 0
 
     def test_class_with_equal_spaces_number(self):
-        pattern = SpacesCounter()
-        lines = pattern.value(self.dir_path + '/SameMean.java')
+        lines = self.pattern.value(Path(self.dir_path, 'SameMean.java'))
         assert lines[-2] == 4 and lines[-1] == 55
 
     def test_class_with_tabs_and_spaces(self):
-        pattern = SpacesCounter()
-        lines = pattern.value(self.dir_path + '/SpacesAndTabs.java')
+        lines = self.pattern.value(Path(self.dir_path, 'SpacesAndTabs.java'))
         assert lines[-2] == 8 and lines[-1] == 59
 
     def test_class_with_worst_ident(self):
-        pattern = SpacesCounter()
-        lines = pattern.value(self.dir_path + '/WorstIdentation.java')
+        lines = self.pattern.value(Path(self.dir_path, 'WorstIdentation.java'))
         assert lines[-2] == 20 and lines[-1] == 163

@@ -61,11 +61,7 @@ class SpacesCounter:
         prev_left = 0
         prev_right = len(lines[0])
         for i, line in enumerate(lines):
-            # processed_line = line.replace('\n', '').replace('\t', '    ')
-            # if not processed_line:
-            #     continue
             first_non_space_symbol_pos = len(line) - len(line.lstrip(' '))
-            # last_non_space_symbol_pos = len(processed_line) - len(processed_line.rstrip(' '))
             spaces_per_line.append(
                 [i,
                  # count the difference between the position of first symbol in cur string and
