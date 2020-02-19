@@ -1,33 +1,13 @@
-from zipfile import ZipFile
-import urllib.request
 import subprocess
 import pandas as pd
 import os
-import shutil
 
 
 DIR_TO_CREATE = 'target/03'
-PMD_DOWNLOAD_LINK = 'https://github.com/pmd/pmd/releases/download/6.21.0-with-designer/pmd-bin-6.21.0-full.zip'
-FILE_NAME = "pmd-bin.zip"
-
 current_location: str = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__))
 )
-
-if not os.path.isfile(FILE_NAME):
-    print('Start downloading PMD tool...')
-    urllib.request.urlretrieve(PMD_DOWNLOAD_LINK, FILE_NAME)
-    print('PMD tool has downloaded')
-
-
-with ZipFile(FILE_NAME, 'r') as zip:
-    print('Extracting all the files now...')
-    zip.extractall(path='./_tmp')
-    print('Done!')
-
-
 print('Start metrics calculation...')
-subprocess.call(['chmod', '+x', './_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh'])
 f = open("./_tmp/pmd_out.csv", "w")
 subprocess.call([
     './_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh', 'pmd',
@@ -115,5 +95,3 @@ if not os.path.isdir(DIR_TO_CREATE):
 
 metrics['filename'] = metrics.filename.str.replace(current_location + '/', '')
 metrics.to_csv(DIR_TO_CREATE + '/' + 'pmd_metrics.csv', sep=';', index=False)
-os.remove(FILE_NAME)
-shutil.rmtree('./_tmp')
