@@ -16,6 +16,8 @@ release:
     sed -i "s/0\.0\.0/${tag}/g" aibolit/__init__.py
     git add aibolit/__init__.py
     git commit -am "${tag}"
+    python --version
+    pip3 --version
     make
     python3 setup.py sdist bdist_wheel
     python3 -m twine upload dist/* -u __token__ -p $(cat ../twine_token)
