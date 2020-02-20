@@ -1,0 +1,15 @@
+all: requirements build run
+
+requirements:
+	apt-get install gcc g++
+
+build:
+	python -m nuitka --follow-imports console_run_patterns.py
+
+# Find all patterns for Java file. Each time the most important
+# pattern will be shown
+#run:
+	#python3 ./console_run_patterns.bin --filename ./DeepAnalysis.java
+
+
+
