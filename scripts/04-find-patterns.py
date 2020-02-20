@@ -29,14 +29,12 @@ from multiprocessing import Pool
 from pathlib import Path
 
 from aibolit.metrics.entropy.entropy import Entropy
+from aibolit.metrics.spaces.SpaceCounter import SpacesCounter
 from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
+from aibolit.patterns.string_concat.string_concat import StringConcatFinder
 from aibolit.patterns.var_middle.var_middle import VarMiddle
 
-# You need to download the archive here:
-# https://dibt.unimol.it/report/readability/files/readability.zip
-# Unzip and put it into the executable's current directory
-
-parser = argparse.ArgumentParser(description='Compute Readability score')
+parser = argparse.ArgumentParser(description='Find patterns in Java files')
 parser.add_argument(
     '--filename',
     help='path for file with a list of Java files',
@@ -58,7 +56,7 @@ def log_result(result, file_to_write):
             quotechar='"', quoting=csv.QUOTE_MINIMAL)
         writer.writerow(
             [relative_path.as_posix(), len(result[1]), len(result[2]), len(result[3]),
-             result[4], result[1], result[2], result[3]]
+             result[4], result[1], result[2], result[3], result[6]] + result[5]
         )
 
 
@@ -68,15 +66,17 @@ def execute_python_code_in_parallel_thread(file):
     nested_for_blocks = NestedBlocks(2, block_type=BlockType.FOR).value(file)
     nested_if_blocks = NestedBlocks(2, block_type=BlockType.IF).value(file)
     entropy = Entropy().value(file)
-    return file, var_numbers, nested_for_blocks, nested_if_blocks, entropy
+    spaces = SpacesCounter().value(file)
+    concat_str_number = StringConcatFinder().value(file)
+    return file, var_numbers, nested_for_blocks, nested_if_blocks, entropy, spaces, concat_str_number
 
 
 if __name__ == '__main__':
     start = time.time()
 
-    path = '04'
+    path = 'target/04'
     os.makedirs(path, exist_ok=True)
-    filename = '04/04-find-patterns.csv'
+    filename = 'target/04/04-find-patterns.csv'
     with open(filename, 'w', newline='\n', encoding='utf-8') as csv_file:
         writer = csv.writer(
             csv_file, delimiter=';',
@@ -84,7 +84,9 @@ if __name__ == '__main__':
         writer.writerow([
             'filename', 'var_middle_number', 'nested_for_number',
             'nested_if_number', 'entropy', 'lines_for_var_middle',
-            'lines_for_cycle', 'lines_for_if']
+            'lines_for_cycle', 'lines_for_if', 'string_concat_number',
+            'left_spaces_var', 'right_spaces_var', 'max_left_diff_spaces',
+            'max_right_diff_spaces']
         )
 
     pool = Pool(20)

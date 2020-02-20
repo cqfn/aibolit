@@ -29,27 +29,35 @@ import time
 from multiprocessing import Pool
 from pathlib import Path
 import csv
+import sys
 
-# You need to download the archive here:
-# https://dibt.unimol.it/report/readability/files/readability.zip
-# Unzip and put it into the executable's current directory
+# You need to run `mvn clean` in metrics/halsteadvolume.
+# You will to get a jar file  in `target` directory.
+# Rename it to halstead.jar and put it into the executable's
+# current directory
 
 parser = argparse.ArgumentParser(description='Compute Readability score')
 parser.add_argument('--filename',
                     help='path for file with a list of Java files',
                     required=True)
+parser.add_argument('--max_count',
+                    help='max number of files for analyzing',
+                    default=sys.maxsize,
+                    nargs='?',
+                    type=int)
 
 args = parser.parse_args()
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 results = {}
-path = 'target/05'
+
+path = 'target/06'
 os.makedirs(path, exist_ok=True)
-csv_file = open('target/05/05_readability.csv', 'w', newline='\n')
+csv_file = open(path + '/06_halstead_volume.csv', 'w', newline='\n')
 writer = csv.writer(
     csv_file, delimiter=';',
     quotechar='"', quoting=csv.QUOTE_MINIMAL)
-writer.writerow(['filename', 'readability'])
+writer.writerow(['filename', 'halstead volume'])
 
 
 def log_result(result):
@@ -61,10 +69,7 @@ def log_result(result):
 def call_proc(cmd, java_file):
     """ This runs in a separate thread. """
     print('Running ', ' '.join(cmd))
-    p = subprocess.Popen(
-        cmd,
-        cwd=os.path.dirname(os.path.realpath(__file__)) + '/_tmp',
-        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     score = None
     if not err:
@@ -78,14 +83,19 @@ if __name__ == '__main__':
     t1 = time.time()
     pool = Pool(multiprocessing.cpu_count())
     handled_files = []
+    count = 0
 
     with open(args.filename, 'r') as f:
         for i in f.readlines():
-            java_file = str(Path(dir_path, i)).strip()
-            pool.apply_async(
-                call_proc,
-                args=(['java', '-jar', 'rsm.jar', java_file], i,),
-                callback=log_result)
+            if count < args.max_count:
+                java_file = str(Path(dir_path, i)).strip()
+                pool.apply_async(
+                    call_proc,
+                    args=(['java', '-jar', 'halstead.jar', java_file], i,),
+                    callback=log_result)
+                count += 1
+            else:
+                break
 
     pool.close()
     pool.join()

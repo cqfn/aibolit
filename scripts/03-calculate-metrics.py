@@ -1,71 +1,97 @@
-# The MIT License (MIT)
-#
-# Copyright (c) 2020 Aibolit
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included
-# in all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-
-
+import subprocess
+import pandas as pd
 import os
-import sys
-from filelock import FileLock
-import threading
-
-OUT_FILE_NAME = 'target/02/file-metrics.csv'
-THREADS_NUM = 6
 
 
-def process_files(nthread, files):
-    total = len(files)
-    chunk = round(total / THREADS_NUM)
-    m = total if chunk * (nthread + 1) > total else chunk * (nthread + 1)
-    for i in range(chunk * nthread, m):
-        process_file(files[i])
+DIR_TO_CREATE = 'target/03'
+current_location: str = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__))
+)
+print('Start metrics calculation...')
+f = open("./_tmp/pmd_out.csv", "w")
+subprocess.call([
+    './_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh', 'pmd',
+    '-cache', './_tmp/cache',
+    '-d', './target/01', '-R', 'ruleset.xml', '-f', 'csv'
+], stdout=f)
+print('Metrics have calculated.')
 
 
-def process_file(file):
-    print(file)
-    try:
-        sys.path.append('../')
-        from metrics.cc.main import CCMetric
-        from metrics.loc.loc import Loc
-        from metrics.npath.main import NPathMetric
-        m = CCMetric(file[:-1])
-        cc = m.value(False)['data'][0]['complexity']
-        m = Loc(file[:-1])
-        loc = m.value()
-        m = NPathMetric(file[:-1])
-        npath = m.value(False)['data'][0]['complexity']
-        lock_path = '{}.lock'.format(OUT_FILE_NAME)
-        lock = FileLock(lock_path, timeout=10)
-        with lock:
-            open(OUT_FILE_NAME, 'a').write('{};{};{};{}\n'.format(file[:-1], cc, loc, npath))
-    except Exception as e:
-        print(file, str(e))
+df = pd.read_csv('./_tmp/pmd_out.csv')
+df['class'] = 0
+df.loc[df['Description'].str.contains("The class"), 'class'] = 1
+rows_to_remove = df[df['class'] == 1][['File', 'class', 'Rule']]\
+    .groupby(['File', 'Rule']).filter(lambda x: len(x) > 1)['File']\
+    .unique().tolist()
+
+df[df.Rule == 'CyclomaticComplexity']['Description'].str\
+    .extract(r'complexity of (\d+)', expand=True)
+df['cyclo'] = df['Description'].str\
+    .extract(r'cyclomatic complexity of (\d+)', expand=True).astype(float)
+df['ncss'] = df['Description'].str\
+    .extract(r'NCSS line count of (\d+)', expand=True).astype(float)
+df['npath'] = df['Description']\
+    .str.extract(r'NPath complexity of (\d+)', expand=True).astype(float)
+
+class_cyclo = df[df['class'] == 1][['File', 'cyclo']].copy().dropna()\
+    .reset_index().set_index('File')
+avg_method_cyclo = df[df['class'] == 0][['File', 'cyclo']].copy()\
+    .dropna().groupby('File').mean() \
+    .reset_index() \
+    .set_index('File') \
+    .rename({'cyclo': 'cyclo_method_avg'}, axis='columns')
+
+min_method_cyclo = df[df['class'] == 0][['File', 'cyclo']].copy().dropna()\
+    .groupby('File').min().reset_index().set_index('File')\
+    .rename({'cyclo': 'cyclo_method_min'}, axis='columns')
+max_method_cyclo = df[df['class'] == 0][['File', 'cyclo']].copy().dropna()\
+    .groupby('File').max().reset_index().set_index('File')\
+    .rename({'cyclo': 'cyclo_method_max'}, axis='columns')
+
+avg_method_npath = df[df['class'] == 0][['File', 'npath']].copy().dropna()\
+    .groupby('File').mean().reset_index().set_index('File')\
+    .rename({'npath': 'npath_method_avg'}, axis='columns')
+min_method_npath = df[df['class'] == 0][['File', 'npath']].copy().dropna()\
+    .groupby('File').min().reset_index().set_index('File')\
+    .rename({'npath': 'npath_method_min'}, axis='columns')
+max_method_npath = df[df['class'] == 0][['File', 'npath']].copy().dropna()\
+    .groupby('File').max().reset_index().set_index('File')\
+    .rename({'npath': 'npath_method_max'}, axis='columns')
+
+class_ncss = df[df['class'] == 1][['File', 'ncss']].copy().dropna()\
+    .groupby('File').sum().reset_index().set_index('File')
 
 
-if __name__ == '__main__':
-    with open('target/01/found-java-files.txt', 'r') as f:
-        files = f.readlines()
-    if not os.path.isdir('02'):
-        os.makedirs('02')
-    with open(OUT_FILE_NAME, 'w+') as f:
-        f.write('file;cc;loc;npath\n')
-    for i in range(THREADS_NUM):
-        x = threading.Thread(target=process_files, args=(i, files))
-        x.start()
+avg_method_ncss = df[df['class'] == 0][['File', 'ncss']].copy().dropna()\
+    .groupby('File').mean().reset_index().set_index('File')\
+    .rename({'ncss': 'ncss_method_avg'}, axis='columns')
+min_method_ncss = df[df['class'] == 0][['File', 'ncss']].copy().dropna()\
+    .groupby('File').min().reset_index().set_index('File')\
+    .rename({'ncss': 'ncss_method_min'}, axis='columns')
+max_method_ncss = df[df['class'] == 0][['File', 'ncss']].copy().dropna()\
+    .groupby('File').max().reset_index().set_index('File')\
+    .rename({'ncss': 'ncss_method_max'}, axis='columns')
+
+keys = pd.DataFrame(df.File.unique(), columns=['File']).set_index('File')
+keys = keys.drop(rows_to_remove, axis=0)
+metrics = keys.join(class_cyclo, how='inner')\
+    .join(avg_method_cyclo, how='left')\
+    .drop(columns=['index'])\
+    .join(min_method_cyclo, how='left')\
+    .join(max_method_cyclo, how='left')\
+    .join(avg_method_npath, how='left')\
+    .join(min_method_npath, how='left')\
+    .join(max_method_npath, how='left')\
+    .join(class_ncss, how='left')\
+    .join(avg_method_ncss, how='left')\
+    .join(min_method_ncss, how='left')\
+    .join(max_method_ncss, how='left')\
+    .reset_index()\
+    .rename({'File': 'filename'}, axis='columns')\
+
+
+if not os.path.isdir(DIR_TO_CREATE):
+    os.makedirs(DIR_TO_CREATE)
+
+metrics['filename'] = metrics.filename.str.replace(current_location + '/', '')
+metrics.to_csv(DIR_TO_CREATE + '/' + 'pmd_metrics.csv', sep=';', index=False)
