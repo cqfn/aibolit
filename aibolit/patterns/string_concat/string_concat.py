@@ -28,13 +28,13 @@ class StringConcatFinder:
         return res
 
     def value(self, filename: str):
-        count = 0
         text = self.__file_to_ast(filename)
         pattern_without_quote_first = re.compile(r'(?<=([\w])\+)\"[\w]+\"')
         pattern_with_quote_first = re.compile(r'(?<=([\w]\")\+)[\w]+')
-        for i in text.splitlines():
-            t_str = i.replace(' ', '')
+        lines = []
+        for iter, line in enumerate(text.splitlines()):
+            t_str = line.replace(' ', '')
             if re.search(pattern_without_quote_first, t_str) \
                     or re.search(pattern_with_quote_first, t_str):
-                count += 1
-        return count
+                lines.append(iter)
+        return lines

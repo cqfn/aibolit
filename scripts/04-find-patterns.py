@@ -56,7 +56,7 @@ def log_result(result, file_to_write):
             quotechar='"', quoting=csv.QUOTE_MINIMAL)
         writer.writerow(
             [relative_path.as_posix(), len(result[1]), len(result[2]), len(result[3]),
-             result[4], result[1], result[2], result[3], result[6]] + result[5]
+             result[4], result[1], result[2], result[3], len(result[6]), result[6]] + result[5]
         )
 
 
@@ -84,7 +84,7 @@ if __name__ == '__main__':
         writer.writerow([
             'filename', 'var_middle_number', 'nested_for_number',
             'nested_if_number', 'entropy', 'lines_for_var_middle',
-            'lines_for_cycle', 'lines_for_if', 'string_concat_number',
+            'lines_for_cycle', 'lines_for_if', 'string_concat_number', 'string_concat_number_lines'
             'left_spaces_var', 'right_spaces_var', 'max_left_diff_spaces',
             'max_right_diff_spaces']
         )
