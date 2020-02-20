@@ -27,6 +27,7 @@ import os
 import queue as queue
 import sys
 from pathlib import Path
+import site
 
 from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder
@@ -46,8 +47,7 @@ def main():
             required=True)
 
         args = parser.parse_args()
-        cur_file_dir = Path(os.path.realpath(__file__)).parent
-        java_file = str(Path(cur_file_dir, args.filename))
+        java_file = str(Path(site.USER_SITE, args.filename))
 
         order_queue = queue.Queue()
         order_queue.put([
