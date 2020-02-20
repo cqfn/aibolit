@@ -30,15 +30,18 @@ import argparse
 
 def downloadrepos():
     parser = argparse.ArgumentParser(add_help=False)
-    parser.add_argument('--repos', type=int, required=False, default=100)
+    parser.add_argument('--nrepos', type=int, required=False, default=100)
     args = parser.parse_args()
-    repos = args.repos
+    numrepos = args.nrepos
     repos = 'target/01'
     if not os.path.isdir(repos):
         os.makedirs(repos)
     result = r.get('https://github.com/trending/java?since=daily')
     soup = BeautifulSoup(result.text)
     for city in soup.find_all('h1', {'class': 'h3 lh-condensed'}):
+        if numrepos <= 0:
+            break
+        numrepos = numrepos - 1
         path = city.a['href'].split('/')
         if not os.path.isdir(os.path.join(repos, path[len(path) - 2])):
             os.makedirs(os.path.join(repos, path[len(path) - 2]))
