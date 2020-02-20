@@ -37,7 +37,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'aibolit = aibolit.main:main'
+            'aibolit = aibolit.__main__:main'
         ],
     },
     extras_require={},
