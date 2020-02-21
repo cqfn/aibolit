@@ -2,8 +2,8 @@ assets:
   twine_token: yegor256/home#assets/aibolit/twine_token
 install: |
   export LC_ALL=en_US.UTF-8
-  pip3 install --upgrade pip
-  pip3 install twine
+  python3 -m pip install --upgrade pip
+  python3 -m pip install twine
 merge:
   script: |
     make
@@ -17,7 +17,7 @@ release:
     git add aibolit/__init__.py
     git commit -am "${tag}"
     python3 --version
-    pip3 --version
+    python3 -m pip --version
     make
     python3 setup.py sdist bdist_wheel
     python3 -m twine upload dist/* -u __token__ -p $(cat ../twine_token)
