@@ -30,6 +30,7 @@ from pathlib import Path
 
 from aibolit.metrics.entropy.entropy import Entropy
 from aibolit.metrics.spaces.SpaceCounter import SpacesCounter
+from aibolit.patterns.method_chaining.method_chaining import MethodChainFinder
 from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder
 from aibolit.patterns.var_middle.var_middle import VarMiddle
@@ -56,7 +57,8 @@ def log_result(result, file_to_write):
             quotechar='"', quoting=csv.QUOTE_MINIMAL)
         writer.writerow(
             [relative_path.as_posix(), len(result[1]), len(result[2]), len(result[3]),
-             result[4], result[1], result[2], result[3], len(result[6]), result[6]] + result[5]
+             result[4], result[1], result[2], result[3], len(result[6]), result[6], 
+             len(result[7]), result[7]] + result[5]
         )
 
 
@@ -68,7 +70,8 @@ def execute_python_code_in_parallel_thread(file):
     entropy = Entropy().value(file)
     spaces = SpacesCounter().value(file)
     concat_str_number = StringConcatFinder().value(file)
-    return file, var_numbers, nested_for_blocks, nested_if_blocks, entropy, spaces, concat_str_number
+    method_chains = MethodChainFinder().value(file)
+    return file, var_numbers, nested_for_blocks, nested_if_blocks, entropy, spaces, concat_str_number, method_chains
 
 
 if __name__ == '__main__':
@@ -84,7 +87,8 @@ if __name__ == '__main__':
         writer.writerow([
             'filename', 'var_middle_number', 'nested_for_number',
             'nested_if_number', 'entropy', 'lines_for_var_middle',
-            'lines_for_cycle', 'lines_for_if', 'string_concat_number', 'string_concat_number_lines'
+            'lines_for_cycle', 'lines_for_if', 'string_concat_number', 'string_concat_number_lines',
+            'method_chain_number', 'method_chain_string',
             'left_spaces_var', 'right_spaces_var', 'max_left_diff_spaces',
             'max_right_diff_spaces']
         )
