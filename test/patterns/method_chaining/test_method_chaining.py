@@ -61,3 +61,7 @@ class TestConcatString(TestCase):
     def test_several_chains(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'MethodChainSeveral.java'))
         assert len(lines) == 3
+    
+    def test_chain_without_object_creating(self):
+        lines = self.concat_finder.value(Path(self.dir_path, 'WithoutObjectCreating.java'))
+        assert len(lines) == 1
