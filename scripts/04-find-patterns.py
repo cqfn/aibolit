@@ -57,7 +57,7 @@ def log_result(result, file_to_write):
             quotechar='"', quoting=csv.QUOTE_MINIMAL)
         writer.writerow(
             [relative_path.as_posix(), len(result[1]), len(result[2]), len(result[3]),
-             result[4], result[1], result[2], result[3], len(result[6]), result[6], 
+             result[4], result[1], result[2], result[3], len(result[6]), result[6],
              len(result[7]), result[7]] + result[5]
         )
 
