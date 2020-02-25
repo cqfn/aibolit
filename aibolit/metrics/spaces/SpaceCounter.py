@@ -24,7 +24,6 @@ from statistics import variance
 from aibolit.utils.utils import remove_comments
 
 
-
 class SpacesCounter:
 
     def __init__(self):

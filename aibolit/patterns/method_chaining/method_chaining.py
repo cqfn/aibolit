@@ -18,6 +18,7 @@ class MethodChainFinder:
             res = javalang.parse.parse(remove_comments(file.read()))
         return res
 
+    # flake8: noqa: C901
     def value(self, filename: str):
         tree = self.__file_to_ast(filename)
         chain_list_methods = []
