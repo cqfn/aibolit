@@ -1,12 +1,38 @@
 import javalang
 
 from aibolit.utils.utils import remove_comments
+import uuid
+from collections import defaultdict
 
 
-class MethodChainFinder:
+class MethodChainFind:
 
     def __init__(self):
         pass
+
+    def traverse_node(self, node, dict_with_chains, uuid_method):
+        if not node:
+            return dict_with_chains
+
+        for item in node.children:
+            if item and (isinstance(item, tuple) or isinstance(item, list)):
+                for j in item:
+                    if isinstance(j, javalang.tree.MethodInvocation):
+                        dict_with_chains[uuid_method].append(j.member)
+                        self.traverse_node(j, dict_with_chains, uuid_method)
+
+                    elif isinstance(j, javalang.tree.MethodDeclaration):
+                        self.traverse_node(j, dict_with_chains, uuid.uuid1())
+
+                    elif isinstance(j, javalang.tree.StatementExpression):
+                        self.traverse_node(j, dict_with_chains, uuid_method)
+
+                    elif isinstance(j, javalang.tree.This) or isinstance(j, javalang.tree.ClassCreator):
+                        self.traverse_node(j, dict_with_chains, uuid.uuid1())
+            elif isinstance(item, javalang.tree.ClassCreator):
+                self.traverse_node(item, dict_with_chains, uuid_method)
+
+        return dict_with_chains
 
     def __file_to_ast(self, filename: str) -> javalang.ast.Node:
         """
@@ -20,22 +46,22 @@ class MethodChainFinder:
 
     # flake8: noqa: C901
     def value(self, filename: str):
+        """
+        Travers over AST tree finds method chaining. It is searched in a statement
+        :param filename:
+        :return:
+        List of tuples with LineNumber and List of methods names, e.g.
+        [[10, ['func1', 'fun2']], [23, ['run', 'start']]]
+        """
         tree = self.__file_to_ast(filename)
-        chain_list_methods = []
+        chain_lst = defaultdict(list)
         for path, node in tree.filter(javalang.tree.StatementExpression):
-            methods_invoked = []
             if isinstance(node.expression, javalang.tree.MethodInvocation):
                 children = node.children
-                for item in children:
-                    if item:
-                        if isinstance(item, javalang.tree.MethodInvocation):
-                            inner_children = item.children
-                            for j in inner_children:
-                                if isinstance(j, list) or isinstance(j, tuple):
-                                    for method in j:
-                                        if isinstance(method, javalang.tree.MethodInvocation):
-                                            methods_invoked.append(method.member)
-            if methods_invoked:
-                chain_list_methods.append(methods_invoked)
+                if isinstance(children[1], javalang.tree.MethodInvocation):
+                    uuid_first_method = str(uuid.uuid1())
+                    chain_lst[uuid_first_method].append(children[1].member)
+                    self.traverse_node(children[1], chain_lst, uuid_first_method)
 
-        return chain_list_methods
+        filtered_dict = list(filter(lambda elem: len(elem) > 1, chain_lst.values()))
+        return filtered_dict

@@ -30,7 +30,7 @@ from pathlib import Path
 
 from aibolit.metrics.entropy.entropy import Entropy
 from aibolit.metrics.spaces.SpaceCounter import SpacesCounter
-from aibolit.patterns.method_chaining.method_chaining import MethodChainFinder
+from aibolit.patterns.method_chaining.method_chaining import MethodChainFind
 from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder
 from aibolit.patterns.var_middle.var_middle import VarMiddle
@@ -70,7 +70,7 @@ def execute_python_code_in_parallel_thread(file):
     entropy = Entropy().value(file)
     spaces = SpacesCounter().value(file)
     concat_str_number = StringConcatFinder().value(file)
-    method_chains = MethodChainFinder().value(file)
+    method_chains = MethodChainFind().value(file)
     return file, var_numbers, nested_for_blocks, nested_if_blocks, entropy, spaces, concat_str_number, method_chains
 
 

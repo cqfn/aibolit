@@ -11,7 +11,7 @@ class Test {
         );
 
 		obj = new Object();
-		obj.set().set("A").assign("Zh").concat();
+		obj.ohhhh().set(this.govno("Zh").zhopa(whaaat).concat(whaaat)).opopo(whaaat);
 		System.out.println("asdasd" + aaa + "34234" + bbb);
         list = new ArrayList<>();
         for (int i = 0; i < 10; i++)
