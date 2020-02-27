@@ -49,7 +49,7 @@ class MethodChainFind:
         :return: Tree
         """
         with open(filename, encoding='utf-8') as file:
-            res = javalang.parse.parse(remove_comments(file.read()))
+            res = javalang.parse.parse(file.read())
         return res
 
     # flake8: noqa: C901
