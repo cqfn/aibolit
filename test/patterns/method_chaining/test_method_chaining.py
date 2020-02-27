@@ -72,7 +72,7 @@ class TestMethodChain(TestCase):
 
     def test_nested_chain_with_simple_method_invocation(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'NestedChainWithSimpleMethodInvocation.java'))
-        assert len(lines) >= 1
+        assert len(lines) == 2
 
     def test_nested_chain_complicated_structure(self):
         """
@@ -81,3 +81,7 @@ class TestMethodChain(TestCase):
         """
         lines = self.method_chain_finder.value(Path(self.dir_path, 'HolyMolyNestedChain.java'))
         assert len(lines) == 3
+
+    def test_smallest_chain(self):
+        lines = self.method_chain_finder.value(Path(self.dir_path, 'SmallestChain.java'))
+        assert len(lines) == 1
