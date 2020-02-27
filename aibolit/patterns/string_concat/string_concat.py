@@ -1,6 +1,6 @@
 import javalang
 import re
-from aibolit.utils.utils import remove_comments
+from aibolit.utils.utils import RemoveComments
 
 
 class StringConcatFinder:
@@ -15,7 +15,7 @@ class StringConcatFinder:
         :return: Tree
         """
         with open(filename, encoding='utf-8') as file:
-            res = remove_comments(file.read())
+            res = RemoveComments.remove_comments(file.read())
 
         return res
 

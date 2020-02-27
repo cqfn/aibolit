@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 from statistics import variance
-from aibolit.utils.utils import remove_comments
+from aibolit.utils.utils import RemoveComments
 
 
 class SpacesCounter:
@@ -37,7 +37,7 @@ class SpacesCounter:
         :return: list of counted spaces
         """
         with open(filename, encoding='utf-8') as file:
-            text = remove_comments(file.read())
+            text = RemoveComments.remove_comments(file.read())
             lines = []
             for x in text.splitlines():
                 line = x.replace('\n', '').replace('\t', '    ')

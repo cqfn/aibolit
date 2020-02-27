@@ -1,6 +1,5 @@
 import javalang
 
-from aibolit.utils.utils import remove_comments
 import uuid
 from collections import defaultdict
 
