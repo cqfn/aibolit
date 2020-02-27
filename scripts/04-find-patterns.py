@@ -88,7 +88,7 @@ if __name__ == '__main__':
             'filename', 'var_middle_number', 'nested_for_number',
             'nested_if_number', 'entropy', 'lines_for_var_middle',
             'lines_for_cycle', 'lines_for_if', 'string_concat_number', 'string_concat_number_lines',
-            'method_chain_number', 'method_chain_string',
+            'method_chain_number', 'method_chain_lines',
             'left_spaces_var', 'right_spaces_var', 'max_left_diff_spaces',
             'max_right_diff_spaces']
         )
