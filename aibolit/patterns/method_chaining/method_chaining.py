@@ -61,7 +61,6 @@ class MethodChainFind:
         List of tuples with LineNumber and List of methods names, e.g.
         [[10, 'func1'], [10, 'fun2']], [[23, 'run'], [23, 'start']]]
         """
-        print(filename, )
         tree = self.__file_to_ast(filename)
         chain_lst = defaultdict(list)
         for path, node in tree.filter(javalang.tree.StatementExpression):
