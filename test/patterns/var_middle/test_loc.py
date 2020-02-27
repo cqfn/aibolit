@@ -35,8 +35,3 @@ class VarMiddleTest(TestCase):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/2.java')
         assert lines == [9, 16]
-    
-    def test_bad_class(self):
-        pattern = VarMiddle()
-        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/3.java')
-        assert lines == []

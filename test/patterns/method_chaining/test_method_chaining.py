@@ -89,3 +89,7 @@ class TestMethodChain(TestCase):
     def test_fake_chain(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'FakeChain.java'))
         assert len(lines) == 0
+
+    def test_many_chains(self):
+        lines = self.method_chain_finder.value(Path(self.dir_path, 'MachineLearningGetResultsIT.java'))
+        assert len(lines) > 300
