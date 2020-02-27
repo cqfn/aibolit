@@ -85,3 +85,7 @@ class TestMethodChain(TestCase):
     def test_smallest_chain(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'SmallestChain.java'))
         assert len(lines) == 1
+
+    def test_fake_chain(self):
+        lines = self.method_chain_finder.value(Path(self.dir_path, 'FakeChain.java'))
+        assert len(lines) == 0

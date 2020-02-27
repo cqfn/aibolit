@@ -18,7 +18,7 @@ class MethodChainFind:
             if item and (isinstance(item, tuple) or isinstance(item, list)):
                 for j in item:
                     if isinstance(j, javalang.tree.MethodInvocation):
-                        if not j.qualifier:
+                        if not j.qualifier and j.qualifier != '':
                             # it means that there is method chaining
                             dict_with_chains[uuid_method].append([j.position.line, j.member])
                             self.traverse_node(j, dict_with_chains, uuid_method)
