@@ -38,10 +38,3 @@ class InstanceOf:
     def value(self, filename: str):
         tree = self.__file_to_ast(filename)
         return self.__traverse_node(tree)
-
-
-# print(InstanceOf().value(r'D:\git\aibolit\test\patterns\instanceof\InstanceOfSample.java'))
-# print(InstanceOf().value(r'D:\git\aibolit\test\patterns\instanceof\InstanceSample.java'))
-# print(InstanceOf().value(r'D:\git\aibolit\test\patterns\instanceof\InstanceOfSampleDifferentMethods.java'))
-# print(InstanceOf().value(r'D:\git\aibolit\test\patterns\instanceof\InstanceSampleDifferentMethods.java'))
-# print(InstanceOf().value(r'D:\git\aibolit\test\patterns\instanceof\InstanceSampleSeveral.java'))
