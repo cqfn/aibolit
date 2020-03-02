@@ -7,15 +7,14 @@ clean:
 	rm -rf sphinx html
 
 requirements:
-	pip3 install -r requirements.txt
-	gem install xcop
+	python3 -m pip install -r requirements.txt
 
 unittest:
 	python3 -m coverage run -m unittest discover
 	python3 aibolit --version
 
 install:
-	pip3 install .
+	python3 -m pip install .
 
 xcop:
 	xcop $(find . -name '*.xml')
