@@ -40,4 +40,3 @@ class VarMiddleTest(TestCase):
         pattern = VarDeclarationDistance(lines_th=5)
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/3.java')
         assert lines == [783, 969]
-
