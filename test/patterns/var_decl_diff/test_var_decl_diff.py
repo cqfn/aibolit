@@ -39,10 +39,5 @@ class VarMiddleTest(TestCase):
     def test_case_with_multiline_method_declaration(self):
         pattern = VarDeclarationDistance(lines_th=5)
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/3.java')
-        print('lines', lines)
-        assert lines == []
+        assert lines == [783, 969]
 
-    # def test_case_with_empty_lines(self):
-    #     pattern = VarMiddle()
-    #     lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/4.java')
-    #     assert lines == []
