@@ -3,7 +3,6 @@ assets:
 install: |
   export LC_ALL=en_US.UTF-8
   python3 -m pip install twine
-  sudo gem install xcop
 merge:
   script: |
     make
