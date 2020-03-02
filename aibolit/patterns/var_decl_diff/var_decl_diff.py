@@ -23,6 +23,7 @@
 import javalang
 from typing import List
 
+
 class VarDeclarationDistance:
     '''
     Returns lines where variable first time used but declared more than
