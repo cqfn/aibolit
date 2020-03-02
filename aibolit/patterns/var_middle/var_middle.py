@@ -72,6 +72,7 @@ class VarMiddle:
         raise ValueError('Method declaration is not found')
 
     def __get_empty_lines(self, tree: javalang.tree.CompilationUnit) -> List[int]:
+        '''Figure out lines that are either empty or multiline statements'''
         lines_with_nodes = [
             node.position.line for path, node in tree
             if hasattr(node, 'position') and node.position is not None
