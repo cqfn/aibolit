@@ -22,13 +22,48 @@
 
 import os
 from unittest import TestCase
-from aibolit.patterns.this_finder import this_finder
+from aibolit.patterns.this_finder.this_finder import ThisFinder
+from pathlib import Path
 
 
-class ThisFinderTest(TestCase):
+class TestFindThis(TestCase):
+    cur_dir = os.path.dirname(os.path.realpath(__file__))
+    pattern = ThisFinder()
+
     def test_simple(self):
-        pattern = this_finder.ThisFinder()
+        pattern = ThisFinder()
         lines = pattern.value(
             os.path.dirname(os.path.realpath(__file__)) + '/Example1.java')
         assert lines == [2, 9, 26]
 
+    def test_simple1(self):
+        lines = self.pattern.value(self.cur_dir + '/double_this.java')
+        assert lines == [5]
+
+    def test_simple2(self):
+        lines = self.pattern.value(self.cur_dir + '/init_block.java')
+        assert lines == [0]
+
+    def test_simple22(self):
+        lines = self.pattern.value(self.cur_dir + '/init_static_block.java')
+        assert lines == [0]
+
+    def test_simple3(self):
+        lines = self.pattern.value(self.cur_dir + '/multiple_super.java')
+        assert lines == [0]
+
+    def test_simple4(self):
+        lines = self.pattern.value(self.cur_dir + '/one_line_this.java')
+        assert lines == [11]
+
+    def test_simple5(self):
+        lines = self.pattern.value(self.cur_dir + '/one_line_usage.java')
+        assert lines == [6]
+
+    def test_simple6(self):
+        lines = self.pattern.value(self.cur_dir + '/super.java')
+        assert lines == [12]
+
+    # def test_simple7(self):
+    #     lines = self.pattern.value(self.cur_dir + '/holy_moly_constructor.java')
+    #     assert lines == [0]
