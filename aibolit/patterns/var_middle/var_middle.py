@@ -111,10 +111,11 @@ class JavalangImproved:
 
     def get_empty_lines(self) -> List[int]:
         '''Figure out lines that are either empty or multiline statements'''
-        lines_with_nodes = [
-            node.position.line for path, node in self.tree
-            if hasattr(node, 'position') and node.position is not None
-        ]
+        lines_with_nodes = list(map(lambda v: v.line, self.tree_to_nodes()))
+        # lines_with_nodes = [
+        #     node.position.line for path, node in self.tree
+        #     if hasattr(node, 'position') and node.position is not None
+        # ]
         max_line = max(lines_with_nodes)
         return set(range(1, max_line + 1)).difference(lines_with_nodes)
 
@@ -175,7 +176,6 @@ class VarMiddle:
 
         tree = JavalangImproved(filename)
         empty_lines = tree.get_empty_lines()
-
         m_decls = tree.filter([javalang.tree.MethodDeclaration])
         v_decls = tree.filter([
             javalang.tree.LocalVariableDeclaration,
