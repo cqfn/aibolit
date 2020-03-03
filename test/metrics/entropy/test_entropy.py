@@ -29,6 +29,5 @@ class EntropyTest(TestCase):
     def test_it_works(self):
         entropy_metric = Entropy()
         entropy = entropy_metric.value(
-            os.path.dirname(os.path.realpath(__file__)) + '/sample-1.java'
-        )
+            os.path.dirname(os.path.realpath(__file__)) + '/sample-1.java')
         self.assertGreaterEqual(entropy, 0)

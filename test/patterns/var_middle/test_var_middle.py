@@ -20,39 +20,32 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import subprocess
 import os
+from unittest import TestCase
+from aibolit.patterns.var_middle.var_middle import VarMiddle
 
 
-class HVMetric():
-    """Main Halstead Volume class."""
+class VarMiddleTest(TestCase):
+    def test_good_class(self):
+        pattern = VarMiddle()
+        lines = pattern.value(
+            os.path.dirname(os.path.realpath(__file__)) + '/1.java')
+        assert lines == []
 
-    input = ''
+    def test_bad_class(self):
+        pattern = VarMiddle()
+        lines = pattern.value(
+            os.path.dirname(os.path.realpath(__file__)) + '/2.java')
+        assert lines == [9, 16]
 
-    def __init__(self, input):
-        """Initialize class."""
-        if len(input) == 0:
-            raise ValueError('Empty file for analysis')
-        self.input = input
+    def test_case_with_multiline_method_declaration(self):
+        pattern = VarMiddle()
+        lines = pattern.value(
+            os.path.dirname(os.path.realpath(__file__)) + '/3.java')
+        assert lines == []
 
-    def value(self):
-        """Run Halstead Volume analaysis"""
-        path = os.path.abspath(
-            os.path.join(
-                os.path.dirname(__file__), '..',
-                'halsteadvolume/target/java-project-1.0-SNAPSHOT.jar'))
-        if not os.path.isfile(path):
-            hvpath = os.path.abspath(
-                os.path.join(os.path.dirname(__file__), '..',
-                             'halsteadvolume'))
-            subprocess.run(['mvn', 'clean', 'package'], cwd=hvpath)
-        result = subprocess.run(['java', '-jar', path, self.input],
-                                stdout=subprocess.PIPE)
-        out = result.stdout.decode('utf-8')
-        res = result = {
-            'data': [{
-                'file': self.input,
-                'halsteadvolume': float(out)
-            }]
-        }
-        return res
+    def test_case_with_empty_lines(self):
+        pattern = VarMiddle()
+        lines = pattern.value(
+            os.path.dirname(os.path.realpath(__file__)) + '/4.java')
+        assert lines == []

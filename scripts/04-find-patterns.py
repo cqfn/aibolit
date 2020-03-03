@@ -35,10 +35,9 @@ from aibolit.patterns.string_concat.string_concat import StringConcatFinder
 from aibolit.patterns.var_middle.var_middle import VarMiddle
 
 parser = argparse.ArgumentParser(description='Find patterns in Java files')
-parser.add_argument(
-    '--filename',
-    help='path for file with a list of Java files',
-    required=True)
+parser.add_argument('--filename',
+                    help='path for file with a list of Java files',
+                    required=True)
 
 args = parser.parse_args()
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -51,13 +50,17 @@ def log_result(result, file_to_write):
         d_path = Path(dir_path)
         relative_path = p.relative_to(d_path)
 
-        writer = csv.writer(
-            csv_file, delimiter=';',
-            quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        writer.writerow(
-            [relative_path.as_posix(), len(result[1]), len(result[2]), len(result[3]),
-             result[4], result[1], result[2], result[3], result[6]] + result[5]
-        )
+        writer = csv.writer(csv_file,
+                            delimiter=';',
+                            quotechar='"',
+                            quoting=csv.QUOTE_MINIMAL)
+        writer.writerow([
+            relative_path.as_posix(),
+            len(result[1]),
+            len(result[2]),
+            len(result[3]), result[4], result[1], result[2], result[3],
+            len(result[6]), result[6]
+        ] + result[5])
 
 
 def execute_python_code_in_parallel_thread(file):
@@ -78,16 +81,18 @@ if __name__ == '__main__':
     os.makedirs(path, exist_ok=True)
     filename = 'target/04/04-find-patterns.csv'
     with open(filename, 'w', newline='\n', encoding='utf-8') as csv_file:
-        writer = csv.writer(
-            csv_file, delimiter=';',
-            quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        writer = csv.writer(csv_file,
+                            delimiter=';',
+                            quotechar='"',
+                            quoting=csv.QUOTE_MINIMAL)
         writer.writerow([
             'filename', 'var_middle_number', 'nested_for_number',
             'nested_if_number', 'entropy', 'lines_for_var_middle',
             'lines_for_cycle', 'lines_for_if', 'string_concat_number',
+            'string_concat_number_lines'
             'left_spaces_var', 'right_spaces_var', 'max_left_diff_spaces',
-            'max_right_diff_spaces']
-        )
+            'max_right_diff_spaces'
+        ])
 
     pool = Pool(20)
     handled_files = []
@@ -95,10 +100,9 @@ if __name__ == '__main__':
     with open(args.filename, 'r') as f:
         for i in f.readlines():
             java_file = str(Path(dir_path, i)).strip()
-            pool.apply_async(
-                execute_python_code_in_parallel_thread,
-                args=(java_file,),
-                callback=log_func)
+            pool.apply_async(execute_python_code_in_parallel_thread,
+                             args=(java_file, ),
+                             callback=log_func)
 
     pool.close()
     pool.join()

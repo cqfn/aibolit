@@ -52,14 +52,18 @@ class NPathMetric():
                 os.makedirs('{}{}{}'.format(dirName, '/', self.input[0:pos1]))
                 shutil.copyfile(self.input, os.path.join(dirName, self.input))
             else:
-                raise Exception(' '.join(['File', self.input, 'does not exist']))
+                raise Exception(' '.join(
+                    ['File', self.input, 'does not exist']))
             tmppath = os.path.dirname(os.path.realpath(__file__))
-            shutil.copyfile(os.path.join(tmppath, 'pom.xml'), '{}{}'.format(root, '/pom.xml'))
-            shutil.copyfile(os.path.join(tmppath, 'npath.xml'), '{}{}'.format(root, '/npath.xml'))
+            shutil.copyfile(os.path.join(tmppath, 'pom.xml'),
+                            '{}{}'.format(root, '/pom.xml'))
+            shutil.copyfile(os.path.join(tmppath, 'npath.xml'),
+                            '{}{}'.format(root, '/npath.xml'))
             if showoutput:
                 subprocess.run(['mvn', 'pmd:pmd'], cwd=root)
             else:
-                subprocess.run(['mvn', 'pmd:pmd'], cwd=root,
+                subprocess.run(['mvn', 'pmd:pmd'],
+                               cwd=root,
                                stdout=subprocess.DEVNULL,
                                stderr=subprocess.DEVNULL)
             if os.path.isfile('{}{}'.format(root, '/target/pmd.xml')):

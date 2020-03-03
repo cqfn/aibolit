@@ -22,16 +22,24 @@
 
 import os
 from unittest import TestCase
-from aibolit.patterns.var_middle.var_middle import VarMiddle
+from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
 
 
 class VarMiddleTest(TestCase):
     def test_good_class(self):
-        pattern = VarMiddle()
-        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/1.java')
+        pattern = VarDeclarationDistance(lines_th=2)
+        lines = pattern.value(
+            os.path.dirname(os.path.realpath(__file__)) + '/1.java')
         assert lines == []
 
     def test_bad_class(self):
-        pattern = VarMiddle()
-        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/2.java')
-        assert lines == [9, 16]
+        pattern = VarDeclarationDistance(lines_th=2)
+        lines = pattern.value(
+            os.path.dirname(os.path.realpath(__file__)) + '/2.java')
+        assert lines == [13]
+
+    def test_case_with_multiline_method_declaration(self):
+        pattern = VarDeclarationDistance(lines_th=5)
+        lines = pattern.value(
+            os.path.dirname(os.path.realpath(__file__)) + '/3.java')
+        assert lines == [783, 969]
