@@ -38,19 +38,19 @@ class TestFindThis(TestCase):
 
     def test_simple1(self):
         lines = self.pattern.value(self.cur_dir + '/double_this.java')
-        assert lines == [5]
+        assert lines == [12]
 
     def test_simple2(self):
         lines = self.pattern.value(self.cur_dir + '/init_block.java')
-        assert lines == [0]
+        assert lines == []
 
     def test_simple22(self):
         lines = self.pattern.value(self.cur_dir + '/init_static_block.java')
-        assert lines == [0]
+        assert lines == []
 
     def test_simple3(self):
         lines = self.pattern.value(self.cur_dir + '/multiple_super.java')
-        assert lines == [0]
+        assert lines == []
 
     def test_simple4(self):
         lines = self.pattern.value(self.cur_dir + '/one_line_this.java')
@@ -62,8 +62,8 @@ class TestFindThis(TestCase):
 
     def test_simple6(self):
         lines = self.pattern.value(self.cur_dir + '/super.java')
-        assert lines == [12]
+        assert lines == []
 
-    # def test_simple7(self):
-    #     lines = self.pattern.value(self.cur_dir + '/holy_moly_constructor.java')
-    #     assert lines == [0]
+    def test_simple7(self):
+        lines = self.pattern.value(self.cur_dir + '/holy_moly_constructor.java')
+        assert lines == []
