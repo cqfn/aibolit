@@ -20,7 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
 import argparse
 import multiprocessing
 import os
@@ -54,9 +53,10 @@ results = {}
 path = 'target/06'
 os.makedirs(path, exist_ok=True)
 csv_file = open(path + '/06_halstead_volume.csv', 'w', newline='\n')
-writer = csv.writer(
-    csv_file, delimiter=';',
-    quotechar='"', quoting=csv.QUOTE_MINIMAL)
+writer = csv.writer(csv_file,
+                    delimiter=';',
+                    quotechar='"',
+                    quoting=csv.QUOTE_MINIMAL)
 writer.writerow(['filename', 'halstead volume'])
 
 
@@ -91,7 +91,10 @@ if __name__ == '__main__':
                 java_file = str(Path(dir_path, i)).strip()
                 pool.apply_async(
                     call_proc,
-                    args=(['java', '-jar', 'halstead.jar', java_file], i,),
+                    args=(
+                        ['java', '-jar', 'halstead.jar', java_file],
+                        i,
+                    ),
                     callback=log_result)
                 count += 1
             else:

@@ -25,8 +25,8 @@ from typing import List, Callable, Optional, Any
 
 
 class BlockType:
-    FOR = javalang.tree.ForStatement      # FOR Block Statement
-    IF = javalang.tree.IfStatement        # IF Block Statement
+    FOR = javalang.tree.ForStatement  # FOR Block Statement
+    IF = javalang.tree.IfStatement  # IF Block Statement
 
 
 class NestedBlocks:
@@ -34,7 +34,6 @@ class NestedBlocks:
     Returns lines in the file where
     nested FOR/IF blocks are located
     '''
-
     def __init__(self, max_depth: int, block_type=BlockType.FOR):
         self.max_depth = max_depth
         self.block_type = block_type
@@ -46,13 +45,11 @@ class NestedBlocks:
 
         return tree
 
-    def __for_node_depth(
-        self,
-        tree: javalang.ast.Node,
-        max_depth: int,
-        for_links: List = [],
-        for_before: int = 0
-    ) -> None:
+    def __for_node_depth(self,
+                         tree: javalang.ast.Node,
+                         max_depth: int,
+                         for_links: List = [],
+                         for_before: int = 0) -> None:
         '''
         Takes AST tree and returns list of "FOR" AST nodes of depth greater
         or equal than max_depth
@@ -70,10 +67,8 @@ class NestedBlocks:
                 self.__for_node_depth(node, max_depth, for_links, for_before)
 
     def __fold_traverse_tree(
-        self,
-        root: javalang.ast.Node,
-        f: Callable[[javalang.ast.Node], Optional[Any]]
-    ) -> [Any]:
+            self, root: javalang.ast.Node,
+            f: Callable[[javalang.ast.Node], Optional[Any]]) -> [Any]:
         '''
         Traverse AST tree and apply function to each node
         Accumulate results in the list and return
@@ -94,17 +89,16 @@ class NestedBlocks:
         '''Return line numbers in the file where patterns are found'''
         tree = self.__file_to_ast(filename)
         for_links = []
-        self.__for_node_depth(
-            tree,
-            max_depth=self.max_depth,
-            for_links=for_links
-        )
+        self.__for_node_depth(tree,
+                              max_depth=self.max_depth,
+                              for_links=for_links)
 
         def find_line_position(node: javalang.ast.Node) -> int:
             if hasattr(node, '_position'):
                 return node._position.line
             else:
                 None
+
         n_lines = [
             self.__fold_traverse_tree(for_node, find_line_position)
             for for_node in for_links

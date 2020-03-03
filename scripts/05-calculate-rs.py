@@ -20,7 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
 import argparse
 import multiprocessing
 import os
@@ -46,9 +45,10 @@ results = {}
 path = 'target/05'
 os.makedirs(path, exist_ok=True)
 csv_file = open('target/05/05_readability.csv', 'w', newline='\n')
-writer = csv.writer(
-    csv_file, delimiter=';',
-    quotechar='"', quoting=csv.QUOTE_MINIMAL)
+writer = csv.writer(csv_file,
+                    delimiter=';',
+                    quotechar='"',
+                    quoting=csv.QUOTE_MINIMAL)
 writer.writerow(['filename', 'readability'])
 
 
@@ -61,10 +61,11 @@ def log_result(result):
 def call_proc(cmd, java_file):
     """ This runs in a separate thread. """
     print('Running ', ' '.join(cmd))
-    p = subprocess.Popen(
-        cmd,
-        cwd=os.path.dirname(os.path.realpath(__file__)) + '/_tmp',
-        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(cmd,
+                         cwd=os.path.dirname(os.path.realpath(__file__)) +
+                         '/_tmp',
+                         stdout=subprocess.PIPE,
+                         stderr=subprocess.PIPE)
     out, err = p.communicate()
     score = None
     if not err:
@@ -82,10 +83,12 @@ if __name__ == '__main__':
     with open(args.filename, 'r') as f:
         for i in f.readlines():
             java_file = str(Path(dir_path, i)).strip()
-            pool.apply_async(
-                call_proc,
-                args=(['java', '-jar', 'rsm.jar', java_file], i,),
-                callback=log_result)
+            pool.apply_async(call_proc,
+                             args=(
+                                 ['java', '-jar', 'rsm.jar', java_file],
+                                 i,
+                             ),
+                             callback=log_result)
 
     pool.close()
     pool.join()

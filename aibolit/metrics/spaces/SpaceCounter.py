@@ -25,17 +25,14 @@ import re
 
 
 class SpacesCounter:
-
     def __init__(self):
         pass
 
     def remove_comments(self, string):
         # remove all occurrences streamed comments (/*COMMENT */) from string
-        string = re.sub(re.compile(r"/\*.*?\*/", re.DOTALL), "",
-                        string)
+        string = re.sub(re.compile(r"/\*.*?\*/", re.DOTALL), "", string)
         # remove all occurrence single-line comments (//COMMENT\n ) from string
-        string = re.sub(re.compile(r"//.*?\n"), "",
-                        string)
+        string = re.sub(re.compile(r"//.*?\n"), "", string)
         return string
 
     def __file_to_tokens(self, filename: str):
@@ -62,15 +59,15 @@ class SpacesCounter:
         prev_right = len(lines[0])
         for i, line in enumerate(lines):
             first_non_space_symbol_pos = len(line) - len(line.lstrip(' '))
-            spaces_per_line.append(
-                [i,
-                 # count the difference between the position of first symbol in cur string and
-                 # the position of first symbol of previous string
-                 first_non_space_symbol_pos - prev_left,
-                 # count the difference between the position of last symbol in cur string and
-                 # the position of last symbol of previous string
-                 len(line) - prev_right
-                 ])
+            spaces_per_line.append([
+                i,
+                # count the difference between the position of first symbol in cur string and
+                # the position of first symbol of previous string
+                first_non_space_symbol_pos - prev_left,
+                # count the difference between the position of last symbol in cur string and
+                # the position of last symbol of previous string
+                len(line) - prev_right
+            ])
             prev_left = first_non_space_symbol_pos
             prev_right = len(line)
 
@@ -78,5 +75,7 @@ class SpacesCounter:
         right_space_variance = variance([x[2] for x in spaces_per_line])
         max_left_space_diff = max([abs(x[1]) for x in spaces_per_line])
         max_right_space_diff = max([abs(x[2]) for x in spaces_per_line])
-        return [left_space_variance, right_space_variance,
-                max_left_space_diff, max_right_space_diff]
+        return [
+            left_space_variance, right_space_variance, max_left_space_diff,
+            max_right_space_diff
+        ]

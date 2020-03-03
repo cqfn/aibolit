@@ -43,11 +43,13 @@ class TestInstanceOf(TestCase):
         assert len(self.testClass.value(file)) == 1
 
     def test_instance_of_different_methods(self):
-        file = str(Path(self.cur_file_dir, 'InstanceOfSampleDifferentMethods.java'))
+        file = str(
+            Path(self.cur_file_dir, 'InstanceOfSampleDifferentMethods.java'))
         assert len(self.testClass.value(file)) == 2
 
     def test_instance_different_methods(self):
-        file = str(Path(self.cur_file_dir, 'InstanceSampleDifferentMethods.java'))
+        file = str(
+            Path(self.cur_file_dir, 'InstanceSampleDifferentMethods.java'))
         assert len(self.testClass.value(file)) == 2
 
     def test_instance_of_several(self):

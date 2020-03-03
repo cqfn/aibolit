@@ -48,7 +48,8 @@ class JavaTestCase(unittest.TestCase):
             file = 'test/metrics/cc/ooo1.java'
             metric = CCMetric(file)
             res = metric.value(True)
-        self.assertTrue('File test/metrics/cc/ooo1.java does not exist' == str(context.exception))
+        self.assertTrue('File test/metrics/cc/ooo1.java does not exist' == str(
+            context.exception))
 
         file = 'test/metrics/cc/OtherClass.java'
         metric = CCMetric(file)
