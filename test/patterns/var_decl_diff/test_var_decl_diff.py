@@ -46,4 +46,3 @@ class VarMiddleTest(TestCase):
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/4.java')
         print(lines)
         assert lines == [14, 18]
-    
