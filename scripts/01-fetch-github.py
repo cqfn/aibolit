@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+
 import subprocess
 import os
 import requests as r
@@ -44,11 +45,8 @@ def downloadrepos():
         path = city.a['href'].split('/')
         if not os.path.isdir(os.path.join(repos, path[len(path) - 2])):
             os.makedirs(os.path.join(repos, path[len(path) - 2]))
-        if not os.path.isdir(
-                os.path.join(repos, path[len(path) - 2], path[len(path) - 1])):
-            subprocess.run([
-                'git', 'clone', 'https://github.com' + city.a['href'] + '.git'
-            ],
+        if not os.path.isdir(os.path.join(repos, path[len(path) - 2], path[len(path) - 1])):
+            subprocess.run(['git', 'clone', 'https://github.com' + city.a['href'] + '.git'],
                            cwd=os.path.join(repos, path[len(path) - 2]))
 
 

@@ -26,8 +26,8 @@ from enum import Enum
 
 
 class NodeType(Enum):
-    VAR = 1  # Variable Declaration
-    METHOD = 2  # Method Declaration
+    VAR = 1      # Variable Declaration
+    METHOD = 2   # Method Declaration
 
 
 class VarMiddle:
@@ -35,6 +35,7 @@ class VarMiddle:
     Returns lines in the file where variables declared in the middle
     of the method
     '''
+
     def __init__(self):
         pass
 
@@ -45,8 +46,7 @@ class VarMiddle:
 
         return tree
 
-    def __check_var_declaration(self, pos: int, line_to_node_map,
-                                empty_lines: List[int]) -> bool:
+    def __check_var_declaration(self, pos: int, line_to_node_map, empty_lines: List[int]) -> bool:
         '''
         Check that VAR declaration line is near the method declaration
         Args:
@@ -71,8 +71,7 @@ class VarMiddle:
             i -= 1
         raise ValueError('Method declaration is not found')
 
-    def __get_empty_lines(self,
-                          tree: javalang.tree.CompilationUnit) -> List[int]:
+    def __get_empty_lines(self, tree: javalang.tree.CompilationUnit) -> List[int]:
         '''Figure out lines that are either empty or multiline statements'''
         lines_with_nodes = [
             node.position.line for path, node in tree
@@ -94,6 +93,6 @@ class VarMiddle:
         line_to_node_map = dict(m_poss + v_poss)
 
         return [
-            line for line, _ in v_poss if not self.__check_var_declaration(
-                line, line_to_node_map, empty_lines)
+            line for line, _ in v_poss
+            if not self.__check_var_declaration(line, line_to_node_map, empty_lines)
         ]

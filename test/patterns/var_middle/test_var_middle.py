@@ -28,24 +28,20 @@ from aibolit.patterns.var_middle.var_middle import VarMiddle
 class VarMiddleTest(TestCase):
     def test_good_class(self):
         pattern = VarMiddle()
-        lines = pattern.value(
-            os.path.dirname(os.path.realpath(__file__)) + '/1.java')
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/1.java')
         assert lines == []
 
     def test_bad_class(self):
         pattern = VarMiddle()
-        lines = pattern.value(
-            os.path.dirname(os.path.realpath(__file__)) + '/2.java')
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/2.java')
         assert lines == [9, 16]
 
     def test_case_with_multiline_method_declaration(self):
         pattern = VarMiddle()
-        lines = pattern.value(
-            os.path.dirname(os.path.realpath(__file__)) + '/3.java')
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/3.java')
         assert lines == []
 
     def test_case_with_empty_lines(self):
         pattern = VarMiddle()
-        lines = pattern.value(
-            os.path.dirname(os.path.realpath(__file__)) + '/4.java')
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/4.java')
         assert lines == []
