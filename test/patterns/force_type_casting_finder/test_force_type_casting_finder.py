@@ -43,4 +43,3 @@ class ForceTypeCastingFinderTest(TestCase):
         lines = pattern.value(
             os.path.dirname(os.path.realpath(__file__)) + '/3.java')
         assert lines == []
-
