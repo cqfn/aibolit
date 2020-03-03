@@ -29,6 +29,7 @@ class VarDeclarationDistance:
     Returns lines where variable first time used but declared more than
     specific number of lined before
     '''
+
     def __init__(self, lines_th: int):
         self.__lines_th = lines_th
 
@@ -40,8 +41,7 @@ class VarDeclarationDistance:
         return tree
 
     def __process_node(self, node):
-        line = node.position.line if hasattr(
-            node, 'position') and node.position is not None else None
+        line = node.position.line if hasattr(node, 'position') and node.position is not None else None
         qualifier = node.qualifier if hasattr(node, 'qualifier') else None
         member = node.member if hasattr(node, 'member') else None
         name = node.name if hasattr(node, 'name') else None
@@ -51,13 +51,9 @@ class VarDeclarationDistance:
             "ntype": type(node)
         }
 
-    def __tree_to_list(self,
-                       tree: javalang.tree.CompilationUnit) -> List[object]:
+    def __tree_to_list(self, tree: javalang.tree.CompilationUnit) -> List[object]:
         '''Convert AST tree to list of object'''
-        items = [
-            self.__process_node(node) for path, node in tree
-            if node is not None
-        ]
+        items = [self.__process_node(node) for path, node in tree if node is not None]
 
         # fill missed line numbers
         last_line_number = None
@@ -70,8 +66,7 @@ class VarDeclarationDistance:
 
         return items
 
-    def __get_empty_lines(self,
-                          tree: javalang.tree.CompilationUnit) -> List[int]:
+    def __get_empty_lines(self, tree: javalang.tree.CompilationUnit) -> List[int]:
         '''Figure out lines that are either empty or multiline statements'''
         lines_with_nodes = [
             node.position.line for path, node in tree
@@ -94,24 +89,19 @@ class VarDeclarationDistance:
                 continue
 
             if (item['ntype'] == javalang.tree.VariableDeclarator):
-                vars[item['name']] = {
-                    'decl': item['line'],
-                    'first_usage': None
-                }
+                vars[item['name']] = {'decl': item['line'], 'first_usage': None}
                 continue
 
             if (item['ntype'] == javalang.tree.VariableDeclarator):
                 vars[item['name']] = {'decl': item['line']}
                 continue
 
-            if item['name'] in vars.keys(
-            ) and vars[item['name']]['first_usage'] is None:
+            if item['name'] in vars.keys() and vars[item['name']]['first_usage'] is None:
                 vars[item['name']]['first_usage'] = item['line']
 
         return var_scopes
 
-    def __line_diff(self, usage_line: int, declaration_line: int,
-                    empty_lines: List[int]) -> int:
+    def __line_diff(self, usage_line: int, declaration_line: int, empty_lines: List[int]) -> int:
         '''
         Calculate line difference between variable declaration and first usage
         taking into account empty lines
@@ -133,8 +123,11 @@ class VarDeclarationDistance:
                 if scope[var]['first_usage'] is None:
                     continue
 
-                line_diff = self.__line_diff(scope[var]['first_usage'],
-                                             scope[var]['decl'], empty_lines)
+                line_diff = self.__line_diff(
+                    scope[var]['first_usage'],
+                    scope[var]['decl'],
+                    empty_lines
+                )
                 if line_diff < self.__lines_th:
                     continue
 

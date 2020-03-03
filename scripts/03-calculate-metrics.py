@@ -2,17 +2,20 @@ import subprocess
 import pandas as pd
 import os
 
+
 DIR_TO_CREATE = 'target/03'
 current_location: str = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+    os.path.join(os.getcwd(), os.path.dirname(__file__))
+)
 print('Start metrics calculation...')
 f = open("./_tmp/pmd_out.csv", "w")
 subprocess.call([
-    './_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh', 'pmd', '-cache',
-    './_tmp/cache', '-d', './target/01', '-R', 'ruleset.xml', '-f', 'csv'
-],
-                stdout=f)
+    './_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh', 'pmd',
+    '-cache', './_tmp/cache',
+    '-d', './target/01', '-R', 'ruleset.xml', '-f', 'csv'
+], stdout=f)
 print('Metrics have calculated.')
+
 
 df = pd.read_csv('./_tmp/pmd_out.csv')
 df['class'] = 0
@@ -85,6 +88,7 @@ metrics = keys.join(class_cyclo, how='inner')\
     .join(max_method_ncss, how='left')\
     .reset_index()\
     .rename({'File': 'filename'}, axis='columns')\
+
 
 if not os.path.isdir(DIR_TO_CREATE):
     os.makedirs(DIR_TO_CREATE)

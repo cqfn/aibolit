@@ -2,6 +2,7 @@ import javalang
 
 
 class InstanceOf:
+
     def __init__(self):
         pass
 

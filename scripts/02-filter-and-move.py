@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+
 import argparse
 import itertools
 import multiprocessing
@@ -31,7 +32,10 @@ from pathlib import Path
 import pandas as pd
 
 parser = argparse.ArgumentParser(description='Filter important java files')
-parser.add_argument('--dir', help='dir for Java files search', required=True)
+parser.add_argument(
+    '--dir',
+    help='dir for Java files search',
+    required=True)
 parser.add_argument('--max_classes', type=int, required=False, default=None)
 args = parser.parse_args()
 MAX_CLASSES = args.max_classes
@@ -42,7 +46,8 @@ CSV_OUT = '02-java-files.csv'
 DIR_TO_CREATE = 'target/02'
 FILE_TO_SAVE = '02-java-files.csv'
 current_location: str = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+    os.path.join(os.getcwd(), os.path.dirname(__file__))
+)
 
 
 class ClassType(Enum):
@@ -102,14 +107,15 @@ def worker(filename):
 def walk_in_parallel():
     with multiprocessing.Pool(20) as pool:
         walk = os.walk(args.dir)
-        fn_gen = itertools.chain.from_iterable((os.path.join(root, file)
-                                                for file in files)
-                                               for root, dirs, files in walk)
+        fn_gen = itertools.chain.from_iterable(
+            (os.path.join(root, file)
+             for file in files)
+            for root, dirs, files in walk)
 
         results = pool.map(worker, fn_gen)
 
     top_n = MAX_CLASSES if MAX_CLASSES is not None else len(results)
-    return [v for v in results if len(v) > 0][0:top_n]
+    return [v for v in results if len(v) > 0][0: top_n]
 
 
 if __name__ == '__main__':

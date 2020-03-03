@@ -1,10 +1,10 @@
 assets:
   twine_token: yegor256/home#assets/aibolit/twine_token
-install: |
-  python3 -m pip install twine
 architects:
   - yegor256
   - acheshkov
+install: |
+  python3 -m pip install twine
 merge:
   script: |
     make
