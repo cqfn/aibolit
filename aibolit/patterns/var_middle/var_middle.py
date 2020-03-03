@@ -46,22 +46,45 @@ class VarMiddle:
 
         return tree
 
-    def __check_var_declaration(self, pos: int, line_to_node_map) -> bool:
+    def __check_var_declaration(self, pos: int, line_to_node_map, empty_lines: List[int]) -> bool:
+        '''
+        Check that VAR declaration line is near the method declaration
+        Args:
+            pos (int): Line number we are going to check.
+            line_to_node_map (Map Int Node): Map line number to node object
+
+        Returns:
+            bool: True if VAR declaration is near method declaration
+        '''
+
         if line_to_node_map.get(pos) != NodeType.VAR:
             raise ValueError('Variable declaration line is expected!')
         i = pos - 1
         while i > 0:
             if line_to_node_map.get(i) == NodeType.METHOD:
                 return True
+            if i in empty_lines:
+                i -= 1
+                continue
             if line_to_node_map.get(i) is None:
                 return False
             i -= 1
         raise ValueError('Method declaration is not found')
 
+    def __get_empty_lines(self, tree: javalang.tree.CompilationUnit) -> List[int]:
+        '''Figure out lines that are either empty or multiline statements'''
+        lines_with_nodes = [
+            node.position.line for path, node in tree
+            if hasattr(node, 'position') and node.position is not None
+        ]
+        max_line = max(lines_with_nodes)
+        return set(range(1, max_line + 1)).difference(lines_with_nodes)
+
     def value(self, filename: str) -> List[int]:
         ''''''
         line_to_node_map = {}
         tree = self.__file_to_ast(filename)
+        empty_lines = self.__get_empty_lines(tree)
 
         m_decls = tree.filter(javalang.tree.MethodDeclaration)
         v_decls = tree.filter(javalang.tree.LocalVariableDeclaration)
@@ -71,5 +94,5 @@ class VarMiddle:
 
         return [
             line for line, _ in v_poss
-            if not self.__check_var_declaration(line, line_to_node_map)
+            if not self.__check_var_declaration(line, line_to_node_map, empty_lines)
         ]
