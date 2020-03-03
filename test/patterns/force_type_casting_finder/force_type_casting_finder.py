@@ -8,7 +8,7 @@ class ForceTypeCastingFinder:
             tree = javalang.parse.parse(file.read())
 
         return tree
-    
+
     def __process_node(self, node):
         line = node.position.line if hasattr(node, 'position') and node.position is not None else None
         qualifier = node.qualifier if hasattr(node, 'qualifier') else None
@@ -34,7 +34,7 @@ class ForceTypeCastingFinder:
             item['line'] = last_line_number
 
         return items
-    
+
     def value(self, filename: str):
         ''''''
         tree = self.__file_to_ast(filename)
