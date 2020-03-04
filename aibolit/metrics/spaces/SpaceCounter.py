@@ -21,22 +21,13 @@
 # SOFTWARE.
 
 from statistics import variance
-import re
+from aibolit.utils.utils import RemoveComments
 
 
 class SpacesCounter:
 
     def __init__(self):
         pass
-
-    def remove_comments(self, string):
-        # remove all occurrences streamed comments (/*COMMENT */) from string
-        string = re.sub(re.compile(r"/\*.*?\*/", re.DOTALL), "",
-                        string)
-        # remove all occurrence single-line comments (//COMMENT\n ) from string
-        string = re.sub(re.compile(r"//.*?\n"), "",
-                        string)
-        return string
 
     def __file_to_tokens(self, filename: str):
         """
@@ -46,7 +37,7 @@ class SpacesCounter:
         :return: list of counted spaces
         """
         with open(filename, encoding='utf-8') as file:
-            text = self.remove_comments(file.read())
+            text = RemoveComments.remove_comments(file.read())
             lines = []
             for x in text.splitlines():
                 line = x.replace('\n', '').replace('\t', '    ')
