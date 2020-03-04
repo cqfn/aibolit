@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+
 from setuptools import setup, find_packages
 import aibolit
 
@@ -35,15 +36,19 @@ setup(
     license=aibolit.__licence__,
     packages=find_packages(),
     entry_points={
-        'console_scripts': ['aibolit = aibolit.__main__:main'],
+        'console_scripts': [
+            'aibolit = aibolit.__main__:main'
+        ],
     },
     extras_require={},
     install_requires=[],
     tests_require=[],
     classifiers=[
-        'Programming Language :: Python', 'Environment :: Console',
+        'Programming Language :: Python',
+        'Environment :: Console',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
-        'Topic :: Software Development', 'Topic :: Utilities'
+        'Topic :: Software Development',
+        'Topic :: Utilities'
     ],
 )

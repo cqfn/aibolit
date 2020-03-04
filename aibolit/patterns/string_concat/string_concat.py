@@ -1,17 +1,12 @@
 import javalang
 import re
+from aibolit.utils.utils import RemoveComments
 
 
 class StringConcatFinder:
+
     def __init__(self):
         pass
-
-    def remove_comments(self, string):
-        # remove all occurrences streamed comments (/*COMMENT */) from string
-        string = re.sub(re.compile(r"/\*.*?\*/", re.DOTALL), "", string)
-        # remove all occurrence single-line comments (//COMMENT\n ) from string
-        string = re.sub(re.compile(r"//.*?\n"), "", string)
-        return string
 
     def __file_to_ast(self, filename: str) -> javalang.ast.Node:
         """
@@ -20,7 +15,7 @@ class StringConcatFinder:
         :return: Tree
         """
         with open(filename, encoding='utf-8') as file:
-            res = self.remove_comments(file.read())
+            res = RemoveComments.remove_comments(file.read())
 
         return res
 

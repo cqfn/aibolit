@@ -31,18 +31,15 @@ class TestConcatString(TestCase):
     concat_finder = StringConcatFinder()
 
     def test_concat_strings_in_print(self):
-        lines = self.concat_finder.value(
-            Path(self.dir_path, 'ConcatInPrint.java'))
+        lines = self.concat_finder.value(Path(self.dir_path, 'ConcatInPrint.java'))
         assert len(lines) == 1
 
     def test_member_plus_string(self):
-        lines = self.concat_finder.value(
-            Path(self.dir_path, 'MemberPlusString.java'))
+        lines = self.concat_finder.value(Path(self.dir_path, 'MemberPlusString.java'))
         assert len(lines) == 1
 
     def test_multiple_concat(self):
-        lines = self.concat_finder.value(
-            Path(self.dir_path, 'MultipleConcat.java'))
+        lines = self.concat_finder.value(Path(self.dir_path, 'MultipleConcat.java'))
         assert len(lines) == 1
 
     def test_empty_case(self):
@@ -50,21 +47,17 @@ class TestConcatString(TestCase):
         assert len(lines) == 0
 
     def test_string_plus_member(self):
-        lines = self.concat_finder.value(
-            Path(self.dir_path, 'StringPlusMember.java'))
+        lines = self.concat_finder.value(Path(self.dir_path, 'StringPlusMember.java'))
         assert len(lines) == 1
 
     def test_many_concats(self):
-        lines = self.concat_finder.value(
-            Path(self.dir_path, 'ManyConcats.java'))
+        lines = self.concat_finder.value(Path(self.dir_path, 'ManyConcats.java'))
         assert len(lines) == 4
 
     def test_concat_in_different_methods(self):
-        lines = self.concat_finder.value(
-            Path(self.dir_path, 'DifferentMethods.java'))
+        lines = self.concat_finder.value(Path(self.dir_path, 'DifferentMethods.java'))
         assert len(lines) == 2
 
     def test_fake_operator_plus(self):
-        lines = self.concat_finder.value(
-            Path(self.dir_path, 'FakePlusOperator.java'))
+        lines = self.concat_finder.value(Path(self.dir_path, 'FakePlusOperator.java'))
         assert len(lines) == 0

@@ -31,6 +31,7 @@ from pathlib import Path
 from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder
 from aibolit.patterns.var_middle.var_middle import VarMiddle
+from aibolit.patterns.method_chaining.method_chaining import MethodChainFind
 from aibolit import __version__
 
 
@@ -40,13 +41,13 @@ def main():
         depth_for = 2
         depth_if = 2
         parser = argparse.ArgumentParser(
-            description=
-            'Find the pattern which has the largest impact on readability')
-        parser.add_argument('--filename', help='path for Java file')
+            description='Find the pattern which has the largest impact on readability'
+        )
         parser.add_argument(
-            '--version',
-            action='version',
-            version='%(prog)s {version}'.format(version=__version__))
+            '--filename',
+            help='path for Java file')
+        parser.add_argument('--version', action='version',
+                            version='%(prog)s {version}'.format(version=__version__))
 
         args = parser.parse_args(args=None if sys.argv[1:] else ['--help'])
 
@@ -56,32 +57,31 @@ def main():
             order_queue = queue.Queue()
             order_queue.put([
                 VarMiddle().value(java_file),
-                'variable declaration in the middle of the function'
-            ])
+                'variable declaration in the middle of the function'])
             order_queue.put([
-                NestedBlocks(depth_for,
-                             block_type=BlockType.FOR).value(java_file),
-                'nested for cycle with depth = {}'.format(depth_for)
-            ])
+                NestedBlocks(depth_for, block_type=BlockType.FOR).value(java_file),
+                'nested for cycle with depth = {}'.format(depth_for)])
             order_queue.put([
-                NestedBlocks(depth_if,
-                             block_type=BlockType.IF).value(java_file),
-                'nested if condition with depth = 2'.format(depth_if)
-            ])
+                NestedBlocks(depth_if, block_type=BlockType.IF).value(java_file),
+                'nested if condition with depth = 2'.format(depth_if)])
+            order_queue.put([
+                MethodChainFind().value(java_file),
+                'method chaining'])
             order_queue.put([
                 StringConcatFinder().value(java_file),
-                'string concatenation with operator +'
-            ])
+                'string concatenation with operator +'])
 
-            lines, output_string = order_queue.get()
-            if not lines:
-                print('Your code is perfect in aibolit\'s opinion')
-            for line in lines:
-                if line:
-                    print('Line {}. Low readability due to: {}'.format(
-                        line, output_string))
-            order_queue.task_done()
-            exit_status = 0
+            lines = None
+            while not lines:
+                order_queue.task_done()
+                lines, output_string = order_queue.get()
+                for line in lines:
+                    if line:
+                        print('Line {}. Low readability due to: {}'.format(
+                            line,
+                            output_string
+                        ))
+                exit_status = 0
     except KeyboardInterrupt:
         exit_status = -1
     sys.exit(exit_status)
