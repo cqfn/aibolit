@@ -30,6 +30,7 @@ class ThisFinder:
             tree = javalang.parse.parse(file.read())
 
         return tree
+    # flake8: noqa: C901
     def value(self, filename: str):
         tree = self.__file_to_ast(filename)
         num_str = []
