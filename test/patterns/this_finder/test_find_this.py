@@ -22,7 +22,7 @@
 
 import os
 from unittest import TestCase
-from aibolit.patterns.this_finder.this_finder import ThisFinder
+from this_finder import ThisFinder
 from pathlib import Path
 
 
@@ -48,17 +48,13 @@ class TestFindThis(TestCase):
         lines = self.pattern.value(self.cur_dir + '/init_static_block.java')
         assert lines == []
 
-    def test_simple3(self):
-        lines = self.pattern.value(self.cur_dir + '/multiple_super.java')
-        assert lines == []
-
     def test_simple4(self):
         lines = self.pattern.value(self.cur_dir + '/one_line_this.java')
         assert lines == [11]
 
     def test_simple5(self):
         lines = self.pattern.value(self.cur_dir + '/one_line_usage.java')
-        assert lines == [6]
+        assert lines == [12]
 
     def test_simple6(self):
         lines = self.pattern.value(self.cur_dir + '/super.java')
