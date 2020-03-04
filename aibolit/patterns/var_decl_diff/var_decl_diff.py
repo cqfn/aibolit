@@ -42,40 +42,10 @@ class VarDeclarationDistance:
         return tree
 
     def __node_name(self, node) -> Optional[str]:
-        # line = node.position.line if hasattr(node, 'position') and node.position is not None else None
         qualifier = node.qualifier if hasattr(node, 'qualifier') else None
         member = node.member if hasattr(node, 'member') else None
         name = node.name if hasattr(node, 'name') else None
         return qualifier or member or name
-        # return {
-        #     "line": line,
-        #     "name": qualifier or member or name,
-        #     "ntype": type(node)
-        # }
-
-    # def __tree_to_list(self, tree: javalang.tree.CompilationUnit) -> List[object]:
-    #     '''Convert AST tree to list of object'''
-    #     items = [self.__process_node(node) for path, node in tree if node is not None]
-
-    #     # fill missed line numbers
-    #     last_line_number = None
-
-    #     for item in items:
-    #         if (item['line']) is not None:
-    #             last_line_number = item['line']
-    #             continue
-    #         item['line'] = last_line_number
-
-    #     return items
-
-    # def __get_empty_lines(self, tree: javalang.tree.CompilationUnit) -> List[int]:
-    #     '''Figure out lines that are either empty or multiline statements'''
-    #     lines_with_nodes = [
-    #         node.position.line for path, node in tree
-    #         if hasattr(node, 'position') and node.position is not None
-    #     ]
-    #     max_line = max(lines_with_nodes)
-    #     return set(range(1, max_line + 1)).difference(lines_with_nodes)
 
     def __group_vars_by_method(self, items: List[Tuple[ASTNode, str]]) -> List[object]:
         '''
