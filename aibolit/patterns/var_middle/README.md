@@ -1,6 +1,7 @@
 Find variable declaration lines in the middle of method
 ---
 
+
 Python usage example:
 
 ```python

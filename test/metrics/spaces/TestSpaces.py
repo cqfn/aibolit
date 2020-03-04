@@ -28,7 +28,6 @@ from pathlib import Path
 
 class TestSpaces(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
-    print(dir_path)
     pattern = IndentationCounter()
 
     def test_class_with_best_ident(self):
