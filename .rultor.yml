@@ -4,6 +4,7 @@ architect:
   - yegor256
   - acheshkov
 install: |
+  sudo gem install xcop
   python3 -m pip install twine
 merge:
   script: |
