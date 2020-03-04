@@ -38,6 +38,7 @@ from aibolit.patterns.supermethod.supermethod import SuperMethod
 from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import ForceTypeCastingFinder
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder
 from aibolit.patterns.var_middle.var_middle import VarMiddle
+from aibolit.patterns.this_finder.this_finder import ThisFinder
 
 parser = argparse.ArgumentParser(description='Find patterns in Java files')
 parser.add_argument(
@@ -82,6 +83,7 @@ def execute_python_code_in_parallel_thread(file):
     var_decl_diff_lines = VarDeclarationDistance().value(file)
     super_m_lines = SuperMethod().value(file)
     for_type_cast_lines = ForceTypeCastingFinder.value(file)
+    this_lines = ThisFinder().value(file)
     p = Path(file)
     d_path = Path(dir_path)
     relative_path = p.relative_to(d_path)
@@ -98,8 +100,10 @@ def execute_python_code_in_parallel_thread(file):
         'var_decl_diff_number': len(var_decl_diff_lines),
         'super_method_call_number': len(super_m_lines),
         'for_type_cast_number': len(for_type_cast_lines),
+        'this_find_number': len(this_lines),
         # lines info about feature location
         'lines_instance_of_number': instance_of_lines,
+        'lines_this_find': this_lines,
         'lines_method_chain_number': method_chain_lines,
         'lines_var_decl_diff_number': var_decl_diff_lines,
         'lines_super_method_call_number': super_m_lines,
