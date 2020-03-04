@@ -45,3 +45,13 @@ class VarMiddleTest(TestCase):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/4.java')
         assert lines == []
+
+    def test_case_autoclosable(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/5.java')
+        assert lines == [20, 21]
+
+    def test_case_nested_class(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/6.java')
+        assert lines == [10, 22, 30, 33]
