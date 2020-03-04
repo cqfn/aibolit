@@ -53,21 +53,17 @@ def main():
         if args:
             java_file = str(Path(os.getcwd(), args.filename))
 
-            order_queue = queue.Queue()
-            order_queue.put([
+            order_queue = [[
                 VarMiddle().value(java_file),
-                'variable declaration in the middle of the function'])
-            order_queue.put([
+                'variable declaration in the middle of the function'], [
                 NestedBlocks(depth_for, block_type=BlockType.FOR).value(java_file),
-                'nested for cycle with depth = {}'.format(depth_for)])
-            order_queue.put([
+                'nested for cycle with depth = {}'.format(depth_for)], [
                 NestedBlocks(depth_if, block_type=BlockType.IF).value(java_file),
-                'nested if condition with depth = 2'.format(depth_if)])
-            order_queue.put([
+                'nested if condition with depth = 2'.format(depth_if)], [
                 StringConcatFinder().value(java_file),
-                'string concatenation with operator +'])
+                'string concatenation with operator +']]
 
-            lines, output_string = order_queue.get()
+            lines, output_string = order_queue[0]
             if not lines:
                 print('Your code is perfect in aibolit\'s opinion')
             for line in lines:
@@ -76,7 +72,6 @@ def main():
                         line,
                         output_string
                     ))
-            order_queue.task_done()
             exit_status = 0
     except KeyboardInterrupt:
         exit_status = -1
