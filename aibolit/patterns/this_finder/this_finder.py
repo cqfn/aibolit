@@ -62,5 +62,3 @@ class ThisFinder:
                             break
                     flag_else = 1
         return sorted(list(set(num_str)))
-
-print(ThisFinder().value(r'D:\temp\aibolit\test\patterns\this_finder\temp.java'))
