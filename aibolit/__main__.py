@@ -24,14 +24,13 @@
 """
 import argparse
 import os
-import queue as queue
 import sys
 from pathlib import Path
 
+from aibolit import __version__
 from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder
 from aibolit.patterns.var_middle.var_middle import VarMiddle
-from aibolit import __version__
 
 
 def main():
