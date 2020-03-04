@@ -44,7 +44,7 @@ class TestFindThis(TestCase):
     def test_simple22(self):
         lines = self.pattern.value(self.cur_dir + '/init_static_block.java')
         assert lines == []
-    
+
     def test_simple3(self):
         lines = self.pattern.value(self.cur_dir + '/autocloseable.java')
         assert lines == [4]
