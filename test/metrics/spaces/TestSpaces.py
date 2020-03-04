@@ -22,14 +22,14 @@
 
 import os
 from unittest import TestCase
-from aibolit.metrics.spaces.SpaceCounter import SpacesCounter
+from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
 from pathlib import Path
 
 
 class TestSpaces(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
     print(dir_path)
-    pattern = SpacesCounter()
+    pattern = IndentationCounter()
 
     def test_class_with_best_ident(self):
         lines = self.pattern.value(Path(self.dir_path, 'BestIdent.java'))

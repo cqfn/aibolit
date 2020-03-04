@@ -24,7 +24,7 @@ from statistics import variance
 import re
 
 
-class SpacesCounter:
+class IndentationCounter:
 
     def __init__(self):
         pass
