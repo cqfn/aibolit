@@ -39,7 +39,13 @@ class ThisFinder:
             flag_super = 0
             flag_this = 0
             flag_else = 0
-            for expr in stats:
+            for expr1 in stats:
+                expr = expr1
+                if isinstance(expr, javalang.tree.TryStatement):
+                    if (expr.resources is not None) or (expr.catches[0].block != []) or (expr.finally_block != []):
+                        num_str.append(number)
+                        break
+                    expr = expr1.block
                 if isinstance(expr, javalang.tree.StatementExpression):
                     if isinstance(expr.expression, javalang.tree.SuperConstructorInvocation):
                         if flag_this + flag_else != 0:
@@ -61,4 +67,5 @@ class ThisFinder:
                             num_str.append(number)
                             break
                     flag_else = 1
+            
         return sorted(list(set(num_str)))
