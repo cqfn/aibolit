@@ -21,7 +21,8 @@
 # SOFTWARE.
 
 import javalang
-from typing import List
+from typing import List, Optional, Tuple
+from aibolit.patterns.var_middle.var_middle import JavalangImproved, ASTNode
 
 
 class VarDeclarationDistance:
@@ -40,64 +41,76 @@ class VarDeclarationDistance:
 
         return tree
 
-    def __process_node(self, node):
-        line = node.position.line if hasattr(node, 'position') and node.position is not None else None
+    def __node_name(self, node) -> Optional[str]:
+        # line = node.position.line if hasattr(node, 'position') and node.position is not None else None
         qualifier = node.qualifier if hasattr(node, 'qualifier') else None
         member = node.member if hasattr(node, 'member') else None
         name = node.name if hasattr(node, 'name') else None
-        return {
-            "line": line,
-            "name": qualifier or member or name,
-            "ntype": type(node)
-        }
+        return qualifier or member or name
+        # return {
+        #     "line": line,
+        #     "name": qualifier or member or name,
+        #     "ntype": type(node)
+        # }
 
-    def __tree_to_list(self, tree: javalang.tree.CompilationUnit) -> List[object]:
-        '''Convert AST tree to list of object'''
-        items = [self.__process_node(node) for path, node in tree if node is not None]
+    # def __tree_to_list(self, tree: javalang.tree.CompilationUnit) -> List[object]:
+    #     '''Convert AST tree to list of object'''
+    #     items = [self.__process_node(node) for path, node in tree if node is not None]
 
-        # fill missed line numbers
-        last_line_number = None
+    #     # fill missed line numbers
+    #     last_line_number = None
 
-        for item in items:
-            if (item['line']) is not None:
-                last_line_number = item['line']
-                continue
-            item['line'] = last_line_number
+    #     for item in items:
+    #         if (item['line']) is not None:
+    #             last_line_number = item['line']
+    #             continue
+    #         item['line'] = last_line_number
 
-        return items
+    #     return items
 
-    def __get_empty_lines(self, tree: javalang.tree.CompilationUnit) -> List[int]:
-        '''Figure out lines that are either empty or multiline statements'''
-        lines_with_nodes = [
-            node.position.line for path, node in tree
-            if hasattr(node, 'position') and node.position is not None
-        ]
-        max_line = max(lines_with_nodes)
-        return set(range(1, max_line + 1)).difference(lines_with_nodes)
+    # def __get_empty_lines(self, tree: javalang.tree.CompilationUnit) -> List[int]:
+    #     '''Figure out lines that are either empty or multiline statements'''
+    #     lines_with_nodes = [
+    #         node.position.line for path, node in tree
+    #         if hasattr(node, 'position') and node.position is not None
+    #     ]
+    #     max_line = max(lines_with_nodes)
+    #     return set(range(1, max_line + 1)).difference(lines_with_nodes)
 
-    def __group_vars_by_method(self, items: List[object]) -> List[object]:
+    def __group_vars_by_method(self, items: List[Tuple[ASTNode, str]]) -> List[object]:
         '''
         Group variables by method scope and calculate for each the declaration
         line and first usage line
         '''
         var_scopes = []
         vars = {}
-        for item in items:
-            if item['ntype'] in [javalang.tree.MethodDeclaration]:
-                vars = {}
-                var_scopes += [vars]
-                continue
+        unique_methods = list(set(
+            map(lambda v: v[0].method_line, items)
+        ))
 
-            if (item['ntype'] == javalang.tree.VariableDeclarator):
-                vars[item['name']] = {'decl': item['line'], 'first_usage': None}
-                continue
+        for method in unique_methods:
+            method_items = map(
+                lambda v: {"line": v[0].line, "name": v[1], "ntype": type(v[0].node)},
+                filter(lambda v: v[0].method_line == method, items)
+            )
+            vars = {}
+            var_scopes += [vars]
+            for item in method_items:
+                if item['ntype'] in [javalang.tree.MethodDeclaration]:
+                    vars = {}
+                    var_scopes += [vars]
+                    continue
 
-            if (item['ntype'] == javalang.tree.VariableDeclarator):
-                vars[item['name']] = {'decl': item['line']}
-                continue
+                if (item['ntype'] == javalang.tree.VariableDeclarator):
+                    vars[item['name']] = {'decl': item['line'], 'first_usage': None}
+                    continue
 
-            if item['name'] in vars.keys() and vars[item['name']]['first_usage'] is None:
-                vars[item['name']]['first_usage'] = item['line']
+                if (item['ntype'] == javalang.tree.VariableDeclarator):
+                    vars[item['name']] = {'decl': item['line']}
+                    continue
+
+                if item['name'] in vars.keys() and vars[item['name']]['first_usage'] is None:
+                    vars[item['name']]['first_usage'] = item['line']
 
         return var_scopes
 
@@ -111,12 +124,13 @@ class VarDeclarationDistance:
 
     def value(self, filename: str) -> List[int]:
         ''''''
-
-        tree = self.__file_to_ast(filename)
-        items = self.__tree_to_list(tree)
+        tree = JavalangImproved(filename)
+        empty_lines = tree.get_empty_lines()
+        items = tree.tree_to_nodes()
+        items = list(
+            map(lambda v: (v, self.__node_name(v.node)), items)
+        )
         var_scopes = self.__group_vars_by_method(items)
-        empty_lines = self.__get_empty_lines(tree)
-
         violations = []
         for scope in var_scopes:
             for var in scope:
