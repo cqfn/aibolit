@@ -95,7 +95,8 @@ def worker(filename):
     """
     results = []
     if filename.lower().endswith('.java'):
-        if filename.lower().endswith('test.java'):
+        if filename.lower().endswith('test.java') or \
+                any([x == 'test' for x in Path(filename).parts]):
             class_type = ClassType.TEST
         else:
             class_type = get_class_type(filename)
@@ -105,7 +106,7 @@ def worker(filename):
 
 
 def walk_in_parallel():
-    with multiprocessing.Pool(20) as pool:
+    with multiprocessing.Pool(1) as pool:
         walk = os.walk(args.dir)
         fn_gen = itertools.chain.from_iterable(
             (os.path.join(root, file)
