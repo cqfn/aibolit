@@ -106,7 +106,7 @@ def worker(filename):
 
 
 def walk_in_parallel():
-    with multiprocessing.Pool(1) as pool:
+    with multiprocessing.Pool(multiprocessing.cpu_count()) as pool:
         walk = os.walk(args.dir)
         fn_gen = itertools.chain.from_iterable(
             (os.path.join(root, file)
