@@ -96,7 +96,7 @@ def worker(filename):
     results = []
     if filename.lower().endswith('.java'):
         if filename.lower().endswith('test.java') or \
-                any([x == 'test' for x in Path(filename).parts]):
+                any([x.find('test') > -1 for x in Path(filename).parts]):
             class_type = ClassType.TEST
         else:
             class_type = get_class_type(filename)
@@ -129,6 +129,7 @@ if __name__ == '__main__':
     path_csv_out = str(Path(current_location, DIR_TO_CREATE, CSV_OUT))
     path_txt_out = str(Path(current_location, DIR_TO_CREATE, TXT_OUT))
     df = pd.DataFrame(results, columns=['filename', 'class_type'])
+    df = df[df['class_type'] == 999]
     df.to_csv(path_csv_out, index=False)
     df['filename'].to_csv(path_txt_out, header=None, index=None)
     end = time.time()
