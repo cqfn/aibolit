@@ -120,7 +120,7 @@ def execute_python_code_in_parallel_thread(file_local_dir):
             'max_left_diff_spaces': max_left_space_diff,
             'max_right_diff_spaces': max_right_space_diff,
         }
-    except Exception as e:
+    except Exception:
         return None
 
 
@@ -129,7 +129,7 @@ if __name__ == '__main__':
 
     path = 'target/04'
     os.makedirs(path, exist_ok=True)
-    filename = Path(path, '04-find-patterns-multithreaded.csv')
+    filename = Path(path, '04-find-patterns.csv')
     fields = [
         'filename',
         # lines number
@@ -189,7 +189,7 @@ if __name__ == '__main__':
                         fieldnames=fields)
                     writer.writerow(result)
                     csv_file.flush()
-            except Exception as e:
+            except Exception:
                 print('IMap has failed')
                 continue
 
