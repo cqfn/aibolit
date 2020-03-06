@@ -26,20 +26,19 @@ import multiprocessing
 import os
 import time
 from functools import partial
-from multiprocessing import Pool
 from pathlib import Path
 
 from aibolit.metrics.entropy.entropy import Entropy
 from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
-from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
+from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import ForceTypeCastingFinder
 from aibolit.patterns.instanceof.instance_of import InstanceOf
 from aibolit.patterns.method_chaining.method_chaining import MethodChainFind
-from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
-from aibolit.patterns.supermethod.supermethod import SuperMethod
-from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import ForceTypeCastingFinder
+from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder
-from aibolit.patterns.var_middle.var_middle import VarMiddle
+from aibolit.patterns.supermethod.supermethod import SuperMethod
 from aibolit.patterns.this_finder.this_finder import ThisFinder
+from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
+from aibolit.patterns.var_middle.var_middle import VarMiddle
 
 parser = argparse.ArgumentParser(description='Find patterns in Java files')
 parser.add_argument(
