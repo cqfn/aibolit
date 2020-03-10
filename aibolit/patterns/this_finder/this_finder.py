@@ -30,6 +30,8 @@ class ThisFinder:
             tree = javalang.parse.parse(file.read())
 
         return tree
+
+    # flake8: noqa: C901
     def value(self, filename: str):
         tree = self.__file_to_ast(filename)
         num_str = []
@@ -64,8 +66,8 @@ class ThisFinder:
                         flag_else = 1
                 else:
                     if flag_this + flag_super != 0:
-                            num_str.append(number)
-                            break
+                        num_str.append(number)
+                        break
                     flag_else = 1
-            
+
         return sorted(list(set(num_str)))
