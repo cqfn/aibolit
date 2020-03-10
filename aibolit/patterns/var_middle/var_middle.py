@@ -94,7 +94,12 @@ class JavalangImproved:
             for node in nodes_arr:
                 if not hasattr(node, 'children'):
                     continue
-                res += self.__tree_to_nodes(node, line, parent_method_line)
+                left_siblings_line = res[-1].line if len(res) > 0 else line
+                res += self.__tree_to_nodes(
+                    node,
+                    left_siblings_line,
+                    parent_method_line
+                )
 
         return [ASTNode(line, parent_method_line, tree)] + res
 

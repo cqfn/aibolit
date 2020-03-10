@@ -24,7 +24,7 @@ from statistics import variance
 from aibolit.utils.utils import RemoveComments
 
 
-class SpacesCounter:
+class IndentationCounter:
 
     def __init__(self):
         pass
