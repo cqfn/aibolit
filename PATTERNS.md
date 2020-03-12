@@ -67,7 +67,7 @@ public int square (int n) {
 
 *Code:* **string_concat**
 
-*Description*: Any usage string concatenation using ````+``` operator is considered
+*Description*: Any usage string concatenation using ```+``` operator is considered
 as pattern match. 
 
 *Examples*:
