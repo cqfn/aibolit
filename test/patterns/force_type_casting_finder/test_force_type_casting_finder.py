@@ -22,26 +22,24 @@
 
 import os
 from unittest import TestCase
-from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
+from aibolit.patterns.force_type_casting_finder import force_type_casting_finder
 
 
-class VarMiddleTest(TestCase):
-    def test_good_class(self):
-        pattern = VarDeclarationDistance(lines_th=2)
-        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/1.java')
+class ForceTypeCastingFinderTest(TestCase):
+    def test_simple(self):
+        pattern = force_type_casting_finder.ForceTypeCastingFinder()
+        lines = pattern.value(
+            os.path.dirname(os.path.realpath(__file__)) + '/1.java')
+        assert lines == [5]
+
+    def test_several_casts(self):
+        pattern = force_type_casting_finder.ForceTypeCastingFinder()
+        lines = pattern.value(
+            os.path.dirname(os.path.realpath(__file__)) + '/2.java')
+        assert lines == [5, 11, 17]
+
+    def test_zero_lines(self):
+        pattern = force_type_casting_finder.ForceTypeCastingFinder()
+        lines = pattern.value(
+            os.path.dirname(os.path.realpath(__file__)) + '/3.java')
         assert lines == []
-
-    def test_bad_class(self):
-        pattern = VarDeclarationDistance(lines_th=2)
-        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/2.java')
-        assert lines == [13]
-
-    def test_bad_class2(self):
-        pattern = VarDeclarationDistance(lines_th=5)
-        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/3.java')
-        assert lines == [783, 969]
-
-    def test_case_with_multiline_function_arguments(self):
-        pattern = VarDeclarationDistance(lines_th=2)
-        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/4.java')
-        assert lines == [14, 18]
