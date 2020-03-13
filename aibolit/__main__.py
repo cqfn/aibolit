@@ -40,11 +40,21 @@ from multiprocessing import Pool
 from pathlib import Path
 import csv
 import sys
+from aibolit.metrics.entropy.entropy import Entropy
+from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
+from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import ForceTypeCastingFinder
+from aibolit.patterns.instanceof.instance_of import InstanceOf
+from aibolit.patterns.method_chaining.method_chaining import MethodChainFind
+from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
+from aibolit.patterns.string_concat.string_concat import StringConcatFinder
+from aibolit.patterns.supermethod.supermethod import SuperMethod
+from aibolit.patterns.this_finder.this_finder import ThisFinder
+from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
+from aibolit.patterns.var_middle.var_middle import VarMiddle
 
 
 def find_halstead(java_file):
-    halstead_dir = str(Path(Path(os.getcwd()).parent, r'aibolit\scripts\halstead.jar'))
-    cmd = ['java', '-jar', halstead_dir, java_file]
+    cmd = ['java', '-jar', 'halstead.jar', java_file]
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     score = None
@@ -59,7 +69,7 @@ def find_ncss(java_file):
     return 0
 
 
-def predict(halstead_volume, ncss):
+def predict(input_params):
     # Run model, return gradient and return list of patterns
     return ['var_middle', 'string_concat']
 
@@ -85,8 +95,46 @@ def main():
         if args:
             java_file = str(Path(os.getcwd(), args.filename))
             halstead_volume = find_halstead(java_file)
-            ncss_value = find_halstead(java_file)
-            order_queue = predict(halstead_volume, ncss_value)
+            ncss_value = find_ncss(java_file)
+            var_numbers = VarMiddle().value(java_file)
+            nested_for_blocks = NestedBlocks(2, block_type=BlockType.FOR).value(java_file)
+            nested_if_blocks = NestedBlocks(2, block_type=BlockType.IF).value(java_file)
+            entropy = Entropy().value(java_file)
+            left_space_variance, right_space_variance, max_left_space_diff, max_right_space_diff \
+                = IndentationCounter().value(java_file)
+            concat_str_number = StringConcatFinder().value(java_file)
+            instance_of_lines = InstanceOf().value(java_file)
+            method_chain_lines = MethodChainFind().value(java_file)
+            var_decl_diff_lines_5 = VarDeclarationDistance(lines_th=5).value(java_file)
+            var_decl_diff_lines_7 = VarDeclarationDistance(lines_th=7).value(java_file)
+            var_decl_diff_lines_11 = VarDeclarationDistance(lines_th=11).value(java_file)
+            super_m_lines = SuperMethod().value(java_file)
+            for_type_cast_lines = ForceTypeCastingFinder().value(java_file)
+            this_lines = ThisFinder().value(java_file)
+            print(halstead_volume)
+            input_params = {
+                'halstead volume': halstead_volume,
+                'ncss_avg': ncss_value,
+                'var_middle_number': len(var_numbers),
+                'nested_for_number': len(nested_for_blocks),
+                'nested_if_number': len(nested_if_blocks),
+                'string_concat_number': len(concat_str_number),
+                'instance_of_number': len(instance_of_lines),
+                'method_chain_number': len(method_chain_lines),
+                'var_decl_diff_number_5': len(var_decl_diff_lines_5),
+                'var_decl_diff_number_7': len(var_decl_diff_lines_7),
+                'var_decl_diff_number_11': len(var_decl_diff_lines_11),
+                'super_method_call_number': len(super_m_lines),
+                'for_type_cast_number': len(for_type_cast_lines),
+                'this_find_number': len(this_lines),
+                'entropy': entropy,
+                'left_spaces_var': left_space_variance,
+                'right_spaces_var': right_space_variance,
+                'max_left_diff_spaces': max_left_space_diff,
+                'max_right_diff_spaces': max_right_space_diff,
+            }
+
+            order_queue = predict(input_params)
             pattern_name = order_queue[0]
             pattern = patterns_dict.get(pattern_name)
             lines = pattern.value(java_file)

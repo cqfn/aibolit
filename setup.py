@@ -51,4 +51,6 @@ setup(
         'Topic :: Software Development',
         'Topic :: Utilities'
     ],
+    include_package_data=True,
+    package_data={'': ['halstead.jar']},
 )
