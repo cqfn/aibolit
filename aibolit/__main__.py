@@ -31,13 +31,46 @@ from aibolit import __version__
 from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder
 from aibolit.patterns.var_middle.var_middle import VarMiddle
+import argparse
+import multiprocessing
+import os
+import subprocess
+import time
+from multiprocessing import Pool
+from pathlib import Path
+import csv
+import sys
+
+
+def find_halstead(java_file):
+    halstead_dir = str(Path(Path(os.getcwd()).parent, r'aibolit\scripts\halstead.jar'))
+    cmd = ['java', '-jar', halstead_dir, java_file]
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err = p.communicate()
+    score = None
+    if not err:
+        score = float(out.decode().split('readability:')[-1].strip())
+    else:
+        print('Error when running: {}'.format(err))
+    return score
+
+
+def find_ncss(java_file):
+    return 0
+
+
+def predict(halstead_volume, ncss):
+    # Run model, return gradient and return list of patterns
+    return ['var_middle', 'string_concat']
 
 
 def main():
     exit_status = -1
+    patterns_dict = {
+        'var_middle': VarMiddle(),
+        'string_concat': StringConcatFinder()
+    }
     try:
-        depth_for = 2
-        depth_if = 2
         parser = argparse.ArgumentParser(
             description='Find the pattern which has the largest impact on readability'
         )
@@ -51,25 +84,19 @@ def main():
 
         if args:
             java_file = str(Path(os.getcwd(), args.filename))
-
-            order_queue = [[
-                VarMiddle().value(java_file),
-                'variable declaration in the middle of the function'], [
-                NestedBlocks(depth_for, block_type=BlockType.FOR).value(java_file),
-                'nested for cycle with depth = {}'.format(depth_for)], [
-                NestedBlocks(depth_if, block_type=BlockType.IF).value(java_file),
-                'nested if condition with depth = 2'.format(depth_if)], [
-                StringConcatFinder().value(java_file),
-                'string concatenation with operator +']]
-
-            lines, output_string = order_queue[0]
+            halstead_volume = find_halstead(java_file)
+            ncss_value = find_halstead(java_file)
+            order_queue = predict(halstead_volume, ncss_value)
+            pattern_name = order_queue[0]
+            pattern = patterns_dict.get(pattern_name)
+            lines = pattern.value(java_file)
             if not lines:
                 print('Your code is perfect in aibolit\'s opinion')
             for line in lines:
                 if line:
                     print('Line {}. Low readability due to: {}'.format(
                         line,
-                        output_string
+                        pattern_name
                     ))
             exit_status = 0
     except KeyboardInterrupt:
