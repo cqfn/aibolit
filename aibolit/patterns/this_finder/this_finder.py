@@ -30,7 +30,7 @@ class ThisFinder:
             tree = javalang.parse.parse(file.read())
 
         return tree
-
+    # flake8: noqa: C901
     def __work_with_stats(self, stats, flag_this, flag_else):
         for expr in stats:
             if isinstance(expr, javalang.tree.TryStatement):
