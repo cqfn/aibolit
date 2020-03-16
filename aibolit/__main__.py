@@ -77,7 +77,8 @@ def predict(input_params):
 
     # load model to cpu
     model = Net()
-    model.load_state_dict(torch.load('binary_files/model.dat', map_location='cpu'))
+    model_path = Path(dir_path, 'binary_files/model.dat')
+    model.load_state_dict(torch.load(model_path, map_location='cpu'))
     model.eval()
 
     input = [input_params[i] for i in features_order]

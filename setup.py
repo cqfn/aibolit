@@ -56,6 +56,8 @@ setup(
     ],
     include_package_data=True,
     package_data={
-        'aibolit': ['binary_files/halstead.jar']
+        'aibolit': [
+            'binary_files/halstead.jar',
+            'binary_files/model.dat']
     },
 )
