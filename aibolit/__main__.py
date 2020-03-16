@@ -22,24 +22,14 @@
 # SOFTWARE.
 """The main entry point. Invoke as `aibolit' or `python -m aibolit'.
 """
+
 import argparse
 import os
+import subprocess
 import sys
 from pathlib import Path
 
 from aibolit import __version__
-from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
-from aibolit.patterns.string_concat.string_concat import StringConcatFinder
-from aibolit.patterns.var_middle.var_middle import VarMiddle
-import argparse
-import multiprocessing
-import os
-import subprocess
-import time
-from multiprocessing import Pool
-from pathlib import Path
-import csv
-import sys
 from aibolit.metrics.entropy.entropy import Entropy
 from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
 from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import ForceTypeCastingFinder
@@ -52,16 +42,19 @@ from aibolit.patterns.this_finder.this_finder import ThisFinder
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
 from aibolit.patterns.var_middle.var_middle import VarMiddle
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
 
 def find_halstead(java_file):
-    cmd = ['java', '-jar', 'halstead.jar', java_file]
+    halstead_binary_path = Path(dir_path, 'binary_files/halstead.jar')
+    cmd = ['java', '-jar', halstead_binary_path, java_file]
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     score = None
     if not err:
         score = float(out.decode().split('readability:')[-1].strip())
     else:
-        print('Error when running: {}'.format(err))
+        raise Exception('Error when running: {}'.format(err))
     return score
 
 
@@ -70,6 +63,8 @@ def find_ncss(java_file):
 
 
 def predict(input_params):
+    # make a certain order of arguments
+    # pass it to model
     # Run model, return gradient and return list of patterns
     return ['var_middle', 'string_concat']
 

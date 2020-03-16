@@ -24,6 +24,9 @@
 from setuptools import setup, find_packages
 import aibolit
 
+found_packages = find_packages()
+print('Found packages: {}'.format(str(found_packages)))
+
 setup(
     name='aibolit',
     version=aibolit.__version__,
@@ -52,5 +55,7 @@ setup(
         'Topic :: Utilities'
     ],
     include_package_data=True,
-    package_data={'': ['halstead.jar']},
+    package_data={
+        'aibolit': ['binary_files/halstead.jar']
+    },
 )
