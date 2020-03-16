@@ -28,6 +28,8 @@ import os
 import subprocess
 import sys
 from pathlib import Path
+import torch
+from collections import OrderedDict
 
 from aibolit import __version__
 from aibolit.metrics.entropy.entropy import Entropy
@@ -41,6 +43,7 @@ from aibolit.patterns.supermethod.supermethod import SuperMethod
 from aibolit.patterns.this_finder.this_finder import ThisFinder
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
 from aibolit.patterns.var_middle.var_middle import VarMiddle
+from aibolit.model.model import Net
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -63,18 +66,54 @@ def find_ncss(java_file):
 
 
 def predict(input_params):
-    # make a certain order of arguments
-    # pass it to model
+    # make a certain order of arguments which was used by a model
+    features_order = [
+        'var_middle_number', 'string_concat_number', 'instance_of_number',
+        'method_chain_number', 'var_decl_diff_number_11', 'var_decl_diff_number_7',
+        'var_decl_diff_number_5', 'super_method_call_number', 'force_type_cast_number',
+        'entropy', 'halstead volume', 'ncss_method_avg', 'left_spaces_var', 'right_spaces_var',
+        'max_left_diff_spaces', 'max_right_diff_spaces'
+    ]
+
+    # load model to cpu
+    model = Net()
+    model.load_state_dict(torch.load('binary_files/model.dat', map_location='cpu'))
+    model.eval()
+
+    # device = torch.device("cpu")
+    # input = torch.randn(1, 16).to(device)
+    # input = [-29, 0, 0, 0, 0, 0, 0, 0, 0, 2.7425765614918953, 98.9912279734977, 0, 3.5555555555555554, 101.37777777777777, 4, 19]
+    input = [input_params[i] for i in features_order]
+    x = torch.FloatTensor(input)
+
     # Run model, return gradient and return list of patterns
-    return ['var_middle', 'string_concat']
+    x.requires_grad_(True)
+    out = model(x)
+    out.backward()
+    results = x.grad
+    sorted_result = OrderedDict(
+        sorted(
+            dict(zip(features_order, results)).items(),
+            key=lambda x: abs(x[1].double()),
+            reverse=True
+        )
+    )
+    return sorted_result
 
 
 def main():
     exit_status = -1
-    patterns_dict = {
-        'var_middle': VarMiddle(),
-        'string_concat': StringConcatFinder()
-    }
+    patterns_list = [
+        'var_middle_number',
+        'string_concat_number',
+        'instance_of_number',
+        'method_chain_number',
+        'var_decl_diff_number_11',
+        'var_decl_diff_number_7',
+        'var_decl_diff_number_5',
+        'super_method_call_number',
+        'force_type_cast_number',
+    ]
     try:
         parser = argparse.ArgumentParser(
             description='Find the pattern which has the largest impact on readability'
@@ -106,10 +145,23 @@ def main():
             super_m_lines = SuperMethod().value(java_file)
             for_type_cast_lines = ForceTypeCastingFinder().value(java_file)
             this_lines = ThisFinder().value(java_file)
-            print(halstead_volume)
+            code_lines_dict = {
+                'instance_of_number': instance_of_lines,
+                'lines_this_find': this_lines,
+                'method_chain_number': method_chain_lines,
+                'var_decl_diff_number_5': var_decl_diff_lines_5,
+                'var_decl_diff_number_7': var_decl_diff_lines_7,
+                'var_decl_diff_number_11': var_decl_diff_lines_11,
+                'super_method_call_number': super_m_lines,
+                'force_type_cast_number': for_type_cast_lines,
+                'string_concat_number': concat_str_number,
+                'var_middle_number': var_numbers,
+                'nested_for_number': nested_for_blocks,
+                'nested_if_number': nested_if_blocks,
+            }
             input_params = {
                 'halstead volume': halstead_volume,
-                'ncss_avg': ncss_value,
+                'ncss_method_avg': ncss_value,
                 'var_middle_number': len(var_numbers),
                 'nested_for_number': len(nested_for_blocks),
                 'nested_if_number': len(nested_if_blocks),
@@ -120,27 +172,37 @@ def main():
                 'var_decl_diff_number_7': len(var_decl_diff_lines_7),
                 'var_decl_diff_number_11': len(var_decl_diff_lines_11),
                 'super_method_call_number': len(super_m_lines),
-                'for_type_cast_number': len(for_type_cast_lines),
+                'force_type_cast_number': len(for_type_cast_lines),
                 'this_find_number': len(this_lines),
                 'entropy': entropy,
                 'left_spaces_var': left_space_variance,
                 'right_spaces_var': right_space_variance,
                 'max_left_diff_spaces': max_left_space_diff,
-                'max_right_diff_spaces': max_right_space_diff,
+                'max_right_diff_spaces': max_right_space_diff
             }
 
-            order_queue = predict(input_params)
-            pattern_name = order_queue[0]
-            pattern = patterns_dict.get(pattern_name)
-            lines = pattern.value(java_file)
-            if not lines:
+            sorted_result = predict(input_params)
+            print('The contribution list of each patterns correspondingly for file {}:'.format(java_file))
+            found_pattern = False
+            code_lines = None
+            for iter, (key, val) in enumerate(sorted_result.items()):
+                if key in patterns_list:
+                    if not found_pattern:
+                        pattern = key
+                        code_lines = code_lines_dict.get(key)
+                        if code_lines:
+                            found_pattern = True
+                    print('Pattern: {}, contribution: {}'.format(key, val))
+
+            if not code_lines:
                 print('Your code is perfect in aibolit\'s opinion')
-            for line in lines:
-                if line:
-                    print('Line {}. Low readability due to: {}'.format(
-                        line,
-                        pattern_name
-                    ))
+            else:
+                for line in code_lines:
+                    if line:
+                        print('Line {}. Low readability due to: {}'.format(
+                            line,
+                            pattern
+                        ))
             exit_status = 0
     except KeyboardInterrupt:
         exit_status = -1
