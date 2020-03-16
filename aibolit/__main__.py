@@ -80,9 +80,6 @@ def predict(input_params):
     model.load_state_dict(torch.load('binary_files/model.dat', map_location='cpu'))
     model.eval()
 
-    # device = torch.device("cpu")
-    # input = torch.randn(1, 16).to(device)
-    # input = [-29, 0, 0, 0, 0, 0, 0, 0, 0, 2.7425765614918953, 98.9912279734977, 0, 3.5555555555555554, 101.37777777777777, 4, 19]
     input = [input_params[i] for i in features_order]
     x = torch.FloatTensor(input)
 
@@ -101,6 +98,7 @@ def predict(input_params):
     return sorted_result
 
 
+# flake8: noqa
 def main():
     exit_status = -1
     patterns_list = [
