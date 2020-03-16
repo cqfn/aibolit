@@ -96,7 +96,7 @@ def worker(filename):
     results = []
     if filename.lower().endswith('.java'):
         if filename.lower().endswith('test.java') or \
-                any([x.find('test') > -1 for x in Path(filename).parts]):
+                any([x.lower().find('test') > -1 for x in Path(filename).parts]):
             class_type = ClassType.TEST
         else:
             class_type = get_class_type(filename)
