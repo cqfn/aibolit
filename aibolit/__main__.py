@@ -191,7 +191,6 @@ def main():
                         code_lines = code_lines_dict.get(key)
                         if code_lines:
                             found_pattern = True
-                    print('Pattern: {}, contribution: {}'.format(key, val))
 
             if not code_lines:
                 print('Your code is perfect in aibolit\'s opinion')
