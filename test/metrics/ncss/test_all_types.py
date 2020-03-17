@@ -21,53 +21,43 @@
 # SOFTWARE.
 
 import unittest
-from aibolit.metrics.npath.ncss import NCSSMetric
+from aibolit.metrics.ncss.ncss import NCSSMetric
 
 
-class JavaTestCase(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super(JavaTestCase, cls).setUpClass()
-        
-    def testLowScore(self):
-        super(JavaTestCase, self).setUp()
+class TestNCSSMetric(unittest.TestCase): 
+    def testZeroScore(self):
         file = 'test/metrics/ncss/Empty.java'
         metric = NCSSMetric(file)
         res = metric.value()
+        print("IM HERE")
         self.assertEqual(res, 0)
 
     def testLowScore(self):
-        super(JavaTestCase, self).setUp()
         file = 'test/metrics/ncss/GraalSDK.java'
         metric = NCSSMetric(file)
         res = metric.value()
         self.assertEqual(res, 2)
-        
+
     def testMediumScore(self):
-        super(JavaTestCase, self).setUp()
         file = 'test/metrics/ncss/WorkflowRunActionRepetitionDefinitionInner.java'
         metric = NCSSMetric(file)
         res = metric.value()
         self.assertEqual(res, 73)
-        
+
     def testHighScore(self):
-        super(JavaTestCase, self).setUp()
         file = 'test/metrics/ncss/YarnConfiguration.java'
         metric = NCSSMetric(file)
         res = metric.value()
         self.assertEqual(res, 1301)
-    
+
     def testBasicExample(self):
-        super(JavaTestCase, self).setUp()
         file = 'test/metrics/ncss/BasicExample.java'
         metric = NCSSMetric(file)
         res = metric.value()
         self.assertEqual(res, 12)
-        
+
     def testAnotherScore(self):
-        super(JavaTestCase, self).setUp()
         file = 'test/metrics/ncss/WebAppsImpl.java'
         metric = NCSSMetric(file)
         res = metric.value()
         self.assertEqual(res, 1429)
-        
