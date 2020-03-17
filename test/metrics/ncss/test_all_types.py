@@ -29,7 +29,6 @@ class TestNCSSMetric(unittest.TestCase):
         file = 'test/metrics/ncss/Empty.java'
         metric = NCSSMetric(file)
         res = metric.value()
-        print("IM HERE")
         self.assertEqual(res, 0)
 
     def testLowScore(self):
