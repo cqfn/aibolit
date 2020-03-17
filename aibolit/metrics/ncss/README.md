@@ -9,7 +9,7 @@ To run:
 
 Usage:
 ```
-from main import NCSSMetric
+from nscc import NCSSMetric
 input = `myfile.java`
 showlog = True
 metric = NCSSMetric(input)
