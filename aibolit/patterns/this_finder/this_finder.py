@@ -73,9 +73,10 @@ class ThisFinder:
                         result, flag_this, flag_else = self.__work_with_stats(expr.else_statement.then_statement.statements, flag_this, flag_else)
                         if flag_this == 1:
                             return 1, flag_this, flag_else
-                        result, flag_this, flag_else = self.__work_with_stats(expr.else_statement.else_statement.statements, flag_this, flag_else)
-                        if flag_this == 1:
-                            return 1, flag_this, flag_else
+                        if expr.else_statement.else_statement is not None:
+                            result, flag_this, flag_else = self.__work_with_stats(expr.else_statement.else_statement.statements, flag_this, flag_else)
+                            if flag_this == 1:
+                                return 1, flag_this, flag_else
             elif isinstance(expr, javalang.tree.ForStatement):
                 result, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
                 if flag_this == 1:
@@ -93,7 +94,6 @@ class ThisFinder:
                     return 1, flag_this, flag_else
                 flag_else = 1
         return 0, flag_this, flag_else
-    
     def value(self, filename: str):
         tree = self.__file_to_ast(filename)
         num_str = []
