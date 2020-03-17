@@ -24,7 +24,7 @@ import unittest
 from aibolit.metrics.ncss.ncss import NCSSMetric
 
 
-class TestNCSSMetric(unittest.TestCase): 
+class TestNCSSMetric(unittest.TestCase):
     def testZeroScore(self):
         file = 'test/metrics/ncss/Empty.java'
         metric = NCSSMetric(file)
