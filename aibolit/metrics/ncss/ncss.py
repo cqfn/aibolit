@@ -16,9 +16,6 @@ class NCSSMetric():
         f.close()
 
         tokens = list(javalang.tokenizer.tokenize(code))
-        
-        special = ['Statement']
-        
         tree = javalang.parse.parse(code)
         
         metric = 0
