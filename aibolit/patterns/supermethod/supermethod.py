@@ -32,9 +32,8 @@ class SuperMethod:
         for _, method_decl_node in tree.filter(javalang.tree.MethodDeclaration):
             code_line = method_decl_node.position.line
             for _, super_method_inv in method_decl_node.filter(javalang.tree.SuperMethodInvocation):
-                str_to_find = 'super.{method_name}({arguments})'.format(
-                    method_name=super_method_inv.member,
-                    arguments=','.join(super_method_inv.arguments)).strip()
+                str_to_find = 'super.{method_name}('.format(
+                    method_name=super_method_inv.member).strip()
                 for iter, line in enumerate(text_lines[code_line - 1:]):
                     string_strip = line.strip().replace('\n', '').replace('\t', '')
                     if string_strip.find(str_to_find) > -1:
