@@ -9,7 +9,7 @@ class NCSSMetric():
         self.filename = filename
 
     def value(self):
-        f = open(self.filename, "r")
+        f = open(self.filename, "r", encoding='utf8')
         code = f.read()
         f.close()
 
