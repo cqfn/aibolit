@@ -1,5 +1,5 @@
-import re
 import javalang
+
 
 class ImplementsMultiFinder:
 
@@ -17,8 +17,5 @@ class ImplementsMultiFinder:
         return tree
 
     def value(self, filename: str):
-        tree = self.__file_to_ast(filename)
-        return [node._position.line for _ , node 
-        in tree.filter(javalang.tree.ClassDeclaration) if node.implements and (len(node.implements) > 1)]
-
-
+        tree = self.__file_to_ast(filename).filter(javalang.tree.ClassDeclaration)
+        return [node._position.line for _, node in tree if node.implements and (len(node.implements) > 1)]
