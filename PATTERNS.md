@@ -157,3 +157,24 @@ public void start() {
 ```
 
 
+***
+
+*Title*: Null checks
+
+*Code*: **null_check**
+
+*Description*: If we check that something equals null (except in constructor)
+it is considered a pattern.
+
+*Examples*:
+
+```java
+class Foo {
+  private String z;
+  void x() {
+    if (this.z == null) { // here!
+      throw new RuntimeException("oops");
+    }
+  }
+}
+```
