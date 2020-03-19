@@ -39,6 +39,7 @@ class VarMiddleTest(TestCase):
     def test_case_with_multiline_method_declaration(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/3.java')
+        # print("lines", lines)
         assert lines == []
 
     def test_case_with_empty_lines(self):
@@ -49,9 +50,24 @@ class VarMiddleTest(TestCase):
     def test_case_autoclosable(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/5.java')
-        assert lines == [20, 21]
+        assert lines == []
 
     def test_case_nested_class(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/6.java')
         assert lines == [10, 22, 30, 33]
+
+    def test_for_scope_good(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/8.java')
+        assert lines == []
+
+    def test_for_scope_bad(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/9.java')
+        assert lines == [11]
+
+    def test_variable_declared_after_for(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/10.java')
+        assert lines == [11]
