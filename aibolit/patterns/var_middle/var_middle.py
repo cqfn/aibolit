@@ -248,16 +248,11 @@ class VarMiddle:
         tree = JavalangImproved(filename)
         nodes = self._prepare_nodes(tree)
 
-        print("nodes", nodes)
-
         line_matches = []
         for i, (line, (node, s)) in enumerate(nodes):
-            print("i", i)
             if node != NodeType.VAR:
                 continue
             if not self.__check_var_declaration(i, nodes):
-                print('append')
                 line_matches.append(line)
 
-        print("lines", line_matches)
         return line_matches
