@@ -27,7 +27,7 @@ class NullCheck(object):
         lines = list()
 
         for path, node in tree.filter(javalang.tree.BinaryOperation):
-            if _is_null_check(node):
+            if _is_null_check(node) and not _within_constructor(path):
                 lines.append(node.operandr.position.line)
 
         return lines
@@ -35,3 +35,9 @@ class NullCheck(object):
 
 def _is_null_check(node: javalang.ast.Node):
     return node.operator == _OP_EQUALITY and node.operandr.value == _LT_NULL
+
+
+def _within_constructor(path):
+    node_types = [type(p) for p in path[::2]]
+
+    return javalang.tree.ConstructorDeclaration in node_types

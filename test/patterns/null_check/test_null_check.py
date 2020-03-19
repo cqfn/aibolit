@@ -13,3 +13,8 @@ class TestNullCheck(TestCase):
         file = Path(self.cur_file_dir, 'NullCheck.java')
 
         self.assertEqual(len(self.testClass.value(file)), 1)
+
+    def test_null_check_in_constructor(self):
+        file = Path(self.cur_file_dir, 'NullCheckInConstructor.java')
+
+        self.assertEqual(len(self.testClass.value(file)), 0)
