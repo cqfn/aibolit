@@ -17,19 +17,19 @@ class ErClass:
         return tree
 
     def value(self, filename: str):
-        classes = ( 'manager',
-                    'controller',
-                    'router',
-                    'dispatcher',
-                    'printer',
-                    'writer',
-                    'reader',
-                    'parser',
-                    'generator',
-                    'renderer',
-                    'listener',
-                    'producer',
-                    'holder',
-                    'interceptor')
+        classes = ('manager',
+                   'controller',
+                   'router',
+                   'dispatcher',
+                   'printer',
+                   'writer',
+                   'reader',
+                   'parser',
+                   'generator',
+                   'renderer',
+                   'listener',
+                   'producer',
+                   'holder',
+                   'interceptor')
         tree = self.__file_to_ast(filename).filter(javalang.tree.ClassDeclaration)
-        return [node._position.line for _, node in tree if [name for name in classes if name in node.name.lower()] != [] ]
+        return [node._position.line for _, node in tree if [n for n in classes if n in node.name.lower()] != []]
