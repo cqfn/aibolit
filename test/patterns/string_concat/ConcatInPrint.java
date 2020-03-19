@@ -31,6 +31,3 @@ class Test {
                     list.add(Boolean.FALSE);
     }
 }
-(?<=([\+]))
-
-(?<=([\W\d_])\+)\"[\w]+\"
