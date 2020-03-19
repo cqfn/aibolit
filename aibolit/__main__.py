@@ -178,9 +178,9 @@ def main():
             }
 
             sorted_result = predict(input_params)
-            print('The contribution list of each patterns correspondingly for file {}:'.format(java_file))
             found_pattern = False
             code_lines = None
+            value = None
             for iter, (key, val) in enumerate(sorted_result.items()):
                 if key in patterns_list:
                     if not found_pattern:
@@ -188,10 +188,17 @@ def main():
                         code_lines = code_lines_dict.get(key)
                         if code_lines:
                             found_pattern = True
+                            value = val
 
             if not code_lines:
                 print('Your code is perfect in aibolit\'s opinion')
             else:
+                output_str = \
+                    'The largest contribution for {file} is {val} for \"{pattern}\" pattern'.format(
+                        file=java_file,
+                        pattern=pattern,
+                        val=value)
+                print(output_str)
                 for line in code_lines:
                     if line:
                         print('Line {}. Low readability due to: {}'.format(
