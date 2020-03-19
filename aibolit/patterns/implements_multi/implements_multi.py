@@ -18,10 +18,7 @@ class ImplementsMultiFinder:
 
     def value(self, filename: str):
         tree = self.__file_to_ast(filename)
-        newlist = [node for _ , node in tree.filter(javalang.tree.ClassDeclaration) if node.implements]
-        out = list()
-        for node in newlist:
-            if len(node.implements) > 1:
-                out.append(node._position.line)
-        return out
+        return [node._position.line for _ , node 
+        in tree.filter(javalang.tree.ClassDeclaration) if node.implements and (len(node.implements) > 1)]
+
 
