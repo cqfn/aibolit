@@ -44,7 +44,8 @@ NEW_SCOPE_NODES = [
     javalang.tree.TryStatement,
     javalang.tree.DoStatement,
     javalang.tree.WhileStatement,
-    javalang.tree.BlockStatement
+    javalang.tree.BlockStatement,
+    javalang.tree.CatchClause
 ]
 
 

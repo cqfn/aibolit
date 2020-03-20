@@ -76,87 +76,19 @@ import org.apache.http.HttpStatus;
 @InterfaceStability.Unstable
 class CosNativeFileSystemStore implements NativeFileSystemStore {
 
-private PartialListing list(String prefix, String delimiter,
+  private PartialListing list(String prefix, String delimiter,
       int maxListingLength, String priorLastKey) throws IOException {
-    LOG.debug("List objects. prefix: [{}], delimiter: [{}], " +
-            "maxListLength: [{}], priorLastKey: [{}].",
-        prefix, delimiter, maxListingLength, priorLastKey);
 
-    if (!prefix.startsWith(CosNFileSystem.PATH_DELIMITER)) {
-      prefix += CosNFileSystem.PATH_DELIMITER;
-    }
-    ListObjectsRequest listObjectsRequest = new ListObjectsRequest();
-    listObjectsRequest.setBucketName(bucketName);
-    listObjectsRequest.setPrefix(prefix);
-    listObjectsRequest.setDelimiter(delimiter);
-    listObjectsRequest.setMarker(priorLastKey);
-    listObjectsRequest.setMaxKeys(maxListingLength);
-    ObjectListing objectListing = null;
-    try {
-      objectListing =
-          (ObjectListing) callCOSClientWithRetry(listObjectsRequest);
-    } catch (Exception e) {
-      String errMsg = String.format("prefix: [%s], delimiter: [%s], "
-              + "maxListingLength: [%d], priorLastKey: [%s]. "
-              + "List objects occur an exception: [%s].", prefix,
-          (delimiter == null) ? "" : delimiter, maxListingLength, priorLastKey,
-          e.toString());
-      LOG.error(errMsg);
-      handleException(new Exception(errMsg), prefix);
-    }
-    ArrayList<FileMetadata> fileMetadataArray = new ArrayList<>();
-    ArrayList<FileMetadata> commonPrefixArray = new ArrayList<>();
-
-    if (null == objectListing) {
-      String errMsg = String.format("List the prefix: [%s] failed. " +
-              "delimiter: [%s], max listing length:" +
-              " [%s], prior last key: [%s]",
-          prefix, delimiter, maxListingLength, priorLastKey);
-      handleException(new Exception(errMsg), prefix);
-    }
-
-    List<COSObjectSummary> summaries = objectListing.getObjectSummaries();
-    for (COSObjectSummary cosObjectSummary : summaries) {
-      String filePath = cosObjectSummary.getKey();
-      if (!filePath.startsWith(CosNFileSystem.PATH_DELIMITER)) {
-        filePath = CosNFileSystem.PATH_DELIMITER + filePath;
-      }
-      if (filePath.equals(prefix)) {
-        continue;
-      }
-      long mtime = 0;
-      if (cosObjectSummary.getLastModified() != null) {
-        mtime = cosObjectSummary.getLastModified().getTime();
-      }
-      long fileLen = cosObjectSummary.getSize();
-      fileMetadataArray.add(
-          new FileMetadata(filePath, fileLen, mtime, true));
-    }
-    List<String> commonPrefixes = objectListing.getCommonPrefixes();
-    for (String commonPrefix : commonPrefixes) {
-      if (!commonPrefix.startsWith(CosNFileSystem.PATH_DELIMITER)) {
-        commonPrefix = CosNFileSystem.PATH_DELIMITER + commonPrefix;
-      }
-      commonPrefixArray.add(
-          new FileMetadata(commonPrefix, 0, 0, false));
-    }
-
-    FileMetadata[] fileMetadata = new FileMetadata[fileMetadataArray.size()];
-    for (int i = 0; i < fileMetadataArray.size(); ++i) {
-      fileMetadata[i] = fileMetadataArray.get(i);
-    }
-    FileMetadata[] commonPrefixMetaData =
-        new FileMetadata[commonPrefixArray.size()];
-    for (int i = 0; i < commonPrefixArray.size(); ++i) {
-      commonPrefixMetaData[i] = commonPrefixArray.get(i);
-    }
-    // when truncated is false, it means that listing is finished.
     if (!objectListing.isTruncated()) {
+      int j = 0;
       return new PartialListing(
           null, fileMetadata, commonPrefixMetaData);
     } else {
+      f();
+      int j = 0;
       return new PartialListing(
           objectListing.getNextMarker(), fileMetadata, commonPrefixMetaData);
     }
+
   }
 }
