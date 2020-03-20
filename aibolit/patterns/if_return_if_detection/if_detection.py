@@ -1,7 +1,5 @@
 import javalang
-from typing import List
-from enum import Enum
-import pdb
+
 
 # mapping between javalang node class names and Java keywords
 NODE_KEYWORD_MAP = {
@@ -12,11 +10,14 @@ NODE_KEYWORD_MAP = {
     'CatchClause': 'catch',
 }
 
+
 class ASTNode:
+
     def __init__(self, line, method_line, node):
         self.line = line  # node line number in the file
         self.method_line = method_line  # line number where parent method declared
         self.node = node  # javalang AST node object
+
 
 class JavalangImproved:
 
@@ -32,7 +33,6 @@ class JavalangImproved:
 
         with open(filename, encoding='utf-8') as file:
             lines = file.readlines()
-        #pprint(tree)
         return tree, lines
 
     def __find_keyword(self, lines, keyword, start):
@@ -85,7 +85,7 @@ class JavalangImproved:
         return sorted(nodes, key=lambda v: v.line)
 
     def filter(self, ntypes):
-        nodes = self.tree_to_nodes()  
+        nodes = self.tree_to_nodes()
         array = []
         for index, i in enumerate(nodes):
             if type(i.node) in ntypes and type(i.node.then_statement) in [javalang.tree.BlockStatement]:
@@ -93,6 +93,7 @@ class JavalangImproved:
                     if type(check_return) in [javalang.tree.ReturnStatement]:
                         array.append(nodes[index].line + 1)
         return array
+
 
 class CountIfReturn:
     '''
@@ -106,5 +107,5 @@ class CountIfReturn:
         ''''''
         tree = JavalangImproved(filename)
         if_decls = tree.filter([javalang.tree.IfStatement])
-        
+
         return if_decls
