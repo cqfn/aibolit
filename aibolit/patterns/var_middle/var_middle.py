@@ -243,6 +243,7 @@ class VarMiddle:
             if not cmp_node(node_to_type(accum[-1]), node_to_type(val)):
                 accum[-1] = val
             return accum
+        # print("nodes", list(map(lambda e: (e.line, (type(e.node), e.scope)), nodes)))
         nodes = reduce(reduce_f, nodes, [])
         nodes = [
             (e.line, (node_to_type(e), e.scope))

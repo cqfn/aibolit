@@ -91,3 +91,4 @@ class VarMiddleTest(TestCase):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/14.java')
         assert lines == [88]
+
