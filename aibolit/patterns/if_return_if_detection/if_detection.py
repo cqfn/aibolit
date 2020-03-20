@@ -88,10 +88,11 @@ class JavalangImproved:
         nodes = self.tree_to_nodes()
         array = []
         for index, i in enumerate(nodes):
-            if type(i.node) in ntypes and type(i.node.then_statement) in [javalang.tree.BlockStatement]:
-                for check_return in i.node.then_statement.statements:
-                    if type(check_return) in [javalang.tree.ReturnStatement]:
-                        array.append(nodes[index].line + 1)
+            if (type(i.node) in ntypes):
+                if type(i.node.then_statement) in [javalang.tree.BlockStatement] and i.node.else_statement is not None:
+                    for check_return in i.node.then_statement.statements:
+                        if type(check_return) in [javalang.tree.ReturnStatement]:
+                            array.append(nodes[index].line + 1)
         return array
 
 
