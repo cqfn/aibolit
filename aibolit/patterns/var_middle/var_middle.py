@@ -206,7 +206,7 @@ class VarMiddle:
             if _ntype == NodeType.OTHER:
                 return False
             i -= 1
-            
+
         raise ValueError('Method declaration is not found')
 
     def _prepare_nodes(self, tree: JavalangImproved):
