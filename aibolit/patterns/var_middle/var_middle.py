@@ -42,7 +42,9 @@ NEW_SCOPE_NODES = [
     javalang.tree.ForStatement,
     javalang.tree.SwitchStatement,
     javalang.tree.TryStatement,
-    javalang.tree.DoStatement
+    javalang.tree.DoStatement,
+    javalang.tree.WhileStatement,
+    javalang.tree.BlockStatement
 ]
 
 
@@ -207,12 +209,18 @@ class VarMiddle:
         raise ValueError('Method declaration is not found')
 
     def _prepare_nodes(self, tree: JavalangImproved):
+        to_ignore = [
+            javalang.tree.FormalParameter,
+            javalang.tree.ReferenceType,
+            javalang.tree.BasicType
+        ]
         var_node_type = [
             javalang.tree.LocalVariableDeclaration,
             javalang.tree.TryResource
         ]
         scope_node_type = NEW_SCOPE_NODES
         nodes = tree.tree_to_nodes()
+        nodes = list(filter(lambda n: type(n.node) not in to_ignore, nodes))
 
         def node_to_type(node: ASTNode):
             if type(node.node) in var_node_type:
@@ -234,7 +242,7 @@ class VarMiddle:
             if not cmp_node(node_to_type(accum[-1]), node_to_type(val)):
                 accum[-1] = val
             return accum
-
+        print("nodes", list(map(lambda e: (e.line, (type(e.node), e.scope)), nodes)))
         nodes = reduce(reduce_f, nodes, [])
         nodes = [
             (e.line, (node_to_type(e), e.scope))
@@ -247,12 +255,12 @@ class VarMiddle:
 
         tree = JavalangImproved(filename)
         nodes = self._prepare_nodes(tree)
-
+        print("nodes", nodes)
         line_matches = []
         for i, (line, (node, s)) in enumerate(nodes):
             if node != NodeType.VAR:
                 continue
             if not self.__check_var_declaration(i, nodes):
                 line_matches.append(line)
-
+        print(line_matches)
         return line_matches
