@@ -26,31 +26,26 @@ from aibolit.patterns.if_return_if_detection.if_detection import CountIfReturn
 from pathlib import Path
 
 
-class CountIfReturnTest(TestCase):
+class TestCountIfReturn(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
     countifreturn = CountIfReturn()
 
     def test_no_return_inside(self):
-        pattern = CountIfReturn()
-        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/2.java')
+        lines = self.countifreturn.value(Path(self.dir_path, '2.java'))
         assert lines == []
 
     def test_2nd_level_inside(self):
-        pattern = CountIfReturn()
-        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/1.java')
+        lines = self.countifreturn.value(Path(self.dir_path, '1.java'))
         assert lines == [6, 10, 15]
 
     def test_nested_one_return(self):
-        pattern = CountIfReturn()
-        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/3.java')
+        lines = self.countifreturn.value(Path(self.dir_path, '3.java'))
         assert lines == [9]
 
     def test_nested_several_returns(self):
-        pattern = CountIfReturn()
-        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/4.java')
+        lines = self.countifreturn.value(Path(self.dir_path, '4.java'))
         assert lines == [6, 8, 10, 12, 14]
 
     def test_withandwithout_returns(self):
-        pattern = CountIfReturn()
-        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/5.java')
+        lines = self.countifreturn.value(Path(self.dir_path, '5.java'))
         assert lines == [6, 8, 10, 14, 16, 18]
