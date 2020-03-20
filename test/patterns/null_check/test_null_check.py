@@ -12,9 +12,9 @@ class TestNullCheck(TestCase):
     def test_null_check(self):
         file = Path(self.cur_file_dir, 'NullCheck.java')
 
-        self.assertEqual(len(self.testClass.value(file)), 1)
+        self.assertEqual(self.testClass.value(file), [5])
 
     def test_null_check_in_constructor(self):
         file = Path(self.cur_file_dir, 'NullCheckInConstructor.java')
 
-        self.assertEqual(len(self.testClass.value(file)), 0)
+        self.assertEqual(self.testClass.value(file), [])
