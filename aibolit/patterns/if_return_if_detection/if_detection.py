@@ -98,8 +98,7 @@ class JavalangImproved:
 
 class CountIfReturn:
     '''
-    Returns lines in the file where variables declared in the middle
-    of the method
+    Returns lines with if statement which has also returb statement and other conditions with else.
     '''
     def __init__(self):
         pass
