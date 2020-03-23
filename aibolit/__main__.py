@@ -43,6 +43,7 @@ from aibolit.patterns.supermethod.supermethod import SuperMethod
 from aibolit.patterns.this_finder.this_finder import ThisFinder
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
 from aibolit.patterns.var_middle.var_middle import VarMiddle
+from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.model.model import Net
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -59,10 +60,6 @@ def find_halstead(java_file):
     else:
         raise Exception('Error when running: {}'.format(err))
     return score
-
-
-def find_ncss(java_file):
-    return 0
 
 
 def predict(input_params):
@@ -128,7 +125,6 @@ def main():
         if args:
             java_file = str(Path(os.getcwd(), args.filename))
             halstead_volume = find_halstead(java_file)
-            ncss_value = find_ncss(java_file)
             var_numbers = VarMiddle().value(java_file)
             nested_for_blocks = NestedBlocks(2, block_type=BlockType.FOR).value(java_file)
             nested_if_blocks = NestedBlocks(2, block_type=BlockType.IF).value(java_file)
@@ -144,6 +140,7 @@ def main():
             super_m_lines = SuperMethod().value(java_file)
             for_type_cast_lines = ForceTypeCastingFinder().value(java_file)
             this_lines = ThisFinder().value(java_file)
+            ncss_method_avg = NCSSMetric(java_file).value()
             code_lines_dict = {
                 'instance_of_number': instance_of_lines,
                 'lines_this_find': this_lines,
@@ -160,7 +157,7 @@ def main():
             }
             input_params = {
                 'halstead volume': halstead_volume,
-                'ncss_method_avg': ncss_value,
+                'ncss_method_avg': ncss_method_avg,
                 'var_middle_number': len(var_numbers),
                 'nested_for_number': len(nested_for_blocks),
                 'nested_if_number': len(nested_if_blocks),
@@ -181,9 +178,9 @@ def main():
             }
 
             sorted_result = predict(input_params)
-            print('The contribution list of each patterns correspondingly for file {}:'.format(java_file))
             found_pattern = False
             code_lines = None
+            value = None
             for iter, (key, val) in enumerate(sorted_result.items()):
                 if key in patterns_list:
                     if not found_pattern:
@@ -191,10 +188,17 @@ def main():
                         code_lines = code_lines_dict.get(key)
                         if code_lines:
                             found_pattern = True
+                            value = val
 
             if not code_lines:
                 print('Your code is perfect in aibolit\'s opinion')
             else:
+                output_str = \
+                    'The largest contribution for {file} is {val} for \"{pattern}\" pattern'.format(
+                        file=java_file,
+                        pattern=pattern,
+                        val=value)
+                print(output_str)
                 for line in code_lines:
                     if line:
                         print('Line {}. Low readability due to: {}'.format(

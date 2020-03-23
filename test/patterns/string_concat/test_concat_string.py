@@ -32,19 +32,19 @@ class TestConcatString(TestCase):
 
     def test_concat_strings_in_print(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'ConcatInPrint.java'))
-        assert len(lines) == 1
+        assert lines == [14]
 
     def test_member_plus_string(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'MemberPlusString.java'))
-        assert len(lines) == 1
+        assert lines == [111]
 
     def test_multiple_concat(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'MultipleConcat.java'))
-        assert len(lines) == 1
+        assert lines == [22]
 
     def test_empty_case(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'Nothing.java'))
-        assert len(lines) == 0
+        assert lines == []
 
     def test_string_plus_member(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'StringPlusMember.java'))
@@ -52,12 +52,23 @@ class TestConcatString(TestCase):
 
     def test_many_concats(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'ManyConcats.java'))
-        assert len(lines) == 4
+        assert lines == [22, 23, 24, 25]
 
     def test_concat_in_different_methods(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'DifferentMethods.java'))
-        assert len(lines) == 2
+        assert lines == [13, 27]
 
     def test_fake_operator_plus(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'FakePlusOperator.java'))
-        assert len(lines) == 0
+        assert lines == []
+
+    def test_giant_file(self):
+        lines = self.concat_finder.value(Path(self.dir_path, 'CliFlags.java'))
+        assert lines == [
+            34, 35, 36, 37, 51, 53, 297, 298, 82, 83, 84, 85, 86, 87, 88, 197, 90, 91, 92, 297,
+            211, 298, 96, 97, 98, 112, 113, 127, 128, 129, 130, 131, 132, 146, 148, 149, 150,
+            151, 153, 155, 156, 157, 158, 159, 173, 174, 188, 189, 190, 191, 192, 193, 194, 197,
+            198, 199, 200, 204, 207, 208, 209, 211, 212, 214, 215, 216, 230, 231, 232, 233, 236, 239,
+            240, 241, 242, 243, 244, 245, 259, 260, 261, 262, 263, 264, 278, 279, 280,
+            299, 282, 283, 297, 298, 299, 300, 314, 315, 316, 317, 318, 319, 320, 321, 325, 326,
+            329, 331, 332, 333, 335, 336, 339, 340, 341, 343, 345, 347, 348, 349]
