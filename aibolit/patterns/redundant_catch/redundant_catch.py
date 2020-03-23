@@ -1,7 +1,8 @@
-import javalang
 import itertools
 import re
-from collections import defaultdict, namedtuple
+from collections import namedtuple
+
+import javalang
 
 ExceptionInfo = namedtuple('ExceptionInfo', 'func_name, catch_list, throws_list, line_number')
 
@@ -25,7 +26,6 @@ class RedundantCatch:
         with open(filename, encoding='utf-8') as file:
             lines_str = file.readlines()
 
-        exc_map = defaultdict(list)
         pattern_catch = re.compile(r'(catch[\(\s]+[\w | \s]+)')
         total_code_lines = []
         for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
