@@ -24,9 +24,6 @@
 from setuptools import setup, find_packages
 import aibolit
 
-found_packages = find_packages()
-print('Found packages: {}'.format(str(found_packages)))
-
 setup(
     name='aibolit',
     version=aibolit.__version__,
@@ -44,8 +41,8 @@ setup(
         ],
     },
     extras_require={},
-    install_requires=[],
-    tests_require=[],
+    install_requires=open('requirements.txt', 'r').readlines(),
+    tests_require=open('requirements.txt', 'r').readlines(),
     classifiers=[
         'Programming Language :: Python',
         'Environment :: Console',
