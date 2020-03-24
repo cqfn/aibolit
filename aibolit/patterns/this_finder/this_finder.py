@@ -99,7 +99,6 @@ class ThisFinder:
                 res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
             else:
                 res = flag_this
-            #result
             if res > 0:
                 return 1, flag_this, flag_else
         return 0, flag_this, flag_else
