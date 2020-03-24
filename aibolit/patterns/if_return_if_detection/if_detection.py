@@ -1,15 +1,6 @@
 import javalang
 from aibolit.patterns.var_middle.var_middle import ASTNode, JavalangImproved
 
-# mapping between javalang node class names and Java keywords
-NODE_KEYWORD_MAP = {
-    'SuperMethodInvocation': 'super',
-    'WhileStatement': 'while',
-    'ForStatement': 'for',
-    'TryStatement': 'try',
-    'CatchClause': 'catch',
-}
-
 
 class newJavalangImproved(JavalangImproved):
 
