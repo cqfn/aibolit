@@ -30,9 +30,9 @@ class ThisFinder:
             tree = javalang.parse.parse(file.read())
 
         return tree
-    
-    def __expr_stat(self, expr, flag_this, flag_else): 
-        #function to work with StatementExpression block
+
+    def __expr_stat(self, expr, flag_this, flag_else):
+	'''function to work with StatementExpression block'''
         if isinstance(expr.expression, javalang.tree.ExplicitConstructorInvocation):
             if flag_this + flag_else > 0:
                 return 1, flag_this, flag_else
@@ -44,7 +44,7 @@ class ThisFinder:
         return 0, flag_this, flag_else
 
     def __try_stat(self, expr, flag_this, flag_else):
-        #function to work with TryStatement block
+	'''function to work with TryStatement block'''
         if (expr.resources is not None) or (expr.catches[0].block != []) or (expr.finally_block is not None):
             flag_else = 1
         try_exprs = expr.block
@@ -61,11 +61,11 @@ class ThisFinder:
         return 0, flag_this, flag_else
 
     def __if_stat(self, expr, flag_this, flag_else):
-        #function to work with IfStatement block
+	'''function to work with IfStatement block'''
         if expr.then_statement is not None:
             res, flag_this, flag_else = self.__work_with_stats(expr.then_statement.statements, flag_this, flag_else)
             if res > 0:
-                    return 1, flag_this, flag_else
+            	return 1, flag_this, flag_else
         if expr.else_statement is not None:
             if isinstance(expr.else_statement, javalang.tree.IfStatement):
                 res, flag_this, flag_else = self.__if_stat(expr.else_statement, flag_this, flag_else)
@@ -79,12 +79,11 @@ class ThisFinder:
         return 0, flag_this, flag_else
 
     def __work_with_stats(self, stats, flag_this, flag_else):
-        #function to work with objects in constructor
+	'''function to work with objects in constructor'''
         for expr in stats:
             res = 0
             old_else = flag_else
-            flag_else = 1
-            #work with blocks
+            flag_else = 1 #work with blocks
             if isinstance(expr, javalang.tree.TryStatement):
                 res, flag_this, flag_else = self.__try_stat(expr, flag_this, old_else)
             elif isinstance(expr, javalang.tree.StatementExpression):
@@ -103,7 +102,8 @@ class ThisFinder:
                 return 1, flag_this, flag_else
         return 0, flag_this, flag_else
 
-    def value(self, filename: str): #main function
+    def value(self, filename: str):
+	'''main function'''
         tree = self.__file_to_ast(filename)
         num_str = []
         for path, node in tree.filter(javalang.tree.ConstructorDeclaration):
@@ -111,5 +111,5 @@ class ThisFinder:
             stats = node.children[-1]
             result, _, _ = self.__work_with_stats(stats, 0, 0)
             if result == 1:
-                num_str.append(number)              
+                num_str.append(number)
         return sorted(list(set(num_str)))
