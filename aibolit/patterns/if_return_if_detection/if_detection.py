@@ -43,7 +43,7 @@ class newJavalangImproved(JavalangImproved):
 
 class CountIfReturn:
     '''
-    Returns lines with if statement which has also return statement and other conditions with else.
+    Returns lines with if statement which has also returb statement and other conditions with else.
     '''
     def __init__(self):
         pass
