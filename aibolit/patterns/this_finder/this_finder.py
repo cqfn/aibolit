@@ -65,7 +65,7 @@ class ThisFinder:
         if expr.then_statement is not None:
             res, flag_this, flag_else = self.__work_with_stats(expr.then_statement.statements, flag_this, flag_else)
             if res > 0:
-            	return 1, flag_this, flag_else
+                return 1, flag_this, flag_else
         if expr.else_statement is not None:
             if isinstance(expr.else_statement, javalang.tree.IfStatement):
                 res, flag_this, flag_else = self.__if_stat(expr.else_statement, flag_this, flag_else)
@@ -83,7 +83,7 @@ class ThisFinder:
         for expr in stats:
             res = 0
             old_else = flag_else
-            flag_else = 1 #work with blocks
+            flag_else = 1
             if isinstance(expr, javalang.tree.TryStatement):
                 res, flag_this, flag_else = self.__try_stat(expr, flag_this, old_else)
             elif isinstance(expr, javalang.tree.StatementExpression):
@@ -93,7 +93,7 @@ class ThisFinder:
             elif isinstance(expr, javalang.tree.ForStatement):
                 res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
             elif isinstance(expr, javalang.tree.WhileStatement):
-                res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else) 
+                res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
             elif isinstance(expr, javalang.tree.DoStatement):
                 res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
             else:
