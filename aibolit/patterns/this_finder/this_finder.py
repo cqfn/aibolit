@@ -32,7 +32,7 @@ class ThisFinder:
         return tree
 
     def __expr_stat(self, expr, flag_this, flag_else):
-	'''function to work with StatementExpression block'''
+        '''function to work with StatementExpression block'''
         if isinstance(expr.expression, javalang.tree.ExplicitConstructorInvocation):
             if flag_this + flag_else > 0:
                 return 1, flag_this, flag_else
@@ -44,7 +44,7 @@ class ThisFinder:
         return 0, flag_this, flag_else
 
     def __try_stat(self, expr, flag_this, flag_else):
-	'''function to work with TryStatement block'''
+        '''function to work with TryStatement block'''
         if (expr.resources is not None) or (expr.catches[0].block != []) or (expr.finally_block is not None):
             flag_else = 1
         try_exprs = expr.block
@@ -61,7 +61,7 @@ class ThisFinder:
         return 0, flag_this, flag_else
 
     def __if_stat(self, expr, flag_this, flag_else):
-	'''function to work with IfStatement block'''
+        '''function to work with IfStatement block'''
         if expr.then_statement is not None:
             res, flag_this, flag_else = self.__work_with_stats(expr.then_statement.statements, flag_this, flag_else)
             if res > 0:
@@ -79,7 +79,7 @@ class ThisFinder:
         return 0, flag_this, flag_else
 
     def __work_with_stats(self, stats, flag_this, flag_else):
-	'''function to work with objects in constructor'''
+        '''function to work with objects in constructor'''
         for expr in stats:
             res = 0
             old_else = flag_else
@@ -103,7 +103,7 @@ class ThisFinder:
         return 0, flag_this, flag_else
 
     def value(self, filename: str):
-	'''main function'''
+        '''main function'''
         tree = self.__file_to_ast(filename)
         num_str = []
         for path, node in tree.filter(javalang.tree.ConstructorDeclaration):
