@@ -4,31 +4,6 @@ from aibolit.patterns.var_middle.var_middle import ASTNode, JavalangImproved
 
 class newJavalangImproved(JavalangImproved):
 
-    def __tree_to_nodes(self, tree, line=1, parent_method_line=None):
-        '''Return AST nodes with line numbers sorted by line number'''
-
-        if hasattr(tree, 'position') and tree.position:
-            line = tree.position.line
-
-        line = self.__fix_line_number_if_possible(tree, line)
-        if type(tree) == (javalang.tree.IfStatement or javalang.tree.BlockStatement):
-            parent_method_line = line
-
-        res = []
-        for child in tree.children:
-            nodes_arr = child if isinstance(child, list) else [child]
-            for node in nodes_arr:
-                if not hasattr(node, 'children'):
-                    continue
-                left_siblings_line = res[-1].line if len(res) > 0 else line
-                res += self.__tree_to_nodes(
-                    node,
-                    left_siblings_line,
-                    parent_method_line
-                )
-
-        return [ASTNode(line, parent_method_line, tree)] + res
-
     def filter(self, ntypes):
         nodes = self.tree_to_nodes()
         array = []
