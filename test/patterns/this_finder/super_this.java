@@ -97,6 +97,18 @@ class Foo
 			}			
 		}
     }
-
+    
+    Foo(int x, int y)
+    {
+		if (y < 6) {
+			this.i = 1;
+		} else if (x != 3) {
+            this.i = 3;
+        } else if (x != 2) {
+            this(3);
+        } else {
+            this.i = 2;
+        }
+    }
 
 } 
