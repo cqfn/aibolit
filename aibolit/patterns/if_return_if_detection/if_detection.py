@@ -1,5 +1,5 @@
 import javalang
-from aibolit.patterns.var_middle.var_middle import ASTNode, JavalangImproved
+from aibolit.patterns.var_middle.var_middle import JavalangImproved
 
 
 class newJavalangImproved(JavalangImproved):
