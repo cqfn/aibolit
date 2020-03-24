@@ -1,5 +1,5 @@
 import javalang
-from aibolit.var_middle.var_middle import ASTNode, JavalangImproved
+from aibolit.patterns.var_middle.var_middle import ASTNode, JavalangImproved
 
 # mapping between javalang node class names and Java keywords
 NODE_KEYWORD_MAP = {
@@ -12,10 +12,6 @@ NODE_KEYWORD_MAP = {
 
 
 class newJavalangImproved(JavalangImproved):
-    def __init__(self, filename: str):
-        tree, lines = self.__file_to_ast(filename)
-        self.tree = tree
-        self.lines = lines
 
     def __tree_to_nodes(self, tree, line=1, parent_method_line=None):
         '''Return AST nodes with line numbers sorted by line number'''
