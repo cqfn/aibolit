@@ -43,7 +43,7 @@ class newJavalangImproved(JavalangImproved):
 
 class CountIfReturn:
     '''
-    Returns lines in the file where exist if statement with return inside and else statement
+    Returns lines with if statement which has also return statement and other conditions with else.
     '''
     def __init__(self):
         pass
