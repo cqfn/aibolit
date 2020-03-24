@@ -15,18 +15,21 @@ class StringConcatFinder:
         :return: Tree
         """
         with open(filename, encoding='utf-8') as file:
-            res = RemoveComments.remove_comments(file.read())
+            text = file.read()
+            lines_map = {line: i for i, line in enumerate(text.splitlines(), start=1)}
+            res = RemoveComments.remove_comments(text)
 
-        return res
+        return res, lines_map
 
     def value(self, filename: str):
-        text = self.__file_to_ast(filename)
+        text, split_text = self.__file_to_ast(filename)
         pattern_without_quote_first = re.compile(r'(?<=([\w])\+)\"[\w]+\"')
         pattern_with_quote_first = re.compile(r'(?<=([\w]\")\+)[\w]+')
         lines = []
-        for iter, line in enumerate(text.splitlines()):
+        for line in text.splitlines():
             t_str = line.replace(' ', '')
             if re.search(pattern_without_quote_first, t_str) \
                     or re.search(pattern_with_quote_first, t_str):
-                lines.append(iter)
+                code_line = split_text[line]
+                lines.append(code_line)
         return lines
