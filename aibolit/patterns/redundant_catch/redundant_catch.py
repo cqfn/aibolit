@@ -72,7 +72,5 @@ class RedundantCatch:
                     if any([(line.find(y) > -1) for y in ei.throws_list])
                 ]
                 total_code_lines.extend(code_lines)
-                # print(method_node.name, try_node.catches)
-            # print(total_code_lines)
 
         return sorted(set(total_code_lines))
