@@ -42,11 +42,8 @@ class ReturnNull:
 
     def value(self, filename: str):
         """
-        Travers over AST tree finds method chaining. It is searched in a statement
+        Travers over AST tree and finds pattern
         :param filename:
-        :return:
-        List of tuples with LineNumber and List of methods names, e.g.
-        [[10, 'func1'], [10, 'fun2']], [[23, 'run'], [23, 'start']]]
         """
         tree = self.__file_to_ast(filename)
         chain_lst = defaultdict(int)
