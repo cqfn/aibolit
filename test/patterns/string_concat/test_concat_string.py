@@ -32,19 +32,19 @@ class TestConcatString(TestCase):
 
     def test_concat_strings_in_print(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'ConcatInPrint.java'))
-        self.assertEqual(lines,  [14])
+        self.assertEqual(lines, [14])
 
     def test_member_plus_string(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'MemberPlusString.java'))
-        self.assertEqual(lines,  [111])
+        self.assertEqual(lines, [111])
 
     def test_multiple_concat(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'MultipleConcat.java'))
-        self.assertEqual(lines,  [22])
+        self.assertEqual(lines, [22])
 
     def test_empty_case(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'Nothing.java'))
-        self.assertEqual(lines,  [])
+        self.assertEqual(lines, [])
 
     def test_string_plus_member(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'StringPlusMember.java'))
@@ -52,19 +52,19 @@ class TestConcatString(TestCase):
 
     def test_many_concats(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'ManyConcats.java'))
-        self.assertEqual(lines,  [22, 23, 24, 25])
+        self.assertEqual(lines, [22, 23, 24, 25])
 
     def test_concat_in_different_methods(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'DifferentMethods.java'))
-        self.assertEqual(lines,  [13, 27])
+        self.assertEqual(lines, [13, 27])
 
     def test_fake_operator_plus(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'FakePlusOperator.java'))
-        self.assertEqual(lines,  [])
+        self.assertEqual(lines, [])
 
     def test_giant_file(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'CliFlags.java'))
-        self.assertEqual(lines,  [
+        self.assertEqual(lines, [
             34, 35, 36, 37, 51, 53, 297, 298, 82, 83, 84, 85, 86, 87, 88, 197,
             90, 91, 92, 297, 211, 298, 96, 97, 98, 112, 113, 127, 128, 129, 130,
             131, 132, 146, 148, 149, 150, 151, 153, 155, 156, 157, 158, 159, 173,
