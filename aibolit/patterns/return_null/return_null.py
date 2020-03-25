@@ -40,7 +40,6 @@ class ReturnNull:
             res = javalang.parse.parse(file.read())
         return res
 
-
     def value(self, filename: str):
         """
         Travers over AST tree finds method chaining. It is searched in a statement
