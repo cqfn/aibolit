@@ -30,16 +30,16 @@ class ForceTypeCastingFinderTest(TestCase):
         pattern = force_type_casting_finder.ForceTypeCastingFinder()
         lines = pattern.value(
             os.path.dirname(os.path.realpath(__file__)) + '/1.java')
-        assert lines == [5]
+        self.assertEqual(lines, [5])
 
     def test_several_casts(self):
         pattern = force_type_casting_finder.ForceTypeCastingFinder()
         lines = pattern.value(
             os.path.dirname(os.path.realpath(__file__)) + '/2.java')
-        assert lines == [5, 11, 17]
+        self.assertEqual(lines, [5, 11, 17])
 
     def test_zero_lines(self):
         pattern = force_type_casting_finder.ForceTypeCastingFinder()
         lines = pattern.value(
             os.path.dirname(os.path.realpath(__file__)) + '/3.java')
-        assert lines == []
+        self.assertEqual(lines, [])

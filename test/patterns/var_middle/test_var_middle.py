@@ -29,29 +29,29 @@ class VarMiddleTest(TestCase):
     def test_good_class(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/1.java')
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_bad_class(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/2.java')
-        assert lines == [9, 16]
+        self.assertEqual(lines, [9, 16])
 
     def test_case_with_multiline_method_declaration(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/3.java')
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_case_with_empty_lines(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/4.java')
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_case_autoclosable(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/5.java')
-        assert lines == [20, 21]
+        self.assertEqual(lines, [20, 21])
 
     def test_case_nested_class(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/6.java')
-        assert lines == [10, 22, 30, 33]
+        self.assertEqual(lines, [10, 22, 30, 33])
