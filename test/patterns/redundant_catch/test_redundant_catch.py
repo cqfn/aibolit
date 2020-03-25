@@ -76,3 +76,8 @@ class VarMiddleTest(TestCase):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/TryInsideTry.java')
         self.assertEqual(lines, [8])
+
+    def test_catch_with_functions(self):
+        pattern = RedundantCatch()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/CatchWithFunctions.java')
+        self.assertEqual(lines, [8])
