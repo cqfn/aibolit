@@ -77,3 +77,7 @@ class TestEmptyRethrow(TestCase):
     def test_catch_with_functions(self):
         file = str(Path(self.cur_file_dir, 'CatchWithFunctions.java'))
         self.assertEqual(self.testClass.value(file), [13])
+
+    def test_catch_with_if(self):
+        file = str(Path(self.cur_file_dir, 'CatchWithIf.java'))
+        self.assertEqual(self.testClass.value(file), [14])
