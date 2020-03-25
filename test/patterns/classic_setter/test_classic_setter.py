@@ -17,7 +17,6 @@ class TestSetter(TestCase):
         lines = self.setter_finder.value(Path(self.dir_path, 'Configuration.java'))
         assert lines == [1236, 1240, 3783, 3819]
 
-
     def test_another_setter_patterns(self):
         lines = self.setter_finder.value(Path(self.dir_path, 'SequenceFile.java'))
         assert lines == [2849, 2855, 2861, 3127]
