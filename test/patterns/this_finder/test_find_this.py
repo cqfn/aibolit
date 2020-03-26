@@ -67,4 +67,4 @@ class TestFindThis(TestCase):
 
     def test_simple9(self):
         lines = self.pattern.value(self.cur_dir + '/super_this.java')
-        assert lines == [15, 25, 51, 62, 76, 87]
+        assert lines == [15, 25, 51, 62, 76, 87, 101]
