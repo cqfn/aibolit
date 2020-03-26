@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 class Test extends SuperClass {
     @Override
     public void foo() {
