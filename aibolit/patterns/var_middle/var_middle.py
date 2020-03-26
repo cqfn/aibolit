@@ -23,6 +23,7 @@
 import javalang
 from typing import List
 from enum import Enum
+from functools import reduce
 
 
 # mapping between javalang node class names and Java keywords
@@ -34,12 +35,26 @@ NODE_KEYWORD_MAP = {
     'CatchClause': 'catch',
 }
 
+# list of nodes creating new scope
+NEW_SCOPE_NODES = [
+    javalang.tree.MethodDeclaration,
+    javalang.tree.IfStatement,
+    javalang.tree.ForStatement,
+    javalang.tree.SwitchStatement,
+    javalang.tree.TryStatement,
+    javalang.tree.DoStatement,
+    javalang.tree.WhileStatement,
+    javalang.tree.BlockStatement,
+    javalang.tree.CatchClause
+]
+
 
 class ASTNode:
-    def __init__(self, line, method_line, node):
+    def __init__(self, line, method_line, node, scope):
         self.line = line  # node line number in the file
         self.method_line = method_line  # line number where parent method declared
         self.node = node  # javalang AST node object
+        self.scope = scope  # ID of scope this node belongs
 
 
 class JavalangImproved:
@@ -61,12 +76,21 @@ class JavalangImproved:
         return tree, lines
 
     def __find_keyword(self, lines, keyword, start):
+        '''
+        Args:
+            lines (List[str]): List of lines from parsed source code file
+            keyword (str): keyword to find
+            start (int): Line number to start search
+        '''
         for i in range(start - 1, len(lines)):
             if keyword in lines[i]:
                 return i + 1
         return -1
 
     def __fix_line_number_if_possible(self, node: javalang.ast.Node, line_n):
+        '''
+        Try to figure out the "true" line number of AST node in the source file
+        '''
         node_class_name = node.__class__.__name__
         if node_class_name not in NODE_KEYWORD_MAP:
             return line_n
@@ -79,15 +103,33 @@ class JavalangImproved:
             return line_n
         return line
 
-    def __tree_to_nodes(self, tree: javalang.ast.Node, line=1, parent_method_line=None) -> List[ASTNode]:
-        '''Return AST nodes with line numbers sorted by line number'''
+    def __tree_to_nodes(
+        self,
+        tree: javalang.ast.Node,
+        line=1,
+        parent_method_line=None,
+        scope=0
+    ) -> List[ASTNode]:
+        '''
+        Return AST nodes with line numbers sorted by line number
+
+        Args:
+            tree (javalang.ast.Node): AST node
+            line (int): Supposed line number of processed AST node in the file
+            parent_method_line (int): Nearest line number of the method this node located
+            scope (int): ID of scope processed AST node located
+        '''
 
         if hasattr(tree, 'position') and tree.position:
             line = tree.position.line
 
         line = self.__fix_line_number_if_possible(tree, line)
+        if type(tree) in NEW_SCOPE_NODES:
+            scope += 1
+
         if type(tree) == javalang.tree.MethodDeclaration:
             parent_method_line = line
+
         res = []
         for child in tree.children:
             nodes_arr = child if isinstance(child, list) else [child]
@@ -98,10 +140,11 @@ class JavalangImproved:
                 res += self.__tree_to_nodes(
                     node,
                     left_siblings_line,
-                    parent_method_line
+                    parent_method_line,
+                    scope
                 )
 
-        return [ASTNode(line, parent_method_line, tree)] + res
+        return [ASTNode(line, parent_method_line, tree, scope)] + res
 
     def tree_to_nodes(self) -> List[ASTNode]:
         '''Return AST nodes as list with line numbers sorted by line number'''
@@ -116,18 +159,19 @@ class JavalangImproved:
 
     def get_empty_lines(self) -> List[int]:
         '''Figure out lines that are either empty or multiline statements'''
-        lines_with_nodes = list(map(lambda v: v.line, self.tree_to_nodes()))
-        # lines_with_nodes = [
-        #     node.position.line for path, node in self.tree
-        #     if hasattr(node, 'position') and node.position is not None
-        # ]
+        lines_with_nodes = self.get_non_empty_lines()
         max_line = max(lines_with_nodes)
         return set(range(1, max_line + 1)).difference(lines_with_nodes)
 
+    def get_non_empty_lines(self) -> List[int]:
+        '''Figure out file lines that contains statements'''
+        return list(map(lambda v: v.line, self.tree_to_nodes()))
+
 
 class NodeType(Enum):
-    VAR = 1      # Variable Declaration
-    METHOD = 2   # Method Declaration
+    OTHER = 1  # Other statements
+    VAR = 2  # Variable Declaration nodes
+    SCOPE = 3  # Nodes creating new scope
 
 
 class VarMiddle:
@@ -139,59 +183,83 @@ class VarMiddle:
     def __init__(self):
         pass
 
-    def __check_var_declaration(self, pos: int, line_to_node_map, empty_lines: List[int]) -> bool:
+    def __check_var_declaration(self, var_idx: int, nodes_list) -> bool:
         '''
-        Check that VAR declaration line is near the method declaration
+        Check that VAR declaration line is near the beginning of its scope
         Args:
             pos (int): Line number we are going to check.
-            line_to_node_map (Map Int Node): Map line number to node object
+            nodes_list (List): List of nodes
 
         Returns:
-            bool: True if VAR declaration is near method declaration
+            bool: True if VAR declaration is near the begining of the scope
         '''
-        ntype, method = line_to_node_map.get(pos)
+        line, (ntype, scope) = nodes_list[var_idx]
         if ntype != NodeType.VAR:
             raise ValueError('Variable declaration line is expected!')
-        i = pos - 1
-        while i > 0:
-            if i in empty_lines:
-                i -= 1
-                continue
-            if i not in line_to_node_map:
+        i = var_idx - 1
+        while i >= 0:
+            _line, (_ntype, _scope) = nodes_list[i]
+            if scope != _scope:
                 return False
-
-            _ntype, _method = line_to_node_map.get(i)
-            if _ntype == NodeType.METHOD and method == _method:
+            if _ntype == NodeType.SCOPE:
                 return True
-            if _ntype == NodeType.VAR and method != _method:
+            if _ntype == NodeType.OTHER:
                 return False
-
             i -= 1
+
         raise ValueError('Method declaration is not found')
 
-    def __get_other_statements_with_vars_declarations(self, nodes):
-        ntypes = [javalang.tree.TryResource]
-        return list(
-            filter(lambda v: v['ntype'] in ntypes, nodes)
-        )
+    def _prepare_nodes(self, tree: JavalangImproved):
+        to_ignore = [
+            javalang.tree.FormalParameter,
+            javalang.tree.ReferenceType,
+            javalang.tree.BasicType
+        ]
+        var_node_type = [
+            javalang.tree.LocalVariableDeclaration,
+            javalang.tree.TryResource
+        ]
+        scope_node_type = NEW_SCOPE_NODES
+        nodes = tree.tree_to_nodes()
+        nodes = list(filter(lambda n: type(n.node) not in to_ignore, nodes))
+
+        def node_to_type(node: ASTNode):
+            if type(node.node) in var_node_type:
+                return NodeType.VAR
+            if type(node.node) in scope_node_type:
+                return NodeType.SCOPE
+            return NodeType.OTHER
+
+        def cmp_node(ntype1: NodeType, ntype2: NodeType):
+            if ntype1.value > ntype2.value:
+                return True
+            return False
+
+        def reduce_f(accum, val):
+            if len(accum) == 0:
+                accum.append(val)
+            if accum[-1].line != val.line or accum[-1].scope != val.scope:
+                accum.append(val)
+            if not cmp_node(node_to_type(accum[-1]), node_to_type(val)):
+                accum[-1] = val
+            return accum
+        # print("nodes", list(map(lambda e: (e.line, (type(e.node), e.scope)), nodes)))
+        nodes = reduce(reduce_f, nodes, [])
+        nodes = [
+            (e.line, (node_to_type(e), e.scope))
+            for e in nodes
+        ]
+        return nodes
 
     def value(self, filename: str) -> List[int]:
         ''''''
-        line_to_node_map = {}
 
         tree = JavalangImproved(filename)
-        empty_lines = tree.get_empty_lines()
-        m_decls = tree.filter([javalang.tree.MethodDeclaration])
-        v_decls = tree.filter([
-            javalang.tree.LocalVariableDeclaration,
-            javalang.tree.TryResource
-        ])
-
-        m_poss = [(e.line, (NodeType.METHOD, e.method_line)) for e in m_decls]
-        v_poss = [(e.line, (NodeType.VAR, e.method_line)) for e in v_decls]
-        line_to_node_map = dict(m_poss + v_poss)
-
-        return [
-            line for line, _ in v_poss
-            if not self.__check_var_declaration(line, line_to_node_map, empty_lines)
-        ]
+        nodes = self._prepare_nodes(tree)
+        line_matches = []
+        for i, (line, (node, s)) in enumerate(nodes):
+            if node != NodeType.VAR:
+                continue
+            if not self.__check_var_declaration(i, nodes):
+                line_matches.append(line)
+        return line_matches

@@ -1,4 +1,4 @@
-Find variable declaration lines in the middle of method
+Find variable declaration lines in the middle of its scope
 ---
 
 

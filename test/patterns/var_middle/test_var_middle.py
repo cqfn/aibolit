@@ -49,9 +49,44 @@ class VarMiddleTest(TestCase):
     def test_case_autoclosable(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/5.java')
-        self.assertEqual(lines, [20, 21])
+        self.assertEqual(lines, [])
 
     def test_case_nested_class(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/6.java')
         self.assertEqual(lines, [10, 22, 30, 33])
+
+    def test_for_scope_good(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/8.java')
+        self.assertEqual(lines, [])
+
+    def test_for_scope_bad(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/9.java')
+        self.assertEqual(lines, [11])
+
+    def test_variable_declared_after_for(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/10.java')
+        self.assertEqual(lines, [11])
+
+    def test_11(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/11.java')
+        self.assertEqual(lines, [])
+
+    def test_catch_good(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/12.java')
+        self.assertEqual(lines, [])
+
+    def test_catch_bad(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/13.java')
+        self.assertEqual(lines, [38])
+
+    def test_else_bad(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/14.java')
+        self.assertEqual(lines, [88])
