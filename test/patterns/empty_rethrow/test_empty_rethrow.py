@@ -36,7 +36,7 @@ class TestEmptyRethrow(TestCase):
 
     def test_anonymous(self):
         file = str(Path(self.cur_file_dir, 'Anonymous.java'))
-        self.assertEqual(self.testClass.value(file), [18, 24])
+        self.assertEqual(self.testClass.value(file), [19, 25])
 
     def test_both_catches(self):
         file = str(Path(self.cur_file_dir, 'BothCatches.java'))
