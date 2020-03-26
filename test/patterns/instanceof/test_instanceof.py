@@ -32,36 +32,36 @@ class TestInstanceOf(TestCase):
 
     def test_empty(self):
         file = str(Path(self.cur_file_dir, 'Empty.java'))
-        assert len(self.testClass.value(file)) == 0
+        self.assertEqual(len(self.testClass.value(file)), 0)
 
     def test_instance_of(self):
         file = str(Path(self.cur_file_dir, 'InstanceOfSample.java'))
-        assert len(self.testClass.value(file)) == 1
+        self.assertEqual(len(self.testClass.value(file)), 1)
 
     def test_instance(self):
         file = str(Path(self.cur_file_dir, 'InstanceSample.java'))
-        assert len(self.testClass.value(file)) == 1
+        self.assertEqual(len(self.testClass.value(file)), 1)
 
     def test_instance_of_different_methods(self):
         file = str(Path(self.cur_file_dir, 'InstanceOfSampleDifferentMethods.java'))
-        assert len(self.testClass.value(file)) == 2
+        self.assertEqual(len(self.testClass.value(file)), 2)
 
     def test_instance_different_methods(self):
         file = str(Path(self.cur_file_dir, 'InstanceSampleDifferentMethods.java'))
-        assert len(self.testClass.value(file)) == 2
+        self.assertEqual(len(self.testClass.value(file)), 2)
 
     def test_instance_of_several(self):
         file = str(Path(self.cur_file_dir, 'InstanceOfSampleSeveral.java'))
-        assert len(self.testClass.value(file)) == 3
+        self.assertEqual(len(self.testClass.value(file)), 3)
 
     def test_instance_several(self):
         file = str(Path(self.cur_file_dir, 'InstanceSampleSeveral.java'))
-        assert len(self.testClass.value(file)) == 2
+        self.assertEqual(len(self.testClass.value(file)), 2)
 
     def test_instance_in_method_chaining(self):
         file = str(Path(self.cur_file_dir, 'InstanceSampleChain.java'))
-        assert len(self.testClass.value(file)) == 2
+        self.assertEqual(len(self.testClass.value(file)), 2)
 
     def test_both(self):
         file = str(Path(self.cur_file_dir, 'InstanceBoth.java'))
-        assert len(self.testClass.value(file)) == 2
+        self.assertEqual(len(self.testClass.value(file)), 2)

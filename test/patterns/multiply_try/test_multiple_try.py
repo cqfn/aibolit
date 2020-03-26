@@ -32,28 +32,28 @@ class TestMultipleTry(TestCase):
 
     def test_simple(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'Simple.java'))
-        assert lines == [2]
+        self.assertEqual(lines, [2])
 
     def test_large_file(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'Large.java'))
-        assert lines == [706, 620]
+        self.assertEqual(lines, [706, 620])
 
     def test_try_inside_anonymous(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'TryInsideAnomymous.java'))
-        assert lines == [5]
+        self.assertEqual(lines, [5])
 
     def test_try_inside_catch(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'TryInsideCatch.java'))
-        assert lines == [2]
+        self.assertEqual(lines, [2])
 
     def test_try_inside_finally(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'TryInsideFinaly.java'))
-        assert lines == [2]
+        self.assertEqual(lines, [2])
 
     def test_try_inside_try(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'TryInsideTry.java'))
-        assert lines == [2]
+        self.assertEqual(lines, [2])
 
     def test_try_method_overloading(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'TryMethodOverloading.java'))
-        assert lines == []
+        self.assertEqual(lines, [])

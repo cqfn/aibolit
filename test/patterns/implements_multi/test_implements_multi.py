@@ -11,48 +11,48 @@ class TestImplementsMulti(TestCase):
 
     def test_one_class_with_types(self):
         lines = self.multi_finder.value(Path(self.dir_path, 'AnimatableSplitDimensionPathValue.java'))
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_two_classes(self):
         lines = self.multi_finder.value(Path(self.dir_path, 'AnimatableTransform.java'))
-        assert lines == [12]
+        self.assertEqual(lines, [12])
 
     def test_implements_in_string(self):
         lines = self.multi_finder.value(Path(self.dir_path, 'AuditEventModelProcessor.java'))
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_implements_with_parantheses(self):
         lines = self.multi_finder.value(Path(self.dir_path, 'BaseKeyframeAnimation.java'))
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_implements_with_nested_parantheses(self):
         lines = self.multi_finder.value(Path(self.dir_path, 'Configuration.java'))
-        assert lines == [225]
+        self.assertEqual(lines, [225])
 
     def test_implements_multi_classes(self):
         lines = self.multi_finder.value(Path(self.dir_path, 'FillContent.java'))
-        assert lines == [29]
+        self.assertEqual(lines, [29])
 
     def test_implements_with_parantheses_multi(self):
         lines = self.multi_finder.value(Path(self.dir_path, 'FJIterateTest.java'))
-        assert lines == [601]
+        self.assertEqual(lines, [601])
 
     def test_implements_with_parantheses_before(self):
         lines = self.multi_finder.value(Path(self.dir_path, 'FJListProcedureRunner.java'))
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_implements_in_comments(self):
         lines = self.multi_finder.value(Path(self.dir_path, 'KeyProviderCryptoExtension.java'))
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_implements_multi(self):
         lines = self.multi_finder.value(Path(self.dir_path, 'OsSecureRandom.java'))
-        assert lines == [42]
+        self.assertEqual(lines, [42])
 
     def test_implements_three(self):
         lines = self.multi_finder.value(Path(self.dir_path, 'RectangleContent.java'))
-        assert lines == [22]
+        self.assertEqual(lines, [22])
 
     def test_implements_many(self):
         lines = self.multi_finder.value(Path(self.dir_path, 'SequenceFile.java'))
-        assert lines == [837]
+        self.assertEqual(lines, [837])
