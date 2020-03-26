@@ -11,12 +11,12 @@ class TestSetter(TestCase):
 
     def test_one_valid_patterns(self):
         lines = self.setter_finder.value(Path(self.dir_path, 'BaseKeyframeAnimation.java'))
-        assert lines == [40]
+        self.assertEqual(lines, [40])
 
     def test_four_setter_patterns(self):
         lines = self.setter_finder.value(Path(self.dir_path, 'Configuration.java'))
-        assert lines == [1236, 1240, 3783, 3819]
+        self.assertEqual(lines, [1236, 1240, 3783, 3819])
 
     def test_another_setter_patterns(self):
         lines = self.setter_finder.value(Path(self.dir_path, 'SequenceFile.java'))
-        assert lines == [2849, 2855, 2861, 3127]
+        self.assertEqual(lines, [2849, 2855, 2861, 3127])
