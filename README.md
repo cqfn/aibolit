@@ -20,7 +20,7 @@ Then, you run it to analyze your Java sources, located at `src/java` (for exampl
 $ aibolit --filename File.java
 ```
 
-It will run the model, found in aibolit/binary_files. The model will find a pattern which contribution is the largest to the Cyclomatic Complexity. If anything is found, you will se all recommendation for the mentioned pattern. You can see the list of all patterns in Patterns.md
+It will run the model, found in aibolit/binary_files. The model will find a pattern which contribution is the largest to the Cyclomatic Complexity. If anything is found, you will see all recommendations for the mentioned pattern. You can see the list of all patterns in Patterns.md
 
 ## How to contribute?
 
