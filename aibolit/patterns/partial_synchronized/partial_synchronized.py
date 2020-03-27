@@ -20,11 +20,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import javalang
-from aibolit.patterns.var_middle.var_middle import JavalangImproved, VarMiddle
-from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
 from collections import defaultdict
-import re
+
+import javalang
+
+from aibolit.patterns.var_middle.var_middle import JavalangImproved
+
 
 class PartialSync:
 
@@ -61,7 +62,6 @@ class PartialSync:
                 lines_number_btw_function_and_synch_block = sync_n.line - method_line - len(
                     empty_lines_before_sync)
                 if lines_number_btw_function_and_synch_block > 1:
-                    # is_pattern = True
                     total_code_lines.add(sync_n.line)
                     continue
                 elif lines_number_btw_function_and_synch_block == 1:
@@ -72,42 +72,4 @@ class PartialSync:
                         total_code_lines.add(sync_n.line)
                         continue
 
-
-        # for method_node in method_nodes:
-            # method_statements = [node for _, node in method_node.filter(javalang.tree.StatementExpression)]
-            # lst_nodes = [lst for lst in method_node.node.children if isinstance(lst, list) and lst]
-            # exclude list of FormalParameter items, it is the first item always
-            # if len(lst_nodes) > 1:
-            #     method_statements = lst_nodes[1]
-            #     after_synch_statements = 0
-            #     statement_number = 0
-            #     sync_node = None
-            #     for node in method_statements:
-            #         if not isinstance(node, javalang.tree.SynchronizedStatement):
-            #             after_synch_statements += 1
-            #         else:
-            #             statement_number += 1
-            #             sync_node = synch_nodes[method_node.node.position.line][statement_number - 1]
-            #     if after_synch_statements != len(method_statements):
-            #         total_code_lines.add(sync_node.line)
-            # else:
-            #     continue
-            # for _, sync_node in method_node.filter(javalang.tree.SynchronizedStatement):
-            #     sync_statements = [node for _, node in sync_node.filter(javalang.tree.StatementExpression)]
-            #     if len(method_statements) != len(sync_statements):
-            #         if not hasattr(sync_node.children[1].position, 'line'):
-            #             total_code_lines.add(sync_node.children[1].position.line)
-            #         else:
-            #             total_code_lines.add(sync_node.children[1].position.line)
-            #     print('{} {} method stat length {}, sync stat length {}'.format(
-            #         filename.name,
-            #         method_node.name,
-            #         len(method_statements),
-            #         len(sync_statements)))
         return sorted(total_code_lines)
-#
-# import pathlib
-# partS = PartialSync()
-# for path in pathlib.Path(r'D:\git\aibolit\test\patterns\partial_synchronized').iterdir():
-#     if path.is_file() and path.name.endswith('java'):
-#         print(path, partS.value(path))
