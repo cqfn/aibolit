@@ -31,40 +31,40 @@ class TestFindThis(TestCase):
 
     def test_several(self):
         lines = self.pattern.value(self.cur_dir + '/several.java')
-        assert lines == [4, 10, 20]
+        self.assertEqual(lines, [4, 10, 20])
 
     def test_simple1(self):
         lines = self.pattern.value(self.cur_dir + '/double_this.java')
-        assert lines == [12]
+        self.assertEqual(lines, [12])
 
     def test_simple2(self):
         lines = self.pattern.value(self.cur_dir + '/init_block.java')
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_simple22(self):
         lines = self.pattern.value(self.cur_dir + '/init_static_block.java')
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_simple3(self):
         lines = self.pattern.value(self.cur_dir + '/autocloseable.java')
-        assert lines == [4, 14, 31]
+        self.assertEqual(lines, [4, 14, 31])
 
     def test_simple4(self):
         lines = self.pattern.value(self.cur_dir + '/one_line_this.java')
-        assert lines == [11]
+        self.assertEqual(lines, [11])
 
     def test_simple5(self):
         lines = self.pattern.value(self.cur_dir + '/one_line_usage.java')
-        assert lines == [12]
+        self.assertEqual(lines, [12])
 
     def test_simple6(self):
         lines = self.pattern.value(self.cur_dir + '/super.java')
-        assert lines == [12]
+        self.assertEqual(lines, [12])
 
     def test_simple7(self):
         lines = self.pattern.value(self.cur_dir + '/holy_moly_constructor.java')
-        assert lines == [47]
+        self.assertEqual(lines, [47])
 
     def test_simple9(self):
         lines = self.pattern.value(self.cur_dir + '/super_this.java')
-        assert lines == [15, 25, 51, 62, 76, 87, 101]
+        self.assertEqual(lines, [15, 25, 51, 62, 76, 87, 101])

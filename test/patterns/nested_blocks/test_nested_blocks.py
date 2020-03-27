@@ -33,30 +33,30 @@ class TestNestedBlocks(TestCase):
 
     def test_single_for_loop(self):
         file = str(Path(self.cur_file_dir, 'SingleFor.java'))
-        assert self.testClass.value(file) == [15, 19]
+        self.assertEqual(self.testClass.value(file), [15, 19])
 
     def test_nested_for_loops(self):
         file = str(Path(self.cur_file_dir, 'NestedFor.java'))
-        assert self.testClass.value(file) == [22]
+        self.assertEqual(self.testClass.value(file), [22])
 
     def test_for_loops_in_different_methods(self):
         file = str(Path(self.cur_file_dir, 'DifferentMethods.java'))
-        assert self.testClass.value(file) == [28]
+        self.assertEqual(self.testClass.value(file), [28])
 
     def test_for_loops_in_nested_class(self):
         file = str(Path(self.cur_file_dir, 'NestedForInNestedClasses.java'))
-        assert self.testClass.value(file) == [9]
+        self.assertEqual(self.testClass.value(file), [9])
 
     def test_for_loops_in_anonymous_class(self):
         file = str(Path(self.cur_file_dir, 'ForInAnonymousFile.java'))
-        assert self.testClass.value(file) == [19]
+        self.assertEqual(self.testClass.value(file), [19])
 
     def test_nested_no_nested_if(self):
         pattern = NestedBlocks(2, BlockType.IF)
         file = str(Path(self.cur_file_dir, 'NestedNoIF.java'))
-        assert pattern.value(file) == []
+        self.assertEqual(pattern.value(file), [])
 
     def test_nested_if(self):
         pattern = NestedBlocks(2, BlockType.IF)
         file = str(Path(self.cur_file_dir, 'NestedIF.java'))
-        assert pattern.value(file) == [21, 42]
+        self.assertEqual(pattern.value(file), [21, 42])
