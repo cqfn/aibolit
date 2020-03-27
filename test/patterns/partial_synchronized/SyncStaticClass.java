@@ -46,6 +46,7 @@ class KeyframeParser {
 
   @Nullable
   private static WeakReference<Interpolator> getInterpolator(int hash) {
+	int i = 0;
     // This must be synchronized because get and put isn't thread safe because
     // SparseArrayCompat has to create new sized arrays sometimes.
     synchronized (KeyframeParser.class) {

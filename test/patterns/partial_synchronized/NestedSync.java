@@ -16,21 +16,21 @@ public abstract class Server {
   /**
    * Logical name of the server used in metrics and monitor.
    */
-
-    private void doublthis(RpcCall call, long now) {\
-	  
-      synchronized (this) {
-        Iterator<RpcCall> iter = responseQueue.listIterator(0);
-        synchronized (this) {
-		  while (iter.hasNext()) {
-			  call = iter.next();
-			  if (now > call.responseTimestampNanos + PURGE_INTERVAL_NANOS) {
-				closeConnection(call.connection);
-				break;
-			  }
-		  }
+  private final String serverName;
+    private void doPurge(RpcCall call, long now) {
+      LinkedList<RpcCall> responseQueue = call.connection.responseQueue;
+      synchronized (responseQueue) {
+		int j = 0;
+        synchronized(this) {
+		Iterator<RpcCall> iter = responseQueue.listIterator(0);
+				while (iter.hasNext()) {
+				  call = iter.next();
+				  if (now > call.responseTimestampNanos + PURGE_INTERVAL_NANOS) {
+					closeConnection(call.connection);
+					break;
+				  }
+				}
 		}
-      }
-	  func();
-    }
+	  }
+	}
 }

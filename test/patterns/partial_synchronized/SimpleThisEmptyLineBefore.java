@@ -41,7 +41,7 @@ import java.util.Optional;
   @Override
   public final void reconfigureProperty(String property, String newVal) {
 
-	  int i = 0;
+
       synchronized(getConf()) {
         getConf().get(property);
         String effectiveValue = reconfigurePropertyImpl(property, newVal);

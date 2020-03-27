@@ -70,7 +70,6 @@ class JavalangImproved:
         '''Takes path to java class file and returns AST Tree'''
         with open(filename, encoding='utf-8') as file:
             tree = javalang.parse.parse(file.read())
-            lines = file.readlines()
 
         with open(filename, encoding='utf-8') as file:
             lines = file.readlines()

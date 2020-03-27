@@ -17,20 +17,23 @@ public abstract class Server {
    * Logical name of the server used in metrics and monitor.
    */
 
-    private void doublthis(RpcCall call, long now) {\
+    private void doublthis(RpcCall call, long now) {
 	  
-      synchronized (this) {
-        Iterator<RpcCall> iter = responseQueue.listIterator(0);
-        synchronized (this) {
-		  while (iter.hasNext()) {
-			  call = iter.next();
-			  if (now > call.responseTimestampNanos + PURGE_INTERVAL_NANOS) {
-				closeConnection(call.connection);
-				break;
-			  }
-		  }
+		synchronized (this) {
+			Iterator<RpcCall> iter = responseQueue.listIterator(0);
+			synchronized (this) {
+				while (iter.hasNext()) {
+				  call = iter.next();
+				  if (now > call.responseTimestampNanos + PURGE_INTERVAL_NANOS) {
+					closeConnection(call.connection);
+					break;
+				  }
+				}
+			}
 		}
-      }
-	  func();
+	  while (1) {
+		  func();
+	  }
+  
     }
 }

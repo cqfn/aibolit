@@ -39,10 +39,7 @@ import java.util.Optional;
       this.parent = base;
     }
   @Override
-  public final void reconfigureProperty(String property, String newVal)
-    throws ReconfigurationException {
-    if (isPropertyReconfigurable(property)) {
-      LOG.info("changing property " + property + " to " + newVal);
+  public final void reconfigureProperty(String property, String newVal) {
       synchronized(getConf()) {
         getConf().get(property);
         String effectiveValue = reconfigurePropertyImpl(property, newVal);
@@ -52,9 +49,7 @@ import java.util.Optional;
           getConf().unset(property);
         }
       }
-    } else {
-      throw new ReconfigurationException(property, newVal,
-                                             getConf().get(property));
-    }
+	  
+	  
   }
 }

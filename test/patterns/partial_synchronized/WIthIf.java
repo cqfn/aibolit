@@ -78,10 +78,19 @@ public enum DefaultMetricsSystem {
 
   void shutdownInstance() {
     boolean last = impl.get().shutdown();
-    if (last) synchronized(this) {
-      mBeanNames.map.clear();
-      sourceNames.map.clear();
-    }
+    if (last) {
+		if (true) {
+			for  (int i = 0; i < 10; ++i) {
+				for  (int i = 0; i < 10; ++i) {
+					synchronized(this) {
+					  mBeanNames.map.clear();
+					  sourceNames.map.clear();
+					}
+				}
+			}
+		}
+	}
+	  
   }
 
   @InterfaceAudience.Private
