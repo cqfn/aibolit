@@ -2,11 +2,11 @@ class Book {
     private final int a;
 
     Book(int x) {
-        this.x = a;
+        this.a = x;
     }
 
     Book() {
-        this.x = 0;
+        this.a = 0;
     }
 
     Book() {
