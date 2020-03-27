@@ -29,65 +29,64 @@ class VarMiddleTest(TestCase):
     def test_good_class(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/1.java')
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_bad_class(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/2.java')
-        assert lines == [9, 16]
+        self.assertEqual(lines, [9, 16])
 
     def test_case_with_multiline_method_declaration(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/3.java')
-        # print("lines", lines)
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_case_with_empty_lines(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/4.java')
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_case_autoclosable(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/5.java')
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_case_nested_class(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/6.java')
-        assert lines == [10, 22, 30, 33]
+        self.assertEqual(lines, [10, 22, 30, 33])
 
     def test_for_scope_good(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/8.java')
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_for_scope_bad(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/9.java')
-        assert lines == [11]
+        self.assertEqual(lines, [11])
 
     def test_variable_declared_after_for(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/10.java')
-        assert lines == [11]
+        self.assertEqual(lines, [11])
 
     def test_11(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/11.java')
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_catch_good(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/12.java')
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_catch_bad(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/13.java')
-        assert lines == [38]
+        self.assertEqual(lines, [38])
 
     def test_else_bad(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/14.java')
-        assert lines == [88]
+        self.assertEqual(lines, [88])

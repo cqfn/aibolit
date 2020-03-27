@@ -32,24 +32,24 @@ class TestCountIfReturn(TestCase):
 
     def test_no_return_inside(self):
         lines = self.countifreturn.value(Path(self.dir_path, '2.java'))
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_2nd_level_inside(self):
         lines = self.countifreturn.value(Path(self.dir_path, '1.java'))
-        assert lines == [6, 10]
+        self.assertEqual(lines, [6, 10])
 
     def test_nested_one_goodreturn(self):
         lines = self.countifreturn.value(Path(self.dir_path, '3.java'))
-        assert lines == []
+        self.assertEqual(lines, [])
 
     def test_nested_one_badreturn(self):
         lines = self.countifreturn.value(Path(self.dir_path, '4.java'))
-        assert lines == [6]
+        self.assertEqual(lines, [6])
 
     def test_withandwithout_returns(self):
         lines = self.countifreturn.value(Path(self.dir_path, '5.java'))
-        assert lines == [6, 14, 16, 18]
+        self.assertEqual(lines, [6, 14, 16, 18])
 
     def test_nomoreReturn_and_nested(self):
         lines = self.countifreturn.value(Path(self.dir_path, '6.java'))
-        assert lines == [10]
+        self.assertEqual(lines, [10])
