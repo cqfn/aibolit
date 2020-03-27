@@ -32,30 +32,30 @@ class TestSuperMethod(TestCase):
 
     def test_empty(self):
         file = str(Path(self.cur_file_dir, 'Empty.java'))
-        assert len(self.testClass.value(file)) == 0
+        self.assertEqual(len(self.testClass.value(file)), 0)
 
     def test_instance_of(self):
         # It has 2 matches in anonymous class!
         file = str(Path(self.cur_file_dir, 'Anonymous.java'))
-        assert len(self.testClass.value(file)) == 2
+        self.assertEqual(len(self.testClass.value(file)), 2)
 
     def test_instance(self):
         file = str(Path(self.cur_file_dir, 'Simple.java'))
-        assert len(self.testClass.value(file)) == 1
+        self.assertEqual(len(self.testClass.value(file)), 1)
 
     def test_several(self):
         # It has 2 matches in anonymous class!
         file = str(Path(self.cur_file_dir, 'Several.java'))
-        assert len(self.testClass.value(file)) == 7
+        self.assertEqual(len(self.testClass.value(file)), 7)
 
     def test_nested_class(self):
         file = str(Path(self.cur_file_dir, 'NestedClass.java'))
-        assert len(self.testClass.value(file)) == 1
+        self.assertEqual(len(self.testClass.value(file)), 1)
 
     def test_constructor(self):
         file = str(Path(self.cur_file_dir, 'Constructor.java'))
-        assert len(self.testClass.value(file)) == 0
+        self.assertEqual(len(self.testClass.value(file)), 0)
 
     def test_complicated_constructor(self):
         file = str(Path(self.cur_file_dir, 'ComplicatedChainConstructor.java'))
-        assert len(self.testClass.value(file)) == 0
+        self.assertEqual(len(self.testClass.value(file)), 0)

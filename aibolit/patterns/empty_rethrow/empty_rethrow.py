@@ -20,26 +20,32 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
-from unittest import TestCase
-from aibolit.patterns.force_type_casting_finder import force_type_casting_finder
+import javalang
 
 
-class ForceTypeCastingFinderTest(TestCase):
-    def test_simple(self):
-        pattern = force_type_casting_finder.ForceTypeCastingFinder()
-        lines = pattern.value(
-            os.path.dirname(os.path.realpath(__file__)) + '/1.java')
-        self.assertEqual(lines, [5])
+class EmptyRethrow:
 
-    def test_several_casts(self):
-        pattern = force_type_casting_finder.ForceTypeCastingFinder()
-        lines = pattern.value(
-            os.path.dirname(os.path.realpath(__file__)) + '/2.java')
-        self.assertEqual(lines, [5, 11, 17])
+    def __init__(self):
+        pass
 
-    def test_zero_lines(self):
-        pattern = force_type_casting_finder.ForceTypeCastingFinder()
-        lines = pattern.value(
-            os.path.dirname(os.path.realpath(__file__)) + '/3.java')
-        self.assertEqual(lines, [])
+    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
+        """
+        Takes path to java class file and returns AST Tree
+        """
+        with open(filename, encoding='utf-8') as file:
+            tree = javalang.parse.parse(file.read())
+
+        return tree
+
+    def value(self, filename):
+        tree = self.__file_to_ast(filename)
+        total_code_lines = set()
+        for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
+            for _, try_node in method_node.filter(javalang.tree.TryStatement):
+                for _, throw_node in try_node.filter(javalang.tree.ThrowStatement):
+                    catch_classes = [x.parameter.name for x in try_node.catches]
+                    mem_ref = throw_node.children[1]
+                    if mem_ref.member in catch_classes:
+                        total_code_lines.add(mem_ref.position.line)
+
+        return sorted(total_code_lines)

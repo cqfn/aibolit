@@ -32,24 +32,24 @@ class TestSpaces(TestCase):
 
     def test_class_with_best_ident(self):
         lines = self.pattern.value(Path(self.dir_path, 'BestIdent.java'))
-        assert lines[-2] == 44 and lines[-1] == 113
+        self.assertTrue(lines[-2] == 44 and lines[-1] == 113)
 
     def test_class_without_left_spaces(self):
         lines = self.pattern.value(Path(self.dir_path, 'NoLeftSpaces.java'))
-        assert lines[-2] == 0 and lines[-1] == 55
+        self.assertTrue(lines[-2] == 0 and lines[-1] == 55)
 
     def test_class_without_right_spaces(self):
         lines = self.pattern.value(Path(self.dir_path, 'NoRightSpaces.java'))
-        assert lines[-2] == 57 and lines[-1] == 0
+        self.assertTrue(lines[-2] == 57 and lines[-1] == 0)
 
     def test_class_with_equal_spaces_number(self):
         lines = self.pattern.value(Path(self.dir_path, 'SameMean.java'))
-        assert lines[-2] == 4 and lines[-1] == 55
+        self.assertTrue(lines[-2] == 4 and lines[-1] == 55)
 
     def test_class_with_tabs_and_spaces(self):
         lines = self.pattern.value(Path(self.dir_path, 'SpacesAndTabs.java'))
-        assert lines[-2] == 8 and lines[-1] == 59
+        self.assertTrue(lines[-2] == 8 and lines[-1] == 59)
 
     def test_class_with_worst_ident(self):
         lines = self.pattern.value(Path(self.dir_path, 'WorstIdentation.java'))
-        assert lines[-2] == 20 and lines[-1] == 163
+        self.assertTrue(lines[-2] == 20 and lines[-1] == 163)
