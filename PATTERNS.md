@@ -178,3 +178,22 @@ class Foo {
   }
 }
 ```
+
+***
+
+*Title*: Assert in code
+
+*Code*: **assert_in_code**
+
+*Description*: If there is an `assert` statement in code block, and name
+of class doesn't end with `Test`, it is considered a pattern.
+
+*Example*:
+
+```java
+class Book {
+  void foo(String x) {
+    assert x != null; // here
+  }
+}
+```
