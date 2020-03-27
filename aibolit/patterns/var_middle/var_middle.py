@@ -33,6 +33,7 @@ NODE_KEYWORD_MAP = {
     'ForStatement': 'for',
     'TryStatement': 'try',
     'CatchClause': 'catch',
+    'SynchronizedStatement': 'synchronized'
 }
 
 # list of nodes creating new scope
@@ -45,7 +46,8 @@ NEW_SCOPE_NODES = [
     javalang.tree.DoStatement,
     javalang.tree.WhileStatement,
     javalang.tree.BlockStatement,
-    javalang.tree.CatchClause
+    javalang.tree.CatchClause,
+    javalang.tree.SynchronizedStatement
 ]
 
 
