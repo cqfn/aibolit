@@ -218,3 +218,25 @@ class Book {
   void foo(String x) {
     assert x != null; // here
   }
+```
+***
+
+*Title*: Multiple ```While``` pattern
+
+*Code:* **multiple_while**
+
+*Description*: Once you see two or more ```while``` statements in a method body, it's a pattern.
+
+*Examples*: 
+
+```java
+class Book {
+  void foo() {
+    while (true) {
+    }
+    // something
+    while (true) {
+    }
+  }
+}
+```
