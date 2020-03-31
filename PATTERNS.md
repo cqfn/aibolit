@@ -178,3 +178,21 @@ class Foo {
   }
 }
 ```
+
+***
+
+*Title*: Non final attributes
+
+*Code*: **non_final_attribute**
+
+*Description*: Once we see a mutable attribute (without final modifier), it's 
+considered a pattern.
+
+*Examples*:
+
+```java
+class Book {
+  private int id;
+  // something else
+}
+```
