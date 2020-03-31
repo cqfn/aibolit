@@ -27,7 +27,7 @@ class AssertInCode(object):
 
         for path, node in tree.filter(javalang.tree.AssertStatement):
             if not _within_test_class(path):
-                # HACK: Neither `assert` statement nor its condition doesn't have
+                # HACK: Neither `assert` statement nor its condition has
                 # a position, so we only could take it from the left operand.
                 #
                 # SEE: https://github.com/c2nes/javalang/issues/73
