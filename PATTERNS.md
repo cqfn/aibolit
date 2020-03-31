@@ -181,14 +181,35 @@ class Foo {
 
 ***
 
+*Title*: Many primary ctors
+
+*Code*: **many_primary_ctors**
+
+*Description*: If there is more than one primary constructors in a class, it is
+considered a pattern.
+
+*Examples*:
+
+```java
+class Book {
+
+    private final int a;
+    Book(int x) { // first primary ctor
+        this.a = x;
+    }
+    Book() { // second
+        this.a = 0;
+    }
+}
+```
+
+***
+
 *Title*: Non final attributes
 
 *Code*: **non_final_attribute**
 
-*Description*: Once we see a mutable attribute (without final modifier), it's 
-considered a pattern.
-
-*Examples*:
+*Description*: Once we see a mutable attribute (without final modifier), it's considered a pattern.
 
 ```java
 class Book {
@@ -196,3 +217,22 @@ class Book {
   // something else
 }
 ```
+
+***
+
+*Title*: Assert in code
+
+*Code*: **assert_in_code**
+
+*Description*: If there is an `assert` statement in code block, and name
+of class doesn't end with `Test`, it is considered a pattern.
+
+*Example*:
+
+```java
+class Book {
+  void foo(String x) {
+    assert x != null; // here
+  }
+```
+

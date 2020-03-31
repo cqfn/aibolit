@@ -25,11 +25,7 @@ import javalang.parse
 import javalang.tree
 
 
-_OP_EQUALITY = '=='
-_LT_NULL = 'null'
-
-
-class NullCheck(object):
+class ManyPrimaryCtors(object):
     def value(self, filename: str):
         tree = self.__file_to_ast(filename)
 
@@ -48,18 +44,22 @@ class NullCheck(object):
     def __traverse_node(self, tree: javalang.ast.Node):
         lines = list()
 
-        for path, node in tree.filter(javalang.tree.BinaryOperation):
-            if _is_null_check(node) and not _within_constructor(path):
-                lines.append(node.operandr.position.line)
+        for _, class_declaration in tree.filter(javalang.tree.ClassDeclaration):
+            primary_ctors = list(filter(_is_primary, class_declaration.constructors))
+
+            if len(primary_ctors) > 1:
+                lines.extend(ctor.position.line for ctor in primary_ctors)
 
         return lines
 
 
-def _is_null_check(node: javalang.ast.Node):
-    return node.operator == _OP_EQUALITY and node.operandr.value == _LT_NULL
+def _is_primary(constructor: javalang.tree.ConstructorDeclaration):
+    for _, assignment in constructor.filter(javalang.tree.Assignment):
+        if _is_instance_variable_assignment(assignment):
+            return True
+
+    return False
 
 
-def _within_constructor(path):
-    node_types = [type(p) for p in path[::2]]
-
-    return javalang.tree.ConstructorDeclaration in node_types
+def _is_instance_variable_assignment(assignment: javalang.tree.Assignment):
+    return isinstance(assignment.expressionl, javalang.tree.This)
