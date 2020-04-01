@@ -17,10 +17,5 @@ class NonFinalAttribute:
         return tree
 
     def value(self, filename: str):
-        lst = []
         tree = self.__file_to_ast(filename).filter(javalang.tree.FieldDeclaration)
-        for path, node in tree:
-            if 'final' not in node.modifiers:
-                lst.append(node)
-
-        return lst
+        return [node for path, node in tree if 'final' not in node.modifiers]
