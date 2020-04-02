@@ -29,14 +29,18 @@ from aibolit.patterns.null_check.null_check import NullCheck
 
 class TestNullCheck(TestCase):
     cur_file_dir = Path(os.path.realpath(__file__)).parent
-    testClass = NullCheck()
 
     def test_null_check(self):
         file = Path(self.cur_file_dir, 'NullCheck.java')
 
-        self.assertEqual(self.testClass.value(file), [5])
+        self.assertEqual(NullCheck().value(file), [5])
 
     def test_null_check_in_constructor(self):
         file = Path(self.cur_file_dir, 'NullCheckInConstructor.java')
 
-        self.assertEqual(self.testClass.value(file), [])
+        self.assertEqual(NullCheck().value(file), [])
+
+    def test_null_check_comparison_result_assignment(self):
+        file = Path(self.cur_file_dir, 'OtherNullChecks.java')
+
+        self.assertEqual(NullCheck().value(file), [3, 6, 9, 10, 11, 12, 12])
