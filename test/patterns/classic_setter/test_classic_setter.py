@@ -21,6 +21,6 @@ class TestSetter(TestCase):
         lines = self.setter_finder.value(Path(self.dir_path, 'SequenceFile.java'))
         self.assertEqual(lines, [2849, 2855, 2861, 3127])
 
-    def test_another_setter_patterns(self):
+    def test_another_valid_pattern(self):
         lines = self.setter_finder.value(Path(self.dir_path, 'OsSecureRandom.java'))
         self.assertEqual(lines, [78])
