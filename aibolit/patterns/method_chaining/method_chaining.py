@@ -2,7 +2,7 @@ import javalang
 
 import uuid
 from collections import defaultdict
-from aibolit.utils.ast import Ast
+from aibolit.utils.ast import AST
 
 
 class MethodChainFind:
@@ -52,7 +52,7 @@ class MethodChainFind:
         List of tuples with LineNumber and List of methods names, e.g.
         [[10, 'func1'], [10, 'fun2']], [[23, 'run'], [23, 'start']]]
         """
-        tree = Ast(filename).value()
+        tree = AST(filename).value()
         chain_lst = defaultdict(list)
         for path, node in tree.filter(javalang.tree.StatementExpression):
             if isinstance(node.expression, javalang.tree.MethodInvocation):

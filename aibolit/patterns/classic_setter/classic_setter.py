@@ -1,5 +1,5 @@
 import javalang
-from aibolit.utils.ast import Ast
+from aibolit.utils.ast import AST
 
 
 class ClassicSetter:
@@ -9,7 +9,7 @@ class ClassicSetter:
 
     def value(self, filename: str):
         lst = []
-        tree = Ast(filename).value().filter(javalang.tree.MethodDeclaration)
+        tree = AST(filename).value().filter(javalang.tree.MethodDeclaration)
         for path, node in tree:
             if (node.return_type is None) and ('set' in node.name[:3]):
                 if (isinstance(node.body, list)) and len(node.body) < 2:

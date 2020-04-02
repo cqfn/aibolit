@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 import javalang
-from aibolit.utils.ast import Ast
+from aibolit.utils.ast import AST
 
 
 class ForceTypeCastingFinder:
@@ -54,7 +54,7 @@ class ForceTypeCastingFinder:
 
     def value(self, filename: str):
         ''''''
-        tree = Ast(filename).value()
+        tree = AST(filename).value()
         list_tree = self.__tree_to_list(tree)
         num_str = []
         for node in list_tree:

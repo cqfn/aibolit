@@ -23,7 +23,7 @@
 import itertools
 import re
 from collections import namedtuple
-from aibolit.utils.ast import Ast
+from aibolit.utils.ast import AST
 
 import javalang
 
@@ -36,7 +36,7 @@ class RedundantCatch:
         pass
 
     def value(self, filename):
-        tree = Ast(filename).value()
+        tree = AST(filename).value()
         with open(filename, encoding='utf-8') as file:
             lines_str = file.readlines()
 

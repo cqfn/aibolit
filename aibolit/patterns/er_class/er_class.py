@@ -1,5 +1,5 @@
 import javalang
-from aibolit.utils.ast import Ast
+from aibolit.utils.ast import AST
 
 
 class ErClass:
@@ -22,5 +22,5 @@ class ErClass:
                    'producer',
                    'holder',
                    'interceptor')
-        tree = Ast(filename).value().filter(javalang.tree.ClassDeclaration)
+        tree = AST(filename).value().filter(javalang.tree.ClassDeclaration)
         return [node._position.line for _, node in tree if [n for n in classes if n in node.name.lower()] != []]

@@ -23,7 +23,7 @@
 import javalang.ast
 import javalang.parse
 import javalang.tree
-from aibolit.utils.ast import Ast
+from aibolit.utils.ast import AST
 
 
 _OP_EQUALITY = '=='
@@ -32,7 +32,7 @@ _LT_NULL = 'null'
 
 class NullCheck(object):
     def value(self, filename: str):
-        tree = Ast(filename).value()
+        tree = AST(filename).value()
 
         return self.__traverse_node(tree)
 

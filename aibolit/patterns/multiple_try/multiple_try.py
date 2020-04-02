@@ -4,7 +4,7 @@ import uuid
 from collections import defaultdict
 import hashlib
 import itertools
-from aibolit.utils.ast import Ast
+from aibolit.utils.ast import AST
 
 class MultipleTry:
 
@@ -54,7 +54,7 @@ class MultipleTry:
         [[10, 'func1'], [10, 'fun2']], [[23, 'run'], [23, 'start']]]
         """
 
-        tree = Ast(filename).value()
+        tree = AST(filename).value()
         res = defaultdict(list)
         for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
             for _, try_node in method_node.filter(javalang.tree.TryStatement):

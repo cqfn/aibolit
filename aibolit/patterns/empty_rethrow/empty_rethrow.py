@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 import javalang
-from aibolit.utils.ast import Ast
+from aibolit.utils.ast import AST
 
 class EmptyRethrow:
 
@@ -30,7 +30,7 @@ class EmptyRethrow:
 
 
     def value(self, filename):
-        tree = Ast(filename).value()
+        tree = AST(filename).value()
         total_code_lines = set()
         for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
             for _, try_node in method_node.filter(javalang.tree.TryStatement):

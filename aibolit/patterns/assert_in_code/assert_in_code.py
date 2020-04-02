@@ -1,7 +1,7 @@
 import javalang.ast
 import javalang.parse
 import javalang.tree
-from aibolit.utils.ast import Ast
+from aibolit.utils.ast import AST
 
 
 _TEST_CLASS_SUFFIX = 'Test'
@@ -9,7 +9,7 @@ _TEST_CLASS_SUFFIX = 'Test'
 
 class AssertInCode(object):
     def value(self, filename: str):
-        tree = Ast(filename).value()
+        tree = AST(filename).value()
 
         return self.__traverse_node(tree)
 
