@@ -24,19 +24,13 @@ import os
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.patterns.null_check.null_check import NullCheck
+from aibolit.patterns.many_primary_ctors.many_primary_ctors import ManyPrimaryCtors
 
 
-class TestNullCheck(TestCase):
+class TestManyPrimaryCtors(TestCase):
     cur_file_dir = Path(os.path.realpath(__file__)).parent
-    testClass = NullCheck()
 
-    def test_null_check(self):
-        file = Path(self.cur_file_dir, 'NullCheck.java')
+    def test_many_primary_ctors(self):
+        file = Path(self.cur_file_dir, 'Book.java')
 
-        self.assertEqual(self.testClass.value(file), [5])
-
-    def test_null_check_in_constructor(self):
-        file = Path(self.cur_file_dir, 'NullCheckInConstructor.java')
-
-        self.assertEqual(self.testClass.value(file), [])
+        self.assertEqual(ManyPrimaryCtors().value(file), [4, 8])
