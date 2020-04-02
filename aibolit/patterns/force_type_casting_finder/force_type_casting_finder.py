@@ -21,15 +21,10 @@
 # SOFTWARE.
 
 import javalang
+from aibolit.utils.ast import Ast
 
 
 class ForceTypeCastingFinder:
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
-        '''Takes path to java class file and returns AST Tree'''
-        with open(filename, encoding='utf-8') as file:
-            tree = javalang.parse.parse(file.read())
-
-        return tree
 
     def __process_node(self, node):
         line = node.position.line if hasattr(node, 'position') and node.position is not None else None
@@ -59,7 +54,7 @@ class ForceTypeCastingFinder:
 
     def value(self, filename: str):
         ''''''
-        tree = self.__file_to_ast(filename)
+        tree = Ast(filename).value()
         list_tree = self.__tree_to_list(tree)
         num_str = []
         for node in list_tree:

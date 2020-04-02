@@ -21,15 +21,10 @@
 # SOFTWARE.
 
 import javalang
+from aibolit.utils.ast import Ast
 
 
 class ThisFinder:
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
-        '''Takes path to java class file and returns AST Tree'''
-        with open(filename, encoding='utf-8') as file:
-            tree = javalang.parse.parse(file.read())
-
-        return tree
 
     def __expr_stat(self, expr, flag_this, flag_else):
         '''function to work with StatementExpression block'''
@@ -104,7 +99,7 @@ class ThisFinder:
 
     def value(self, filename: str):
         '''main function'''
-        tree = self.__file_to_ast(filename)
+        tree = Ast(filename).value()
         num_str = []
         for path, node in tree.filter(javalang.tree.ConstructorDeclaration):
             number = node.position.line

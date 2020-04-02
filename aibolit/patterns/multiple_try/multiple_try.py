@@ -4,6 +4,7 @@ import uuid
 from collections import defaultdict
 import hashlib
 import itertools
+from aibolit.utils.ast import Ast
 
 class MultipleTry:
 
@@ -42,15 +43,6 @@ class MultipleTry:
 
         return dict_with_chains
 
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
-        """
-        Takes path to java class file and returns AST Tree
-        :param filename:
-        :return: Tree
-        """
-        with open(filename, encoding='utf-8') as file:
-            res = javalang.parse.parse(file.read())
-        return res
 
     # flake8: noqa: C901
     def value(self, filename: str):
@@ -62,7 +54,7 @@ class MultipleTry:
         [[10, 'func1'], [10, 'fun2']], [[23, 'run'], [23, 'start']]]
         """
 
-        tree = self.__file_to_ast(filename)
+        tree = Ast(filename).value()
         res = defaultdict(list)
         for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
             for _, try_node in method_node.filter(javalang.tree.TryStatement):

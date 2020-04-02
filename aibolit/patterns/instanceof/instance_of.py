@@ -1,5 +1,5 @@
 import javalang
-
+from aibolit.utils.ast import Ast
 
 class InstanceOf:
 
@@ -24,17 +24,8 @@ class InstanceOf:
 
         return lines
 
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
-        """
-        Takes path to java class file and returns AST Tree
-        :param filename:
-        :return: Tree
-        """
-        with open(filename, encoding='utf-8') as file:
-            res = javalang.parse.parse(file.read())
-        return res
 
     # flake8: noqa: C901
     def value(self, filename: str):
-        tree = self.__file_to_ast(filename)
+        tree = Ast(filename).value()
         return self.__traverse_node(tree)

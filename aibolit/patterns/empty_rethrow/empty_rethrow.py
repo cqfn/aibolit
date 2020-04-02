@@ -21,24 +21,16 @@
 # SOFTWARE.
 
 import javalang
-
+from aibolit.utils.ast import Ast
 
 class EmptyRethrow:
 
     def __init__(self):
         pass
 
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
-        """
-        Takes path to java class file and returns AST Tree
-        """
-        with open(filename, encoding='utf-8') as file:
-            tree = javalang.parse.parse(file.read())
-
-        return tree
 
     def value(self, filename):
-        tree = self.__file_to_ast(filename)
+        tree = Ast(filename).value()
         total_code_lines = set()
         for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
             for _, try_node in method_node.filter(javalang.tree.TryStatement):
