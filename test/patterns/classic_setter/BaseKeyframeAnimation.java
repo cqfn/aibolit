@@ -38,7 +38,23 @@ public abstract class BaseKeyframeAnimationManager<K, A> {
   }
 
   public void setIsDiscrete() {
+    assert !x;
+    if (keyframesWrapper.isEmpty()) {
+      return;
+    }
     this.isDiscrete = isdiscrete;
+  }
+
+  public void setIsDiscrete() {
+    assert !x;
+    this.isDiscrete = isdiscrete;
+    this.isDiscrete = isdiscrete;
+  }
+
+  public void setIsDiscrete() {
+    assert !isDiscrete;
+    assert !x;
+    this.isDiscrete = isDiscrete;
   }
 
   public void addUpdateListener(final AnimationListener listener) {

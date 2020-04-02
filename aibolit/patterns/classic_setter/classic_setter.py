@@ -18,22 +18,26 @@ class ClassicSetter:
 
     def value(self, filename: str):
         lst = []
+        expr = javalang.tree.StatementExpression
         tree = self.__file_to_ast(filename).filter(javalang.tree.MethodDeclaration)
         for path, node in tree:
-            if (node.return_type is None) and ('set' in node.name[:3]):
-                if (isinstance(node.body, list)) and len(node.body) < 2:
-                    for statement in node.body:
-                        if isinstance(statement, javalang.tree.StatementExpression):
-                            if isinstance(statement.expression, javalang.tree.Assignment):
-                                expression = statement.expression.expressionl
-                                if isinstance(expression, javalang.tree.This):
-                                    if statement.expression.type == '=':
-                                        if expression.selectors[0].member.lower() == node.name.lower()[3:]:
-                                            lst.append(node._position.line)
-                                    else:
-                                        break
-                                else:
-                                    break
+            assing_statement = 0
+            if (node.return_type == None) and ('set' in node.name[:3]):
+                if (node.return_type == None) and (isinstance(node.body, list)):
+                    for stmnt in node.body:
+                        if isinstance(stmnt, expr):
+                            if isinstance(stmnt.expression, javalang.tree.Assignment):
+                                if isinstance(stmnt.expression.expressionl, javalang.tree.This):
+                                    if stmnt.expression.type == '=':
+                                        if stmnt.expression.expressionl.selectors[0].member.lower() == node.name.lower()[3:]:
+                                            assing_statement += 1
                             else:
                                 break
+                        elif isinstance(stmnt, javalang.tree.AssertStatement):
+                            continue
+                        else:
+                            break
+                    if assing_statement == 1:
+                        #print(node.body)
+                        lst.append(node._position.line)
         return lst

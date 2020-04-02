@@ -9,9 +9,9 @@ class TestSetter(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
     setter_finder = ClassicSetter()
 
-    def test_one_valid_patterns(self):
+    def test_one_valid_pattern(self):
         lines = self.setter_finder.value(Path(self.dir_path, 'BaseKeyframeAnimation.java'))
-        self.assertEqual(lines, [40])
+        self.assertEqual(lines, [54])
 
     def test_four_setter_patterns(self):
         lines = self.setter_finder.value(Path(self.dir_path, 'Configuration.java'))
@@ -20,3 +20,7 @@ class TestSetter(TestCase):
     def test_another_setter_patterns(self):
         lines = self.setter_finder.value(Path(self.dir_path, 'SequenceFile.java'))
         self.assertEqual(lines, [2849, 2855, 2861, 3127])
+
+    def test_another_setter_patterns(self):
+        lines = self.setter_finder.value(Path(self.dir_path, 'OsSecureRandom.java'))
+        self.assertEqual(lines, [78])
