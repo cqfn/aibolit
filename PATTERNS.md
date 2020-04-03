@@ -192,6 +192,7 @@ considered a pattern.
 
 ```java
 class Book {
+
     private final int a;
     Book(int x) { // first primary ctor
         this.a = x;
@@ -199,6 +200,21 @@ class Book {
     Book() { // second
         this.a = 0;
     }
+}
+```
+
+***
+
+*Title*: Non final attributes
+
+*Code*: **non_final_attribute**
+
+*Description*: Once we see a mutable attribute (without final modifier), it's considered a pattern.
+
+```java
+class Book {
+  private int id;
+  // something else
 }
 ```
 
@@ -219,6 +235,7 @@ class Book {
     assert x != null; // here
   }
 ```
+
 ***
 
 *Title*: Multiple ```While``` pattern
@@ -240,3 +257,4 @@ class Book {
   }
 }
 ```
+
