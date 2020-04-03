@@ -58,6 +58,7 @@ class ASTNode:
         self.node = node  # javalang AST node object
         self.scope = scope  # ID of scope this node belongs
 
+
 class JavalangImproved:
 
     def __init__(self, filename: str):
@@ -67,8 +68,8 @@ class JavalangImproved:
 
     """
         @todo #131:30min Lines implementation of Ast
-         this __file_to_ast implementation differs from usual one since it 
-         also returns the lines from file. Implement a decorator to Ast which 
+         this __file_to_ast implementation differs from usual one since it
+         also returns the lines from file. Implement a decorator to Ast which
          does it and replace it here. Don't forget the tests.
     """
     def __file_to_ast(self, filename: str) -> javalang.ast.Node:

@@ -10,8 +10,8 @@ class StringConcatFinder:
 
     """
         @todo #131:30min NoComments implementation of Ast
-         this __file_to_ast implementation differs from usual ones since it 
-         removes the comments from it. Implement a decorator to Ast which does 
+         this __file_to_ast implementation differs from usual ones since it
+         removes the comments from it. Implement a decorator to Ast which does
          it and replace it here. Don't forget the tests.
     """
     def __file_to_ast(self, filename: str) -> javalang.ast.Node:

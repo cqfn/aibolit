@@ -23,11 +23,11 @@
 import javalang
 from aibolit.utils.ast import AST
 
+
 class EmptyRethrow:
 
     def __init__(self):
         pass
-
 
     def value(self, filename):
         tree = AST(filename).value()
