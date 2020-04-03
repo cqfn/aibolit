@@ -27,9 +27,13 @@ from pathlib import Path
 
 
 class TestMultipleWhile(TestCase):
-    dir_path = Path(os.path.realpath(__file__)).parent
-    method_chain_finder = MultipleWhile()
 
     def test_simple(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'Simple.java'))
+        lines = MultipleWhile().value(
+            Path(
+                Path(
+                    os.path.realpath(__file__)
+                ).parent, 'Simple.java'
+            )
+        )
         self.assertEqual(lines, [2])
