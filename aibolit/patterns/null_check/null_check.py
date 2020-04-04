@@ -25,15 +25,16 @@ import javalang.parse
 import javalang.tree
 
 
-_OP_EQUALITY = '=='
-_LT_NULL = 'null'
+_OP_EQUAL = "=="
+_OP_NOT_EQUAL = "!="
+_LT_NULL = "null"
 
 
 class NullCheck(object):
     def value(self, filename: str):
         tree = self.__file_to_ast(filename)
 
-        return self.__traverse_node(tree)
+        return self._traverse_node(tree)
 
     def __file_to_ast(self, filename: str) -> javalang.ast.Node:
         """
@@ -45,7 +46,7 @@ class NullCheck(object):
         with open(filename) as file:
             return javalang.parse.parse(file.read())
 
-    def __traverse_node(self, tree: javalang.ast.Node):
+    def _traverse_node(self, tree: javalang.ast.Node):
         lines = list()
 
         for path, node in tree.filter(javalang.tree.BinaryOperation):
@@ -56,7 +57,9 @@ class NullCheck(object):
 
 
 def _is_null_check(node: javalang.ast.Node):
-    return node.operator == _OP_EQUALITY and node.operandr.value == _LT_NULL
+    return (
+        node.operator in (_OP_EQUAL, _OP_NOT_EQUAL) and node.operandr.value == _LT_NULL
+    )
 
 
 def _within_constructor(path):
