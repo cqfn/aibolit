@@ -2,6 +2,7 @@ import javalang
 
 import uuid
 from collections import defaultdict
+from aibolit.utils.ast import AST
 
 
 class MethodChainFind:
@@ -41,15 +42,6 @@ class MethodChainFind:
 
         return dict_with_chains
 
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
-        """
-        Takes path to java class file and returns AST Tree
-        :param filename:
-        :return: Tree
-        """
-        with open(filename, encoding='utf-8') as file:
-            res = javalang.parse.parse(file.read())
-        return res
 
     # flake8: noqa: C901
     def value(self, filename: str):
@@ -60,7 +52,7 @@ class MethodChainFind:
         List of tuples with LineNumber and List of methods names, e.g.
         [[10, 'func1'], [10, 'fun2']], [[23, 'run'], [23, 'start']]]
         """
-        tree = self.__file_to_ast(filename)
+        tree = AST(filename).value()
         chain_lst = defaultdict(list)
         for path, node in tree.filter(javalang.tree.StatementExpression):
             if isinstance(node.expression, javalang.tree.MethodInvocation):
