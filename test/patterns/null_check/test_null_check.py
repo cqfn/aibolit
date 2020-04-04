@@ -83,10 +83,5 @@ class TestNullCheck(TestCase):
         )
 
 
-def _parser(snippet, debug=False):
-    parser = Parser(tokenize(snippet))
-
-    if debug:
-        parser.set_debug()
-
-    return parser
+def _parser(snippet):
+    return Parser(tokenize(snippet))
