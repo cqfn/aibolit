@@ -1,5 +1,5 @@
 from .ast import Node as Node
-from typing import Any
+from typing import Any, Set
 
 class CompilationUnit(Node):
     attrs: Any = ...
@@ -12,6 +12,7 @@ class Documented(Node):
 
 class Declaration(Node):
     attrs: Any = ...
+    modifiers: Set[str] = ...
 
 class TypeDeclaration(Declaration, Documented):
     attrs: Any = ...
