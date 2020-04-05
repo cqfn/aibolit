@@ -1,3 +1,5 @@
+-include local.mk
+
 all: requirements install unittest flake8 xcop
 
 clean:
@@ -27,3 +29,5 @@ doc:
 	sphinx-apidoc -o sphinx aibolit --full
 	sphinx-build sphinx html
 
+typecheck:
+	mypy aibolit
