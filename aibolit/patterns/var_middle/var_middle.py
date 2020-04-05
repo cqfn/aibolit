@@ -20,10 +20,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import javalang
-from typing import List
+from __future__ import annotations
+from typing import List, Tuple
 from enum import Enum
 from functools import reduce
+
+import javalang
+
+from aibolit.types import LineNumber
 
 
 # mapping between javalang node class names and Java keywords
@@ -72,7 +76,7 @@ class JavalangImproved:
          also returns the lines from file. Implement a decorator to Ast which
          does it and replace it here. Don't forget the tests.
     """
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
+    def __file_to_ast(self, filename: str) -> Tuple[javalang.ast.Node, List[str]]:
         '''Takes path to java class file and returns AST Tree'''
         with open(filename, encoding='utf-8') as file:
             tree = javalang.parse.parse(file.read())
@@ -137,7 +141,7 @@ class JavalangImproved:
         if type(tree) == javalang.tree.MethodDeclaration:
             parent_method_line = line
 
-        res = []
+        res: List[ASTNode] = []
         for child in tree.children:
             nodes_arr = child if isinstance(child, list) else [child]
             for node in nodes_arr:
@@ -158,7 +162,7 @@ class JavalangImproved:
         nodes = self.__tree_to_nodes(self.tree)
         return sorted(nodes, key=lambda v: v.line)
 
-    def filter(self, ntypes: [javalang.tree.Node]) -> List[ASTNode]:
+    def filter(self, ntypes: List[javalang.tree.Node]) -> List[ASTNode]:
         nodes = self.tree_to_nodes()
         return list(
             filter(lambda v: type(v.node) in ntypes, nodes)
@@ -168,7 +172,7 @@ class JavalangImproved:
         '''Figure out lines that are either empty or multiline statements'''
         lines_with_nodes = self.get_non_empty_lines()
         max_line = max(lines_with_nodes)
-        return set(range(1, max_line + 1)).difference(lines_with_nodes)
+        return list(set(range(1, max_line + 1)).difference(lines_with_nodes))
 
     def get_non_empty_lines(self) -> List[int]:
         '''Figure out file lines that contains statements'''
@@ -200,12 +204,12 @@ class VarMiddle:
         Returns:
             bool: True if VAR declaration is near the begining of the scope
         '''
-        line, (ntype, scope) = nodes_list[var_idx]
+        line, ntype, scope = nodes_list[var_idx]
         if ntype != NodeType.VAR:
             raise ValueError('Variable declaration line is expected!')
         i = var_idx - 1
         while i >= 0:
-            _line, (_ntype, _scope) = nodes_list[i]
+            _line, _ntype, _scope = nodes_list[i]
             if scope != _scope:
                 return False
             if _ntype == NodeType.SCOPE:
@@ -216,7 +220,7 @@ class VarMiddle:
 
         raise ValueError('Method declaration is not found')
 
-    def _prepare_nodes(self, tree: JavalangImproved):
+    def _prepare_nodes(self, tree: JavalangImproved) -> List[Tuple[int, NodeType, int]]:
         to_ignore = [
             javalang.tree.FormalParameter,
             javalang.tree.ReferenceType,
@@ -252,19 +256,16 @@ class VarMiddle:
             return accum
         # print("nodes", list(map(lambda e: (e.line, (type(e.node), e.scope)), nodes)))
         nodes = reduce(reduce_f, nodes, [])
-        nodes = [
-            (e.line, (node_to_type(e), e.scope))
+        return [
+            (e.line, node_to_type(e), e.scope)
             for e in nodes
         ]
-        return nodes
 
-    def value(self, filename: str) -> List[int]:
-        ''''''
-
+    def value(self, filename: str) -> List[LineNumber]:
         tree = JavalangImproved(filename)
         nodes = self._prepare_nodes(tree)
         line_matches = []
-        for i, (line, (node, s)) in enumerate(nodes):
+        for i, (line, node, _) in enumerate(nodes):
             if node != NodeType.VAR:
                 continue
             if not self.__check_var_declaration(i, nodes):
