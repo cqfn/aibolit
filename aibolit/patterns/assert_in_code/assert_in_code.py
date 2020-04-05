@@ -1,6 +1,11 @@
-import javalang.ast
-import javalang.parse
-import javalang.tree
+from __future__ import annotations
+
+from typing import List
+
+from javalang.ast import Node
+from javalang.tree import CompilationUnit, AssertStatement, ClassDeclaration
+
+from aibolit.types import LineNumber
 from aibolit.utils.ast import AST
 
 
@@ -8,15 +13,15 @@ _TEST_CLASS_SUFFIX = 'Test'
 
 
 class AssertInCode(object):
-    def value(self, filename: str):
-        tree = AST(filename).value()
+    def value(self, filename: str) -> List[LineNumber]:
+        tree: CompilationUnit = AST(filename).value()
 
         return self.__traverse_node(tree)
 
-    def __traverse_node(self, tree: javalang.ast.Node):
-        lines = list()
+    def __traverse_node(self, tree: CompilationUnit) -> List[LineNumber]:
+        lines: List[LineNumber] = list()
 
-        for path, node in tree.filter(javalang.tree.AssertStatement):
+        for path, node in tree.filter(AssertStatement):
             if not _within_test_class(path):
                 # HACK: Neither `assert` statement nor its condition has
                 # a position, so we only could take it from the left operand.
@@ -33,5 +38,5 @@ def _within_test_class(path) -> bool:
     return class_declaration.name.endswith(_TEST_CLASS_SUFFIX)
 
 
-def _is_class_declaration(node: javalang.ast.Node) -> bool:
-    return isinstance(node, javalang.tree.ClassDeclaration)
+def _is_class_declaration(node: Node) -> bool:
+    return isinstance(node, ClassDeclaration)
