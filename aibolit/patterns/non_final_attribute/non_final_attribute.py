@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import List, cast
+from typing import List
 
 import javalang
 from javalang.tree import FieldDeclaration
@@ -27,4 +27,4 @@ class NonFinalAttribute:
         tree = self.__file_to_ast(filename).filter(FieldDeclaration)
 
         # NOTE: wrong type left by intent
-        return [node for path, node in tree if 'final' not in cast(FieldDeclaration, node).modifiers]
+        return [node for path, node in tree if 'final' not in node.modifiers]

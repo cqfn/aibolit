@@ -1,6 +1,8 @@
-from typing import Any, Iterator, Tuple
+from typing import Any, Iterator, Tuple, TypeVar, Union, Type
 
 Path = Tuple
+
+T = TypeVar('T', bound=Node)
 
 
 class MetaNode(type):
@@ -12,7 +14,7 @@ class Node(metaclass=MetaNode):
     def __equals__(self, other: Any): ...
     def __iter__(self) -> Any: ...
     # TODO: need proper type, but unfortunatelly it can't be done now
-    def filter(self, pattern: Any) -> Iterator[Tuple[Path, Node]]: ...
+    def filter(self, pattern: Union[Type[T], T]) -> Iterator[Tuple[Path, T]]: ...
     @property
     def children(self): ...
     @property
