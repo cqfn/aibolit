@@ -44,7 +44,7 @@ class ReturnNull:
                 if isinstance(return_literal, javalang.tree.Literal) and return_literal.value == 'null':
                     chain_lst[method_node.name] = return_literal.position.line or return_node.position.line
                 elif isinstance(return_literal, javalang.tree.TernaryExpression) and \
-                        (return_literal.if_true.value == 'null' or return_literal.if_true.value == 'null'):
+                        (return_literal.if_true.value == 'null' or return_literal.if_true.value == 'null'):  # WTF???
                     chain_lst[method_node.name] = return_node.position.line
 
         filtered_dict = list(filter(lambda elem: elem > 0, chain_lst.values()))
