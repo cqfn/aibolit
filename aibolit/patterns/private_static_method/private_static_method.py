@@ -9,4 +9,4 @@ class PrivateStaticMethod:
 
     def value(self, filename: str):
         tree = AST(filename).value().filter(javalang.tree.MethodDeclaration)
-        return [node for path, node in tree if all (elem in node.modifiers for elem in ['private', 'static'])]
+        return [node for path, node in tree if all(elem in node.modifiers for elem in ['private', 'static'])]
