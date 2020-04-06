@@ -1,4 +1,3 @@
-from __future__ import annotations
 
 import javalang
 from aibolit.utils.ast import AST
