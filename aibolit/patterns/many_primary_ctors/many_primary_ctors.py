@@ -20,9 +20,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+from __future__ import annotations
+from typing import List
+
 import javalang.ast
 import javalang.parse
 import javalang.tree
+
+from aibolit.types import LineNumber
 from aibolit.utils.ast import AST
 
 
@@ -32,8 +37,8 @@ class ManyPrimaryCtors(object):
 
         return self.__traverse_node(tree)
 
-    def __traverse_node(self, tree: javalang.ast.Node):
-        lines = list()
+    def __traverse_node(self, tree: javalang.ast.Node) -> List[LineNumber]:
+        lines: List[LineNumber] = list()
 
         for _, class_declaration in tree.filter(javalang.tree.ClassDeclaration):
             primary_ctors = list(filter(_is_primary, class_declaration.constructors))
@@ -44,7 +49,7 @@ class ManyPrimaryCtors(object):
         return lines
 
 
-def _is_primary(constructor: javalang.tree.ConstructorDeclaration):
+def _is_primary(constructor: javalang.tree.ConstructorDeclaration) -> bool:
     for _, assignment in constructor.filter(javalang.tree.Assignment):
         if _is_instance_variable_assignment(assignment):
             return True
@@ -52,5 +57,5 @@ def _is_primary(constructor: javalang.tree.ConstructorDeclaration):
     return False
 
 
-def _is_instance_variable_assignment(assignment: javalang.tree.Assignment):
+def _is_instance_variable_assignment(assignment: javalang.tree.Assignment) -> bool:
     return isinstance(assignment.expressionl, javalang.tree.This)

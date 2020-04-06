@@ -170,6 +170,7 @@ class Expression(Node):
 
 class Assignment(Expression):
     attrs: Any = ...
+    expressionl: Union[This, MemberReference]
 
 class TernaryExpression(Expression):
     attrs: Any = ...
