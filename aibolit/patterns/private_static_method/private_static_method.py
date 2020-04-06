@@ -8,8 +8,8 @@ class PrivateStaticMethod:
         pass
 
     def value(self, filename: str):
-        tree = AST(filename).value().filter(javalang.tree.MethodDeclaration)
-        private_static_methods = list()
-        for node in [node for path, node in tree if all(elem in node.modifiers for elem in ['private', 'static'])]:
-            private_static_methods.append(node.position.line)
-        return private_static_methods
+        return [
+            node.position.line
+            for _, node in AST(filename).value().filter(javalang.tree.MethodDeclaration)
+            if all(elem in node.modifiers for elem in ['private', 'static'])
+        ]
