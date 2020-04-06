@@ -67,7 +67,7 @@ class NestedBlocks:
         self,
         root: javalang.ast.Node,
         f: Callable[[javalang.ast.Node], Optional[Any]]
-    ) -> [Any]:
+    ) -> Any:
         '''
         Traverse AST tree and apply function to each node
         Accumulate results in the list and return
@@ -87,7 +87,7 @@ class NestedBlocks:
     def value(self, filename: str) -> List[int]:
         '''Return line numbers in the file where patterns are found'''
         tree = AST(filename).value()
-        for_links = []
+        for_links: List = []
         self.__for_node_depth(
             tree,
             max_depth=self.max_depth,
