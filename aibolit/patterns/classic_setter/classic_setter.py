@@ -1,4 +1,5 @@
 import javalang
+from aibolit.utils.ast import AST
 
 
 class ClassicSetter:
@@ -6,20 +7,11 @@ class ClassicSetter:
     def __init__(self):
         pass
 
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
-        """
-        Takes path to java class file and returns AST Tree
-        :param filename:
-        :return: Tree
-        """
-        with open(filename, encoding='utf-8') as file:
-            tree = javalang.parse.parse(file.read())
-        return tree
-
     def value(self, filename: str):
         lst = []
         expr = javalang.tree.StatementExpression
-        tree = self.__file_to_ast(filename).filter(javalang.tree.MethodDeclaration)
+        tree = AST(filename).value().filter(javalang.tree.MethodDeclaration)
+
         for path, node in tree:
             assing_statement = 0
             if node.return_type is None and ('set' in node.name[:3]) and isinstance(node.body, list):

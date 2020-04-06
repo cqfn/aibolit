@@ -1,4 +1,4 @@
-<img src="/logo.png" height="92px"/>
+<img src="/logo.svg" height="92px"/>
 
 [![PyPi version](https://img.shields.io/pypi/v/aibolit.svg)](https://pypi.org/project/aibolit/)
 [![Build Status](https://travis-ci.org/yegor256/aibolit.svg)](https://travis-ci.org/yegor256/aibolit)
