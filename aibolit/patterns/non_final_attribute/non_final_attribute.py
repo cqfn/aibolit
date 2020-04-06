@@ -25,5 +25,4 @@ class NonFinalAttribute:
     def value(self, filename: str) -> List[LineNumber]:
         tree = self.__file_to_ast(filename).filter(FieldDeclaration)
 
-        # NOTE: wrong type left by intent
         return [node.position.line for path, node in tree if 'final' not in node.modifiers]
