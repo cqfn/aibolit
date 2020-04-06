@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 from collections import defaultdict
+from aibolit.utils.ast import AST
 
 import javalang
 
@@ -30,22 +31,12 @@ class ReturnNull:
     def __init__(self):
         pass
 
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
-        """
-        Takes path to java class file and returns AST Tree
-        :param filename:
-        :return: Tree
-        """
-        with open(filename, encoding='utf-8') as file:
-            res = javalang.parse.parse(file.read())
-        return res
-
     def value(self, filename: str):
         """
         Travers over AST tree and finds pattern
         :param filename:
         """
-        tree = self.__file_to_ast(filename)
+        tree = AST(filename).value()
         chain_lst = defaultdict(int)
         for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
             for _, return_node in method_node.filter(javalang.tree.ReturnStatement):

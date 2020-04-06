@@ -34,13 +34,6 @@ class VarDeclarationDistance:
     def __init__(self, lines_th: int):
         self.__lines_th = lines_th
 
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
-        '''Takes path to java class file and returns AST Tree'''
-        with open(filename, encoding='utf-8') as file:
-            tree = javalang.parse.parse(file.read())
-
-        return tree
-
     def __node_name(self, node) -> Optional[str]:
         qualifier = node.qualifier if hasattr(node, 'qualifier') else None
         member = node.member if hasattr(node, 'member') else None
