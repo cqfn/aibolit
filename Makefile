@@ -30,4 +30,4 @@ doc:
 	sphinx-build sphinx html
 
 typecheck:
-	mypy aibolit
+	python3 -m mypy aibolit
