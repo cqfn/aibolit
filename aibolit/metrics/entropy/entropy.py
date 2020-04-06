@@ -22,8 +22,8 @@
 
 import javalang
 from typing import List
-import numpy as np
-from scipy.stats import entropy
+import numpy as np  # type: ignore
+from scipy.stats import entropy  # type: ignore
 
 
 class Entropy:

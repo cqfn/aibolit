@@ -1,10 +1,11 @@
 import javalang
-
+from typing import List
 import uuid
 from collections import defaultdict
 import hashlib
 import itertools
 from aibolit.utils.ast import AST
+from javalang.tree import FormalParameter
 
 class MultipleTry:
 
@@ -58,9 +59,14 @@ class MultipleTry:
         res = defaultdict(list)
         for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
             for _, try_node in method_node.filter(javalang.tree.TryStatement):
+                formal_params = [
+                    (x.type.name + ' ' + x.name)  
+                    for x in method_node.parameters 
+                    if isinstance(x, FormalParameter)
+                ]
                 func_name = '{f}({params})'.format(
                     f=method_node.name,
-                    params=','.join([(x.type.name + ' ' + x.name) for x in method_node.parameters])
+                    params=','.join(formal_params)
                 ).encode('utf-8')
                 m = hashlib.md5()
                 m.update(func_name)

@@ -94,11 +94,11 @@ class NestedBlocks:
             for_links=for_links
         )
 
-        def find_line_position(node: javalang.ast.Node) -> int:
+        def find_line_position(node: javalang.ast.Node) -> Optional[int]:
             if hasattr(node, '_position'):
                 return node._position.line
             else:
-                None
+                return None
         n_lines = [
             self.__fold_traverse_tree(for_node, find_line_position)
             for for_node in for_links

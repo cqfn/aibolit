@@ -1,6 +1,6 @@
 -include local.mk
 
-all: requirements install unittest flake8 xcop
+all: requirements install unittest flake8 typecheck xcop
 
 clean:
 	rm -rf build
