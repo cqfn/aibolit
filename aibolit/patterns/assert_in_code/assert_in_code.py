@@ -1,9 +1,14 @@
 from __future__ import annotations
 
-from typing import List
+from typing import List, cast
 
 from javalang.ast import Node
-from javalang.tree import CompilationUnit, AssertStatement, ClassDeclaration
+from javalang.tree import (
+    CompilationUnit,
+    AssertStatement,
+    ClassDeclaration,
+    BinaryOperation,
+)
 
 from aibolit.types import LineNumber
 from aibolit.utils.ast import AST
@@ -27,7 +32,9 @@ class AssertInCode(object):
                 # a position, so we only could take it from the left operand.
                 #
                 # SEE: https://github.com/c2nes/javalang/issues/73
-                lines.append(node.condition.operandl.position.line)
+                lines.append(
+                    cast(BinaryOperation, node.condition).operandl.position.line
+                )
 
         return lines
 
