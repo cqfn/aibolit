@@ -44,7 +44,7 @@ from aibolit.patterns.this_finder.this_finder import ThisFinder
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
 from aibolit.patterns.var_middle.var_middle import VarMiddle
 from aibolit.metrics.ncss.ncss import NCSSMetric
-from aibolit.model.model import Net
+from aibolit.model.model import Net  # type: ignore
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
