@@ -82,6 +82,13 @@ class TestNullCheck(TestCase):
             NullCheck()._traverse_node(_parser(snippet).parse_block_statement()), [1]
         )
 
+    def test_null_check_using_methods(self):
+        # @tado #116:30min Implement `null` check for those patterns as well:
+        #  assertThrows(NullPointerException.class, () -> wrapperSum(null, 2));
+        #  Optional op2 = Optional.ofNullable(null);
+        #  Objects.requireNonNull(bar, "bar must not be null");
+        pass
+
 
 def _parser(snippet):
     return Parser(tokenize(snippet))
