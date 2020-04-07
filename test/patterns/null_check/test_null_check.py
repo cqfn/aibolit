@@ -36,6 +36,9 @@ class TestNullCheck(TestCase):
         }
         """
 
+        # @todo #116:30min `_traverse_node` is a private method, so should not
+        #  be called directly. Requires change to `Pattern` interface. Should
+        #  be done for each test in this class.
         self.assertEqual(
             NullCheck()._traverse_node(_parser(snippet).parse_block_statement()), [1]
         )
