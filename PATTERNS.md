@@ -236,3 +236,20 @@ class Book {
   }
 ```
 
+***
+
+*Title*: Private static method
+
+*Code*: **private_static_method**
+
+*Description*: Once you see a `private static` method, it's a pattern..
+
+*Example*:
+
+```java
+class Book {
+  private static void foo() {
+  }
+}
+```
+
