@@ -29,9 +29,6 @@ from aibolit.patterns.null_check.null_check import NullCheck
 
 
 class TestNullCheck(TestCase):
-    def setUp(self):
-        self.pattern = NullCheck()
-
     def test_null_check(self):
         snippet = """\
         if (this.z == null) { // here!
@@ -40,7 +37,7 @@ class TestNullCheck(TestCase):
         """
 
         self.assertEqual(
-            self.pattern._traverse_node(_parser(snippet).parse_block_statement()), [1]
+            NullCheck()._traverse_node(_parser(snippet).parse_block_statement()), [1]
         )
 
     def test_null_check_in_constructor(self):
@@ -53,7 +50,7 @@ class TestNullCheck(TestCase):
         """
 
         self.assertEqual(
-            self.pattern._traverse_node(_parser(snippet).parse_member_declaration()),
+            NullCheck()._traverse_node(_parser(snippet).parse_member_declaration()),
             [],
         )
 
@@ -61,14 +58,14 @@ class TestNullCheck(TestCase):
         snippet = "boolean i = z == null;"
 
         self.assertEqual(
-            self.pattern._traverse_node(_parser(snippet).parse_block_statement()), [1]
+            NullCheck()._traverse_node(_parser(snippet).parse_block_statement()), [1]
         )
 
     def test_null_check_ternary(self):
         snippet = 'luckyName == null ? luckyName : "No lucky name found";'
 
         self.assertEqual(
-            self.pattern._traverse_node(_parser(snippet).parse_block_statement()), [1]
+            NullCheck()._traverse_node(_parser(snippet).parse_block_statement()), [1]
         )
 
     def test_null_check_not_equal_comparison(self):
@@ -79,7 +76,7 @@ class TestNullCheck(TestCase):
         """
 
         self.assertEqual(
-            self.pattern._traverse_node(_parser(snippet).parse_block_statement()), [1]
+            NullCheck()._traverse_node(_parser(snippet).parse_block_statement()), [1]
         )
 
 
