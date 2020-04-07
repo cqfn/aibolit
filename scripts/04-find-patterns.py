@@ -110,8 +110,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
         part_sync_lines = PartialSync().value(file)
         red_catch_lines = RedundantCatch().value(file)
         return_null_lines = ReturnNull().value(file)
-        ncss_lightweight = NCSSMetric(file)
-
+        ncss_lightweight = NCSSMetric(file).value()
         p = Path(file)
         d_path = Path(dir_path)
         relative_path = p.relative_to(d_path)
@@ -179,8 +178,8 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
             'ncss_lightweight': ncss_lightweight,
         }
     except Exception:
-        exc_type, exc_value, exc_tb = sys.exc_info()
-        exceptions.append(filename, exc_type, exc_value, exc_tb)
+        # exc_type, exc_value, exc_tb = sys.exc_info()
+        exceptions[file_local_dir] = traceback.format_exc()
 
 
 if __name__ == '__main__':
@@ -260,11 +259,10 @@ if __name__ == '__main__':
         writer.writeheader()
 
     pool = multiprocessing.Pool(multiprocessing.cpu_count())
-    handled_files = []
     log_func = partial(log_result, file_to_write=str(filename))
     manager = Manager()
-    exceptions = manager.list()
-    func = partial(execute_python_code_in_parallel_thread, exceptions=exceptions)
+    exceptions = manager.dict()
+    func = partial(execute_python_code_in_parallel_thread, exceptions)
     with open(args.filename, 'r') as f:
         file_names = [i for i in f.readlines()]
     with open(filename, 'a', newline='\n', encoding='utf-8') as csv_file:
@@ -287,3 +285,12 @@ if __name__ == '__main__':
 
     end = time.time()
     print('It took {} seconds'.format(str(end - start)))
+
+    errors_log_path = str(Path(dir_path, 'errors.csv')).strip()
+    if exceptions:
+        with open(errors_log_path, 'w', newline='') as myfile:
+            writer = csv.writer(myfile)
+            for key, value in dict(exceptions).items():
+                writer.writerow([key, value])
+            # for ex in list(exceptions):
+            #     wr.writerow(ex)
