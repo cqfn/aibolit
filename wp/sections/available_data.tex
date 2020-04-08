@@ -1,0 +1,36 @@
+We considered available data in some open sources 
+related to the defect detection problem. Some datasets 
+have only code samples and labels, while others have 
+calculated some code metrics.
+
+ETH JavaScript Dataset\footnote{\url{https://www.sri.inf.ethz.ch/js150}}
+includes 150,000 JavaScript code samples represented as AST trees. 
+The dataset has been used in a binary classification task. 
+Target positive examples were extracted from the code 
+and negative examples were generated using 
+Negative Sampling techique. The dataset 
+was used by~\citet{DeepBugs} in an attempt to find the following defects: 
+swapped arguments, wrong binary operator, and wrong binary operand.
+
+NASA Dataset\footnote{\url{http://promise.site.uottawa.ca/SERepository/datasets-page.html}}
+includes 20 small-sized datasets (20 to 2000 samples in each one) of NASA projects. 
+It does not contain code itself but only code metrics. The data 
+was previously used for defect prediction, cost estimation, successful reuse, and requirements tracing.
+ 
+Defects4j Dataset\footnote{\url{https://github.com/rjust/defects4j/tree/additional-projects-4}}
+includes code samples from different projects, 
+where each one has 52 defects of different 
+type. The datasets was built by scrapping bug reports and commits 
+that fixed them. This dataset does not have labels.
+
+BugLocalization Dataset:\footnote{\url{https://github.com/yanxiao6/BugLocalization-dataset/tree/master/dataset}}
+has 18,500 Java defect report samples from five GitHub-hosted projects. 
+Each sample consists of defect description, a commit to fix the defect 
+and a link to GitHub source code file.
+
+CodeSearchNet dataset:\footnote{\url{https://github.com/github/CodeSearchNet}}
+is a large dataset of over two million rows of code 
+collected from open source libraries. The dataset contains 
+Python, Javascript, Ruby, Go, Java, and PHP languages. 
+Each sample consists of a function code and a comment related 
+to the function. The dataset is built for a semantic code search task.
