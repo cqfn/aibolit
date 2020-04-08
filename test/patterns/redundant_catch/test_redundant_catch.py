@@ -86,3 +86,14 @@ class VarMiddleTest(TestCase):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/NotThrow.java')
         self.assertEqual(lines, [256])
+
+    def test_try_without_throws(self):
+        pattern = RedundantCatch()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/ExcelReader.java')
+        self.assertEqual(lines, [])
+
+    # TODO do not work in constructor
+    def test_try_in_constructor(self):
+        pattern = RedundantCatch()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/ExcelAnalyserImpl.java')
+        self.assertEqual(lines, [])
