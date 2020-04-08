@@ -64,16 +64,18 @@ class RedundantCatch:
         try_nodes = defaultdict(list)
         method_nodes = {}
         for x in items:
-            if isinstance(x.node, javalang.tree.TryStatement):
+            if isinstance(x.node, javalang.tree.TryStatement) and x.method_line:
                 # If we do not have a line for method, we ignore this method
                 try_nodes[x.method_line].append(x)
-            elif isinstance(x.node, javalang.tree.MethodDeclaration)\
-                    or isinstance(x.node, javalang.tree.ConstructorDeclaration):
+            elif (isinstance(x.node, javalang.tree.MethodDeclaration)
+                  or isinstance(x.node, javalang.tree.ConstructorDeclaration)) and x.method_line:
                 # If we do not have a line for method, we ignore this method
                 method_nodes[x.method_line] = x
 
         for method_line, iter_nodes in sorted(try_nodes.items(), key=lambda x: x[1][0].line):
             for try_node in iter_nodes:
+                if not method_line:
+                    print(1)
                 method_node = method_nodes[method_line]
                 if not method_node.node.throws:
                     continue
