@@ -1,0 +1,39 @@
+Code readability is closely related to defect detection problem. There are plenty of 
+studies where the problem of code readability is considered 
+\citep{8651396, xxx66666444, 10.1145/1985441.1985454}. At the moment, it is 
+still the issue since the problem is too subjective. 
+
+It is interesting that \citet{10.1109/ICPC.2019.00014} tried to evaluate 
+the models for code readbility problem. The authors extracted 548 commits 
+from 63 engineered Java software projects. The authors identified a commit as a readability commit
+when the message of the commit directly indicated it. E.g., 
+the authors searched such words of the commit as ``readable'',
+``readability'', ``easier to read'', ``understand'', etc.
+Several state of the art readability models were reviewed by \citet{10.1109/ICPC.2019.00014} 
+and it was discovered, that the models failed to capture readability improvements. 
+The authors also suggested several metrics which were not considered in the reviewed state-of-art papers.
+The authors believe that those metrics for code readability can be used to detect readabilty 
+changes more efficiently.
+
+It is important to notice that code readabilty also can have a correlation 
+with complexity of the code. \citet{10.1109/TSE.2009.70} compared code readability 
+and software complexity. They used tools, published by \citet{xxx66666444, Readabil74:online}, to
+compute metrics for code readability like \emph{The Automated Readability Index}, 
+\emph{The Simple Measure of Gobbledygook}, \emph{Flesch-Kincaid Readability Index}
+\emph{The Gunning's Fog Index}, \emph{Coleman-Liau Index and Buse Readability Score}. 
+Also, they computed complexity software metrics, such as \emph{Halstead Complexity Volume},
+\emph{McCabe's Cyclomatic Complexity}. The authors found out that there was a 
+negative correlation between the readability and complexity metrics.
+It means that low readability increases program complexity and vice versa. 
+The authors also mentioned that the languages constructions as comments, spacing, 
+while loop, meaningful names and do-while loop affects the code readiblity the most.
+The authors also published a dataset with Java code which can help to detect defects.
+
+\citet{10.1007/978-3-319-95171-3_32} proposed a model which quantitatively measures the readability 
+of source code. The first idea is the using metrics (\emph{LOC, ProgramVolume, Entropy})
+as the key indicators which affect the source code readability. The second
+idea is that the authors introduced the equation for quantitative measure 
+the source code readability in real time. This measure can demonstrate 
+how small changes in the code affect the readability of the code.
+The authors also tried to optimize the model and they reached about 
+74.59\% of explanatory power. 
