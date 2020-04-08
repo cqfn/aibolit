@@ -1,6 +1,7 @@
 import javalang
 from aibolit.patterns.var_middle.var_middle import JavalangImproved
 
+
 class CountIfReturn:
     '''
     Returns lines with if statement which has also returb statement and other conditions with else.
@@ -9,8 +10,7 @@ class CountIfReturn:
         pass
 
     def value(self, filename: str):
-        ''''''
-        tree = JavalangImproved(filename) 
+        tree = JavalangImproved(filename)
         nodes = tree.tree_to_nodes()
 
         array = []
