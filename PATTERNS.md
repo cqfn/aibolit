@@ -192,6 +192,7 @@ considered a pattern.
 
 ```java
 class Book {
+
     private final int a;
     Book(int x) { // first primary ctor
         this.a = x;
@@ -199,6 +200,21 @@ class Book {
     Book() { // second
         this.a = 0;
     }
+}
+```
+
+***
+
+*Title*: Non final attributes
+
+*Code*: **non_final_attribute**
+
+*Description*: Once we see a mutable attribute (without final modifier), it's considered a pattern.
+
+```java
+class Book {
+  private int id;
+  // something else
 }
 ```
 
@@ -218,3 +234,22 @@ class Book {
   void foo(String x) {
     assert x != null; // here
   }
+```
+
+***
+
+*Title*: Private static method
+
+*Code*: **private_static_method**
+
+*Description*: Once you see a `private static` method, it's a pattern..
+
+*Example*:
+
+```java
+class Book {
+  private static void foo() {
+  }
+}
+```
+

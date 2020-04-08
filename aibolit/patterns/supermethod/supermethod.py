@@ -1,20 +1,12 @@
+
 import javalang
+from aibolit.utils.ast import AST
 
 
 class SuperMethod:
 
     def __init__(self):
         pass
-
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
-        """
-        Takes path to java class file and returns AST Tree
-        :param filename:
-        :return: Tree
-        """
-        with open(filename, encoding='utf-8') as file:
-            res = javalang.parse.parse(file.read())
-        return res
 
     def value(self, filename: str):
         """
@@ -26,7 +18,7 @@ class SuperMethod:
         :return: Lines of code
         """
         results = []
-        tree = self.__file_to_ast(filename)
+        tree = AST(filename).value()
         with open(filename, encoding='utf-8') as file:
             text_lines = file.readlines()
         for _, method_decl_node in tree.filter(javalang.tree.MethodDeclaration):

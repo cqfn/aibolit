@@ -20,46 +20,47 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import javalang.ast
-import javalang.parse
-import javalang.tree
+from typing import List, Tuple, Type
+
+from javalang.ast import Node
+from javalang.tree import CompilationUnit, BinaryOperation, Expression, Literal, ConstructorDeclaration
+
+from aibolit.types import LineNumber
+from aibolit.utils.ast import AST
+
+Path = Tuple
 
 
-_OP_EQUALITY = '=='
-_LT_NULL = 'null'
+_OP_EQUAL = "=="
+_OP_NOT_EQUAL = "!="
+_LT_NULL = "null"
 
 
 class NullCheck(object):
-    def value(self, filename: str):
-        tree = self.__file_to_ast(filename)
+    def value(self, filename: str) -> List[LineNumber]:
+        tree: CompilationUnit = AST(filename).value()
 
-        return self.__traverse_node(tree)
+        return self._traverse_node(tree)
 
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
-        """
-        Takes path to java class file and returns AST Tree
-        :param filename:
-        :return: Tree
-        """
+    def _traverse_node(self, tree: CompilationUnit) -> List[LineNumber]:
+        lines: List[LineNumber] = list()
 
-        with open(filename) as file:
-            return javalang.parse.parse(file.read())
-
-    def __traverse_node(self, tree: javalang.ast.Node):
-        lines = list()
-
-        for path, node in tree.filter(javalang.tree.BinaryOperation):
+        for path, node in tree.filter(BinaryOperation):
             if _is_null_check(node) and not _within_constructor(path):
                 lines.append(node.operandr.position.line)
 
         return lines
 
 
-def _is_null_check(node: javalang.ast.Node):
-    return node.operator == _OP_EQUALITY and node.operandr.value == _LT_NULL
+def _is_null_check(node: BinaryOperation) -> bool:
+    return node.operator in (_OP_EQUAL, _OP_NOT_EQUAL) and _is_null(node.operandr)
 
 
-def _within_constructor(path):
-    node_types = [type(p) for p in path[::2]]
+def _is_null(node: Expression) -> bool:
+    return isinstance(node, Literal) and node.value == _LT_NULL
 
-    return javalang.tree.ConstructorDeclaration in node_types
+
+def _within_constructor(path: Path) -> bool:
+    node_types: List[Type[Node]] = [type(p) for p in path[::2]]
+
+    return ConstructorDeclaration in node_types

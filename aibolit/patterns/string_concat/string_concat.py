@@ -1,5 +1,8 @@
-import javalang
+
 import re
+from typing import Tuple, Dict, List
+
+from aibolit.types import LineNumber
 from aibolit.utils.utils import RemoveComments
 
 
@@ -8,7 +11,13 @@ class StringConcatFinder:
     def __init__(self):
         pass
 
-    def __file_to_ast(self, filename: str) -> javalang.ast.Node:
+    """
+        @todo #131:30min NoComments implementation of Ast
+         this __file_to_ast implementation differs from usual ones since it
+         removes the comments from it. Implement a decorator to Ast which does
+         it and replace it here. Don't forget the tests.
+    """
+    def __file_to_ast(self, filename: str) -> Tuple[str, Dict[str, int]]:
         """
         Takes path to java class file and returns AST Tree
         :param filename:
@@ -21,7 +30,7 @@ class StringConcatFinder:
 
         return res, lines_map
 
-    def value(self, filename: str):
+    def value(self, filename: str) -> List[LineNumber]:
         text, split_text = self.__file_to_ast(filename)
         pattern_without_quote_first = re.compile(r'(?<=([\w])\+)\"[\w]+\"')
         pattern_with_quote_first = re.compile(r'(?<=([\w]\")\+)[\w]+')
