@@ -37,7 +37,8 @@ class EmptyRethrow:
                 for _, throw_node in try_node.filter(javalang.tree.ThrowStatement):
                     catch_classes = [x.parameter.name for x in try_node.catches]
                     mem_ref = throw_node.children[1]
-                    if mem_ref.member in catch_classes:
-                        total_code_lines.add(mem_ref.position.line)
+                    if not isinstance(mem_ref, javalang.tree.ClassCreator):
+                        if mem_ref.member in catch_classes:
+                            total_code_lines.add(mem_ref.position.line)
 
         return sorted(total_code_lines)
