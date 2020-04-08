@@ -27,7 +27,6 @@ from collections import namedtuple
 import javalang
 
 from aibolit.patterns.var_middle.var_middle import JavalangImproved
-from aibolit.utils.ast import AST
 
 ExceptionInfo = namedtuple('ExceptionInfo', 'func_name, catch_list, throws_list, line_number')
 
