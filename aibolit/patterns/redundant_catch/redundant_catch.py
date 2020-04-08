@@ -21,48 +21,71 @@
 # SOFTWARE.
 
 import itertools
-import re
+from collections import defaultdict
 from collections import namedtuple
-from aibolit.utils.ast import AST
 
 import javalang
+
+from aibolit.patterns.var_middle.var_middle import JavalangImproved
 
 ExceptionInfo = namedtuple('ExceptionInfo', 'func_name, catch_list, throws_list, line_number')
 
 
 class RedundantCatch:
+    """
+    Find pattern when a method in Java class throws an exception,
+    and the exception of the same type is caught inside the method.
 
+    E.g.,
+    class Book {
+    void foo() throws IOException {
+        try {
+          Files.readAllBytes();
+        } catch (IOException e)
+          { // here
+          // do something
+          }
+        }
+    }
+    Here, the method foo() throws IOException, but we catch it inside the method
+    """
     def __init__(self):
         pass
 
     def value(self, filename):
-        tree = AST(filename).value()
-        with open(filename, encoding='utf-8') as file:
-            lines_str = file.readlines()
+        """
+        Find the mentioned-above pattern
+        :param filename: filename of Java file
+        :return: code lines of try statement where it was found
+        """
+        total_code_lines = set()
+        obj = JavalangImproved(filename)
+        items = obj.tree_to_nodes()
+        try_nodes = defaultdict(list)
+        method_nodes = {}
+        for x in items:
+            if isinstance(x.node, javalang.tree.TryStatement):
+                try_nodes[x.method_line].append(x)
+            elif isinstance(x.node, javalang.tree.MethodDeclaration):
+                method_nodes[x.method_line] = x
 
-        pattern_catch = re.compile(r'(catch[\(\s]+[\w | \s]+)')
-        total_code_lines = []
-        for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
-            catch_list = []
-            ei = ExceptionInfo(
-                func_name=method_node.name,
-                catch_list=catch_list,
-                throws_list=method_node.throws,
-                line_number=method_node.position.line
-            )
-            for _, try_node in method_node.filter(javalang.tree.TryStatement):
-                catch_classes = [x.parameter.types for x in try_node.catches]
+        for method_line, iter_nodes in sorted(try_nodes.items(), key=lambda x: x[1][0].line):
+            for try_node in iter_nodes:
+                method_node = method_nodes[method_line]
+                catch_list = []
+                ei = ExceptionInfo(
+                    func_name=method_node.node.name,
+                    catch_list=catch_list,
+                    throws_list=method_node.node.throws,
+                    line_number=method_node.node.position.line
+                )
+                catch_classes = [x.parameter.types for x in try_node.node.catches]
                 classes_exception_list = list(itertools.chain(*catch_classes))
                 ei.catch_list.extend(classes_exception_list)
-                catches = [
-                    (i, line) for i, line in
-                    enumerate(lines_str[method_node.position.line:], start=method_node.position.line)
-                    if re.search(pattern_catch, line)
-                ]
-                code_lines = [
-                    i + 1 for i, line in catches
-                    if any([(line.find(y) > -1) for y in ei.throws_list])
-                ]
-                total_code_lines.extend(code_lines)
 
-        return sorted(set(total_code_lines))
+                lines_number = set([
+                    try_node.line for c in ei.catch_list if c in ei.throws_list
+                ])
+                total_code_lines.update(lines_number)
+
+        return sorted(total_code_lines)
