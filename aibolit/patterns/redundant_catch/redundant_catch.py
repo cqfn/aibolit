@@ -64,20 +64,25 @@ class RedundantCatch:
         try_nodes = defaultdict(list)
         method_nodes = {}
         for x in items:
-            if isinstance(x.node, javalang.tree.TryStatement) and x.method_line:
+            # Line break occurred before a binary operator (W503)
+            # But this rule goes against the PEP 8 recommended style, so
+            # replace isinstanceof with variable
+            is_instance_meth_decl = isinstance(x.node, javalang.tree.MethodDeclaration)
+            is_instance_try_stat = isinstance(x.node, javalang.tree.TryStatement)
+            is_instance_ctor_decl = isinstance(x.node, javalang.tree.ConstructorDeclaration)
+            is_instance_lambda = isinstance(x.node, javalang.tree.LambdaExpression)
+            if is_instance_try_stat and x.method_line and not is_instance_lambda:
                 # If we do not have a line for method, we ignore this method
                 try_nodes[x.method_line].append(x)
-            elif (isinstance(x.node, javalang.tree.MethodDeclaration)
-                  or isinstance(x.node, javalang.tree.ConstructorDeclaration)) and x.method_line:
+            elif (is_instance_meth_decl or is_instance_ctor_decl) and x.method_line and not is_instance_lambda:
                 # If we do not have a line for method, we ignore this method
                 method_nodes[x.method_line] = x
 
         for method_line, iter_nodes in sorted(try_nodes.items(), key=lambda x: x[1][0].line):
             for try_node in iter_nodes:
-                if not method_line:
-                    print(1)
-                method_node = method_nodes[method_line]
-                if not method_node.node.throws:
+                method_node = method_nodes.get(method_line)
+
+                if not method_node or not method_node.node.throws:
                     continue
 
                 catch_list = []

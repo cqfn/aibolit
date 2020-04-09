@@ -97,8 +97,11 @@ class VarMiddleTest(TestCase):
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/ExcelAnalyserImpl.java')
         self.assertEqual(lines, [43])
 
-    # TODO maybe ignore try in lamda
-    def test_try_in_lambda(self):
+    def test_fake_try_in_lambda(self):
+        """
+        If function has throws, the pattern shouldn't be recognized
+        if the same exception is caught in anonymous lambda
+        """
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/Cache.java')
-        self.assertEqual(lines, [393])
+        self.assertEqual(lines, [])
