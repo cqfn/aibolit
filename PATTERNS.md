@@ -263,7 +263,7 @@ class Book {
 
 *Code*: **private_static_method**
 
-*Description*: Once you see a `private static` method, it's a pattern..
+*Description*: Once you see a `private static` method, it's a pattern.
 
 *Example*:
 
@@ -271,6 +271,27 @@ class Book {
 class Book {
   private static void foo() {
     //something
+  }
+}
+```
+
+***
+
+*Title*: Nested loop
+
+*Code*: **nested_loop**
+
+*Description*: Once we find a loop (`for` / `while`) inside another loop it's a pattern.
+
+*Example*:
+
+```java
+class Foo {
+  void foo() {
+    white (true) {
+      for (;;) { // here
+      }  
+    }
   }
 }
 ```
