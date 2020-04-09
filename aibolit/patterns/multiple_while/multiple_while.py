@@ -4,6 +4,7 @@ from collections import defaultdict
 from aibolit.utils.ast import AST
 import hashlib
 import itertools
+from javalang.tree import FormalParameter
 
 
 class MultipleWhile:
@@ -23,9 +24,14 @@ class MultipleWhile:
         res = defaultdict(list)
         for _, method_node in AST(filename).value().filter(javalang.tree.MethodDeclaration):
             for _, while_node in method_node.filter(javalang.tree.WhileStatement):
+                formal_params = [
+                    (x.type.name + ' ' + x.name)
+                    for x in method_node.parameters
+                    if isinstance(x, FormalParameter)
+                ]
                 func_name = '{f}({params})'.format(
                     f=method_node.name,
-                    params=','.join([(x.type.name + ' ' + x.name) for x in method_node.parameters])
+                    params=','.join(formal_params)
                 ).encode('utf-8')
                 m = hashlib.md5()
                 m.update(func_name)
