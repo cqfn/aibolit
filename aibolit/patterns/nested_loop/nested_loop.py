@@ -20,87 +20,27 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import javalang
-from typing import List, Callable, Optional, Any
-from aibolit.utils.ast import AST
+from typing import List
+from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
 
 
-class BlockType:
-    FOR = javalang.tree.ForStatement      # FOR Block Statement
-    IF = javalang.tree.IfStatement        # IF Block Statement
-
-
-class NestedBlocks:
+class NestedLoop:
     '''
     Returns lines in the file where
     nested FOR/IF blocks are located
     '''
 
-    def __init__(self, max_depth: int, block_type=BlockType.FOR):
-        self.max_depth = max_depth
-        self.block_type = block_type
-
-    def __for_node_depth(
-        self,
-        tree: javalang.ast.Node,
-        max_depth: int,
-        for_links: List = [],
-        for_before: int = 0
-    ) -> None:
-        '''
-        Takes AST tree and returns list of "FOR" AST nodes of depth greater
-        or equal than max_depth
-        '''
-        if (type(tree) == self.block_type):
-            for_before += 1
-            if for_before >= max_depth:
-                for_links += [tree]
-
-        for child in tree.children:
-            nodes_arr = child if isinstance(child, list) else [child]
-            for node in nodes_arr:
-                if not hasattr(node, 'children'):
-                    continue
-                self.__for_node_depth(node, max_depth, for_links, for_before)
-
-    def __fold_traverse_tree(
-        self,
-        root: javalang.ast.Node,
-        f: Callable[[javalang.ast.Node], Optional[Any]]
-    ) -> Any:
-        '''
-        Traverse AST tree and apply function to each node
-        Accumulate results in the list and return
-        '''
-        res = []
-        v = f(root)
-        if v is not None:
-            res.append(v)
-        for child in root.children:
-            nodes_arr = child if isinstance(child, list) else [child]
-            for node in nodes_arr:
-                if not hasattr(node, 'children'):
-                    continue
-                res += self.__fold_traverse_tree(node, f)
-        return res
+    def __init__(self):
+        pass
 
     def value(self, filename: str) -> List[int]:
         '''Return line numbers in the file where patterns are found'''
-        tree = AST(filename).value()
-        for_links: List = []
-        self.__for_node_depth(
-            tree,
-            max_depth=self.max_depth,
-            for_links=for_links
+        pattern = NestedBlocks(
+            2,
+            [
+                BlockType.WHILE,
+                BlockType.FOR,
+                BlockType.DO
+            ]
         )
-
-        def find_line_position(node: javalang.ast.Node) -> Optional[int]:
-            if hasattr(node, '_position'):
-                return node._position.line
-            else:
-                return None
-        n_lines = [
-            self.__fold_traverse_tree(for_node, find_line_position)
-            for for_node in for_links
-        ]
-        return list(map(min, n_lines))
+        return pattern.value(filename)

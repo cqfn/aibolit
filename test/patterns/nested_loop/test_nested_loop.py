@@ -22,31 +22,29 @@
 
 import os
 from unittest import TestCase
-from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
+from aibolit.patterns.nested_loop.nested_loop import NestedLoop
 from pathlib import Path
 
 
 class TestNestedLoop(TestCase):
-    depth_level = 2
     cur_file_dir = Path(os.path.realpath(__file__)).parent
-    testClass = NestedBlocks(depth_level)
 
     def test_while_for(self):
-        pattern = NestedBlocks(2, [BlockType.WHILE, BlockType.FOR])
+        pattern = NestedLoop()
         file = str(Path(self.cur_file_dir, '1.java'))
         self.assertEqual(pattern.value(file), [4])
 
     def test_for_do(self):
-        pattern = NestedBlocks(2, [BlockType.DO, BlockType.FOR])
+        pattern = NestedLoop()
         file = str(Path(self.cur_file_dir, '2.java'))
         self.assertEqual(pattern.value(file), [6])
 
     def test_do_while(self):
-        pattern = NestedBlocks(2, [BlockType.DO, BlockType.WHILE])
+        pattern = NestedLoop()
         file = str(Path(self.cur_file_dir, '3.java'))
         self.assertEqual(pattern.value(file), [5])
 
     def test_do_do(self):
-        pattern = NestedBlocks(2, [BlockType.DO])
+        pattern = NestedLoop()
         file = str(Path(self.cur_file_dir, '4.java'))
         self.assertEqual(pattern.value(file), [7])
