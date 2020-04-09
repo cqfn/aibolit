@@ -33,7 +33,6 @@ class PartialSync:
         pass
 
     def value(self, filename):
-        # tree = self.__file_to_ast(filename)
         total_code_lines = set()
         obj = JavalangImproved(filename)
         empty_lines = obj.get_empty_lines()

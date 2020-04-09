@@ -31,17 +31,18 @@ from aibolit.utils.ast import AST
 Path = Tuple
 
 
-_OP_EQUALITY = '=='
-_LT_NULL = 'null'
+_OP_EQUAL = "=="
+_OP_NOT_EQUAL = "!="
+_LT_NULL = "null"
 
 
 class NullCheck(object):
     def value(self, filename: str) -> List[LineNumber]:
         tree: CompilationUnit = AST(filename).value()
 
-        return self.__traverse_node(tree)
+        return self._traverse_node(tree)
 
-    def __traverse_node(self, tree: CompilationUnit) -> List[LineNumber]:
+    def _traverse_node(self, tree: CompilationUnit) -> List[LineNumber]:
         lines: List[LineNumber] = list()
 
         for path, node in tree.filter(BinaryOperation):
@@ -52,7 +53,7 @@ class NullCheck(object):
 
 
 def _is_null_check(node: BinaryOperation) -> bool:
-    return node.operator == _OP_EQUALITY and _is_null(node.operandr)
+    return node.operator in (_OP_EQUAL, _OP_NOT_EQUAL) and _is_null(node.operandr)
 
 
 def _is_null(node: Expression) -> bool:

@@ -1,0 +1,126 @@
+Even though detecting defects is an important task in any software project,
+existing studies differ in their definition of the parameters and objectives
+of this task,
+partially due to the ambiguity of the definition of the software defect.
+Among others, there are many methods of defect detection, which utilize ML. 
+Below we classify them from a few different perspectives, 
+in order to justify the selection made later in this document.
+
+\subsection{By the Origin of Data}
+
+As suggested by~\citet{10.1007/s10462-017-9563-5}
+the model can be built using the data 
+\begin{enumerate*}[label=\arabic*)]
+\item from the same release of a software module (\emph{intra-release}), 
+\item from a few different releases of the same module (\emph{inter-release}), or 
+\item from different software modules (\emph{cross-project prediction}). 
+\end{enumerate*}
+It seems that this classification was not possible earlier,
+when analytical data was kept proprietary and was not available
+for the community of researchers, only until NASA released a large 
+evidential dataset in 2004~\citep{Sayyad-Shirabad+Menzies:2005}.
+
+It it interesting to mention that
+in early 2000s most authors assumed that ``distributions'' in both 
+training and testing datasets were similar~\citep{Turhan2009} (\emph{intra-release}), which
+mislead them because the assumption was wrong.
+
+Later,~\citet{5609530} introduced ``ensemble techniques,'' which made the analysis
+possible in situations when software modules do not have similar 
+distributions in their training and testing datasets (\emph{inter-release}).
+
+Recently,~\citet{Better_cross} demonstrated that defect detection may work across 
+different software modules, using their historical data (\emph{cross-project release}).
+
+\subsection{By the Output}
+
+ML-based defect detection methods can be classified by the type of the output they produce:
+
+First, the output could be \emph{binary}, which means that 
+software modules (like classes, methods, packages, etc.) are classified
+either as faulty or non-faulty ones, as done by~\citet{Gokhale97regressiontree, Menzies04assessingpredictors}.
+
+Second, \emph{defect density} or the \emph{number of defects} 
+may be reported per module, demonstrating the degree of their defectiveness,
+as suggested by~\citet{Predicting_Fault, JANES20063711, 7510216}.
+
+Third, \emph{defect severity prediction} may be reported per module, demonstrating
+the impact of defects found in the module to the end-user experience,
+as suggested by~\citet{7510216, SHATNAWI20081868, 1717471}.
+
+Fourth, the output could contain information about a specific location
+of the defect inside the source code (the line of code with a defect), 
+as suggested by~\citet{vasic2019neural}.
+
+\subsection{By the Input}
+
+\textbf{Software metrics} can be used as an input. 
+They can be obtained from the source code,
+and can belong to one of the following categories:
+
+\begin{itemize}
+\item \emph{Product metrics} are generally used to check 
+whether software follows~\citep{InternationalStandardOrganization}, 
+as it was mentioned  by~\citet{10.1007/s10462-017-9563-5}, 
+and can be classified as suggested by~\citet{10.5555/540137}: 
+\begin{enumerate*}[label=\arabic*)]
+\item \emph{Traditional} metrics may include size, 
+system complexity~\citep{1702388}, and others;
+\item \emph{Object-oriented} metrics may include coupling, 
+cohesion and others specifically related to object-oriented 
+methodology, as suggested by~\citet{979986, Incorporating_transitive};
+\item \emph{Dynamic} metrics are gathered from a running  
+program and demonstrate the behavior of a software component
+during its execution~\citep{MITCHELL20064}.
+\end{enumerate*}
+
+\item \emph{Process metrics} such as number of modules changed for a bug-fix,
+ work products delivered, and so on may also be used
+ as an input~\citep{The_IT_Measurement_Compendium, 10.1109/ISSRE.2010.25}.
+\end{itemize}
+
+\textbf{AST} can also be used
+as an input, which is a represention of the syntax of a 
+software code snippet as a tree-like structure. 
+E.g.,~\citet{6676914} computes the set of AST changes between two source
+code files using algorithm, published by~\citet{4339230}.
+
+\subsection{By the ML Model}
+
+There are plenty of studies for bug detection problem 
+in which ML methods are used. ML methods 
+for solving defect detection problem can be classified into the following groups: 
+
+\begin{enumerate}[label=\arabic*)]
+\item \emph{Unsupervised learning} is a learning model which uses unlabeled data.
+The goal of unsupervised methods is to uncover unknown patterns in the data. 
+Unsupervised learning for solving defect detection problem includes such algorithms 
+as K-Means clustering cleaning approach~\citep{8952192}, KNN~\citep{8777507}.
+
+\item \emph{Supervised learning} uses labeled data to produces a function, 
+which maps unseen data to labels. Supervised methods for defect detection includes
+\citep{10.1145/1137983.1138012}, Naive Bayes~\citep{4027145}, Random forest 
+\citep{1383136, 7476673}, nearest neighbor 
+\citep{10.1145/2786805.2786813}, SVM~\citep{ELISH2008649, 10_1007}, 
+neural network~\citep{THWIN2005147THWIN2005147},~\citep{1033229, 10.1145/3360588} and ensemble techniques~\citep{Ensemble_Techniques}.
+Some authors tried to combine different machine learning techniques 
+(Linear Regression, Neural Network for continuous goal field, Naive Bayes, etc.) 
+with statistical techniques, such as PCA~\citep{1544801}.
+
+\item \emph{Semi-supervised learning} uses both labeled and unlabeled data and
+is a combination of supervised and unsupervised methods. 
+It can help unsupervised methods to obtain better-defined clusters,
+as explained by~\citet{semi_supervised_learning, 7965301, Zhang2017}.
+
+\item \emph{Deep learning} is a class of ML algorithms, which extracts
+features from lower layers in order to use them in higher ones.
+Textual information (for example, English bug reports
+or source files comments and names of variables) can be used in deep learning. 
+Using this information, deep learning 
+can achieve better performance than many state-of-the-art approaches.
+For example,~\citet{8616596} proposed a different method based 
+on Long Short-Term Memory (LSTM) networks 
+and~\citet{XIAO201917} suggested to use 
+convolutional Neural Network together 
+with word-embedding and feature-detecting techniques. 
+\end{enumerate}

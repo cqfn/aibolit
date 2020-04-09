@@ -1,0 +1,117 @@
+\documentclass[12pt]{article}
+\usepackage{natbib}
+\usepackage{pgf}
+  \bibliographystyle{plainnat}
+  \setcitestyle{citesep={,},aysep={}}
+\usepackage[colorlinks,citecolor=blue,linkcolor=black,bookmarks=false,hypertexnames=true]{hyperref} 
+\usepackage{url}
+\usepackage[inline]{enumitem}
+\usepackage{float}
+\usepackage[bottom,perpage,multiple]{footmisc}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{setspace}
+
+\usepackage{enumitem}
+\setlist{nosep}
+
+  \setstretch{1.1}
+\setlength{\bibsep}{0.0pt}
+\tolerance=800
+
+\usepackage{pgfplots}
+%\DeclareUnicodeCharacter{2212}{-}
+\usepgfplotslibrary{groupplots,dateplot}
+\usetikzlibrary{patterns,shapes.arrows}
+\pgfplotsset{compat=newest}
+
+\usepackage{url}
+\renewcommand*{\bibfont}{\footnotesize}
+
+\title{
+  \includegraphics[height=48pt]{logo}\\
+  \textsc{Aibolit}:\\
+  Style Checking\\
+  Using Machine Learning}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Quality of code is crucial for the stability and robustness
+of software systems. Defect detection at early stages of
+software development lifecycle is the cheapest and the easiest
+way to increase the quality of code. There are well-known
+instruments such as static analyzers and linters, which are
+actively used by programmers. However, none of them use Machine
+Learning (ML) to detect defects more effectively. 
+We managed to create such an instrument and empirically demonstrate 
+its effectiveness\footnote{This is statement is yet to be confirmed}. 
+\end{abstract}
+
+\pagebreak
+
+\section{Introduction}
+\input{sections/introduction}
+
+\section{Related Work}
+\label{sec:related}
+\input{sections/related_work}
+
+\section{Categories of Methods}
+\label{sec:categories}
+\input{sections/considered}
+
+\section{Available data}
+\label{sec:data}
+\input{sections/available_data}
+
+\section{Selection Criteria}
+\label{sec:criteria}
+\input{sections/selection_criteria}
+
+\section{The Method}
+\label{sec:method}
+\input{sections/selected_task}
+
+\section{Risks}
+\label{sec:risks}
+\input{sections/risks}
+
+% \section{Implementation Details}
+% \label{sec:implementation}
+% \input{sections/implementation}
+
+\section{Empirical Results}
+\label{sec:results}
+\input{sections/empirical_results}
+
+\section{Conclusion}
+We will write this section later.
+
+\section{Future Work}
+We will write this later.
+
+\section{Acknowledgements}
+The tool was designed in System Programming Lab. Many thanks
+to the contribution of (in alphabetic order of the last name):
+Yegor Bugayenko,
+Anton Cheshkov,
+Vadim Chibiriev,
+Lu Jianhua,
+Evgeny Maslov,
+Yu Jiayuan,
+Alexey Zorchenkov.
+
+%\section{Notes}
+%\input{sections/notes}
+
+\bibliography{references}
+
+
+
+
+\end{document}
