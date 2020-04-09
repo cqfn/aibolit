@@ -68,9 +68,10 @@ class TestConcatString(TestCase):
         lines = self.concat_finder.value(Path(self.dir_path, 'XMLDataObject.java'))
         self.assertEqual(lines, [160, 165, 177, 192, 218, 279])
 
-    # def test_fake1(self):
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'AndroidClientCodegen.java'))
-    #     self.assertEqual(lines, [])
+    def test_fake1(self):
+        lines = self.concat_finder.value(Path(self.dir_path, 'Chain.java'))
+        self.assertEqual(lines, [32])
+        
     #
     # def test_fake2(self):
     #     lines = self.concat_finder.value(Path(self.dir_path, 'ForwardingHandler.java'))

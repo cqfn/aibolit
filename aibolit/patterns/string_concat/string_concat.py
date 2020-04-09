@@ -51,16 +51,24 @@ class StringConcatFinder:
                 if is_l_literal and (is_r_member or is_r_meth_inv or is_r_this):
                     is_string_literal = '"' in node.operandl.value
                     if is_string_literal:
-                        if hasattr(node.operandl, 'position'):
+                        if node.operandl.position:
                             lines.add(node.operandl.position.line)
-                        elif hasattr(node.operandr, 'position'):
+                        elif node.operandr.position:
                             lines.add(node.operandr.position.line)
+                        elif hasattr(node.operandl, '_position'):
+                            lines.add(node.operandl._position.line)
+                        elif hasattr(node.operandr, '_position'):
+                            lines.add(node.operandr._position.line)
                 elif is_r_literal and (is_l_member or is_l_meth_inv or is_l_this):
                     is_string_literal = '"' in node.operandr.value
                     if is_string_literal:
-                        if hasattr(node.operandl, 'position'):
+                        if node.operandl.position:
                             lines.add(node.operandl.position.line)
-                        elif hasattr(node.operandr, 'position'):
+                        elif node.operandr.position:
                             lines.add(node.operandr.position.line)
+                        elif hasattr(node.operandr, '_position'):
+                            lines.add(node.operandr._position.line)
+                        elif hasattr(node.operandl, '_position'):
+                            lines.add(node.operandl._position.line)
 
         return sorted(lines)
