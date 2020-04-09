@@ -75,3 +75,15 @@ class TestConcatString(TestCase):
             321, 325, 326, 329, 331, 332, 333, 335, 336, 339, 340, 341, 343, 345,
             347, 348, 349
         ])
+
+    def test_fake(self):
+        lines = self.concat_finder.value(Path(self.dir_path, 'RustServerCodegen.java'))
+        self.assertEqual(lines, [])
+
+    def test_fake1(self):
+        lines = self.concat_finder.value(Path(self.dir_path, 'AndroidClientCodegen.java'))
+        self.assertEqual(lines, [])
+
+    def test_fake2(self):
+        lines = self.concat_finder.value(Path(self.dir_path, 'ForwardingHandler.java'))
+        self.assertEqual(lines, [])

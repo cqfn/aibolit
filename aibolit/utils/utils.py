@@ -12,6 +12,6 @@ class RemoveComments:
         string = re.sub(re.compile(r"/\*.*?\*/", re.DOTALL), "",
                         string)
         # remove all occurrence single-line comments (//COMMENT\n ) from string
-        string = re.sub(re.compile(r"//.*?\n"), "",
+        string = re.sub(re.compile(r"//.*?\n",), "\n",
                         string)
         return string

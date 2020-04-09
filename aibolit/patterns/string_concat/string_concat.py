@@ -39,6 +39,8 @@ class StringConcatFinder:
             t_str = line.replace(' ', '')
             if re.search(pattern_without_quote_first, t_str) \
                     or re.search(pattern_with_quote_first, t_str):
-                code_line = split_text[line]
+                code_line = split_text.get(line)
+                if not code_line:
+                    code_line = [y for x, y in split_text.items() if x.find(line) > -1][0]
                 lines.append(code_line)
         return lines
