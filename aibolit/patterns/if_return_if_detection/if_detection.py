@@ -20,5 +20,5 @@ class CountIfReturn:
                 if type(i.node.then_statement) in [javalang.tree.BlockStatement] and i.node.else_statement is not None:
                     for check_return in i.node.then_statement.statements:
                         if type(check_return) in [javalang.tree.ReturnStatement]:
-                            array.append(nodes[index].line)
+                            array.append(nodes[index].line + 1)
         return array
