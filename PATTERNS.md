@@ -8,10 +8,10 @@ such patterns may affect the quality of source code.
 
 *Title*: Variable is declared in the middle of the method body.
 
-*Code:* var_middle
+*Code:* **var_middle**
 
-*Description*: All variable we need in a method have to be declared at the 
-beginning of the method. If variable declared inside method body following 
+*Description*: All variable we need  have to be declared at the 
+beginning of its scope. If variable declared inside the scope following 
 after logical blocks we consider that this is the pattern.
 
 *Examples*: 
@@ -243,6 +243,23 @@ class Book {
 *Code*: **private_static_method**
 
 *Description*: Once you see a `private static` method, it's a pattern..
+
+*Example*:
+
+```java
+class Book {
+  private static void foo() {
+  }
+}
+```
+
+***
+
+*Title*: Class declaration must always be `final`
+
+*Code*: **non_final_class**
+
+*Description*: Once you see a non `final` method, it's a pattern..
 
 *Example*:
 
