@@ -71,20 +71,3 @@ class TestConcatString(TestCase):
     def test_fake1(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'Chain.java'))
         self.assertEqual(lines, [32])
-        
-    #
-    # def test_fake2(self):
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'ForwardingHandler.java'))
-    #     self.assertEqual(lines, [])
-    #
-    # def test_B(self):
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'XMLDataObject.java'))
-    #     # self.assertEqual(lines, [])
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'Schema2BeansProcessor.java'))
-    #     self.assertEqual(lines, [])
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'NbMainSequence.java'))
-    #     self.assertEqual(lines, [])
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'DTDDataObject.java'))
-    #     self.assertEqual(lines, [])
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'DataObjectCookieManager.java'))
-    #     self.assertEqual(lines, [])
