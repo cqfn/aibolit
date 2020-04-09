@@ -35,10 +35,12 @@ class EmptyRethrow:
         for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
             for _, try_node in method_node.filter(javalang.tree.TryStatement):
                 for _, throw_node in try_node.filter(javalang.tree.ThrowStatement):
-                    catch_classes = [x.parameter.name for x in try_node.catches]
-                    mem_ref = throw_node.children[1]
-                    if not isinstance(mem_ref, javalang.tree.ClassCreator):
-                        if mem_ref.member in catch_classes:
-                            total_code_lines.add(mem_ref.position.line)
-
+                    if try_node.catches:
+                        catch_classes = [x.parameter.name for x in try_node.catches]
+                        mem_ref = throw_node.children[1]
+                        if isinstance(mem_ref, javalang.tree.ClassCreator):
+                            continue
+                        else:
+                            if hasattr(mem_ref, 'member') and mem_ref.member in catch_classes:
+                                total_code_lines.add(mem_ref.position.line)
         return sorted(total_code_lines)
