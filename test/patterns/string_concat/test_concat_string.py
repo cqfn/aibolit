@@ -36,11 +36,7 @@ class TestConcatString(TestCase):
 
     def test_member_plus_string(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'MemberPlusString.java'))
-        self.assertEqual(lines, [111])
-
-    def test_multiple_concat(self):
-        lines = self.concat_finder.value(Path(self.dir_path, 'MultipleConcat.java'))
-        self.assertEqual(lines, [22])
+        self.assertEqual(lines, [99, 111])
 
     def test_empty_case(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'Nothing.java'))
@@ -52,7 +48,7 @@ class TestConcatString(TestCase):
 
     def test_many_concats(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'ManyConcats.java'))
-        self.assertEqual(lines, [22, 23, 24, 25])
+        self.assertEqual(lines, [12, 13, 14, 15])
 
     def test_concat_in_different_methods(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'DifferentMethods.java'))
@@ -62,28 +58,32 @@ class TestConcatString(TestCase):
         lines = self.concat_finder.value(Path(self.dir_path, 'FakePlusOperator.java'))
         self.assertEqual(lines, [])
 
-    def test_giant_file(self):
-        lines = self.concat_finder.value(Path(self.dir_path, 'CliFlags.java'))
-        self.assertEqual(lines, [
-            34, 35, 36, 37, 51, 53, 297, 298, 82, 83, 84, 85, 86, 87, 88, 197,
-            90, 91, 92, 297, 211, 298, 96, 97, 98, 112, 113, 127, 128, 129, 130,
-            131, 132, 146, 148, 149, 150, 151, 153, 155, 156, 157, 158, 159, 173,
-            174, 188, 189, 190, 191, 192, 193, 194, 197, 198, 199, 200, 204, 207,
-            208, 209, 211, 212, 214, 215, 216, 230, 231, 232, 233, 236, 239, 240,
-            241, 242, 243, 244, 245, 259, 260, 261, 262, 263, 264, 278, 279, 280,
-            299, 282, 283, 297, 298, 299, 300, 314, 315, 316, 317, 318, 319, 320,
-            321, 325, 326, 329, 331, 332, 333, 335, 336, 339, 340, 341, 343, 345,
-            347, 348, 349
-        ])
-
-    def test_fake(self):
+    def test_string_with_quotes(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'RustServerCodegen.java'))
-        self.assertEqual(lines, [])
+        self.assertEqual(lines, [352, 372, 373, 379, 380, 408, 409, 418, 422, 429, 430, 438, 456, 466,
+            479, 494, 499, 509, 562, 563, 604, 605, 610, 701, 995, 1009, 1012, 1029,
+            1032, 1080, 1258, 1267, 1337, 1386, 1414])
 
-    def test_fake1(self):
-        lines = self.concat_finder.value(Path(self.dir_path, 'AndroidClientCodegen.java'))
-        self.assertEqual(lines, [])
+    def test_comment_inside_line(self):
+        lines = self.concat_finder.value(Path(self.dir_path, 'XMLDataObject.java'))
+        self.assertEqual(lines, [160, 165, 177, 192, 218, 279])
 
-    def test_fake2(self):
-        lines = self.concat_finder.value(Path(self.dir_path, 'ForwardingHandler.java'))
-        self.assertEqual(lines, [])
+    # def test_fake1(self):
+    #     lines = self.concat_finder.value(Path(self.dir_path, 'AndroidClientCodegen.java'))
+    #     self.assertEqual(lines, [])
+    #
+    # def test_fake2(self):
+    #     lines = self.concat_finder.value(Path(self.dir_path, 'ForwardingHandler.java'))
+    #     self.assertEqual(lines, [])
+    #
+    # def test_B(self):
+    #     lines = self.concat_finder.value(Path(self.dir_path, 'XMLDataObject.java'))
+    #     # self.assertEqual(lines, [])
+    #     lines = self.concat_finder.value(Path(self.dir_path, 'Schema2BeansProcessor.java'))
+    #     self.assertEqual(lines, [])
+    #     lines = self.concat_finder.value(Path(self.dir_path, 'NbMainSequence.java'))
+    #     self.assertEqual(lines, [])
+    #     lines = self.concat_finder.value(Path(self.dir_path, 'DTDDataObject.java'))
+    #     self.assertEqual(lines, [])
+    #     lines = self.concat_finder.value(Path(self.dir_path, 'DataObjectCookieManager.java'))
+    #     self.assertEqual(lines, [])
