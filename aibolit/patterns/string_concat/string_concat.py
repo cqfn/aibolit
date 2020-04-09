@@ -1,4 +1,4 @@
-import re
+from typing import Tuple, Dict, List
 from typing import Tuple, Dict, List
 
 from aibolit.types import LineNumber
@@ -30,9 +30,8 @@ class StringConcatFinder:
 
         return res, lines_map
 
+    # flake8: noqa: C901
     def value(self, filename: str) -> List[LineNumber]:
-        # text, split_text = self.__file_to_ast(filename)
-        # pattern_without_quote_first = re.compile(r'(?<=([\w])\+)\"[\w]+\"')
         import javalang
         lines = set()
         with open(filename, encoding='utf-8') as file:

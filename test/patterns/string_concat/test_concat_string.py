@@ -60,9 +60,11 @@ class TestConcatString(TestCase):
 
     def test_string_with_quotes(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'RustServerCodegen.java'))
-        self.assertEqual(lines, [352, 372, 373, 379, 380, 408, 409, 418, 422, 429, 430, 438, 456, 466,
+        self.assertEqual(lines, [
+            352, 372, 373, 379, 380, 408, 409, 418, 422, 429, 430, 438, 456, 466,
             479, 494, 499, 509, 562, 563, 604, 605, 610, 701, 995, 1009, 1012, 1029,
-            1032, 1080, 1258, 1267, 1337, 1386, 1414])
+            1032, 1080, 1258, 1267, 1337, 1386, 1414
+        ])
 
     def test_comment_inside_line(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'XMLDataObject.java'))
@@ -71,20 +73,3 @@ class TestConcatString(TestCase):
     def test_fake1(self):
         lines = self.concat_finder.value(Path(self.dir_path, 'Chain.java'))
         self.assertEqual(lines, [32])
-        
-    #
-    # def test_fake2(self):
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'ForwardingHandler.java'))
-    #     self.assertEqual(lines, [])
-    #
-    # def test_B(self):
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'XMLDataObject.java'))
-    #     # self.assertEqual(lines, [])
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'Schema2BeansProcessor.java'))
-    #     self.assertEqual(lines, [])
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'NbMainSequence.java'))
-    #     self.assertEqual(lines, [])
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'DTDDataObject.java'))
-    #     self.assertEqual(lines, [])
-    #     lines = self.concat_finder.value(Path(self.dir_path, 'DataObjectCookieManager.java'))
-    #     self.assertEqual(lines, [])
