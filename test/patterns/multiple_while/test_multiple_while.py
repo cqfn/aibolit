@@ -33,7 +33,7 @@ class TestMultipleWhile(TestCase):
             Path(
                 Path(
                     os.path.realpath(__file__)
-                ).parent, 'Simple.java'
+                ).parent, 'MultipleWhile.java'
             )
         )
         self.assertEqual(lines, [2])

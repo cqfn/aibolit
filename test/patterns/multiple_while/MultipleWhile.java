@@ -1,4 +1,4 @@
-class Foo {
+class MultipleWhile {
   void bar() {
     while (true) {
       // some code
