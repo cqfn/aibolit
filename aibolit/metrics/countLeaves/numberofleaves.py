@@ -5,9 +5,9 @@ from typing import List
 
 class CountNumberOfLeaves:
     '''
-    Returns number of leaves for each method in class.
+    Returns number of leaves in class (sum by each method).
     input: file_path
-    output: list of numbers. Size of this list == number of methods in class.
+    output: sum of leaves in class by each method
     '''
     def __init__(self):
         pass
@@ -18,11 +18,11 @@ class CountNumberOfLeaves:
 
         nodes = tree.tree_to_nodes()
         traversed = []
-        for each_noda in nodes:
-            if type(each_noda.node) == javalang.tree.MethodDeclaration:
-                traversed.append(countLeaves(each_noda.node))
+        for each_node in nodes:
+            if type(each_node.node) == javalang.tree.MethodDeclaration:
+                traversed.append(countLeaves(each_node.node))
 
-        return (traversed)
+        return sum(traversed)
 
 
 def countLeaves(root):
