@@ -3,7 +3,7 @@ from aibolit.utils.ast import AST
 
 class MDAMetric:
     @staticmethod
-    def get_depth(tree):
+    def get_depth(tree) -> int:
         result = 0
         max_val = 0
 
