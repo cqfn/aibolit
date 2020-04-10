@@ -29,14 +29,15 @@ def countLeaves(root):
     # forming the same data type for each object
     root_arr = root if isinstance(root, List) else [root]
     leaves = 0
+    not_count = [None, '', set()]
 
     # traverse through all childs of object. If there is no child, hence we faced leaf
     for node in root_arr:
 
-        if not hasattr(node, 'children') and node not in [None]:
+        if not hasattr(node, 'children') and node not in not_count:
             return leaves + 1
 
-        elif node in [None]:
+        elif node in not_count:
             continue
 
         for each_child in node.children:
