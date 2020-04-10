@@ -32,7 +32,7 @@ class TestFindMaxDiam(TestCase):
 
     def test1(self):
         lines = self.find_max_diam.value(Path(self.dir_path, '1.java'))
-        self.assertEqual(lines, 14)
+        self.assertEqual(lines, 18)
 
     def test2(self):
         lines = self.find_max_diam.value(Path(self.dir_path, '2.java'))
