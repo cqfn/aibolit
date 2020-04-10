@@ -4,7 +4,7 @@ from typing import List
 import javalang
 from javalang.tree import FieldDeclaration
 
-from aibolit.types import LineNumber
+from aibolit.types_decl import LineNumber
 
 
 class NonFinalAttribute:

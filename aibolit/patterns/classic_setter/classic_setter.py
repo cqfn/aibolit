@@ -2,7 +2,7 @@ from typing import List
 
 import javalang
 
-from aibolit.types import LineNumber
+from aibolit.types_decl import LineNumber
 from aibolit.utils.ast import AST
 
 
