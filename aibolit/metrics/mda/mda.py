@@ -9,11 +9,7 @@ class MDAMetric:
 
         if tree is None:
             return 0
-        elif type(tree) is list:
-            children = tree
-        elif type(tree) is set:
-            children = tree
-        elif type(tree) is tuple:
+        elif isinstance(tree, (list, set, tuple)):
             children = tree
         elif not hasattr(tree, "children"):
             return 0
