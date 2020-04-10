@@ -48,6 +48,9 @@ class IndentationCounter:
 
     def value(self, filename: str):
         lines = self.__file_to_tokens(filename)
+        if not lines or len(lines) == 1:
+            return [0, 0, 0, 0]
+
         spaces_per_line = []
         prev_left = 0
         prev_right = len(lines[0])
