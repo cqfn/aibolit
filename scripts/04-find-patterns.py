@@ -24,14 +24,16 @@ import argparse
 import csv
 import multiprocessing
 import os
+import sys
 import time
 import traceback
+from collections import defaultdict
 from functools import partial
-from pathlib import Path
-import sys
 from multiprocessing import Manager
+from pathlib import Path, os
 
 from aibolit.metrics.entropy.entropy import Entropy
+from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
 from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
@@ -55,7 +57,6 @@ from aibolit.patterns.supermethod.supermethod import SuperMethod
 from aibolit.patterns.this_finder.this_finder import ThisFinder
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
 from aibolit.patterns.var_middle.var_middle import VarMiddle
-from aibolit.metrics.ncss.ncss import NCSSMetric
 
 parser = argparse.ArgumentParser(description='Find patterns in Java files')
 parser.add_argument(
@@ -178,8 +179,18 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
             'ncss_lightweight': ncss_lightweight,
         }
     except Exception:
-        # exc_type, exc_value, exc_tb = sys.exc_info()
-        exceptions[file_local_dir] = traceback.format_exc()
+        exc_type, exc_value, exc_tb = sys.exc_info()
+        traceback_str = traceback.format_exc()
+        pattern_name = None
+        for x in traceback_str.splitlines():
+            if 'aibolit\\aibolit' in x:
+                pattern_name = x.split('.py')[0].split(os.sep)[-1]
+                break
+        exceptions[file_local_dir] = {
+            'traceback': traceback_str,
+            'exc_type': str(exc_value),
+            'pattern_name': pattern_name,
+        }
 
 
 if __name__ == '__main__':
@@ -289,8 +300,25 @@ if __name__ == '__main__':
     print('It took {} seconds'.format(str(end - start)))
 
     errors_log_path = str(Path(dir_path, 'errors.csv')).strip()
+    exp_sorter = defaultdict(set)
+    exp_number = defaultdict(int)
     if exceptions:
+        # Write all traceback
         with open(errors_log_path, 'w', newline='') as myfile:
             writer = csv.writer(myfile)
-            for key, value in dict(exceptions).items():
-                writer.writerow([key, value])
+            for filename, ex in dict(exceptions).items():
+                writer.writerow([filename, ex['traceback']])
+                exp_sorter[ex['pattern_name']].add(ex['exc_type'])
+                exp_number[ex['pattern_name']] += 1
+        exceptions_number_path = str(Path(dir_path, 'exceptions_number.csv')).strip()
+        exceptions_unique_path = str(Path(dir_path, 'exceptions_unique.csv')).strip()
+
+        with open(exceptions_unique_path, 'w', newline='') as myfile:
+            writer = csv.writer(myfile)
+            for pattern, exceptions in dict(exp_sorter).items():
+                writer.writerow([pattern] + list(exceptions))
+
+        with open(exceptions_number_path, 'w', newline='') as myfile:
+            writer = csv.writer(myfile)
+            for pattern, number in dict(exp_number).items():
+                writer.writerow([pattern, number])
