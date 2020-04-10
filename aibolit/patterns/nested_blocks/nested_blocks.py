@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 import javalang
+from javalang.tree import Node
 from typing import List, Callable, Optional, Any
 from aibolit.utils.ast import AST
 
@@ -28,17 +29,19 @@ from aibolit.utils.ast import AST
 class BlockType:
     FOR = javalang.tree.ForStatement      # FOR Block Statement
     IF = javalang.tree.IfStatement        # IF Block Statement
+    WHILE = javalang.tree.WhileStatement  # While Block Statement
+    DO = javalang.tree.DoStatement        # DO block Statement
 
 
 class NestedBlocks:
     '''
     Returns lines in the file where
-    nested FOR/IF blocks are located
+    nested blocks statements are located
     '''
 
     def __init__(self, max_depth: int, block_type=BlockType.FOR):
         self.max_depth = max_depth
-        self.block_type = block_type
+        self.block_type = block_type if isinstance(block_type, list) else [block_type]
 
     def __for_node_depth(
         self,
@@ -51,7 +54,7 @@ class NestedBlocks:
         Takes AST tree and returns list of "FOR" AST nodes of depth greater
         or equal than max_depth
         '''
-        if (type(tree) == self.block_type):
+        if (type(tree) in self.block_type):
             for_before += 1
             if for_before >= max_depth:
                 for_links += [tree]
@@ -67,7 +70,7 @@ class NestedBlocks:
         self,
         root: javalang.ast.Node,
         f: Callable[[javalang.ast.Node], Optional[Any]]
-    ) -> [Any]:
+    ) -> List[Any]:
         '''
         Traverse AST tree and apply function to each node
         Accumulate results in the list and return
@@ -87,20 +90,22 @@ class NestedBlocks:
     def value(self, filename: str) -> List[int]:
         '''Return line numbers in the file where patterns are found'''
         tree = AST(filename).value()
-        for_links = []
+        for_links: List[Node] = []
         self.__for_node_depth(
             tree,
             max_depth=self.max_depth,
             for_links=for_links
         )
 
-        def find_line_position(node: javalang.ast.Node) -> int:
+        def find_line_position(node: Node) -> Optional[int]:
             if hasattr(node, '_position'):
                 return node._position.line
             else:
-                None
-        n_lines = [
+                return None
+        n_lines: List[List[int]] = [
             self.__fold_traverse_tree(for_node, find_line_position)
             for for_node in for_links
         ]
-        return list(map(min, n_lines))
+        n_lines = [v for v in n_lines if len(v) > 0]
+
+        return list(map(min, n_lines))  # type: ignore

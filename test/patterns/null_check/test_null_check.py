@@ -20,23 +20,75 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
-from pathlib import Path
 from unittest import TestCase
+
+from javalang.parser import Parser
+from javalang.tokenizer import tokenize
 
 from aibolit.patterns.null_check.null_check import NullCheck
 
 
 class TestNullCheck(TestCase):
-    cur_file_dir = Path(os.path.realpath(__file__)).parent
-    testClass = NullCheck()
-
     def test_null_check(self):
-        file = Path(self.cur_file_dir, 'NullCheck.java')
+        snippet = """\
+        if (this.z == null) { // here!
+            throw new RuntimeException("oops");
+        }
+        """
 
-        self.assertEqual(self.testClass.value(file), [5])
+        # @todo #116:30min `_traverse_node` is a private method, so should not
+        #  be called directly. Requires change to `Pattern` interface. Should
+        #  be done for each test in this class.
+        self.assertEqual(
+            NullCheck()._traverse_node(_parser(snippet).parse_block_statement()), [1]
+        )
 
     def test_null_check_in_constructor(self):
-        file = Path(self.cur_file_dir, 'NullCheckInConstructor.java')
+        snippet = """\
+        public NullCheck(String z) {
+            if (z == null) { // here!
+                throw new RuntimeException("oops");
+            }
+        }
+        """
 
-        self.assertEqual(self.testClass.value(file), [])
+        self.assertEqual(
+            NullCheck()._traverse_node(_parser(snippet).parse_member_declaration()),
+            [],
+        )
+
+    def test_null_check_comparison_result_assignment(self):
+        snippet = "boolean i = z == null;"
+
+        self.assertEqual(
+            NullCheck()._traverse_node(_parser(snippet).parse_block_statement()), [1]
+        )
+
+    def test_null_check_ternary(self):
+        snippet = 'luckyName == null ? luckyName : "No lucky name found";'
+
+        self.assertEqual(
+            NullCheck()._traverse_node(_parser(snippet).parse_block_statement()), [1]
+        )
+
+    def test_null_check_not_equal_comparison(self):
+        snippet = """\
+        if (this.z != null) { // here!
+            throw new RuntimeException("oops");
+        }
+        """
+
+        self.assertEqual(
+            NullCheck()._traverse_node(_parser(snippet).parse_block_statement()), [1]
+        )
+
+    def test_null_check_using_methods(self):
+        # @todo #116:30min Implement `null` check for those patterns as well:
+        #  assertThrows(NullPointerException.class, () -> wrapperSum(null, 2));
+        #  Optional op2 = Optional.ofNullable(null);
+        #  Objects.requireNonNull(bar, "bar must not be null");
+        pass
+
+
+def _parser(snippet):
+    return Parser(tokenize(snippet))

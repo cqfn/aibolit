@@ -30,12 +30,12 @@ class VarMiddleTest(TestCase):
     def test_simple(self):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/Simple.java')
-        self.assertEqual(lines, [5])
+        self.assertEqual(lines, [3])
 
     def test_both_catches(self):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/BothCatches.java')
-        self.assertEqual(lines, [7])
+        self.assertEqual(lines, [3])
 
     def test_fake(self):
         pattern = RedundantCatch()
@@ -45,39 +45,63 @@ class VarMiddleTest(TestCase):
     def test_try_inside_anonymous(self):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/TryInsideAnonymous.java')
-        self.assertEqual(lines, [17, 23])
+        self.assertEqual(lines, [6, 14])
 
     def test_multiple_catch(self):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/MultipleCatch.java')
-        self.assertEqual(lines, [5])
+        self.assertEqual(lines, [3])
 
     def test_sequential_catch(self):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/SequentialCatch.java')
-        self.assertEqual(lines, [7])
+        self.assertEqual(lines, [3])
 
     def test_sequential_catch_try(self):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/SequentialCatchTry.java')
-        self.assertEqual(lines, [5, 14])
+        self.assertEqual(lines, [3, 10])
 
     def test_try_inside_catch(self):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/TryInsideCatch.java')
-        self.assertEqual(lines, [9])
+        self.assertEqual(lines, [7])
 
     def test_try_inside_finally(self):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/TryInsideFinally.java')
-        self.assertEqual(lines, [10])
+        self.assertEqual(lines, [8])
 
     def test_try_inside_try(self):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/TryInsideTry.java')
-        self.assertEqual(lines, [8])
+        self.assertEqual(lines, [5])
 
     def test_catch_with_functions(self):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/CatchWithFunctions.java')
-        self.assertEqual(lines, [8])
+        self.assertEqual(lines, [6])
+
+    def test_catch_with_similar_name(self):
+        pattern = RedundantCatch()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/NotThrow.java')
+        self.assertEqual(lines, [256])
+
+    def test_try_without_throws(self):
+        pattern = RedundantCatch()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/ExcelReader.java')
+        self.assertEqual(lines, [])
+
+    def test_try_in_constructor(self):
+        pattern = RedundantCatch()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/ExcelAnalyserImpl.java')
+        self.assertEqual(lines, [43])
+
+    def test_fake_try_in_lambda(self):
+        """
+        If function has throws, the pattern shouldn't be recognized
+        if the same exception is caught in anonymous lambda
+        """
+        pattern = RedundantCatch()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/Cache.java')
+        self.assertEqual(lines, [])
