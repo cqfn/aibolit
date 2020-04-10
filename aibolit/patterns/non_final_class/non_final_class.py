@@ -14,5 +14,5 @@ class NonFinalClass:
         classes = tree.filter(ClassDeclaration)
         return [
             node.position.line for _, node in classes
-            if 'final' in node.modifiers
+            if len([v for v in ['final', 'abstract'] if v in node.modifiers]) == 0
         ]
