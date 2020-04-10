@@ -20,27 +20,20 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import javalang
-from aibolit.utils.ast import AST
+import os
+from unittest import TestCase
+from aibolit.patterns.multiple_while.multiple_while import MultipleWhile
+from pathlib import Path
 
 
-class EmptyRethrow:
+class TestMultipleWhile(TestCase):
 
-    def __init__(self):
-        pass
-
-    def value(self, filename):
-        tree = AST(filename).value()
-        total_code_lines = set()
-        for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
-            for _, try_node in method_node.filter(javalang.tree.TryStatement):
-                for _, throw_node in try_node.filter(javalang.tree.ThrowStatement):
-                    if try_node.catches:
-                        catch_classes = [x.parameter.name for x in try_node.catches]
-                        mem_ref = throw_node.children[1]
-                        if isinstance(mem_ref, javalang.tree.ClassCreator):
-                            continue
-                        else:
-                            if hasattr(mem_ref, 'member') and mem_ref.member in catch_classes:
-                                total_code_lines.add(mem_ref.position.line)
-        return sorted(total_code_lines)
+    def test_simple(self):
+        lines = MultipleWhile().value(
+            Path(
+                Path(
+                    os.path.realpath(__file__)
+                ).parent, 'MultipleWhile.java'
+            )
+        )
+        self.assertEqual(lines, [2])

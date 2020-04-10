@@ -20,27 +20,31 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import javalang
-from aibolit.utils.ast import AST
+import os
+from unittest import TestCase
+from aibolit.patterns.nested_loop.nested_loop import NestedLoop
+from pathlib import Path
 
 
-class EmptyRethrow:
+class TestNestedLoop(TestCase):
+    cur_file_dir = Path(os.path.realpath(__file__)).parent
 
-    def __init__(self):
-        pass
+    def test_while_for(self):
+        pattern = NestedLoop()
+        file = str(Path(self.cur_file_dir, '1.java'))
+        self.assertEqual(pattern.value(file), [4])
 
-    def value(self, filename):
-        tree = AST(filename).value()
-        total_code_lines = set()
-        for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
-            for _, try_node in method_node.filter(javalang.tree.TryStatement):
-                for _, throw_node in try_node.filter(javalang.tree.ThrowStatement):
-                    if try_node.catches:
-                        catch_classes = [x.parameter.name for x in try_node.catches]
-                        mem_ref = throw_node.children[1]
-                        if isinstance(mem_ref, javalang.tree.ClassCreator):
-                            continue
-                        else:
-                            if hasattr(mem_ref, 'member') and mem_ref.member in catch_classes:
-                                total_code_lines.add(mem_ref.position.line)
-        return sorted(total_code_lines)
+    def test_for_do(self):
+        pattern = NestedLoop()
+        file = str(Path(self.cur_file_dir, '2.java'))
+        self.assertEqual(pattern.value(file), [6])
+
+    def test_do_while(self):
+        pattern = NestedLoop()
+        file = str(Path(self.cur_file_dir, '3.java'))
+        self.assertEqual(pattern.value(file), [5])
+
+    def test_do_do(self):
+        pattern = NestedLoop()
+        file = str(Path(self.cur_file_dir, '4.java'))
+        self.assertEqual(pattern.value(file), [7])

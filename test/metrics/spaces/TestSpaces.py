@@ -53,3 +53,11 @@ class TestSpaces(TestCase):
     def test_class_with_worst_ident(self):
         lines = self.pattern.value(Path(self.dir_path, 'WorstIdentation.java'))
         self.assertTrue(lines[-2] == 20 and lines[-1] == 163)
+
+    def test_empty_examples(self):
+        lines = self.pattern.value(Path(self.dir_path, 'ClusterDataSourceConfiguration.java'))
+        self.assertEqual(lines, [0, 0, 0, 0])
+
+    def test_one_point_in_series(self):
+        lines = self.pattern.value(Path(self.dir_path, 'package-info.java'))
+        self.assertEqual(lines, [0, 0, 0, 0])

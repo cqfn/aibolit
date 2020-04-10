@@ -20,27 +20,27 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import javalang
-from aibolit.utils.ast import AST
+from typing import List
+from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
 
 
-class EmptyRethrow:
+class NestedLoop:
+    '''
+    Returns lines in the file where
+    nested FOR/IF blocks are located
+    '''
 
     def __init__(self):
         pass
 
-    def value(self, filename):
-        tree = AST(filename).value()
-        total_code_lines = set()
-        for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
-            for _, try_node in method_node.filter(javalang.tree.TryStatement):
-                for _, throw_node in try_node.filter(javalang.tree.ThrowStatement):
-                    if try_node.catches:
-                        catch_classes = [x.parameter.name for x in try_node.catches]
-                        mem_ref = throw_node.children[1]
-                        if isinstance(mem_ref, javalang.tree.ClassCreator):
-                            continue
-                        else:
-                            if hasattr(mem_ref, 'member') and mem_ref.member in catch_classes:
-                                total_code_lines.add(mem_ref.position.line)
-        return sorted(total_code_lines)
+    def value(self, filename: str) -> List[int]:
+        '''Return line numbers in the file where patterns are found'''
+        pattern = NestedBlocks(
+            2,
+            [
+                BlockType.WHILE,
+                BlockType.FOR,
+                BlockType.DO
+            ]
+        )
+        return pattern.value(filename)
