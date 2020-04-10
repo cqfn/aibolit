@@ -31,7 +31,6 @@ from collections import OrderedDict
 from pathlib import Path
 
 import torch
-from sklearn.preprocessing import StandardScaler
 
 from aibolit import __version__
 from aibolit.metrics.entropy.entropy import Entropy
