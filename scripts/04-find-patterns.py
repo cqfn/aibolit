@@ -30,8 +30,8 @@ import traceback
 from collections import defaultdict
 from functools import partial
 from multiprocessing import Manager
-from pathlib import Path, os
-
+from pathlib import Path
+import pathlib
 from aibolit.metrics.entropy.entropy import Entropy
 from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
@@ -184,7 +184,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
         pattern_name = None
         for x in traceback_str.splitlines():
             if 'aibolit\\aibolit' in x:
-                pattern_name = x.split('.py')[0].split(os.sep)[-1]
+                pattern_name = x.split('.py')[0].split(pathlib.os.sep)[-1]
                 break
         exceptions[file_local_dir] = {
             'traceback': traceback_str,
