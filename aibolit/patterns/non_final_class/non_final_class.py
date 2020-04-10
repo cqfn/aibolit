@@ -1,6 +1,6 @@
 from typing import List
 from javalang.tree import ClassDeclaration
-from aibolit.types import LineNumber
+from aibolit.types_decl import LineNumber
 from aibolit.utils.ast import AST
 
 

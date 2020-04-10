@@ -26,7 +26,7 @@ from functools import reduce
 
 import javalang
 
-from aibolit.types import LineNumber
+from aibolit.types_decl import LineNumber
 
 
 # mapping between javalang node class names and Java keywords
