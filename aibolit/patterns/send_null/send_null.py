@@ -11,16 +11,16 @@ class SendNull:
     def value(self, filename: str) -> List[int]:
         lst: List[int] = []
         tree = AST(filename).value()
-        method_tree = tree.filter(javalang.tree.ExplicitConstructorInvocation)
-        constructor_tree = tree.filter(javalang.tree.MethodInvocation)
+        method_tree = tree.filter(javalang.tree.MethodInvocation)
+        constructor_tree = tree.filter(javalang.tree.ExplicitConstructorInvocation)
 
-        for path, node in method_tree:
+        for path, node in constructor_tree:
             for argument in node.arguments:
                 if type(argument) == javalang.tree.Literal and argument.value == "null" and \
                         argument._position.line not in lst:
                     lst.append(argument._position.line)
 
-        for path, node in constructor_tree:
+        for path, node in method_tree:
             for argument in node.arguments:
                 if type(argument) == javalang.tree.Literal and argument.value == "null" and \
                         argument._position.line not in lst:
