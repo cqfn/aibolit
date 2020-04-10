@@ -106,8 +106,8 @@ def predict(input_params):
     results = x.grad
     sorted_result = OrderedDict(
         sorted(
-            dict(zip(features_order, results)).items(),
-            key=lambda x: abs(x[1].double()),
+            dict(zip(features_order, results.numpy().tolist())).items(),
+            key=lambda x: abs(x[1]),
             reverse=True
         )
     )
@@ -235,7 +235,8 @@ def main():
                     if not found_pattern:
                         pattern = key
                         code_lines = code_lines_dict.get(key)
-                        if code_lines:
+                        # We show only positive gradient, we won't add patterns
+                        if code_lines and val > 1.00000e-20:
                             found_pattern = True
                             value = val
 
