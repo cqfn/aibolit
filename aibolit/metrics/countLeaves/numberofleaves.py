@@ -20,7 +20,7 @@ class CountNumberOfLeaves:
         traversed = []
         for each_node in nodes:
             if type(each_node.node) == javalang.tree.MethodDeclaration:
-                traversed.append(countLeaves(each_node.node))
+                traversed.append(countLeaves(each_node.node.body))
 
         return sum(traversed)
 

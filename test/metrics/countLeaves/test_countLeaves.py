@@ -32,24 +32,24 @@ class TestCountLeaves(TestCase):
 
     def test_simple(self):
         lines = self.count_leaves.value(Path(self.dir_path, 'simple.java'))
-        self.assertEqual(lines, 4)
+        self.assertEqual(lines, 1)
 
     def test_simple1(self):
         lines = self.count_leaves.value(Path(self.dir_path, '5.java'))
-        self.assertEqual(lines, 7)
+        self.assertEqual(lines, 4)
 
     def test1(self):
         lines = self.count_leaves.value(Path(self.dir_path, '1.java'))
-        self.assertEqual(lines, 126)
+        self.assertEqual(lines, 106)
 
     def test2(self):
         lines = self.count_leaves.value(Path(self.dir_path, '2.java'))
-        self.assertEqual(lines, 51)
+        self.assertEqual(lines, 30)
 
     def test3(self):
         lines = self.count_leaves.value(Path(self.dir_path, '3.java'))
-        self.assertEqual(lines, 30)
+        self.assertEqual(lines, 12)
 
     def test4(self):
         lines = self.count_leaves.value(Path(self.dir_path, '4.java'))
-        self.assertEqual(lines, 30)
+        self.assertEqual(lines, 12)
