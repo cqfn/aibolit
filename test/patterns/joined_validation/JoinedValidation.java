@@ -19,7 +19,6 @@ class JoinedValidation {
         }
         if (x == 1 || y == 1) { // here!
             System.out.println("Not here, also");
-            throw new Exception("Oops");
         }
     }
 }
