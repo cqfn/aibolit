@@ -1,5 +1,6 @@
 import javalang
 from aibolit.patterns.var_middle.var_middle import JavalangImproved
+from typing import List
 
 
 class CognitiveComplexity:
@@ -9,14 +10,14 @@ class CognitiveComplexity:
     def __init__(self):
         pass
 
-    def If_statements(self, nodes):
+    def If_statements(self, nodes: List) -> int:
         count = 0
         for i in nodes:
             if type(i.node) in [javalang.tree.IfStatement]:
                 count += 1
         return count
 
-    def For_statements(self, nodes):
+    def For_statements(self, nodes: List) -> int:
         count = 0
         for i in nodes:
             if type(i.node) in [javalang.tree.ForStatement]:
