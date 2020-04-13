@@ -41,7 +41,7 @@ class JoinedValidation:
         Returns the line number of joined validations found in file.
         """
         return [
-            node.method_line + node.line
+            node.line + 1
             for node in JavalangImproved(self.file).filter([javalang.tree.IfStatement])  # type: ignore
             if all(
                 [
