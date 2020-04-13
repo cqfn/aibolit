@@ -10,14 +10,14 @@ class CognitiveComplexity:
     def __init__(self):
         pass
 
-    def If_statements(self, nodes: List) -> int:
+    def if_statements(self, nodes: List) -> int:
         count = 0
         for i in nodes:
             if type(i.node) in [javalang.tree.IfStatement]:
                 count += 1
         return count
 
-    def For_statements(self, nodes: List) -> int:
+    def for_statements(self, nodes: List) -> int:
         count = 0
         for i in nodes:
             if type(i.node) in [javalang.tree.ForStatement]:
@@ -28,7 +28,7 @@ class CognitiveComplexity:
 
         nodes = JavalangImproved(filename).tree_to_nodes()
 
-        rules = [self.If_statements, self.For_statements]
+        rules = [self.if_statements, self.for_statements]
         complexity = 0
 
         for rule in rules:
