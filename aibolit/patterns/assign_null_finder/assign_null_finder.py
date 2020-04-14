@@ -25,7 +25,7 @@ import re
 
 class NullAssignment:
 
-    def value(self, filename: str):
+    def value(self, filename: str) -> list:
         '''main function'''
         file_d = open(filename)
         string = '[^=!><]=(\s)*null(\s)*;'
