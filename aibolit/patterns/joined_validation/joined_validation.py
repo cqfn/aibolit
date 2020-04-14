@@ -40,14 +40,14 @@ class JoinedValidation:
         """
         Returns the line number of joined validations found in file.
         """
+
         return [
             node.line + 1
             for node in JavalangImproved(self.file).filter([javalang.tree.IfStatement])  # type: ignore
-            if all(
-                [
-                    node.node.condition.operator == '||',
-                    len(node.node.then_statement.statements) == 1,
-                    type(node.node.then_statement.statements[0]) == javalang.tree.ThrowStatement
-                ]
+            if (type(node.node.condition) == javalang.tree.BinaryOperation and node.node.condition.operator == '||') \
+            and (
+                type(node.node.then_statement) == javalang.tree.ThrowStatement or \
+                    (len(node.node.then_statement.statements) == 1 and \
+                        type(node.node.then_statement.statements[0]) == javalang.tree.ThrowStatement)
             )
         ]

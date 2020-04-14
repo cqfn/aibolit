@@ -49,3 +49,24 @@ class TestJoinedValidation(TestCase):
             JoinedValidation(Path(self.dir_path, 'JoinedValidationOrFieldAccess.java')).value(),
             'Could not find joined validation in field access'
         )
+
+    def test_canFindNoBracketsJoinedValidation(self):
+        self.assertEqual(
+            [3],
+            JoinedValidation(Path(self.dir_path, 'NoBracketsJoinedValidation.java')).value(),
+            'Could not find joined validation when using no brackets'
+        )
+
+    def test_canSkipEmptyJoinedValidation(self):
+        self.assertEqual(
+            [],
+            JoinedValidation(Path(self.dir_path, 'EmptyJoinedValidation.java')).value(),
+            'Could not skip empty joined validation'
+        )
+
+    def test_canSkipNoJoinedValidation(self):
+        self.assertEqual(
+            [],
+            JoinedValidation(Path(self.dir_path, 'NoJoinedValidation.java')).value(),
+            'Could not skip when there is no joined validation'
+        )
