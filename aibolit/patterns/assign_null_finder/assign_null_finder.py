@@ -23,7 +23,7 @@
 import re
 
 
-class AssignNullFinder:
+class NullAssignment:
 
     def value(self, filename: str):
         '''main function'''
@@ -33,5 +33,6 @@ class AssignNullFinder:
         for i, line in enumerate(file_d):
             match = re.search(string, line)
             if match is not None:
-                num_str.append(i + 1)                     
+                num_str.append(i + 1)    
+        file_d.close()                 
         return num_str
