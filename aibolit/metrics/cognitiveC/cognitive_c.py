@@ -1,5 +1,5 @@
 import javalang
-from aibolit.patterns.var_middle.var_middle import JavalangImproved
+from aibolit.utils.ast import AST
 from typing import List
 
 increment_for = [
@@ -36,31 +36,30 @@ class CognitiveComplexity:
         for each_child in block.children:
             self.get_complexity(each_child, nested_level)
 
-    def get_complexity(self, childs, nested_level: int):
-        child_arr = childs if isinstance(childs, List) else [childs]
+    def get_complexity(self, block: javalang.tree.Node, nested_level: int):
+        block_arr = block if isinstance(block, List) else [block]
 
-        for c in child_arr:
+        for each_block in block_arr:
 
-            if hasattr(c, 'children'):
-                if type(c) in increment_for and type(c) in nested_for:
+            if hasattr(each_block, 'children'):
+                if type(each_block) in increment_for and type(each_block) in nested_for:
                     self.complexity += 1 + nested_level
-                    self.traverse_childs(c, nested_level + 1)
 
-                elif type(c) in increment_for and type(c) not in nested_for:
+                    self.traverse_childs(each_block, nested_level + 1)
+
+                elif type(each_block) in increment_for and type(each_block) not in nested_for:
                     self.complexity += 1
-                    self.traverse_childs(c, nested_level)
+                    self.traverse_childs(each_block, nested_level)
                 else:
-                    self.traverse_childs(c, nested_level)
+                    self.traverse_childs(each_block, nested_level)
 
             continue
 
     def value(self, filename: str) -> int:
 
-        nodes = JavalangImproved(filename).tree_to_nodes()
-
-        for i in nodes:
-            if type(i.node) in [javalang.tree.MethodDeclaration]:
-                self.get_complexity(i.node, 0)
+        tree = AST(filename).value()
+        for _, method in (tree.filter(javalang.tree.MethodDeclaration)):
+            self.get_complexity(method, 0)
 
         final_value, self.complexity = self.complexity, 0
         return final_value
