@@ -1,4 +1,6 @@
-all: requirements install unittest flake8 xcop
+-include local.mk
+
+all: requirements install unittest flake8 typecheck xcop
 
 clean:
 	rm -rf build
@@ -27,3 +29,5 @@ doc:
 	sphinx-apidoc -o sphinx aibolit --full
 	sphinx-build sphinx html
 
+typecheck:
+	python3 -m mypy aibolit

@@ -10,4 +10,8 @@ class TestNonFinalAttribute(TestCase):
 
     def test_find_non_final_atributes(self):
         lines = NonFinalAttribute().value(Path(self.dir_path, 'NonFinalAttribute.java'))
-        self.assertEqual(len(lines), 4)
+        self.assertEqual(lines, [2, 4, 6, 8])
+
+    def test_nested_class(self):
+        lines = NonFinalAttribute().value(Path(self.dir_path, 'File.java'))
+        self.assertEqual(lines, [12, 16, 64])
