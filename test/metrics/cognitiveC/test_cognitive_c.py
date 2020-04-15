@@ -32,8 +32,12 @@ class TestCognitive(TestCase):
 
     def test1(self):
         lines = self.count_leaves.value(Path(self.dir_path, '1.java'))
-        self.assertEqual(lines, 3)
+        self.assertEqual(lines, 7)
 
     def test2(self):
         lines = self.count_leaves.value(Path(self.dir_path, '2.java'))
-        self.assertEqual(lines, 5)
+        self.assertEqual(lines, 11)
+
+    def test3(self):
+        lines = self.count_leaves.value(Path(self.dir_path, '3.java'))
+        self.assertEqual(lines, 10)
