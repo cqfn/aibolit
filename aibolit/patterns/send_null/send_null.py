@@ -18,9 +18,9 @@ class SendNull:
         for argument in arg_list:
             ternary_list = argument.filter(javalang.tree.TernaryExpression)
             for path, expr in ternary_list:
-                if isinstance(expr.if_false, javalang.tree.Literal) and expr.if_false.value == 'null':  # type: ignore
+                if isinstance(expr.if_false, javalang.tree.Literal) and expr.if_false.value == 'null':
                     lst.append(argument._position.line)
-                if isinstance(expr.if_true, javalang.tree.Literal) and expr.if_true.value == 'null':  # type: ignore
+                if isinstance(expr.if_true, javalang.tree.Literal) and expr.if_true.value == 'null':
                     lst.append(argument._position.line)
 
         for path, node in tree:
