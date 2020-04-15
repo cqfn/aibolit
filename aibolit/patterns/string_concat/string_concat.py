@@ -1,7 +1,7 @@
 from typing import Tuple, Dict, List
 from typing import Tuple, Dict, List
 
-from aibolit.types import LineNumber
+from aibolit.types_decl import LineNumber
 from aibolit.utils.utils import RemoveComments
 
 

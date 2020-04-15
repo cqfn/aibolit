@@ -20,41 +20,34 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import javalang
+
 from typing import List
-
-import javalang.ast
-import javalang.parse
-import javalang.tree
-
 from aibolit.types_decl import LineNumber
-from aibolit.utils.ast import AST
+from aibolit.patterns.var_middle.var_middle import JavalangImproved
 
 
-class ManyPrimaryCtors(object):
-    def value(self, filename: str):
-        tree = AST(filename).value()
+class JoinedValidation:
+    """
+    Pattern which matches joined validations: validations (if with a single throw inside) which condition
+    contains more than condition joined with OR
+    """
 
-        return self.__traverse_node(tree)
+    def __init__(self, file):
+        self.file = file
 
-    def __traverse_node(self, tree: javalang.ast.Node) -> List[LineNumber]:
-        lines: List[LineNumber] = list()
+    def value(self) -> List[LineNumber]:
+        """
+        Returns the line number of joined validations found in file.
+        """
 
-        for _, class_declaration in tree.filter(javalang.tree.ClassDeclaration):
-            primary_ctors = list(filter(_is_primary, class_declaration.constructors))
-
-            if len(primary_ctors) > 1:
-                lines.extend(ctor.position.line for ctor in primary_ctors)
-
-        return lines
-
-
-def _is_primary(constructor: javalang.tree.ConstructorDeclaration) -> bool:
-    for _, assignment in constructor.filter(javalang.tree.Assignment):
-        if _is_instance_variable_assignment(assignment):
-            return True
-
-    return False
-
-
-def _is_instance_variable_assignment(assignment: javalang.tree.Assignment) -> bool:
-    return isinstance(assignment.expressionl, javalang.tree.This)
+        return [
+            node.line + 1
+            for node in JavalangImproved(self.file).filter([javalang.tree.IfStatement])  # type: ignore
+            if (type(node.node.condition) == javalang.tree.BinaryOperation and node.node.condition.operator == '||') \
+            and (
+                type(node.node.then_statement) == javalang.tree.ThrowStatement or \
+                    (len(node.node.then_statement.statements) == 1 and \
+                        type(node.node.then_statement.statements[0]) == javalang.tree.ThrowStatement)
+            )
+        ]
