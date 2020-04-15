@@ -27,31 +27,44 @@ import argparse
 import os
 import subprocess
 import sys
-from pathlib import Path
-import torch
 from collections import OrderedDict
+from pathlib import Path
+
+import torch
 
 from aibolit import __version__
 from aibolit.metrics.entropy.entropy import Entropy
+from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
+from aibolit.model.model import Net  # type: ignore
+from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode
+from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
+from aibolit.patterns.empty_rethrow.empty_rethrow import EmptyRethrow
+from aibolit.patterns.er_class.er_class import ErClass
 from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import ForceTypeCastingFinder
+from aibolit.patterns.if_return_if_detection.if_detection import CountIfReturn
+from aibolit.patterns.implements_multi.implements_multi import ImplementsMultiFinder
 from aibolit.patterns.instanceof.instance_of import InstanceOf
+from aibolit.patterns.many_primary_ctors.many_primary_ctors import ManyPrimaryCtors
 from aibolit.patterns.method_chaining.method_chaining import MethodChainFind
-from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
+from aibolit.patterns.multiple_try.multiple_try import MultipleTry
+from aibolit.patterns.non_final_attribute.non_final_attribute import NonFinalAttribute
+from aibolit.patterns.null_check.null_check import NullCheck
+from aibolit.patterns.partial_synchronized.partial_synchronized import PartialSync
+from aibolit.patterns.redundant_catch.redundant_catch import RedundantCatch
+from aibolit.patterns.return_null.return_null import ReturnNull
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder
 from aibolit.patterns.supermethod.supermethod import SuperMethod
 from aibolit.patterns.this_finder.this_finder import ThisFinder
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
 from aibolit.patterns.var_middle.var_middle import VarMiddle
-from aibolit.metrics.ncss.ncss import NCSSMetric
-from aibolit.model.model import Net
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
 def find_halstead(java_file):
     halstead_binary_path = Path(dir_path, 'binary_files/halstead.jar')
-    cmd = ['java', '-jar', halstead_binary_path, java_file]
+    cmd = ['java', '-jar', str(halstead_binary_path), java_file]
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     score = None
@@ -65,11 +78,15 @@ def find_halstead(java_file):
 def predict(input_params):
     # make a certain order of arguments which was used by a model
     features_order = [
-        'var_middle_number', 'string_concat_number', 'instance_of_number',
-        'method_chain_number', 'var_decl_diff_number_11', 'var_decl_diff_number_7',
-        'var_decl_diff_number_5', 'super_method_call_number', 'force_type_cast_number',
-        'entropy', 'halstead volume', 'ncss_method_avg', 'left_spaces_var', 'right_spaces_var',
-        'max_left_diff_spaces', 'max_right_diff_spaces'
+        'var_middle_number', 'this_find_number', 'string_concat_number',
+        'instance_of_number', 'method_chain_number', 'var_decl_diff_number_11',
+        'var_decl_diff_number_7', 'var_decl_diff_number_5',
+        'super_method_call_number', 'force_type_cast_number', 'asserts_number',
+        'setter_number', 'empty_rethrow_number',
+        'prohibited_class_names_number', 'return_in_if_number',
+        'impl_multi_number', 'many_prim_ctors_number', 'multiple_try_number',
+        'non_final_field_number', 'null_check_number', 'part_sync_number',
+        'red_catch_number', 'return_null_number'
     ]
 
     # load model to cpu
@@ -88,8 +105,8 @@ def predict(input_params):
     results = x.grad
     sorted_result = OrderedDict(
         sorted(
-            dict(zip(features_order, results)).items(),
-            key=lambda x: abs(x[1].double()),
+            dict(zip(features_order, results.numpy().tolist())).items(),
+            key=lambda x: abs(x[1]),
             reverse=True
         )
     )
@@ -100,15 +117,12 @@ def predict(input_params):
 def main():
     exit_status = -1
     patterns_list = [
-        'var_middle_number',
-        'string_concat_number',
-        'instance_of_number',
-        'method_chain_number',
-        'var_decl_diff_number_11',
-        'var_decl_diff_number_7',
-        'var_decl_diff_number_5',
-        'super_method_call_number',
-        'force_type_cast_number',
+        'var_middle_number', 'this_find_number', 'string_concat_number', 'instance_of_number',
+        'method_chain_number', 'var_decl_diff_number_11', 'var_decl_diff_number_7', 'var_decl_diff_number_5',
+        'super_method_call_number', 'force_type_cast_number', 'asserts_number', 'setter_number', 'empty_rethrow_number',
+        'prohibited_class_names_number', 'return_in_if_number', 'impl_multi_number',
+        'many_prim_ctors_number', 'multiple_try_number', 'non_final_field_number', 'null_check_number',
+        'part_sync_number', 'red_catch_number', 'return_null_number'
     ]
     try:
         parser = argparse.ArgumentParser(
@@ -126,8 +140,6 @@ def main():
             java_file = str(Path(os.getcwd(), args.filename))
             halstead_volume = find_halstead(java_file)
             var_numbers = VarMiddle().value(java_file)
-            nested_for_blocks = NestedBlocks(2, block_type=BlockType.FOR).value(java_file)
-            nested_if_blocks = NestedBlocks(2, block_type=BlockType.IF).value(java_file)
             entropy = Entropy().value(java_file)
             left_space_variance, right_space_variance, max_left_space_diff, max_right_space_diff \
                 = IndentationCounter().value(java_file)
@@ -138,29 +150,50 @@ def main():
             var_decl_diff_lines_7 = VarDeclarationDistance(lines_th=7).value(java_file)
             var_decl_diff_lines_11 = VarDeclarationDistance(lines_th=11).value(java_file)
             super_m_lines = SuperMethod().value(java_file)
-            for_type_cast_lines = ForceTypeCastingFinder().value(java_file)
+            force_type_cast_number = ForceTypeCastingFinder().value(java_file)
             this_lines = ThisFinder().value(java_file)
-            ncss_method_avg = NCSSMetric(java_file).value()
+            asserts_lines = AssertInCode().value(java_file)
+            setter_lines = ClassicSetter().value(java_file)
+            empty_rethrow_lines = EmptyRethrow().value(java_file)
+            prohibited_class_names = ErClass().value(java_file)
+            if_return_lines = CountIfReturn().value(java_file)
+            impl_multi_lines = ImplementsMultiFinder().value(java_file)
+            many_prim_ctors_lines = ManyPrimaryCtors().value(java_file)
+            multiple_try_lines = MultipleTry().value(java_file)
+            non_final_field_lines = NonFinalAttribute().value(java_file)
+            null_check_lines = NullCheck().value(java_file)
+            part_sync_lines = PartialSync().value(java_file)
+            red_catch_lines = RedundantCatch().value(java_file)
+            return_null_lines = ReturnNull().value(java_file)
+            ncss_lightweight = NCSSMetric(java_file).value()
+
             code_lines_dict = {
+                'var_middle_number': var_numbers,
+                'string_concat_number': concat_str_number,
                 'instance_of_number': instance_of_lines,
-                'lines_this_find': this_lines,
                 'method_chain_number': method_chain_lines,
                 'var_decl_diff_number_5': var_decl_diff_lines_5,
                 'var_decl_diff_number_7': var_decl_diff_lines_7,
                 'var_decl_diff_number_11': var_decl_diff_lines_11,
                 'super_method_call_number': super_m_lines,
-                'force_type_cast_number': for_type_cast_lines,
-                'string_concat_number': concat_str_number,
-                'var_middle_number': var_numbers,
-                'nested_for_number': nested_for_blocks,
-                'nested_if_number': nested_if_blocks,
+                'force_type_cast_number': force_type_cast_number,
+                'this_find_number': this_lines,
+                'asserts_number': asserts_lines,
+                'setter_number': setter_lines,
+                'empty_rethrow_number': empty_rethrow_lines,
+                'prohibited_class_names_number': prohibited_class_names,
+                'return_in_if_number': if_return_lines,
+                'impl_multi_number': impl_multi_lines,
+                'many_prim_ctors_number': many_prim_ctors_lines,
+                'multiple_try_number': multiple_try_lines,
+                'non_final_field_number': non_final_field_lines,
+                'null_check_number': null_check_lines,
+                'part_sync_number': part_sync_lines,
+                'red_catch_number': red_catch_lines,
+                'return_null_number': return_null_lines,
             }
             input_params = {
-                'halstead volume': halstead_volume,
-                'ncss_method_avg': ncss_method_avg,
                 'var_middle_number': len(var_numbers),
-                'nested_for_number': len(nested_for_blocks),
-                'nested_if_number': len(nested_if_blocks),
                 'string_concat_number': len(concat_str_number),
                 'instance_of_number': len(instance_of_lines),
                 'method_chain_number': len(method_chain_lines),
@@ -168,13 +201,28 @@ def main():
                 'var_decl_diff_number_7': len(var_decl_diff_lines_7),
                 'var_decl_diff_number_11': len(var_decl_diff_lines_11),
                 'super_method_call_number': len(super_m_lines),
-                'force_type_cast_number': len(for_type_cast_lines),
+                'force_type_cast_number': len(force_type_cast_number),
                 'this_find_number': len(this_lines),
+                'asserts_number': len(asserts_lines),
+                'setter_number': len(setter_lines),
+                'empty_rethrow_number': len(empty_rethrow_lines),
+                'prohibited_class_names_number': len(prohibited_class_names),
+                'return_in_if_number': len(if_return_lines),
+                'impl_multi_number': len(impl_multi_lines),
+                'many_prim_ctors_number': len(many_prim_ctors_lines),
+                'multiple_try_number': len(multiple_try_lines),
+                'non_final_field_number': len(non_final_field_lines),
+                'null_check_number': len(null_check_lines),
+                'part_sync_number': len(part_sync_lines),
+                'red_catch_number': len(red_catch_lines),
+                'return_null_number': len(return_null_lines),
                 'entropy': entropy,
+                'halstead volume': halstead_volume,
                 'left_spaces_var': left_space_variance,
                 'right_spaces_var': right_space_variance,
                 'max_left_diff_spaces': max_left_space_diff,
-                'max_right_diff_spaces': max_right_space_diff
+                'max_right_diff_spaces': max_right_space_diff,
+                'ncss_lightweight': ncss_lightweight,
             }
 
             sorted_result = predict(input_params)
@@ -186,7 +234,8 @@ def main():
                     if not found_pattern:
                         pattern = key
                         code_lines = code_lines_dict.get(key)
-                        if code_lines:
+                        # We show only positive gradient, we won't add patterns
+                        if code_lines and val > 1.00000e-20:
                             found_pattern = True
                             value = val
 

@@ -20,8 +20,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+
+from typing import List, Optional, Tuple, Dict
+
 import javalang
-from typing import List, Optional, Tuple
+
 from aibolit.patterns.var_middle.var_middle import JavalangImproved, ASTNode
 
 
@@ -40,13 +43,13 @@ class VarDeclarationDistance:
         name = node.name if hasattr(node, 'name') else None
         return qualifier or member or name
 
-    def __group_vars_by_method(self, items: List[Tuple[ASTNode, str]]) -> List[object]:
+    def __group_vars_by_method(self, items: List[Tuple[ASTNode, Optional[str]]]) -> List[Dict]:
         '''
         Group variables by method scope and calculate for each the declaration
         line and first usage line
         '''
-        var_scopes = []
-        vars = {}
+        var_scopes: List[Dict] = []
+        vars: Dict = {}
         unique_methods = list(set(
             map(lambda v: v[0].method_line, items)
         ))
@@ -89,9 +92,8 @@ class VarDeclarationDistance:
         ''''''
         tree = JavalangImproved(filename)
         empty_lines = tree.get_empty_lines()
-        items = tree.tree_to_nodes()
         items = list(
-            map(lambda v: (v, self.__node_name(v.node)), items)
+            map(lambda v: (v, self.__node_name(v.node)), tree.tree_to_nodes())
         )
         var_scopes = self.__group_vars_by_method(items)
         violations = []

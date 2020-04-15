@@ -1,0 +1,26 @@
+There is a number of risks we identified and expect to mitigate.
+
+\textbf{Survey Validity}.
+While designing the survey procedure we have to 
+consider the following threats to its validity:
+\begin{enumerate*}[label=\arabic*)]
+    \item Set of interviewers must be representive. 
+    Will the results be different if we take a different set of interviewers?
+    \item Set of code snippets must be representive. 
+    Will the results be different if we take a different set of code snippets? 
+    \item How to identify bad interviewers? 
+    Some interviewers may give answers that are not correlated with actual readability.
+\end{enumerate*}
+To mitigate this risk we have to think about the diversity of interviewers, 
+for example by age, skills, experience, education, and so on. We have to select code snippets
+that vary in length and project domain. The more data we collect the better. 
+We have to preprocess survey results to exclude outliers.
+
+\textbf{Feature Limits}.
+To predict the readability we are going to use features 
+calculated with static code analysis tools. 
+These features mainly reflect the structure, the syntax and 
+size properties of a particular code snippet.  
+However, we are not considering semantic properties of the code. 
+In the future, we can design semantic related features and 
+add them to our dataset.

@@ -11,6 +11,7 @@ class SendNull:
     def value(self, filename: str) -> List[int]:
         lst: List[int] = []
         tree = AST(filename).value()
+
         invocation_tree = tree.filter(javalang.tree.Invocation)
         arg_list = [x for _, x in invocation_tree]
 
