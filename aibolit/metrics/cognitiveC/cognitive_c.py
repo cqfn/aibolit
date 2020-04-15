@@ -2,7 +2,7 @@ import javalang
 from aibolit.utils.ast import AST
 from typing import List
 
-increment_for = [
+increment_for: List[javalang.ast.Node] = [
     javalang.tree.IfStatement,
     javalang.tree.SwitchStatement,
     javalang.tree.ForStatement,
@@ -15,7 +15,7 @@ increment_for = [
     # javalang.tree.BinaryOperation,
 ]
 
-nested_for = [
+nested_for: List[javalang.ast.Node] = [
     javalang.tree.IfStatement,
     javalang.tree.SwitchStatement,
     javalang.tree.ForStatement,
@@ -58,7 +58,7 @@ class CognitiveComplexity:
     def value(self, filename: str) -> int:
 
         tree = AST(filename).value()
-        for _, method in (tree.filter(javalang.tree.MethodDeclaration)):
+        for _, method in tree.filter(javalang.tree.MethodDeclaration):
             self.get_complexity(method, 0)
 
         final_value, self.complexity = self.complexity, 0
