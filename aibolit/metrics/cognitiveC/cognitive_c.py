@@ -43,7 +43,7 @@ class CognitiveComplexity:
 
             if hasattr(c, 'children'):
                 if type(c) in increment_for and type(c) in nested_for:
-                    self.complexity += (1 + nested_level)
+                    self.complexity += 1 + nested_level
                     self.traverse_childs(c, nested_level + 1)
 
                 elif type(c) in increment_for and type(c) not in nested_for:
