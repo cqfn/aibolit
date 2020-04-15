@@ -11,6 +11,11 @@
           : codec;
       }
       CompressionType getValue() {
+        a.method_call(2, b.method_call(null));
+        a.method_call().method_call(b).method_call(null);
+        doSomething(myString = ( ( myString != 5) ? null : myString ), obj);
+        doSomething(myString = ( ( myString != 5) ? myString.toLowerCase() : null), obj);
+        new Object(null);
         return value;
       }
       CompressionCodec getCodec() {
