@@ -1,4 +1,10 @@
+
+from typing import List
+
 import javalang
+from javalang.tree import FieldDeclaration
+
+from aibolit.types_decl import LineNumber
 
 
 class NonFinalAttribute:
@@ -16,6 +22,7 @@ class NonFinalAttribute:
             tree = javalang.parse.parse(file.read())
         return tree
 
-    def value(self, filename: str):
-        tree = self.__file_to_ast(filename).filter(javalang.tree.FieldDeclaration)
-        return [node for path, node in tree if 'final' not in node.modifiers]
+    def value(self, filename: str) -> List[LineNumber]:
+        tree = self.__file_to_ast(filename).filter(FieldDeclaration)
+
+        return [node.position.line for path, node in tree if 'final' not in node.modifiers]

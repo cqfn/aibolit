@@ -1,0 +1,84 @@
+%Here will be paragraph linking previous sections with "Code Readability".
+
+%The research question is the following: is it possible, using static code analysis to do 
+%a code refactoring recommendations to improve a code readability? 
+
+We are looking for an answer to the following research question: 
+Is it possible,
+combining static code analysis and ML, 
+to detect defects in a Java class and 
+to give specific recommendations for its refactoring? 
+
+To answer this question we are doing the following research:
+\begin{enumerate*}[label={\alph*)}]
+    \item We take a set of Java \emph{classes};
+    \item We collect a number of static analysis \emph{metrics} per each class;
+    \item We locate \emph{code patterns} inside each class;
+    \item We ask volunteer programmers to review 
+      each class to estimate their \emph{readability};
+    \item We put collected data together into a \emph{dataset}; 
+    \item We find \emph{relations} between metrics and patterns in the dataset; 
+    \item We take an unseen Java class and \emph{locate code patterns}, which impact the quality more then others.
+\end{enumerate*}
+    
+\textbf{Classes}.
+We parse Java projects from GitHub to obtain training Java classes. 
+All parsed projects must have more than 100 stars, and more than five collaborators. 
+Collected Java classes must have more than 50 lines of code and less than 300.  
+
+\textbf{Metrics}.
+The code metrics are calculated using existing open-source
+tools like CheckStyle and SourceMeter. Examples of metrics are Lines of Code (LoC), 
+Cyclomatic Complexity (CC), and Number of Incoming Invocations (NII).
+
+\textbf{Code Patterns}.
+AST patterns are the features that reflect the presence 
+of some syntax structures in the code, 
+for example number of nested \texttt{FOR} loops 
+or the amount of ternary operators. The AST patterns are manually designed 
+and always point to a specific place in the code. 
+
+\textbf{Readability}.
+To gather readability characteristics we conduct
+a survey, where volunteering programmers are asked to estimate
+the readability of training Java classes, giving answers on a $[0..9]$ scale, 
+where 0 means not readable at all and 9 means perfectly readable.
+Each programmer is asked to review some snippets from 
+the entire training dataset, which means that each
+snippet is reviewed by a few programmers. The readability ``score'' per
+snippet is a mean of all answers collected.
+
+\textbf{Dataset}.
+We combine and put the data into the single dataset. 
+In the \autoref{tab:table1} you can see the example how dataset looks
+(here CC, CBO, LCOM, and NMD are acronyms for software metrics, 
+while RS is the Readability Score collected from volunteers).
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{rrrrrr}
+\hline
+CC & CBO & LCOM & NMD & \dots & RS \\
+\hline
+3 & 6 & 34 & 2 & \dots & 4.3 \\
+4 & 5 & 55 & 1 & \dots & 2.4 \\
+3 & 5 & 22 & 0 & \dots & 5.2 \\ 
+\hline
+\end{tabular}
+\end{center}
+\caption{Example of collected dataset}
+\label{tab:table1}
+\end{table}
+
+\textbf{Relations}.
+Using ML methods we are going to learn how code metrics, 
+AST patterns and readability are related. 
+We are planning to use ML techniques to investigate the importance of features 
+with respect to the readability and find combinations that have stronger impact.
+
+\textbf{Locate Code Patterns}.
+Finally, for an unseen Java class we can calculate all features except the readability. 
+Using known features and the knowledge about relations between features we are planning
+to give refactoring recommendations and provide links to the lines of code 
+where most problematic patterns are located.   
+

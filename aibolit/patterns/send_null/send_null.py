@@ -11,8 +11,6 @@ class SendNull:
     def value(self, filename: str) -> List[int]:
         lst: List[int] = []
         tree = AST(filename).value()
-        invocation_tree = tree.filter(javalang.tree.Invocation)
-        creator_tree = tree.filter(javalang.tree.Creator)
 
         for path, node in tree:
             try:

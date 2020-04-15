@@ -21,48 +21,85 @@
 # SOFTWARE.
 
 import itertools
-import re
+from collections import defaultdict
 from collections import namedtuple
-from aibolit.utils.ast import AST
 
 import javalang
+
+from aibolit.patterns.var_middle.var_middle import JavalangImproved
 
 ExceptionInfo = namedtuple('ExceptionInfo', 'func_name, catch_list, throws_list, line_number')
 
 
 class RedundantCatch:
+    """
+    Find pattern when a method in Java class throws an exception,
+    and the exception of the same type is caught inside the method.
 
+    E.g.,
+    class Book {
+    void foo() throws IOException {
+        try {
+          Files.readAllBytes();
+        } catch (IOException e)
+          { // here
+          // do something
+          }
+        }
+    }
+    Here, the method foo() throws IOException, but we catch it inside the method
+    """
     def __init__(self):
         pass
 
     def value(self, filename):
-        tree = AST(filename).value()
-        with open(filename, encoding='utf-8') as file:
-            lines_str = file.readlines()
+        """
+        Find the mentioned-above pattern
+        :param filename: filename of Java file
+        :return: code lines of try statement where it was found
+        """
+        total_code_lines = set()
+        obj = JavalangImproved(filename)
+        items = obj.tree_to_nodes()
+        try_nodes = defaultdict(list)
+        method_nodes = {}
+        for x in items:
+            # Line break occurred before a binary operator (W503)
+            # But this rule goes against the PEP 8 recommended style, so
+            # replace isinstanceof with variable
+            is_instance_meth_decl = isinstance(x.node, javalang.tree.MethodDeclaration)
+            is_instance_try_stat = isinstance(x.node, javalang.tree.TryStatement)
+            is_instance_ctor_decl = isinstance(x.node, javalang.tree.ConstructorDeclaration)
+            is_instance_lambda = isinstance(x.node, javalang.tree.LambdaExpression)
+            if is_instance_try_stat and x.method_line and not is_instance_lambda:
+                # If we do not have a line for method, we ignore this method
+                try_nodes[x.method_line].append(x)
+            elif (is_instance_meth_decl or is_instance_ctor_decl) and x.method_line and not is_instance_lambda:
+                # If we do not have a line for method, we ignore this method
+                method_nodes[x.method_line] = x
 
-        pattern_catch = re.compile(r'(catch[\(\s]+[\w | \s]+)')
-        total_code_lines = []
-        for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
-            catch_list = []
-            ei = ExceptionInfo(
-                func_name=method_node.name,
-                catch_list=catch_list,
-                throws_list=method_node.throws,
-                line_number=method_node.position.line
-            )
-            for _, try_node in method_node.filter(javalang.tree.TryStatement):
-                catch_classes = [x.parameter.types for x in try_node.catches]
-                classes_exception_list = list(itertools.chain(*catch_classes))
-                ei.catch_list.extend(classes_exception_list)
-                catches = [
-                    (i, line) for i, line in
-                    enumerate(lines_str[method_node.position.line:], start=method_node.position.line)
-                    if re.search(pattern_catch, line)
-                ]
-                code_lines = [
-                    i + 1 for i, line in catches
-                    if any([(line.find(y) > -1) for y in ei.throws_list])
-                ]
-                total_code_lines.extend(code_lines)
+        for method_line, iter_nodes in sorted(try_nodes.items(), key=lambda x: x[1][0].line):
+            for try_node in iter_nodes:
+                method_node = method_nodes.get(method_line)
 
-        return sorted(set(total_code_lines))
+                if not method_node or not method_node.node.throws:
+                    continue
+
+                catch_list = []
+                ei = ExceptionInfo(
+                    func_name=method_node.node.name,
+                    catch_list=catch_list,
+                    throws_list=method_node.node.throws,
+                    line_number=method_node.node.position.line
+                )
+                if try_node.node.catches:
+                    catch_classes = [x.parameter.types for x in try_node.node.catches]
+                    classes_exception_list = list(itertools.chain(*catch_classes))
+                    ei.catch_list.extend(classes_exception_list)
+
+                    lines_number = set([
+                        try_node.line for c in ei.catch_list if c in ei.throws_list
+                    ])
+                    total_code_lines.update(lines_number)
+
+        return sorted(total_code_lines)
