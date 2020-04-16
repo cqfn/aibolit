@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 import os
+import unittest
 from unittest import TestCase
 from pathlib import Path
 from aibolit.metrics.lcom4.lcom4 import LCOM4
@@ -30,22 +31,27 @@ class TestLCOM4(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
     pattern = LCOM4()
 
+    @unittest.skip("Not implemented")
     def test_class_with_chain(self):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'Chain.java'))
         self.assertTrue(lcom4_val, 3)
 
+    @unittest.skip("Not implemented")
     def test_class_with_empty_method(self):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'EmptyMethod.java'))
         self.assertTrue(lcom4_val, 2)
 
+    @unittest.skip("Not implemented")
     def test_scope(self):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'Scope.java'))
         self.assertTrue(lcom4_val, 2)
 
+    @unittest.skip("Not implemented")
     def test_scope_with_anonymous(self):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'Anonymous.java'))
         self.assertTrue(lcom4_val, 2)
 
+    @unittest.skip("Not implemented")
     def test_overloaded(self):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'Overloaded.java'))
         lcom4_val2 = self.pattern.value(Path(self.dir_path, 'OverloadedDiffComp.java'))
