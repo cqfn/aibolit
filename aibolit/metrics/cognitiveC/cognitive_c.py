@@ -1,8 +1,8 @@
 import javalang
 from aibolit.utils.ast import AST
-from typing import List, Any
+from typing import List, Any, Type
 
-increment_for: List[javalang.tree.Node] = [
+increment_for: List[Type] = [
     javalang.tree.IfStatement,
     javalang.tree.SwitchStatement,
     javalang.tree.ForStatement,
@@ -15,7 +15,7 @@ increment_for: List[javalang.tree.Node] = [
     # javalang.tree.BinaryOperation,
 ]
 
-nested_for: List[javalang.tree.Node] = [
+nested_for: List[Type] = [
     javalang.tree.IfStatement,
     javalang.tree.SwitchStatement,
     javalang.tree.ForStatement,
@@ -32,7 +32,8 @@ class CognitiveComplexity:
     def __init__(self):
         self.complexity = 0
 
-    def traverse_childs(self, block: javalang.tree, nested_level: int):
+    def traverse_childs(self, block: Any, nested_level: int):
+        
         for each_child in block.children:
             self.get_complexity(each_child, nested_level)
 
