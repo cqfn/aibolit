@@ -19,6 +19,8 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+import networkx as nx
+import matplotlib.pyplot as plt
 
 class LCOM4():
 
@@ -26,4 +28,16 @@ class LCOM4():
         pass
 
     def value(self, filename: str):
+        G = nx.Graph()
+        G.add_node('this.a')
+        G.add_node('method1')
+        G.add_node('method2')
+        G.add_node('this.b')
+        G.add_edge('this.b', 'method1')
+        G.add_edges_from([['this.a', 'method2'], ['method2', 'method1']])
+        nx.draw(G,with_labels=True)
+        plt.show()
         return 0
+
+
+LCOM4().value('')
