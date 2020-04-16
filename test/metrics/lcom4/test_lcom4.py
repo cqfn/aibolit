@@ -66,4 +66,4 @@ class TestLCOM4(TestCase):
     def test_simple(self):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'Simple.java'))
         # If not possible, change to 1
-        self.assertTrue(lcom4_val, 2)
+        self.assertTrue(lcom4_val, 1)
