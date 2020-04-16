@@ -41,3 +41,15 @@ class TestCognitive(TestCase):
     def test3(self):
         lines = self.get_cc.value(Path(self.dir_path, '3.java'))
         self.assertEqual(lines, 10)
+
+    def test4(self):
+        lines = self.get_cc.value(Path(self.dir_path, '4.java'))
+        self.assertEqual(lines, 6)
+
+    def test5(self):
+        lines = self.get_cc.value(Path(self.dir_path, '5.java'))
+        self.assertEqual(lines, 7)
+
+    def test6(self):
+        lines = self.get_cc.value(Path(self.dir_path, '6.java'))
+        self.assertEqual(lines, 14)
