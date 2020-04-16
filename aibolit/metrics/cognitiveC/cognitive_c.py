@@ -33,7 +33,7 @@ class CognitiveComplexity:
         self.complexity = 0
 
     def traverse_childs(self, block: Any, nested_level: int):
-        
+
         for each_child in block.children:
             self.get_complexity(each_child, nested_level)
 
