@@ -28,12 +28,16 @@ from pathlib import Path
 
 class TestCognitive(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
-    count_leaves = CognitiveComplexity()
+    get_cc = CognitiveComplexity()
 
     def test1(self):
-        lines = self.count_leaves.value(Path(self.dir_path, '1.java'))
-        self.assertEqual(lines, 3)
+        lines = self.get_cc.value(Path(self.dir_path, '1.java'))
+        self.assertEqual(lines, 7)
 
     def test2(self):
-        lines = self.count_leaves.value(Path(self.dir_path, '2.java'))
-        self.assertEqual(lines, 5)
+        lines = self.get_cc.value(Path(self.dir_path, '2.java'))
+        self.assertEqual(lines, 11)
+
+    def test3(self):
+        lines = self.get_cc.value(Path(self.dir_path, '3.java'))
+        self.assertEqual(lines, 10)
