@@ -57,3 +57,8 @@ class TestLCOM4(TestCase):
         lcom4_val2 = self.pattern.value(Path(self.dir_path, 'OverloadedDiffComp.java'))
         self.assertTrue(lcom4_val, 1)
         self.assertTrue(lcom4_val2, 2)
+
+    @unittest.skip("Not implemented")
+    def test_constructor(self):
+        lcom4_val = self.pattern.value(Path(self.dir_path, 'Constructor.java'))
+        self.assertTrue(lcom4_val, 1)
