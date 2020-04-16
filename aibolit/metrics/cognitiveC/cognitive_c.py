@@ -1,6 +1,6 @@
 import javalang
 from aibolit.utils.ast import AST
-from typing import List
+from typing import List, Any
 
 increment_for: List[javalang.tree.Node] = [
     javalang.tree.IfStatement,
@@ -36,7 +36,7 @@ class CognitiveComplexity:
         for each_child in block.children:
             self.get_complexity(each_child, nested_level)
 
-    def get_complexity(self, block: javalang.tree.Node, nested_level: int):
+    def get_complexity(self, block: Any, nested_level: int):
         block_arr = block if isinstance(block, List) else [block]
 
         for each_block in block_arr:
