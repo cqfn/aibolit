@@ -2,7 +2,7 @@ import javalang
 from aibolit.utils.ast import AST
 from typing import List
 
-increment_for: List[javalang.ast.Node] = [
+increment_for: List[javalang.tree.Node] = [
     javalang.tree.IfStatement,
     javalang.tree.SwitchStatement,
     javalang.tree.ForStatement,
@@ -15,7 +15,7 @@ increment_for: List[javalang.ast.Node] = [
     # javalang.tree.BinaryOperation,
 ]
 
-nested_for: List[javalang.ast.Node] = [
+nested_for: List[javalang.tree.Node] = [
     javalang.tree.IfStatement,
     javalang.tree.SwitchStatement,
     javalang.tree.ForStatement,
