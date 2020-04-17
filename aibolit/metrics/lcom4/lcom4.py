@@ -65,7 +65,7 @@ class LCOM4:
         return self.get_connected_components(methods, fields, graph, filename)
 
     @staticmethod
-    def get_connected_components(methods, fields, graph, filename):
+    def get_connected_components(methods: list, fields: list, graph: dict, filename: str) -> int:
 
         G = nx.Graph()
 
