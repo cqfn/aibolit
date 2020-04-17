@@ -53,3 +53,11 @@ class TestCognitive(TestCase):
     def test6(self):
         lines = self.get_cc.value(Path(self.dir_path, '6.java'))
         self.assertEqual(lines, 14)
+
+    def test7(self):
+        lines = self.get_cc.value(Path(self.dir_path, 'recursion.java'))
+        self.assertEqual(lines, 5)
+
+    def test8(self):
+        lines = self.get_cc.value(Path(self.dir_path, 'nested.java'))
+        self.assertEqual(lines, 9)
