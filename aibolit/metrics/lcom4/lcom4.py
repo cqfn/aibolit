@@ -26,20 +26,20 @@ from collections import defaultdict
 from aibolit.utils.ast import AST
 from typing import Set, Dict, List
 from javalang.tree import ClassDeclaration, InterfaceDeclaration, MethodDeclaration, \
-    MemberReference, FieldDeclaration, MethodInvocation, This
+    MemberReference, FieldDeclaration, MethodInvocation, This, Node
 
 
 class LCOM4:
 
     def value(self, filename: str) -> int:
-        tree = AST(filename).value()
+        tree: Node = AST(filename).value()
         graph: Dict[str, Set[str]] = defaultdict(set)
 
-        fields = [node.declarators[0].name for _, node in tree.filter(FieldDeclaration)]
-        methods = [node.name for _, node in tree.filter(MethodDeclaration)]
-        interfaces = [node for _, node in tree.filter(InterfaceDeclaration)]
-        current_class = list(tree.filter(ClassDeclaration))[0][1]
-        interfaces_methods = set()
+        fields: List[str] = [node.declarators[0].name for _, node in tree.filter(FieldDeclaration)]
+        methods: List[str] = [node.name for _, node in tree.filter(MethodDeclaration)]
+        interfaces: List[InterfaceDeclaration] = [node for _, node in tree.filter(InterfaceDeclaration)]
+        current_class: ClassDeclaration = list(tree.filter(ClassDeclaration))[0][1]
+        interfaces_methods: Set[str] = set()
         nested_methods: Set[str] = set()
 
         class_decl: List[ClassDeclaration] = \
@@ -62,10 +62,10 @@ class LCOM4:
                 if mi.member in methods:
                     graph[node.name].add(mi.member)
 
-        return self.get_connected_components(methods, fields, graph, filename)
+        return self.get_connected_components(methods, fields, graph)
 
     @staticmethod
-    def get_connected_components(methods: list, fields: list, graph: dict, filename: str) -> int:
+    def get_connected_components(methods: list, fields: list, graph: dict) -> int:
 
         G = nx.Graph()
 
@@ -76,8 +76,5 @@ class LCOM4:
         for key, val in graph.items():
             for x in val:
                 G.add_edge(key, x)
-
-        # nx.draw(G, with_labels=True)
-        # plt.show()
 
         return nx.number_connected_components(G)
