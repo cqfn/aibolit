@@ -17,5 +17,5 @@ class AST:
          call to javalang library, but we should at least test which kinds of
          file this class should and which it should not support.
         """
-        with open(self._filename) as file:
+        with open(self._filename, encoding='utf-8') as file:
             return parse(file.read())

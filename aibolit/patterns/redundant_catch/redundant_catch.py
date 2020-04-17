@@ -64,14 +64,27 @@ class RedundantCatch:
         try_nodes = defaultdict(list)
         method_nodes = {}
         for x in items:
-            if isinstance(x.node, javalang.tree.TryStatement):
+            # Line break occurred before a binary operator (W503)
+            # But this rule goes against the PEP 8 recommended style, so
+            # replace isinstanceof with variable
+            is_instance_meth_decl = isinstance(x.node, javalang.tree.MethodDeclaration)
+            is_instance_try_stat = isinstance(x.node, javalang.tree.TryStatement)
+            is_instance_ctor_decl = isinstance(x.node, javalang.tree.ConstructorDeclaration)
+            is_instance_lambda = isinstance(x.node, javalang.tree.LambdaExpression)
+            if is_instance_try_stat and x.method_line and not is_instance_lambda:
+                # If we do not have a line for method, we ignore this method
                 try_nodes[x.method_line].append(x)
-            elif isinstance(x.node, javalang.tree.MethodDeclaration):
+            elif (is_instance_meth_decl or is_instance_ctor_decl) and x.method_line and not is_instance_lambda:
+                # If we do not have a line for method, we ignore this method
                 method_nodes[x.method_line] = x
 
         for method_line, iter_nodes in sorted(try_nodes.items(), key=lambda x: x[1][0].line):
             for try_node in iter_nodes:
-                method_node = method_nodes[method_line]
+                method_node = method_nodes.get(method_line)
+
+                if not method_node or not method_node.node.throws:
+                    continue
+
                 catch_list = []
                 ei = ExceptionInfo(
                     func_name=method_node.node.name,
@@ -79,13 +92,14 @@ class RedundantCatch:
                     throws_list=method_node.node.throws,
                     line_number=method_node.node.position.line
                 )
-                catch_classes = [x.parameter.types for x in try_node.node.catches]
-                classes_exception_list = list(itertools.chain(*catch_classes))
-                ei.catch_list.extend(classes_exception_list)
+                if try_node.node.catches:
+                    catch_classes = [x.parameter.types for x in try_node.node.catches]
+                    classes_exception_list = list(itertools.chain(*catch_classes))
+                    ei.catch_list.extend(classes_exception_list)
 
-                lines_number = set([
-                    try_node.line for c in ei.catch_list if c in ei.throws_list
-                ])
-                total_code_lines.update(lines_number)
+                    lines_number = set([
+                        try_node.line for c in ei.catch_list if c in ei.throws_list
+                    ])
+                    total_code_lines.update(lines_number)
 
         return sorted(total_code_lines)

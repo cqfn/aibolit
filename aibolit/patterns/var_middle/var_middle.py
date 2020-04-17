@@ -26,7 +26,7 @@ from functools import reduce
 
 import javalang
 
-from aibolit.types import LineNumber
+from aibolit.types_decl import LineNumber
 
 
 # mapping between javalang node class names and Java keywords
@@ -137,7 +137,9 @@ class JavalangImproved:
         if type(tree) in NEW_SCOPE_NODES:
             scope += 1
 
-        if type(tree) in [javalang.tree.MethodDeclaration, javalang.tree.ConstructorDeclaration]:
+        if type(tree) in [javalang.tree.MethodDeclaration,
+                          javalang.tree.ConstructorDeclaration,
+                          javalang.tree.LambdaExpression]:
             parent_method_line = line
 
         res: List[ASTNode] = []
