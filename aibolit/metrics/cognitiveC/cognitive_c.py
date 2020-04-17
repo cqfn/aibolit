@@ -61,12 +61,22 @@ class CognitiveComplexity:
             return True
         return False
 
+    def nested_methods(self, block: MethodDeclaration, nested_level: int) -> None:
+        original_name = self.method_name
+        self.method_name = block.name
+        self.get_complexity(block, nested_level + 1)
+        self.method_name = original_name
+
     def get_complexity(self, block: Any, nested_level: int) -> None:
         block_arr = block if isinstance(block, List) else [block]
 
         for each_block in block_arr:
             if hasattr(each_block, 'children'):
-                if type(each_block) in increment_for and type(each_block) in nested_for:
+
+                if type(each_block) == MethodDeclaration and each_block.name != self.method_name:
+                    self.nested_methods(each_block, nested_level)
+
+                elif type(each_block) in increment_for and type(each_block) in nested_for:
                     self.complexity += 1 + nested_level
                     self.traverse_childs(each_block, nested_level + 1)
 
@@ -91,12 +101,12 @@ class CognitiveComplexity:
 
         tree = AST(filename).value()
         for _, class_body in tree.filter(javalang.tree.ClassDeclaration):
-            for method in (class_body.body):
-                if isinstance(method, MethodDeclaration):
+            for each_object in class_body.body:
+                if isinstance(each_object, MethodDeclaration):
 
                     # memorize the name for detecting recursion call
-                    self.method_name = method.name
-                    self.get_complexity(method, 0)
+                    self.method_name = each_object.name
+                    self.get_complexity(each_object, 0)
 
         final_value, self.complexity = self.complexity, 0
         return final_value
