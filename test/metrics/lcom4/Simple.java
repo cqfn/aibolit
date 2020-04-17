@@ -5,19 +5,9 @@ public class Example {
     private int a;
     private int b;
 	
-    interface FuncInterface
-    {
-        // An abstract function
-        void abstractFun(int x);
 
-        // A non-abstract (or default) function
-        default void normalFun()
-        {
-            System.out.println("Hello");
-        }
-    }
 	
-	class Zhopa
+	class Anime
     {
 		
 		Zhopa(int a) {}
@@ -31,9 +21,9 @@ public class Example {
         }
     }
 	
-	class Govno
+	class Pope
     {
-			class Uporoty
+			class Interior
 			{
 				// An abstract function
 				void normalFun(int x) {}

@@ -19,6 +19,8 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+
+# import matplotlib.pyplot as plt
 import networkx as nx  # type: ignore
 from collections import defaultdict
 from aibolit.utils.ast import AST
@@ -33,23 +35,20 @@ class LCOM4:
         tree = AST(filename).value()
         graph: Dict[str, Set[str]] = defaultdict(set)
 
+        fields = [node.declarators[0].name for _, node in tree.filter(FieldDeclaration)]
         methods = [node.name for _, node in tree.filter(MethodDeclaration)]
         interfaces = [node for _, node in tree.filter(InterfaceDeclaration)]
-
+        current_class = list(tree.filter(ClassDeclaration))[0][1]
         interfaces_methods = set()
+        nested_methods: Set[str] = set()
+
+        class_decl: List[ClassDeclaration] = \
+            [node for _, node in current_class.filter(ClassDeclaration) if node.name != current_class.name]
 
         for i in interfaces:
             interfaces_methods.update([node.name for _, node in i.filter(MethodDeclaration)])
-
-        current_class = list(tree.filter(ClassDeclaration))[0][1]
-        cls = ClassDeclaration
-        class_decl: List[ClassDeclaration] = \
-            [node for _, node in current_class.filter(cls) if node.name != current_class.name]
-        nested_methods: Set[str] = set()
         for k in class_decl:
             nested_methods.update([node.name for _, node in k.filter(MethodDeclaration)])
-
-        fields = [node.declarators[0].name for _, node in tree.filter(FieldDeclaration)]
 
         for _, node in tree.filter(MethodDeclaration):
             for _, mem_ref in node.filter(MemberReference):
@@ -63,20 +62,22 @@ class LCOM4:
                 if mi.member in methods:
                     graph[node.name].add(mi.member)
 
-        return self.get_connected_components(methods, fields, graph)
+        return self.get_connected_components(methods, fields, graph, filename)
 
     @staticmethod
-    def get_connected_components(methods, fields, graph):
+    def get_connected_components(methods, fields, graph, filename):
+
         G = nx.Graph()
 
         for i in methods:
             G.add_node(i)
-
         for i in fields:
             G.add_node(i)
-
         for key, val in graph.items():
             for x in val:
                 G.add_edge(key, x)
+
+        # nx.draw(G, with_labels=True)
+        # plt.show()
 
         return nx.number_connected_components(G)
