@@ -2,6 +2,7 @@ from javalang.tree import IfStatement, SwitchStatement, ForStatement, WhileState
 from javalang.tree import DoStatement, CatchClause, BreakStatement, ContinueStatement
 from javalang.tree import TernaryExpression, BinaryOperation, MethodDeclaration
 from aibolit.utils.ast import AST
+import javalang
 from typing import List, Any, Type
 
 increment_for: List[Type] = [
@@ -41,7 +42,7 @@ class CognitiveComplexity:
         for each_child in block.children:
             self.get_complexity(each_child, nested_level)
 
-    def increment_logical_operators(self, block: Type, prev_operator: str) -> None:
+    def increment_logical_operators(self, block: javalang.tree.BinaryOperation, prev_operator: str) -> None:
         for each_block in [block.operandr, block.operandl]:
 
             if isinstance(each_block, BinaryOperation) and prev_operator in logical_operators:
