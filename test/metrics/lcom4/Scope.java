@@ -7,7 +7,7 @@ class MethodChain {
 
     public int chain1() {
         Object a = new Object();
-        DifferentMethods b = new DifferentMethods;
+        DifferentMethods b = new DifferentMethods();
         b.func(a);
         return 100500;
     }
