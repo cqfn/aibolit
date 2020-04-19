@@ -52,4 +52,3 @@ $ latexmk -c && latexmk -pdf wp.tex
 
 If everything is fine, submit
 a [pull request](https://www.yegor256.com/2014/04/15/github-guidelines.html).
-
