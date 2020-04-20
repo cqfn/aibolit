@@ -26,8 +26,11 @@ from aibolit.utils.utils import RemoveComments
 
 class IndentationCounter:
 
-    def __init__(self):
-        pass
+    def __init__(self, left_var=False, right_var=False, max_left=False, max_right=False):
+        self.left_var = left_var
+        self.right_var = right_var
+        self.max_left = max_left
+        self.max_right = max_right
 
     def __file_to_tokens(self, filename: str):
         """
@@ -68,9 +71,14 @@ class IndentationCounter:
             prev_left = first_non_space_symbol_pos
             prev_right = len(line)
 
-        left_space_variance = variance([x[1] for x in spaces_per_line])
-        right_space_variance = variance([x[2] for x in spaces_per_line])
-        max_left_space_diff = max([abs(x[1]) for x in spaces_per_line])
-        max_right_space_diff = max([abs(x[2]) for x in spaces_per_line])
-        return [left_space_variance, right_space_variance,
-                max_left_space_diff, max_right_space_diff]
+        if self.left_var:
+            val = variance([x[1] for x in spaces_per_line])
+        elif self.right_var:
+            val = variance([x[2] for x in spaces_per_line])
+        elif self.max_left:
+            val = max([abs(x[1]) for x in spaces_per_line])
+        elif self.max_right:
+            val = max([abs(x[2]) for x in spaces_per_line])
+        else:
+            val = None
+        return val

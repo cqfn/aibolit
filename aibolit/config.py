@@ -27,17 +27,20 @@ from aibolit.patterns.var_middle.var_middle import VarMiddle
 CONFIG = {
     "patterns": [
         {"name": "Asserts", "code": "P1", "make": lambda: P1()},
-        {"name": "Setters", "code": "P2", "make": lambda: P2()}
-        {"name": "Empty Rethrow", "code": "P3", "make": lambda: P3()}
-        {"name": "Prohibited class name", "code": "P4", "make": lambda: P4()}
+        {"name": "Setters", "code": "P2", "make": lambda: P2()},
+        {"name": "Empty Rethrow", "code": "P3", "make": lambda: P3()},
+        {"name": "Prohibited class name", "code": "P4", "make": lambda: P4()},
         {"name": "Force Type Casting Finder", "code": "P5", "make": lambda: P5()},
-        {"name": "Count If Return", "code": "P6", "make": lambda: P6()}
-        {"name": "Implements Multi Finder", "code": "P7", "make": lambda: P7()}
+        {"name": "Count If Return", "code": "P6", "make": lambda: P6()},
+        {"name": "Implements Multi Finder", "code": "P7", "make": lambda: P7()},
     ],
     "metrics": [
         {"name": "Entropy", "code": "M1", "make": lambda: M1()},
-        {"name": "NCSS", "code": "M2", "make": lambda: M2()}
-        {"name": "Indentation counter", "code": "M3", "make": lambda: M3()}
+        {"name": "NCSS", "code": "M2", "make": lambda: M2()},
+        {"name": "Indentation counter: Right total variance", "code": "M3", "make": lambda: M3(right_var=True)},
+        {"name": "Indentation counter: Left total variance", "code": "P7", "make": lambda: M3(left_var=True)},
+        {"name": "Indentation counter: Right max variance", "code": "P7", "make": lambda: M3(max_right=True)},
+        {"name": "Indentation counter: Left max variance", "code": "P7", "make": lambda: M3(max_left=True)},
     ],
     "target": {
 
