@@ -35,26 +35,18 @@ class TestLCOM4(TestCase):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'EmptyMethod.java'))
         self.assertEqual(lcom4_val, 2)
 
-    def test_overloaded(self):
-        lcom4_val = self.pattern.value(Path(self.dir_path, 'Overloaded.java'))
-        lcom4_val2 = self.pattern.value(Path(self.dir_path, 'OverloadedDiffComp.java'))
-        self.assertEqual(lcom4_val, 1)
-        self.assertTrue(lcom4_val2, 2)
-
     def test_constructor(self):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'Constructor.java'))
         self.assertEqual(lcom4_val, 1)
-
-    def test_simple(self):
-        lcom4_val = self.pattern.value(Path(self.dir_path, 'Simple.java'))
-        # If not possible, change to 1
-        self.assertTrue(lcom4_val, 2)
 
     def test_scope_with_anonymous(self):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'ScopeAnonymous.java'))
         self.assertEqual(lcom4_val, 2)
 
-    @unittest.skip("Not implemented")
+    def test_simple(self):
+        lcom4_val = self.pattern.value(Path(self.dir_path, 'Simple.java'))
+        self.assertEqual(lcom4_val, 1)
+
     def test_getter_setter(self):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'GetterSetter.java'))
         # We should ignore all setters and getters
@@ -69,3 +61,10 @@ class TestLCOM4(TestCase):
     def test_class_with_chain(self):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'MethodChain.java'))
         self.assertEqual(lcom4_val, 3)
+
+    @unittest.skip("Not implemented")
+    def test_overloaded(self):
+        lcom4_val = self.pattern.value(Path(self.dir_path, 'Overloaded.java'))
+        lcom4_val2 = self.pattern.value(Path(self.dir_path, 'OverloadedDiffComp.java'))
+        self.assertEqual(lcom4_val, 1)
+        self.assertEqual(lcom4_val2, 2)

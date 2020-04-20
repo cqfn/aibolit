@@ -23,8 +23,8 @@
 import networkx as nx  # type: ignore
 from collections import defaultdict
 from aibolit.utils.ast import AST
-from typing import Set, Dict, List, Generator
-from javalang.tree import ClassDeclaration, MethodDeclaration, \
+from typing import Set, Dict, List, Generator, Type
+from javalang.tree import ClassDeclaration, InterfaceDeclaration, MethodDeclaration, \
     MemberReference, FieldDeclaration, MethodInvocation, This, Node
 
 
@@ -76,18 +76,18 @@ class LCOM4:
     def get_class_depth(path: tuple) -> int:
         class_level = 0
         for step in path:
-            if isinstance(step, ClassDeclaration):
+            if isinstance(step, (ClassDeclaration, InterfaceDeclaration)):
                 class_level += 1
         return class_level
 
     @staticmethod
-    def filter_method_name(tree: Node, javalang_class: FieldDeclaration) -> Generator[str, None, None]:
+    def filter_method_name(tree: Node, javalang_class: Type[MethodDeclaration]) -> Generator[str, None, None]:
         for path, node in tree.filter(javalang_class):
             if LCOM4.get_class_depth(path) < 2:
                 yield node.name
 
     @staticmethod
-    def filter_field_name(tree: Node, javalang_class: MethodDeclaration) -> Generator[str, None, None]:
+    def filter_field_name(tree: Node, javalang_class: Type[FieldDeclaration]) -> Generator[str, None, None]:
         for path, node in tree.filter(javalang_class):
             if LCOM4.get_class_depth(path) < 2:
                 yield node.declarators[0].name

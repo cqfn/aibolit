@@ -4,12 +4,22 @@ public class Example {
 
     private int a;
     private int b;
-	
 
-	
-	class Anime
+    interface FuncInterface
     {
-		
+        // An abstract function
+        void abstractFun(int x);
+
+        // A non-abstract (or default) function
+        default void normalFun()
+        {
+            System.out.println("Hello");
+        }
+    }
+
+	class Ayy
+    {
+
 		Zhopa(int a) {}
         // An abstract function
         void normalFun(int x) {}
@@ -20,10 +30,10 @@ public class Example {
             System.out.println("Hello");
         }
     }
-	
-	class Pope
+
+	class Hello
     {
-			class Interior
+			class Upd
 			{
 				// An abstract function
 				void normalFun(int x) {}
@@ -72,5 +82,5 @@ public class Example {
 
         return 0;
     }
-	
+
 }
