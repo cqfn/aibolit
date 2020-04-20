@@ -24,7 +24,7 @@ import re
 
 
 class NullAssignment:
-
+    # flake8: noqa
     def value(self, filename: str) -> list:
         '''main function'''
         file_d = open(filename)
@@ -33,6 +33,6 @@ class NullAssignment:
         for i, line in enumerate(file_d):
             match = re.search(string, line)
             if match is not None:
-                num_str.append(i + 1)    
-        file_d.close()                 
+                num_str.append(i + 1)
+        file_d.close()
         return num_str
