@@ -23,19 +23,19 @@ from aibolit.patterns.return_null.return_null import ReturnNull as P16
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder as P17
 from aibolit.patterns.supermethod.supermethod import SuperMethod as P18
 from aibolit.patterns.this_finder.this_finder import ThisFinder as P19
-from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
+# from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
 from aibolit.patterns.var_middle.var_middle import VarMiddle as P21
 
 
 CONFIG = {
     "patterns": [
         {"name": "Asserts", "code": "P1", "make": lambda: P1()},
-        {"name": "Setters", "code": "P2", "make": lambda: P2()}
-        {"name": "Empty Rethrow", "code": "P3", "make": lambda: P3()}
-        {"name": "Prohibited class name", "code": "P4", "make": lambda: P4()}
+        {"name": "Setters", "code": "P2", "make": lambda: P2()},
+        {"name": "Empty Rethrow", "code": "P3", "make": lambda: P3()},
+        {"name": "Prohibited class name", "code": "P4", "make": lambda: P4()},
         {"name": "Force Type Casting Finder", "code": "P5", "make": lambda: P5()},
-        {"name": "Count If Return", "code": "P6", "make": lambda: P6()}
-        {"name": "Implements Multi Finder", "code": "P7", "make": lambda: P7()}
+        {"name": "Count If Return", "code": "P6", "make": lambda: P6()},
+        {"name": "Implements Multi Finder", "code": "P7", "make": lambda: P7()},
         {"name": "Instance of", "code": "P", "make": lambda: P8()},
         {"name": "Many primary constructors", "code": "P", "make": lambda: P9()},
         {"name": "Method chain", "code": "P10", "make": lambda: P10()},
