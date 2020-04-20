@@ -20,11 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# import matplotlib.pyplot as plt
 import networkx as nx  # type: ignore
 from collections import defaultdict
 from aibolit.utils.ast import AST
-from typing import Set, Dict, List
+from typing import Set, Dict, List, Generator
 from javalang.tree import ClassDeclaration, MethodDeclaration, \
     MemberReference, FieldDeclaration, MethodInvocation, This, Node
 
@@ -37,6 +36,7 @@ class LCOM4:
         fields: List[str] = []
         methods: List[str] = []
         fields += list(self.filter_field_name(tree, FieldDeclaration))
+
         methods += list(self.filter_method_name(tree, MethodDeclaration))
 
         for path, node in tree.filter(MethodDeclaration):
@@ -46,7 +46,10 @@ class LCOM4:
                         graph[node.name].add(mem_ref.member)
 
             for this_path, this_m in node.filter(This):
-                graph[node.name].add(this_m.selectors[0].member)
+                try:
+                    graph[node.name].add(this_m.selectors[0].member)
+                except IndexError:
+                    pass
 
             for invo_path, mi in node.filter(MethodInvocation):
                 if mi.member in methods:
@@ -78,13 +81,13 @@ class LCOM4:
         return class_level
 
     @staticmethod
-    def filter_method_name(tree, javalang_class):
+    def filter_method_name(tree: Node, javalang_class: FieldDeclaration) -> Generator[str, None, None]:
         for path, node in tree.filter(javalang_class):
             if LCOM4.get_class_depth(path) < 2:
                 yield node.name
 
     @staticmethod
-    def filter_field_name(tree, javalang_class):
+    def filter_field_name(tree: Node, javalang_class: MethodDeclaration) -> Generator[str, None, None]:
         for path, node in tree.filter(javalang_class):
             if LCOM4.get_class_depth(path) < 2:
                 yield node.declarators[0].name
