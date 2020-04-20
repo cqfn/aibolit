@@ -25,7 +25,7 @@ import networkx as nx  # type: ignore
 from collections import defaultdict
 from aibolit.utils.ast import AST
 from typing import Set, Dict, List
-from javalang.tree import ClassDeclaration, InterfaceDeclaration, MethodDeclaration, \
+from javalang.tree import ClassDeclaration, MethodDeclaration, \
     MemberReference, FieldDeclaration, MethodInvocation, This, Node
 
 
@@ -34,31 +34,21 @@ class LCOM4:
     def value(self, filename: str) -> int:
         tree: Node = AST(filename).value()
         graph: Dict[str, Set[str]] = defaultdict(set)
+        fields: List[str] = []
+        methods: List[str] = []
+        fields += list(self.filter_field_name(tree, FieldDeclaration))
+        methods += list(self.filter_method_name(tree, MethodDeclaration))
 
-        fields: List[str] = [node.declarators[0].name for _, node in tree.filter(FieldDeclaration)]
-        methods: List[str] = [node.name for _, node in tree.filter(MethodDeclaration)]
-        interfaces: List[InterfaceDeclaration] = [node for _, node in tree.filter(InterfaceDeclaration)]
-        current_class: ClassDeclaration = list(tree.filter(ClassDeclaration))[0][1]
-        interfaces_methods: Set[str] = set()
-        nested_methods: Set[str] = set()
+        for path, node in tree.filter(MethodDeclaration):
+            if self.get_class_depth(path) < 2:
+                for ref_path, mem_ref in node.filter(MemberReference):
+                    if mem_ref.member in fields:
+                        graph[node.name].add(mem_ref.member)
 
-        class_decl: List[ClassDeclaration] = \
-            [node for _, node in current_class.filter(ClassDeclaration) if node.name != current_class.name]
-
-        for i in interfaces:
-            interfaces_methods.update([node.name for _, node in i.filter(MethodDeclaration)])
-        for k in class_decl:
-            nested_methods.update([node.name for _, node in k.filter(MethodDeclaration)])
-
-        for _, node in tree.filter(MethodDeclaration):
-            for _, mem_ref in node.filter(MemberReference):
-                if mem_ref.member in fields:
-                    graph[node.name].add(mem_ref.member)
-
-            for _, this_m in node.filter(This):
+            for this_path, this_m in node.filter(This):
                 graph[node.name].add(this_m.selectors[0].member)
 
-            for _, mi in node.filter(MethodInvocation):
+            for invo_path, mi in node.filter(MethodInvocation):
                 if mi.member in methods:
                     graph[node.name].add(mi.member)
 
@@ -78,3 +68,23 @@ class LCOM4:
                 G.add_edge(key, x)
 
         return nx.number_connected_components(G)
+
+    @staticmethod
+    def get_class_depth(path: tuple) -> int:
+        class_level = 0
+        for step in path:
+            if isinstance(step, ClassDeclaration):
+                class_level += 1
+        return class_level
+
+    @staticmethod
+    def filter_method_name(tree, javalang_class):
+        for path, node in tree.filter(javalang_class):
+            if LCOM4.get_class_depth(path) < 2:
+                yield node.name
+
+    @staticmethod
+    def filter_field_name(tree, javalang_class):
+        for path, node in tree.filter(javalang_class):
+            if LCOM4.get_class_depth(path) < 2:
+                yield node.declarators[0].name

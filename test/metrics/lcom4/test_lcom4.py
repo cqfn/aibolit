@@ -50,6 +50,10 @@ class TestLCOM4(TestCase):
         # If not possible, change to 1
         self.assertTrue(lcom4_val, 2)
 
+    def test_scope_with_anonymous(self):
+        lcom4_val = self.pattern.value(Path(self.dir_path, 'ScopeAnonymous.java'))
+        self.assertEqual(lcom4_val, 2)
+
     @unittest.skip("Not implemented")
     def test_getter_setter(self):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'GetterSetter.java'))
@@ -65,8 +69,3 @@ class TestLCOM4(TestCase):
     def test_class_with_chain(self):
         lcom4_val = self.pattern.value(Path(self.dir_path, 'MethodChain.java'))
         self.assertEqual(lcom4_val, 3)
-
-    @unittest.skip("Not implemented")
-    def test_scope_with_anonymous(self):
-        lcom4_val = self.pattern.value(Path(self.dir_path, 'ScopeAnonymous.java'))
-        self.assertEqual(lcom4_val, 2)
