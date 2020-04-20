@@ -16,9 +16,9 @@ class MaxDiamOfTree:
         nodes = tree.tree_to_nodes()
 
         traversed = []
-        for each_noda in nodes:
-            if type(each_noda.node) == javalang.tree.MethodDeclaration:
-                traversed.append(diameter(each_noda.node))
+        for each_node in nodes:
+            if type(each_node.node) == javalang.tree.MethodDeclaration:
+                traversed.append(diameter(each_node.node))
 
         return max(traversed)
 

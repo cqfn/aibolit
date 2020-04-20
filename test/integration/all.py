@@ -27,7 +27,7 @@ for filename in os.listdir(current_path + '/samples'):
             print(
                 "Error apply the metric:",
                 metric['name'],
-                " to file",
+                "to file",
                 filename
             )
             sys.exit(1)
