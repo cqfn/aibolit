@@ -1,6 +1,6 @@
 -include local.mk
 
-all: requirements install unittest flake8 typecheck xcop
+all: requirements install unittest flake8 typecheck integrationtest xcop
 
 clean:
 	rm -rf build
@@ -14,6 +14,9 @@ requirements:
 unittest:
 	python3 -m coverage run -m unittest discover
 	python3 aibolit --version
+
+integrationtest:
+	python3 ./test/integration/all.py
 
 install:
 	python3 -m pip install .
