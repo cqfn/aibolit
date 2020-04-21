@@ -131,6 +131,14 @@ def main():
         parser.add_argument(
             '--filename',
             help='path for Java file')
+        parser.add_argument(
+            '--ml_pipeline',
+            help='Run ML pipeline')
+
+        parser.add_argument(
+            '--ml_pipeline_folder',
+            help='Folder for Java Classes if you want to train model')
+
         parser.add_argument('--version', action='version',
                             version='%(prog)s {version}'.format(version=__version__))
 

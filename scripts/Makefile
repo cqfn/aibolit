@@ -1,4 +1,4 @@
-all: requirements samples filter metrics patterns rs build_halsted hl merge
+all: requirements samples filter metrics patterns rs build_halstead hl merge
 
 # Fetch thousands of Java samples in GitHub and store them
 # all in target/01 directory. We don't filter anything at
@@ -61,7 +61,7 @@ rs: ./_tmp/rsm.jar
 hl:
 	python3 ./06-calculate-halstead.py --filename target/02/found-java-files.txt
 
-build_halsted:
+build_halstead:
 	cd ../aibolit/metrics/halsteadvolume && mvn clean package && cp ./target/java-project-1.0-SNAPSHOT.jar ../../../scripts/halstead.jar
 
 merge:
