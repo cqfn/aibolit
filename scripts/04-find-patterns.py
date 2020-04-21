@@ -44,7 +44,10 @@ parser.add_argument(
 
 args = parser.parse_args()
 dir_path = os.path.dirname(os.path.realpath(__file__))
-
+MI_pipeline_exclude_codes: [
+    "M5",  # metric not ready
+    "P26",  # empty implementation
+]
 
 def log_result(result, file_to_write):
     """ Save result to csv file. """
@@ -70,7 +73,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
     for pattern in CONFIG['patterns']:
         val = None
         acronym = pattern['code']
-        if acronym not in exclude_codes:
+        if acronym not in MI_pipeline_exclude_codes:
             try:
                 val = pattern['make']().value(file)
                 row[acronym] = len(val)
@@ -89,7 +92,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
     for metric in CONFIG['metrics']:
         val = None
         acronym = metric['code']
-        if acronym not in exclude_codes:
+        if acronym not in MI_pipeline_exclude_codes:
             try:
                 val = metric['make']().value(file)
                 row[acronym] = val

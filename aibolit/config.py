@@ -105,9 +105,5 @@ CONFIG = {
     ],
     "target": {
 
-    },
-    'MI_pipeline_exclude_codes': [
-        "M5",  # metric not ready
-        "P26",  # empty implementation
-    ]
+    }
 }
