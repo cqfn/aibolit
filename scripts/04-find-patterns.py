@@ -214,7 +214,7 @@ if __name__ == '__main__':
 
         if copied_files:
             try:
-                tar_filename = str(Path(dir_path, 'log/files/files.tar.gz'))
+                tar_filename = str(Path(dir_path, 'log/files.tar.gz'))
                 cmd = ['tar', '-czvf ', tar_filename, str(dir_to_create.absolute())]
                 output = subprocess.check_output(cmd).decode("utf-8").strip()
                 print(output)
