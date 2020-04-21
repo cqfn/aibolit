@@ -10,5 +10,4 @@ class TestAssertInCode(TestCase):
 
     def test_assert_in_code(self):
         file = Path(self.cur_file_dir, 'Book.java')
-
         self.assertEqual(AssertInCode().value(file), [3])
