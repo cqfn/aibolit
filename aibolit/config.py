@@ -56,7 +56,7 @@ CONFIG = {
         {"name": "NCSS", "code": "M2", "make": lambda: M2()},
         {"name": "Indentation counter", "code": "M3", "make": lambda: M3()},
         {"name": "Cognitive Complexity", "code": "M4", "make": lambda: M4()},
-        # {"name": "LCOM4", "code": "M5", "make": lambda: M5()},
+        {"name": "LCOM4", "code": "M5", "make": lambda: M5()},
         {"name": "Max diameter of AST", "code": "M6", "make": lambda: M6()}
     ],
     "target": {

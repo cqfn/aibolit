@@ -37,7 +37,7 @@ class TestNestedLoop(TestCase):
     def test_for_do(self):
         pattern = NestedLoop()
         file = str(Path(self.cur_file_dir, '2.java'))
-        self.assertEqual(pattern.value(file), [6])
+        self.assertEqual(pattern.value(file), [4])
 
     def test_do_while(self):
         pattern = NestedLoop()
@@ -47,4 +47,4 @@ class TestNestedLoop(TestCase):
     def test_do_do(self):
         pattern = NestedLoop()
         file = str(Path(self.cur_file_dir, '4.java'))
-        self.assertEqual(pattern.value(file), [7])
+        self.assertEqual(pattern.value(file), [4])
