@@ -24,7 +24,6 @@ import argparse
 import csv
 import multiprocessing
 import os
-import pathlib
 import subprocess
 import sys
 import time
@@ -33,7 +32,7 @@ from collections import defaultdict
 from functools import partial
 from multiprocessing import Manager
 from pathlib import Path
-from shutil import copyfile
+from shutil import copyfile, rmtree
 
 from aibolit.config import CONFIG
 
@@ -67,55 +66,43 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
     relative_path = p.relative_to(d_path)
 
     row = {'filename': relative_path.as_posix()}
-    try:
-
-        for pattern in CONFIG['patterns']:
-            val = None
-            acronym = pattern['code']
+    exclude_codes = CONFIG['MI_pipeline_exclude_codes']
+    for pattern in CONFIG['patterns']:
+        val = None
+        acronym = pattern['code']
+        if acronym not in exclude_codes:
             try:
                 val = pattern['make']().value(file)
                 row[acronym] = len(val)
                 row['lines_' + acronym] = val
             except Exception:
                 row['lines_' + acronym] = row[acronym] = val
-                print(
-                    "Error apply the pattern:",
-                    pattern['name'],
-                    "to file",
-                    filename
-                )
+                exc_type, exc_value, exc_tb = sys.exc_info()
+                row['lines_' + acronym] = row[acronym] = val
+                traceback_str = traceback.format_exc()
+                exceptions[file_local_dir] = {
+                    'traceback': traceback_str,
+                    'exc_type': str(exc_value),
+                    'pattern_name': pattern['name'],
+                }
 
-        for metric in CONFIG['metrics']:
-            val = None
-            acronym = metric['code']
+    for metric in CONFIG['metrics']:
+        val = None
+        acronym = metric['code']
+        if acronym not in exclude_codes:
             try:
                 val = metric['make']().value(file)
-                row[acronym] = len(val)
-                row['lines_' + acronym] = val
+                row[acronym] = val
             except Exception:
-                row['lines_' + acronym] = row[acronym] = val
-                print(
-                    "Error apply the metric:",
-                    metric['name'],
-                    " to file",
-                    filename
-                )
-
-        return row
-
-    except Exception:
-        exc_type, exc_value, exc_tb = sys.exc_info()
-        traceback_str = traceback.format_exc()
-        pattern_name = None
-        for x in traceback_str.splitlines():
-            if 'aibolit\\aibolit' in x:
-                pattern_name = x.split('.py')[0].split(pathlib.os.sep)[-1]
-                break
-        exceptions[file_local_dir] = {
-            'traceback': traceback_str,
-            'exc_type': str(exc_value),
-            'pattern_name': pattern_name,
-        }
+                exc_type, exc_value, exc_tb = sys.exc_info()
+                row[acronym] = val
+                traceback_str = traceback.format_exc()
+                exceptions[file_local_dir] = {
+                    'traceback': traceback_str,
+                    'exc_type': str(exc_value),
+                    'pattern_name': metric['name'],
+                }
+    return row
 
 
 if __name__ == '__main__':
@@ -124,7 +111,7 @@ if __name__ == '__main__':
     path = 'target/04'
     os.makedirs(path, exist_ok=True)
     filename = Path(path, '04-find-patterns.csv')
-    fields = [x['code'] for x in CONFIG['patterns']] + [x['code'] for x in CONFIG['metrics']]
+    fields = [x['code'] for x in CONFIG['patterns']] + [x['code'] for x in CONFIG['metrics']] + ['lines_' + x['code'] for x in CONFIG['patterns']] + ['filename']
     with open(filename, 'w', newline='\n', encoding='utf-8') as csv_file:
         writer = csv.DictWriter(
             csv_file, delimiter=';',
@@ -149,6 +136,9 @@ if __name__ == '__main__':
                         quotechar='"',
                         quoting=csv.QUOTE_MINIMAL,
                         fieldnames=fields)
+                    # print('Necessary fields: {}'.format(str(fields)))
+                    # print('Result fields' + str(result.keys()))
+                    # print('Intersection' + str(set(list(result.keys())).difference(set(fields))))
                     writer.writerow(result)
                     csv_file.flush()
             except Exception:
@@ -215,8 +205,11 @@ if __name__ == '__main__':
         if copied_files:
             try:
                 tar_filename = str(Path(dir_path, 'log/files.tar.gz'))
-                cmd = ['tar', '-czvf ', tar_filename, str(dir_to_create.absolute())]
+                cmd = ['tar', '-czvf', tar_filename, str(dir_to_create.absolute())]
                 output = subprocess.check_output(cmd).decode("utf-8").strip()
                 print(output)
+                rmtree(dir_to_create)
+                print('Path {} deleted with all files inside'.format(str(dir_to_create)))
             except Exception:
                 print(f"E: {traceback.format_exc()}")
+

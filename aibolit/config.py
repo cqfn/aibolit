@@ -30,7 +30,7 @@ from aibolit.patterns.joined_validation.joined_validation import JoinedValidatio
 from aibolit.patterns.non_final_class.non_final_class import NonFinalClass as P24
 from aibolit.patterns.private_static_method.private_static_method import PrivateStaticMethod as P25
 from aibolit.patterns.public_static_method.public_static_method import PublicStaticMethod as P26
-# from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
+from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
 
 
 CONFIG = {
@@ -42,8 +42,8 @@ CONFIG = {
         {"name": "Force Type Casting Finder", "code": "P5", "make": lambda: P5()},
         {"name": "Count If Return", "code": "P6", "make": lambda: P6()},
         {"name": "Implements Multi Finder", "code": "P7", "make": lambda: P7()},
-        {"name": "Instance of", "code": "P", "make": lambda: P8()},
-        {"name": "Many primary constructors", "code": "P", "make": lambda: P9()},
+        {"name": "Instance of", "code": "P8", "make": lambda: P8()},
+        {"name": "Many primary constructors", "code": "P9", "make": lambda: P9()},
         {"name": "Method chain", "code": "P10", "make": lambda: P10()},
         {"name": "Multiple try", "code": "P11", "make": lambda: P11()},
         {"name": "Non final attribute", "code": "P12", "make": lambda: P12()},
@@ -63,6 +63,7 @@ CONFIG = {
         {"name": "Non final class", "code": "P24", "make": lambda: P24()},
         {"name": "Private static method", "code": "P25", "make": lambda: P25()},
         {"name": "Public static method", "code": "P26", "make": lambda: P26()},
+        {"name": "Var siblings", "code": "P27", "make": lambda: P26()},
     ],
     "metrics": [
         {"name": "Entropy", "code": "M1", "make": lambda: M1()},
@@ -77,5 +78,10 @@ CONFIG = {
     ],
     "target": {
 
-    }
+    },
+    'MI_pipeline_exclude_codes':
+    [
+        "M5", # metric not ready
+        "P26", # empty implementation
+    ]
 }
