@@ -53,9 +53,21 @@ CONFIG = {
         {"name": "String concat finder", "code": "P17", "make": lambda: P17()},
         {"name": "Super Method", "code": "P18", "make": lambda: P18()},
         {"name": "This finder", "code": "P19", "make": lambda: P19()},
-        {"name": "Var declaration distance for 5 lines", "code": "P20_5", "make": lambda: P20(5)},
-        {"name": "Var declaration distance for 7 lines", "code": "P20_7", "make": lambda: P20(7)},
-        {"name": "Var declaration distance for 11 lines", "code": "P20_11", "make": lambda: P20(11)},
+        {
+            "name": "Var declaration distance for 5 lines",
+            "code": "P20_5",
+            "make": lambda: P20(5)
+        },
+        {
+            "name": "Var declaration distance for 7 lines",
+            "code": "P20_7",
+            "make": lambda: P20(7)
+        },
+        {
+            "name": "Var declaration distance for 11 lines",
+            "code": "P20_11",
+            "make": lambda: P20(11)
+        },
         {"name": "Var in the middle", "code": "P21", "make": lambda: P21()},
         {"name": "Array as function argument", "code": "P22", "make": lambda: P22()},
         {"name": "Joined validation", "code": "P23", "make": lambda: P23()},
@@ -67,10 +79,26 @@ CONFIG = {
     "metrics": [
         {"name": "Entropy", "code": "M1", "make": lambda: M1()},
         {"name": "NCSS", "code": "M2", "make": lambda: M2()},
-        {"name": "Indentation counter: Right total variance", "code": "M3_1", "make": lambda: M3(right_var=True)},
-        {"name": "Indentation counter: Left total variance", "code": "M3_2", "make": lambda: M3(left_var=True)},
-        {"name": "Indentation counter: Right max variance", "code": "M3_3", "make": lambda: M3(max_right=True)},
-        {"name": "Indentation counter: Left max variance", "code": "M3_4", "make": lambda: M3(max_left=True)},
+        {
+            "name": "Indentation counter: Right total variance",
+            "code": "M3_1",
+            "make": lambda: M3(right_var=True)
+        },
+        {
+            "name": "Indentation counter: Left total variance",
+            "code": "M3_2",
+            "make": lambda: M3(left_var=True)
+        },
+        {
+            "name": "Indentation counter: Right max variance",
+            "code": "M3_3",
+            "make": lambda: M3(max_right=True)
+        },
+        {
+            "name": "Indentation counter: Left max variance",
+            "code": "M3_4",
+            "make": lambda: M3(max_left=True)
+        },
         {"name": "Cognitive Complexity", "code": "M4", "make": lambda: M4()},
         {"name": "LCOM4", "code": "M5", "make": lambda: M5()},
         {"name": "Max diameter of AST", "code": "M6", "make": lambda: M6()}
