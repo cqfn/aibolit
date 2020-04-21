@@ -124,7 +124,7 @@ if __name__ == '__main__':
     path = 'target/04'
     os.makedirs(path, exist_ok=True)
     filename = Path(path, '04-find-patterns.csv')
-    fields = [x.code for x in CONFIG['patterns']] + [x.code for x in CONFIG['metrics']]
+    fields = [x['code'] for x in CONFIG['patterns']] + [x['code'] for x in CONFIG['metrics']]
     with open(filename, 'w', newline='\n', encoding='utf-8') as csv_file:
         writer = csv.DictWriter(
             csv_file, delimiter=';',
