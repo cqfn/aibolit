@@ -32,7 +32,6 @@ from aibolit.patterns.private_static_method.private_static_method import Private
 from aibolit.patterns.public_static_method.public_static_method import PublicStaticMethod as P26
 from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
 
-
 CONFIG = {
     "patterns": [
         {"name": "Asserts", "code": "P1", "make": lambda: P1()},
@@ -63,7 +62,7 @@ CONFIG = {
         {"name": "Non final class", "code": "P24", "make": lambda: P24()},
         {"name": "Private static method", "code": "P25", "make": lambda: P25()},
         {"name": "Public static method", "code": "P26", "make": lambda: P26()},
-        {"name": "Var siblings", "code": "P27", "make": lambda: P26()},
+        {"name": "Var siblings", "code": "P27", "make": lambda: P27()},
     ],
     "metrics": [
         {"name": "Entropy", "code": "M1", "make": lambda: M1()},
@@ -79,9 +78,8 @@ CONFIG = {
     "target": {
 
     },
-    'MI_pipeline_exclude_codes':
-    [
-        "M5", # metric not ready
-        "P26", # empty implementation
+    'MI_pipeline_exclude_codes': [
+        "M5",  # metric not ready
+        "P26",  # empty implementation
     ]
 }
