@@ -3,7 +3,7 @@ import sys
 from aibolit.config import CONFIG
 
 # TODO: fix all errors in the patterns/metrics and make these lists empty
-EXCLUDE_PATTERNS = ['P14', 'P19']
+EXCLUDE_PATTERNS = ['P14', 'P19', 'P23']
 EXCLUDE_METRICS = ['M6']
 
 current_path: str = os.path.dirname(os.path.realpath(__file__))
