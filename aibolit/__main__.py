@@ -165,7 +165,7 @@ def main():
             part_sync_lines = PartialSync().value(java_file)
             red_catch_lines = RedundantCatch().value(java_file)
             return_null_lines = ReturnNull().value(java_file)
-            ncss_lightweight = NCSSMetric(java_file).value()
+            ncss_lightweight = NCSSMetric().value(java_file)
 
             code_lines_dict = {
                 'var_middle_number': var_numbers,

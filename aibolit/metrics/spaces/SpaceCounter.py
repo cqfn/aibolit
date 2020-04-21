@@ -71,6 +71,7 @@ class IndentationCounter:
             prev_left = first_non_space_symbol_pos
             prev_right = len(line)
 
+        val = None
         if self.left_var:
             val = variance([x[1] for x in spaces_per_line])
         elif self.right_var:
@@ -79,6 +80,5 @@ class IndentationCounter:
             val = max([abs(x[1]) for x in spaces_per_line])
         elif self.max_right:
             val = max([abs(x[2]) for x in spaces_per_line])
-        else:
-            val = None
+
         return val
