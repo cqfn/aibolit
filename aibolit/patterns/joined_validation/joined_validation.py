@@ -33,17 +33,17 @@ class JoinedValidation:
     contains more than condition joined with OR
     """
 
-    def __init__(self, file):
-        self.file = file
+    def __init__(self):
+        pass
 
-    def value(self) -> List[LineNumber]:
+    def value(self, filename) -> List[LineNumber]:
         """
         Returns the line number of joined validations found in file.
         """
 
         return [
             node.line + 1
-            for node in JavalangImproved(self.file).filter([javalang.tree.IfStatement])  # type: ignore
+            for node in JavalangImproved(filename).filter([javalang.tree.IfStatement])  # type: ignore
             if (type(node.node.condition) == javalang.tree.BinaryOperation and node.node.condition.operator == '||') \
             and (
                 type(node.node.then_statement) == javalang.tree.ThrowStatement or \

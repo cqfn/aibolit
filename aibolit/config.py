@@ -23,8 +23,14 @@ from aibolit.patterns.return_null.return_null import ReturnNull as P16
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder as P17
 from aibolit.patterns.supermethod.supermethod import SuperMethod as P18
 from aibolit.patterns.this_finder.this_finder import ThisFinder as P19
-# from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
+from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
 from aibolit.patterns.var_middle.var_middle import VarMiddle as P21
+from aibolit.patterns.array_as_argument.array_as_argument import ArrayAsArgument as P22
+from aibolit.patterns.joined_validation.joined_validation import JoinedValidation as P23
+from aibolit.patterns.non_final_class.non_final_class import NonFinalClass as P24
+from aibolit.patterns.private_static_method.private_static_method import PrivateStaticMethod as P25
+from aibolit.patterns.public_static_method.public_static_method import PublicStaticMethod as P26
+# from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
 
 
 CONFIG = {
@@ -48,8 +54,15 @@ CONFIG = {
         {"name": "String concat finder", "code": "P17", "make": lambda: P17()},
         {"name": "Super Method", "code": "P18", "make": lambda: P18()},
         {"name": "This finder", "code": "P19", "make": lambda: P19()},
-        # {"name": "", "code": "P20", "make": lambda: P20()},
-        {"name": "Var in the middle", "code": "P21", "make": lambda: P21()}
+        {"name": "Var declaration distance for 5 lines", "code": "P20", "make": lambda: P20(5)},
+        {"name": "Var declaration distance for 7 lines", "code": "P20", "make": lambda: P20(7)},
+        {"name": "Var declaration distance for 11 lines", "code": "P20", "make": lambda: P20(11)},
+        {"name": "Var in the middle", "code": "P21", "make": lambda: P21()},
+        {"name": "Array as function argument", "code": "P22", "make": lambda: P22()},
+        {"name": "Joined validation", "code": "P23", "make": lambda: P23()},
+        {"name": "Non final class", "code": "P24", "make": lambda: P24()},
+        {"name": "Private static method", "code": "P25", "make": lambda: P25()},
+        {"name": "Public static method", "code": "P26", "make": lambda: P26()},
     ],
     "metrics": [
         {"name": "Entropy", "code": "M1", "make": lambda: M1()},
