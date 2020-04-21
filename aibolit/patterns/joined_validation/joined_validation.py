@@ -19,12 +19,10 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
-import javalang
-
 from typing import List
 from aibolit.types_decl import LineNumber
 from aibolit.patterns.var_middle.var_middle import JavalangImproved
+from javalang.tree import BinaryOperation, ThrowStatement, IfStatement
 
 
 class JoinedValidation:
@@ -41,13 +39,23 @@ class JoinedValidation:
         Returns the line number of joined validations found in file.
         """
 
+        def c1(node):
+            return type(node.node.condition) == BinaryOperation
+
+        def c2(node):
+            return node.node.condition.operator == '||'
+
+        def c3(node):
+            return type(node.node.then_statement) == ThrowStatement
+
+        def c4(node):
+            return len(node.node.then_statement.statements) == 1
+
+        def c5(node):
+            return type(node.node.then_statement.statements[0]) == ThrowStatement
+
         return [
-            node.line + 1
-            for node in JavalangImproved(filename).filter([javalang.tree.IfStatement])  # type: ignore
-            if (type(node.node.condition) == javalang.tree.BinaryOperation and node.node.condition.operator == '||') \
-            and (
-                type(node.node.then_statement) == javalang.tree.ThrowStatement or \
-                    (len(node.node.then_statement.statements) == 1 and \
-                        type(node.node.then_statement.statements[0]) == javalang.tree.ThrowStatement)
-            )
+            node.line
+            for node in JavalangImproved(filename).filter([IfStatement])
+            if (c1(node) and c2(node)) and (c3(node) or (c4(node) and c5(node)))
         ]

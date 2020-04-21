@@ -105,54 +105,8 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
     return row
 
 
-if __name__ == '__main__':
-    start = time.time()
-
-    path = 'target/04'
-    os.makedirs(path, exist_ok=True)
-    filename = Path(path, '04-find-patterns.csv')
-    fields = [x['code'] for x in CONFIG['patterns']] + [x['code'] for x in CONFIG['metrics']] + ['lines_' + x['code'] for x in CONFIG['patterns']] + ['filename']
-    with open(filename, 'w', newline='\n', encoding='utf-8') as csv_file:
-        writer = csv.DictWriter(
-            csv_file, delimiter=';',
-            quotechar='"',
-            quoting=csv.QUOTE_MINIMAL,
-            fieldnames=fields)
-        writer.writeheader()
-
-    pool = multiprocessing.Pool(multiprocessing.cpu_count())
-    log_func = partial(log_result, file_to_write=str(filename))
-    manager = Manager()
-    exceptions = manager.dict()
-    func = partial(execute_python_code_in_parallel_thread, exceptions)
-    with open(args.filename, 'r') as f:
-        file_names = [i for i in f.readlines()]
-    with open(filename, 'a', newline='\n', encoding='utf-8') as csv_file:
-        for result in pool.imap(func, file_names):
-            try:
-                if result:
-                    writer = csv.DictWriter(
-                        csv_file, delimiter=';',
-                        quotechar='"',
-                        quoting=csv.QUOTE_MINIMAL,
-                        fieldnames=fields)
-                    # print('Necessary fields: {}'.format(str(fields)))
-                    # print('Result fields' + str(result.keys()))
-                    # print('Intersection' + str(set(list(result.keys())).difference(set(fields))))
-                    writer.writerow(result)
-                    csv_file.flush()
-            except Exception:
-                print('Writing to {} has failed'.format(filename))
-                exc_type, exc_value, exc_traceback = sys.exc_info()
-                traceback.print_tb(exc_traceback, file=sys.stdout)
-                continue
-
-    pool.close()
-    pool.join()
-
-    end = time.time()
-    print('It took {} seconds'.format(str(end - start)))
-
+# flake8: noqa: C901
+def write_log_error(exceptions):
     errors_log_path = str(Path(dir_path, 'errors.csv')).strip()
     exp_sorter = defaultdict(set)
     exp_number = defaultdict(int)
@@ -213,3 +167,55 @@ if __name__ == '__main__':
             except Exception:
                 print(f"E: {traceback.format_exc()}")
 
+
+if __name__ == '__main__':
+    start = time.time()
+
+    path = 'target/04'
+    os.makedirs(path, exist_ok=True)
+    filename = Path(path, '04-find-patterns.csv')
+    fields = \
+        [x['code'] for x in CONFIG['patterns']] \
+        + [x['code'] for x in CONFIG['metrics']] \
+        + ['lines_' + x['code'] for x in CONFIG['patterns']] \
+        + ['filename']
+
+    with open(filename, 'w', newline='\n', encoding='utf-8') as csv_file:
+        writer = csv.DictWriter(
+            csv_file, delimiter=';',
+            quotechar='"',
+            quoting=csv.QUOTE_MINIMAL,
+            fieldnames=fields)
+        writer.writeheader()
+
+    pool = multiprocessing.Pool(multiprocessing.cpu_count())
+    log_func = partial(log_result, file_to_write=str(filename))
+    manager = Manager()
+    exceptions = manager.dict()
+    func = partial(execute_python_code_in_parallel_thread, exceptions)
+    with open(args.filename, 'r') as f:
+        file_names = [i for i in f.readlines()]
+    with open(filename, 'a', newline='\n', encoding='utf-8') as csv_file:
+        for result in pool.imap(func, file_names):
+            try:
+                if result:
+                    writer = csv.DictWriter(
+                        csv_file, delimiter=';',
+                        quotechar='"',
+                        quoting=csv.QUOTE_MINIMAL,
+                        fieldnames=fields)
+                    writer.writerow(result)
+                    csv_file.flush()
+            except Exception:
+                print('Writing to {} has failed'.format(filename))
+                exc_type, exc_value, exc_traceback = sys.exc_info()
+                traceback.print_tb(exc_traceback, file=sys.stdout)
+                continue
+
+    pool.close()
+    pool.join()
+
+    end = time.time()
+    print('It took {} seconds'.format(str(end - start)))
+
+    write_log_error(exceptions)

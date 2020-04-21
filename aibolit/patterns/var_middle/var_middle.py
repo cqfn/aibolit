@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List, Tuple
+from typing import List, Tuple, Type
 from enum import Enum
 from functools import reduce
 
@@ -163,7 +163,7 @@ class JavalangImproved:
         nodes = self.__tree_to_nodes(self.tree)
         return sorted(nodes, key=lambda v: v.line)
 
-    def filter(self, ntypes: List[javalang.tree.Node]) -> List[ASTNode]:
+    def filter(self, ntypes: List[Type[javalang.tree.Node]]) -> List[ASTNode]:
         nodes = self.tree_to_nodes()
         return list(
             filter(lambda v: type(v.node) in ntypes, nodes)
