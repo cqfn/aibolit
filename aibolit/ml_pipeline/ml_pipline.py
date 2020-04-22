@@ -67,8 +67,8 @@ def train_process(model_folder=None):
         ignore_patterns = ['P27']
         ignore_metrics = ['M4', 'M5']
 
-        only_patterns = [x for x in list(CONFIG['patterns'].keys()) if x not in ignore_patterns]
-        only_metrics = [x for x in list(CONFIG['metrics'].keys()) if x not in ignore_metrics]
+        only_patterns = [x['code'] for x in list(CONFIG['patterns']) if x not in ignore_patterns]
+        only_metrics = [x['code'] for x in list(CONFIG['metrics']) if x not in ignore_metrics]
         columns_features = only_metrics + only_patterns
         features_number = len(columns_features)
 
