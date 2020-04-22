@@ -136,7 +136,7 @@ class SVMModel(AbstractModel):
         CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv=5)
         CV_rfc.fit(self.X_train, self.y_train)
         print('Best params: for a model:' + str(CV_rfc.best_params_))
-        path_to_save = Path(os.getcwd(), 'aibolit/model')
+        path_to_save = Path(os.getcwd(), 'aibolit/aibolit/binary_files.json')
         with open(Path(path_to_save, 'model_params.json')) as w:
             json.dump(w, CV_rfc.best_params_)
         self.best_model = RandomForestClassifier(**CV_rfc.best_params_)
@@ -149,5 +149,5 @@ class SVMModel(AbstractModel):
         print(report)
 
         # save the classifier
-        with open('my_dumped_classifier.pkl', 'wb') as fid:
+        with open('aibolit/aibolit/my_dumped_classifier.pkl', 'wb') as fid:
             pickle.dump(self.best_model, fid)
