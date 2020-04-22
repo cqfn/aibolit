@@ -71,11 +71,11 @@ def train_process(model_folder=None):
     :param model_folder: path to model
     """
     if not model_folder:
-        ignore_patterns = ['P26']
+        ignore_patterns = ['P27']
         ignore_metrics = ['M4', 'M5']
 
-        only_patterns = [x['code'] for x in list(CONFIG['patterns']) if x not in ignore_patterns]
-        only_metrics = [x['code'] for x in list(CONFIG['metrics']) if x not in ignore_metrics]
+        only_patterns = [x['code'] for x in list(CONFIG['patterns']) if x['code'] not in ignore_patterns]
+        only_metrics = [x['code'] for x in list(CONFIG['metrics']) if x['code'] not in ignore_metrics]
         columns_features = only_metrics + only_patterns
         features_number = len(columns_features)
 

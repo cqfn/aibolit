@@ -82,7 +82,7 @@ class SVMModel(AbstractModel):
             scale=False,
             **kwargs):
 
-        df = pd.read_csv(r'C:\Users\e00533045\aibolit\scripts\target\dataset.csv')
+        df = pd.read_csv('target/dataset.csv')
         df = df[~df["filename"].str.lower().str.contains("test")]
 
         if self.do_rename_columns:
@@ -135,7 +135,7 @@ class SVMModel(AbstractModel):
 
         CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv=5)
         CV_rfc.fit(self.X_train, self.y_train)
-        print('Best params: for a model:' + CV_rfc.best_params_)
+        print('Best params: for a model:' + str(CV_rfc.best_params_))
         path_to_save = Path(os.getcwd(), 'aibolit/model')
         with open(Path(path_to_save, 'model_params.json')) as w:
             json.dump(w, CV_rfc.best_params_)
