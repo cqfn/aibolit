@@ -8,9 +8,10 @@ def collect_dataset():
     """
     Run bash scripts to collect metrics and patterns for java files
     """
+    os.chdir(json.loads(open('cfg/cfg.json').read()))
 
-    os.chdir(CONFIG['aibolit_dir'])
-
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    print('Current working directory: ', dir_path)
     result = subprocess.run(['make', 'filter'], stdout=subprocess.PIPE)
     if result.returncode != 0:
         print(result.stderr)
