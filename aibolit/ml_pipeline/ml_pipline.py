@@ -13,35 +13,47 @@ def collect_dataset():
     os.chdir(home)
 
     result = subprocess.run(['make', 'clean'], stdout=subprocess.PIPE)
+    result = subprocess.run(['make', 'filter'], stdout=subprocess.PIPE)
     if result.returncode != 0:
+        print(result.stderr)
+        exit(2)
+    else:
         print(result.stdout)
-        exit(1)
 
     result = subprocess.run(['make', 'metrics'], stdout=subprocess.PIPE)
     if result.returncode != 0:
-        print(result.stdout)
+        print(result.stderr)
         exit(2)
+    else:
+        print(result.stdout)
 
     result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE)
     if result.returncode != 0:
-        print(result.stdout)
+        print(result.stderr)
         exit(3)
+    else:
+        print(result.stdout)
 
     result = subprocess.run(['make', 'build_halstead'], stdout=subprocess.PIPE)
     if result.returncode != 0:
-        print(result.stdout)
+        print(result.stderr)
         exit(4)
+    else:
+        print(result.stdout)
 
     result = subprocess.run(['make', 'hl'], stdout=subprocess.PIPE)
     if result.returncode != 0:
-        print(result.stdout)
+        print(result.stderr)
         exit(5)
+    else:
+        print(result.stdout)
 
     result = subprocess.run(['make', 'merge'], stdout=subprocess.PIPE)
     if result.returncode != 0:
-        print(result.stdout)
+        print(result.stderr)
         exit(6)
-
+    else:
+        print(result.stdout)
 
 def train_process(model_folder=None):
     """
