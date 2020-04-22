@@ -82,7 +82,8 @@ class SVMModel(AbstractModel):
             scale=False,
             **kwargs):
 
-        df = pd.read_csv('target/dataset.csv')
+        # df = pd.read_csv(r'C:\Users\e00533045\aibolit\scripts\target\dataset.csv')
+        df = pd.read_csv('target\dataset.csv')
         df = df[~df["filename"].str.lower().str.contains("test")]
 
         if self.do_rename_columns:
@@ -137,7 +138,7 @@ class SVMModel(AbstractModel):
         CV_rfc.fit(self.X_train, self.y_train)
         print('Best params: for a model:' + str(CV_rfc.best_params_))
         path_to_save = Path(Path(os.getcwd()).parent, 'aibolit/binary_files')
-        with open(Path(path_to_save, 'model_params.json')) as w:
+        with open(Path(path_to_save, 'model_params.json'), 'w') as w:
             json.dump(w, CV_rfc.best_params_)
         self.best_model = RandomForestClassifier(**CV_rfc.best_params_)
 
