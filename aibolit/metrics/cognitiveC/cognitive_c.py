@@ -52,7 +52,7 @@ class CognitiveComplexity:
             self.__get_complexity(expr.then_statement, nested_level + 1)
 
         if expr.else_statement is not None:
-            if isinstance(expr.else_statement, javalang.tree.IfStatement):
+            if isinstance(expr.else_statement, IfStatement):
                 self.complexity -= nested_level
                 self.__check_if_statement(expr.else_statement, nested_level)
             else:
