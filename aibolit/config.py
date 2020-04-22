@@ -23,9 +23,14 @@ from aibolit.patterns.return_null.return_null import ReturnNull as P16
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder as P17
 from aibolit.patterns.supermethod.supermethod import SuperMethod as P18
 from aibolit.patterns.this_finder.this_finder import ThisFinder as P19
-# from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
+from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
 from aibolit.patterns.var_middle.var_middle import VarMiddle as P21
-
+from aibolit.patterns.array_as_argument.array_as_argument import ArrayAsArgument as P22
+from aibolit.patterns.joined_validation.joined_validation import JoinedValidation as P23
+from aibolit.patterns.non_final_class.non_final_class import NonFinalClass as P24
+from aibolit.patterns.private_static_method.private_static_method import PrivateStaticMethod as P25
+from aibolit.patterns.public_static_method.public_static_method import PublicStaticMethod as P26
+from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
 
 CONFIG = {
     "patterns": [
@@ -36,8 +41,8 @@ CONFIG = {
         {"name": "Force Type Casting Finder", "code": "P5", "make": lambda: P5()},
         {"name": "Count If Return", "code": "P6", "make": lambda: P6()},
         {"name": "Implements Multi Finder", "code": "P7", "make": lambda: P7()},
-        {"name": "Instance of", "code": "P", "make": lambda: P8()},
-        {"name": "Many primary constructors", "code": "P", "make": lambda: P9()},
+        {"name": "Instance of", "code": "P8", "make": lambda: P8()},
+        {"name": "Many primary constructors", "code": "P9", "make": lambda: P9()},
         {"name": "Method chain", "code": "P10", "make": lambda: P10()},
         {"name": "Multiple try", "code": "P11", "make": lambda: P11()},
         {"name": "Non final attribute", "code": "P12", "make": lambda: P12()},
@@ -48,13 +53,52 @@ CONFIG = {
         {"name": "String concat finder", "code": "P17", "make": lambda: P17()},
         {"name": "Super Method", "code": "P18", "make": lambda: P18()},
         {"name": "This finder", "code": "P19", "make": lambda: P19()},
-        # {"name": "", "code": "P20", "make": lambda: P20()},
-        {"name": "Var in the middle", "code": "P21", "make": lambda: P21()}
+        {
+            "name": "Var declaration distance for 5 lines",
+            "code": "P20_5",
+            "make": lambda: P20(5)
+        },
+        {
+            "name": "Var declaration distance for 7 lines",
+            "code": "P20_7",
+            "make": lambda: P20(7)
+        },
+        {
+            "name": "Var declaration distance for 11 lines",
+            "code": "P20_11",
+            "make": lambda: P20(11)
+        },
+        {"name": "Var in the middle", "code": "P21", "make": lambda: P21()},
+        {"name": "Array as function argument", "code": "P22", "make": lambda: P22()},
+        {"name": "Joined validation", "code": "P23", "make": lambda: P23()},
+        {"name": "Non final class", "code": "P24", "make": lambda: P24()},
+        {"name": "Private static method", "code": "P25", "make": lambda: P25()},
+        {"name": "Public static method", "code": "P26", "make": lambda: P26()},
+        {"name": "Var siblings", "code": "P27", "make": lambda: P27()},
     ],
     "metrics": [
         {"name": "Entropy", "code": "M1", "make": lambda: M1()},
         {"name": "NCSS", "code": "M2", "make": lambda: M2()},
-        {"name": "Indentation counter", "code": "M3", "make": lambda: M3()},
+        {
+            "name": "Indentation counter: Right total variance",
+            "code": "M3_1",
+            "make": lambda: M3(right_var=True)
+        },
+        {
+            "name": "Indentation counter: Left total variance",
+            "code": "M3_2",
+            "make": lambda: M3(left_var=True)
+        },
+        {
+            "name": "Indentation counter: Right max variance",
+            "code": "M3_3",
+            "make": lambda: M3(max_right=True)
+        },
+        {
+            "name": "Indentation counter: Left max variance",
+            "code": "M3_4",
+            "make": lambda: M3(max_left=True)
+        },
         {"name": "Cognitive Complexity", "code": "M4", "make": lambda: M4()},
         {"name": "LCOM4", "code": "M5", "make": lambda: M5()},
         {"name": "Max diameter of AST", "code": "M6", "make": lambda: M6()}

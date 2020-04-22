@@ -25,11 +25,12 @@ import javalang
 
 
 class ArrayAsArgument:
-    def __init__(self, file: str):
-        self.filename = file
 
-    def value(self):
-        tree = AST(self.filename).value().filter(javalang.tree.MethodDeclaration)
+    def __init__(self):
+        pass
+
+    def value(self, filename):
+        tree = AST(filename).value().filter(javalang.tree.MethodDeclaration)
         ret = []
         for path, node in tree:
             if len(node.parameters) > 0:
