@@ -74,7 +74,7 @@ class SVMModel(AbstractModel):
         super(AbstractModel)
         self.model = None
         self.columns_features = columns_features
-        self.do_rename_columns = True
+        self.do_rename_columns = False
 
     def read_file(
             self,
@@ -82,8 +82,7 @@ class SVMModel(AbstractModel):
             scale=False,
             **kwargs):
 
-        df = pd.read_csv('target/dataset.csv')
-        df = df.dropna(how='any', axis=0)
+        df = pd.read_csv(r'C:\Users\e00533045\aibolit\scripts\target\dataset.csv')
         df = df[~df["filename"].str.lower().str.contains("test")]
 
         if self.do_rename_columns:
@@ -99,6 +98,7 @@ class SVMModel(AbstractModel):
 
             replace_dict = dict(zip(keys, vals))
             df = df.rename(replace_dict)
+            df.columns = vals
             print('Columns renamed:' + df.head())
 
         df = df.dropna().drop_duplicates(subset=df.columns.difference(['filename']))

@@ -46,7 +46,7 @@ args = parser.parse_args()
 dir_path = os.path.dirname(os.path.realpath(__file__))
 MI_pipeline_exclude_codes = [
     "M5",  # metric not ready
-    "P26",  # empty implementation
+    "P27",  # empty implementation
 ]
 
 
@@ -178,9 +178,9 @@ if __name__ == '__main__':
     os.makedirs(path, exist_ok=True)
     filename = Path(path, '04-find-patterns.csv')
     fields = \
-        [x['code'] for x in CONFIG['patterns']] \
-        + [x['code'] for x in CONFIG['metrics']] \
-        + ['lines_' + x['code'] for x in CONFIG['patterns']] \
+        [x['code'] for x in CONFIG['patterns'] if x['code'] not in MI_pipeline_exclude_codes] \
+        + [x['code'] for x in CONFIG['metrics'] if x['code'] not in MI_pipeline_exclude_codes] \
+        + ['lines_' + x['code'] for x in CONFIG['patterns'] if x['code'] not in MI_pipeline_exclude_codes] \
         + ['filename']
 
     with open(filename, 'w', newline='\n', encoding='utf-8') as csv_file:
