@@ -53,3 +53,7 @@ class TestCountLeaves(TestCase):
     def test4(self):
         lines = self.count_leaves.value(Path(self.dir_path, '4.java'))
         self.assertEqual(lines, 12)
+
+    def test5(self):
+        lines = self.count_leaves.value(Path(self.dir_path, 'nested_method.java'))
+        self.assertEqual(lines, 21)

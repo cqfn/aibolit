@@ -1,3 +1,4 @@
+import os
 from javalang.parse import parse
 from javalang.tree import CompilationUnit
 from javalang import tree as tr
@@ -12,12 +13,10 @@ class AST:
         self._filename = filename
 
     def value(self) -> CompilationUnit:
-        """
-        @todo #131:30min Introduce tests for AST.value method.
-         Currently AST.value method is not being tested. It justs delegates a
-         call to javalang library, but we should at least test which kinds of
-         file this class should and which it should not support.
-        """
+
+        if os.path.splitext(self._filename)[1] != '.java':
+            raise TypeError('Invalid file extension')
+
         with open(self._filename, encoding='utf-8') as file:
             return parse(file.read())
 

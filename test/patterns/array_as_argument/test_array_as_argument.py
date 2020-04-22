@@ -6,45 +6,52 @@ from aibolit.patterns.array_as_argument.array_as_argument import ArrayAsArgument
 
 class TestArrayAsArgument(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
+    pattern = ArrayAsArgument()
 
     def test_NoArgument(self):
+        file = Path(self.dir_path, 'NoArgument.java')
         self.assertEqual(
             [],
-            ArrayAsArgument(Path(self.dir_path, 'NoArgument.java')).value(),
+            self.pattern.value(file),
             'Should not match no argument method'
         )
 
     def test_PrimitiveAsArgument(self):
+        file = Path(self.dir_path, 'PrimitiveAsArgument.java')
         self.assertEqual(
             [],
-            ArrayAsArgument(Path(self.dir_path, 'PrimitiveAsArgument.java')).value(),
+            self.pattern.value(file),
             'Should not match method with primitive as argument'
         )
 
     def test_ArrayAsArgument(self):
+        file = Path(self.dir_path, 'ArrayAsArgument.java')
         self.assertEqual(
             [2],
-            ArrayAsArgument(Path(self.dir_path, 'ArrayAsArgument.java')).value(),
+            self.pattern.value(file),
             'Should match method with array as argument'
         )
 
     def test_ObjectAsArgument(self):
+        file = Path(self.dir_path, 'ObjectAsArgument.java')
         self.assertEqual(
             [],
-            ArrayAsArgument(Path(self.dir_path, 'ObjectAsArgument.java')).value(),
+            self.pattern.value(file),
             'Should not match method with object as argument'
         )
 
     def test_PrimitiveAndArrayAsArgument(self):
+        file = Path(self.dir_path, 'PrimitiveAndArrayAsArgument.java')
         self.assertEqual(
             [2],
-            ArrayAsArgument(Path(self.dir_path, 'PrimitiveAndArrayAsArgument.java')).value(),
+            self.pattern.value(file),
             'Should match method with array as argument'
         )
 
     def test_GenericArrayAsArgument(self):
+        file = Path(self.dir_path, 'GenericArrayAsArgument.java')
         self.assertEqual(
             [2],
-            ArrayAsArgument(Path(self.dir_path, 'GenericArrayAsArgument.java')).value(),
+            self.pattern.value(file),
             'Should match method with generic array as argument'
         )
