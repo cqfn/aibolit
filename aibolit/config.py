@@ -105,5 +105,6 @@ CONFIG = {
     ],
     "target": {
 
-    }
+    },
+    "aibolit_dir": "/hdd/aibolit/AIBOLIT_ONLY_FOR_INSTALL/aibolit/"
 }
