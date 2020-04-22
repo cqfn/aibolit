@@ -1,39 +1,50 @@
-import torch.nn as nn
-import torch
-import torch
-from torch.autograd import Variable
-import torch.nn.functional as F
-import torch.nn as nn
-import torch.utils.data as Data
 import json
-import matplotlib.pyplot as plt
-from sklearn.metrics import make_scorer, classification_report, confusion_matrix
-import numpy as np
-import pandas as pd
-import pandas as pd
-import numpy as np
-from sklearn.linear_model import LinearRegression, Lasso, Ridge, HuberRegressor
-import matplotlib.pyplot as plt
-
-from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error, \
-    explained_variance_score, mean_squared_log_error, mean_tweedie_deviance
-from sklearn.model_selection import GridSearchCV
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
-from sklearn.decomposition import PCA
-import numpy as np
-from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn import datasets, linear_model
-from scipy import stats
-from sklearn.pipeline import Pipeline
-from sklearn.base import clone
-import pandas as pd
-from sklearn.preprocessing import StandardScaler
-import torch.optim as optim
-from sklearn.metrics import make_scorer
-from typing import Set, Dict, List
+import os
 from abc import ABC, abstractmethod
+from pathlib import Path
+
+import pandas as pd
+import torch.nn as nn
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report
+from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+
+class Maxout(nn.Module):
+
+    def __init__(self, d_in, d_out, pool_size):
+        super().__init__()
+        self.d_in, self.d_out, self.pool_size = d_in, d_out, pool_size
+        self.lin = nn.Linear(d_in, d_out * pool_size)
+
+    def forward(self, inputs):
+        shape = list(inputs.size())
+        shape[-1] = self.d_out
+        shape.append(self.pool_size)
+        max_dim = len(shape) - 1
+        out = self.lin(inputs)
+        m, i = out.view(*shape).max(max_dim)
+        return m
+
+
+# this value was given during model evaluation
+neurons_number = 50
+
+
+class Net(nn.Module):
+
+    def __init__(self):
+        super(Net, self).__init__()
+        self.f = nn.Sequential(
+            Maxout(23, neurons_number, 2),
+            Maxout(neurons_number, neurons_number, 2),
+            nn.Linear(neurons_number, 1)
+        )
+
+    def forward(self, x):
+        return self.f(x)
 
 
 class AbstractModel(ABC):
@@ -45,8 +56,6 @@ class AbstractModel(ABC):
     @abstractmethod
     def read_file(
             self,
-            columns_features,
-            only_patterns,
             scale_ncss=False,
             scale=False):
         pass
@@ -58,35 +67,31 @@ class AbstractModel(ABC):
 
 class SVMModel(AbstractModel):
 
-    def __init__(self, FEATURES_NUMBER, ONLY_PATTERNS):
+    def __init__(self, columns_features):
         super(AbstractModel)
         self.model = None
-        self.FEATURES_NUMBER = FEATURES_NUMBER
-        self.ONLY_PATTERNS = ONLY_PATTERNS
+        self.columns_features = columns_features
 
     def read_file(
             self,
-            columns_features: List[str],
-            only_patterns: List[str],
             scale_ncss=False,
             scale=False):
 
         df = pd.read_csv('dataset.csv')
-        # TODO DROP ALL NULLS
+        df = df.dropna(how='any', axis=0)
+        df = df[~df["filename"].str.lower().str.contains("test")]
         # TODO replace p23 with names
         df = df.dropna().drop_duplicates(subset=df.columns.difference(['filename']))
         df = df[(df.ncss > 20) & (df.ncss < 100) & (df.npath_method_avg < 100000.00)].copy().reset_index()
         df.rename(columns={'for_type_cast_number': 'force_type_cast_number'}, inplace=True)
-        df = df[~df["filename"].str.lower().str.contains("test")]
+
         df.drop('filename', axis=1, inplace=True)
         df.drop('index', axis=1, inplace=True)
         self.Y = df[['cyclo']].copy().values
-        self._columns = columns_features
         if scale_ncss:
-            # TODO fix ncss_lightweight with patterns
-            new = pd.DataFrame(df[only_patterns].values / df['ncss_lightweight'].values.reshape((-1, 1)))
+            new = pd.DataFrame(df[self.columns_features].values / df['ncss_lightweight'].values.reshape((-1, 1)))
         else:
-            new = df[only_patterns].copy()
+            new = df[self.columns_features].copy()
         if scale:
             self.X = pd.DataFrame(StandardScaler().fit_transform(new.values), columns=new.columns,
                                   index=new.index).values
@@ -95,7 +100,7 @@ class SVMModel(AbstractModel):
 
     def train(self):
 
-        self.read_file(self.FEATURES_NUMBER, self.ONLY_PATTERNS)
+        self.read_file()
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
             self.X,
             self.Y,
@@ -111,6 +116,10 @@ class SVMModel(AbstractModel):
         CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv=5)
         CV_rfc.fit(self.X_train, self.y_train)
         print(CV_rfc.best_params_)
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        path_to_save = Path(Path(dir_path).parent, 'aibolit/aibolit/model')
+        with open(Path(path_to_save, 'model_params.json')) as w:
+            json.dump(w, CV_rfc.best_params_)
         print('Training best model')
 
         rfc1 = RandomForestClassifier(**CV_rfc.best_params_)
