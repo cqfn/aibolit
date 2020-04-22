@@ -15,6 +15,8 @@ def collect_dataset():
     os.chdir(Path(cfg['aibolit_dir'], 'scripts'))
 
     print('Current working directory: ', Path(os.getcwd()))
+
+    print('Filtering java files...')
     result = subprocess.run(['make', 'filter'], stdout=subprocess.PIPE)
     if result.returncode != 0:
         print(result.stderr)
@@ -22,6 +24,7 @@ def collect_dataset():
     else:
         print(result.stdout)
 
+    print('Download PMD and compute metrics...')
     result = subprocess.run(['make', 'metrics'], stdout=subprocess.PIPE)
     if result.returncode != 0:
         print(result.stderr)
@@ -29,6 +32,7 @@ def collect_dataset():
     else:
         print(result.stdout)
 
+    print('Compute patterns...')
     result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE)
     if result.returncode != 0:
         print(result.stderr)
@@ -36,6 +40,7 @@ def collect_dataset():
     else:
         print(result.stdout)
 
+    print('Build halstead jar...')
     result = subprocess.run(['make', 'build_halstead'], stdout=subprocess.PIPE)
     if result.returncode != 0:
         print(result.stderr)
@@ -43,6 +48,7 @@ def collect_dataset():
     else:
         print(result.stdout)
 
+    print('Run halstead jar...')
     result = subprocess.run(['make', 'hl'], stdout=subprocess.PIPE)
     if result.returncode != 0:
         print(result.stderr)
@@ -50,6 +56,7 @@ def collect_dataset():
     else:
         print(result.stdout)
 
+    print('Merge results and create dataset...')
     result = subprocess.run(['make', 'merge'], stdout=subprocess.PIPE)
     if result.returncode != 0:
         print(result.stderr)
@@ -75,5 +82,6 @@ def train_process(model_folder=None):
         print("Number of features: ", features_number)
         model = SVMModel(columns_features)
         model.train()
+        model.validate()
     else:
         Exception('External models are not supported yet')

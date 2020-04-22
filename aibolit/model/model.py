@@ -50,18 +50,19 @@ class Net(nn.Module):
 class AbstractModel(ABC):
 
     @abstractmethod
-    def train(self):
+    def train(self, **kwargs):
         pass
 
     @abstractmethod
     def read_file(
             self,
             scale_ncss=False,
-            scale=False):
+            scale=False,
+            **kwargs):
         pass
 
     @abstractmethod
-    def validate(self):
+    def validate(self, **kwargs):
         pass
 
 
@@ -75,7 +76,8 @@ class SVMModel(AbstractModel):
     def read_file(
             self,
             scale_ncss=False,
-            scale=False):
+            scale=False,
+            **kwargs):
 
         df = pd.read_csv('dataset.csv')
         df = df.dropna(how='any', axis=0)
@@ -115,15 +117,16 @@ class SVMModel(AbstractModel):
 
         CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv=5)
         CV_rfc.fit(self.X_train, self.y_train)
-        print(CV_rfc.best_params_)
-        dir_path = os.path.dirname(os.path.realpath(__file__))
-        path_to_save = Path(Path(dir_path).parent, 'aibolit/aibolit/model')
+        print('Best params: for a model:' + CV_rfc.best_params_)
+        path_to_save = Path(os.getcwd(), 'aibolit/model')
         with open(Path(path_to_save, 'model_params.json')) as w:
             json.dump(w, CV_rfc.best_params_)
-        print('Training best model')
+        self.best_model = RandomForestClassifier(**CV_rfc.best_params_)
 
-        rfc1 = RandomForestClassifier(**CV_rfc.best_params_)
-        rfc1.fit(self.X_train, self.y_train)
-        self.pred = rfc1.predict(self.X_test)
+
+    def validate(self, **kwargs):
+        print('Evaluating best model...')
+        self.best_model.fit(self.X_train, self.y_train)
+        self.pred = self.best_model.predict(self.X_test)
         report = classification_report(self.y_test, self.pred)
         print(report)
