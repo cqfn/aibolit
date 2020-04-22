@@ -10,6 +10,7 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from aibolit.config import CONFIG
 
 
 class Maxout(nn.Module):
@@ -72,6 +73,7 @@ class SVMModel(AbstractModel):
         super(AbstractModel)
         self.model = None
         self.columns_features = columns_features
+        self.do_rename_columns = True
 
     def read_file(
             self,
@@ -79,10 +81,25 @@ class SVMModel(AbstractModel):
             scale=False,
             **kwargs):
 
-        df = pd.read_csv('dataset.csv')
+        df = pd.read_csv('target/dataset.csv')
         df = df.dropna(how='any', axis=0)
         df = df[~df["filename"].str.lower().str.contains("test")]
-        # TODO replace p23 with names
+
+        if self.do_rename_columns:
+            p_codes = \
+                [x['code'] for x in CONFIG['patterns']] \
+                + ['lines' + x['code'] for x in CONFIG['patterns']]
+            m_codes = [x['code'] for x in CONFIG['metrics']]
+            keys = p_codes + m_codes
+            vals = \
+                [x['name'] for x in CONFIG['patterns']] \
+                + ['lines' + x['name'] for x in CONFIG['patterns']] \
+                + [x['name'] for x in CONFIG['metrics']]
+
+            replace_dict = dict(zip(keys, vals))
+            df = df.rename(replace_dict)
+            print('Columns renamed:' + df.head())
+
         df = df.dropna().drop_duplicates(subset=df.columns.difference(['filename']))
         df = df[(df.ncss > 20) & (df.ncss < 100) & (df.npath_method_avg < 100000.00)].copy().reset_index()
         df.rename(columns={'for_type_cast_number': 'force_type_cast_number'}, inplace=True)
@@ -122,7 +139,6 @@ class SVMModel(AbstractModel):
         with open(Path(path_to_save, 'model_params.json')) as w:
             json.dump(w, CV_rfc.best_params_)
         self.best_model = RandomForestClassifier(**CV_rfc.best_params_)
-
 
     def validate(self, **kwargs):
         print('Evaluating best model...')
