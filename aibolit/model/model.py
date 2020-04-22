@@ -2,6 +2,7 @@ import json
 import os
 from abc import ABC, abstractmethod
 from pathlib import Path
+import pickle
 
 import pandas as pd
 import torch.nn as nn
@@ -146,3 +147,7 @@ class SVMModel(AbstractModel):
         self.pred = self.best_model.predict(self.X_test)
         report = classification_report(self.y_test, self.pred)
         print(report)
+
+        # save the classifier
+        with open('my_dumped_classifier.pkl', 'wb') as fid:
+            pickle.dump(self.best_model, fid)
