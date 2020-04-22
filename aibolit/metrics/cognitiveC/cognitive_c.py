@@ -44,6 +44,21 @@ class CognitiveComplexity:
         for each_child in block.children:
             self.get_complexity(each_child, nested_level)
 
+    def __if_stat(self, expr, nested_level: int) -> None:
+        '''function to work with IfStatement block'''
+        self.get_complexity(expr.condition, 0)
+        if expr.then_statement is not None:
+            self.complexity += nested_level + 1
+            self.get_complexity(expr.then_statement, nested_level + 1)
+
+        if expr.else_statement is not None:
+            if isinstance(expr.else_statement, javalang.tree.IfStatement):
+                self.complexity -= nested_level
+                self.__if_stat(expr.else_statement, nested_level)
+            else:
+                self.complexity += 1
+                self.get_complexity(expr.else_statement, nested_level + 1)
+
     def increment_logical_operators(self, block: BinaryOperation, prev_operator: str) -> None:
         for each_block in [block.operandr, block.operandl]:
 
@@ -75,6 +90,9 @@ class CognitiveComplexity:
 
                 if type(each_block) == MethodDeclaration and each_block.name != self.method_name:
                     self.nested_methods(each_block, nested_level)
+
+                elif isinstance(each_block, IfStatement):
+                    self.__if_stat(each_block, nested_level)
 
                 elif type(each_block) in increment_for and type(each_block) in nested_for:
                     self.complexity += 1 + nested_level
