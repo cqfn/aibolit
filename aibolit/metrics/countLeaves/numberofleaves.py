@@ -1,6 +1,6 @@
 import javalang
-from aibolit.patterns.var_middle.var_middle import JavalangImproved
-from typing import List
+from aibolit.utils.ast import AST
+from typing import List, Type, Any
 
 
 class CountNumberOfLeaves:
@@ -12,35 +12,33 @@ class CountNumberOfLeaves:
     def __init__(self):
         pass
 
-    def value(self, filename: str):
+    def countLeaves(self, root: Type) -> int:
+        # forming the same data type for each object
+        root_arr = root if isinstance(root, List) else [root]
+        leaves = 0
+        not_count: List[Any] = [None, '', set()]
 
-        tree = JavalangImproved(filename)
+        # traverse through all childs of object. If there is no child, hence we faced leaf
+        for node in root_arr:
 
-        nodes = tree.tree_to_nodes()
+            if not hasattr(node, 'children') and node not in not_count:
+                return leaves + 1
+
+            elif node in not_count:
+                continue
+
+            for each_child in node.children:
+                leaves += self.countLeaves(each_child)
+
+        return leaves
+
+    def value(self, filename: str) -> int:
+
+        tree = AST(filename).value()
         traversed = []
-        for each_node in nodes:
-            if type(each_node.node) == javalang.tree.MethodDeclaration:
-                traversed.append(countLeaves(each_node.node.body))
+        for _, class_body in tree.filter(javalang.tree.ClassDeclaration):
+            for each_object in class_body.body:
+                if isinstance(each_object, javalang.tree.MethodDeclaration):
+                    traversed.append(self.countLeaves(each_object.body))
 
         return sum(traversed)
-
-
-def countLeaves(root):
-    # forming the same data type for each object
-    root_arr = root if isinstance(root, List) else [root]
-    leaves = 0
-    not_count = [None, '', set()]
-
-    # traverse through all childs of object. If there is no child, hence we faced leaf
-    for node in root_arr:
-
-        if not hasattr(node, 'children') and node not in not_count:
-            return leaves + 1
-
-        elif node in not_count:
-            continue
-
-        for each_child in node.children:
-            leaves += countLeaves(each_child)
-
-    return leaves
