@@ -81,3 +81,19 @@ class TestEmptyRethrow(TestCase):
     def test_catch_with_if(self):
         file = str(Path(self.cur_file_dir, 'CatchWithIf.java'))
         self.assertEqual(self.testClass.value(file), [14])
+
+    def test_chained_exceptions(self):
+        file = str(Path(self.cur_file_dir, 'DataBaseNavigator.java'))
+        file2 = str(Path(self.cur_file_dir, 'ConfigImportWizardPageDbvis.java'))
+        file3 = str(Path(self.cur_file_dir, 'DatabaseNavigatorSourceContainer.java'))
+        self.assertEqual(self.testClass.value(file), [])
+        self.assertEqual(self.testClass.value(file2), [])
+        self.assertEqual(self.testClass.value(file3), [])
+
+    def test_try_without_catch(self):
+        file = str(Path(self.cur_file_dir, 'ConcurrentDiskUtil.java'))
+        self.assertEqual(self.testClass.value(file), [])
+
+    def test_throw_with_cast(self):
+        file = str(Path(self.cur_file_dir, 'CommonRdbmsReader.java'))
+        self.assertEqual(self.testClass.value(file), [])

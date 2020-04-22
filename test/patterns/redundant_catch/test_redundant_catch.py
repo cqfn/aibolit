@@ -86,3 +86,22 @@ class VarMiddleTest(TestCase):
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/NotThrow.java')
         self.assertEqual(lines, [256])
+
+    def test_try_without_throws(self):
+        pattern = RedundantCatch()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/ExcelReader.java')
+        self.assertEqual(lines, [])
+
+    def test_try_in_constructor(self):
+        pattern = RedundantCatch()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/ExcelAnalyserImpl.java')
+        self.assertEqual(lines, [43])
+
+    def test_fake_try_in_lambda(self):
+        """
+        If function has throws, the pattern shouldn't be recognized
+        if the same exception is caught in anonymous lambda
+        """
+        pattern = RedundantCatch()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/Cache.java')
+        self.assertEqual(lines, [])

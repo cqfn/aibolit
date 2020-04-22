@@ -106,7 +106,7 @@ class VarMiddleTest(TestCase):
     def test_sync_with_static_class(self):
         pattern = PartialSync()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/SyncStaticClass.java')
-        self.assertEqual(lines, [50])
+        self.assertEqual(lines, [52])
 
     def test_sync_with_nested_if_and_for(self):
         pattern = PartialSync()

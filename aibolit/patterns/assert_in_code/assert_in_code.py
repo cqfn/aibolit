@@ -1,17 +1,13 @@
-
-from typing import List, cast
-
+from typing import List
 from javalang.ast import Node
 from javalang.tree import (
     CompilationUnit,
     AssertStatement,
-    ClassDeclaration,
-    BinaryOperation,
+    ClassDeclaration
 )
 
-from aibolit.types import LineNumber
+from aibolit.types_decl import LineNumber
 from aibolit.utils.ast import AST
-
 
 _TEST_CLASS_SUFFIX = 'Test'
 
@@ -26,15 +22,7 @@ class AssertInCode(object):
         lines: List[LineNumber] = list()
 
         for path, node in tree.filter(AssertStatement):
-            if not _within_test_class(path):
-                # HACK: Neither `assert` statement nor its condition has
-                # a position, so we only could take it from the left operand.
-                #
-                # SEE: https://github.com/c2nes/javalang/issues/73
-                lines.append(
-                    cast(BinaryOperation, node.condition).operandl.position.line
-                )
-
+            lines.append(node.position.line)
         return lines
 
 

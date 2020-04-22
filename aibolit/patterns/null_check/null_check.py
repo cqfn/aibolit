@@ -25,7 +25,7 @@ from typing import List, Tuple, Type
 from javalang.ast import Node
 from javalang.tree import CompilationUnit, BinaryOperation, Expression, Literal, ConstructorDeclaration
 
-from aibolit.types import LineNumber
+from aibolit.types_decl import LineNumber
 from aibolit.utils.ast import AST
 
 Path = Tuple

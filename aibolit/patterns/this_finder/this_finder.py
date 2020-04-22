@@ -58,7 +58,11 @@ class ThisFinder:
     def __if_stat(self, expr, flag_this, flag_else):
         '''function to work with IfStatement block'''
         if expr.then_statement is not None:
-            res, flag_this, flag_else = self.__work_with_stats(expr.then_statement.statements, flag_this, flag_else)
+            if hasattr(expr.then_statement, 'statements'):
+                stmts = expr.then_statement.statements
+            else:
+                stmts = []
+            res, flag_this, flag_else = self.__work_with_stats(stmts, flag_this, flag_else)
             if res > 0:
                 return 1, flag_this, flag_else
         if expr.else_statement is not None:
