@@ -1,5 +1,7 @@
 import subprocess
 
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
 from aibolit.config import CONFIG
 from aibolit.model.model import *
 from pathlib import Path
@@ -64,6 +66,21 @@ def collect_dataset():
     else:
         print(result.stdout)
 
+
+def mean_absolute_percentage_error(y_true, y_pred):
+    y_true = np.array(y_true).reshape(-1)
+    y_pred = np.array(y_pred).reshape(-1)
+    return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
+
+
+def print_scores(y_test, y_pred):
+    print('MSE: ', mean_squared_error(y_test, y_pred))
+    print('MAE: ', mean_absolute_error(y_test, y_pred))
+    print('MAPE:', mean_absolute_percentage_error(y_test, y_pred))
+    print('R2:  ', r2_score(y_test, y_pred))
+    print('VAR:  ', np.var(y_test))
+
+
 def train_process(model_folder=None):
     """
     Define needed columns for dataset and run model training
@@ -80,7 +97,11 @@ def train_process(model_folder=None):
         features_number = len(columns_features)
 
         print("Number of features: ", features_number)
-        model = TwoFoldRankingModel(columns_features, only_patterns)
+        model = TwoFoldRankingModel(columns_features, only_patterns, tree_method='RF')
         model.fit()
+        preds = model.predict()
+        print_scores(model.y_test, preds)
+        with open(Path(os.getcwd(), 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'wb') as fid:
+            pickle.dump(model, fid)
     else:
         Exception('External models are not supported yet')

@@ -29,15 +29,15 @@ class TwoFoldRankingModel(BaseEstimator):
         self.columns_features = columns_features
         self.only_patterns = only_patterns
 
-    def read_file(
+    def __read_file(
             self,
             scale_ncss=False,
             scale=False,
             **kwargs):
 
-        # df = pd.read_csv(r'C:\Users\e00533045\aibolit\scripts\target\dataset.csv')
-        print(Path(os.getcwd(), 'target', 'dataset.csv'))
-        df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
+        df = pd.read_csv(r'C:\Users\e00533045\aibolit\scripts\target\dataset.csv')
+        # print(Path(os.getcwd(), 'target', 'dataset.csv'))
+        # df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
         df = df[~df["filename"].str.lower().str.contains("test")]
 
         if self.do_rename_columns:
@@ -62,29 +62,30 @@ class TwoFoldRankingModel(BaseEstimator):
 
         df.drop('filename', axis=1, inplace=True)
         df.drop('index', axis=1, inplace=True)
-        self.Y = df[['cyclo']].copy().values
+        self.target = df[['cyclo']].copy().values
         if scale_ncss:
             new = pd.DataFrame(df[self.columns_features].values / df['ncss_lightweight'].values.reshape((-1, 1)))
         else:
             new = df[self.columns_features].copy()
         if scale:
-            self.X = pd.DataFrame(StandardScaler().fit_transform(new.values), columns=new.columns,
-                                  index=new.index).values
+            self.input = pd.DataFrame(StandardScaler().fit_transform(new.values), columns=new.columns,
+                                      index=new.index).values
         else:
-            self.X = new.values
+            self.input = new.values
 
     def fit(self):
+        self.__read_file()
         if self.tree_method == 'CatBoost':
             self.model = CatBoostRegressor(verbose=0)
-            self.model.fit(self.X, self.Y.ravel())
+            self.model.fit(self.input, self.target.ravel())
         elif self.tree_method == 'LGBM':
             self.model = lgbm.LGBMRegressor(
                 learning_rate=0.01,
                 n_estimators=1000
             )
-            self.model.fit(self.X, self.Y.ravel())
+            self.model.fit(self.input, self.target.ravel())
         elif self.tree_method == 'RF':
-            X_train, X_test, y_train, y_test = train_test_split(self.X, self.Y.values, test_size=0.3)
+            self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.input, self.target, test_size=0.3)
             rfc = RandomForestClassifier(random_state=42)
             param_grid = {
                 'n_estimators': [200, 500],
@@ -93,18 +94,15 @@ class TwoFoldRankingModel(BaseEstimator):
             }
 
             CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv=5)
-            CV_rfc.fit(X_train, y_train)
+            CV_rfc.fit(self.X_train, self.y_train)
             print(CV_rfc.best_params_)
             print('Training best model')
             self.model = RandomForestClassifier(**CV_rfc.best_params_)
-            self.model.fit(X_train, y_train)
+            self.model.fit(self.X_train, self.y_train)
             print('Evaluating best model...')
-            self.pred = self.model.predict(X_test)
-            report = classification_report(y_test, self.pred)
+            self.pred = self.model.predict(self.X_test)
+            report = classification_report(self.y_test, self.pred)
             print(report)
-
-        with open(Path(os.getcwd(), 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'wb') as fid:
-            pickle.dump(self.model, fid)
 
         self.importances = self.model.feature_importances_
 
@@ -114,7 +112,7 @@ class TwoFoldRankingModel(BaseEstimator):
     def __vstack_arrays(self, res):
         return np.vstack(res).T
 
-    def predict(self, X, quantity_func='log'):
+    def predict(self, quantity_func='log'):
         ranked = []
         quantity_funcs = {
             'log': lambda x: np.log(x + 1),
@@ -122,7 +120,7 @@ class TwoFoldRankingModel(BaseEstimator):
             'quantity_func': lambda x: x,
         }
         # code snippet -- patterns representation
-        for snippet in X:
+        for snippet in self.X_test:
             try:
                 item = quantity_funcs[quantity_func](snippet)
                 pairs = self.__vstack_arrays(self.__get_pairs(item))
@@ -130,6 +128,7 @@ class TwoFoldRankingModel(BaseEstimator):
                 ranked.append(pairs[:, 1].T.tolist()[::-1])
             except:
                 raise Exception("Unknown func")
+
 
         return np.array(ranked)
 
