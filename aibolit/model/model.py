@@ -76,7 +76,7 @@ class TwoFoldRankingModel(BaseEstimator):
     def fit(self):
         self.__read_file()
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.input, self.target, test_size=0.3)
-
+        # TODO cross-validation for cat boost and LGBM
         if self.tree_method == 'CatBoost':
             self.model = CatBoostRegressor(verbose=0)
             self.model.fit(self.X_train, self.y_train.ravel())
@@ -99,7 +99,6 @@ class TwoFoldRankingModel(BaseEstimator):
 
             CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv=5,
                    n_jobs=-1, verbose=1)
-
             CV_rfc.fit(self.X_train, self.y_train)
             print(CV_rfc.best_params_)
             print('Training best model')
