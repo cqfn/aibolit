@@ -80,8 +80,7 @@ def train_process(model_folder=None):
         features_number = len(columns_features)
 
         print("Number of features: ", features_number)
-        model = SVMModel(columns_features)
-        model.train()
-        model.validate()
+        model = TwoFoldRankingModel(columns_features, only_patterns)
+        model.fit()
     else:
         Exception('External models are not supported yet')
