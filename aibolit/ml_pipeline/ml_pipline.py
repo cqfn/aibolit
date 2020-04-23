@@ -10,11 +10,7 @@ def collect_dataset():
     """
     Run bash scripts to collect metrics and patterns for java files
     """
-    cfg_path = Path(os.getcwd(), 'aibolit/cfg/cfg.json')
-    print('Current working directory: ', Path(os.getcwd()))
-    with open(cfg_path) as f:
-        cfg = json.loads(f.read())
-    os.chdir(Path(cfg['aibolit_dir'], 'scripts'))
+    os.chdir(Path('/home/jovyan/aibolit', 'scripts'))
 
     print('Current working directory: ', Path(os.getcwd()))
 
