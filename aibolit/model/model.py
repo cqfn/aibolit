@@ -35,9 +35,9 @@ class TwoFoldRankingModel(BaseEstimator):
             scale=False,
             **kwargs):
 
-        df = pd.read_csv(r'C:\Users\e00533045\aibolit\scripts\target\dataset.csv')
-        # print(Path(os.getcwd(), 'target', 'dataset.csv'))
-        # df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
+        # df = pd.read_csv(r'C:\Users\e00533045\aibolit\scripts\target\dataset.csv')
+        print(Path(os.getcwd(), 'target', 'dataset.csv'))
+        df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
         df = df[~df["filename"].str.lower().str.contains("test")]
 
         if self.do_rename_columns:
