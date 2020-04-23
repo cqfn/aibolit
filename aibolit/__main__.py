@@ -145,7 +145,7 @@ def main():
 
         if args:
             if args.ml_pipeline:
-                # collect_dataset()
+                collect_dataset()
                 train_process()
             elif args.filename:
                 java_file = str(Path(os.getcwd(), args.filename))
