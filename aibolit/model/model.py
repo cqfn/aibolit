@@ -35,7 +35,7 @@ class TwoFoldRankingModel(BaseEstimator):
             scale=False,
             **kwargs):
 
-        # df = pd.read_csv(r'C:\Users\e00533045\aibolit\scripts\target\dataset.csv')
+        # df = pd.read_csv(r'C:\Users\e00533045\aibolit\scripts\target\dataset.csv') HACK
         print(Path(os.getcwd(), 'target', 'dataset.csv'))
         df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
         df = df[~df["filename"].str.lower().str.contains("test")]
@@ -76,7 +76,7 @@ class TwoFoldRankingModel(BaseEstimator):
     def fit(self):
         self.__read_file()
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.input, self.target, test_size=0.3)
-        # TODO cross-validation for cat boost and LGBM, find out necessary parameters
+        # TODO cross-validation for cat boost and LGBM, find out necessary parameters HACK
         if self.tree_method == 'CatBoost':
             self.model = CatBoostRegressor(verbose=0)
             self.model.fit(self.X_train, self.y_train.ravel())
