@@ -97,10 +97,10 @@ def train_process(model_folder=None):
         features_number = len(columns_features)
 
         print("Number of features: ", features_number)
-        model = TwoFoldRankingModel(columns_features, only_patterns, tree_method='RF')
+        model = TwoFoldRankingModel(only_patterns)
         model.fit()
-        preds = model.predict()
-        print_scores(model.y_test, preds)
+        # preds = model.predict()
+        # print_scores(model.y_test, preds)
         with open(Path(os.getcwd(), 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'wb') as fid:
             pickle.dump(model, fid)
     else:

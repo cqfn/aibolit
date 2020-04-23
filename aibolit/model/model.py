@@ -16,22 +16,22 @@ from aibolit.config import CONFIG
 from catboost import CatBoostRegressor
 import lightgbm as lgbm
 import numpy as np
+from catboost import CatBoostClassifier, Pool, cv
+from sklearn.metrics import accuracy_score
 
 class TwoFoldRankingModel(BaseEstimator):
 
-    def __init__(self, columns_features, only_patterns, tree_method='CatBoost'):
+    def __init__(self, only_patterns, tree_method='CatBoost'):
         if tree_method not in ['CatBoost', 'RF', 'LGBM']:
             raise Exception("Unknown tree_method")
         self.tree_method = tree_method
         self.do_rename_columns = False
-        self.importances = None
         self.model = None
-        self.columns_features = columns_features
         self.only_patterns = only_patterns
 
     def __read_file(
             self,
-            scale_ncss=False,
+            scale_ncss=True,
             scale=False,
             **kwargs):
 
@@ -64,9 +64,9 @@ class TwoFoldRankingModel(BaseEstimator):
         df.drop('index', axis=1, inplace=True)
         self.target = df[['cyclo']].copy().values
         if scale_ncss:
-            new = pd.DataFrame(df[self.columns_features].values / df['ncss_lightweight'].values.reshape((-1, 1)))
+            new = pd.DataFrame(df[self.only_patterns].values / df['M2'].values.reshape((-1, 1)))
         else:
-            new = df[self.columns_features].copy()
+            new = df[self.only_patterns].copy()
         if scale:
             self.input = pd.DataFrame(StandardScaler().fit_transform(new.values), columns=new.columns,
                                       index=new.index).values
@@ -75,9 +75,11 @@ class TwoFoldRankingModel(BaseEstimator):
 
     def fit(self):
         self.__read_file()
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.input, self.target, test_size=0.3)
+
         if self.tree_method == 'CatBoost':
             self.model = CatBoostRegressor(verbose=0)
-            self.model.fit(self.input, self.target.ravel())
+            self.model.fit(self.X_train, self.y_train.ravel())
         elif self.tree_method == 'LGBM':
             self.model = lgbm.LGBMRegressor(
                 learning_rate=0.01,
@@ -85,29 +87,27 @@ class TwoFoldRankingModel(BaseEstimator):
             )
             self.model.fit(self.input, self.target.ravel())
         elif self.tree_method == 'RF':
-            self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.input, self.target, test_size=0.3)
-            rfc = RandomForestClassifier(random_state=42)
+            rfc = RandomForestRegressor(random_state=42)
             param_grid = {
-                'n_estimators': [200, 500],
-                'max_depth': [4, 5, 6, 7, 8],
-                'criterion': ['gini', 'entropy']
+                'bootstrap': [True],
+                'max_depth': [80, 90, 100, 110],
+                'max_features': range(2, self.input.shape[1]),
+                'min_samples_leaf': [3, 4, 5],
+                'min_samples_split': [8, 10, 12],
+                'n_estimators': [100, 200, 300, 1000]
             }
 
-            CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv=5)
+            CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv=5,
+                   n_jobs=-1, verbose=1)
+
             CV_rfc.fit(self.X_train, self.y_train)
             print(CV_rfc.best_params_)
             print('Training best model')
             self.model = RandomForestClassifier(**CV_rfc.best_params_)
             self.model.fit(self.X_train, self.y_train)
-            print('Evaluating best model...')
-            self.pred = self.model.predict(self.X_test)
-            report = classification_report(self.y_test, self.pred)
-            print(report)
-
-        self.importances = self.model.feature_importances_
 
     def __get_pairs(self, item):
-        return item * self.importances, np.arange(self.importances.size)
+        return item * self.model.feature_importances_, np.arange(self.model.feature_importances_.size)
 
     def __vstack_arrays(self, res):
         return np.vstack(res).T
@@ -134,8 +134,8 @@ class TwoFoldRankingModel(BaseEstimator):
 
     def recommend(self, snippet, display=False):
         log_q = np.log(snippet + 1)
-        patterns_number = self.importances.size
-        pairs = np.vstack((log_q * self.importances,
+        patterns_number = self.model.feature_importances_.size
+        pairs = np.vstack((log_q * self.model.feature_importances_,
                            np.arange(patterns_number)))
         pairs = pairs.T.tolist()
         pairs.sort(reverse=True)
@@ -145,37 +145,3 @@ class TwoFoldRankingModel(BaseEstimator):
             print(recommendation)
 
         return recommendation
-
-# def train(self):
-#
-#     self.read_file()
-#     self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
-#         self.X,
-#         self.Y,
-#         test_size=0.3)
-#
-#     rfc = RandomForestClassifier(random_state=42)
-#     param_grid = {
-#         'n_estimators': [200, 500],
-#         'max_depth': [4, 5, 6, 7, 8],
-#         'criterion': ['gini', 'entropy']
-#     }
-#
-#     CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv=5)
-#     CV_rfc.fit(self.X_train, self.y_train)
-#     print('Best params: for a model:' + str(CV_rfc.best_params_))
-#     path_to_save = Path(Path(os.getcwd()).parent, 'aibolit', 'binary_files')
-#     with open(Path(path_to_save, 'model_params.json'), 'w') as w:
-#         json.dump(w, CV_rfc.best_params_)
-#     self.best_model = RandomForestClassifier(**CV_rfc.best_params_)
-
-# def validate(self, **kwargs):
-#     print('Evaluating best model...')
-#     self.best_model.fit(self.X_train, self.y_train)
-#     self.pred = self.best_model.predict(self.X_test)
-#     report = classification_report(self.y_test, self.pred)
-#     print(report)
-#
-#     # save the classifier
-#     with open(Path(os.getcwd(), 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'wb') as fid:
-#         pickle.dump(self.best_model, fid)

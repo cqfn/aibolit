@@ -78,7 +78,7 @@ CONFIG = {
     ],
     "metrics": [
         {"name": "Entropy", "code": "M1", "make": lambda: M1()},
-        {"name": "NCSS", "code": "M2", "make": lambda: M2()},
+        {"name": "NCSS lightweight", "code": "M2", "make": lambda: M2()},
         {
             "name": "Indentation counter: Right total variance",
             "code": "M3_1",
