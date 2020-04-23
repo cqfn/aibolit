@@ -76,7 +76,7 @@ class TwoFoldRankingModel(BaseEstimator):
     def fit(self):
         self.__read_file()
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.input, self.target, test_size=0.3)
-        # TODO cross-validation for cat boost and LGBM, find out needed parameters
+        # TODO cross-validation for cat boost and LGBM, find out necessary parameters
         if self.tree_method == 'CatBoost':
             self.model = CatBoostRegressor(verbose=0)
             self.model.fit(self.X_train, self.y_train.ravel())
