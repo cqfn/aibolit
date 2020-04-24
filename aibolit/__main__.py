@@ -33,8 +33,8 @@ from aibolit import __version__
 from aibolit.metrics.entropy.entropy import Entropy
 from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
-from aibolit.ml_pipeline.ml_pipline import *
-from aibolit.model.model import Net
+from aibolit.ml_pipeline.ml_pipeline import *
+from aibolit.model.model import Net # type: ignore
 from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
 from aibolit.patterns.empty_rethrow.empty_rethrow import EmptyRethrow
