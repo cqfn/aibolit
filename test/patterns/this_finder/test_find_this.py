@@ -74,7 +74,6 @@ class TestFindThis(TestCase):
         lines = self.pattern.value(self.cur_dir + '/BookmarkEditCmd.java')
         self.assertEqual(lines, [])
 
-    @unittest.skip('Failing tests')
     def test_simple11(self):
         lines = self.pattern.value(self.cur_dir + '/ChainedBuffer.java')
         self.assertEqual(lines, [])
@@ -87,7 +86,6 @@ class TestFindThis(TestCase):
         lines = self.pattern.value(self.cur_dir + '/LengthStringOrdinalSet.java')
         self.assertEqual(lines, [])
 
-    @unittest.skip('Failing tests')
     def test_simple14(self):
         lines = self.pattern.value(self.cur_dir + '/LoaderInfoHeader.java')
         self.assertEqual(lines, [])

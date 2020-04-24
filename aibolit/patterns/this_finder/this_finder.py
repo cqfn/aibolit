@@ -40,7 +40,7 @@ class ThisFinder:
 
     def __try_stat(self, expr, flag_this, flag_else):
         '''function to work with TryStatement block'''
-        if (expr.resources is not None) or (expr.catches[0].block != []) or (expr.finally_block is not None):
+        if (expr.resources is not None) or (expr.catches is not None and expr.catches[0].block != []) or (expr.finally_block is not None):
             flag_else = 1
         try_exprs = expr.block
         for expr1 in try_exprs:
