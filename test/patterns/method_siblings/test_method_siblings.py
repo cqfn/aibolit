@@ -10,11 +10,11 @@ class TestMethodSiblingsSiblings(unittest.TestCase):
     @unittest.skip("Not implemented")
     def test_find_simple_method_siblings(self):
         self.assertEqual(
-            [(2, 5)], MethodSiblings(Path(self.dir_path, 'SimpleMethodSiblings.java')).value()
+            [2], MethodSiblings(Path(self.dir_path, 'SimpleMethodSiblings.java')).value()
         )
 
     @unittest.skip("Not implemented")
     def test_find_alternate_method_siblings(self):
         self.assertEqual(
-            [(2, 8)], MethodSiblings(Path(self.dir_path, 'AlternateMethodSiblings.java')).value()
+            [2], MethodSiblings(Path(self.dir_path, 'AlternateMethodSiblings.java')).value()
         )

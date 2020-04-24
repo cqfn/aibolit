@@ -28,10 +28,12 @@ import javalang
 
 
 class MethodSiblings:
-    def __init__(self, filename: str):
-        self.filename = filename
+    def __init__(self):
+        pass
+
+    def value(self, filename: str):
 
         # @todo #142:30min: Implement method_siblings pattern.
-        #  This pattern must return a tuple containing the line numbers of the two method siblings.
+        #  This pattern must return a list of line numbers of methods which have siblings.
         #  After implementing that activate the tests in test_method_sibling.py
         return []
