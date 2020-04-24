@@ -95,21 +95,25 @@ def train_process(model_folder=None):
             + ['halstead volume']
         columns_features = only_metrics + only_patterns
         features_number = len(columns_features)
-
         print("Number of features: ", features_number)
-        model = TwoFoldRankingModel(only_patterns)
-        model.fit()
+
+        dataset = Dataset(only_patterns)
+        dataset.preprocess_file()
+        X_train, X_test, y_train, y_test = train_test_split(dataset.input, dataset.target, test_size=0.3)
+        model = TwoFoldRankingModel()
+        model.fit(X_train, y_train)
+
         cwd = Path(os.getcwd())
         print('Cur cwd: ' + str(cwd))
         with open(Path(cwd.parent, 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'wb') as fid:
         # with open(Path('my_dumped_classifier.pkl'), 'wb') as fid:
             pickle.dump(model, fid)
 
+        print('Test loaded file cwd: ' + str(cwd))
         with open(Path(cwd.parent, 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'rb') as fid:
         # with open(Path('my_dumped_classifier.pkl'), 'rb') as fid:
             model_new = pickle.load(fid)
-            preds = model_new.predict(model_new.X_test)
-            # print_scores(model.y_test, preds)
+            preds = model_new.predict(X_test)
             print(preds)
     else:
         Exception('External models are not supported yet')
