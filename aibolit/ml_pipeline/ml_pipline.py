@@ -101,11 +101,14 @@ def train_process(model_folder=None):
         cwd = Path(os.getcwd())
         print('Cur cwd: ' + str(cwd))
         with open(Path(cwd.parent, 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'wb') as fid:
+        # with open(Path('my_dumped_classifier.pkl'), 'wb') as fid:
             pickle.dump(model, fid)
 
         with open(Path(cwd.parent, 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'rb') as fid:
-            model = pickle.load(fid)
-            preds = model.predict(model.X_test)
-            print_scores(model.y_test, preds)
+        # with open(Path('my_dumped_classifier.pkl'), 'rb') as fid:
+            model_new = pickle.load(fid)
+            preds = model_new.predict(model_new.X_test)
+            # print_scores(model.y_test, preds)
+            print(preds)
     else:
         Exception('External models are not supported yet')
