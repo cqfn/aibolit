@@ -8,21 +8,20 @@ public class GetterSetter {
     public void setMethod() {
         this.a = 1;
     }
-	
-	public void getMethod() {
+
+    public void getMethod() {
         return this.a;
     }
-	
-	public void doNothing() {
-		this.a++;
+
+    public void doNothing() {
+        this.a++;
         System.out.println(this.a + this.b);
-		int i = 0; 
-		if  (i < this.a) {
-			return 0;
-		}
-		else {
-			return 1;
-		}
+        int i = 0;
+        if (i < this.a) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
 }

@@ -7,7 +7,7 @@ class MethodChain {
 
     public void start_chain_var() {
         DifferentMethods a = new DifferentMethods();
-        a.chain1().chain2();
+        a.chain1(); chain1();
     }
 
     public void start_chain_method_inv() {
