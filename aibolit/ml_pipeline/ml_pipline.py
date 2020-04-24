@@ -1,11 +1,12 @@
-import subprocess
-
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-
-from aibolit.config import CONFIG
-from aibolit.model.model import *
-from pathlib import Path
 import os
+import subprocess
+from pathlib import Path
+
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score # type: ignore
+import pickle
+# flake8: noqa F403
+from aibolit.model.model import * # type: ignore
+
 
 def collect_dataset():
     """

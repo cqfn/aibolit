@@ -34,6 +34,7 @@ from aibolit.metrics.entropy.entropy import Entropy
 from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
 from aibolit.ml_pipeline.ml_pipline import *
+from aibolit.model.model import Net
 from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
 from aibolit.patterns.empty_rethrow.empty_rethrow import EmptyRethrow
@@ -125,35 +126,40 @@ def main():
         parser = argparse.ArgumentParser(
             description='Find the pattern which has the largest impact on readability'
         )
-        group = parser.add_mutually_exclusive_group()
+        group = parser.add_mutually_exclusive_group(required=True)
         group.add_argument(
-            '--filename',
-            help='path for Java file'
-        )
-        group.add_argument(
-            '--ml_pipeline',
+            '--train',
             help='Run ML pipeline',
-            action='store_true'
+            action='store_true',
+            default=False
         )
         group.add_argument(
             '--version',
             action='version',
-            version='%(prog)s {version}'.format(version=__version__)
+            version='%(prog)s {version}'.format(version=__version__),
+        )
+        group.add_argument(
+            '--filename',
+            help='path for Java file',
+            nargs="*",
+            default=False
         )
 
         args = parser.parse_args(args=None if sys.argv[1:] else ['--help'])
 
         if args:
-            if args.ml_pipeline:
+            if args.train:
                 collect_dataset()
                 train_process()
             elif args.filename:
-                java_file = str(Path(os.getcwd(), args.filename))
+                java_file = str(Path(os.getcwd(), args.filename[0]))
                 halstead_volume = find_halstead(java_file)
                 var_numbers = VarMiddle().value(java_file)
                 entropy = Entropy().value(java_file)
-                left_space_variance, right_space_variance, max_left_space_diff, max_right_space_diff \
-                    = IndentationCounter().value(java_file)
+                left_space_variance = IndentationCounter(left_var=True).value(java_file)
+                right_space_variance = IndentationCounter(right_var=True).value(java_file)
+                max_left_space_diff = IndentationCounter(max_left=True).value(java_file)
+                max_right_space_diff = IndentationCounter(max_right=True).value(java_file)
                 concat_str_number = StringConcatFinder().value(java_file)
                 instance_of_lines = InstanceOf().value(java_file)
                 method_chain_lines = MethodChainFind().value(java_file)

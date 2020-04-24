@@ -1,23 +1,54 @@
-import json
 import os
-from abc import ABC, abstractmethod
 from pathlib import Path
-import pickle
 
+import lightgbm as lgbm
+import numpy as np
 import pandas as pd
 import torch.nn as nn
+from catboost import CatBoostRegressor
 from sklearn.base import BaseEstimator
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-from sklearn.metrics import classification_report
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+
 from aibolit.config import CONFIG
-from catboost import CatBoostRegressor
-import lightgbm as lgbm
-import numpy as np
-from catboost import CatBoostClassifier, Pool, cv
-from sklearn.metrics import accuracy_score
+
+
+class Maxout(nn.Module):
+
+    def __init__(self, d_in, d_out, pool_size):
+        super().__init__()
+        self.d_in, self.d_out, self.pool_size = d_in, d_out, pool_size
+        self.lin = nn.Linear(d_in, d_out * pool_size)
+
+    def forward(self, inputs):
+        shape = list(inputs.size())
+        shape[-1] = self.d_out
+        shape.append(self.pool_size)
+        max_dim = len(shape) - 1
+        out = self.lin(inputs)
+        m, i = out.view(*shape).max(max_dim)
+        return m
+
+
+# this value was given during model evaluation
+neurons_number = 50
+
+
+class Net(nn.Module):
+
+    def __init__(self):
+        super(Net, self).__init__()
+        self.f = nn.Sequential(
+            Maxout(23, neurons_number, 2),
+            Maxout(neurons_number, neurons_number, 2),
+            nn.Linear(neurons_number, 1)
+        )
+
+    def forward(self, x):
+        return self.f(x)
+
 
 class TwoFoldRankingModel(BaseEstimator):
 
@@ -35,7 +66,7 @@ class TwoFoldRankingModel(BaseEstimator):
             scale=False,
             **kwargs):
 
-        # df = pd.read_csv(r'D:\git\aibolit\scripts\target\dataset_docker.csv')
+        # df = pd.read_csv(r'D:\git\aibolit\scripts\target\dataset.csv')
         print(Path(os.getcwd(), 'target', 'dataset.csv'))
         df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
         df = df[~df["filename"].str.lower().str.contains("test")]
@@ -97,8 +128,12 @@ class TwoFoldRankingModel(BaseEstimator):
                 'n_estimators': [100, 200, 300, 1000]
             }
 
-            CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv=5,
-                   n_jobs=-1, verbose=1)
+            CV_rfc = GridSearchCV(
+                estimator=rfc,
+                param_grid=param_grid,
+                cv=5,
+                n_jobs=-1,
+                verbose=1)
             CV_rfc.fit(self.X_train, self.y_train)
             print(CV_rfc.best_params_)
             print('Training best model')
@@ -125,9 +160,8 @@ class TwoFoldRankingModel(BaseEstimator):
                 pairs = self.__vstack_arrays(self.__get_pairs(item))
                 pairs = pairs[pairs[:, 0].argsort()]
                 ranked.append(pairs[:, 1].T.tolist()[::-1])
-            except:
+            except Exception:
                 raise Exception("Unknown func")
-
 
         return np.array(ranked)
 
