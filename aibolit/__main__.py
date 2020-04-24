@@ -279,14 +279,12 @@ You can run 1 command:
                             line,
                             pattern
                         ))
-            exit_status = 0
-
-        return exit_status
 
 
 def main():
+    exit_status = -1
     try:
-        exit_status = CLI()
+        CLI()
     except KeyboardInterrupt:
         exit_status = -1
     sys.exit(exit_status)
