@@ -2,9 +2,11 @@ import os
 import subprocess
 from pathlib import Path
 
+from sklearn.model_selection import train_test_split # type: ignore
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score # type: ignore
 import pickle
-# flake8: noqa F403
+
+
 from aibolit.model.model import * # type: ignore
 
 
