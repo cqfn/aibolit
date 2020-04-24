@@ -35,9 +35,9 @@ class TwoFoldRankingModel(BaseEstimator):
             scale=False,
             **kwargs):
 
-        df = pd.read_csv(r'D:\git\aibolit\scripts\target\dataset_docker.csv')
-        # print(Path(os.getcwd(), 'target', 'dataset.csv'))
-        # df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
+        # df = pd.read_csv(r'D:\git\aibolit\scripts\target\dataset_docker.csv')
+        print(Path(os.getcwd(), 'target', 'dataset.csv'))
+        df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
         df = df[~df["filename"].str.lower().str.contains("test")]
 
         if self.do_rename_columns:
@@ -111,7 +111,7 @@ class TwoFoldRankingModel(BaseEstimator):
     def __vstack_arrays(self, res):
         return np.vstack(res).T
 
-    def predict(self, quantity_func='log'):
+    def predict(self, X_test, quantity_func='log'):
         ranked = []
         quantity_funcs = {
             'log': lambda x: np.log(x + 1),
@@ -119,7 +119,7 @@ class TwoFoldRankingModel(BaseEstimator):
             'quantity_func': lambda x: x,
         }
         # code snippet -- patterns representation
-        for snippet in self.X_test:
+        for snippet in X_test:
             try:
                 item = quantity_funcs[quantity_func](snippet)
                 pairs = self.__vstack_arrays(self.__get_pairs(item))

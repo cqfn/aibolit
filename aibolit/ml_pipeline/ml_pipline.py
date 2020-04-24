@@ -5,6 +5,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from aibolit.config import CONFIG
 from aibolit.model.model import *
 from pathlib import Path
+import os
 
 def collect_dataset():
     """
@@ -88,16 +89,23 @@ def train_process(model_folder=None):
         ignore_metrics = ['M4', 'M5']
 
         only_patterns = [x['code'] for x in list(CONFIG['patterns']) if x['code'] not in ignore_patterns]
-        only_metrics = [x['code'] for x in list(CONFIG['metrics']) if x['code'] not in ignore_metrics]
+        only_metrics = \
+            [x['code'] for x in list(CONFIG['metrics']) if x['code'] not in ignore_metrics] \
+            + ['halstead volume']
         columns_features = only_metrics + only_patterns
         features_number = len(columns_features)
 
         print("Number of features: ", features_number)
         model = TwoFoldRankingModel(only_patterns)
         model.fit()
-        # preds = model.predict()
-        # print_scores(model.y_test, preds)
-        with open(Path(os.getcwd(), 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'wb') as fid:
+        cwd = Path(os.getcwd())
+        print('Cur cwd: ' + str(cwd))
+        with open(Path(cwd.parent, 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'wb') as fid:
             pickle.dump(model, fid)
+
+        with open(Path(cwd.parent, 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'rb') as fid:
+            model = pickle.load(fid)
+            preds = model.predict(model.X_test)
+            print_scores(model.y_test, preds)
     else:
         Exception('External models are not supported yet')
