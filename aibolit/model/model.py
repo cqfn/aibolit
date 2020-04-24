@@ -2,15 +2,11 @@ import os
 from pathlib import Path
 from typing import List
 
-import lightgbm as lgbm
 import numpy as np
 import pandas as pd
 import torch.nn as nn
 from catboost import CatBoostRegressor
 from sklearn.base import BaseEstimator
-from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-from sklearn.model_selection import GridSearchCV
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 from aibolit.config import CONFIG
