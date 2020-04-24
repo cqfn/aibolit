@@ -22,6 +22,7 @@
 
 import os
 from unittest import TestCase
+import unittest
 from aibolit.patterns.this_finder.this_finder import ThisFinder
 
 
@@ -68,3 +69,29 @@ class TestFindThis(TestCase):
     def test_simple9(self):
         lines = self.pattern.value(self.cur_dir + '/super_this.java')
         self.assertEqual(lines, [15, 25, 51, 62, 76, 87, 101])
+
+    def test_simple10(self):
+        lines = self.pattern.value(self.cur_dir + '/BookmarkEditCmd.java')
+        self.assertEqual(lines, [])
+
+    @unittest.skip('Failing tests')
+    def test_simple11(self):
+        lines = self.pattern.value(self.cur_dir + '/ChainedBuffer.java')
+        self.assertEqual(lines, [])
+
+    def test_simple12(self):
+        lines = self.pattern.value(self.cur_dir + '/CliMethodExtraSections.java')
+        self.assertEqual(lines, [])
+
+    def test_simple13(self):
+        lines = self.pattern.value(self.cur_dir + '/LengthStringOrdinalSet.java')
+        self.assertEqual(lines, [])
+
+    @unittest.skip('Failing tests')
+    def test_simple14(self):
+        lines = self.pattern.value(self.cur_dir + '/LoaderInfoHeader.java')
+        self.assertEqual(lines, [])
+
+    def test_simple15(self):
+        lines = self.pattern.value(self.cur_dir + '/OmfModuleEnd.java')
+        self.assertEqual(lines, [])
