@@ -34,7 +34,7 @@ class ExternalMethodsCalledTest(TestCase):
         self.assertEqual(
             ExternalMethodsCalled().value(Path(self.dir_path, 'NoExternalMethodCalls.java')),
             0,
-            'Could not calculate external method calls when none exists'
+            'Could not calculate how many external methods are called when none'
         )
 
     @unittest.skip('Not implemented')
@@ -42,7 +42,7 @@ class ExternalMethodsCalledTest(TestCase):
         self.assertEqual(
             ExternalMethodsCalled().value(Path(self.dir_path, 'ExternalMethodCalls.java')),
             2,
-            'Could not calculate external method calls when they exist'
+            'Could not calculate how many external method are called when they exist'
         )
 
     @unittest.skip('Not implemented')
@@ -50,5 +50,13 @@ class ExternalMethodsCalledTest(TestCase):
         self.assertEqual(
             ExternalMethodsCalled().value(Path(self.dir_path, 'InnerClassExternalMethodCalls.java')),
             1,
-            'Could not calculate external method calls when they exist'
+            'Could not calculate how many external methods called when they exist in inner class'
+        )
+
+    @unittest.skip('Not implemented')
+    def test_double_external_method_calls(self):
+        self.assertEqual(
+            ExternalMethodsCalled().value(Path(self.dir_path, 'DoubleExternalMethodCalls.java')),
+            1,
+            'Could not calculate how many external methods called when they are called more than once'
         )
