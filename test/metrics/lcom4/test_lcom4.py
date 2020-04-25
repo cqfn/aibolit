@@ -75,7 +75,6 @@ class TestLCOM4(TestCase):
         print(name)
         self.assertEqual(lcom4_val, 1)
 
-    @unittest.skip('Not implemented')
     def test_class_with_chain(self):
         name = 'MethodChain.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
