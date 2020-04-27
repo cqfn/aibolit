@@ -2,12 +2,13 @@ import os
 import subprocess
 from pathlib import Path
 
-from sklearn.model_selection import train_test_split # type: ignore
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score # type: ignore
+from sklearn.model_selection import train_test_split  # type: ignore
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score  # type: ignore
 import pickle
+import numpy as np
 
-
-from aibolit.model.model import * # type: ignore
+from aibolit.model.model import Dataset, TwoFoldRankingModel
+from aibolit.config import CONFIG
 
 
 def collect_dataset():
@@ -108,12 +109,10 @@ def train_process(model_folder=None):
         cwd = Path(os.getcwd())
         print('Cur cwd: ' + str(cwd))
         with open(Path(cwd.parent, 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'wb') as fid:
-        # with open(Path('my_dumped_classifier.pkl'), 'wb') as fid:
             pickle.dump(model, fid)
 
         print('Test loaded file cwd: ' + str(cwd))
         with open(Path(cwd.parent, 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'rb') as fid:
-        # with open(Path('my_dumped_classifier.pkl'), 'rb') as fid:
             model_new = pickle.load(fid)
             preds = model_new.predict(X_test)
             print(preds)
