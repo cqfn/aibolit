@@ -31,6 +31,7 @@ from aibolit.patterns.non_final_class.non_final_class import NonFinalClass as P2
 from aibolit.patterns.private_static_method.private_static_method import PrivateStaticMethod as P25
 from aibolit.patterns.public_static_method.public_static_method import PublicStaticMethod as P26
 from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
+from aibolit.patterns.assign_null_finder.assign_null_finder import NullAssignment as P28
 
 CONFIG = {
     "patterns": [
@@ -75,6 +76,7 @@ CONFIG = {
         {"name": "Private static method", "code": "P25", "make": lambda: P25()},
         {"name": "Public static method", "code": "P26", "make": lambda: P26()},
         {"name": "Var siblings", "code": "P27", "make": lambda: P27()},
+        {"name": "Null Assignment", "code": "P28", "make": lambda: P28()},
     ],
     "metrics": [
         {"name": "Entropy", "code": "M1", "make": lambda: M1()},
