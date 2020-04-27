@@ -5,9 +5,9 @@ from pathlib import Path
 from sklearn.model_selection import train_test_split  # type: ignore
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score  # type: ignore
 import pickle
-import numpy as np
+import numpy as np   # type: ignore
 
-from aibolit.model.model import Dataset, TwoFoldRankingModel
+from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
 from aibolit.config import CONFIG
 
 
