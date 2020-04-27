@@ -21,14 +21,13 @@
 # SOFTWARE.
 
 import re
+from typing import List
 
 
 class NullAssignment:
-    # flake8: noqa
-    def value(self, filename: str) -> list:
-        '''main function'''
+    def value(self, filename: str) -> List:
         file_d = open(filename)
-        string = '[^=!><]=(\s)*null(\s)*;'
+        string = r'[^=!><]=(\s)*null(\s)*;'
         num_str = []
         for i, line in enumerate(file_d):
             match = re.search(string, line)
