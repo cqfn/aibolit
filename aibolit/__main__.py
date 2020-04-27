@@ -24,11 +24,8 @@
 """
 
 import argparse
-import os
-import subprocess
 import sys
 from collections import OrderedDict
-from pathlib import Path
 
 import torch
 
@@ -36,6 +33,7 @@ from aibolit import __version__
 from aibolit.metrics.entropy.entropy import Entropy
 from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
+from aibolit.ml_pipeline.ml_pipeline import *
 from aibolit.model.model import Net  # type: ignore
 from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
@@ -113,36 +111,67 @@ def predict(input_params):
     return sorted_result
 
 
-# flake8: noqa
-def main():
-    exit_status = -1
-    patterns_list = [
-        'var_middle_number', 'this_find_number', 'string_concat_number', 'instance_of_number',
-        'method_chain_number', 'var_decl_diff_number_11', 'var_decl_diff_number_7', 'var_decl_diff_number_5',
-        'super_method_call_number', 'force_type_cast_number', 'asserts_number', 'setter_number', 'empty_rethrow_number',
-        'prohibited_class_names_number', 'return_in_if_number', 'impl_multi_number',
-        'many_prim_ctors_number', 'multiple_try_number', 'non_final_field_number', 'null_check_number',
-        'part_sync_number', 'red_catch_number', 'return_null_number'
-    ]
-    try:
+class CLI(object):
+
+    def __init__(self):
         parser = argparse.ArgumentParser(
-            description='Find the pattern which has the largest impact on readability'
-        )
+            description='Find the pattern which has the largest impact on readability',
+            usage='''aibolit <command> [<args>]
+
+You can run 1 command:
+   train          Train model
+   recommend      Recommend pattern
+''')
+        parser.add_argument('command', help='Subcommand to run')
         parser.add_argument(
-            '--filename',
-            help='path for Java file')
-        parser.add_argument('--version', action='version',
-                            version='%(prog)s {version}'.format(version=__version__))
+            '--version', action='version',
+            version='%(prog)s {version}'.format(version=__version__)
+        )
+        # parse_args defaults to [1:] for args, but you need to
+        # exclude the rest of the args too, or validation will fail
+        args = parser.parse_args(sys.argv[1:2])
+        if not hasattr(self, args.command):
+            parser.print_help()
+            exit(1)
 
-        args = parser.parse_args(args=None if sys.argv[1:] else ['--help'])
+        getattr(self, args.command)()
 
-        if args:
-            java_file = str(Path(os.getcwd(), args.filename))
+
+    def train(self):
+        collect_dataset()
+        train_process()
+
+    # flake8: noqa: C901
+    def recommend(self):
+        parser = argparse.ArgumentParser(
+            description='Download objects and refs from another repository')
+        parser.add_argument(
+            'recommend',
+            help='path for Java file',
+            nargs="*",
+            default=False
+        )
+        patterns_list = [
+            'var_middle_number', 'this_find_number', 'string_concat_number', 'instance_of_number',
+            'method_chain_number', 'var_decl_diff_number_11', 'var_decl_diff_number_7', 'var_decl_diff_number_5',
+            'super_method_call_number', 'force_type_cast_number', 'asserts_number', 'setter_number',
+            'empty_rethrow_number',
+            'prohibited_class_names_number', 'return_in_if_number', 'impl_multi_number',
+            'many_prim_ctors_number', 'multiple_try_number', 'non_final_field_number', 'null_check_number',
+            'part_sync_number', 'red_catch_number', 'return_null_number'
+        ]
+        args = parser.parse_args(sys.argv[2:])
+        exit_status = 1
+        for file in args.recommend:
+            print('Analyzing {}'.format(file))
+            java_file = str(Path(os.getcwd(), file))
             halstead_volume = find_halstead(java_file)
             var_numbers = VarMiddle().value(java_file)
             entropy = Entropy().value(java_file)
-            left_space_variance, right_space_variance, max_left_space_diff, max_right_space_diff \
-                = IndentationCounter().value(java_file)
+            left_space_variance = IndentationCounter(left_var=True).value(java_file)
+            right_space_variance = IndentationCounter(right_var=True).value(java_file)
+            max_left_space_diff = IndentationCounter(max_left=True).value(java_file)
+            max_right_space_diff = IndentationCounter(max_right=True).value(java_file)
             concat_str_number = StringConcatFinder().value(java_file)
             instance_of_lines = InstanceOf().value(java_file)
             method_chain_lines = MethodChainFind().value(java_file)
@@ -254,7 +283,20 @@ def main():
                             line,
                             pattern
                         ))
-            exit_status = 0
+
+    def version(self):
+        parser = argparse.ArgumentParser(
+            description='Show version')
+        parser.add_argument(
+            '--version',
+        )
+        print('%(prog)s {version}'.format(version=__version__))
+
+
+def main():
+    exit_status = -1
+    try:
+        CLI()
     except KeyboardInterrupt:
         exit_status = -1
     sys.exit(exit_status)

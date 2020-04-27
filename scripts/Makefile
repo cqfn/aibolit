@@ -1,4 +1,4 @@
-all: requirements samples filter metrics patterns rs build_halsted hl merge
+all: requirements samples filter metrics patterns rs build_halstead hl merge
 
 # Fetch thousands of Java samples in GitHub and store them
 # all in target/01 directory. We don't filter anything at
@@ -29,6 +29,7 @@ endif
 # calculation we store into target/03-metrics.csv
 
 ./_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh:
+	rm -rf _tmp
 	mkdir -p _tmp
 	wget -c -O ./_tmp/pmd-bin.zip https://github.com/pmd/pmd/releases/download/6.21.0-with-designer/pmd-bin-6.21.0-full.zip
 	unzip ./_tmp/pmd-bin.zip -d ./_tmp/
@@ -61,7 +62,7 @@ rs: ./_tmp/rsm.jar
 hl:
 	python3 ./06-calculate-halstead.py --filename target/02/found-java-files.txt
 
-build_halsted:
+build_halstead:
 	cd ../aibolit/metrics/halsteadvolume && mvn clean package && cp ./target/java-project-1.0-SNAPSHOT.jar ../../../scripts/halstead.jar
 
 merge:
