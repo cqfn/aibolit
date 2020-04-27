@@ -17,19 +17,35 @@ class TestMutableIndex(TestCase):
         )
 
     @unittest.skip("Not implemented")
-    def test_find_mutable_index_increment(self):
+    def test_find_mutable_index_prefix_increment(self):
         self.assertEqual(
             [4],
-            MutableIndex().value(Path(self.dir_path, 'MutableIndexIncrement.java')),
-            'Should match index increment (++)'
+            MutableIndex().value(Path(self.dir_path, 'MutableIndexPrefixIncrement.java')),
+            'Should match index prefix increment (++i)'
         )
 
     @unittest.skip("Not implemented")
-    def test_find_mutable_index_decrement(self):
+    def test_find_mutable_index_prefix_decrement(self):
         self.assertEqual(
             [4],
-            MutableIndex().value(Path(self.dir_path, 'MutableIndexDecrement.java')),
-            'Should match index decrement (--)'
+            MutableIndex().value(Path(self.dir_path, 'MutableIndexPrefixDecrement.java')),
+            'Should match index prefix decrement (--i)'
+        )
+
+    @unittest.skip("Not implemented")
+    def test_find_mutable_index_postfix_increment(self):
+        self.assertEqual(
+            [4],
+            MutableIndex().value(Path(self.dir_path, 'MutableIndexPostfixIncrement.java')),
+            'Should match index postfix increment (i++)'
+        )
+
+    @unittest.skip("Not implemented")
+    def test_find_mutable_index_postfix_decrement(self):
+        self.assertEqual(
+            [4],
+            MutableIndex().value(Path(self.dir_path, 'MutableIndexPostfixDecrement.java')),
+            'Should match index postfix decrement (i--)'
         )
 
     @unittest.skip("Not implemented")
@@ -72,3 +88,26 @@ class TestMutableIndex(TestCase):
             'Should match index mod assignment (%=)'
         )
 
+    @unittest.skip("Not implemented")
+    def test_find_mutable_index_nested_for(self):
+        self.assertEqual(
+            [5],
+            MutableIndex().value(Path(self.dir_path, 'MutableIndexNestedFor.java')),
+            'Should match mutable index in nested for'
+        )
+
+    @unittest.skip("Not implemented")
+    def test_find_mutable_index_hidden_nested_for(self):
+        self.assertEqual(
+            [5],
+            MutableIndex().value(Path(self.dir_path, 'MutableIndexHiddenNestedFor.java')),
+            'Should match mutable index hidden in nested for'
+        )
+
+    @unittest.skip("Not implemented")
+    def test_find_mutable_index_no_block_for(self):
+        self.assertEqual(
+            [3],
+            MutableIndex().value(Path(self.dir_path, 'MutableIndexNoBlockFor.java')),
+            'Should match mutable index in for with no block'
+        )
