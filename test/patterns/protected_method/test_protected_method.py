@@ -14,9 +14,11 @@ class TestProtectedMethod(TestCase):
     def test_find_protected_method(self):
         self.assertEqual([2, 6], ProtectedMethod().value(Path(self.dir_path, 'ProtectedMethod.java')),
                          'Should match pattern protected method')
+
     def test_find_protected_method_inner(self):
         self.assertEqual([2, 11], ProtectedMethod().value(Path(self.dir_path, 'InnerClassProtectedMethod.java')),
                          'Should match pattern protected method in inner class')
+
     def test_find_protected_method_anonymous(self):
         self.assertEqual([5], ProtectedMethod().value(Path(self.dir_path, 'AnonymousClassProtectedMethod.java')),
                          'Should match pattern protected method in anonymous class')

@@ -1,6 +1,7 @@
 import javalang
 from aibolit.utils.ast import AST
 
+
 class ProtectedMethod:
 
     def __init__(self):
