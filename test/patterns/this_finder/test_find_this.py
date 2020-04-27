@@ -22,7 +22,6 @@
 
 import os
 from unittest import TestCase
-import unittest
 from aibolit.patterns.this_finder.this_finder import ThisFinder
 
 
