@@ -121,17 +121,21 @@ class CLI(object):
 You can run 1 command:
    train          Train model
    recommend      Recommend pattern
-   version        Show current version
 ''')
         parser.add_argument('command', help='Subcommand to run')
+        parser.add_argument(
+            '--version', action='version',
+            version='%(prog)s {version}'.format(version=__version__)
+        )
         # parse_args defaults to [1:] for args, but you need to
         # exclude the rest of the args too, or validation will fail
         args = parser.parse_args(sys.argv[1:2])
         if not hasattr(self, args.command):
             parser.print_help()
             exit(1)
-        # use dispatch pattern to invoke method with same name
+
         getattr(self, args.command)()
+
 
     def train(self):
         collect_dataset()
@@ -279,6 +283,14 @@ You can run 1 command:
                             line,
                             pattern
                         ))
+
+    def version(self):
+        parser = argparse.ArgumentParser(
+            description='Show version')
+        parser.add_argument(
+            '--version',
+        )
+        print('%(prog)s {version}'.format(version=__version__))
 
 
 def main():
