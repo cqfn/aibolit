@@ -43,3 +43,10 @@ class TestBidirectIndex(TestCase):
             [3],
             'Could not find bidirect index when index increased with assignment and then decreased with assignment'
         )
+
+    def test_bidirect_index_hidden_scope_true(self):
+        self.assertEqual(
+            BidirectIndex().value(Path(self.dir_path, 'BidirectIndexHiddenScope.java')),
+            [10],
+            'Could not find bidirec index when scope is hidden'
+        )
