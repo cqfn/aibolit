@@ -4,47 +4,11 @@ from typing import List
 
 import numpy as np
 import pandas as pd
-import torch.nn as nn
 from catboost import CatBoostRegressor
 from sklearn.base import BaseEstimator
 from sklearn.preprocessing import StandardScaler
 
 from aibolit.config import CONFIG
-
-
-class Maxout(nn.Module):
-
-    def __init__(self, d_in, d_out, pool_size):
-        super().__init__()
-        self.d_in, self.d_out, self.pool_size = d_in, d_out, pool_size
-        self.lin = nn.Linear(d_in, d_out * pool_size)
-
-    def forward(self, inputs):
-        shape = list(inputs.size())
-        shape[-1] = self.d_out
-        shape.append(self.pool_size)
-        max_dim = len(shape) - 1
-        out = self.lin(inputs)
-        m, i = out.view(*shape).max(max_dim)
-        return m
-
-
-# this value was given during model evaluation
-neurons_number = 50
-
-
-class Net(nn.Module):
-
-    def __init__(self):
-        super(Net, self).__init__()
-        self.f = nn.Sequential(
-            Maxout(23, neurons_number, 2),
-            Maxout(neurons_number, neurons_number, 2),
-            nn.Linear(neurons_number, 1)
-        )
-
-    def forward(self, x):
-        return self.f(x)
 
 
 class Dataset:
@@ -61,9 +25,9 @@ class Dataset:
             scale=False,
             **kwargs):
 
-        # df = pd.read_csv(r'D:\git\aibolit\scripts\target\dataset.csv')
-        print(Path(os.getcwd(), 'target', 'dataset.csv'))
-        df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
+        df = pd.read_csv(r'D:\git\aibolit\scripts\dataset.csv')
+        # print(Path(os.getcwd(), 'target', 'dataset.csv'))
+        # df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
         df = df[~df["filename"].str.lower().str.contains("test")]
 
         if self.do_rename_columns:
@@ -90,7 +54,10 @@ class Dataset:
         df.drop('index', axis=1, inplace=True)
         self.target = df[['cyclo']].copy().values
         if scale_ncss:
-            new = pd.DataFrame(df[self.only_patterns].values / df['M2'].values.reshape((-1, 1)))
+            new = pd.DataFrame(
+                df[self.only_patterns].values / df['M2'].values.reshape((-1, 1)),
+                columns=self.only_patterns
+            )
         else:
             new = df[self.only_patterns].copy()
         if scale:
@@ -98,6 +65,8 @@ class Dataset:
                                       index=new.index).values
         else:
             self.input = new.values
+
+        self.feature_order = list(new.columns)
 
 
 class TwoFoldRankingModel(BaseEstimator):

@@ -5,10 +5,11 @@ from pathlib import Path
 from sklearn.model_selection import train_test_split  # type: ignore
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score  # type: ignore
 import pickle
-import numpy as np   # type: ignore
+import numpy as np  # type: ignore
 
 from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
 from aibolit.config import CONFIG
+import json
 
 
 def collect_dataset():
@@ -102,17 +103,25 @@ def train_process(model_folder=None):
 
         dataset = Dataset(only_patterns)
         dataset.preprocess_file()
+        cwd = Path(os.getcwd())
+        features_conf = {
+            "features_order": dataset.feature_order,
+            "patterns_only": only_patterns
+        }
+        with open(r'D:\git\aibolit\aibolit\binary_files\features_order.json', 'w') as fid:
+        # with open(Path(cwd.parent, 'aibolit', 'binary_files', 'features_order.json'), 'wb') as fid:
+            json.dump(features_conf, fid, sort_keys=True, indent=4)
+
         X_train, X_test, y_train, y_test = train_test_split(dataset.input, dataset.target, test_size=0.3)
         model = TwoFoldRankingModel()
         model.fit(X_train, y_train)
 
-        cwd = Path(os.getcwd())
         print('Cur cwd: ' + str(cwd))
-        with open(Path(cwd.parent, 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'wb') as fid:
+        with open(Path(cwd.parent, 'aibolit', 'binary_files', 'model.pkl'), 'wb') as fid:
             pickle.dump(model, fid)
 
         print('Test loaded file cwd: ' + str(cwd))
-        with open(Path(cwd.parent, 'aibolit', 'binary_files', 'my_dumped_classifier.pkl'), 'rb') as fid:
+        with open(Path(cwd.parent, 'aibolit', 'binary_files', 'model.pkl'), 'rb') as fid:
             model_new = pickle.load(fid)
             preds = model_new.predict(X_test)
             print(preds)
