@@ -12,9 +12,6 @@ from aibolit.config import CONFIG
 
 
 JAVA_FILES_PATH = os.environ['JAVA_FILES_PATH']
-MAX_CLASSES = os.environ['MAX_CLASSES']
-
-
 
 def collect_dataset():
     """
@@ -31,8 +28,6 @@ def collect_dataset():
     filter_cmd = ['make', 'filter']
     if JAVA_FILES_PATH is not None:
         filter_cmd.append(f'dir={JAVA_FILES_PATH}')
-    if MAX_CLASSES is not None:
-        filter_cmd.append(f'max_classes={MAX_CLASSES}')
 
     result = subprocess.run(filter_cmd, stdout=subprocess.PIPE)
     if result.returncode != 0:

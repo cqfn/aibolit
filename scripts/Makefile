@@ -20,11 +20,6 @@ endif
 path_to_java_files := $(if $(dir),$(dir), target/01)
 filter:
 	python3 ./02-filter-and-move.py --dir=${path_to_java_files} --max_classes=${max_classes}
-# ifdef max_classes
-# 	python3 ./02-filter-and-move.py --dir ${path_to_java_files} --max_classes=${max_classes}
-# else
-# 	python3 ./02-filter-and-move.py --dir ${path_to_java_files}
-# endif
 
 # Here we go through the list of all Java classes in target/02,
 # and calculate a few metrics per each of them. The result of
