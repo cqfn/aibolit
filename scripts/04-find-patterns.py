@@ -66,10 +66,13 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
 
     file = str(Path(dir_path, file_local_dir)).strip()
     p = Path(file)
-    d_path = Path(os.environ['JAVA_FILES_PATH'] or dir_path)
-    relative_path = p.relative_to(d_path)
+    if os.environ['JAVA_FILES_PATH'] is None:
+        d_path = Path(dir_path)
+        relative_path = p.relative_to(d_path)
+        row = {'filename': relative_path.as_posix()}
+    else:
+        row = {'filename': p.as_posix()}
 
-    row = {'filename': p.as_posix()}
     for pattern in CONFIG['patterns']:
         val = None
         acronym = pattern['code']

@@ -128,7 +128,7 @@ class TwoFoldRankingModel(BaseEstimator):
                                             verbose=display)
         
         self.model = model
-        self.model.fit(X_train, y_train.ravel())
+        self.model.fit(X, y.ravel())
 
     def __get_pairs(self, item):
         pattern_importances = item * self.model.feature_importances_
