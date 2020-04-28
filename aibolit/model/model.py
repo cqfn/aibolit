@@ -86,15 +86,32 @@ class TwoFoldRankingModel(BaseEstimator):
     def __vstack_arrays(self, res):
         return np.vstack(res).T
 
-    def predict(self, X_test, quantity_func='log'):
+    def predict(self, X, quantity_func='log'):
+        """
+        Args:
+            X: np.array with shape (number of snippets, number of patterns) or
+                (number of patterns, ).
+            quantity_func: str, type of function that will be applied to
+                number of occurrences.
+
+        Returns:
+            ranked: np.array with shape (number of snippets, number of patterns)
+                of sorted patterns in non-increasing order for eack snippet of
+                code.
+        """
+
+        if X.ndim == 1:
+            X = X.copy()
+            X = np.expand_dims(X, axis=0)
+
         ranked = []
         quantity_funcs = {
-            'log': lambda x: np.log(x + 1),
+            'log': lambda x: np.log1p(x) / np.log(10),
             'exp': lambda x: np.exp(x + 1),
-            'quantity_func': lambda x: x,
+            'linear': lambda x: x,
         }
-        # code snippet -- patterns representation
-        for snippet in X_test:
+
+        for snippet in X:
             try:
                 item = quantity_funcs[quantity_func](snippet)
                 pairs = self.__vstack_arrays(self.__get_pairs(item))
