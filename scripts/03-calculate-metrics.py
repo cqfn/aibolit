@@ -2,7 +2,7 @@ import subprocess
 import pandas as pd
 import os
 
-
+JAVA_FILES_PATH = os.environ['JAVA_FILES_PATH'] or './target/01'
 DIR_TO_CREATE = 'target/03'
 current_location: str = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__))
@@ -12,7 +12,7 @@ f = open("./_tmp/pmd_out.csv", "w")
 subprocess.call([
     './_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh', 'pmd',
     '-cache', './_tmp/cache',
-    '-d', './target/01', '-R', 'ruleset.xml', '-f', 'csv'
+    '-d', JAVA_FILES_PATH, '-R', 'ruleset.xml', '-f', 'csv'
 ], stdout=f)
 print('Metrics have calculated.')
 
