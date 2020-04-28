@@ -9,8 +9,9 @@ class BidirectIndexHiddenScope {
     void bidirectIndexHiddenScopeFalse() {
         i = 0;
         while(true) {
+            int i = 0; // fake case
             ++i;
         }
-        --i;
+        --i; //fake case
     }
 }

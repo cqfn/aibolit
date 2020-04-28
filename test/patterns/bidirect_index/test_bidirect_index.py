@@ -47,6 +47,13 @@ class TestBidirectIndex(TestCase):
     def test_bidirect_index_hidden_scope_true(self):
         self.assertEqual(
             BidirectIndex().value(Path(self.dir_path, 'BidirectIndexHiddenScope.java')),
-            [10],
+            [0],
             'Could not find bidirec index when scope is hidden'
+        )
+
+    def test_bidirect_index_outsider(self):
+        self.assertEqual(
+            BidirectIndex().value(Path(self.dir_path, 'BidirectIndexOutsider.java')),
+            [10],
+            'Could not find bidirec index when index is ot of loop'
         )
