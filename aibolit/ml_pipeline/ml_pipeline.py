@@ -28,9 +28,9 @@ def collect_dataset():
 
     filter_cmd = ['make', 'filter']
     if JAVA_FILES_PATH is not None:
-        filter_cmd.append(f'--dir={JAVA_FILES_PATH}')
+        filter_cmd.append(f'dir={JAVA_FILES_PATH}')
     if MAX_CLASSES is not None:
-        filter_cmd.append(f'--max_classes={MAX_CLASSES}')
+        filter_cmd.append(f'max_classes={MAX_CLASSES}')
 
     result = subprocess.run(filter_cmd, stdout=subprocess.PIPE)
     if result.returncode != 0:
