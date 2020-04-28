@@ -11,6 +11,11 @@ from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
 from aibolit.config import CONFIG
 
 
+JAVA_FILES_PATH = os.environ['JAVA_FILES_PATH']
+MAX_CLASSES = os.environ['MAX_CLASSES']
+
+
+
 def collect_dataset():
     """
     Run bash scripts to collect metrics and patterns for java files
@@ -20,7 +25,14 @@ def collect_dataset():
     print('Current working directory: ', Path(os.getcwd()))
 
     print('Filtering java files...')
-    result = subprocess.run(['make', 'filter'], stdout=subprocess.PIPE)
+
+    filter_cmd = ['make', 'filter']
+    if JAVA_FILES_PATH is not None:
+        filter_cmd.append(f'--dir=${JAVA_FILES_PATH}')
+    if MAX_CLASSES is not None:
+        filter_cmd.append(f'--max_classes=${MAX_CLASSES}')
+
+    result = subprocess.run(filter_cmd, stdout=subprocess.PIPE)
     if result.returncode != 0:
         print(result.stderr)
         exit(2)
