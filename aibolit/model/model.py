@@ -5,7 +5,7 @@ from typing import List
 import numpy as np
 import pandas as pd
 import torch.nn as nn
-from catboost import CatBoostRegressor
+from catboost import CatBoostRegressor, CatBoost
 from sklearn.base import BaseEstimator
 from sklearn.preprocessing import StandardScaler
 
@@ -106,26 +106,64 @@ class TwoFoldRankingModel(BaseEstimator):
         self.do_rename_columns = False
         self.model = None
 
-    def fit(self, X_train, y_train):
-        # TODO cross-validation for cat boost, find out necessary parameters
-        self.model = CatBoostRegressor(verbose=0)
+    def fit(self, X, y, display=False):
+        """
+        Args: 
+            X: np.array with shape (number of snippets, number of patterns) or
+                (number of patterns, ). 
+            y: np.array with shape (number of snippets,), array of snippets'
+                complexity metric values
+            display: bool, to output info about traing or not
+        """
+        model = CatBoost()
+
+        grid = {'learning_rate': [0.03, 0.1],
+                'depth': [4, 6, 10],
+                'l2_leaf_reg': [1, 3, 5, 7, 9]}
+
+        grid_search_result = model.grid_search(grid, 
+                                            X=X, 
+                                            y=y, 
+                                            # plot=display,
+                                            verbose=display)
+        
+        self.model = model
         self.model.fit(X_train, y_train.ravel())
 
     def __get_pairs(self, item):
-        return item * self.model.feature_importances_, np.arange(self.model.feature_importances_.size)
+        pattern_importances = item * self.model.feature_importances_
+        order = np.arange(self.model.feature_importances_.size)
+        return (pattern_importances, order)
 
     def __vstack_arrays(self, res):
         return np.vstack(res).T
 
-    def predict(self, X_test, quantity_func='log'):
+    def predict(self, X, quantity_func='log'):
+        """
+        Args: 
+            X: np.array with shape (number of snippets, number of patterns) or
+                (number of patterns, ). 
+            quantity_func: str, type of function that will be applied to
+                number of occurrences.
+        
+        Returns:
+            ranked: np.array with shape (number of snippets, number of patterns)
+                of sorted patterns in non-increasing order for eack snippet of 
+                code.
+        """
+
+        if X.ndim == 1:
+            X = X.copy()
+            X = np.expand_dims(X, axis=0)
+
         ranked = []
         quantity_funcs = {
-            'log': lambda x: np.log(x + 1),
+            'log': lambda x: np.log1p(x) / np.log(10),
             'exp': lambda x: np.exp(x + 1),
-            'quantity_func': lambda x: x,
+            'linear': lambda x: x,
         }
-        # code snippet -- patterns representation
-        for snippet in X_test:
+        
+        for snippet in X:
             try:
                 item = quantity_funcs[quantity_func](snippet)
                 pairs = self.__vstack_arrays(self.__get_pairs(item))
