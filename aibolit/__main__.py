@@ -201,12 +201,20 @@ def run_recommend_for_file(file: str, features_conf: dict):
     :return: dict with code lines, filename and pattern name
     """
     print('Analyzing {}'.format(file))
+    MI_pipeline_exclude_codes = [
+        "M5",  # metric not ready
+        "P27",  # empty implementation
+    ]
     java_file = str(Path(os.getcwd(), file))
     code_lines_dict = input_params = {}
     for pattern in CONFIG['patterns']:
+        if pattern in MI_pipeline_exclude_codes:
+            continue
         __count_value(pattern, input_params, code_lines_dict, java_file)
 
     for metric in CONFIG['metrics']:
+        if metric in MI_pipeline_exclude_codes:
+            continue
         __count_value(metric, input_params, code_lines_dict, java_file, is_metric=True)
 
     sorted_result = predict(input_params, features_conf)
