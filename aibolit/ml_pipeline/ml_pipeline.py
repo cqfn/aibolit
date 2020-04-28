@@ -23,6 +23,8 @@ def collect_dataset():
     os.chdir(Path('/home/jovyan/aibolit', 'scripts'))
 
     print('Current working directory: ', Path(os.getcwd()))
+    print('Directory with JAVA classes: ', JAVA_FILES_PATH)
+
 
     print('Filtering java files...')
 
