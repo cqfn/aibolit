@@ -3,9 +3,7 @@ import subprocess
 from pathlib import Path
 
 from sklearn.model_selection import train_test_split  # type: ignore
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score  # type: ignore
 import pickle
-import numpy as np  # type: ignore
 
 from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
 from aibolit.config import CONFIG
@@ -72,20 +70,6 @@ def collect_dataset(java_folder):
         exit(6)
     else:
         print(result.stdout)
-
-
-def mean_absolute_percentage_error(y_true, y_pred):
-    y_true = np.array(y_true).reshape(-1)
-    y_pred = np.array(y_pred).reshape(-1)
-    return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
-
-
-def print_scores(y_test, y_pred):
-    print('MSE: ', mean_squared_error(y_test, y_pred))
-    print('MAE: ', mean_absolute_error(y_test, y_pred))
-    print('MAPE:', mean_absolute_percentage_error(y_test, y_pred))
-    print('R2:  ', r2_score(y_test, y_pred))
-    print('VAR:  ', np.var(y_test))
 
 
 def train_process(model_folder=None):

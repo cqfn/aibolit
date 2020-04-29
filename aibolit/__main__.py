@@ -30,8 +30,8 @@ import sys
 from os import scandir
 from typing import List
 
-from lxml import etree
-import numpy as np
+from lxml import etree  # type: ignore
+import numpy as np  # type: ignore
 from aibolit import __version__
 from aibolit.config import CONFIG
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
@@ -136,10 +136,10 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
 
 
 def create_output(
-        java_file: str,
-        code_lines: List[int],
-        pattern_code: str,
-        pattern_name: str,
+        java_file: str, # type: ignore
+        code_lines: List[int], # type: ignore
+        pattern_code: str, # type: ignore
+        pattern_name: str, # type: ignore
         error_type=None):
     """
     Summarize result and create an output of `predict` function
@@ -151,7 +151,7 @@ def create_output(
     :pattern_name: full pattern name
     :return:
     """
-    output_string = []
+    output_string: List[str] = []
     result_item = {
         'output_string': output_string,
         'filename': java_file,
@@ -175,11 +175,12 @@ def create_output(
                     line,
                     pattern_name
                 ))
-        result_item['code_lines'] = code_lines
+        result_item['code_lines'] = code_lines  # type: ignore
 
     return result_item
 
 
+# flake8: noqa: C901
 def run_recommend_for_file(file: str, features_conf: dict):
     """
     Calculate patterns and metrics, pass values to model and recommend pattern to change
@@ -193,7 +194,7 @@ def run_recommend_for_file(file: str, features_conf: dict):
         "P27",  # empty implementation
     ]
     java_file = str(Path(os.getcwd(), file))
-    code_lines_dict = input_params = {}
+    code_lines_dict = input_params = {}  # type: ignore
     error_string = None
     try:
         for pattern in CONFIG['patterns']:
@@ -207,13 +208,13 @@ def run_recommend_for_file(file: str, features_conf: dict):
             __count_value(metric, input_params, code_lines_dict, java_file, is_metric=True)
     except Exception as ex:
         error_string = str(ex)
-        input_params = []
+        input_params = []  # type: ignore
 
     if input_params:
         sorted_result = predict(input_params, features_conf)
         code_lines = None
         patterns_list = features_conf['patterns_only']
-        pattern = None
+        pattern = None  # type: ignore
         for iter, (key, val) in enumerate(sorted_result.items()):
             if key in patterns_list:
                 pattern = key
@@ -225,15 +226,15 @@ def run_recommend_for_file(file: str, features_conf: dict):
         pattern_name = [x['name'] for x in CONFIG['patterns'] if x['code'] == pattern][0]
     else:
         code_lines = []
-        pattern = None
+        pattern = None  # type: ignore
         pattern_name = None
 
     return create_output(
-        java_file=java_file,
-        code_lines=code_lines,
-        pattern_code=pattern,
-        pattern_name=pattern_name,
-        error_type=str(error_string)
+        java_file=java_file,  # type: ignore
+        code_lines=code_lines,  # type: ignore
+        pattern_code=pattern,  # type: ignore
+        pattern_name=pattern_name,  # type: ignore
+        error_type=str(error_string)  # type: ignore
     )
 
 
