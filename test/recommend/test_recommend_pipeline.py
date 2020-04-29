@@ -20,18 +20,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
-from unittest import TestCase
-from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
-from pathlib import Path
-from hashlib import md5
-import sys
-
-import pytest
-
-from aibolit.__main__ import main, list_dir, run_recommend_for_file, create_xml_tree
 import json
+import os
+from hashlib import md5
+from pathlib import Path
+from unittest import TestCase
+
 from lxml import etree
+
+from aibolit.__main__ import list_dir, run_recommend_for_file, create_xml_tree
 
 
 class TestNestedBlocks(TestCase):

@@ -24,44 +24,21 @@
 """
 
 import argparse
+import concurrent.futures
 import multiprocessing
 import sys
 from os import scandir
-from pathlib import Path
-from collections import OrderedDict
-import json
-from traceback import print_exc
 from typing import List
-from aibolit import __version__
-from aibolit.metrics.entropy.entropy import Entropy
-from aibolit.metrics.ncss.ncss import NCSSMetric
-from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
-from aibolit.ml_pipeline.ml_pipeline import *
-from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode
-from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
-from aibolit.patterns.empty_rethrow.empty_rethrow import EmptyRethrow
-from aibolit.patterns.er_class.er_class import ErClass
-from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import ForceTypeCastingFinder
-from aibolit.patterns.if_return_if_detection.if_detection import CountIfReturn
-from aibolit.patterns.implements_multi.implements_multi import ImplementsMultiFinder
-from aibolit.patterns.instanceof.instance_of import InstanceOf
-from aibolit.patterns.many_primary_ctors.many_primary_ctors import ManyPrimaryCtors
-from aibolit.patterns.method_chaining.method_chaining import MethodChainFind
-from aibolit.patterns.multiple_try.multiple_try import MultipleTry
-from aibolit.patterns.non_final_attribute.non_final_attribute import NonFinalAttribute
-from aibolit.patterns.null_check.null_check import NullCheck
-from aibolit.patterns.partial_synchronized.partial_synchronized import PartialSync
-from aibolit.patterns.redundant_catch.redundant_catch import RedundantCatch
-from aibolit.patterns.return_null.return_null import ReturnNull
-from aibolit.patterns.string_concat.string_concat import StringConcatFinder
-from aibolit.patterns.supermethod.supermethod import SuperMethod
-from aibolit.patterns.this_finder.this_finder import ThisFinder
-from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
-from aibolit.patterns.var_middle.var_middle import VarMiddle
-from aibolit.metrics.ncss.ncss import NCSSMetric
-from aibolit.config import CONFIG
-import concurrent.futures
+
 from lxml import etree
+import numpy as np
+from aibolit import __version__
+from aibolit.config import CONFIG
+from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
+import os
+from pathlib import Path
+import pickle
+import json
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -89,19 +66,18 @@ def predict(input_params, features_conf):
         model_new = pickle.load(fid)
         preds = model_new.predict(np.array(input))
 
-    return {features_order[int(x)]: x  for x in preds.tolist()[0]}
+    return {features_order[int(x)]: x for x in preds.tolist()[0]}
 
 
 def run_parse_args(commands_dict):
     parser = argparse.ArgumentParser(
         description='Find the pattern which has the largest impact on readability',
-        usage=
-        '''
-            aibolit <command> [<args>]
+        usage='''
+        aibolit <command> [<args>]
 
-            You can run 1 command:
-            train          Train model
-            recommend      Recommend pattern
+        You can run 1 command:
+        train          Train model
+        recommend      Recommend pattern
         ''')
 
     parser.add_argument('command', help='Subcommand to run')

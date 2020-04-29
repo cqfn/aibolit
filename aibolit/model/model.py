@@ -1,10 +1,8 @@
-import os
-from pathlib import Path
 from typing import List
 
 import numpy as np
 import pandas as pd
-from catboost import CatBoostRegressor, CatBoost
+from catboost import CatBoost
 from sklearn.base import BaseEstimator
 from sklearn.preprocessing import StandardScaler
 
@@ -77,9 +75,9 @@ class TwoFoldRankingModel(BaseEstimator):
 
     def fit(self, X, y, display=False):
         """
-        Args: 
+        Args:
             X: np.array with shape (number of snippets, number of patterns) or
-                (number of patterns, ). 
+                (number of patterns, ).
             y: np.array with shape (number of snippets,), array of snippets'
                 complexity metric values
             display: bool, to output info about traing or not
@@ -109,12 +107,12 @@ class TwoFoldRankingModel(BaseEstimator):
 
     def predict(self, X, quantity_func='log'):
         """
-        Args: 
+        Args:
             X: np.array with shape (number of snippets, number of patterns) or
-                (number of patterns, ). 
+                (number of patterns, ).
             quantity_func: str, type of function that will be applied to
                 number of occurrences.
-        
+
         Returns:
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for eack snippet of
