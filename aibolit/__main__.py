@@ -290,7 +290,7 @@ def recommend():
         default=False
     )
     # make a certain order of arguments which was used by a model
-    with open('binary_files/features_order.json', 'r', encoding='utf-8') as f:
+    with open(Path(dir_path, 'binary_files/features_order.json'), 'r', encoding='utf-8') as f:
         features_conf = json.load(f)
 
     args = parser.parse_args(sys.argv[2:])
