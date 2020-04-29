@@ -77,3 +77,10 @@ class TestNestedBlocks(TestCase):
         xml_string = create_xml_tree([])
         md5_hash = md5(etree.tostring(xml_string))
         self.assertEqual(md5_hash, md5_hash.hexdigest())
+
+    def test_recommend_with_error(self):
+        file = Path(self.cur_file_dir, 'errors\AbsoluteLayoutSupport.java')
+        results = run_recommend_for_file(str(file), self.features_conf)
+        xml_string = create_xml_tree([results])
+        md5_hash = md5(etree.tostring(xml_string))
+        self.assertEqual(md5_hash.hexdigest(), '1abcc7fceedf7fce6f8d141c305a7da1')

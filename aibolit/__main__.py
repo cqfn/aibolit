@@ -131,7 +131,8 @@ def create_output(
         java_file: str,
         code_lines: List[int],
         pattern_code: str,
-        pattern_name: str):
+        pattern_name: str,
+        error_type=None):
     """
     Summarize result and create an output of `predict` function
 
@@ -150,8 +151,10 @@ def create_output(
         'pattern_name': pattern_name
     }
 
-    if not code_lines:
+    if not code_lines and not error_type:
         output_string.append('Your code is perfect in aibolit\'s opinion')
+    elif not code_lines and error_type:
+        output_string.append('Error when calculating patterns: {}'.format(error_type))
     else:
         output_str = \
             'The largest contribution for {file} for \"{pattern}\" pattern'.format(
@@ -183,34 +186,46 @@ def run_recommend_for_file(file: str, features_conf: dict):
     ]
     java_file = str(Path(os.getcwd(), file))
     code_lines_dict = input_params = {}
-    for pattern in CONFIG['patterns']:
-        if pattern in MI_pipeline_exclude_codes:
-            continue
-        __count_value(pattern, input_params, code_lines_dict, java_file)
+    error_string = None
+    try:
+        for pattern in CONFIG['patterns']:
+            if pattern in MI_pipeline_exclude_codes:
+                continue
+            __count_value(pattern, input_params, code_lines_dict, java_file)
 
-    for metric in CONFIG['metrics']:
-        if metric in MI_pipeline_exclude_codes:
-            continue
-        __count_value(metric, input_params, code_lines_dict, java_file, is_metric=True)
+        for metric in CONFIG['metrics']:
+            if metric in MI_pipeline_exclude_codes:
+                continue
+            __count_value(metric, input_params, code_lines_dict, java_file, is_metric=True)
+    except Exception as ex:
+        error_string = str(ex)
+        input_params = []
 
-    sorted_result = predict(input_params, features_conf)
-    code_lines = None
-    patterns_list = features_conf['patterns_only']
-    pattern = None
-    for iter, (key, val) in enumerate(sorted_result.items()):
-        if key in patterns_list:
-            pattern = key
-            code_lines = code_lines_dict.get('lines_' + key)
-            # We show only positive gradient, we won't add patterns
-            if code_lines and val > 1.00000e-20:
-                break
+    if input_params:
+        sorted_result = predict(input_params, features_conf)
+        code_lines = None
+        patterns_list = features_conf['patterns_only']
+        pattern = None
+        for iter, (key, val) in enumerate(sorted_result.items()):
+            if key in patterns_list:
+                pattern = key
+                code_lines = code_lines_dict.get('lines_' + key)
+                # We show only positive gradient, we won't add patterns
+                if code_lines and val > 1.00000e-20:
+                    break
 
-    pattern_name = [x['name'] for x in CONFIG['patterns'] if x['code'] == pattern][0]
+        pattern_name = [x['name'] for x in CONFIG['patterns'] if x['code'] == pattern][0]
+    else:
+        code_lines = []
+        pattern = None
+        pattern_name = None
+
     return create_output(
         java_file=java_file,
         code_lines=code_lines,
         pattern_code=pattern,
-        pattern_name=pattern_name
+        pattern_name=pattern_name,
+        error_type=str(error_string)
     )
 
 
@@ -227,17 +242,19 @@ def create_xml_tree(results):
         top.append(comment)
 
         child = etree.SubElement(top, 'filename')
-        child.text = result['filename']
+        child.text = result.get('filename')
         code_lines_list = etree.SubElement(child, 'code_lines')
         pattern_item = etree.SubElement(child, 'pattern')
-        pattern_item.text = result['pattern_name']
-        pattern_item.attrib['pattern_code'] = result['pattern_code']
+        pattern_item.text = result.get('pattern_name') or ''
+        pattern_item.attrib['pattern_code'] = result.get('pattern_code') or ''
         pattern_item = etree.SubElement(child, 'output_string')
         pattern_item.text = '\n'.join(result['output_string'])
 
-        for code_line in result['code_lines']:
-            code_line_elem = etree.SubElement(code_lines_list, 'line_number')
-            code_line_elem.text = str(code_line)
+        code_lines_list = result.get('code_lines')
+        if code_lines_list:
+            for code_line in result['code_lines']:
+                code_line_elem = etree.SubElement(code_lines_list, 'line_number')
+                code_line_elem.text = str(code_line)
 
     return top
 
