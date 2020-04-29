@@ -79,7 +79,7 @@ class TestNestedBlocks(TestCase):
         self.assertEqual(md5_hash, md5_hash.hexdigest())
 
     def test_recommend_with_error(self):
-        file = Path(self.cur_file_dir, 'errors\AbsoluteLayoutSupport.java')
+        file = Path(self.cur_file_dir, r'errors\AbsoluteLayoutSupport.java')
         results = run_recommend_for_file(str(file), self.features_conf)
         xml_string = create_xml_tree([results])
         md5_hash = md5(etree.tostring(xml_string))
