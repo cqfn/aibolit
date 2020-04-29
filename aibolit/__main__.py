@@ -104,7 +104,7 @@ def train():
         help='full path to directory',
         default=False
     )
-    # collect_dataset(parser.java_folder)
+    collect_dataset(parser.java_folder)
     train_process()
 
 
