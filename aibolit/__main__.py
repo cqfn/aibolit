@@ -39,7 +39,7 @@ import os
 from pathlib import Path
 import pickle
 import json
-
+from aibolit.model.model import TwoFoldRankingModel, Dataset  # type: ignore
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
