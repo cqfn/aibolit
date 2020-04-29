@@ -12,11 +12,16 @@ from aibolit.config import CONFIG
 import json
 
 
-def collect_dataset():
+def collect_dataset(java_folder):
     """
-    Run bash scripts to collect metrics and patterns for java files
+     Run bash scripts to collect metrics and patterns for java files
+
+    :param java_folder: folder to java files which will be analyzed
     """
     os.chdir(Path('/home/jovyan/aibolit', 'scripts'))
+    if not java_folder:
+        java_folder = Path('target/01').absolute()
+        print('Analyzing {} dir:'.format(java_folder))
 
     print('Current working directory: ', Path(os.getcwd()))
 

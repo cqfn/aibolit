@@ -96,7 +96,15 @@ def run_parse_args(commands_dict):
 
 
 def train():
-    # collect_dataset()
+    parser = argparse.ArgumentParser(
+        description='Collect dataset and train model'
+    )
+    parser.add_argument(
+        '--java_folder',
+        help='full path to directory',
+        default=False
+    )
+    # collect_dataset(parser.java_folder)
     train_process()
 
 
