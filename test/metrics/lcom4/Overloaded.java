@@ -14,9 +14,9 @@ public class Overloaded {
     }
 
     public void method3() {
-        int a = this.a + 1;
-        Integer m = a;
-        method(b, a);
-        method(m, a);
+        int a;
+        float b;
+        method(a);
+        method(b);
     }
 }

@@ -21,7 +21,6 @@
 # SOFTWARE.
 
 import os
-import unittest
 from unittest import TestCase
 from pathlib import Path
 from aibolit.metrics.lcom4.lcom4 import LCOM4
@@ -41,7 +40,6 @@ class TestLCOM4(TestCase):
         name = 'Constructor.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
         print(name)
-
         self.assertEqual(lcom4_val, 1)
 
     def test_scope_with_anonymous(self):
@@ -79,10 +77,10 @@ class TestLCOM4(TestCase):
         name = 'MethodChain.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
         print(name)
-        self.assertEqual(lcom4_val, 3)
+        self.assertEqual(lcom4_val, 1)
 
     def test_overloaded_diff(self):
         name = 'OverloadedDiffComp.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
         print(name)
-        self.assertEqual(lcom4_val, 2)
+        self.assertEqual(lcom4_val, 1)
