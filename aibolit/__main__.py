@@ -243,17 +243,17 @@ def create_xml_tree(results):
 
         child = etree.SubElement(top, 'filename')
         child.text = result.get('filename')
-        code_lines_list = etree.SubElement(child, 'code_lines')
+        code_lines_lst_tree_node = etree.SubElement(child, 'code_lines')
         pattern_item = etree.SubElement(child, 'pattern')
         pattern_item.text = result.get('pattern_name') or ''
         pattern_item.attrib['pattern_code'] = result.get('pattern_code') or ''
         pattern_item = etree.SubElement(child, 'output_string')
         pattern_item.text = '\n'.join(result['output_string'])
 
-        code_lines_list = result.get('code_lines')
-        if code_lines_list:
-            for code_line in result['code_lines']:
-                code_line_elem = etree.SubElement(code_lines_list, 'line_number')
+        code_lines_items = result.get('code_lines')
+        if code_lines_items:
+            for code_line in code_lines_items:
+                code_line_elem = etree.SubElement(code_lines_lst_tree_node, 'line_number')
                 code_line_elem.text = str(code_line)
 
     return top
