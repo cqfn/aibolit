@@ -4,7 +4,7 @@ from typing import List
 
 import numpy as np
 import pandas as pd
-from catboost import CatBoostRegressor
+from catboost import CatBoostRegressor, CatBoost
 from sklearn.base import BaseEstimator
 from sklearn.preprocessing import StandardScaler
 
@@ -75,25 +75,46 @@ class TwoFoldRankingModel(BaseEstimator):
         self.do_rename_columns = False
         self.model = None
 
-    def fit(self, X_train, y_train):
-        # TODO cross-validation for cat boost, find out necessary parameters
-        self.model = CatBoostRegressor(verbose=0)
-        self.model.fit(X_train, y_train.ravel())
+    def fit(self, X, y, display=False):
+        """
+        Args: 
+            X: np.array with shape (number of snippets, number of patterns) or
+                (number of patterns, ). 
+            y: np.array with shape (number of snippets,), array of snippets'
+                complexity metric values
+            display: bool, to output info about traing or not
+        """
+        model = CatBoost()
+
+        grid = {'learning_rate': [0.03, 0.1],
+                'depth': [4, 6, 10],
+                'l2_leaf_reg': [1, 3, 5, 7, 9]}
+
+        model.grid_search(
+            grid,
+            X=X,
+            y=y,
+            verbose=display)
+
+        self.model = model
+        self.model.fit(X, y.ravel())
 
     def __get_pairs(self, item):
-        return item * self.model.feature_importances_, np.arange(self.model.feature_importances_.size)
+        pattern_importances = item * self.model.feature_importances_
+        order = np.arange(self.model.feature_importances_.size)
+        return (pattern_importances, order)
 
     def __vstack_arrays(self, res):
         return np.vstack(res).T
 
     def predict(self, X, quantity_func='log'):
         """
-        Args:
+        Args: 
             X: np.array with shape (number of snippets, number of patterns) or
-                (number of patterns, ).
+                (number of patterns, ). 
             quantity_func: str, type of function that will be applied to
                 number of occurrences.
-
+        
         Returns:
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for eack snippet of
