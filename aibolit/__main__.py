@@ -58,8 +58,6 @@ def predict(input_params, features_conf):
     features_order = features_conf['features_order']
     # load model
     input = [input_params[i] for i in features_order]
-    cwd = Path(os.getcwd())
-    print('Current cmd: ' + str(cwd))
     model_path = Path(dir_path, 'binary_files/model.pkl')
 
     with open(model_path, 'rb') as fid:

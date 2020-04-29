@@ -97,7 +97,7 @@ def train_process(model_folder=None):
             "features_order": dataset.feature_order,
             "patterns_only": only_patterns
         }
-        with open(Path(cwd.parent, 'aibolit', 'binary_files', 'features_order.json'), 'wb') as fid:
+        with open(Path(cwd.parent, 'aibolit', 'binary_files', 'features_order.json'), 'w') as fid:
             json.dump(features_conf, fid, sort_keys=True, indent=4)
 
         X_train, X_test, y_train, y_test = train_test_split(dataset.input, dataset.target, test_size=0.3)

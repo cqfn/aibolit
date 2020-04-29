@@ -10,6 +10,7 @@ from aibolit.config import CONFIG
 from pathlib import Path
 import os
 
+
 class Dataset:
 
     def __init__(self, only_patterns: List[str]):
