@@ -7,7 +7,8 @@ from sklearn.base import BaseEstimator
 from sklearn.preprocessing import StandardScaler
 
 from aibolit.config import CONFIG
-
+from pathlib import Path
+import os
 
 class Dataset:
 
@@ -23,9 +24,7 @@ class Dataset:
             scale=False,
             **kwargs):
 
-        df = pd.read_csv(r'D:\git\aibolit\scripts\dataset.csv')
-        # print(Path(os.getcwd(), 'target', 'dataset.csv'))
-        # df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
+        df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
         df = df[~df["filename"].str.lower().str.contains("test")]
 
         if self.do_rename_columns:

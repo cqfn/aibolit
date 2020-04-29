@@ -102,9 +102,11 @@ def train():
     parser.add_argument(
         '--java_folder',
         help='full path to directory',
-        default=False
+        default=False,
+        required=False
     )
-    collect_dataset(parser.java_folder)
+    args = parser.parse_args(sys.argv[2:])
+    collect_dataset(args.java_folder)
     train_process()
 
 
