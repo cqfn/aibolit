@@ -98,12 +98,10 @@ def train_process(model_folder=None):
             "patterns_only": only_patterns
         }
 
-        with open(Path(Config.folder_to_save_model_data(), 'features_order.json'), 'w') as fid:
-            json.dump(features_conf, fid, sort_keys=True, indent=4)
-
         X_train, X_test, y_train, y_test = train_test_split(dataset.input, dataset.target, test_size=0.3)
         model = TwoFoldRankingModel()
         model.fit(X_train, y_train)
+        model.features_conf = features_conf
 
         with open(Path(Config.folder_to_save_model_data(), 'model.pkl'), 'wb') as fid:
             pickle.dump(model, fid)

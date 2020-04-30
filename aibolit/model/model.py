@@ -71,6 +71,7 @@ class TwoFoldRankingModel(BaseEstimator):
     def __init__(self):
         self.do_rename_columns = False
         self.model = None
+        self.features_conf = None
 
     def fit(self, X, y, display=False):
         """

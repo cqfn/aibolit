@@ -209,7 +209,7 @@ def inreference(input_params: List[int], code_lines_dict):
     :return:
     """
     if input_params:
-        model_path = Path(Config.folder_model_data(), 'model.pkl')
+        model_path =
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
         sorted_result = predict(input_params, model)

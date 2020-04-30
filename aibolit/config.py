@@ -59,8 +59,9 @@ class Config(metaclass=Singleton):
 
     @staticmethod
     def folder_model_data():
-        return os.environ.get('HOME_MODEL_FOLDER') or \
-               Path(Config().home_aibolit_folder(), 'aibolit', 'binary_files')
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        model_file = Path(Path(dir_path).parent, 'binary_files', 'model.pkl')
+        return os.environ.get('HOME_MODEL_FOLDER') or model_file
 
     @staticmethod
     def dataset_file():
@@ -145,6 +146,3 @@ class Config(metaclass=Singleton):
 
             }
         }
-
-
-CONFIG = {}
