@@ -38,8 +38,7 @@ from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
 import os
 from pathlib import Path
 import pickle
-import json
-from aibolit.model.model import TwoFoldRankingModel, Dataset  # type: ignore
+from aibolit.model.model import TwoFoldRankingModel, Dataset  # type: ignore  # noqa: F401
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
@@ -100,7 +99,7 @@ def train():
         required=False
     )
     args = parser.parse_args(sys.argv[2:])
-    # collect_dataset(args.java_folder)
+    collect_dataset(args.java_folder)
     train_process()
 
 
@@ -132,10 +131,10 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
 
 
 def create_output(
-        java_file: str, # type: ignore
-        code_lines: List[int], # type: ignore
-        pattern_code: str, # type: ignore
-        pattern_name: str, # type: ignore
+        java_file: str,  # type: ignore
+        code_lines: List[int],  # type: ignore
+        pattern_code: str,  # type: ignore
+        pattern_name: str,  # type: ignore
         error_type=None):
     """
     Summarize result and create an output of `predict` function
@@ -178,9 +177,9 @@ def create_output(
 
 def calculate_patterns_and_metrics(file):
     MI_pipeline_exclude_codes = [
-            "M5",  # metric not ready
-            "P27",  # empty implementation
-        ]
+        "M5",  # metric not ready
+        "P27",  # empty implementation
+    ]
     code_lines_dict = input_params = {}  # type: ignore
     error_string = None
     try:
@@ -209,7 +208,7 @@ def inreference(input_params: List[int], code_lines_dict):
     :return:
     """
     if input_params:
-        model_path =
+        model_path = Config.folder_model_data()
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
         sorted_result = predict(input_params, model)
@@ -224,7 +223,7 @@ def inreference(input_params: List[int], code_lines_dict):
                 if code_lines and val > 1.00000e-20:
                     break
 
-        pattern_name = [x['name'] for x in Config.get_patterns_config()['patterns'] if x['code'] == pattern][0]
+        pattern_name = [x['name'] for x in Config.get_patterns_config()['patterns'] if x['code'] == pattern_code][0]
     else:
         code_lines = []
         pattern_code = None  # type: ignore
@@ -237,7 +236,6 @@ def run_recommend_for_file(file: str):
     """
     Calculate patterns and metrics, pass values to model and recommend pattern to change
     :param file: file to analyze
-    :param features_conf: dict from features_order.json in repo
     :return: dict with code lines, filename and pattern name
     """
     print('Analyzing {}'.format(file))
@@ -268,15 +266,16 @@ def create_xml_tree(results):
 
         child = etree.SubElement(top, 'filename')
         child.text = result.get('filename')
-        code_lines_lst_tree_node = etree.SubElement(child, 'code_lines')
-        pattern_item = etree.SubElement(child, 'pattern')
-        pattern_item.text = result.get('pattern_name') or ''
-        pattern_item.attrib['pattern_code'] = result.get('pattern_code') or ''
-        pattern_item = etree.SubElement(child, 'output_string')
-        pattern_item.text = '\n'.join(result['output_string'])
+        if result.get('pattern_code'):
+            pattern_item = etree.SubElement(child, 'pattern')
+            pattern_item.text = result.get('pattern_name') or ''
+            pattern_item.attrib['pattern_code'] = result.get('pattern_code')
+        output_string = etree.SubElement(child, 'output_string')
+        output_string.text = '\n'.join(result['output_string'])
 
         code_lines_items = result.get('code_lines')
         if code_lines_items:
+            code_lines_lst_tree_node = etree.SubElement(child, 'code_lines')
             for code_line in code_lines_items:
                 code_line_elem = etree.SubElement(code_lines_lst_tree_node, 'line_number')
                 code_line_elem.text = str(code_line)
@@ -343,7 +342,6 @@ def run_thread(files):
     """
     Parallel patterns/metrics calculation
     :param files: list of java files to analyze
-    :param features_conf: dict from features_order.json in repo
 
     """
     with concurrent.futures.ThreadPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:

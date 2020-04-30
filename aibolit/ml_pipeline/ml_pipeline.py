@@ -7,7 +7,6 @@ import pickle
 
 from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
 from aibolit.config import Config
-import json
 
 
 def collect_dataset(java_folder):
@@ -83,9 +82,13 @@ def train_process(model_folder=None):
         ignore_patterns = ['P27']
         ignore_metrics = ['M4', 'M5']
 
-        only_patterns = [x['code'] for x in list(Config.get_patterns_config()['patterns']) if x['code'] not in ignore_patterns]
+        only_patterns = [
+            x['code'] for x in list(Config.get_patterns_config()['patterns'])
+            if x['code'] not in ignore_patterns
+        ]
         only_metrics = \
-            [x['code'] for x in list(Config.get_patterns_config()['metrics']) if x['code'] not in ignore_metrics] \
+            [x['code'] for x in list(Config.get_patterns_config()['metrics'])
+             if x['code'] not in ignore_metrics] \
             + ['halstead volume']
         columns_features = only_metrics + only_patterns
         features_number = len(columns_features)

@@ -7,8 +7,6 @@ from sklearn.base import BaseEstimator
 from sklearn.preprocessing import StandardScaler
 
 from aibolit.config import Config
-from pathlib import Path
-import os
 
 
 class Dataset:

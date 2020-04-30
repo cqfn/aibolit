@@ -37,7 +37,7 @@ from pathlib import Path
 
 
 class Singleton(type):
-    _instances = {}
+    _instances = {}  # type: ignore
 
     def __call__(cls, *args, **kwargs):
         if cls not in cls._instances:
@@ -49,24 +49,23 @@ class Config(metaclass=Singleton):
 
     @staticmethod
     def home_aibolit_folder():
-        return os.environ.get('HOME_AIBOLIT') \
-               or '/home/jovyan/aibolit'
+        return os.environ.get('HOME_AIBOLIT') or '/home/jovyan/aibolit'
 
     @staticmethod
     def folder_to_save_model_data():
-        return os.environ.get('SAVE_MODEL_FOLDER') \
-               or Path(Config().home_aibolit_folder(), 'aibolit', 'binary_files')
+        model_folder = Path(Config().home_aibolit_folder(), 'aibolit', 'binary_files')
+        return os.environ.get('SAVE_MODEL_FOLDER') or model_folder
 
     @staticmethod
     def folder_model_data():
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        model_file = Path(Path(dir_path).parent, 'binary_files', 'model.pkl')
+        model_file = Path(Path(dir_path), 'binary_files', 'model.pkl')
         return os.environ.get('HOME_MODEL_FOLDER') or model_file
 
     @staticmethod
     def dataset_file():
-        return os.environ.get('HOME_DATASET_CSV') or \
-               Path(Config().home_aibolit_folder(), 'scripts', 'target', 'dataset.csv')
+        dataset_path = Path(Config().home_aibolit_folder(), 'scripts', 'target', 'dataset.csv')
+        return os.environ.get('HOME_DATASET_CSV') or dataset_path
 
     @staticmethod
     def get_patterns_config():

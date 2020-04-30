@@ -20,9 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import json
 import os
-import pickle
 from hashlib import md5
 from pathlib import Path
 from unittest import TestCase
@@ -30,7 +28,7 @@ from unittest import TestCase
 from lxml import etree
 
 from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, create_xml_tree
-from aibolit.model.model import TwoFoldRankingModel, Dataset # type: ignore
+
 
 class TestNestedBlocks(TestCase):
 
@@ -41,7 +39,6 @@ class TestNestedBlocks(TestCase):
     def test_calculate_patterns_and_metrics(self):
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
         calculate_patterns_and_metrics(file)
-        # run_recommend_for_file(str(file))
 
     def test_list_dir_empty(self):
         file = Path(self.cur_file_dir, 'empty_dir')
@@ -66,9 +63,22 @@ class TestNestedBlocks(TestCase):
         self.assertEqual(filenames, resuls)
 
     def test_xml_create(self):
-        file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
-        results = run_recommend_for_file(str(file))
-        xml_string = create_xml_tree([results])
+        item = {
+            'output_string': "Shocker face!",
+            'filename': '1.java',
+            'pattern_code': 'P23',
+            'pattern_name': 'Some patterns name',
+            'code_lines': [1, 2, 4]
+        }
+        another_item = {
+            'output_string': "Boogeyman",
+            'filename': 'hdd/home/jardani_jovonovich/John_wick.java',
+            'pattern_code': 'P2',
+            'pattern_name': 'Somebody please get this man a gun',
+            'code_lines': [10, 100, 15000]
+        }
+        mock_input = [item, another_item]
+        xml_string = create_xml_tree(mock_input)
         md5_hash = md5(etree.tostring(xml_string))
         self.assertEqual(md5_hash.hexdigest(), '86e0756b9627280f605d5c6b4cf17f9f')
 
@@ -76,10 +86,3 @@ class TestNestedBlocks(TestCase):
         xml_string = create_xml_tree([])
         md5_hash = md5(etree.tostring(xml_string))
         self.assertEqual(md5_hash, md5_hash.hexdigest())
-
-    def test_recommend_with_error(self):
-        file = Path(self.cur_file_dir, r'errors\AbsoluteLayoutSupport.java')
-        results = run_recommend_for_file(str(file))
-        xml_string = create_xml_tree([results])
-        md5_hash = md5(etree.tostring(xml_string))
-        self.assertEqual(md5_hash.hexdigest(), '1abcc7fceedf7fce6f8d141c305a7da1')
