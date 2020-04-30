@@ -40,6 +40,7 @@ InvNodes = Tuple[tuple, MethodInvocation]
 LocalNodes = Tuple[tuple, LocalVariableDeclaration]
 MthNodes = Tuple[tuple, MethodDeclaration]
 Nodes = Tuple[tuple, T]
+AnyField = Union[FieldDeclaration, LocalVariableDeclaration]
 NodeGen = Generator[Tuple[tuple, T], None, None]
 EdgeNode = Union[MthExh, FldExh]
 
@@ -102,15 +103,16 @@ class LCOM4:
     # ------------------------------------------------
     # Funcs for adding edges to graph
 
-    def add_invocations_to_graph(self,
-                                 G: Graph,
-                                 invocation_nodes: List[SelMemNodes],
-                                 full_method_exhaust: List[MthExh],
-                                 method_exhaust: MthExh,
-                                 local_exhaust: List[FldExh],
-                                 full_field_exhaust: List[FldExh]) -> None:
+    def add_invocations_to_graph(
+        self,
+        G: Graph,
+        invocation_nodes: List[SelMemNodes],
+        full_method_exhaust: List[MthExh],
+        method_exhaust: MthExh,
+        local_exhaust: List[FldExh],
+        full_field_exhaust: List[FldExh]
+    ) -> None:
 
-        # -*- coding: utf-8 -*-
         """Adds nodes to graph G
 
         Gets list of invocation names as input and
@@ -132,14 +134,15 @@ class LCOM4:
                 if len(inv_funcs) > 0:
                     self.add_invocation_funcs(G, inv_funcs, full_method_exhaust, method_exhaust)
 
-    def add_invocation_fields(self,
-                              G: Graph,
-                              inv_fields: List[str],
-                              local_exhaust: List[FldExh],
-                              full_field_exhaust: List[FldExh],
-                              method_exhaust: MthExh) -> None:
+    def add_invocation_fields(
+        self,
+        G: Graph,
+        inv_fields: List[str],
+        local_exhaust: List[FldExh],
+        full_field_exhaust: List[FldExh],
+        method_exhaust: MthExh
+    ) -> None:
 
-        # -*- coding: utf-8 -*-
         """Adds nodes to graph G
 
         Gets list of invocation field attributes as input and
@@ -154,12 +157,13 @@ class LCOM4:
                     if inv_argument == field[0]:
                         self.add_vertices_edges(G, 'reference', method_exhaust, field)
 
-    def add_invocation_funcs(self,
-                             G: Graph,
-                             inv_funcs: List[str],
-                             full_method_exhaust: List[MthExh],
-                             method_exhaust: MthExh) -> None:
-        # -*- coding: utf-8 -*-
+    def add_invocation_funcs(
+        self,
+        G: Graph,
+        inv_funcs: List[str],
+        full_method_exhaust: List[MthExh],
+        method_exhaust: MthExh
+    ) -> None:
         """Adds nodes to graph G
 
         Gets list of invocation method attributes as input and
@@ -167,19 +171,20 @@ class LCOM4:
         After successful comparison calls "add_vertices_edges"
         Adding nodes and edges between.
         """
-
-        for inv_argument in inv_funcs:  # ToDo: make a func for a return type check
+        # ToDo: make a func for a return type check
+        for inv_argument in inv_funcs:
             for method in full_method_exhaust:
                 if inv_argument == method[0]:
                     self.add_vertices_edges(G, 'reference', method_exhaust, method)
 
-    def add_references_to_graph(self,
-                                G: Graph,
-                                reference_nodes: List[SelMemNodes],
-                                local_exhaust: List[FldExh],
-                                full_field_exhaust: List[FldExh],
-                                method_exhaust: MthExh) -> None:
-        # -*- coding: utf-8 -*-
+    def add_references_to_graph(
+        self,
+        G: Graph,
+        reference_nodes: List[SelMemNodes],
+        local_exhaust: List[FldExh],
+        full_field_exhaust: List[FldExh],
+        method_exhaust: MthExh
+    ) -> None:
         """Adds nodes to graph G
 
         Gets list of "MemberReferences" nodes as input and
@@ -195,13 +200,14 @@ class LCOM4:
                         if reference_node.member == field[0]:
                             self.add_vertices_edges(G, 'ref', method_exhaust, field)
 
-    def add_this_to_graph(self,
-                          G: Graph,
-                          this_nodes: List[ThisNodes],
-                          full_field_exhaust: List[FldExh],
-                          method_exhaust: MthExh) -> None:
+    def add_this_to_graph(
+        self,
+        G: Graph,
+        this_nodes: List[ThisNodes],
+        full_field_exhaust: List[FldExh],
+        method_exhaust: MthExh
+    ) -> None:
 
-        # -*- coding: utf-8 -*-
         """Adds nodes to graph G
 
         Gets list of "This" nodes as input and
@@ -219,7 +225,6 @@ class LCOM4:
     @staticmethod
     def add_vertices_edges(G, edge_type: str, first_node: EdgeNode, second_node: EdgeNode) -> None:
 
-        # -*- coding: utf-8 -*-
         """Adds nodes to graph G
 
         Gets two objects as input and
@@ -237,7 +242,6 @@ class LCOM4:
     @staticmethod
     def filter_node_lvl(node: T, javalang_class: Type[T]) -> Generator[Nodes, None, None]:
 
-        # -*- coding: utf-8 -*-
         """Filters nodes by desired javalang class.
 
         Gets node(node) of any javalang.Tree type and filters it by
@@ -252,7 +256,6 @@ class LCOM4:
     @staticmethod
     def filter_getters_setters(method_node_list: List[MthNodes]) -> NodeGen:
 
-        # -*- coding: utf-8 -*-
         """Filters nodes by name.
 
         Gets list of nodes of "MethodDeclaration" type and filters it by
@@ -260,8 +263,8 @@ class LCOM4:
         go to return list.
         Returns a generator with (path, node) inside.
         """
-
-        for path, node in method_node_list:                     # ToDo: implement get/set detection with .body
+        # ToDo: implement get/set detection with .body
+        for path, node in method_node_list:
             if node.name.startswith(('get', 'set')):
                 pass
             else:
@@ -270,7 +273,6 @@ class LCOM4:
     @staticmethod
     def get_class_depth(path: tuple) -> int:
 
-        # -*- coding: utf-8 -*-
         """Returns an int displaying level of given node's nesting level.
 
         Gets a node of any javalang.tree type and calculates it's nesting level
@@ -286,7 +288,6 @@ class LCOM4:
     @staticmethod
     def exhaust_method(method_node: MethodDeclaration) -> MthExh:
 
-        # -*- coding: utf-8 -*-
         """ Exhausts name and input vars, types for given MethodDeclaration node.
 
         Returns a tuple containing name and all parameters
@@ -301,15 +302,15 @@ class LCOM4:
         return name, parameter_tuple
 
     @staticmethod
-    def exhaust_field(field_node: Union[FieldDeclaration, LocalVariableDeclaration]) -> FldExh:
+    def exhaust_field(field_node: AnyField) -> FldExh:
 
-        # -*- coding: utf-8 -*-
         """ Exhausts name and type for given FieldDeclaration or LocalVariableDeclaration node.
 
         Returns a tuple containing name and type of field.
         """
+        # ToDo: get rid of'type' in parameter_tuple
 
-        name = field_node.declarators[0].name                              # ToDo: get rid of'type' in parameter_tuple
+        name = field_node.declarators[0].name
         try:
             parameter_tuple: Tuple[str, str] = ('type', field_node.type.name)
         except AttributeError:
@@ -319,7 +320,6 @@ class LCOM4:
     @staticmethod
     def get_arguments(invocation_node: MethodInvocation) -> Tuple[List[str], List[str]]:
 
-        # -*- coding: utf-8 -*-
         """Gets arguments passed to given MethodInvocation node.
 
         Returns two tuples containing all arguments and methods passed
@@ -338,7 +338,6 @@ class LCOM4:
     @staticmethod
     def clean_for_repetitions(list_of_exhaust: List[Any]) -> List[Any]:
 
-        # -*- coding: utf-8 -*-
         """Gets any list and removes all repetitions.
 
         Returns list with no repetitive objects.
