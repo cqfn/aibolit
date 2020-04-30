@@ -29,8 +29,7 @@ from unittest import TestCase
 
 from lxml import etree
 
-from aibolit.__main__ import list_dir, run_recommend_for_file, create_xml_tree
-from aibolit.config import Config
+from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, create_xml_tree
 from aibolit.model.model import TwoFoldRankingModel, Dataset # type: ignore
 
 class TestNestedBlocks(TestCase):
@@ -38,11 +37,11 @@ class TestNestedBlocks(TestCase):
     def __init__(self, *args, **kwargs):
         super(TestNestedBlocks, self).__init__(*args, **kwargs)
         self.cur_file_dir = Path(os.path.realpath(__file__)).parent
-        self.binary_files_folder = Path(self.cur_file_dir.parent.parent, 'aibolit', 'binary_files')
 
-    def test_recommend_list_of_files(self):
+    def test_calculate_patterns_and_metrics(self):
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
-        run_recommend_for_file(str(file))
+        calculate_patterns_and_metrics(file)
+        # run_recommend_for_file(str(file))
 
     def test_list_dir_empty(self):
         file = Path(self.cur_file_dir, 'empty_dir')

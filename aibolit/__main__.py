@@ -176,36 +176,38 @@ def create_output(
     return result_item
 
 
-# flake8: noqa: C901
-def run_recommend_for_file(file: str):
-    """
-    Calculate patterns and metrics, pass values to model and recommend pattern to change
-    :param file: file to analyze
-    :param features_conf: dict from features_order.json in repo
-    :return: dict with code lines, filename and pattern name
-    """
-    print('Analyzing {}'.format(file))
+def calculate_patterns_and_metrics(file):
     MI_pipeline_exclude_codes = [
-        "M5",  # metric not ready
-        "P27",  # empty implementation
-    ]
-    java_file = str(Path(os.getcwd(), file))
+            "M5",  # metric not ready
+            "P27",  # empty implementation
+        ]
     code_lines_dict = input_params = {}  # type: ignore
     error_string = None
     try:
         for pattern in Config.get_patterns_config()['patterns']:
             if pattern in MI_pipeline_exclude_codes:
                 continue
-            __count_value(pattern, input_params, code_lines_dict, java_file)
+            __count_value(pattern, input_params, code_lines_dict, file)
 
         for metric in Config.get_patterns_config()['metrics']:
             if metric in MI_pipeline_exclude_codes:
                 continue
-            __count_value(metric, input_params, code_lines_dict, java_file, is_metric=True)
+            __count_value(metric, input_params, code_lines_dict, file, is_metric=True)
     except Exception as ex:
         error_string = str(ex)
         input_params = []  # type: ignore
 
+    return input_params, code_lines_dict, error_string
+
+
+def inreference(input_params: List[int], code_lines_dict):
+    """
+    Find a pattern which has the largest impact on target
+
+    :param input_params: list if calculated patterns/metrics
+    :param code_lines_dict: list with found code lines of patterns/metrics
+    :return:
+    """
     if input_params:
         model_path = Path(Config.folder_model_data(), 'model.pkl')
         with open(model_path, 'rb') as fid:
@@ -213,10 +215,10 @@ def run_recommend_for_file(file: str):
         sorted_result = predict(input_params, model)
         code_lines = None
         patterns_list = model.features_conf['patterns_only']
-        pattern = None  # type: ignore
+        pattern_code = None  # type: ignore
         for iter, (key, val) in enumerate(sorted_result.items()):
             if key in patterns_list:
-                pattern = key
+                pattern_code = key
                 code_lines = code_lines_dict.get('lines_' + key)
                 # We show only positive gradient, we won't add patterns
                 if code_lines and val > 1.00000e-20:
@@ -225,13 +227,28 @@ def run_recommend_for_file(file: str):
         pattern_name = [x['name'] for x in Config.get_patterns_config()['patterns'] if x['code'] == pattern][0]
     else:
         code_lines = []
-        pattern = None  # type: ignore
+        pattern_code = None  # type: ignore
         pattern_name = None
+
+    return code_lines, pattern_code, pattern_name
+
+
+def run_recommend_for_file(file: str):
+    """
+    Calculate patterns and metrics, pass values to model and recommend pattern to change
+    :param file: file to analyze
+    :param features_conf: dict from features_order.json in repo
+    :return: dict with code lines, filename and pattern name
+    """
+    print('Analyzing {}'.format(file))
+    java_file = str(Path(os.getcwd(), file))
+    input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file)
+    code_lines, pattern_code, pattern_name = inreference(input_params, code_lines_dict)
 
     return create_output(
         java_file=java_file,  # type: ignore
         code_lines=code_lines,  # type: ignore
-        pattern_code=pattern,  # type: ignore
+        pattern_code=pattern_code,  # type: ignore
         pattern_name=pattern_name,  # type: ignore
         error_type=str(error_string)  # type: ignore
     )

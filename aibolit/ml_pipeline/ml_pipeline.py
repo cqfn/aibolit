@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split  # type: ignore
 import pickle
 
 from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
-from aibolit.config import CONFIG
+from aibolit.config import Config
 import json
 
 
@@ -16,7 +16,8 @@ def collect_dataset(java_folder):
 
     :param java_folder: folder to java files which will be analyzed
     """
-    os.chdir(Path('/home/jovyan/aibolit', 'scripts'))
+
+    os.chdir(Path(Config.home_aibolit_folder(), 'scripts'))
     if not java_folder:
         java_folder = Path('target/01').absolute()
         print('Analyzing {} dir:'.format(java_folder))
@@ -82,9 +83,9 @@ def train_process(model_folder=None):
         ignore_patterns = ['P27']
         ignore_metrics = ['M4', 'M5']
 
-        only_patterns = [x['code'] for x in list(CONFIG['patterns']) if x['code'] not in ignore_patterns]
+        only_patterns = [x['code'] for x in list(Config.get_patterns_config()['patterns']) if x['code'] not in ignore_patterns]
         only_metrics = \
-            [x['code'] for x in list(CONFIG['metrics']) if x['code'] not in ignore_metrics] \
+            [x['code'] for x in list(Config.get_patterns_config()['metrics']) if x['code'] not in ignore_metrics] \
             + ['halstead volume']
         columns_features = only_metrics + only_patterns
         features_number = len(columns_features)
@@ -92,24 +93,23 @@ def train_process(model_folder=None):
 
         dataset = Dataset(only_patterns)
         dataset.preprocess_file()
-        cwd = Path(os.getcwd())
         features_conf = {
             "features_order": dataset.feature_order,
             "patterns_only": only_patterns
         }
-        with open(Path(cwd.parent, 'aibolit', 'binary_files', 'features_order.json'), 'w') as fid:
+
+        with open(Path(Config.folder_to_save_model_data(), 'features_order.json'), 'w') as fid:
             json.dump(features_conf, fid, sort_keys=True, indent=4)
 
         X_train, X_test, y_train, y_test = train_test_split(dataset.input, dataset.target, test_size=0.3)
         model = TwoFoldRankingModel()
         model.fit(X_train, y_train)
 
-        print('Cur cwd: ' + str(cwd))
-        with open(Path(cwd.parent, 'aibolit', 'binary_files', 'model.pkl'), 'wb') as fid:
+        with open(Path(Config.folder_to_save_model_data(), 'model.pkl'), 'wb') as fid:
             pickle.dump(model, fid)
 
-        print('Test loaded file cwd: ' + str(cwd))
-        with open(Path(cwd.parent, 'aibolit', 'binary_files', 'model.pkl'), 'rb') as fid:
+        print('Test loaded model:')
+        with open(Path(Config.folder_to_save_model_data(), 'model.pkl'), 'rb') as fid:
             model_new = pickle.load(fid)
             preds = model_new.predict(X_test)
             print(preds)
