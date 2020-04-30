@@ -1,5 +1,0 @@
-FROM ubuntu
-ADD https://github.com/yegor256/aibolit/releases/download/v1.0.0/dataset.zip .
-ADD https://github.com/yegor256/aibolit/releases/download/v1.0.0/halstead.jar .
-ADD https://github.com/yegor256/aibolit/releases/download/v1.0.0/pmd-bin.zip .
-ENTRYPOINT []
