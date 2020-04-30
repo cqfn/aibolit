@@ -22,6 +22,7 @@
 
 import json
 import os
+import pickle
 from hashlib import md5
 from pathlib import Path
 from unittest import TestCase
@@ -29,7 +30,8 @@ from unittest import TestCase
 from lxml import etree
 
 from aibolit.__main__ import list_dir, run_recommend_for_file, create_xml_tree
-
+from aibolit.config import Config
+from aibolit.model.model import TwoFoldRankingModel, Dataset # type: ignore
 
 class TestNestedBlocks(TestCase):
 
@@ -37,12 +39,10 @@ class TestNestedBlocks(TestCase):
         super(TestNestedBlocks, self).__init__(*args, **kwargs)
         self.cur_file_dir = Path(os.path.realpath(__file__)).parent
         self.binary_files_folder = Path(self.cur_file_dir.parent.parent, 'aibolit', 'binary_files')
-        with open(Path(self.binary_files_folder, 'features_order.json'), 'r', encoding='utf-8') as f:
-            self.features_conf = json.load(f)
 
     def test_recommend_list_of_files(self):
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
-        run_recommend_for_file(str(file), self.features_conf)
+        run_recommend_for_file(str(file))
 
     def test_list_dir_empty(self):
         file = Path(self.cur_file_dir, 'empty_dir')
@@ -68,7 +68,7 @@ class TestNestedBlocks(TestCase):
 
     def test_xml_create(self):
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
-        results = run_recommend_for_file(str(file), self.features_conf)
+        results = run_recommend_for_file(str(file))
         xml_string = create_xml_tree([results])
         md5_hash = md5(etree.tostring(xml_string))
         self.assertEqual(md5_hash.hexdigest(), '86e0756b9627280f605d5c6b4cf17f9f')
@@ -80,7 +80,7 @@ class TestNestedBlocks(TestCase):
 
     def test_recommend_with_error(self):
         file = Path(self.cur_file_dir, r'errors\AbsoluteLayoutSupport.java')
-        results = run_recommend_for_file(str(file), self.features_conf)
+        results = run_recommend_for_file(str(file))
         xml_string = create_xml_tree([results])
         md5_hash = md5(etree.tostring(xml_string))
         self.assertEqual(md5_hash.hexdigest(), '1abcc7fceedf7fce6f8d141c305a7da1')

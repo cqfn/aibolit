@@ -6,7 +6,7 @@ from catboost import CatBoost
 from sklearn.base import BaseEstimator
 from sklearn.preprocessing import StandardScaler
 
-from aibolit.config import CONFIG
+from aibolit.config import Config
 from pathlib import Path
 import os
 
@@ -25,19 +25,19 @@ class Dataset:
             scale=False,
             **kwargs):
 
-        df = pd.read_csv(str(Path(os.getcwd(), 'target', 'dataset.csv')))
+        df = pd.read_csv(Config.dataset_file())
         df = df[~df["filename"].str.lower().str.contains("test")]
 
         if self.do_rename_columns:
             p_codes = \
-                [x['code'] for x in CONFIG['patterns']] \
-                + ['lines' + x['code'] for x in CONFIG['patterns']]
-            m_codes = [x['code'] for x in CONFIG['metrics']]
+                [x['code'] for x in Config.get_patterns_config()['patterns']] \
+                + ['lines' + x['code'] for x in Config.get_patterns_config()['patterns']]
+            m_codes = [x['code'] for x in Config.get_patterns_config()['metrics']]
             keys = p_codes + m_codes
             vals = \
-                [x['name'] for x in CONFIG['patterns']] \
-                + ['lines' + x['name'] for x in CONFIG['patterns']] \
-                + [x['name'] for x in CONFIG['metrics']]
+                [x['name'] for x in Config.get_patterns_config()['patterns']] \
+                + ['lines' + x['name'] for x in Config.get_patterns_config()['patterns']] \
+                + [x['name'] for x in Config.get_patterns_config()['metrics']]
 
             replace_dict = dict(zip(keys, vals))
             df = df.rename(replace_dict)
@@ -46,7 +46,6 @@ class Dataset:
 
         df = df.dropna().drop_duplicates(subset=df.columns.difference(['filename']))
         df = df[(df.ncss > 20) & (df.ncss < 100) & (df.npath_method_avg < 100000.00)].copy().reset_index()
-        df.rename(columns={'for_type_cast_number': 'force_type_cast_number'}, inplace=True)
 
         df.drop('filename', axis=1, inplace=True)
         df.drop('index', axis=1, inplace=True)
@@ -80,7 +79,7 @@ class TwoFoldRankingModel(BaseEstimator):
                 (number of patterns, ).
             y: np.array with shape (number of snippets,), array of snippets'
                 complexity metric values
-            display: bool, to output info about traing or not
+            display: bool, to output info about training or not
         """
         model = CatBoost()
 
@@ -115,7 +114,7 @@ class TwoFoldRankingModel(BaseEstimator):
 
         Returns:
             ranked: np.array with shape (number of snippets, number of patterns)
-                of sorted patterns in non-increasing order for eack snippet of
+                of sorted patterns in non-increasing order for each snippet of
                 code.
         """
 

@@ -33,7 +33,7 @@ from typing import List
 from lxml import etree  # type: ignore
 import numpy as np  # type: ignore
 from aibolit import __version__
-from aibolit.config import CONFIG
+from aibolit.config import Config
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
 import os
 from pathlib import Path
@@ -54,15 +54,11 @@ def list_dir(path, files):
     return dir_list
 
 
-def predict(input_params, features_conf):
-    features_order = features_conf['features_order']
+def predict(input_params, model):
+    features_order = model.features_conf['features_order']
     # load model
     input = [input_params[i] for i in features_order]
-    model_path = Path(dir_path, 'binary_files/model.pkl')
-
-    with open(model_path, 'rb') as fid:
-        model_new = pickle.load(fid)
-        preds = model_new.predict(np.array(input))
+    preds = model.predict(np.array(input))
 
     return {features_order[int(x)]: x for x in preds.tolist()[0]}
 
@@ -104,7 +100,7 @@ def train():
         required=False
     )
     args = parser.parse_args(sys.argv[2:])
-    collect_dataset(args.java_folder)
+    # collect_dataset(args.java_folder)
     train_process()
 
 
@@ -181,7 +177,7 @@ def create_output(
 
 
 # flake8: noqa: C901
-def run_recommend_for_file(file: str, features_conf: dict):
+def run_recommend_for_file(file: str):
     """
     Calculate patterns and metrics, pass values to model and recommend pattern to change
     :param file: file to analyze
@@ -197,12 +193,12 @@ def run_recommend_for_file(file: str, features_conf: dict):
     code_lines_dict = input_params = {}  # type: ignore
     error_string = None
     try:
-        for pattern in CONFIG['patterns']:
+        for pattern in Config.get_patterns_config()['patterns']:
             if pattern in MI_pipeline_exclude_codes:
                 continue
             __count_value(pattern, input_params, code_lines_dict, java_file)
 
-        for metric in CONFIG['metrics']:
+        for metric in Config.get_patterns_config()['metrics']:
             if metric in MI_pipeline_exclude_codes:
                 continue
             __count_value(metric, input_params, code_lines_dict, java_file, is_metric=True)
@@ -211,9 +207,12 @@ def run_recommend_for_file(file: str, features_conf: dict):
         input_params = []  # type: ignore
 
     if input_params:
-        sorted_result = predict(input_params, features_conf)
+        model_path = Path(Config.folder_model_data(), 'model.pkl')
+        with open(model_path, 'rb') as fid:
+            model = pickle.load(fid)
+        sorted_result = predict(input_params, model)
         code_lines = None
-        patterns_list = features_conf['patterns_only']
+        patterns_list = model.features_conf['patterns_only']
         pattern = None  # type: ignore
         for iter, (key, val) in enumerate(sorted_result.items()):
             if key in patterns_list:
@@ -223,7 +222,7 @@ def run_recommend_for_file(file: str, features_conf: dict):
                 if code_lines and val > 1.00000e-20:
                     break
 
-        pattern_name = [x['name'] for x in CONFIG['patterns'] if x['code'] == pattern][0]
+        pattern_name = [x['name'] for x in Config.get_patterns_config()['patterns'] if x['code'] == pattern][0]
     else:
         code_lines = []
         pattern = None  # type: ignore
@@ -290,17 +289,15 @@ def recommend():
         default=False
     )
     # make a certain order of arguments which was used by a model
-    with open(Path(dir_path, 'binary_files/features_order.json'), 'r', encoding='utf-8') as f:
-        features_conf = json.load(f)
 
     args = parser.parse_args(sys.argv[2:])
     results = []
     if args.filenames:
-        results = list(run_thread(args.filenames, features_conf))
+        results = list(run_thread(args.filenames))
     elif args.folder:
         files = []
         list_dir(args.folder, files)
-        results = list(run_thread(files, features_conf))
+        results = list(run_thread(files))
 
     if args.output:
         filename = args.output
@@ -325,7 +322,7 @@ def version():
     print('%(prog)s {version}'.format(version=__version__))
 
 
-def run_thread(files, features_conf):
+def run_thread(files):
     """
     Parallel patterns/metrics calculation
     :param files: list of java files to analyze
@@ -333,7 +330,7 @@ def run_thread(files, features_conf):
 
     """
     with concurrent.futures.ThreadPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
-        future_results = [executor.submit(run_recommend_for_file, file, features_conf) for file in files]
+        future_results = [executor.submit(run_recommend_for_file, file) for file in files]
         concurrent.futures.wait(future_results)
         for future in future_results:
             yield future.result()
