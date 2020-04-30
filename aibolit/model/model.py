@@ -25,17 +25,17 @@ class Dataset:
 
         df = pd.read_csv(Config.dataset_file())
         df = df[~df["filename"].str.lower().str.contains("test")]
-
+        config = Config.get_patterns_config()
         if self.do_rename_columns:
             p_codes = \
-                [x['code'] for x in Config.get_patterns_config()['patterns']] \
-                + ['lines' + x['code'] for x in Config.get_patterns_config()['patterns']]
-            m_codes = [x['code'] for x in Config.get_patterns_config()['metrics']]
+                [x['code'] for x in config['patterns']] \
+                + ['lines' + x['code'] for x in config['patterns']]
+            m_codes = [x['code'] for x in config['metrics']]
             keys = p_codes + m_codes
             vals = \
-                [x['name'] for x in Config.get_patterns_config()['patterns']] \
-                + ['lines' + x['name'] for x in Config.get_patterns_config()['patterns']] \
-                + [x['name'] for x in Config.get_patterns_config()['metrics']]
+                [x['name'] for x in config['patterns']] \
+                + ['lines' + x['name'] for x in config['patterns']] \
+                + [x['name'] for x in config['metrics']]
 
             replace_dict = dict(zip(keys, vals))
             df = df.rename(replace_dict)

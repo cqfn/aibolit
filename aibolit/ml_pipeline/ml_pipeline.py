@@ -81,13 +81,13 @@ def train_process(model_folder=None):
     if not model_folder:
         ignore_patterns = ['P27']
         ignore_metrics = ['M4', 'M5']
-
+        config = Config.get_patterns_config()
         only_patterns = [
-            x['code'] for x in list(Config.get_patterns_config()['patterns'])
+            x['code'] for x in list(config['patterns'])
             if x['code'] not in ignore_patterns
         ]
         only_metrics = \
-            [x['code'] for x in list(Config.get_patterns_config()['metrics'])
+            [x['code'] for x in list(config['metrics'])
              if x['code'] not in ignore_metrics] \
             + ['halstead volume']
         columns_features = only_metrics + only_patterns

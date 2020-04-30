@@ -183,12 +183,13 @@ def calculate_patterns_and_metrics(file):
     code_lines_dict = input_params = {}  # type: ignore
     error_string = None
     try:
-        for pattern in Config.get_patterns_config()['patterns']:
+        config = Config.get_patterns_config()
+        for pattern in config['patterns']:
             if pattern in MI_pipeline_exclude_codes:
                 continue
             __count_value(pattern, input_params, code_lines_dict, file)
 
-        for metric in Config.get_patterns_config()['metrics']:
+        for metric in config['metrics']:
             if metric in MI_pipeline_exclude_codes:
                 continue
             __count_value(metric, input_params, code_lines_dict, file, is_metric=True)
