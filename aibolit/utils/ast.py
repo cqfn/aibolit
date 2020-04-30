@@ -1,8 +1,6 @@
 import os
-from typing import Type
 from javalang.parse import parse
 from javalang.tree import CompilationUnit
-from javalang import tree as tr
 
 
 class AST:
@@ -20,21 +18,3 @@ class AST:
 
         with open(self._filename, encoding='utf-8') as file:
             return parse(file.read())
-
-    @staticmethod
-    def get_path_for_parent(path: tuple, ) -> tuple:
-        contains = (
-            tr.CompilationUnit,
-            tr.ClassDeclaration,
-            tr.MethodDeclaration,
-            tr.LocalVariableDeclaration,
-            tr.BlockStatement,
-            tr.MethodInvocation,
-            tr.ClassCreator,
-            tr.TryStatement,
-        )
-
-        for index, i in enumerate(reversed(path)):
-            if type(i) in contains:
-                return path[index:]
-        return ()
