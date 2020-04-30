@@ -23,16 +23,25 @@
 import networkx as nx  # type: ignore
 from networkx import Graph
 from aibolit.utils.ast import AST
-from typing import List, Generator, Tuple, Any, Union, overload
+from typing import List, Generator, Tuple, Any, Union, TypeVar, Type
 from javalang.tree import ClassDeclaration, InterfaceDeclaration, MethodDeclaration, \
     MemberReference, FieldDeclaration, MethodInvocation, This, Node, LocalVariableDeclaration
 FldExh = Tuple[str, Tuple[str, str]]
 MthExh = Tuple[str, Tuple[Tuple[str, str], ...]]
-Nodes = Tuple[tuple, Node]
-NodeGen = Generator[Tuple[tuple, Node], None, None]
+HasMember = Union[MemberReference, MethodInvocation]
+HasSelector = Union[MemberReference, MethodInvocation, This]
+HasName = Union[ClassDeclaration, MethodDeclaration]
+T = TypeVar('T', bound=Node)
+S = TypeVar('S', HasSelector, HasMember)
+ThisNodes = Tuple[tuple, This]
+SelMemNodes = Tuple[tuple, S]
+RefNodes = Tuple[tuple, MemberReference]
+InvNodes = Tuple[tuple, MethodInvocation]
+LocalNodes = Tuple[tuple, LocalVariableDeclaration]
+MthNodes = Tuple[tuple, MethodDeclaration]
+Nodes = Tuple[tuple, T]
+NodeGen = Generator[Tuple[tuple, T], None, None]
 EdgeNode = Union[MthExh, FldExh]
-JLang = Union[ClassDeclaration, InterfaceDeclaration, MethodDeclaration,
-              MemberReference, FieldDeclaration, MethodInvocation, This, Node, LocalVariableDeclaration]
 
 
 class LCOM4:
@@ -46,56 +55,70 @@ class LCOM4:
             # Extract all methods and fields
             # from ClassDeclaration node
 
-            field_nodes: List[Nodes] = list(self.filter_node_lvl(class_node, FieldDeclaration))
-            full_field_exhaust: List[FldExh] = list(self.exhaust_field(field_node)
-                                                    for path, field_node in field_nodes)
-            clear_field_exhaust: List[FldExh] = self.clean_for_repetitions(full_field_exhaust)
-            method_nodes: List[Nodes] = list(self.filter_node_lvl(class_node, MethodDeclaration))
-            method_nodes: List[Nodes] = list(self.filter_getters_setters(method_nodes))  # type: ignore
-            full_method_exhaust: List[MthExh] = list(self.exhaust_method(method_node)
-                                                     for path, method_node in method_nodes)
-            clear_method_exhaust: List[MthExh] = self.clean_for_repetitions(full_method_exhaust)
+            field_nodes: List[Nodes] = \
+                list(self.filter_node_lvl(class_node, FieldDeclaration))
 
-            # Add all MethodDeclarations to graph
-            # Add all FieldDeclarations to graph
+            full_field_exhaust: List[FldExh] = \
+                list(self.exhaust_field(field_node) for path, field_node in field_nodes)
 
-            for method in clear_method_exhaust:
+            clear_field_exhaust: List[FldExh] = \
+                self.clean_for_repetitions(full_field_exhaust)
+
+            method_nodes: List[MthNodes] = \
+                list(self.filter_node_lvl(class_node, MethodDeclaration))
+
+            method_nodes_filtered: List[SelMemNodes] = \
+                list(self.filter_getters_setters(method_nodes))
+
+            full_method_exhaust: List[MthExh] = \
+                list(self.exhaust_method(method_node) for path, method_node in method_nodes_filtered)
+
+            clear_method_exhaust: List[MthExh] = \
+                self.clean_for_repetitions(full_method_exhaust)
+
+            for method in clear_method_exhaust:     # Add all MethodDeclarations to graph
                 G.add_node(method[0] + str(hash(method[1])))
-            for field in clear_field_exhaust:
+            for field in clear_field_exhaust:       # Add all FieldDeclarations to graph
                 G.add_node(field[0] + str(hash(field[1])))
 
-            # Find and compare all existing
-            # MemberReferences, MethodInvocations,
-            # This statements, LocalVariableDeclarations
-            # to themselves and objects added to graph G
-
-            for method_path, method_node in method_nodes:
-                reference_nodes: List[Nodes] = list(self.filter_node_lvl(method_node, MemberReference))
-                invocation_nodes: List[Nodes] = list(self.filter_node_lvl(method_node, MethodInvocation))
-                this_nodes: List[Nodes] = list(self.filter_node_lvl(method_node, This))
-                local_nodes: List[Nodes] = list(self.filter_node_lvl(method_node, LocalVariableDeclaration))
+            for method_path, method_node in method_nodes_filtered:
+                # Find and compare all existing
+                # MemberReferences, MethodInvocations,
+                # This statements, LocalVariableDeclarations
+                # to themselves and objects added to graph G
+                reference_nodes: List[RefNodes] = list(self.filter_node_lvl(method_node, MemberReference))
+                invocation_nodes: List[InvNodes] = list(self.filter_node_lvl(method_node, MethodInvocation))
+                this_nodes: List[ThisNodes] = list(self.filter_node_lvl(method_node, This))
+                local_nodes: List[LocalNodes] = list(self.filter_node_lvl(method_node, LocalVariableDeclaration))
                 local_exhaust: List[FldExh] = list(self.exhaust_field(local_node) for path, local_node in local_nodes)
                 method_exhaust: MthExh = self.exhaust_method(method_node)
                 self.add_references_to_graph(G, reference_nodes, local_exhaust, clear_field_exhaust, method_exhaust)
                 self.add_this_to_graph(G, this_nodes, clear_field_exhaust, method_exhaust)
-                self.add_invocations_to_graph(G, invocation_nodes, clear_method_exhaust, method_exhaust,
-                                              local_exhaust, clear_field_exhaust)
+                self.add_invocations_to_graph(
+                    G, invocation_nodes, clear_method_exhaust, method_exhaust, local_exhaust, clear_field_exhaust)
             break  # Stop after first class
         return nx.number_connected_components(G)
 
     # ------------------------------------------------
     # Funcs for adding edges to graph
 
-    # Filter all viable MethodInvocations and
-    # compare them to existing MethodDeclarations
-
     def add_invocations_to_graph(self,
                                  G: Graph,
-                                 invocation_nodes: List[Nodes],
+                                 invocation_nodes: List[SelMemNodes],
                                  full_method_exhaust: List[MthExh],
                                  method_exhaust: MthExh,
                                  local_exhaust: List[FldExh],
                                  full_field_exhaust: List[FldExh]) -> None:
+
+        # -*- coding: utf-8 -*-
+        """Adds nodes to graph G
+
+        Gets list of invocation names as input and
+        compares them to existing list of exhausted "MethodDeclarations"
+        After successful comparison calls "add_vertices_edges"
+        Adding nodes and edges between.
+        """
+
         for invocation_path, invocation_node in invocation_nodes:
             if isinstance(invocation_node.selectors, list):  # Check for inv being first in whole statement
                 for method in full_method_exhaust:
@@ -109,43 +132,62 @@ class LCOM4:
                 if len(inv_funcs) > 0:
                     self.add_invocation_funcs(G, inv_funcs, full_method_exhaust, method_exhaust)
 
-    # Filter all viable invocation attributes and
-    # compare them to existing FieldDeclarations
-
     def add_invocation_fields(self,
                               G: Graph,
                               inv_fields: List[str],
                               local_exhaust: List[FldExh],
                               full_field_exhaust: List[FldExh],
                               method_exhaust: MthExh) -> None:
+
+        # -*- coding: utf-8 -*-
+        """Adds nodes to graph G
+
+        Gets list of invocation field attributes as input and
+        compares them to existing list of exhausted "FieldDeclarations"
+        After successful comparison calls "add_vertices_edges"
+        Adding nodes and edges between.
+        """
+
         for inv_argument in inv_fields:
             if inv_argument not in [x[0] for x in local_exhaust]:
                 for field in full_field_exhaust:
                     if inv_argument == field[0]:
                         self.add_vertices_edges(G, 'reference', method_exhaust, field)
 
-    # Filter all viable invocation attributes and
-    # compare them to existing MethodDeclarations
-
     def add_invocation_funcs(self,
                              G: Graph,
-                             inv_funcs: Tuple[str],
+                             inv_funcs: List[str],
                              full_method_exhaust: List[MthExh],
                              method_exhaust: MthExh) -> None:
+        # -*- coding: utf-8 -*-
+        """Adds nodes to graph G
+
+        Gets list of invocation method attributes as input and
+        compares them to existing list of exhausted "MethodDeclarations"
+        After successful comparison calls "add_vertices_edges"
+        Adding nodes and edges between.
+        """
+
         for inv_argument in inv_funcs:  # ToDo: make a func for a return type check
             for method in full_method_exhaust:
                 if inv_argument == method[0]:
                     self.add_vertices_edges(G, 'reference', method_exhaust, method)
 
-    # Filter all viable member references and
-    # compare them to existing FieldDeclarations
-
     def add_references_to_graph(self,
                                 G: Graph,
-                                reference_nodes: List[Nodes],
+                                reference_nodes: List[SelMemNodes],
                                 local_exhaust: List[FldExh],
                                 full_field_exhaust: List[FldExh],
                                 method_exhaust: MthExh) -> None:
+        # -*- coding: utf-8 -*-
+        """Adds nodes to graph G
+
+        Gets list of "MemberReferences" nodes as input and
+        compares them to existing list of exhausted FieldDeclarations.
+        After successful comparison calls "add_vertices_edges"
+        Adding nodes and edges between.
+        """
+
         for reference_path, reference_node in reference_nodes:
             if isinstance(reference_node.selectors, list):  # Check for node being "alone"
                 if reference_node.member not in [x[0] for x in local_exhaust]:
@@ -153,110 +195,137 @@ class LCOM4:
                         if reference_node.member == field[0]:
                             self.add_vertices_edges(G, 'ref', method_exhaust, field)
 
-    # Filter all viable This statements and
-    # compare them to existing FieldDeclarations
-
     def add_this_to_graph(self,
                           G: Graph,
-                          this_nodes: List[Nodes],
+                          this_nodes: List[ThisNodes],
                           full_field_exhaust: List[FldExh],
                           method_exhaust: MthExh) -> None:
+
+        # -*- coding: utf-8 -*-
+        """Adds nodes to graph G
+
+        Gets list of "This" nodes as input and
+        compares them to existing list of exhausted "FieldDeclarations"
+        After successful comparison calls "add_vertices_edges"
+        Adding nodes and edges between.
+        """
+
         for this_path, this_node in this_nodes:
             for field in full_field_exhaust:
                 if len(this_node.selectors) == 1 and isinstance(this_node.selectors[0], MemberReference):
                     if this_node.selectors[0].member in field:
                         self.add_vertices_edges(G, 'this.', method_exhaust, field)
 
-    # Add given objects to the graph as
-    # nodes and add an edge between.
-
     @staticmethod
     def add_vertices_edges(G, edge_type: str, first_node: EdgeNode, second_node: EdgeNode) -> None:
-        G.add_node(first_node[0] + str(hash(first_node[1])))                                 # Add nodes and edges with
-        G.add_node((second_node[0]) + str(hash(second_node[1])))                             # given nodes
+
+        # -*- coding: utf-8 -*-
+        """Adds nodes to graph G
+
+        Gets two objects as input and
+        adds nodes and edges between.
+        """
+
+        G.add_node(first_node[0] + str(hash(first_node[1])))
+        G.add_node((second_node[0]) + str(hash(second_node[1])))
         G.add_edge(first_node[0] + str(hash(first_node[1])),
                    (second_node[0]) + str(hash(second_node[1])), type=edge_type)
 
     # ------------------------------------------------
     # Funcs for filtering nodes
 
-    # Filter given node
-    # by their level of nesting.
-    # If node is inside nested method, class or interface –
-    # ignore it
-    # gets rid of it
-
     @staticmethod
-    def filter_node_lvl(node: Node, javalang_class) -> NodeGen:
+    def filter_node_lvl(node: T, javalang_class: Type[T]) -> Generator[Nodes, None, None]:
+
+        # -*- coding: utf-8 -*-
+        """Filters nodes by desired javalang class.
+
+        Gets node(node) of any javalang.Tree type and filters it by
+        desired type(javalang_class).
+        Returns a generator with (path, node) inside.
+        """
+
         for filtered_path, filtered_node in node.filter(javalang_class):
             if LCOM4.get_class_depth(filtered_path) == 1:
                 yield filtered_path, filtered_node
 
-    # Filter given list of MethodDeclaration nodes
-    # by their name. if node's name starts with 'set'/'get' –
-    # gets rid of it
-
     @staticmethod
-    def filter_getters_setters(method_node_list: List[Tuple[tuple, Node]]) -> NodeGen:
+    def filter_getters_setters(method_node_list: List[MthNodes]) -> NodeGen:
+
+        # -*- coding: utf-8 -*-
+        """Filters nodes by name.
+
+        Gets list of nodes of "MethodDeclaration" type and filters it by
+        name, so that no methods with name starting with "set" or "get"
+        go to return list.
+        Returns a generator with (path, node) inside.
+        """
+
         for path, node in method_node_list:                     # ToDo: implement get/set detection with .body
-            if node.name.startswith(('get', 'set')):            # type: ignore
+            if node.name.startswith(('get', 'set')):
                 pass
             else:
                 yield path, node
 
-    # Get level of nesting by Class, Interface of Method
-    # for given node
-    #
-    # returns an int indicating level of nesting
-
     @staticmethod
     def get_class_depth(path: tuple) -> int:
+
+        # -*- coding: utf-8 -*-
+        """Returns an int displaying level of given node's nesting level.
+
+        Gets a node of any javalang.tree type and calculates it's nesting level
+        Returns an int.
+        """
+
         class_level = 0
         for step in path:
             if isinstance(step, (ClassDeclaration, InterfaceDeclaration, MethodDeclaration)):
                 class_level += 1
         return class_level
 
-    # Extracts name and argument's names and types
-    # for given MethodDeclaration node
-    #
-    # javacode example:
-    # public void doNothing(int a, float b, string c) {}
-    # returns (doNothing, ((a, int), (b, float), (c, string)))
-
     @staticmethod
-    def exhaust_method(method_node: Node) -> MthExh:
+    def exhaust_method(method_node: MethodDeclaration) -> MthExh:
+
+        # -*- coding: utf-8 -*-
+        """ Exhausts name and input vars, types for given MethodDeclaration node.
+
+        Returns a tuple containing name and all parameters
+        that given method gets as an input.
+        """
+
         parameter_list = []
-        name: str = method_node.name  # type: ignore
-        for parameter in method_node.parameters:  # type: ignore
+        name: str = method_node.name
+        for parameter in method_node.parameters:
             parameter_list.append((parameter.name, parameter.type.name))
         parameter_tuple: Tuple[Tuple[str, str], ...] = tuple(parameter_list)
         return name, parameter_tuple
 
-    # Extracts name and type for given FieldDeclaration node
-    #
-    # javacode example:
-    # int a;
-    # returns (a, (type, int))
-
     @staticmethod
-    def exhaust_field(field_node: Node) -> FldExh:  # ToDo: get rid of 'type' in parameter_tuple
-        name = field_node.declarators[0].name  # type: ignore
+    def exhaust_field(field_node: Union[FieldDeclaration, LocalVariableDeclaration]) -> FldExh:
+
+        # -*- coding: utf-8 -*-
+        """ Exhausts name and type for given FieldDeclaration or LocalVariableDeclaration node.
+
+        Returns a tuple containing name and type of field.
+        """
+
+        name = field_node.declarators[0].name                              # ToDo: get rid of'type' in parameter_tuple
         try:
-            parameter_tuple: Tuple[str, str] = ('type', field_node.type.name)  # type: ignore
+            parameter_tuple: Tuple[str, str] = ('type', field_node.type.name)
         except AttributeError:
             return "", ("", "")
         return name, parameter_tuple
 
-    # Get every argument from method invocation,
-    # return two lists with attributes and methods
-    #
-    # javacode example:
-    # foo(int a, float b, bar()):{}
-    # returns ([a,b], [bar])
-
     @staticmethod
-    def get_arguments(invocation_node: Node) -> Tuple[List[str], List[str]]:
+    def get_arguments(invocation_node: MethodInvocation) -> Tuple[List[str], List[str]]:
+
+        # -*- coding: utf-8 -*-
+        """Gets arguments passed to given MethodInvocation node.
+
+        Returns two tuples containing all arguments and methods passed
+        to given MethodInvocation node.
+        """
+
         list_of_funcs = []
         list_of_fields = []
         for argument in invocation_node.arguments:  # type: ignore
@@ -266,8 +335,15 @@ class LCOM4:
                 list_of_fields.append(argument.member)
         return list_of_funcs, list_of_fields
 
-    @staticmethod  # Clean any list from repetitions
+    @staticmethod
     def clean_for_repetitions(list_of_exhaust: List[Any]) -> List[Any]:
+
+        # -*- coding: utf-8 -*-
+        """Gets any list and removes all repetitions.
+
+        Returns list with no repetitive objects.
+        """
+
         for item in list_of_exhaust:
             if list_of_exhaust.count(item) > 1:
                 list_of_exhaust.remove(item)
