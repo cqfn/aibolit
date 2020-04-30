@@ -80,9 +80,9 @@ class TestNestedBlocks(TestCase):
         mock_input = [item, another_item]
         xml_string = create_xml_tree(mock_input)
         md5_hash = md5(etree.tostring(xml_string))
-        self.assertEqual(md5_hash.hexdigest(), '86e0756b9627280f605d5c6b4cf17f9f')
+        self.assertEqual(md5_hash.hexdigest(), '507d31f9771145c0b17c73ff60202e61')
 
     def test_xml_empty_resutls(self):
         xml_string = create_xml_tree([])
         md5_hash = md5(etree.tostring(xml_string))
-        self.assertEqual(md5_hash, md5_hash.hexdigest())
+        self.assertEqual(md5_hash.hexdigest(), '952db2968757ade19b240fdabeef4860')
