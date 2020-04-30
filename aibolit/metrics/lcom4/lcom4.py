@@ -23,13 +23,17 @@
 import networkx as nx  # type: ignore
 from networkx import Graph
 from aibolit.utils.ast import AST
-from typing import List, Generator, Tuple, Any
+from typing import List, Generator, Tuple, Any, Union, overload
 from javalang.tree import ClassDeclaration, InterfaceDeclaration, MethodDeclaration, \
     MemberReference, FieldDeclaration, MethodInvocation, This, Node, LocalVariableDeclaration
 FldExh = Tuple[str, Tuple[str, str]]
 MthExh = Tuple[str, Tuple[Tuple[str, str], ...]]
 Nodes = Tuple[tuple, Node]
 NodeGen = Generator[Tuple[tuple, Node], None, None]
+EdgeNode = Union[MthExh, FldExh]
+JLang = Union[ClassDeclaration, InterfaceDeclaration, MethodDeclaration,
+              MemberReference, FieldDeclaration, MethodInvocation, This, Node, LocalVariableDeclaration]
+
 
 class LCOM4:
 
@@ -85,16 +89,21 @@ class LCOM4:
     # Filter all viable MethodInvocations and
     # compare them to existing MethodDeclarations
 
-    def add_invocations_to_graph(self, G, invocation_nodes, full_method_exhaust, method_exhaust, local_exhaust,
-                                 full_field_exhaust):
+    def add_invocations_to_graph(self,
+                                 G: Graph,
+                                 invocation_nodes: List[Nodes],
+                                 full_method_exhaust: List[MthExh],
+                                 method_exhaust: MthExh,
+                                 local_exhaust: List[FldExh],
+                                 full_field_exhaust: List[FldExh]) -> None:
         for invocation_path, invocation_node in invocation_nodes:
             if isinstance(invocation_node.selectors, list):  # Check for inv being first in whole statement
                 for method in full_method_exhaust:
                     if invocation_node.member == method[0]:
                         self.add_vertices_edges(G, 'invocation', method_exhaust, method)
                 inv_arguments = self.get_arguments(invocation_node)
-                inv_fields = inv_arguments[1]
-                inv_funcs = inv_arguments[0]
+                inv_fields: List[str] = inv_arguments[1]
+                inv_funcs: List[str] = inv_arguments[0]
                 if len(inv_fields) > 0:
                     self.add_invocation_fields(G, inv_fields, local_exhaust, full_field_exhaust, method_exhaust)
                 if len(inv_funcs) > 0:
@@ -103,7 +112,12 @@ class LCOM4:
     # Filter all viable invocation attributes and
     # compare them to existing FieldDeclarations
 
-    def add_invocation_fields(self, G, inv_fields, local_exhaust, full_field_exhaust, method_exhaust):
+    def add_invocation_fields(self,
+                              G: Graph,
+                              inv_fields: List[str],
+                              local_exhaust: List[FldExh],
+                              full_field_exhaust: List[FldExh],
+                              method_exhaust: MthExh) -> None:
         for inv_argument in inv_fields:
             if inv_argument not in [x[0] for x in local_exhaust]:
                 for field in full_field_exhaust:
@@ -113,7 +127,11 @@ class LCOM4:
     # Filter all viable invocation attributes and
     # compare them to existing MethodDeclarations
 
-    def add_invocation_funcs(self, G, inv_funcs, full_method_exhaust, method_exhaust):
+    def add_invocation_funcs(self,
+                             G: Graph,
+                             inv_funcs: Tuple[str],
+                             full_method_exhaust: List[MthExh],
+                             method_exhaust: MthExh) -> None:
         for inv_argument in inv_funcs:  # ToDo: make a func for a return type check
             for method in full_method_exhaust:
                 if inv_argument == method[0]:
@@ -122,7 +140,12 @@ class LCOM4:
     # Filter all viable member references and
     # compare them to existing FieldDeclarations
 
-    def add_references_to_graph(self, G, reference_nodes, local_exhaust, full_field_exhaust, method_exhaust):
+    def add_references_to_graph(self,
+                                G: Graph,
+                                reference_nodes: List[Nodes],
+                                local_exhaust: List[FldExh],
+                                full_field_exhaust: List[FldExh],
+                                method_exhaust: MthExh) -> None:
         for reference_path, reference_node in reference_nodes:
             if isinstance(reference_node.selectors, list):  # Check for node being "alone"
                 if reference_node.member not in [x[0] for x in local_exhaust]:
@@ -133,7 +156,11 @@ class LCOM4:
     # Filter all viable This statements and
     # compare them to existing FieldDeclarations
 
-    def add_this_to_graph(self, G, this_nodes, full_field_exhaust, method_exhaust):
+    def add_this_to_graph(self,
+                          G: Graph,
+                          this_nodes: List[Nodes],
+                          full_field_exhaust: List[FldExh],
+                          method_exhaust: MthExh) -> None:
         for this_path, this_node in this_nodes:
             for field in full_field_exhaust:
                 if len(this_node.selectors) == 1 and isinstance(this_node.selectors[0], MemberReference):
@@ -144,9 +171,9 @@ class LCOM4:
     # nodes and add an edge between.
 
     @staticmethod
-    def add_vertices_edges(G, edge_type: str, first_node, second_node):  # Add nodes and edges with given nodes
-        G.add_node(first_node[0] + str(hash(first_node[1])))
-        G.add_node((second_node[0]) + str(hash(second_node[1])))
+    def add_vertices_edges(G, edge_type: str, first_node: EdgeNode, second_node: EdgeNode) -> None:
+        G.add_node(first_node[0] + str(hash(first_node[1])))                                 # Add nodes and edges with
+        G.add_node((second_node[0]) + str(hash(second_node[1])))                             # given nodes
         G.add_edge(first_node[0] + str(hash(first_node[1])),
                    (second_node[0]) + str(hash(second_node[1])), type=edge_type)
 
