@@ -119,11 +119,9 @@ class TwoFoldRankingModel(BaseEstimator):
         self.model = model
         self.model.fit(X, y.ravel())
 
-
-    def __get_pairs(self, item):
+    def __get_pairs(self, item, th: float):
         def sigmoid(x):
-            return 1/(1 + np.exp(-x))
-
+            return 1 / (1 + np.exp(-x))
 
         pattern_importances = item * self.model.feature_importances_
         th_mask = (sigmoid(pattern_importances) > th) + 0
@@ -141,7 +139,7 @@ class TwoFoldRankingModel(BaseEstimator):
                 (number of patterns, ).
             quantity_func: str, type of function that will be applied to
                 number of occurrences.
-            th (float): Sensivity of algorithm. 
+            th (float): Sensitivity of algorithm to recommend.
                 0 - ignore all recomendations
                 1 - use all recommendations
 
