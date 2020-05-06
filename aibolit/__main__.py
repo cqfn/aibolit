@@ -58,7 +58,6 @@ def predict(input_params, model, args):
     # load model
     input = [input_params[i] for i in features_order]
     th = float(args.threshold) or 1.0
-    print('Threshold for model: {}'.format(th))
     preds = model.predict(np.array(input), th=th)
 
     return {features_order[int(x)]: x for x in preds.tolist()[0]}
@@ -326,6 +325,10 @@ def recommend():
     # make a certain order of arguments which was used by a model
 
     args = parser.parse_args(sys.argv[2:])
+
+    if args.threshold:
+        print('Threshold for model has been set to {}'.format(args.threshold))
+
     if args.filenames:
         files = args.filenames
     elif args.folder:
