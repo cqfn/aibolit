@@ -58,6 +58,6 @@ Using Docker recommendation pipeline
 ```bash
 $ docker run --rm -it \ 
   -v <absolute_path_to_folder_with_classes>:/in \
-  -v <absolute_path_out_dir>:/out \ 
+  -v <absolute_path_to_out_dir>:/out \ 
   yegor256/aibolit-image
 ```
