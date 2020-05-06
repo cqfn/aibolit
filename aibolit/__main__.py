@@ -210,7 +210,7 @@ def inreference(input_params: List[int], code_lines_dict, args):
     :param code_lines_dict: list with found code lines of patterns/metrics
     :return:
     """
-    model_path = args.model_path
+    model_path = args.model_file
     if input_params:
         if not model_path:
             model_path = Config.folder_model_data()
@@ -312,7 +312,7 @@ def recommend():
     )
 
     parser.add_argument(
-        '--model_path',
+        '--model_file',
         help='output file for results',
         default=False
     )
