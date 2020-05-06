@@ -95,21 +95,29 @@ class TwoFoldRankingModel(BaseEstimator):
         self.model = model
         self.model.fit(X, y.ravel())
 
-    def __get_pairs(self, item):
+    def __get_pairs(self, item, th: float):
+        def sigmoid(x):
+            return 1 / (1 + np.exp(-x))
+
         pattern_importances = item * self.model.feature_importances_
+        th_mask = (sigmoid(pattern_importances) > th) + 0
+        pattern_importances = pattern_importances * th_mask
         order = np.arange(self.model.feature_importances_.size)
         return (pattern_importances, order)
 
     def __vstack_arrays(self, res):
         return np.vstack(res).T
 
-    def predict(self, X, quantity_func='log'):
+    def predict(self, X, quantity_func='log', th=1.0):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
                 (number of patterns, ).
             quantity_func: str, type of function that will be applied to
                 number of occurrences.
+            th (float): Sensitivity of algorithm to recommend.
+                0 - ignore all recomendations
+                1 - use all recommendations
 
         Returns:
             ranked: np.array with shape (number of snippets, number of patterns)
@@ -131,7 +139,7 @@ class TwoFoldRankingModel(BaseEstimator):
         for snippet in X:
             try:
                 item = quantity_funcs[quantity_func](snippet)
-                pairs = self.__vstack_arrays(self.__get_pairs(item))
+                pairs = self.__vstack_arrays(self.__get_pairs(item, th))
                 pairs = pairs[pairs[:, 0].argsort()]
                 ranked.append(pairs[:, 1].T.tolist()[::-1])
             except Exception:
