@@ -53,11 +53,13 @@ def list_dir(path, files):
     return dir_list
 
 
-def predict(input_params, model):
+def predict(input_params, model, args):
     features_order = model.features_conf['features_order']
     # load model
     input = [input_params[i] for i in features_order]
-    preds = model.predict(np.array(input))
+    th = args.get('th') or 1.0
+    print('Threshold for model: {}'.format(th))
+    preds = model.predict(np.array(input), th)
 
     return {features_order[int(x)]: x for x in preds.tolist()[0]}
 
@@ -166,7 +168,7 @@ def create_output(
         output_string.append(output_str)
         for line in code_lines:
             if line:
-                output_string.append('Line {}. Low readability due to: {}'.format(
+                output_string.append('Line {}. Low quality due to: {}'.format(
                     line,
                     pattern_name
                 ))
@@ -200,7 +202,7 @@ def calculate_patterns_and_metrics(file):
     return input_params, code_lines_dict, error_string
 
 
-def inreference(input_params: List[int], code_lines_dict):
+def inreference(input_params: List[int], code_lines_dict, args):
     """
     Find a pattern which has the largest impact on target
 
@@ -208,8 +210,10 @@ def inreference(input_params: List[int], code_lines_dict):
     :param code_lines_dict: list with found code lines of patterns/metrics
     :return:
     """
+    model_path = args.get('model_path')
     if input_params:
-        model_path = Config.folder_model_data()
+        if not model_path:
+            model_path = Config.folder_model_data()
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
         sorted_result = predict(input_params, model)
@@ -233,16 +237,17 @@ def inreference(input_params: List[int], code_lines_dict):
     return code_lines, pattern_code, pattern_name
 
 
-def run_recommend_for_file(file: str):
+def run_recommend_for_file(file: str, args):
     """
     Calculate patterns and metrics, pass values to model and recommend pattern to change
     :param file: file to analyze
+    :param args: different command line arguments
     :return: dict with code lines, filename and pattern name
     """
     print('Analyzing {}'.format(file))
     java_file = str(Path(os.getcwd(), file))
     input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file)
-    code_lines, pattern_code, pattern_name = inreference(input_params, code_lines_dict)
+    code_lines, pattern_code, pattern_name = inreference(input_params, code_lines_dict, args)
 
     return create_output(
         java_file=java_file,  # type: ignore
@@ -262,9 +267,6 @@ def create_xml_tree(results):
 
     top = etree.Element('files')
     for result in results:
-        comment = etree.Comment('All processed files')
-        top.append(comment)
-
         child = etree.SubElement(top, 'filename')
         child.text = result.get('filename')
         if result.get('pattern_code'):
@@ -305,16 +307,29 @@ def recommend():
         help='output file for results',
         default=False
     )
+
+    parser.add_argument(
+        '--model_path',
+        help='output file for results',
+        default=False
+    )
+
+    parser.add_argument(
+        '--threshold',
+        help='output file for results',
+        default=False
+    )
+
     # make a certain order of arguments which was used by a model
 
     args = parser.parse_args(sys.argv[2:])
-    results = []
     if args.filenames:
-        results = list(run_thread(args.filenames))
+        files = args.filenames
     elif args.folder:
         files = []
         list_dir(args.folder, files)
-        results = list(run_thread(files))
+
+    results = list(run_thread(files, args))
 
     if args.output:
         filename = args.output
@@ -339,14 +354,14 @@ def version():
     print('%(prog)s {version}'.format(version=__version__))
 
 
-def run_thread(files):
+def run_thread(files, args):
     """
     Parallel patterns/metrics calculation
     :param files: list of java files to analyze
 
     """
     with concurrent.futures.ThreadPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
-        future_results = [executor.submit(run_recommend_for_file, file) for file in files]
+        future_results = [executor.submit(run_recommend_for_file, file, args) for file in files]
         concurrent.futures.wait(future_results)
         for future in future_results:
             yield future.result()
