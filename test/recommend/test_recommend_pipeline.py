@@ -30,20 +30,15 @@ from lxml import etree
 from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, create_xml_tree
 
 
-class TestNestedBlocks(TestCase):
+class TestRecommendPipeline(TestCase):
 
     def __init__(self, *args, **kwargs):
-        super(TestNestedBlocks, self).__init__(*args, **kwargs)
+        super(TestRecommendPipeline, self).__init__(*args, **kwargs)
         self.cur_file_dir = Path(os.path.realpath(__file__)).parent
 
     def test_calculate_patterns_and_metrics(self):
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
         calculate_patterns_and_metrics(file)
-
-    def test_list_dir_empty(self):
-        file = Path(self.cur_file_dir, 'empty_dir')
-        found_files = []
-        self.assertEqual(list_dir(file, found_files), found_files)
 
     def test_list_dir_no_java_files(self):
         found_files = []
@@ -54,12 +49,8 @@ class TestNestedBlocks(TestCase):
         file = Path(self.cur_file_dir, 'folder')
         found_files = []
         list_dir(file, found_files)
-        resuls = [
-            'KeyframeParser.java',
-            'Metadata.java',
-            'LottieImageAsset.java'
-        ]
-        filenames = [Path(x).name for x in found_files]
+        resuls = {'KeyframeParser.java', 'Metadata.java', 'LottieImageAsset.java'}
+        filenames = set([Path(x).name for x in found_files])
         self.assertEqual(filenames, resuls)
 
     def test_xml_create(self):
