@@ -59,5 +59,5 @@ Using Docker recommendation pipeline
 $ docker run --rm -it \ 
   -v <absolute_path_to_folder_with_classes>:/in \
   -v <absolute_path_out_dir>:/out \ 
-  yegor256/aibolit:recommend
+  yegor256/aibolit-image
 ```
