@@ -57,7 +57,7 @@ def predict(input_params, model, args):
     features_order = model.features_conf['features_order']
     # load model
     input = [input_params[i] for i in features_order]
-    th = args.threshold or 1.0
+    th = float(args.threshold) or 1.0
     print('Threshold for model: {}'.format(th))
     preds = model.predict(np.array(input), th=th)
 
