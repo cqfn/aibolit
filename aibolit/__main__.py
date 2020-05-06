@@ -57,9 +57,9 @@ def predict(input_params, model, args):
     features_order = model.features_conf['features_order']
     # load model
     input = [input_params[i] for i in features_order]
-    th = args.get('th') or 1.0
+    th = args.threshold or 1.0
     print('Threshold for model: {}'.format(th))
-    preds = model.predict(np.array(input), th)
+    preds = model.predict(np.array(input), th=th)
 
     return {features_order[int(x)]: x for x in preds.tolist()[0]}
 
@@ -210,13 +210,13 @@ def inreference(input_params: List[int], code_lines_dict, args):
     :param code_lines_dict: list with found code lines of patterns/metrics
     :return:
     """
-    model_path = args.get('model_path')
+    model_path = args.model_path
     if input_params:
         if not model_path:
             model_path = Config.folder_model_data()
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
-        sorted_result = predict(input_params, model)
+        sorted_result = predict(input_params, model, args)
         code_lines = None
         patterns_list = model.features_conf['patterns_only']
         pattern_code = None  # type: ignore
@@ -291,12 +291,15 @@ def recommend():
 
     parser = argparse.ArgumentParser(
         description='Download objects and refs from another repository')
-    parser.add_argument(
+
+    group_exclusive = parser.add_mutually_exclusive_group(required=True)
+
+    group_exclusive.add_argument(
         '--folder',
         help='path to Java files',
         default=False
     )
-    parser.add_argument(
+    group_exclusive.add_argument(
         '--filenames',
         help='Java files',
         nargs="*",
