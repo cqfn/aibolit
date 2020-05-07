@@ -60,7 +60,7 @@ class ClassType(Enum):
 
 
 def get_class_type(filename):
-    with open(filename, 'r', encoding='utf-8') as f:
+    with open(filename.encode('utf-8'), 'r', encoding='utf-8') as f:
         text = f.read()
         class_type = ClassType.CLASS
         try:
@@ -96,10 +96,14 @@ def worker(filename):
     results = []
     if filename.lower().endswith('.java'):
         if filename.lower().endswith('test.java') or \
-                any([x.lower().find('test') > -1 for x in Path(filename).parts]):
+                any([x.lower().find('test') > -1 for x in Path(filename).parts]) or \
+                filename.lower().find('package-info') > -1:
             class_type = ClassType.TEST
         else:
-            class_type = get_class_type(filename)
+            try:
+                class_type = get_class_type(filename)
+            except:
+                print("Can't open file {}. Ignoring the file ...".format(filename))
         results = [Path(filename).as_posix(), class_type.value]
 
     return results
