@@ -79,6 +79,7 @@ class ThisFinder:
                 return 1, flag_this, flag_else
         return 0, flag_this, flag_else
 
+    # flake8: noqa
     def __work_with_stats(self, stats, flag_this, flag_else):
         '''function to work with objects in constructor'''
         for expr in stats:
@@ -89,7 +90,7 @@ class ThisFinder:
                 res, flag_this, flag_else = self.__try_stat(expr, flag_this, old_else)
             elif isinstance(expr, javalang.tree.StatementExpression):
                 res, flag_this, flag_else = self.__expr_stat(expr, flag_this, old_else)
-            elif isinstance(expr, javalang.tree.IfStatement) :
+            elif isinstance(expr, javalang.tree.IfStatement):
                 res, flag_this, flag_else = self.__if_stat(expr, flag_this, flag_else)
             elif isinstance(expr, javalang.tree.ForStatement):
                 if hasattr(expr.body, 'statements'):
