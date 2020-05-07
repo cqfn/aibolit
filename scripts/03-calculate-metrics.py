@@ -21,7 +21,7 @@ for dir_local in Path(dir_to_analyze).iterdir():
     subprocess.call([
         './_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh', 'pmd',
         '-cache', './_tmp/cache',
-        '-d', dir_to_analyze, '-R', 'ruleset.xml', '-f', 'csv'
+        '-d', dir_local, '-R', 'ruleset.xml', '-f', 'csv'
     ], stdout=f)
     print('Metrics have calculated.')
     f.close()
