@@ -104,6 +104,8 @@ def worker(filename):
                 class_type = get_class_type(filename)
             except:
                 print("Can't open file {}. Ignoring the file ...".format(filename))
+                class_type = ClassType.JAVA_PARSE_ERROR
+
         results = [Path(filename).as_posix(), class_type.value]
 
     return results
