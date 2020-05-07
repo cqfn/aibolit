@@ -1,23 +1,49 @@
 import subprocess
 import pandas as pd
 import os
+from pathlib import Path
+import uuid
 
 
 DIR_TO_CREATE = 'target/03'
+dir_to_analyze = './target/01'
 current_location: str = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__))
 )
-print('Start metrics calculation...')
-f = open("./_tmp/pmd_out.csv", "w")
-subprocess.call([
-    './_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh', 'pmd',
-    '-cache', './_tmp/cache',
-    '-d', './target/01', '-R', 'ruleset.xml', '-f', 'csv'
-], stdout=f)
-print('Metrics have calculated.')
+csv_files = []
+for dir_local in Path(dir_to_analyze).iterdir():
+    print('Run for path {}'.format(dir_local.parts[-1]))
+    # uuid_file = str(uuid.uuid1())
+    print('Start metrics calculation...')
+    csv_filename = "./_tmp/{}_pmd_out.csv".format(dir_local.parts[-1])
+    csv_files.append(csv_filename)
+    f = open(csv_filename, "w")
+    subprocess.call([
+        './_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh', 'pmd',
+        '-cache', './_tmp/cache',
+        '-d', dir_to_analyze, '-R', 'ruleset.xml', '-f', 'csv'
+    ], stdout=f)
+    print('Metrics have calculated.')
+    f.close()
 
+cur_df = pd.DataFrame(
+    ["1","Fake.java","3","13","The class 'CircularFlux' has a NCSS line count of 6 (Highest = 0).","Design","NcssCount"],
+    columns=["Problem","Package","File","Priority","Line","Description","Rule set","Rule"]
+)
 
-df = pd.read_csv('./_tmp/pmd_out.csv')
+frames = []
+for i in csv_files:
+    try:
+        new_frame = pd.read_csv(i)
+        frames.append(new_frame)
+    except:
+        pass
+
+print("we have %d folder, %d datasets", len(csv_files) , len(frames))
+df = pd.concat(frames)
+print(df.head())
+
+# df = pd.read_csv('./_tmp/pmd_out.csv')
 df['class'] = 0
 df.loc[df['Description'].str.contains("The class"), 'class'] = 1
 rows_to_remove = df[df['class'] == 1][['File', 'class', 'Rule']]\
