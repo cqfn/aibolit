@@ -201,7 +201,7 @@ def calculate_patterns_and_metrics(file):
     return input_params, code_lines_dict, error_string
 
 
-def inreference(input_params: List[int], code_lines_dict, args):
+def inference(input_params: List[int], code_lines_dict, args):
     """
     Find a pattern which has the largest impact on target
 
@@ -246,7 +246,7 @@ def run_recommend_for_file(file: str, args):
     print('Analyzing {}'.format(file))
     java_file = str(Path(os.getcwd(), file))
     input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file)
-    code_lines, pattern_code, pattern_name = inreference(input_params, code_lines_dict, args)
+    code_lines, pattern_code, pattern_name = inference(input_params, code_lines_dict, args)
 
     return create_output(
         java_file=java_file,  # type: ignore
