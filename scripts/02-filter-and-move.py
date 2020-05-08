@@ -109,7 +109,7 @@ def worker(filename: Path):
         else:
             try:
                 class_type = get_class_type(filename)
-            except:
+            except Exception:
                 print("Can't open file {}. Ignoring the file ...".format(str_filename))
                 traceback.print_exc()
                 class_type = ClassType.JAVA_PARSE_ERROR
