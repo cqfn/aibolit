@@ -18,7 +18,7 @@ for dir_local in Path(dir_to_analyze).iterdir():
         csv_files.append(csv_filename)
         f = open(csv_filename, "w")
         subprocess.call([
-            './_tmp/pmd-bin-6.23.0/bin/run.sh', 'pmd',
+            './_tmp/pmd-bin/bin/run.sh', 'pmd',
             '-cache', './_tmp/cache',
             '-d', dir_local.absolute(), '-R', 'ruleset.xml', '-f', 'csv'
         ], stdout=f)
