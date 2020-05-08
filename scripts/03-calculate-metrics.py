@@ -27,9 +27,11 @@ for dir_local in Path(dir_to_analyze).iterdir():
     f.close()
 
 cur_df = pd.DataFrame(
-    ["1","Fake.java","3","13","The class 'CircularFlux' has a NCSS line count of 6 (Highest = 0).","Design","NcssCount"],
+    ["-555","com.google.samples.quickstart.admobexample",
+     "Fake.java", "3", "11", "The class 'AdViewIdlingResource' has a NCSS line count of 26 (Highest = 6).", "Design", "NcssCount"],
     columns=["Problem","Package","File","Priority","Line","Description","Rule set","Rule"]
 )
+
 
 frames = []
 for i in csv_files:
