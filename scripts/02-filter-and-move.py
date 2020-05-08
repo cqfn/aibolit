@@ -30,6 +30,8 @@ import javalang
 from enum import Enum
 from pathlib import Path
 import pandas as pd
+import traceback
+import cchardet as chardet
 
 parser = argparse.ArgumentParser(description='Filter important java files')
 parser.add_argument(
@@ -59,8 +61,12 @@ class ClassType(Enum):
     CLASS = 999
 
 
-def get_class_type(filename):
-    with open(filename, 'r', encoding='utf-8') as f:
+def get_class_type(filename: Path):
+    with open(filename, 'rb') as f:
+        msg = f.read()
+        result = chardet.detect(msg)
+
+    with open(filename, 'r', encoding=result['encoding']) as f:
         text = f.read()
         class_type = ClassType.CLASS
         try:
@@ -87,21 +93,28 @@ def get_class_type(filename):
         return class_type
 
 
-def worker(filename):
+def worker(filename: Path):
     """
     Identify type of class
     :param filename: filename of Java class
     :return: tuple of java file path and it's type
     """
     results = []
-    if filename.lower().endswith('.java'):
-        if filename.lower().endswith('test.java') or \
-                any([x.lower().find('test') > -1 for x in Path(filename).parts]) or \
-                filename.lower().find('package-info') > -1:
+    str_filename = str(filename)
+    if str_filename.lower().endswith('.java'):
+        if str_filename.lower().endswith('test.java') or \
+                any([x.lower().find('test') > -1 for x in filename.parts]) or \
+                str_filename.lower().find('package-info') > -1:
             class_type = ClassType.TEST
         else:
-            class_type = get_class_type(filename)
-        results = [Path(filename).as_posix(), class_type.value]
+            try:
+                class_type = get_class_type(filename)
+            except Exception:
+                print("Can't open file {}. Ignoring the file ...".format(str_filename))
+                traceback.print_exc()
+                class_type = ClassType.JAVA_PARSE_ERROR
+
+        results = [filename.as_posix(), class_type.value]
 
     return results
 
@@ -110,7 +123,7 @@ def walk_in_parallel():
     with multiprocessing.Pool(multiprocessing.cpu_count()) as pool:
         walk = os.walk(args.dir)
         fn_gen = itertools.chain.from_iterable(
-            (os.path.join(root, file)
+            (Path(os.path.join(root, file))
              for file in files)
             for root, dirs, files in walk)
 
