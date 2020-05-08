@@ -27,9 +27,10 @@ for dir_local in Path(dir_to_analyze).iterdir():
     f.close()
 
 cur_df = pd.DataFrame(
-    ["-555","com.google.samples.quickstart.admobexample",
-     "Fake.java", "3", "11", "The class 'AdViewIdlingResource' has a NCSS line count of 26 (Highest = 6).", "Design", "NcssCount"],
-    columns=["Problem","Package","File","Priority","Line","Description","Rule set","Rule"]
+    [["-555", "com.google.samples",
+      "Fake.java", "3", "11", "The class AdViewIdlingResource", "Design",
+      "NcssCount"]],
+    columns=["Problem", "Package", "File", "Priority", "Line", "Description", "Rule set", "Rule"]
 )
 
 
@@ -43,9 +44,10 @@ for i in csv_files:
 
 print("we have %d folder, %d datasets", len(csv_files) , len(frames))
 df = pd.concat(frames)
-print(df.head())
+df = df[df.Problem != -555]
+df.to_csv('pmd_out.csv')
 
-# df = pd.read_csv('./_tmp/pmd_out.csv')
+df = pd.read_csv('./_tmp/pmd_out.csv')
 df['class'] = 0
 df.loc[df['Description'].str.contains("The class"), 'class'] = 1
 rows_to_remove = df[df['class'] == 1][['File', 'class', 'Rule']]\
