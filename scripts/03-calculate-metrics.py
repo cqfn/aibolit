@@ -39,7 +39,7 @@ for i in csv_files:
         new_frame = pd.read_csv(i)
         cur_df.set_index("Problem")
         frames.append(new_frame)
-    except:
+    except Exception:
         pass
 
 print("we have {} folder, {} datasets".format(len(csv_files), len(frames)))
