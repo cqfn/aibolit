@@ -28,15 +28,16 @@ endif
 # and calculate a few metrics per each of them. The result of
 # calculation we store into target/03-metrics.csv
 
-./_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh:
-	wget -c -O ./_tmp/pmd-bin.zip https://github.com/pmd/pmd/releases/tag/pmd_releases%2F6.23.0
+./_tmp/pmd-bin-6.23.0/bin/run.sh:
+	mkdir -p _tmp
+	wget -c -O ./_tmp/pmd-bin.zip https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.23.0/pmd-bin-6.23.0.zip
 	unzip ./_tmp/pmd-bin.zip -d ./_tmp/
-	chmod +x ./_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh
+	chmod +x ./_tmp/pmd-bin-6.23.0/bin/run.sh
 	touch $@
 
 
 
-metrics: ./_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh
+metrics: ./_tmp/pmd-bin-6.23.0/bin/run.sh
 	python3 ./03-calculate-metrics.py
 
 # Here we go through the list of all Java classes in target/02

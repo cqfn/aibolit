@@ -76,7 +76,7 @@ def call_proc(cmd, java_file):
         score = float(out.decode().split('readability:')[-1].strip())
     else:
         print('Error when running: {}'.format(err))
-    return java_file.strip(), score
+    return str(Path(java_file.strip()).absolute()), score
 
 
 if __name__ == '__main__':
@@ -84,10 +84,11 @@ if __name__ == '__main__':
     pool = Pool(multiprocessing.cpu_count())
     handled_files = []
     count = 0
-
+    max_count = args.max_count
+    print(max_count)
     with open(args.filename, 'r') as f:
         for i in f.readlines():
-            if count < args.max_count:
+            if count < max_count:
                 java_file = str(Path(dir_path, i)).strip()
                 pool.apply_async(
                     call_proc,

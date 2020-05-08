@@ -11,18 +11,19 @@ current_location: str = os.path.realpath(
 )
 csv_files = []
 for dir_local in Path(dir_to_analyze).iterdir():
-    print('Run for path {}'.format(dir_local.parts[-1]))
-    print('Start metrics calculation...')
-    csv_filename = "./_tmp/{}_pmd_out.csv".format(dir_local.parts[-1])
-    csv_files.append(csv_filename)
-    f = open(csv_filename, "w")
-    subprocess.call([
-        './_tmp/pmd-bin-6.23.0/bin/pmd.bat', 'pmd',
-        '-cache', './_tmp/cache',
-        '-d', dir_local, '-R', 'ruleset.xml', '-f', 'csv'
-    ], stdout=f)
-    print('Metrics have calculated.')
-    f.close()
+    if dir_local.is_dir():
+        print('Run for path {}'.format(dir_local.parts[-1]))
+        print('Start metrics calculation...')
+        csv_filename = "./_tmp/{}_pmd_out.csv".format(dir_local.parts[-1])
+        csv_files.append(csv_filename)
+        f = open(csv_filename, "w")
+        subprocess.call([
+            './_tmp/pmd-bin-6.23.0/bin/run.sh', 'pmd',
+            '-cache', './_tmp/cache',
+            '-d', dir_local.absolute(), '-R', 'ruleset.xml', '-f', 'csv'
+        ], stdout=f)
+        print('Metrics have calculated.')
+        f.close()
 
 cur_df = pd.DataFrame(
     [["-555", "com.google.samples",
@@ -41,13 +42,14 @@ for i in csv_files:
     except:
         pass
 
-print("we have %d folder, %d datasets", len(csv_files) , len(frames))
+print("we have {} folder, {} datasets".format(len(csv_files), len(frames)))
 df = pd.concat(frames)
 df = df[df.Problem != -555]
-df.to_csv('pmd_out.csv')
+df.set_index("Problem")
+df.to_csv('./_tmp/pmd_out.csv')
 
-df = pd.read_csv('./_tmp/pmd_out.csv').set_index('Problem')
-print(df.head())
+df = pd.read_csv('./_tmp/pmd_out.csv')
+df = df.drop(df.columns[[0]], axis=1)
 df['class'] = 0
 df.loc[df['Description'].str.contains("The class"), 'class'] = 1
 rows_to_remove = df[df['class'] == 1][['File', 'class', 'Rule']]\
@@ -123,5 +125,4 @@ metrics = keys.join(class_cyclo, how='inner')\
 if not os.path.isdir(DIR_TO_CREATE):
     os.makedirs(DIR_TO_CREATE)
 
-metrics['filename'] = metrics.filename.str.replace(current_location + '/', '')
 metrics.to_csv(DIR_TO_CREATE + '/' + 'pmd_metrics.csv', sep=';', index=False)

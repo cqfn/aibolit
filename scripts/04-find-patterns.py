@@ -47,6 +47,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 MI_pipeline_exclude_codes = [
     "M5",  # metric not ready
     "P27",  # empty implementation
+    "P23",  # many errors
 ]
 
 
@@ -69,7 +70,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
     d_path = Path(dir_path)
     relative_path = p.relative_to(d_path)
 
-    row = {'filename': relative_path.as_posix()}
+    row = {'filename': relative_path.absolute().as_posix()}
     config = Config.get_patterns_config()
     for pattern in config['patterns']:
         val = None
