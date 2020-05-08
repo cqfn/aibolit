@@ -29,9 +29,7 @@ endif
 # calculation we store into target/03-metrics.csv
 
 ./_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh:
-	rm -rf _tmp
-	mkdir -p _tmp
-	wget -c -O ./_tmp/pmd-bin.zip https://github.com/pmd/pmd/releases/download/6.21.0-with-designer/pmd-bin-6.21.0-full.zip
+	wget -c -O ./_tmp/pmd-bin.zip https://github.com/pmd/pmd/releases/tag/pmd_releases%2F6.23.0
 	unzip ./_tmp/pmd-bin.zip -d ./_tmp/
 	chmod +x ./_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh
 	touch $@

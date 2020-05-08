@@ -2,7 +2,6 @@ import subprocess
 import pandas as pd
 import os
 from pathlib import Path
-import uuid
 
 
 DIR_TO_CREATE = 'target/03'
@@ -13,13 +12,12 @@ current_location: str = os.path.realpath(
 csv_files = []
 for dir_local in Path(dir_to_analyze).iterdir():
     print('Run for path {}'.format(dir_local.parts[-1]))
-    # uuid_file = str(uuid.uuid1())
     print('Start metrics calculation...')
     csv_filename = "./_tmp/{}_pmd_out.csv".format(dir_local.parts[-1])
     csv_files.append(csv_filename)
     f = open(csv_filename, "w")
     subprocess.call([
-        './_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh', 'pmd',
+        './_tmp/pmd-bin-6.23.0/bin/pmd.bat', 'pmd',
         '-cache', './_tmp/cache',
         '-d', dir_local, '-R', 'ruleset.xml', '-f', 'csv'
     ], stdout=f)
@@ -32,12 +30,13 @@ cur_df = pd.DataFrame(
       "NcssCount"]],
     columns=["Problem", "Package", "File", "Priority", "Line", "Description", "Rule set", "Rule"]
 )
-
+cur_df.set_index("Problem")
 
 frames = []
 for i in csv_files:
     try:
         new_frame = pd.read_csv(i)
+        cur_df.set_index("Problem")
         frames.append(new_frame)
     except:
         pass
@@ -47,7 +46,8 @@ df = pd.concat(frames)
 df = df[df.Problem != -555]
 df.to_csv('pmd_out.csv')
 
-df = pd.read_csv('./_tmp/pmd_out.csv')
+df = pd.read_csv('./_tmp/pmd_out.csv').set_index('Problem')
+print(df.head())
 df['class'] = 0
 df.loc[df['Description'].str.contains("The class"), 'class'] = 1
 rows_to_remove = df[df['class'] == 1][['File', 'class', 'Rule']]\
