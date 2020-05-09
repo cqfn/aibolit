@@ -24,8 +24,10 @@ from aibolit.types_decl import LineNumber
 from aibolit.patterns.var_middle.var_middle import JavalangImproved
 from javalang.tree import BinaryOperation, ThrowStatement, IfStatement
 
+from aibolit.patterns.pattern import Pattern
 
-class JoinedValidation:
+
+class JoinedValidation(Pattern):
     """
     Pattern which matches joined validations: validations (if with a single throw inside) which condition
     contains more than condition joined with OR
@@ -34,7 +36,7 @@ class JoinedValidation:
     def __init__(self):
         pass
 
-    def value(self, filename) -> List[LineNumber]:
+    def value(self, filename: str) -> List[LineNumber]:
         """
         Returns the line number of joined validations found in file.
         """

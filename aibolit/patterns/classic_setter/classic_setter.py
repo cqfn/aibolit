@@ -4,9 +4,10 @@ import javalang
 
 from aibolit.types_decl import LineNumber
 from aibolit.utils.ast import AST
+from aibolit.patterns.pattern import Pattern
 
 
-class ClassicSetter:
+class ClassicSetter(Pattern):
 
     def __init__(self):
         pass

@@ -1,13 +1,17 @@
+from typing import List
+
 import javalang
 from aibolit.utils.ast import AST
+from aibolit.patterns.pattern import Pattern
+from aibolit.types_decl import LineNumber
 
 
-class ErClass:
+class ErClass(Pattern):
 
     def __init__(self):
         pass
 
-    def value(self, filename: str):
+    def value(self, filename: str) -> List[LineNumber]:
         classes = ('manager',
                    'controller',
                    'router',

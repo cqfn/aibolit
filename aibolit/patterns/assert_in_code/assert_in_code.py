@@ -8,11 +8,12 @@ from javalang.tree import (
 
 from aibolit.types_decl import LineNumber
 from aibolit.utils.ast import AST
+from aibolit.patterns.pattern import Pattern
 
 _TEST_CLASS_SUFFIX = 'Test'
 
 
-class AssertInCode(object):
+class AssertInCode(Pattern):
     def value(self, filename: str) -> List[LineNumber]:
         tree: CompilationUnit = AST(filename).value()
 

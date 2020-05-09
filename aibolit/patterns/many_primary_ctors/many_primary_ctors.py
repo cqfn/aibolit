@@ -28,10 +28,11 @@ import javalang.tree
 
 from aibolit.types_decl import LineNumber
 from aibolit.utils.ast import AST
+from aibolit.patterns.pattern import Pattern
 
 
-class ManyPrimaryCtors(object):
-    def value(self, filename: str):
+class ManyPrimaryCtors(Pattern):
+    def value(self, filename: str) -> List[LineNumber]:
         tree = AST(filename).value()
 
         return self.__traverse_node(tree)

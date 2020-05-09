@@ -1,8 +1,12 @@
+from typing import List
+
 import javalang
 from aibolit.utils.ast import AST
+from aibolit.patterns.pattern import Pattern
+from aibolit.types_decl import LineNumber
 
 
-class InstanceOf:
+class InstanceOf(Pattern):
     def __init__(self):
         pass
 
@@ -24,6 +28,6 @@ class InstanceOf:
 
         return lines
 
-    def value(self, filename: str):
+    def value(self, filename: str) -> List[LineNumber]:
         tree = AST(filename).value()
         return self.__traverse_node(tree)

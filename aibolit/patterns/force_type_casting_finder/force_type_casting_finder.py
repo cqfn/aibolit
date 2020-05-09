@@ -19,12 +19,15 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+from typing import List
 
 import javalang
 from aibolit.utils.ast import AST
+from aibolit.patterns.pattern import Pattern
+from aibolit.types_decl import LineNumber
 
 
-class ForceTypeCastingFinder:
+class ForceTypeCastingFinder(Pattern):
 
     def __process_node(self, node):
         line = node.position.line if hasattr(node, 'position') and node.position is not None else None
@@ -52,7 +55,7 @@ class ForceTypeCastingFinder:
 
         return items
 
-    def value(self, filename: str):
+    def value(self, filename: str) -> List[LineNumber]:
         ''''''
         tree = AST(filename).value()
         list_tree = self.__tree_to_list(tree)

@@ -20,21 +20,24 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import re
+import abc
 from typing import List
-
-from aibolit.patterns.pattern import Pattern
 from aibolit.types_decl import LineNumber
 
 
-class NullAssignment(Pattern):
+class Pattern(abc.ABC):
+    """
+    Pattern abstract base class.
+    Models Pattern behaviors.
+    @todo #123:30min Continue to make pattern classes implement Pattern abstract base class
+     Pattern abstract base class was implemented in #123. Now all patterns must implement
+     the value method as defined in it. Continue to make changes in pattern files as
+     needed so they all implement Pattern
+    @todo #123:30min Create abstract base class for metrics
+     Following what was made in #123 with patterns, create abstract base class Metric
+     with abstract method def value(self, filename: str) -> int: and make all implemented
+     metrics to use it
+    """
+    @abc.abstractmethod
     def value(self, filename: str) -> List[LineNumber]:
-        file_d = open(filename)
-        string = r'[^=!><]=(\s)*null(\s)*;'
-        num_str = []
-        for i, line in enumerate(file_d):
-            match = re.search(string, line)
-            if match is not None:
-                num_str.append(i + 1)
-        file_d.close()
-        return num_str
+        pass
