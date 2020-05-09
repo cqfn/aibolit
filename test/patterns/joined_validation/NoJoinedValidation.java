@@ -6,4 +6,9 @@ class NoJoinedValidation {
             }
         }
     }
+    int sum(int x, int y) {
+        if (x == 1 || y != 1)
+            return x + y;
+        return 0;
+    }
 }
