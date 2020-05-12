@@ -40,7 +40,9 @@ class ThisFinder:
 
     def __try_stat(self, expr, flag_this, flag_else):
         '''function to work with TryStatement block'''
-        if (expr.resources is not None) or (expr.catches[0].block != []) or (expr.finally_block is not None):
+        if (expr.resources is not None) or \
+            (expr.catches is not None and expr.catches[0].block != []) or \
+                (expr.finally_block is not None):
             flag_else = 1
         try_exprs = expr.block
         for expr1 in try_exprs:
@@ -58,7 +60,11 @@ class ThisFinder:
     def __if_stat(self, expr, flag_this, flag_else):
         '''function to work with IfStatement block'''
         if expr.then_statement is not None:
-            res, flag_this, flag_else = self.__work_with_stats(expr.then_statement.statements, flag_this, flag_else)
+            if hasattr(expr.then_statement, 'statements'):
+                stmts = expr.then_statement.statements
+            else:
+                stmts = []
+            res, flag_this, flag_else = self.__work_with_stats(stmts, flag_this, flag_else)
             if res > 0:
                 return 1, flag_this, flag_else
         if expr.else_statement is not None:
@@ -73,6 +79,7 @@ class ThisFinder:
                 return 1, flag_this, flag_else
         return 0, flag_this, flag_else
 
+    # flake8: noqa
     def __work_with_stats(self, stats, flag_this, flag_else):
         '''function to work with objects in constructor'''
         for expr in stats:
@@ -86,11 +93,14 @@ class ThisFinder:
             elif isinstance(expr, javalang.tree.IfStatement):
                 res, flag_this, flag_else = self.__if_stat(expr, flag_this, flag_else)
             elif isinstance(expr, javalang.tree.ForStatement):
-                res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
+                if hasattr(expr.body, 'statements'):
+                    res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
             elif isinstance(expr, javalang.tree.WhileStatement):
-                res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
+                if hasattr(expr.body, 'statements'):
+                    res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
             elif isinstance(expr, javalang.tree.DoStatement):
-                res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
+                if hasattr(expr.body, 'statements'):
+                    res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
             else:
                 res = flag_this
             if res > 0:

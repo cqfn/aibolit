@@ -27,36 +27,36 @@ from aibolit.metrics.ncss.ncss import NCSSMetric
 class TestNCSSMetric(unittest.TestCase):
     def testZeroScore(self):
         file = 'test/metrics/ncss/Empty.java'
-        metric = NCSSMetric(file)
-        res = metric.value()
+        metric = NCSSMetric()
+        res = metric.value(file)
         self.assertEqual(res, 0)
 
     def testLowScore(self):
         file = 'test/metrics/ncss/GraalSDK.java'
-        metric = NCSSMetric(file)
-        res = metric.value()
+        metric = NCSSMetric()
+        res = metric.value(file)
         self.assertEqual(res, 2)
 
     def testMediumScore(self):
         file = 'test/metrics/ncss/WorkflowRunActionRepetitionDefinitionInner.java'
-        metric = NCSSMetric(file)
-        res = metric.value()
+        metric = NCSSMetric()
+        res = metric.value(file)
         self.assertEqual(res, 73)
 
     def testHighScore(self):
         file = 'test/metrics/ncss/YarnConfiguration.java'
-        metric = NCSSMetric(file)
-        res = metric.value()
+        metric = NCSSMetric()
+        res = metric.value(file)
         self.assertEqual(res, 1301)
 
     def testBasicExample(self):
         file = 'test/metrics/ncss/BasicExample.java'
-        metric = NCSSMetric(file)
-        res = metric.value()
+        metric = NCSSMetric()
+        res = metric.value(file)
         self.assertEqual(res, 12)
 
     def testAnotherScore(self):
         file = 'test/metrics/ncss/WebAppsImpl.java'
-        metric = NCSSMetric(file)
-        res = metric.value()
+        metric = NCSSMetric()
+        res = metric.value(file)
         self.assertEqual(res, 1429)

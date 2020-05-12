@@ -25,14 +25,14 @@ import javalang
 
 
 class NCSSMetric():
-    def __init__(self, filename):
-        """Initialize class."""
+    def __init__(self):
+        pass
+
+    def value(self, filename: str):
         if len(filename) == 0:
             raise ValueError('Empty file for analysis')
-        self.filename = filename
 
-    def value(self):
-        f = open(self.filename, "r", encoding='utf8')
+        f = open(filename, "r", encoding='utf8')
         code = f.read()
         f.close()
 

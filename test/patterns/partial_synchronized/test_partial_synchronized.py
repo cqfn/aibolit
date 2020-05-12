@@ -106,7 +106,7 @@ class VarMiddleTest(TestCase):
     def test_sync_with_static_class(self):
         pattern = PartialSync()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/SyncStaticClass.java')
-        self.assertEqual(lines, [50])
+        self.assertEqual(lines, [52])
 
     def test_sync_with_nested_if_and_for(self):
         pattern = PartialSync()
@@ -117,3 +117,13 @@ class VarMiddleTest(TestCase):
         pattern = PartialSync()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/SyncWithFunc.java')
         self.assertEqual(lines, [228])
+
+    def test_ctor(self):
+        pattern = PartialSync()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/Constructor.java')
+        self.assertEqual(lines, [412])
+
+    def test_lambda(self):
+        pattern = PartialSync()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/Lambda.java')
+        self.assertEqual(lines, [28])

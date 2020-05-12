@@ -17,7 +17,7 @@ $ pip3 install aibolit
 Then, you run it to analyze your Java sources, located at `src/java` (for example):
 
 ```bash
-$ aibolit --filename File.java
+$ aibolit recommend --filenames File.java
 ```
 
 It will run the model, found in aibolit/binary_files. The model will find a pattern which contribution is the largest to the Cyclomatic Complexity. If anything is found, you will see all recommendations for the mentioned pattern. You can see the list of all patterns in Patterns.md
@@ -52,3 +52,12 @@ $ latexmk -c && latexmk -pdf wp.tex
 
 If everything is fine, submit
 a [pull request](https://www.yegor256.com/2014/04/15/github-guidelines.html).
+
+
+Using Docker recommendation pipeline 
+```bash
+$ docker run --rm -it \ 
+  -v <absolute_path_to_folder_with_classes>:/in \
+  -v <absolute_path_to_out_dir>:/out \ 
+  yegor256/aibolit-image
+```

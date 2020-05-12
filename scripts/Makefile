@@ -1,4 +1,4 @@
-all: requirements samples filter metrics patterns rs build_halsted hl merge
+all: requirements samples filter metrics patterns rs build_halstead hl merge
 
 # Fetch thousands of Java samples in GitHub and store them
 # all in target/01 directory. We don't filter anything at
@@ -28,16 +28,18 @@ endif
 # and calculate a few metrics per each of them. The result of
 # calculation we store into target/03-metrics.csv
 
-./_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh:
+./_tmp/pmd-bin/bin/run.sh:
 	mkdir -p _tmp
-	wget -c -O ./_tmp/pmd-bin.zip https://github.com/pmd/pmd/releases/download/6.21.0-with-designer/pmd-bin-6.21.0-full.zip
+	wget -c -O ./_tmp/pmd-bin.zip https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.23.0/pmd-bin-6.23.0.zip
 	unzip ./_tmp/pmd-bin.zip -d ./_tmp/
-	chmod +x ./_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh
+	echo `unzip -qql ./_tmp/pmd-bin.zip | head -n1 | tr -s ' ' | cut -d' ' -f5-`
+	mv ./_tmp/`unzip -qql ./_tmp/pmd-bin.zip | head -n1 | tr -s ' ' | cut -d' ' -f5-` ./_tmp/pmd-bin
+	chmod +x ./_tmp/pmd-bin/bin/run.sh
 	touch $@
 
 
 
-metrics: ./_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh
+metrics: ./_tmp/pmd-bin/bin/run.sh
 	python3 ./03-calculate-metrics.py
 
 # Here we go through the list of all Java classes in target/02
@@ -61,7 +63,7 @@ rs: ./_tmp/rsm.jar
 hl:
 	python3 ./06-calculate-halstead.py --filename target/02/found-java-files.txt
 
-build_halsted:
+build_halstead:
 	cd ../aibolit/metrics/halsteadvolume && mvn clean package && cp ./target/java-project-1.0-SNAPSHOT.jar ../../../scripts/halstead.jar
 
 merge:

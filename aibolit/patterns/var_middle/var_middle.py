@@ -20,13 +20,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List, Tuple
+from typing import List, Tuple, Type
 from enum import Enum
 from functools import reduce
 
 import javalang
 
 from aibolit.types_decl import LineNumber
+from aibolit.utils.lines import Lines
 
 
 # mapping between javalang node class names and Java keywords
@@ -65,25 +66,9 @@ class ASTNode:
 class JavalangImproved:
 
     def __init__(self, filename: str):
-        tree, lines = self.__file_to_ast(filename)
+        tree, lines = Lines(filename).value()
         self.tree = tree
         self.lines = lines
-
-    """
-        @todo #131:30min Lines implementation of Ast
-         this __file_to_ast implementation differs from usual one since it
-         also returns the lines from file. Implement a decorator to Ast which
-         does it and replace it here. Don't forget the tests.
-    """
-    def __file_to_ast(self, filename: str) -> Tuple[javalang.ast.Node, List[str]]:
-        '''Takes path to java class file and returns AST Tree'''
-        with open(filename, encoding='utf-8') as file:
-            tree = javalang.parse.parse(file.read())
-
-        with open(filename, encoding='utf-8') as file:
-            lines = file.readlines()
-
-        return tree, lines
 
     def __find_keyword(self, lines, keyword, start):
         '''
@@ -163,7 +148,7 @@ class JavalangImproved:
         nodes = self.__tree_to_nodes(self.tree)
         return sorted(nodes, key=lambda v: v.line)
 
-    def filter(self, ntypes: List[javalang.tree.Node]) -> List[ASTNode]:
+    def filter(self, ntypes: List[Type[javalang.tree.Node]]) -> List[ASTNode]:
         nodes = self.tree_to_nodes()
         return list(
             filter(lambda v: type(v.node) in ntypes, nodes)
