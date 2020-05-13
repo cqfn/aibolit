@@ -19,13 +19,13 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
+from networkx import Graph  # type: ignore
 from aibolit.utils.ast import AST
 from aibolit.utils.cohesiongraph import CohesionGraph
 from aibolit.utils.filter import Filters
-from networkx import Graph
 from javalang.tree import Node
 from typing import List
+
 
 class LCOM5:
 
@@ -60,5 +60,5 @@ class LCOM5:
         try:
             result: float = (ref_cnt - mth_cnt * attr_cnt) / (attr_cnt - mth_cnt * attr_cnt)
         except ZeroDivisionError:
-            return None
+            return 0.0
         return result

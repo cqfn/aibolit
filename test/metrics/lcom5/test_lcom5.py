@@ -33,54 +33,45 @@ class TestLCOM5(TestCase):
     def test_class_with_empty_method(self):
         name = 'EmptyMethod.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
-        print(name)
         self.assertEqual(lcom4_val, 1 / 2)
 
     def test_constructor(self):
         name = 'Constructor.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
-        print(name)
-        self.assertEqual(lcom4_val, None)
+        self.assertEqual(lcom4_val, 0.0)
 
     def test_scope_with_anonymous(self):
         name = 'ScopeAnonymous.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
-        print(name)
         self.assertEqual(lcom4_val, 5 / 6)
 
     def test_simple(self):
         name = 'Simple.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
-        print(name)
         self.assertEqual(lcom4_val, 6 / 8)
 
     def test_getter_setter(self):
         name = 'GetterSetter.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
         # We should ignore all setters and getters
-        print(name)
-        self.assertEqual(lcom4_val, None)
+        self.assertEqual(lcom4_val, 0.0)
 
     def test_scope(self):
         name = 'Scope.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
-        print(name)
-        self.assertEqual(lcom4_val, None)
+        self.assertEqual(lcom4_val, 0.0)
 
     def test_overloaded(self):
         name = 'Overloaded.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
-        print(name)
         self.assertEqual(lcom4_val, 1)
 
     def test_class_with_chain(self):
         name = 'MethodChain.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
-        print(name)
         self.assertEqual(lcom4_val, 7 / 10)
 
     def test_overloaded_diff(self):
         name = 'OverloadedDiffComp.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
-        print(name)
         self.assertEqual(lcom4_val, 3 / 4)
