@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 from typing import List
+import sys
 from aibolit.types_decl import LineNumber
 from aibolit.patterns.var_middle.var_middle import JavalangImproved
 from javalang.tree import BinaryOperation, ThrowStatement, IfStatement
@@ -49,11 +50,12 @@ class JoinedValidation:
             return type(node.node.then_statement) == ThrowStatement
 
         def c4(node):
-            return len(node.node.then_statement.statements) == 1
+            return hasattr(node.node.then_statement, "statements") and len(node.node.then_statement.statements) == 1
 
         def c5(node):
             return type(node.node.then_statement.statements[0]) == ThrowStatement
 
+        sys.setrecursionlimit(5000)
         return [
             node.line
             for node in JavalangImproved(filename).filter([IfStatement])
