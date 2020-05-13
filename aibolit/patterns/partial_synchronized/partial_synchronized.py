@@ -39,10 +39,16 @@ class PartialSync:
         items = obj.tree_to_nodes()
         synch_nodes = defaultdict(list)
         method_nodes = {}
+
         for x in items:
-            if isinstance(x.node, javalang.tree.SynchronizedStatement):
+            is_instance_sync_stat = isinstance(x.node, javalang.tree.SynchronizedStatement)
+            is_instance_method_decl = isinstance(x.node, javalang.tree.MethodDeclaration)
+            is_instance_ctr = isinstance(x.node, javalang.tree.ConstructorDeclaration)
+            is_instance_lambda = isinstance(x.node, javalang.tree.LambdaExpression)
+
+            if is_instance_sync_stat:
                 synch_nodes[x.method_line].append(x)
-            elif isinstance(x.node, javalang.tree.MethodDeclaration):
+            elif is_instance_method_decl or is_instance_ctr or is_instance_lambda:
                 method_nodes[x.method_line] = x
 
         for method_line, sync_nodes in sorted(synch_nodes.items(), key=lambda x: x[1][0].line):

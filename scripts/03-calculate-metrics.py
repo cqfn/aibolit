@@ -1,23 +1,55 @@
 import subprocess
 import pandas as pd
 import os
+from pathlib import Path
 
 
 DIR_TO_CREATE = 'target/03'
+dir_to_analyze = './target/01'
 current_location: str = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__))
 )
-print('Start metrics calculation...')
-f = open("./_tmp/pmd_out.csv", "w")
-subprocess.call([
-    './_tmp/pmd-bin-6.22.0-SNAPSHOT/bin/run.sh', 'pmd',
-    '-cache', './_tmp/cache',
-    '-d', './target/01', '-R', 'ruleset.xml', '-f', 'csv'
-], stdout=f)
-print('Metrics have calculated.')
+csv_files = []
+for dir_local in Path(dir_to_analyze).iterdir():
+    if dir_local.is_dir():
+        print('Run for path {}'.format(dir_local.parts[-1]))
+        print('Start metrics calculation...')
+        csv_filename = "./_tmp/{}_pmd_out.csv".format(dir_local.parts[-1])
+        csv_files.append(csv_filename)
+        f = open(csv_filename, "w")
+        subprocess.call([
+            './_tmp/pmd-bin/bin/run.sh', 'pmd',
+            '-cache', './_tmp/cache',
+            '-d', dir_local.absolute(), '-R', 'ruleset.xml', '-f', 'csv'
+        ], stdout=f)
+        print('Metrics have calculated.')
+        f.close()
 
+cur_df = pd.DataFrame(
+    [["-555", "com.google.samples",
+      "Fake.java", "3", "11", "The class AdViewIdlingResource", "Design",
+      "NcssCount"]],
+    columns=["Problem", "Package", "File", "Priority", "Line", "Description", "Rule set", "Rule"]
+)
+cur_df.set_index("Problem")
+
+frames = []
+for i in csv_files:
+    try:
+        new_frame = pd.read_csv(i)
+        cur_df.set_index("Problem")
+        frames.append(new_frame)
+    except Exception:
+        pass
+
+print("we have {} folder, {} datasets".format(len(csv_files), len(frames)))
+df = pd.concat(frames)
+df = df[df.Problem != -555]
+df.set_index("Problem")
+df.to_csv('./_tmp/pmd_out.csv')
 
 df = pd.read_csv('./_tmp/pmd_out.csv')
+df = df.drop(df.columns[[0]], axis=1)
 df['class'] = 0
 df.loc[df['Description'].str.contains("The class"), 'class'] = 1
 rows_to_remove = df[df['class'] == 1][['File', 'class', 'Rule']]\
@@ -93,5 +125,4 @@ metrics = keys.join(class_cyclo, how='inner')\
 if not os.path.isdir(DIR_TO_CREATE):
     os.makedirs(DIR_TO_CREATE)
 
-metrics['filename'] = metrics.filename.str.replace(current_location + '/', '')
 metrics.to_csv(DIR_TO_CREATE + '/' + 'pmd_metrics.csv', sep=';', index=False)
