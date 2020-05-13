@@ -34,7 +34,7 @@ from multiprocessing import Manager
 from pathlib import Path
 from shutil import copyfile, rmtree
 
-from aibolit.config import CONFIG
+from aibolit.config import Config
 
 parser = argparse.ArgumentParser(description='Find patterns in Java files')
 parser.add_argument(
@@ -44,10 +44,12 @@ parser.add_argument(
 
 args = parser.parse_args()
 dir_path = os.path.dirname(os.path.realpath(__file__))
-MI_pipeline_exclude_codes: [
+MI_pipeline_exclude_codes = [
     "M5",  # metric not ready
-    "P26",  # empty implementation
+    "P27",  # empty implementation
+    "P23",  # many errors
 ]
+
 
 def log_result(result, file_to_write):
     """ Save result to csv file. """
@@ -68,9 +70,9 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
     d_path = Path(dir_path)
     relative_path = p.relative_to(d_path)
 
-    row = {'filename': relative_path.as_posix()}
-    exclude_codes = CONFIG['MI_pipeline_exclude_codes']
-    for pattern in CONFIG['patterns']:
+    row = {'filename': relative_path.absolute().as_posix()}
+    config = Config.get_patterns_config()
+    for pattern in config['patterns']:
         val = None
         acronym = pattern['code']
         if acronym not in MI_pipeline_exclude_codes:
@@ -89,7 +91,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
                     'pattern_name': pattern['name'],
                 }
 
-    for metric in CONFIG['metrics']:
+    for metric in config['metrics']:
         val = None
         acronym = metric['code']
         if acronym not in MI_pipeline_exclude_codes:
@@ -177,10 +179,11 @@ if __name__ == '__main__':
     path = 'target/04'
     os.makedirs(path, exist_ok=True)
     filename = Path(path, '04-find-patterns.csv')
+    config = Config.get_patterns_config()
     fields = \
-        [x['code'] for x in CONFIG['patterns']] \
-        + [x['code'] for x in CONFIG['metrics']] \
-        + ['lines_' + x['code'] for x in CONFIG['patterns']] \
+        [x['code'] for x in config['patterns'] if x['code'] not in MI_pipeline_exclude_codes] \
+        + [x['code'] for x in config['metrics'] if x['code'] not in MI_pipeline_exclude_codes] \
+        + ['lines_' + x['code'] for x in config['patterns'] if x['code'] not in MI_pipeline_exclude_codes] \
         + ['filename']
 
     with open(filename, 'w', newline='\n', encoding='utf-8') as csv_file:
