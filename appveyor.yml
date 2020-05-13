@@ -11,6 +11,6 @@ environment:
   matrix:
     - python: "py37"
 install:
-- pip3 install aibolit
+- pip install aibolit
 test_script:
 - aibolit
