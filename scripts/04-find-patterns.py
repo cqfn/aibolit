@@ -47,7 +47,6 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 MI_pipeline_exclude_codes = [
     "M5",  # metric not ready
     "P27",  # empty implementation
-    "P23",  # many errors
 ]
 
 
