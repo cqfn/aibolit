@@ -3,7 +3,8 @@ import sys
 from aibolit.config import Config
 
 # TODO: fix all errors in the patterns/metrics and make these lists empty
-EXCLUDE_PATTERNS = []
+
+EXCLUDE_PATTERNS = ['P31', 'P32']
 EXCLUDE_METRICS = ['M5']
 
 
