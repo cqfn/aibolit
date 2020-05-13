@@ -218,7 +218,6 @@ class CohesionGraph:
                     if this_node.selectors[0].member in field:
                         self.add_vertices_edges(G, 'reference', method_exhaust, field)
 
-    @staticmethod
     def add_vertices_edges(G, edge_type: str, first_node: EdgeNode, second_node: EdgeNode) -> None:
         """Adds nodes to graph G
 
