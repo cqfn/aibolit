@@ -128,8 +128,5 @@ class Filters:
 
         Returns list with no repetitive objects.
         """
-
-        for item in list_of_exhaust:
-            if list_of_exhaust.count(item) > 1:
-                list_of_exhaust.remove(item)
+        list_of_exhaust = list(dict.fromkeys(list_of_exhaust))
         return list_of_exhaust

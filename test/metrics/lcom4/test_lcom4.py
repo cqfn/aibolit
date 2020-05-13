@@ -77,7 +77,7 @@ class TestLCOM4(TestCase):
         name = 'MethodChain.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
         print(name)
-        self.assertEqual(lcom4_val, 1)
+        self.assertEqual(lcom4_val, 2)
 
     def test_overloaded_diff(self):
         name = 'OverloadedDiffComp.java'
