@@ -22,7 +22,7 @@ from aibolit.patterns.many_primary_ctors.many_primary_ctors import ManyPrimaryCt
 from aibolit.patterns.method_chaining.method_chaining import MethodChainFind as P10
 from aibolit.patterns.multiple_try.multiple_try import MultipleTry as P11
 from aibolit.patterns.multiple_while.multiple_while import MultipleWhile as P29
-from aibolit.patterns.nested_loop.nested_loop import NestedLoop as P30
+from aibolit.patterns.nested_loop.nested_loop import NestedLoop as P32
 from aibolit.patterns.non_final_attribute.non_final_attribute import NonFinalAttribute as P12
 from aibolit.patterns.non_final_class.non_final_class import NonFinalClass as P24
 from aibolit.patterns.null_check.null_check import NullCheck as P13
@@ -121,6 +121,8 @@ class Config(metaclass=Singleton):
                 {"name": "Multiple While", "code": "P29", "make": lambda: P29()},
                 {"name": "Protected Method", "code": "P30", "make": lambda: P30()},
                 {"name": "Send Null", "code": "P31", "make": lambda: P31()},
+                {"name": "Nested Loop", "code": "P32", "make": lambda: P32()},
+
             ],
             "metrics": [
                 {"name": "Entropy", "code": "M1", "make": lambda: M1()},
