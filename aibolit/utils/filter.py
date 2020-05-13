@@ -1,4 +1,4 @@
-from typing import List, Generator, Tuple, Any, Union, TypeVar, Type
+from typing import List, Tuple, Any, Union, TypeVar, Type
 from javalang.tree import ClassDeclaration, InterfaceDeclaration, MethodDeclaration, \
     MemberReference, FieldDeclaration, MethodInvocation, This, Node, LocalVariableDeclaration
 
@@ -6,19 +6,11 @@ FldExh = Tuple[str, Tuple[str, str]]
 MthExh = Tuple[str, Tuple[Tuple[str, str], ...]]
 HasMember = Union[MemberReference, MethodInvocation]
 HasSelector = Union[MemberReference, MethodInvocation, This]
-HasName = Union[ClassDeclaration, MethodDeclaration]
 T = TypeVar('T', bound=Node)
 S = TypeVar('S', HasSelector, HasMember)
-ThisNodes = Tuple[tuple, This]
-SelMemNodes = Tuple[tuple, S]
-RefNodes = Tuple[tuple, MemberReference]
-InvNodes = Tuple[tuple, MethodInvocation]
-LocalNodes = Tuple[tuple, LocalVariableDeclaration]
 MthNodes = Tuple[tuple, MethodDeclaration]
 Nodes = Tuple[tuple, T]
 AnyField = Union[FieldDeclaration, LocalVariableDeclaration]
-NodeGen = Generator[Tuple[tuple, T], None, None]
-EdgeNode = Union[MthExh, FldExh]
 
 
 class Filters:
@@ -26,22 +18,21 @@ class Filters:
     def __init__(self):
         pass
 
-    def filter_node_lvl(self, node: T, javalang_class: Type[T]) -> Generator[Nodes, None, None]:
-
+    def filter_node_lvl(self, node: Node, javalang_class: Type[Node]) -> List[Nodes]:
         """Filters nodes by desired javalang class.
 
         Gets node(node) of any javalang.Tree type and filters it by
         desired type(javalang_class).
         Returns a generator with (path, node) inside.
         """
-
+        temp_list = []
         for filtered_path, filtered_node in node.filter(javalang_class):
             if self.get_class_depth(filtered_path) == 1:
-                yield filtered_path, filtered_node
+                temp_list.append((filtered_path, filtered_node))
+        return temp_list
 
     @staticmethod
-    def filter_getters_setters(method_node_list: List[MthNodes]) -> NodeGen:
-
+    def filter_getters_setters(method_node_list: List[MthNodes]) -> List[MthNodes]:
         """Filters nodes by name.
 
         Gets list of nodes of "MethodDeclaration" type and filters it by
@@ -49,16 +40,18 @@ class Filters:
         go to return list.
         Returns a generator with (path, node) inside.
         """
+
         # ToDo: implement get/set detection with .body
+        temp_list = []
         for path, node in method_node_list:
             if node.name.startswith(('get', 'set')):
                 pass
             else:
-                yield path, node
+                temp_list.append((path, node))
+        return temp_list
 
     @staticmethod
     def get_class_depth(path: tuple) -> int:
-
         """Returns an int displaying level of given node's nesting level.
 
         Gets a node of any javalang.tree type and calculates it's nesting level
@@ -73,7 +66,6 @@ class Filters:
 
     @staticmethod
     def exhaust_method(method_node: MethodDeclaration) -> MthExh:
-
         """ Exhausts name and input vars, types for given MethodDeclaration node.
 
         Returns a tuple containing name and all parameters
@@ -89,13 +81,12 @@ class Filters:
 
     @staticmethod
     def exhaust_field(field_node: AnyField) -> FldExh:
-
         """ Exhausts name and type for given FieldDeclaration or LocalVariableDeclaration node.
 
         Returns a tuple containing name and type of field.
         """
-        # ToDo: get rid of'type' in parameter_tuple
 
+        # ToDo: get rid of'type' in parameter_tuple
         name = field_node.declarators[0].name
         try:
             parameter_tuple: Tuple[str, str] = ('type', field_node.type.name)
@@ -105,7 +96,6 @@ class Filters:
 
     @staticmethod
     def get_arguments(invocation_node: MethodInvocation) -> Tuple[List[str], List[str]]:
-
         """Gets arguments passed to given MethodInvocation node.
 
         Returns two tuples containing all arguments and methods passed
@@ -123,10 +113,10 @@ class Filters:
 
     @staticmethod
     def clean_for_repetitions(list_of_exhaust: List[Any]) -> List[Any]:
-
         """Gets any list and removes all repetitions.
 
         Returns list with no repetitive objects.
         """
+
         list_of_exhaust = list(dict.fromkeys(list_of_exhaust))
         return list_of_exhaust
