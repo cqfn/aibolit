@@ -24,7 +24,7 @@ import networkx as nx  # type: ignore
 from networkx import Graph
 from aibolit.utils.filter import Filters
 
-from typing import List, Generator, Tuple, Union, TypeVar
+from typing import List, Tuple, Union, TypeVar
 from javalang.tree import ClassDeclaration, MethodDeclaration, \
     MemberReference, FieldDeclaration, MethodInvocation, This, Node, LocalVariableDeclaration
 
@@ -33,7 +33,6 @@ FldExh = Tuple[str, Tuple[str, str]]
 MthExh = Tuple[str, Tuple[Tuple[str, str], ...]]
 HasMember = Union[MemberReference, MethodInvocation]
 HasSelector = Union[MemberReference, MethodInvocation, This]
-HasName = Union[ClassDeclaration, MethodDeclaration]
 T = TypeVar('T', bound=Node)
 S = TypeVar('S', HasSelector, HasMember)
 ThisNodes = Tuple[tuple, This]
@@ -43,8 +42,6 @@ InvNodes = Tuple[tuple, MethodInvocation]
 LocalNodes = Tuple[tuple, LocalVariableDeclaration]
 MthNodes = Tuple[tuple, MethodDeclaration]
 Nodes = Tuple[tuple, T]
-AnyField = Union[FieldDeclaration, LocalVariableDeclaration]
-NodeGen = Generator[Tuple[tuple, T], None, None]
 EdgeNode = Union[MthExh, FldExh]
 
 
@@ -62,15 +59,15 @@ class CohesionGraph:
             # from ClassDeclaration node
 
             field_nodes: List[Nodes] = \
-                list(self.filtrate.filter_node_lvl(class_node, FieldDeclaration))
+                self.filtrate.filter_node_lvl(class_node, FieldDeclaration)
             full_field_exhaust: List[FldExh] = \
                 list(self.filtrate.exhaust_field(field_node) for path, field_node in field_nodes)
             clear_field_exhaust: List[FldExh] = \
                 self.filtrate.clean_for_repetitions(full_field_exhaust)
             method_nodes: List[MthNodes] = \
-                list(self.filtrate.filter_node_lvl(class_node, MethodDeclaration))
-            method_nodes_filtered: List[SelMemNodes] = \
-                list(self.filtrate.filter_getters_setters(method_nodes))
+                self.filtrate.filter_node_lvl(class_node, MethodDeclaration)
+            method_nodes_filtered: List[MthNodes] = \
+                self.filtrate.filter_getters_setters(method_nodes)
             full_method_exhaust: List[MthExh] = \
                 list(self.filtrate.exhaust_method(method_node) for path, method_node in method_nodes_filtered)
             clear_method_exhaust: List[MthExh] = \
@@ -87,13 +84,13 @@ class CohesionGraph:
                 # This statements, LocalVariableDeclarations
                 # to themselves and objects added to graph G
                 reference_nodes: List[RefNodes] = \
-                    list(self.filtrate.filter_node_lvl(method_node, MemberReference))
+                    self.filtrate.filter_node_lvl(method_node, MemberReference)
                 invocation_nodes: List[InvNodes] = \
-                    list(self.filtrate.filter_node_lvl(method_node, MethodInvocation))
+                    self.filtrate.filter_node_lvl(method_node, MethodInvocation)
                 this_nodes: List[ThisNodes] = \
-                    list(self.filtrate.filter_node_lvl(method_node, This))
+                    self.filtrate.filter_node_lvl(method_node, This)
                 local_nodes: List[LocalNodes] = \
-                    list(self.filtrate.filter_node_lvl(method_node, LocalVariableDeclaration))
+                    self.filtrate.filter_node_lvl(method_node, LocalVariableDeclaration)
                 local_exhaust: List[FldExh] = \
                     list(self.filtrate.exhaust_field(local_node) for path, local_node in local_nodes)
                 method_exhaust: MthExh = self.filtrate.exhaust_method(method_node)
