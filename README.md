@@ -2,6 +2,7 @@
 
 [![PyPi version](https://img.shields.io/pypi/v/aibolit.svg)](https://pypi.org/project/aibolit/)
 [![Build Status](https://travis-ci.org/yegor256/aibolit.svg)](https://travis-ci.org/yegor256/aibolit)
+[![Build status](https://ci.appveyor.com/api/projects/status/1k7q7eumnhia0e3a?svg=true)](https://ci.appveyor.com/project/yegor256/aibolit)
 [![Hits-of-Code](https://hitsofcode.com/github/yegor256/aibolit)](https://hitsofcode.com/view/github/yegor256/aibolit)
 [![Test Coverage](https://img.shields.io/codecov/c/github/yegor256/aibolit.svg)](https://codecov.io/github/yegor256/aibolit?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e90e80a143a9457ee3af/maintainability)](https://codeclimate.com/github/yegor256/aibolit/maintainability)
@@ -54,10 +55,10 @@ If everything is fine, submit
 a [pull request](https://www.yegor256.com/2014/04/15/github-guidelines.html).
 
 
-Using Docker recommendation pipeline 
+Using Docker recommendation pipeline
 ```bash
-$ docker run --rm -it \ 
+$ docker run --rm -it \
   -v <absolute_path_to_folder_with_classes>:/in \
-  -v <absolute_path_to_out_dir>:/out \ 
+  -v <absolute_path_to_out_dir>:/out \
   yegor256/aibolit-image
 ```

@@ -1,0 +1,16 @@
+version: '{build}'
+skip_tags: true
+clone_depth: 10
+branches:
+  only:
+    - master
+  except:
+    - gh-pages
+os: Windows Server 2012
+environment:
+  matrix:
+    - python: "py37"
+install:
+- pip install aibolit
+test_script:
+- aibolit
