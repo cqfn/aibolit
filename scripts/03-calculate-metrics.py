@@ -10,8 +10,8 @@ parser = argparse.ArgumentParser(description='Filter important java files')
 parser.add_argument(
     '--dir',
     help='dir for Java files search',
-    required=True)
-parser.add_argument('--max_classes', type=int, required=False, default=None)
+    required=False
+)
 args = parser.parse_args()
 
 
