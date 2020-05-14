@@ -289,7 +289,17 @@ def recommend():
     """Run recommendation pipeline."""
 
     parser = argparse.ArgumentParser(
-        description='Download objects and refs from another repository')
+        description='Get recommendations for Java code',
+        usage='''
+        aibolit recommend < --folder | --filenames > [--output] [--model_file] [--threshold]
+
+        You can set the following params:
+        --folder       folder to Java files
+        --filenames    list of Java files
+        --output       output of xml file where all results will be saved, default is out.xml of the current directory
+        --model_file   file where model is located, the default path is located in site-packages and is installed with aibolit automatically
+        --threshold    threshold to model
+        ''')
 
     group_exclusive = parser.add_mutually_exclusive_group(required=True)
 
@@ -312,13 +322,13 @@ def recommend():
 
     parser.add_argument(
         '--model_file',
-        help='output file for results',
+        help='file of pretrained model',
         default=False
     )
 
     parser.add_argument(
         '--threshold',
-        help='output file for results',
+        help='threshold for predict',
         default=False
     )
 
