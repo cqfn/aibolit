@@ -7,13 +7,9 @@ public class ScopeAnonymous {
     private int c;
 
     public abstract class Blabla {
-
         public abstract int ggggg();
-        public int method2() {
-            return 1;
-        }
+        public int method2() {}
     }
-
 
     public int method1() {
         ++b;
@@ -28,12 +24,6 @@ public class ScopeAnonymous {
 
     public int method3() {
         c++;
-        new Blabla() {
-            @Override
-            public int ggggg() {
-                return method2();
-            }
-        };
         return 0;
     }
 }
