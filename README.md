@@ -15,12 +15,6 @@ and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
 $ pip3 install aibolit
 ```
 
-## Commands
-There can be 2 arguments: `recommend` and `train`
-
-1. Recommend command gives you recommendations for given Java files
-2. Train command allows to get dataset from given Java files, train new model, save it to a directory
-
 ### Recommend command
 
 To analyze your Java sources, located at `src/java` (for example), run:
@@ -29,26 +23,20 @@ To analyze your Java sources, located at `src/java` (for example), run:
 $ aibolit recommend --filenames src/java/File.java src/java/AnotherFile.java
 ```
 
-Also, you can set a folder for Java files:
+Also, you can set a folder with Java files:
 
 ```bash
-$ aibolit recommend --folder scripts/target/01
+$ aibolit recommend --folder src/java
 ```
 
 It will run recommendation function for the model (model is located in [aibolit/binary_files/model.pkl](https://github.com/yegor256/aibolit/blob/master/aibolit/binary_files/model.pkl). 
-The model will find a pattern which contribution is the largest to the Cyclomatic Complexity. 
+The model finds a pattern which contribution is the largest to the Cyclomatic Complexity. 
 If anything is found, you will see all recommendations for the mentioned patterns. 
 You can see the list of all patterns in [Patterns.md](https://github.com/yegor256/aibolit/blob/master/PATTERNS.md).
-If your pattern is not located there, it means that it has been recently implemented and doesn't have docs. Try to search it is github issues.
-The output of recommendation will be saved into the current directory (file out.xml).
-You can save results to another directory, setting the `--output` parameter, like 
+The output of recommendation will be saved to the `out.xml` file into the current directory.
+You can change the output file, using the `--output` parameter.
 
-```bash
-$ aibolit recommend --folder scripts/target/01 --output /mnt/d/some_folder/results.xml
-```
-
-Model is automatically installed with *aibolit* package, but you can also try your own model, 
-which can be obtained by `train` command, just run (or set up `HOME_MODEL_FOLDER` env variable)
+Model is automatically installed with *aibolit* package, but you can also try your own model
 
 ```bash
 $ aibolit recommend --folder scripts/target/01 --model_file /mnt/d/some_folder/model.pkl
@@ -61,21 +49,20 @@ $ aibolit recommend --help
 ```
 
 ### Train command
-`Train` command will do the following:
+`Train` command does the following:
 
- - Calculate all metrics for all java files in a directory
- - Create a dataset with full features (patterns and metrics) and target
- - Train model and save it 
+ - Calculates patterns and metrics
+ - Creates a dataset
+ - Trains model and save it 
  
  Train works only with cloned git repository.
  1. Clone aibolit repository 
- 2. Create VENV if you need
- 3. Go to `cloned_aibolit_path`
- 4. Run `pip install .`
- 5. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for Linux). It's an *obligatory* parameter! Otherwise, `train` will fail
- 6. If you need to set up own directory where model will be save, set up also `SAVE_MODEL_FOLDER` env variable.
+ 2. Go to `cloned_aibolit_path`
+ 3. Run `pip install .`
+ 4. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for Linux).
+ 5. If you need to set up own directory where model will be saved, set up also `SAVE_MODEL_FOLDER` environment variable.
  Otherwise model will be saved into `cloned_aibolit_path/aibolit/binary_files/model.pkl`
- 7. You need to install Java and Maven
+ 6. You need to install Java 13 and Maven
  
  Or you can use our docker image (link will be soon here)
 
