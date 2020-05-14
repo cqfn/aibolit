@@ -12,6 +12,7 @@ environment:
     - python: "py37"
 install:
 - set PATH=C:\Python37;C:\Python37\Scripts;%PATH%
+- python -m pip install --upgrade pip
 - pip install aibolit
 test_script:
 - aibolit
