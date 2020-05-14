@@ -2,7 +2,6 @@ import subprocess
 import pandas as pd
 import os
 from pathlib import Path
-from aibolit.config import Config
 import argparse
 
 
