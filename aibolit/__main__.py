@@ -158,7 +158,7 @@ def create_output(
     if not code_lines and not error_type:
         output_string.append('Your code is perfect in aibolit\'s opinion')
     elif not code_lines and error_type:
-        output_string.append('Error when calculating patterns: {}'.format(error_type))
+        output_string.append('Error when calculating patterns: {}'.format(str(error_type)))
     else:
         output_str = \
             'The largest contribution for {file} for \"{pattern}\" pattern'.format(
@@ -227,7 +227,12 @@ def inference(input_params: List[int], code_lines_dict, args):
                 if code_lines and val > 1.00000e-20:
                     break
 
-        pattern_name = [x['name'] for x in Config.get_patterns_config()['patterns'] if x['code'] == pattern_code][0]
+        if code_lines:
+            pattern_name = [x['name'] for x in Config.get_patterns_config()['patterns'] if x['code'] == pattern_code][0]
+        else:
+            pattern_name = None
+            pattern_code = None
+            code_lines = []
     else:
         code_lines = []
         pattern_code = None  # type: ignore
@@ -253,7 +258,7 @@ def run_recommend_for_file(file: str, args):
         code_lines=code_lines,  # type: ignore
         pattern_code=pattern_code,  # type: ignore
         pattern_name=pattern_name,  # type: ignore
-        error_type=str(error_string)  # type: ignore
+        error_type=error_string  # type: ignore
     )
 
 
@@ -312,13 +317,13 @@ def recommend():
 
     parser.add_argument(
         '--model_file',
-        help='output file for results',
+        help='path for pretrained model',
         default=False
     )
 
     parser.add_argument(
         '--threshold',
-        help='output file for results',
+        help='threshold for predict',
         default=False
     )
 
