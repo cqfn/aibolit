@@ -10,7 +10,6 @@ os: Windows Server 2012
 install:
 - set PATH=C:\Python37-x64;C:\Python37-x64\Scripts;%PATH%
 - python --version
-- python -m pip install --upgrade pip
 
 build_script:
 - cd C:\projects\aibolit
