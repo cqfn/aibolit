@@ -16,6 +16,6 @@ install:
 - python -m pip install --upgrade pip
 - pip install torch==1.4.0+cpu torchvision==0.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 build_script:
-- - pip install aibolit
+- pip install aibolit
 test_script:
 - aibolit
