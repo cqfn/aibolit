@@ -24,7 +24,9 @@ def collect_dataset(java_folder):
     print('Filtering java files...')
 
     filter_cmd = ['make', 'filter']
+    metrics_cmd = ['make', 'metrics']
     if java_folder is not None:
+        filter_cmd.append(f'dir={java_folder}')
         filter_cmd.append(f'dir={java_folder}')
 
     result = subprocess.run(filter_cmd, stdout=subprocess.PIPE)
@@ -35,7 +37,7 @@ def collect_dataset(java_folder):
         print(result.stdout)
 
     print('Download PMD and compute metrics...')
-    result = subprocess.run(['make', 'metrics'], stdout=subprocess.PIPE)
+    result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE)
     if result.returncode != 0:
         print(result.stderr)
         exit(2)
