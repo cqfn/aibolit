@@ -2,10 +2,11 @@ import subprocess
 import pandas as pd
 import os
 from pathlib import Path
+from aibolit.config import Config
 
 
 DIR_TO_CREATE = 'target/03'
-dir_to_analyze = './target/01'
+dir_to_analyze = Config.java_files_folder() or './target/01'
 current_location: str = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__))
 )

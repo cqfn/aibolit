@@ -33,8 +33,8 @@ from functools import partial
 from multiprocessing import Manager
 from pathlib import Path
 from shutil import copyfile, rmtree
-
 from aibolit.config import Config
+
 
 parser = argparse.ArgumentParser(description='Find patterns in Java files')
 parser.add_argument(

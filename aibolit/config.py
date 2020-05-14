@@ -68,6 +68,10 @@ class Config(metaclass=Singleton):
         return os.environ.get('HOME_DATASET_CSV') or dataset_path
 
     @staticmethod
+    def java_files_folder():
+        return os.environ.get('JAVA_FILES_PATH')
+
+    @staticmethod
     def get_patterns_config():
         return {
             "patterns": [
