@@ -25,6 +25,7 @@ import argparse
 import itertools
 import multiprocessing
 import os
+import sys
 import time
 import javalang
 from enum import Enum
@@ -37,8 +38,14 @@ parser = argparse.ArgumentParser(description='Filter important java files')
 parser.add_argument(
     '--dir',
     help='dir for Java files search',
-    required=True)
-parser.add_argument('--max_classes', type=int, required=False, default=None)
+    required=True
+)
+parser.add_argument(
+    '--max_classes',
+    type=lambda v: sys.maxsize if v == '' else int(v),
+    required=False,
+    default=None
+)
 args = parser.parse_args()
 MAX_CLASSES = args.max_classes
 
