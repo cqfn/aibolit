@@ -6,9 +6,6 @@ from aibolit.config import Config
 EXCLUDE_PATTERNS = ['P31', 'P32']
 EXCLUDE_METRICS = ['M5']
 
-EXCLUDE_PATTERNS = []
-EXCLUDE_METRICS = []
-
 current_path: str = os.path.dirname(os.path.realpath(__file__))
 for filename in os.listdir(current_path + '/samples'):
 
