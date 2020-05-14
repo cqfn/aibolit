@@ -11,7 +11,7 @@ def collect_dataset(java_folder):
     """
     Run bash scripts to collect metrics and patterns for java files
 
-    java_folder: folder to java files which will be analyzed
+    :param java_folder: folder to java files which will be analyzed
     """
 
     os.chdir(Path(Config.home_aibolit_folder(), 'scripts'))
@@ -20,12 +20,12 @@ def collect_dataset(java_folder):
         print('Analyzing {} dir:'.format(java_folder))
 
     print('Current working directory: ', Path(os.getcwd()))
-    print('Directory with JAVA classes: ', Config.java_files_folder())
+    print('Directory with JAVA classes: ', java_folder)
     print('Filtering java files...')
 
     filter_cmd = ['make', 'filter']
-    if Config.java_files_folder() is not None:
-        filter_cmd.append(f'dir={Config.java_files_folder()}')
+    if java_folder is not None:
+        filter_cmd.append(f'dir={java_folder}')
 
     result = subprocess.run(filter_cmd, stdout=subprocess.PIPE)
     if result.returncode != 0:
