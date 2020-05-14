@@ -80,7 +80,7 @@ def train_process(model_folder=None):
     """
     if not model_folder:
         ignore_patterns = ['P27', 'P31', 'P32']
-        ignore_metrics = ['M5']
+        ignore_metrics = []
         config = Config.get_patterns_config()
         only_patterns = [
             x['code'] for x in list(config['patterns'])
