@@ -79,8 +79,8 @@ def train_process(model_folder=None):
     :param model_folder: path to model
     """
     if not model_folder:
-        ignore_patterns = ['P27']
-        ignore_metrics = ['M4', 'M5']
+        ignore_patterns = ['P27', 'P31', 'P32']
+        ignore_metrics = ['M5'] 
         config = Config.get_patterns_config()
         only_patterns = [
             x['code'] for x in list(config['patterns'])
