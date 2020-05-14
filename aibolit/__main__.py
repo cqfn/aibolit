@@ -317,13 +317,13 @@ def recommend():
 
     parser.add_argument(
         '--model_file',
-        help='output file for results',
+        help='path for pretrained model',
         default=False
     )
 
     parser.add_argument(
         '--threshold',
-        help='output file for results',
+        help='threshold for predict',
         default=False
     )
 
