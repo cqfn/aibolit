@@ -11,8 +11,8 @@ environment:
   matrix:
     - python: "py37"
 install:
+- set PATH=C:\Python37-x64;C:\Python37-x64\Scripts;%PATH%
 - python --version
-- set PATH=C:\Python37;C:\Python37\Scripts;%PATH%
 - python -m pip install --upgrade pip
 - pip install torch==1.4.0+cpu torchvision==0.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 - pip install aibolit
