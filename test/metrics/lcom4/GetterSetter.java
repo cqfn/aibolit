@@ -5,24 +5,24 @@ public class GetterSetter {
     private int a;
     private int b;
 
-    public void setMethod() {
-        this.a = 1;
+    public String getName(){
+      return name;
     }
-	
-	public void getMethod() {
-        return this.a;
+
+    public Object getResource() {
+      return resource;
     }
-	
-	public void doNothing() {
-		this.a++;
+
+    public void doNothing() {
+        this.a++;
+        this.b++;
         System.out.println(this.a + this.b);
-		int i = 0; 
-		if  (i < this.a) {
-			return 0;
-		}
-		else {
-			return 1;
-		}
+        int i = 0;
+        if (i < this.a) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
 }
