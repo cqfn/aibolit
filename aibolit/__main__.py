@@ -292,13 +292,6 @@ def recommend():
         description='Get recommendations for Java code',
         usage='''
         aibolit recommend < --folder | --filenames > [--output] [--model_file] [--threshold]
-
-        You can set the following params:
-        --folder       folder to Java files
-        --filenames    list of Java files
-        --output       output of xml file where all results will be saved, default is out.xml of the current directory
-        --model_file   file where model is located, the default path is located in site-packages and is installed with aibolit automatically
-        --threshold    threshold to model
         ''')
 
     group_exclusive = parser.add_mutually_exclusive_group(required=True)
@@ -310,19 +303,20 @@ def recommend():
     )
     group_exclusive.add_argument(
         '--filenames',
-        help='Java files',
+        help='list of Java files',
         nargs="*",
         default=False
     )
     parser.add_argument(
         '--output',
-        help='output file for results',
+        help='output of xml file where all results will be saved, default is out.xml of the current directory',
         default=False
     )
 
     parser.add_argument(
         '--model_file',
-        help='file of pretrained model',
+        help='''file where pretrained model is located, the default path is located
+        in site-packages and is installed with aibolit automatically''',
         default=False
     )
 
