@@ -27,7 +27,7 @@ def collect_dataset(java_folder):
     metrics_cmd = ['make', 'metrics']
     if java_folder is not None:
         filter_cmd.append(f'dir={java_folder}')
-        filter_cmd.append(f'dir={java_folder}')
+        metrics_cmd.append(f'dir={java_folder}')
 
     result = subprocess.run(filter_cmd, stdout=subprocess.PIPE)
     if result.returncode != 0:
