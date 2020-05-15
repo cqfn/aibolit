@@ -62,15 +62,11 @@ def log_result(result, file_to_write):
         writer.writerow(result)
 
 
-def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
+def execute_python_code_in_parallel_thread(exceptions, file_absolute_path):
     """ This runs in a separate thread. """
 
-    file = str(Path(dir_path, file_local_dir)).strip()
-    p = Path(file)
-    d_path = Path(dir_path)
-    relative_path = p.relative_to(d_path)
-
-    row = {'filename': relative_path.absolute().as_posix()}
+    file_path = Path(file_absolute_path.strip())
+    row = {'filename': file_path.absolute().as_posix()}
     config = Config.get_patterns_config()
     for pattern in config['patterns']:
         val = None
