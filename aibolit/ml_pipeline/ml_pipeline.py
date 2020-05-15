@@ -7,7 +7,7 @@ from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
 from aibolit.config import Config
 
 
-def collect_dataset(java_folder):
+def collect_dataset(java_folder, max_classes=None):
     """
     Run bash scripts to collect metrics and patterns for java files
 
@@ -28,6 +28,8 @@ def collect_dataset(java_folder):
     if java_folder is not None:
         filter_cmd.append(f'dir={java_folder}')
         metrics_cmd.append(f'dir={java_folder}')
+    if max_classes is not None:
+        filter_cmd.append(f'max_classes={max_classes}')
 
     result = subprocess.run(filter_cmd, stdout=subprocess.PIPE)
     if result.returncode != 0:

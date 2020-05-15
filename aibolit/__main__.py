@@ -99,8 +99,14 @@ def train():
         default=False,
         required=False
     )
+    parser.add_argument(
+        '--max_classes',
+        type=lambda v: sys.maxsize if v == '' else int(v),
+        required=False,
+        default=None
+    )
     args = parser.parse_args(sys.argv[2:])
-    collect_dataset(args.java_folder)
+    collect_dataset(args.java_folder, args.max_classes)
     train_process()
 
 
