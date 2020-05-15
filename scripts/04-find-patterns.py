@@ -99,7 +99,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_absolute_path):
                 exc_type, exc_value, exc_tb = sys.exc_info()
                 row[acronym] = val
                 traceback_str = traceback.format_exc()
-                exceptions[file_local_dir] = {
+                exceptions[file_absolute_path] = {
                     'traceback': traceback_str,
                     'exc_type': str(exc_value),
                     'pattern_name': metric['name'],
