@@ -65,7 +65,8 @@ def log_result(result, file_to_write):
 def execute_python_code_in_parallel_thread(exceptions, file_absolute_path):
     """ This runs in a separate thread. """
 
-    file_path = Path(file_absolute_path.strip())
+    file_absolute_path = file_absolute_path.strip()
+    file_path = Path(file_absolute_path)
     row = {'filename': file_path.absolute().as_posix()}
     config = Config.get_patterns_config()
     for pattern in config['patterns']:
@@ -81,7 +82,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_absolute_path):
                 exc_type, exc_value, exc_tb = sys.exc_info()
                 row['lines_' + acronym] = row[acronym] = val
                 traceback_str = traceback.format_exc()
-                exceptions[file_local_dir] = {
+                exceptions[file_absolute_path] = {
                     'traceback': traceback_str,
                     'exc_type': str(exc_value),
                     'pattern_name': pattern['name'],
