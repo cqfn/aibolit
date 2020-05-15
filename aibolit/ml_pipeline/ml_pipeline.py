@@ -1,17 +1,15 @@
 import os
 import subprocess
 from pathlib import Path
-
 from sklearn.model_selection import train_test_split  # type: ignore
 import pickle
-
 from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
 from aibolit.config import Config
 
 
 def collect_dataset(java_folder):
     """
-     Run bash scripts to collect metrics and patterns for java files
+    Run bash scripts to collect metrics and patterns for java files
 
     :param java_folder: folder to java files which will be analyzed
     """
@@ -22,9 +20,16 @@ def collect_dataset(java_folder):
         print('Analyzing {} dir:'.format(java_folder))
 
     print('Current working directory: ', Path(os.getcwd()))
-
+    print('Directory with JAVA classes: ', java_folder)
     print('Filtering java files...')
-    result = subprocess.run(['make', 'filter'], stdout=subprocess.PIPE)
+
+    filter_cmd = ['make', 'filter']
+    metrics_cmd = ['make', 'metrics']
+    if java_folder is not None:
+        filter_cmd.append(f'dir={java_folder}')
+        metrics_cmd.append(f'dir={java_folder}')
+
+    result = subprocess.run(filter_cmd, stdout=subprocess.PIPE)
     if result.returncode != 0:
         print(result.stderr)
         exit(2)
@@ -32,7 +37,7 @@ def collect_dataset(java_folder):
         print(result.stdout)
 
     print('Download PMD and compute metrics...')
-    result = subprocess.run(['make', 'metrics'], stdout=subprocess.PIPE)
+    result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE)
     if result.returncode != 0:
         print(result.stderr)
         exit(2)

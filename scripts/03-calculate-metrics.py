@@ -2,10 +2,20 @@ import subprocess
 import pandas as pd
 import os
 from pathlib import Path
+import argparse
+
+
+parser = argparse.ArgumentParser(description='Filter important java files')
+parser.add_argument(
+    '--dir',
+    help='dir for Java files search',
+    required=False
+)
+args = parser.parse_args()
 
 
 DIR_TO_CREATE = 'target/03'
-dir_to_analyze = './target/01'
+dir_to_analyze = args.dir or './target/01'
 current_location: str = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__))
 )

@@ -8,20 +8,63 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/e90e80a143a9457ee3af/maintainability)](https://codeclimate.com/github/yegor256/aibolit/maintainability)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/aibolit/blob/master/LICENSE.txt)
 
-First, you install it (you must have [Python 3+](https://www.python.org/downloads/)
+First, you install it (you must have [Python 3.7.5](https://www.python.org/downloads/)
 and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
 
 ```bash
 $ pip3 install aibolit
 ```
 
-Then, you run it to analyze your Java sources, located at `src/java` (for example):
+### Recommend command
+
+To analyze your Java sources, located at `src/java` (for example), run:
 
 ```bash
-$ aibolit recommend --filenames File.java
+$ aibolit recommend --filenames src/java/File.java src/java/AnotherFile.java
 ```
 
-It will run the model, found in aibolit/binary_files. The model will find a pattern which contribution is the largest to the Cyclomatic Complexity. If anything is found, you will see all recommendations for the mentioned pattern. You can see the list of all patterns in Patterns.md
+Also, you can set a folder with Java files:
+
+```bash
+$ aibolit recommend --folder src/java
+```
+
+It will run recommendation function for the model (model is located in [aibolit/binary_files/model.pkl](https://github.com/yegor256/aibolit/blob/master/aibolit/binary_files/model.pkl). 
+The model finds a pattern which contribution is the largest to the Cyclomatic Complexity. 
+If anything is found, you will see all recommendations for the mentioned patterns. 
+You can see the list of all patterns in [Patterns.md](https://github.com/yegor256/aibolit/blob/master/PATTERNS.md).
+The output of recommendation will be saved to the `out.xml` file into the current directory.
+You can change the output file, using the `--output` parameter.
+
+Model is automatically installed with *aibolit* package, but you can also try your own model
+
+```bash
+$ aibolit recommend --folder scripts/target/01 --model_file /mnt/d/some_folder/model.pkl
+```
+
+If you need help, run 
+
+```bash
+$ aibolit recommend --help
+```
+
+### Train command
+`Train` command does the following:
+
+ - Calculates patterns and metrics
+ - Creates a dataset
+ - Trains model and save it 
+ 
+ Train works only with cloned git repository.
+ 1. Clone aibolit repository 
+ 2. Go to `cloned_aibolit_path`
+ 3. Run `pip install .`
+ 4. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for Linux).
+ 5. If you need to set up own directory where model will be saved, set up also `SAVE_MODEL_FOLDER` environment variable.
+ Otherwise model will be saved into `cloned_aibolit_path/aibolit/binary_files/model.pkl`
+ 6. You need to install Java 13 and Maven
+ 
+ Or you can use our docker image (link will be soon here)
 
 ## How to contribute?
 

@@ -17,12 +17,9 @@ endif
 # We find all suitable Java classes in target/01 and copy
 # them into target/02. The full list of all copies files will
 # be stored in target/02-java-files.csv
+path_to_java_files := $(if $(dir),$(dir), target/01)
 filter:
-ifdef max_classes
-	python3 ./02-filter-and-move.py --dir target/01 --max_classes=${max_classes}
-else
-	python3 ./02-filter-and-move.py --dir target/01
-endif
+	python3 ./02-filter-and-move.py --dir=${path_to_java_files} --max_classes=${max_classes}
 
 # Here we go through the list of all Java classes in target/02,
 # and calculate a few metrics per each of them. The result of
