@@ -39,7 +39,7 @@ You can change the output file, using the `--output` parameter.
 Model is automatically installed with *aibolit* package, but you can also try your own model
 
 ```bash
-$ aibolit recommend --folder scripts/target/01 --model_file /mnt/d/some_folder/model.pkl
+$ aibolit recommend --folder src/java --model_file /mnt/d/some_folder/model.pkl
 ```
 
 If you need help, run 
@@ -62,9 +62,16 @@ $ aibolit recommend --help
  4. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for Linux).
  5. If you need to set up own directory where model will be saved, set up also `SAVE_MODEL_FOLDER` environment variable.
  Otherwise model will be saved into `cloned_aibolit_path/aibolit/binary_files/model.pkl`
- 6. You need to install Java 13 and Maven
+ 6. If you need to set up own folder with Java files, use `--java_folder parameter`, the default value will be `scripts/target/01` of aibolit cloned repo
+ 7. You need to install Java 13 and Maven
  
  Or you can use our docker image (link will be soon here)
+ 
+ Run train pipeline:
+
+```bash
+$ aibolit train --java_folder=src/java [--max_classes=100]
+```
 
 ## How to contribute?
 
