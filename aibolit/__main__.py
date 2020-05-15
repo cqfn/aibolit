@@ -177,21 +177,17 @@ def create_output(
 
 
 def calculate_patterns_and_metrics(file):
-    MI_pipeline_exclude_codes = [
-        "M5",  # metric not ready
-        "P27",  # empty implementation
-    ]
     code_lines_dict = input_params = {}  # type: ignore
     error_string = None
     try:
         config = Config.get_patterns_config()
         for pattern in config['patterns']:
-            if pattern in MI_pipeline_exclude_codes:
+            if pattern in config['patterns_exclude']:
                 continue
             __count_value(pattern, input_params, code_lines_dict, file)
 
         for metric in config['metrics']:
-            if metric in MI_pipeline_exclude_codes:
+            if metric in config['metrics_exclude']:
                 continue
             __count_value(metric, input_params, code_lines_dict, file, is_metric=True)
     except Exception as ex:

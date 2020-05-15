@@ -44,12 +44,6 @@ parser.add_argument(
 
 args = parser.parse_args()
 dir_path = os.path.dirname(os.path.realpath(__file__))
-MI_pipeline_exclude_codes = [
-    "M5",   # metric not ready
-    "P27",  # empty implementation
-    'P31',  # errors
-    'P32',  # errors
-]
 
 
 def log_result(result, file_to_write):
@@ -76,7 +70,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
     for pattern in config['patterns']:
         val = None
         acronym = pattern['code']
-        if acronym not in MI_pipeline_exclude_codes:
+        if acronym not in config['patterns_exclude']:
             try:
                 val = pattern['make']().value(file)
                 row[acronym] = len(val)
@@ -95,7 +89,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
     for metric in config['metrics']:
         val = None
         acronym = metric['code']
-        if acronym not in MI_pipeline_exclude_codes:
+        if acronym not in config['metrics_exclude']:
             try:
                 val = metric['make']().value(file)
                 row[acronym] = val
@@ -181,10 +175,12 @@ if __name__ == '__main__':
     os.makedirs(path, exist_ok=True)
     filename = Path(path, '04-find-patterns.csv')
     config = Config.get_patterns_config()
+    print(list(config.keys()))
+    patterns_exclude = config['patterns_exclude']
     fields = \
-        [x['code'] for x in config['patterns'] if x['code'] not in MI_pipeline_exclude_codes] \
-        + [x['code'] for x in config['metrics'] if x['code'] not in MI_pipeline_exclude_codes] \
-        + ['lines_' + x['code'] for x in config['patterns'] if x['code'] not in MI_pipeline_exclude_codes] \
+        [x['code'] for x in config['patterns'] if x['code'] not in patterns_exclude] \
+        + [x['code'] for x in config['metrics'] if x['code'] not in config['metrics_exclude']] \
+        + ['lines_' + x['code'] for x in config['patterns'] if x['code'] not in patterns_exclude] \
         + ['filename']
 
     with open(filename, 'w', newline='\n', encoding='utf-8') as csv_file:
