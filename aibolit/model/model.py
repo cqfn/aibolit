@@ -47,7 +47,7 @@ class Dataset:
 
         df.drop('filename', axis=1, inplace=True)
         df.drop('index', axis=1, inplace=True)
-        self.target = df[['Cognitive Complexity']].values[:, 0]
+        self.target = df[['M4']].values[:, 0]
         if scale_ncss:
             new = pd.DataFrame(
                 df[self.only_patterns].values / df['M2'].values.reshape((-1, 1)),
