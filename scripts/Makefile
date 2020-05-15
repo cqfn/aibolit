@@ -35,9 +35,9 @@ filter:
 	touch $@
 
 
-
+path_to_java_files := $(if $(dir),$(dir), target/01)
 metrics: ./_tmp/pmd-bin/bin/run.sh
-	python3 ./03-calculate-metrics.py
+	python3 ./03-calculate-metrics.py --dir=${path_to_java_files}
 
 # Here we go through the list of all Java classes in target/02
 # and attempt to find patterns there. We produce a summary

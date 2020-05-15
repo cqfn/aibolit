@@ -62,15 +62,12 @@ def log_result(result, file_to_write):
         writer.writerow(result)
 
 
-def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
+def execute_python_code_in_parallel_thread(exceptions, file_absolute_path):
     """ This runs in a separate thread. """
 
-    file = str(Path(dir_path, file_local_dir)).strip()
-    p = Path(file)
-    d_path = Path(dir_path)
-    relative_path = p.relative_to(d_path)
-
-    row = {'filename': relative_path.absolute().as_posix()}
+    file_absolute_path = file_absolute_path.strip()
+    file_path = Path(file_absolute_path)
+    row = {'filename': file_path.absolute().as_posix()}
     config = Config.get_patterns_config()
     for pattern in config['patterns']:
         val = None
@@ -85,7 +82,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
                 exc_type, exc_value, exc_tb = sys.exc_info()
                 row['lines_' + acronym] = row[acronym] = val
                 traceback_str = traceback.format_exc()
-                exceptions[file_local_dir] = {
+                exceptions[file_absolute_path] = {
                     'traceback': traceback_str,
                     'exc_type': str(exc_value),
                     'pattern_name': pattern['name'],
@@ -102,7 +99,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
                 exc_type, exc_value, exc_tb = sys.exc_info()
                 row[acronym] = val
                 traceback_str = traceback.format_exc()
-                exceptions[file_local_dir] = {
+                exceptions[file_absolute_path] = {
                     'traceback': traceback_str,
                     'exc_type': str(exc_value),
                     'pattern_name': metric['name'],
