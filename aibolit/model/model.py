@@ -53,7 +53,7 @@ class Dataset:
                 df[self.only_patterns].values / df['M2'].values.reshape((-1, 1)),
                 columns=self.only_patterns
             )
-            self.target /= df['ncss'].values.reshape(-1)
+            self.target /= df['M2'].values.reshape(-1)
         else:
             new = df[self.only_patterns].copy()
         if scale:
