@@ -1,10 +1,15 @@
-from aibolit.metrics.entropy.entropy import Entropy as M1
-from aibolit.metrics.ncss.ncss import NCSSMetric as M2
-from aibolit.metrics.spaces.SpaceCounter import IndentationCounter as M3
+import os
+from pathlib import Path
+
 from aibolit.metrics.cognitiveC.cognitive_c import CognitiveComplexity as M4
+from aibolit.metrics.entropy.entropy import Entropy as M1
 from aibolit.metrics.lcom4.lcom4 import LCOM4 as M5
 from aibolit.metrics.maxDiameter.max_diam_of_tree import MaxDiamOfTree as M6
+from aibolit.metrics.ncss.ncss import NCSSMetric as M2
+from aibolit.metrics.spaces.SpaceCounter import IndentationCounter as M3
+from aibolit.patterns.array_as_argument.array_as_argument import ArrayAsArgument as P22
 from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode as P1
+from aibolit.patterns.assign_null_finder.assign_null_finder import NullAssignment as P28
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter as P2
 from aibolit.patterns.empty_rethrow.empty_rethrow import EmptyRethrow as P3
 from aibolit.patterns.er_class.er_class import ErClass as P4
@@ -12,28 +17,29 @@ from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import
 from aibolit.patterns.if_return_if_detection.if_detection import CountIfReturn as P6
 from aibolit.patterns.implements_multi.implements_multi import ImplementsMultiFinder as P7
 from aibolit.patterns.instanceof.instance_of import InstanceOf as P8
+from aibolit.patterns.joined_validation.joined_validation import JoinedValidation as P23
 from aibolit.patterns.many_primary_ctors.many_primary_ctors import ManyPrimaryCtors as P9
 from aibolit.patterns.method_chaining.method_chaining import MethodChainFind as P10
 from aibolit.patterns.multiple_try.multiple_try import MultipleTry as P11
+from aibolit.patterns.multiple_while.multiple_while import MultipleWhile as P29
+from aibolit.patterns.nested_loop.nested_loop import NestedLoop as P32
 from aibolit.patterns.non_final_attribute.non_final_attribute import NonFinalAttribute as P12
+from aibolit.patterns.non_final_class.non_final_class import NonFinalClass as P24
 from aibolit.patterns.null_check.null_check import NullCheck as P13
 from aibolit.patterns.partial_synchronized.partial_synchronized import PartialSync as P14
+from aibolit.patterns.private_static_method.private_static_method import PrivateStaticMethod as P25
+from aibolit.patterns.protected_method.protected_method import ProtectedMethod as P30
+from aibolit.patterns.public_static_method.public_static_method import PublicStaticMethod as P26
 from aibolit.patterns.redundant_catch.redundant_catch import RedundantCatch as P15
 from aibolit.patterns.return_null.return_null import ReturnNull as P16
+from aibolit.patterns.send_null.send_null import SendNull as P31
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder as P17
 from aibolit.patterns.supermethod.supermethod import SuperMethod as P18
 from aibolit.patterns.this_finder.this_finder import ThisFinder as P19
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
 from aibolit.patterns.var_middle.var_middle import VarMiddle as P21
-from aibolit.patterns.array_as_argument.array_as_argument import ArrayAsArgument as P22
-from aibolit.patterns.joined_validation.joined_validation import JoinedValidation as P23
-from aibolit.patterns.non_final_class.non_final_class import NonFinalClass as P24
-from aibolit.patterns.private_static_method.private_static_method import PrivateStaticMethod as P25
-from aibolit.patterns.public_static_method.public_static_method import PublicStaticMethod as P26
 from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
-from aibolit.patterns.assign_null_finder.assign_null_finder import NullAssignment as P28
-import os
-from pathlib import Path
+from aibolit.patterns.multiple_while.multiple_while import MultipleWhile as P33
 
 
 class Singleton(type):
@@ -113,6 +119,12 @@ class Config(metaclass=Singleton):
                 {"name": "Public static method", "code": "P26", "make": lambda: P26()},
                 {"name": "Var siblings", "code": "P27", "make": lambda: P27()},
                 {"name": "Null Assignment", "code": "P28", "make": lambda: P28()},
+                {"name": "Multiple While", "code": "P29", "make": lambda: P29()},
+                {"name": "Protected Method", "code": "P30", "make": lambda: P30()},
+                {"name": "Send Null", "code": "P31", "make": lambda: P31()},
+                {"name": "Nested Loop", "code": "P32", "make": lambda: P32()},
+                {"name": "MultipleWhile", "code": "P33", "make": lambda: P33()},
+
             ],
             "metrics": [
                 {"name": "Entropy", "code": "M1", "make": lambda: M1()},
@@ -143,5 +155,11 @@ class Config(metaclass=Singleton):
             ],
             "target": {
 
-            }
+            },
+            "patterns_exclude": [
+                "P27",  # empty implementation
+                'P31',  # errors
+                'P32',  # errors
+            ],
+            "metrics_exclude": []
         }
