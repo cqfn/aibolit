@@ -105,8 +105,15 @@ def train():
         required=False,
         default=None
     )
+    parser.add_argument(
+        '--skip_collect_dataset',
+        required=False,
+        default=False,
+        action='store_true'
+    )
     args = parser.parse_args(sys.argv[2:])
-    collect_dataset(args.java_folder, args.max_classes)
+    if not args.skip_collect_dataset:
+        collect_dataset(args.java_folder, args.max_classes)
     train_process()
 
 
