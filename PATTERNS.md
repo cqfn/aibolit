@@ -268,7 +268,7 @@ class Book {
 
 *Title*: Multiple ```While``` pattern
 
-*Code:* **?**
+*Code:* **P33**
 
 *Description*: Once you see two or more ```while``` statements in a method body, it's a pattern.
 
@@ -325,7 +325,7 @@ class Book {
 
 *Title*: Nested loop
 
-*Code*: **?**
+*Code*: **P32**
 
 *Description*: Once we find a loop (`for` / `while`) inside another loop it's a pattern.
 
@@ -609,7 +609,7 @@ class Book {
 
 *Title*: Protected method 
 
-*Code*: **?**
+*Code*: **P30**
 
 Description:  Once we find a protected method in a class, it's a pattern.
 
@@ -658,7 +658,7 @@ class Book {
 
 *Title*: Send null
 
-*Code*: **?**
+*Code*: **P31**
 
 Description: Once we see that `null` is being given as an argument to some method, it's a pattern.
 
