@@ -4,7 +4,7 @@ from aibolit.config import Config
 
 # TODO: fix all errors in the patterns/metrics and make these lists empty
 EXCLUDE_PATTERNS = ['P31', 'P32']
-EXCLUDE_METRICS = ['M5']
+EXCLUDE_METRICS = []
 
 current_path: str = os.path.dirname(os.path.realpath(__file__))
 for filename in os.listdir(current_path + '/samples'):
