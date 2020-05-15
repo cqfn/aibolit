@@ -100,7 +100,8 @@ class TwoFoldRankingModel(BaseEstimator):
             return 1 / (1 + np.exp(-x))
 
         pattern_importances = item * self.model.feature_importances_
-        th_mask = (sigmoid(pattern_importances) > th) + 0
+        # mask discards not significant patterns
+        th_mask = (sigmoid(pattern_importances) <= th) + 0
         pattern_importances = pattern_importances * th_mask
         order = np.arange(self.model.feature_importances_.size)
         return (pattern_importances, order)
