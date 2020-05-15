@@ -70,7 +70,7 @@ $ aibolit recommend --help
  Run train pipeline:
 
 ```bash
-$ aibolit train --java_folder
+$ aibolit train --java_folder=src/java [--max_classes=100]
 ```
 
 ## How to contribute?
