@@ -1,4 +1,7 @@
 Patterns Dictionary
+
+If your pattern is not located there, it means that it has been recently implemented and doesn't have docs. Try to search it is github issues.
+
 ---
 
 The code pattern is a rule of writing code. One proposes a hypothesis that using 
@@ -29,7 +32,7 @@ static void myMethod2() {
 
 *Title*: Using ```instanceof``` operator.
 
-*Code:* **instance_of**
+*Code:* **P8**
 
 *Description*: Using of ```instanceof``` operator considered as pattern.
 
@@ -43,12 +46,22 @@ public static void main(String[] args) {
 }
 ```
 
+```java
+class Test
+{
+    public static void main(String[] args)
+    {
+        Child cobj = new Child();
+        System.out.println(b.getClass().isInstance(c));
+    }
+}
+```
 
 ***
-
+                {"name": "", "code": "", "make": lambda: P5()},
 *Title*: Force type casting.
 
-*Code:* **force_type_cast**
+*Code:* **P5**
 
 *Description*: The force type casting considered as a pattern.
 
@@ -65,7 +78,7 @@ public int square (int n) {
 
 *Title*: String concatenation using ```+``` operator.
 
-*Code:* **string_concat**
+*Code:* **P17**
 
 *Description*: Any usage string concatenation using ```+``` operator is considered
 as pattern match. 
@@ -87,7 +100,7 @@ public void start() {
 
 *Title*: Override method calls parent method.
 
-*Code:* **super_method_call**
+*Code:* **P18**
 
 *Description*: If we call parent method from override class method it is considered
 as the pattern.
@@ -106,11 +119,11 @@ public void method1() {
 
 *Title*: Line distance between variable declaration and first usage greater then threshold.
 
-*Code:* **var_decl_diff**
+*Code:* **P20_5, P20_7, P20_11**
 
 *Description*: If line distance between variable declaration and first usage
 exceeds some threshold we consider it as the pattern. We calculate only non-empty
-lines.
+lines. P20_5 means that distance is 5
 
 *Examples*:
 
@@ -130,17 +143,31 @@ static void myMethod() {
 
 *Title*: Class constructor except ```this``` contains other code.
 
-*Code:* **smell_constructor**
+*Code:* **P19**
 
 *Description*: 
+The first constructor has this() and some other statements. This is the "hybrid constructor" pattern.
 
 *Examples*:
+
+```java
+class Book {
+  private int id;
+  Book() {
+    this(1);
+    int a = 1; // here
+  }
+  Book(int i) {
+    this.id = I;
+  }
+}
+```
 
 ***
 
 *Title*: Usage of method chaining more than one time.
 
-*Code*: **method_chain**
+*Code*: **P10**
 
 *Description*: If we use more than one method chaining invocation.
 
@@ -161,7 +188,7 @@ public void start() {
 
 *Title*: Null checks
 
-*Code*: **null_check**
+*Code*: **P13**
 
 *Description*: If we check that something equals null (except in constructor)
 it is considered a pattern.
@@ -183,7 +210,7 @@ class Foo {
 
 *Title*: Many primary ctors
 
-*Code*: **many_primary_ctors**
+*Code*: **P9**
 
 *Description*: If there is more than one primary constructors in a class, it is
 considered a pattern.
@@ -207,7 +234,7 @@ class Book {
 
 *Title*: Non final attributes
 
-*Code*: **non_final_attribute**
+*Code*: **P12**
 
 *Description*: Once we see a mutable attribute (without final modifier), it's considered a pattern.
 
@@ -222,7 +249,7 @@ class Book {
 
 *Title*: Assert in code
 
-*Code*: **assert_in_code**
+*Code*: **P1**
 
 *Description*: If there is an `assert` statement in code block, and name
 of class doesn't end with `Test`, it is considered a pattern.
@@ -241,7 +268,7 @@ class Book {
 
 *Title*: Multiple ```While``` pattern
 
-*Code:* **multiple_while**
+*Code:* **?**
 
 *Description*: Once you see two or more ```while``` statements in a method body, it's a pattern.
 
@@ -259,9 +286,10 @@ class Book {
 }
 ```
 
+***
 *Title*: Private static method
 
-*Code*: **private_static_method**
+*Code*: **P25**
 
 *Description*: Once you see a `private static` method, it's a pattern.
 
@@ -276,10 +304,28 @@ class Book {
 ```
 
 ***
+*Title*: Public static method
+
+*Code*: **P26**
+
+*Description*: Once you see a `public static` method, it's a pattern.
+
+*Example*:
+
+```java
+class Book {
+  puplic static void foo() {
+    //something
+  }
+}
+```
+
+
+***
 
 *Title*: Nested loop
 
-*Code*: **nested_loop**
+*Code*: **?**
 
 *Description*: Once we find a loop (`for` / `while`) inside another loop it's a pattern.
 
@@ -300,7 +346,7 @@ class Foo {
 
 *Title*: Class declaration must always be `final`
 
-*Code*: **non_final_class**
+*Code*: **P24**
 
 *Description*: Once you see a non `final` method, it's a pattern..
 
@@ -313,3 +359,315 @@ class Book {
 }
 ```
 
+***
+
+*Title*: Array as argument 
+
+*Code*: **P22**
+
+Description: If we pass an `array` as an argument, it's a pattern. It's better to use objects, instead of arrays.
+
+*Example*:
+```java
+class Foo {
+  void bar(int[] x) {
+  }
+}
+```
+
+***
+*Title*: Assign null 
+
+*Code*: **P28**
+
+Description: Once we see `= null`, it's a pattern.
+
+*Example*:
+
+```java
+class Foo {
+  void bar() {
+    String a = null; // here
+  }
+}
+```
+
+
+***
+*Title*: Setter 
+
+*Code*: **P2**
+
+Description: The method's name starts with set, then goes the name of the attribute. There are attributes assigning in the method. Also, asserts are ignored.
+
+*Example*:
+
+```java
+class Book {
+  private String title;
+  void setTitle(String) {
+    this.title = t;
+  }
+}
+```
+
+```java
+class Book {
+  private String title;
+  public void setIsDiscrete() {
+    assert !isDiscrete;
+    assert !x; //ignore it
+    this.isDiscrete = isDiscrete;
+  }
+}
+```
+
+```java
+class Book {
+  private String isDiscrete;
+  
+  public void setIsDiscrete(String isDiscretem, boolean x) {
+    assert !isDiscrete;
+    assert !x; //ignore it
+    this.isDiscrete = isDiscrete;
+  }
+}
+```
+
+```java
+class Book {
+  private String title;
+  
+   @Override
+  synchronized public void setConf(Configuration conf) {
+    this.conf = conf;
+    this.randomDevPath = conf.get(
+        HADOOP_SECURITY_SECURE_RANDOM_DEVICE_FILE_PATH_KEY,
+        HADOOP_SECURITY_SECURE_RANDOM_DEVICE_FILE_PATH_DEFAULT);
+    close(); \\ some minor changes also do not affect, it is still Setter pattern
+  }
+}
+```
+
+***
+*Title*: Empty Rethrow 
+
+*Code*: **P3**
+
+Description: We throw the same exception as it was caught
+
+*Example*:
+
+```java
+class Book {
+  void foo() {
+    try {
+      File.readAllBytes();
+    } catch (IOException e) {
+      // maybe something else here
+      throw e; // here!
+    }
+  }
+}
+```
+
+***
+
+*Title*: ErClass 
+
+*Code*: **P4**
+
+Description: If a class name is one of the following (or ends with this word), it's the pattern:
+
+Manager, Controller, Router, Dispatcher, Printer, Writer,
+Reader, Parser, Generator, Renderer, Listener, Producer,
+Holder, Interceptor
+
+***
+
+*Title*: If return if detection
+
+*Code*: **P6**
+
+Description: If there is a return in if condition, it's a pattern. 
+
+*Example*:
+
+```java
+class T1 {
+    public void main(int x) {
+        if (x < 0) {
+            return;
+        } else {
+            System.out.println("X is positive or zero");
+        }
+    }
+}
+```
+
+***
+
+*Title*: Implements Multi
+
+*Code*: **P7**
+
+Description: If a class implements more than 1 interface it's a pattern
+
+*Example*:
+
+```java
+public class AnimatableSplitDimensionPathValue implements AnimatableValue<PointF, PointF> {
+  private final AnimatableFloatValue animatableXDimension;
+  private final AnimatableFloatValue animatableYDimension;
+
+  public AnimatableSplitDimensionPathValue(
+      AnimatableFloatValue animatableXDimension,
+      AnimatableFloatValue animatableYDimension) {
+    this.animatableXDimension = animatableXDimension;
+    this.animatableYDimension = animatableYDimension;
+  }
+}
+```
+
+```java
+public class a implements A, B {
+}
+```
+
+***
+
+*Title*: Joined Validation
+
+*Code*: **P23**
+
+Description: Once you see a validation (if with a single throw inside) and its condition contains more than one condition joined with OR -- it's a pattern.
+
+*Example*:
+
+```java
+class Book {
+  void print(int x, int y) {
+    if (x == 1 || y == 1) { // here!
+      throw new Exception("Oops");
+    }
+  }
+}
+```
+
+***
+
+*Title*: Multiple Try
+
+*Code*: **P11**
+
+Description: Once we see more than one try in a single method, it's a pattern.
+
+*Example*:
+
+```java
+class Foo {
+  void bar() {
+    try {
+      // some code
+    } catch (IOException ex) {
+      // do something
+    }
+    // some other code
+    try {  // here!
+      // some code
+    } catch (IOException ex) {
+      // do something
+    }
+  }
+}
+```
+
+***
+
+*Title*: Partial Synchronized
+
+*Code*: **P11**
+
+Description: the synchronized block doesn't include all statements of the method. Something stays out of the block.
+
+*Example*:
+
+```java
+class Book {
+  private int a;
+  void foo() {
+    synchronized (this.a) {
+      this.a = 2;
+    }
+    this.a = 1; // here!
+  }
+}
+ 
+```
+
+***
+
+*Title*: Protected method 
+
+*Code*: **?**
+
+Description:  Once we find a protected method in a class, it's a pattern.
+
+***
+
+*Title*: Redundant catch
+
+*Code*: **P15**
+
+Description: Here, the method foo() throws IOException, but we catch it inside the method.
+
+*Example*:
+
+```java
+class Book {
+  void foo() throws IOException {
+    try {
+      Files.readAllBytes();
+    } catch (IOException e) { // here
+      // do something
+    }
+  }
+}
+```
+
+***
+
+*Title*: Return null
+
+*Code*: **P16**
+
+Description: When we return null, it's a pattern.
+
+*Example*:
+
+```java
+class Book {
+  String foo() {
+    return null;
+  }
+}
+```
+
+
+***
+
+*Title*: Send null
+
+*Code*: **?**
+
+Description: Once we see that `null` is being given as an argument to some method, it's a pattern.
+
+*Example*:
+
+```java
+class Foo {
+  void bar() {
+    FileUtils.doIt(null); // here
+  }
+}
+```

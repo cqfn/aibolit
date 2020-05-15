@@ -33,8 +33,8 @@ from functools import partial
 from multiprocessing import Manager
 from pathlib import Path
 from shutil import copyfile, rmtree
+from aibolit.config import Config
 
-from aibolit.config import CONFIG
 
 parser = argparse.ArgumentParser(description='Find patterns in Java files')
 parser.add_argument(
@@ -44,10 +44,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 dir_path = os.path.dirname(os.path.realpath(__file__))
-MI_pipeline_exclude_codes: [
-    "M5",  # metric not ready
-    "P26",  # empty implementation
-]
+
 
 def log_result(result, file_to_write):
     """ Save result to csv file. """
@@ -60,22 +57,19 @@ def log_result(result, file_to_write):
         writer.writerow(result)
 
 
-def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
+def execute_python_code_in_parallel_thread(exceptions, file_absolute_path):
     """ This runs in a separate thread. """
 
-    file = str(Path(dir_path, file_local_dir)).strip()
-    p = Path(file)
-    d_path = Path(dir_path)
-    relative_path = p.relative_to(d_path)
-
-    row = {'filename': relative_path.as_posix()}
-    exclude_codes = CONFIG['MI_pipeline_exclude_codes']
-    for pattern in CONFIG['patterns']:
+    file_absolute_path = file_absolute_path.strip()
+    file_path = Path(file_absolute_path)
+    row = {'filename': file_path.absolute().as_posix()}
+    config = Config.get_patterns_config()
+    for pattern in config['patterns']:
         val = None
         acronym = pattern['code']
-        if acronym not in MI_pipeline_exclude_codes:
+        if acronym not in config['patterns_exclude']:
             try:
-                val = pattern['make']().value(file)
+                val = pattern['make']().value(str(file_path))
                 row[acronym] = len(val)
                 row['lines_' + acronym] = val
             except Exception:
@@ -83,24 +77,24 @@ def execute_python_code_in_parallel_thread(exceptions, file_local_dir):
                 exc_type, exc_value, exc_tb = sys.exc_info()
                 row['lines_' + acronym] = row[acronym] = val
                 traceback_str = traceback.format_exc()
-                exceptions[file_local_dir] = {
+                exceptions[file_absolute_path] = {
                     'traceback': traceback_str,
                     'exc_type': str(exc_value),
                     'pattern_name': pattern['name'],
                 }
 
-    for metric in CONFIG['metrics']:
+    for metric in config['metrics']:
         val = None
         acronym = metric['code']
-        if acronym not in MI_pipeline_exclude_codes:
+        if acronym not in config['metrics_exclude']:
             try:
-                val = metric['make']().value(file)
+                val = metric['make']().value(str(file_path))
                 row[acronym] = val
             except Exception:
                 exc_type, exc_value, exc_tb = sys.exc_info()
                 row[acronym] = val
                 traceback_str = traceback.format_exc()
-                exceptions[file_local_dir] = {
+                exceptions[file_absolute_path] = {
                     'traceback': traceback_str,
                     'exc_type': str(exc_value),
                     'pattern_name': metric['name'],
@@ -177,10 +171,13 @@ if __name__ == '__main__':
     path = 'target/04'
     os.makedirs(path, exist_ok=True)
     filename = Path(path, '04-find-patterns.csv')
+    config = Config.get_patterns_config()
+    print(list(config.keys()))
+    patterns_exclude = config['patterns_exclude']
     fields = \
-        [x['code'] for x in CONFIG['patterns']] \
-        + [x['code'] for x in CONFIG['metrics']] \
-        + ['lines_' + x['code'] for x in CONFIG['patterns']] \
+        [x['code'] for x in config['patterns'] if x['code'] not in patterns_exclude] \
+        + [x['code'] for x in config['metrics'] if x['code'] not in config['metrics_exclude']] \
+        + ['lines_' + x['code'] for x in config['patterns'] if x['code'] not in patterns_exclude] \
         + ['filename']
 
     with open(filename, 'w', newline='\n', encoding='utf-8') as csv_file:
