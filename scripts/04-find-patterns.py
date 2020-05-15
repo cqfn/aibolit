@@ -172,7 +172,6 @@ if __name__ == '__main__':
     os.makedirs(path, exist_ok=True)
     filename = Path(path, '04-find-patterns.csv')
     config = Config.get_patterns_config()
-    print(list(config.keys()))
     patterns_exclude = config['patterns_exclude']
     fields = \
         [x['code'] for x in config['patterns'] if x['code'] not in patterns_exclude] \
