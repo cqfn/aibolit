@@ -74,7 +74,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_absolute_path):
         acronym = pattern['code']
         if acronym not in MI_pipeline_exclude_codes:
             try:
-                val = pattern['make']().value(file_path)
+                val = pattern['make']().value(str(file_path))
                 row[acronym] = len(val)
                 row['lines_' + acronym] = val
             except Exception:
@@ -93,7 +93,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_absolute_path):
         acronym = metric['code']
         if acronym not in MI_pipeline_exclude_codes:
             try:
-                val = metric['make']().value(file_path)
+                val = metric['make']().value(str(file_path))
                 row[acronym] = val
             except Exception:
                 exc_type, exc_value, exc_tb = sys.exc_info()
