@@ -30,8 +30,8 @@ Scope of work April 2020
   - [x] Train Model
   - [x] Do recommendation pipeline using new trained model
 
-- [ ] Updated White Paper
-  - [ ] Patterns Ranking Model description
+- [x] Updated White Paper
+  - [x] Patterns Ranking Model description
 
 
 
