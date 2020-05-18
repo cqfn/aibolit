@@ -42,6 +42,12 @@ Model is automatically installed with *aibolit* package, but you can also try yo
 $ aibolit recommend --folder src/java --model_file /mnt/d/some_folder/model.pkl
 ```
 
+You can get full report with `--full_report` command, then all patterns will be included to the output:
+
+```bash
+$ aibolit recommend --folder src/java --full_report
+```
+
 If you need help, run 
 
 ```bash

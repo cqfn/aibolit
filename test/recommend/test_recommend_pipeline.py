@@ -53,27 +53,38 @@ class TestRecommendPipeline(TestCase):
         filenames = set([Path(x).name for x in found_files])
         self.assertEqual(filenames, resuls)
 
-    def test_xml_create(self):
+    def test_xml_create_full_report(self):
         item = {
-            'output_string': "Shocker face!",
             'filename': '1.java',
-            'pattern_code': 'P23',
-            'pattern_name': 'Some patterns name',
-            'code_lines': [1, 2, 4]
+            'results': [
+                {'pattern_code': 'P23',
+                 'pattern_name': 'Some patterns name',
+                 'code_lines': [1, 2, 4]
+                 }
+            ]
         }
         another_item = {
-            'output_string': "Boogeyman",
             'filename': 'hdd/home/jardani_jovonovich/John_wick.java',
-            'pattern_code': 'P2',
-            'pattern_name': 'Somebody please get this man a gun',
-            'code_lines': [10, 100, 15000]
+            'results': [
+                {'pattern_code': 'P2',
+                 'pattern_name': 'Somebody please get this man a gun',
+                 'code_lines': [10, 100, 15000]},
+                {'pattern_code': 'P4',
+                 'pattern_name': 'New item',
+                 'code_lines': [5, 6]}
+            ]
         }
-        mock_input = [item, another_item]
-        xml_string = create_xml_tree(mock_input)
+        error_file = {
+            'error_string': "Error occured",
+            'filename': 'hdd/home/Error.java',
+            'results': []
+        }
+        mock_input = [item, another_item, error_file]
+        xml_string = create_xml_tree(mock_input, full_report=True)
         md5_hash = md5(etree.tostring(xml_string))
         self.assertEqual(md5_hash.hexdigest(), '19640f97f5bda0ed2b302bebaaf39e0a')
 
     def test_xml_empty_resutls(self):
-        xml_string = create_xml_tree([])
+        xml_string = create_xml_tree([], True)
         md5_hash = md5(etree.tostring(xml_string))
         self.assertEqual(md5_hash.hexdigest(), '952db2968757ade19b240fdabeef4860')

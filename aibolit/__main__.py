@@ -39,6 +39,7 @@ import os
 from pathlib import Path
 import pickle
 from aibolit.model.model import TwoFoldRankingModel, Dataset  # type: ignore  # noqa: F401
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
@@ -60,7 +61,7 @@ def predict(input_params, model, args):
     th = float(args.threshold) or 1.0
     preds = model.predict(np.array(input), th=th)
 
-    return {features_order[int(x)]: x for x in preds.tolist()[0]}
+    return {features_order[int(x)]: int(x) for x in preds.tolist()[0]}
 
 
 def run_parse_args(commands_dict):
@@ -144,63 +145,18 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
         )
 
 
-def create_output(
-        java_file: str,  # type: ignore
-        code_lines: List[int],  # type: ignore
-        pattern_code: str,  # type: ignore
-        pattern_name: str,  # type: ignore
-        error_type=None):
-    """
-    Summarize result and create an output of `predict` function
-
-    :param pattern: pattern name
-    :param code_lines: list of code lines where pattern was found
-    :param java_file: filename of source Java file
-    :patter_code: pattern alias
-    :pattern_name: full pattern name
-    :return:
-    """
-    output_string: List[str] = []
-    result_item = {
-        'output_string': output_string,
-        'filename': java_file,
-        'pattern_code': pattern_code,
-        'pattern_name': pattern_name
-    }
-
-    if not code_lines and not error_type:
-        output_string.append('Your code is perfect in aibolit\'s opinion')
-    elif not code_lines and error_type:
-        output_string.append('Error when calculating patterns: {}'.format(str(error_type)))
-    else:
-        output_str = \
-            'The largest contribution for {file} for \"{pattern}\" pattern'.format(
-                file=java_file,
-                pattern=pattern_name)
-        output_string.append(output_str)
-        for line in code_lines:
-            if line:
-                output_string.append('Line {}. Low quality due to: {}'.format(
-                    line,
-                    pattern_name
-                ))
-        result_item['code_lines'] = code_lines  # type: ignore
-
-    return result_item
-
-
 def calculate_patterns_and_metrics(file):
     code_lines_dict = input_params = {}  # type: ignore
     error_string = None
     try:
         config = Config.get_patterns_config()
         for pattern in config['patterns']:
-            if pattern in config['patterns_exclude']:
+            if pattern['code'] in config['patterns_exclude']:
                 continue
             __count_value(pattern, input_params, code_lines_dict, file)
 
         for metric in config['metrics']:
-            if metric in config['metrics_exclude']:
+            if metric['code'] in config['metrics_exclude']:
                 continue
             __count_value(metric, input_params, code_lines_dict, file, is_metric=True)
     except Exception as ex:
@@ -210,44 +166,49 @@ def calculate_patterns_and_metrics(file):
     return input_params, code_lines_dict, error_string
 
 
-def inference(input_params: List[int], code_lines_dict, args):
+def inference(
+        input_params: List[int],
+        code_lines_dict,
+        args):
     """
     Find a pattern which has the largest impact on target
 
     :param input_params: list if calculated patterns/metrics
     :param code_lines_dict: list with found code lines of patterns/metrics
-    :return:
+    :param file: filename
+
+    :return: list of results with code_lies for each pattern and its name
     """
     model_path = args.model_file
+    do_full_report = args.full_report
+    results = []
     if input_params:
         if not model_path:
             model_path = Config.folder_model_data()
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
         sorted_result = predict(input_params, model, args)
-        code_lines = None
         patterns_list = model.features_conf['patterns_only']
-        pattern_code = None  # type: ignore
         for iter, (key, val) in enumerate(sorted_result.items()):
             if key in patterns_list:
                 pattern_code = key
                 code_lines = code_lines_dict.get('lines_' + key)
-                # We show only positive gradient, we won't add patterns
+                # We show only positive gradient
                 if code_lines and val > 1.00000e-20:
-                    break
-
-        if code_lines:
-            pattern_name = [x['name'] for x in Config.get_patterns_config()['patterns'] if x['code'] == pattern_code][0]
-        else:
-            pattern_name = None
-            pattern_code = None
-            code_lines = []
+                    if code_lines:
+                        pattern_name = \
+                            [x['name'] for x in Config.get_patterns_config()['patterns']
+                             if x['code'] == pattern_code][0]
+                        results.append(
+                            {'code_lines': code_lines,
+                             'pattern_code': pattern_code,
+                             'pattern_name': pattern_name})
+                    if not do_full_report:
+                        break
     else:
-        code_lines = []
-        pattern_code = None  # type: ignore
-        pattern_name = None
+        return results
 
-    return code_lines, pattern_code, pattern_name
+    return results
 
 
 def run_recommend_for_file(file: str, args):
@@ -260,18 +221,16 @@ def run_recommend_for_file(file: str, args):
     print('Analyzing {}'.format(file))
     java_file = str(Path(os.getcwd(), file))
     input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file)
-    code_lines, pattern_code, pattern_name = inference(input_params, code_lines_dict, args)
+    results_list = inference(input_params, code_lines_dict, args)
 
-    return create_output(
-        java_file=java_file,  # type: ignore
-        code_lines=code_lines,  # type: ignore
-        pattern_code=pattern_code,  # type: ignore
-        pattern_name=pattern_name,  # type: ignore
-        error_type=error_string  # type: ignore
-    )
+    return {
+        'filename': file,
+        'results': results_list,
+        'error_string': error_string
+    }
 
 
-def create_xml_tree(results):
+def create_xml_tree(results, full_report):
     """
     Creates xml from output of `recommend` function
     :param results: output of `recommend` function
@@ -279,22 +238,38 @@ def create_xml_tree(results):
     """
 
     top = etree.Element('files')
-    for result in results:
+    if not full_report:
+        top.addprevious(etree.Comment('Show pattern with the largest contribution to Cognitive Complexity'))
+    else:
+        top.addprevious(etree.Comment('Show all patterns'))
+    for result_for_file in results:
         child = etree.SubElement(top, 'filename')
-        child.text = result.get('filename')
-        if result.get('pattern_code'):
-            pattern_item = etree.SubElement(child, 'pattern')
-            pattern_item.text = result.get('pattern_name') or ''
-            pattern_item.attrib['pattern_code'] = result.get('pattern_code')
-        output_string = etree.SubElement(child, 'output_string')
-        output_string.text = '\n'.join(result['output_string'])
-
-        code_lines_items = result.get('code_lines')
-        if code_lines_items:
-            code_lines_lst_tree_node = etree.SubElement(child, 'code_lines')
-            for code_line in code_lines_items:
-                code_line_elem = etree.SubElement(code_lines_lst_tree_node, 'line_number')
-                code_line_elem.text = str(code_line)
+        filename = result_for_file.get('filename')
+        child.text = filename
+        patterns_tag = etree.SubElement(child, 'patterns')
+        results = result_for_file.get('results')
+        errors_string = result_for_file.get('error_string')
+        if not results and not errors_string:
+            output_string = 'Your code is perfect in aibolit\'s opinion'
+            output_string_tag = etree.SubElement(child, 'output_string')
+            output_string_tag.text = output_string
+        elif not results and errors_string:
+            output_string = 'Error when calculating patterns: {}'.format(str(errors_string))
+            output_string_tag = etree.SubElement(child, 'output_string')
+            output_string_tag.text = output_string
+        else:
+            for pattern in result_for_file['results']:
+                if pattern.get('pattern_code'):
+                    pattern_item = etree.SubElement(patterns_tag, 'pattern')
+                    pattern_name_str = pattern.get('pattern_name')
+                    pattern_item.text = pattern_name_str or ''
+                    pattern_item.attrib['pattern_code'] = pattern.get('pattern_code')
+                    code_lines_items = pattern.get('code_lines')
+                    if code_lines_items:
+                        code_lines_lst_tree_node = etree.SubElement(pattern_item, 'code_lines')
+                        for code_line in code_lines_items:
+                            code_line_elem = etree.SubElement(code_lines_lst_tree_node, 'line_number')
+                            code_line_elem.text = str(code_line)
 
     return top
 
@@ -339,8 +314,12 @@ def recommend():
         help='threshold for predict',
         default=False
     )
-
-    # make a certain order of arguments which was used by a model
+    parser.add_argument(
+        '--full_report',
+        help='show all recommendations instead of the best one',
+        default=False,
+        action='store_true'
+    )
 
     args = parser.parse_args(sys.argv[2:])
 
@@ -360,7 +339,7 @@ def recommend():
     else:
         filename = 'out.xml'
 
-    root = create_xml_tree(results)
+    root = create_xml_tree(results, args.full_report)
     tree = root.getroottree()
     tree.write(filename, pretty_print=True)
 
