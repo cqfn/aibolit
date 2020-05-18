@@ -193,7 +193,7 @@ def inference(
             if key in patterns_list:
                 pattern_code = key
                 code_lines = code_lines_dict.get('lines_' + key)
-                # We show only positive gradient
+                # We show only patterns with positive importance
                 if code_lines and val > 1.00000e-20:
                     if code_lines:
                         pattern_name = \
