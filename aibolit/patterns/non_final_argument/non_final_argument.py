@@ -16,4 +16,4 @@ class NonFinalArgument:
          without final, it's a pattern. After implementing that, enable tests in
          test_non_final_argument.py
         """
-        []
+        return []
