@@ -1,4 +1,3 @@
-
 import javalang
 from aibolit.utils.ast import AST
 
@@ -18,8 +17,10 @@ class SuperMethod:
         :return: Lines of code
         """
         results = []
-        tree = AST(filename).value()
-        with open(filename, encoding='utf-8') as file:
+        ast = AST(filename)
+        tree = ast.value()
+
+        with open(filename, encoding=ast.encoding) as file:
             text_lines = file.readlines()
         for _, method_decl_node in tree.filter(javalang.tree.MethodDeclaration):
             code_line = method_decl_node.position.line

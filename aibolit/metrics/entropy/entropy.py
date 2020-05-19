@@ -25,6 +25,8 @@ from typing import List
 import numpy as np  # type: ignore
 from scipy.stats import entropy  # type: ignore
 
+from aibolit.utils.ast import AST
+
 
 class Entropy:
     def __init__(self):
@@ -32,7 +34,8 @@ class Entropy:
 
     def __file_to_tokens(self, filename: str) -> List[str]:
         '''Takes path to java class file and returns tokens'''
-        with open(filename, encoding='utf-8') as file:
+        ast = AST(filename)
+        with open(filename, encoding=ast.encoding) as file:
             tokens = javalang.tokenizer.tokenize(file.read())
 
         return list(map(lambda v: v.value, tokens))
