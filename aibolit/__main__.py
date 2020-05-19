@@ -59,9 +59,9 @@ def predict(input_params, model, args):
     # load model
     input = [input_params[i] for i in features_order]
     th = float(args.threshold) or 1.0
-    preds = model.predict(np.array(input), th=th)
+    preds, importances = model.predict(np.array(input), th=th)
 
-    return {features_order[int(x)]: int(x) for x in preds.tolist()[0]}
+    return {features_order[int(x)]: int(x) for x in preds.tolist()[0]}, importances
 
 
 def run_parse_args(commands_dict):
@@ -182,12 +182,13 @@ def inference(
     model_path = args.model_file
     do_full_report = args.full_report
     results = []
+    importances = [-1]
     if input_params:
         if not model_path:
             model_path = Config.folder_model_data()
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
-        sorted_result = predict(input_params, model, args)
+        sorted_result, importances = predict(input_params, model, args)
         patterns_list = model.features_conf['patterns_only']
         for iter, (key, val) in enumerate(sorted_result.items()):
             if key in patterns_list:
@@ -202,13 +203,14 @@ def inference(
                         results.append(
                             {'code_lines': code_lines,
                              'pattern_code': pattern_code,
-                             'pattern_name': pattern_name})
+                             'pattern_name': pattern_name
+                             })
                     if not do_full_report:
                         break
     else:
-        return results
+        return results, sum(importances)
 
-    return results
+    return results, sum(importances)
 
 
 def run_recommend_for_file(file: str, args):
@@ -221,12 +223,13 @@ def run_recommend_for_file(file: str, args):
     print('Analyzing {}'.format(file))
     java_file = str(Path(os.getcwd(), file))
     input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file)
-    results_list = inference(input_params, code_lines_dict, args)
+    results_list, importances = inference(input_params, code_lines_dict, args)
 
     return {
         'filename': file,
         'results': results_list,
-        'error_string': error_string
+        'error_string': error_string,
+        'importances': importances
     }
 
 
@@ -236,7 +239,7 @@ def create_xml_tree(results, full_report):
     :param results: output of `recommend` function
     :return: xml string
     """
-
+    importances_for_all_classes = []
     top = etree.Element('files')
     if not full_report:
         top.addprevious(etree.Comment('Show pattern with the largest contribution to Cognitive Complexity'))
@@ -258,6 +261,10 @@ def create_xml_tree(results, full_report):
             output_string_tag = etree.SubElement(child, 'output_string')
             output_string_tag.text = output_string
         else:
+            importances_sum_tag = etree.SubElement(child, 'maintainability_score')
+            importances_value_per_class = result_for_file['importances']
+            importances_sum_tag.text = str(importances_value_per_class)
+            importances_for_all_classes.append(importances_value_per_class)
             for pattern in result_for_file['results']:
                 if pattern.get('pattern_code'):
                     pattern_item = etree.SubElement(patterns_tag, 'pattern')
@@ -270,6 +277,9 @@ def create_xml_tree(results, full_report):
                         for code_line in code_lines_items:
                             code_line_elem = etree.SubElement(code_lines_lst_tree_node, 'line_number')
                             code_line_elem.text = str(code_line)
+
+    importances_for_all_classes_tag = etree.SubElement(top, 'total_maintainability_score')
+    importances_for_all_classes_tag.text = str(np.mean(importances_for_all_classes))
 
     return top
 

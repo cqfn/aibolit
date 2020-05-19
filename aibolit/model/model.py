@@ -127,7 +127,9 @@ class TwoFoldRankingModel(BaseEstimator):
                 code.
         """
 
-        if X.ndim == 1:
+        if X.ndim != 1:
+            raise Exception("Only input with size 1, N is allowed")
+        else:
             X = X.copy()
             X = np.expand_dims(X, axis=0)
 
@@ -147,4 +149,4 @@ class TwoFoldRankingModel(BaseEstimator):
             except Exception:
                 raise Exception("Unknown func")
 
-        return np.array(ranked)
+        return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
