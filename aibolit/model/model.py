@@ -47,7 +47,7 @@ class Dataset:
 
         df.drop('filename', axis=1, inplace=True)
         df.drop('index', axis=1, inplace=True)
-        self.target = np.array(df[['M4']].values[:, 0] , dtype=np.float64)
+        self.target = np.array(df[['M4']].values[:, 0], dtype=np.float64)
         if scale_ncss:
             new = pd.DataFrame(
                 df[self.only_patterns].values / df['M2'].values.reshape((-1, 1)),
