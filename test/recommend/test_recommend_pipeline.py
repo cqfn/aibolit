@@ -25,6 +25,7 @@ from hashlib import md5
 from pathlib import Path
 from unittest import TestCase
 
+from aibolit.config import Config
 from lxml import etree
 
 from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, create_xml_tree
@@ -35,6 +36,7 @@ class TestRecommendPipeline(TestCase):
     def __init__(self, *args, **kwargs):
         super(TestRecommendPipeline, self).__init__(*args, **kwargs)
         self.cur_file_dir = Path(os.path.realpath(__file__)).parent
+        self.config = Config.get_patterns_config()
 
     def test_calculate_patterns_and_metrics(self):
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
@@ -54,6 +56,7 @@ class TestRecommendPipeline(TestCase):
         self.assertEqual(filenames, resuls)
 
     def test_xml_create_full_report(self):
+        patterns = [x['code'] for x in self.config['patterns']]
         item = {
             'filename': '1.java',
             'results': [
@@ -61,7 +64,8 @@ class TestRecommendPipeline(TestCase):
                  'pattern_name': 'Some patterns name',
                  'code_lines': [1, 2, 4]
                  }
-            ]
+            ],
+            'importances': sum([0.1 + x for x in range(len(patterns))])
         }
         another_item = {
             'filename': 'hdd/home/jardani_jovonovich/John_wick.java',
@@ -72,7 +76,8 @@ class TestRecommendPipeline(TestCase):
                 {'pattern_code': 'P4',
                  'pattern_name': 'New item',
                  'code_lines': [5, 6]}
-            ]
+            ],
+            'importances': sum([0.1 + 2 * x for x in range(len(patterns))])
         }
         error_file = {
             'error_string': "Error occured",
@@ -82,7 +87,7 @@ class TestRecommendPipeline(TestCase):
         mock_input = [item, another_item, error_file]
         xml_string = create_xml_tree(mock_input, full_report=True)
         md5_hash = md5(etree.tostring(xml_string))
-        self.assertEqual(md5_hash.hexdigest(), 'a79d7b52e127113f71a7030da3765d77')
+        self.assertEqual(md5_hash.hexdigest(), '9af343c06b99f8cea43025069d4b03c7')
 
     def test_xml_empty_resutls(self):
         xml_string = create_xml_tree([], True)
