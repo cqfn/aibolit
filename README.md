@@ -8,7 +8,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/e90e80a143a9457ee3af/maintainability)](https://codeclimate.com/github/yegor256/aibolit/maintainability)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/aibolit/blob/master/LICENSE.txt)
 
-First, you install it (you must have [Python 3.7.5](https://www.python.org/downloads/)
+First, you install it (you must have [Python 3.7.7](https://www.python.org/downloads/)
 and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
 
 ```bash
