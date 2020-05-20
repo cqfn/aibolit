@@ -1,4 +1,5 @@
 import os
+import shutil
 import subprocess
 from pathlib import Path
 from sklearn.model_selection import train_test_split  # type: ignore
@@ -7,19 +8,21 @@ from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
 from aibolit.config import Config
 
 
-def collect_dataset(java_folder, max_classes=None):
+def collect_dataset(args):
     """
     Run bash scripts to collect metrics and patterns for java files
 
-    :param java_folder: folder to java files which will be analyzed
     """
 
+    # path to java files which will be analyzed
+    java_folder = args.java_folder
+    max_classes = args.max_classes
     os.chdir(Path(Config.home_aibolit_folder(), 'scripts'))
     if not java_folder:
         java_folder = Path('target/01').absolute()
         print('Analyzing {} dir:'.format(java_folder))
-
-    print('Current working directory: ', Path(os.getcwd()))
+    cur_work_dir = Path(os.getcwd())
+    print('Current working directory: ', cur_work_dir)
     print('Directory with JAVA classes: ', java_folder)
     print('Filtering java files...')
 
@@ -48,11 +51,17 @@ def collect_dataset(java_folder, max_classes=None):
 
     print('Compute patterns...')
     result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE)
+
     if result.returncode != 0:
         print(result.stderr)
         exit(3)
     else:
         print(result.stdout)
+        dataset_file_path = Path(cur_work_dir, args.dataset_file)
+        print('Saving dataset to {}'.format(str(dataset_file_path.absolute())))
+        if not dataset_file_path.parent.exists():
+            dataset_file_path.parent.mkdir(parents=True)
+        shutil.copy(Path(Config.dataset_file()), dataset_file_path)
 
     print('Build halstead jar...')
     result = subprocess.run(['make', 'build_halstead'], stdout=subprocess.PIPE)
