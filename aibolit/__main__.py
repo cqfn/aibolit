@@ -277,9 +277,9 @@ def create_xml_tree(results, full_report):
                         for code_line in code_lines_items:
                             code_line_elem = etree.SubElement(code_lines_lst_tree_node, 'line_number')
                             code_line_elem.text = str(code_line)
-
-    importances_for_all_classes_tag = etree.SubElement(top, 'total_maintainability_score')
-    importances_for_all_classes_tag.text = str(np.mean(importances_for_all_classes))
+    if importances_for_all_classes:
+        importances_for_all_classes_tag = etree.SubElement(top, 'total_maintainability_score')
+        importances_for_all_classes_tag.text = str(np.mean(importances_for_all_classes))
 
     return top
 
