@@ -280,7 +280,7 @@ def recommend():
     parser = argparse.ArgumentParser(
         description='Get recommendations for Java code',
         usage='''
-        aibolit recommend < --folder | --filenames > [--output] [--model_file] [--threshold]
+        aibolit recommend < --folder | --filenames > [--output] [--model_file] [--threshold] [--full]
         ''')
 
     group_exclusive = parser.add_mutually_exclusive_group(required=True)

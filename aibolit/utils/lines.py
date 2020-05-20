@@ -10,9 +10,10 @@ class Lines:
     def __init__(self, filename: str):
         self._filename = filename
         self._ast = AST(filename)
+        self.value()
 
     def value(self) -> Tuple[Node, List[str]]:
-        with open(self._filename, encoding='utf-8') as file:
+        with open(self._filename, encoding=self._ast.encoding) as file:
             lines = file.readlines()
 
         return self._ast.value(), lines

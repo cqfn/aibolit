@@ -21,6 +21,8 @@
 # SOFTWARE.
 
 from statistics import variance
+
+from aibolit.utils.ast import AST
 from aibolit.utils.utils import RemoveComments
 
 
@@ -39,7 +41,8 @@ class IndentationCounter:
         :param filename: file name
         :return: list of counted spaces
         """
-        with open(filename, encoding='utf-8') as file:
+        ast = AST(filename)
+        with open(filename, encoding=ast.encoding) as file:
             text = RemoveComments.remove_comments(file.read())
             lines = []
             for x in text.splitlines():
