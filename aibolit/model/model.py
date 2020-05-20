@@ -47,7 +47,7 @@ class Dataset:
 
         df.drop('filename', axis=1, inplace=True)
         df.drop('index', axis=1, inplace=True)
-        self.target = df[['M4']].values[:, 0]
+        self.target = np.array(df[['M4']].values[:, 0] , dtype=np.float64)
         if scale_ncss:
             new = pd.DataFrame(
                 df[self.only_patterns].values / df['M2'].values.reshape((-1, 1)),
@@ -91,7 +91,8 @@ class TwoFoldRankingModel(BaseEstimator):
             grid,
             X=X,
             y=y,
-            verbose=display)
+            verbose=display
+        )
 
         self.model = model
         self.model.fit(X, y.ravel())

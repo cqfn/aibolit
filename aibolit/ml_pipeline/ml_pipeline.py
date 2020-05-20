@@ -11,8 +11,29 @@ from aibolit.config import Config
 def collect_dataset(args):
     """
     Run bash scripts to collect metrics and patterns for java files
-
     """
+
+    def make_patterns(args, cur_work_dir):
+        print('Compute patterns...')
+        result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE)
+        if result.returncode != 0:
+            print(result.stderr)
+            exit(3)
+        else:
+            print(result.stdout)
+            dataset_file_path = Path(cur_work_dir, args.dataset_file)
+            print('Saving dataset to {}'.format(str(dataset_file_path.absolute())))
+            if not dataset_file_path.parent.exists():
+                dataset_file_path.parent.mkdir(parents=True)
+            shutil.copy(Path(Config.dataset_file()), dataset_file_path)
+
+    def run_cmd(metrics_cmd):
+        result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE)
+        if result.returncode != 0:
+            print(result.stderr)
+            exit(1)
+        else:
+            print(result.stdout)
 
     # path to java files which will be analyzed
     java_folder = args.java_folder
@@ -28,64 +49,25 @@ def collect_dataset(args):
 
     filter_cmd = ['make', 'filter']
     metrics_cmd = ['make', 'metrics']
+    merge_cmd = ['make', 'merge']
+    build_halstead_cmd = ['make', 'build_halstead']
+    make_hl_cmd = ['make', 'hl']
+
     if java_folder is not None:
         filter_cmd.append(f'dir={java_folder}')
         metrics_cmd.append(f'dir={java_folder}')
     if max_classes is not None:
         filter_cmd.append(f'max_classes={max_classes}')
 
-    result = subprocess.run(filter_cmd, stdout=subprocess.PIPE)
-    if result.returncode != 0:
-        print(result.stderr)
-        exit(2)
-    else:
-        print(result.stdout)
-
+    run_cmd(filter_cmd)
     print('Download PMD and compute metrics...')
-    result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE)
-    if result.returncode != 0:
-        print(result.stderr)
-        exit(2)
-    else:
-        print(result.stdout)
-
-    print('Compute patterns...')
-    result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE)
-
-    if result.returncode != 0:
-        print(result.stderr)
-        exit(3)
-    else:
-        print(result.stdout)
-        dataset_file_path = Path(cur_work_dir, args.dataset_file)
-        print('Saving dataset to {}'.format(str(dataset_file_path.absolute())))
-        if not dataset_file_path.parent.exists():
-            dataset_file_path.parent.mkdir(parents=True)
-        shutil.copy(Path(Config.dataset_file()), dataset_file_path)
-
-    print('Build halstead jar...')
-    result = subprocess.run(['make', 'build_halstead'], stdout=subprocess.PIPE)
-    if result.returncode != 0:
-        print(result.stderr)
-        exit(4)
-    else:
-        print(result.stdout)
-
-    print('Run halstead jar...')
-    result = subprocess.run(['make', 'hl'], stdout=subprocess.PIPE)
-    if result.returncode != 0:
-        print(result.stderr)
-        exit(5)
-    else:
-        print(result.stdout)
+    run_cmd(metrics_cmd)
+    make_patterns(args, cur_work_dir)
+    run_cmd(build_halstead_cmd)
+    run_cmd(make_hl_cmd)
 
     print('Merge results and create dataset...')
-    result = subprocess.run(['make', 'merge'], stdout=subprocess.PIPE)
-    if result.returncode != 0:
-        print(result.stderr)
-        exit(6)
-    else:
-        print(result.stdout)
+    run_cmd(merge_cmd)
 
 
 def train_process(model_folder=None):
