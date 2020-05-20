@@ -180,7 +180,7 @@ def inference(
     :return: list of results with code_lies for each pattern and its name
     """
     model_path = args.model_file
-    do_full_report = args.full_report
+    do_full_report = args.full
     results = []
     importances = [-1]
     if input_params:
@@ -325,7 +325,7 @@ def recommend():
         default=False
     )
     parser.add_argument(
-        '--full_report',
+        '--full',
         help='show all recommendations instead of the best one',
         default=False,
         action='store_true'
@@ -349,7 +349,7 @@ def recommend():
     else:
         filename = 'out.xml'
 
-    root = create_xml_tree(results, args.full_report)
+    root = create_xml_tree(results, args.full)
     tree = root.getroottree()
     tree.write(filename, pretty_print=True)
 
