@@ -8,9 +8,8 @@ branches:
     - gh-pages
 os: Windows Server 2012
 install:
-- set PATH=C:\Python37-x64;C:\Python37-x64\Scripts;%PATH%
+- set PATH=C:\Python37-x64;C:\Python37-x64\Scripts;C:\Python37-x64\Library\bin;%PATH%
 - python --version
-
 build_script:
 - cd C:\projects\aibolit
 - pip install .
