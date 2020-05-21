@@ -24,10 +24,12 @@ def collect_dataset(args):
             print(result.stdout.decode())
             if args.dataset_file:
                 dataset_file_path = Path(cur_work_dir, args.dataset_file)
-                print('Saving dataset to {}'.format(str(dataset_file_path.absolute())))
                 if not dataset_file_path.parent.exists():
                     dataset_file_path.parent.mkdir(parents=True)
                 shutil.copy(Path(Config.dataset_file()), dataset_file_path)
+            else:
+                dataset_file_path = Config.dataset_file()
+            print('dataset was saved to {}'.format(str(dataset_file_path.absolute())))
 
 
     def run_cmd(metrics_cmd):

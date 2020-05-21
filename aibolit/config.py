@@ -55,23 +55,23 @@ class Config(metaclass=Singleton):
 
     @staticmethod
     def home_aibolit_folder():
-        return os.environ.get('HOME_AIBOLIT') or '/home/jovyan/aibolit'
+        return Path(os.environ.get('HOME_AIBOLIT')) or '/home/jovyan/aibolit'
 
     @staticmethod
     def folder_to_save_model_data():
         model_folder = Path(Config().home_aibolit_folder(), 'aibolit', 'binary_files')
-        return os.environ.get('SAVE_MODEL_FOLDER') or model_folder
+        return Path(os.environ.get('SAVE_MODEL_FOLDER')) or model_folder
 
     @staticmethod
     def folder_model_data():
         dir_path = os.path.dirname(os.path.realpath(__file__))
         model_file = Path(Path(dir_path), 'binary_files', 'model.pkl')
-        return os.environ.get('HOME_MODEL_FOLDER') or model_file
+        return Path(os.environ.get('HOME_MODEL_FOLDER')) or model_file
 
     @staticmethod
     def dataset_file():
         dataset_path = Path(Config().home_aibolit_folder(), 'scripts', 'target', 'dataset.csv')
-        return os.environ.get('HOME_DATASET_CSV') or dataset_path
+        return Path(os.environ.get('HOME_DATASET_CSV')) or dataset_path
 
     @staticmethod
     def get_patterns_config():
