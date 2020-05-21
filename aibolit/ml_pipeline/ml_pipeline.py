@@ -35,7 +35,7 @@ def collect_dataset(args):
     def run_cmd(metrics_cmd):
         result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE)
         if result.returncode != 0:
-            print(result.stderr.decode())
+            print(result.stderr)
             exit(1)
         else:
             print(result.stdout.decode())
