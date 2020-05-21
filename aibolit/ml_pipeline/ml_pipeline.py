@@ -64,9 +64,9 @@ def collect_dataset(args):
     if max_classes is not None:
         filter_cmd.append(f'max_classes={max_classes}')
 
-    run_cmd(filter_cmd, cur_work_dir)
-    print('Download PMD and compute metrics...')
-    run_cmd(metrics_cmd, cur_work_dir)
+    # run_cmd(filter_cmd, cur_work_dir)
+    # print('Download PMD and compute metrics...')
+    # run_cmd(metrics_cmd, cur_work_dir)
     make_patterns(args, cur_work_dir)
     print('Building halstead.jar...')
     run_cmd(build_halstead_cmd, cur_work_dir)
