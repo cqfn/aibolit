@@ -17,10 +17,10 @@ def collect_dataset(args):
         print('Compute patterns...')
         result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE, encoding='utf-8')
         if result.returncode != 0:
-            print(result.stderr)
+            print(result.stderr.decode())
             exit(3)
         else:
-            print(result.stdout)
+            print(result.stdout.decode())
             dataset_file_path = Path(cur_work_dir, args.dataset_file)
             print('Saving dataset to {}'.format(str(dataset_file_path.absolute())))
             if not dataset_file_path.parent.exists():
@@ -29,13 +29,11 @@ def collect_dataset(args):
 
     def run_cmd(metrics_cmd):
         result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE)
-        print('BLABLA {}'.format(result))
-        print('VHIH {}'.format(result.stdout.decode()))
         if result.returncode != 0:
-            print(result.stderr)
+            print(result.stderr.decode())
             exit(1)
         else:
-            print(result.stdout)
+            print(result.stdout.decode())
 
     # path to java files which will be analyzed
     java_folder = args.java_folder
