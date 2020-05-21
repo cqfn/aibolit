@@ -15,7 +15,7 @@ def collect_dataset(args):
 
     def make_patterns(args, cur_work_dir):
         print('Compute patterns...')
-        result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE, encoding='utf-8')
+        result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE, encoding='utf-8', cwd=cur_work_dir)
         print(result.returncode)
         if result.returncode != 0:
             print(result.stderr.decode())
@@ -32,8 +32,8 @@ def collect_dataset(args):
             print('dataset was saved to {}'.format(str(dataset_file_path.absolute())))
 
 
-    def run_cmd(metrics_cmd):
-        result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE)
+    def run_cmd(metrics_cmd, cur_work_dir):
+        result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE, cwd=cur_work_dir)
         if result.returncode != 0:
             print(result.stderr)
             exit(1)
@@ -64,14 +64,14 @@ def collect_dataset(args):
     if max_classes is not None:
         filter_cmd.append(f'max_classes={max_classes}')
 
-    run_cmd(filter_cmd)
+    run_cmd(filter_cmd, cur_work_dir)
     print('Download PMD and compute metrics...')
-    run_cmd(metrics_cmd)
+    run_cmd(metrics_cmd, cur_work_dir)
     make_patterns(args, cur_work_dir)
     print('Building halstead.jar...')
-    run_cmd(build_halstead_cmd)
+    run_cmd(build_halstead_cmd, cur_work_dir)
     print('Calculating halstead metrics...')
-    run_cmd(make_hl_cmd)
+    run_cmd(make_hl_cmd, cur_work_dir)
 
     print('Merge results and create dataset...')
     run_cmd(merge_cmd)
