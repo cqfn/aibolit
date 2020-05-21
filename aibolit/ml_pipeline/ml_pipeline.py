@@ -16,16 +16,19 @@ def collect_dataset(args):
     def make_patterns(args, cur_work_dir):
         print('Compute patterns...')
         result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE, encoding='utf-8')
+        print(result.returncode)
         if result.returncode != 0:
             print(result.stderr.decode())
             exit(3)
         else:
             print(result.stdout.decode())
-            dataset_file_path = Path(cur_work_dir, args.dataset_file)
-            print('Saving dataset to {}'.format(str(dataset_file_path.absolute())))
-            if not dataset_file_path.parent.exists():
-                dataset_file_path.parent.mkdir(parents=True)
-            shutil.copy(Path(Config.dataset_file()), dataset_file_path)
+            if args.dataset_file:
+                dataset_file_path = Path(cur_work_dir, args.dataset_file)
+                print('Saving dataset to {}'.format(str(dataset_file_path.absolute())))
+                if not dataset_file_path.parent.exists():
+                    dataset_file_path.parent.mkdir(parents=True)
+                shutil.copy(Path(Config.dataset_file()), dataset_file_path)
+
 
     def run_cmd(metrics_cmd):
         result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE)
