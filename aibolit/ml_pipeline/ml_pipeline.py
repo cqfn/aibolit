@@ -28,7 +28,7 @@ def collect_dataset(args):
                     dataset_file_path.parent.mkdir(parents=True)
                 shutil.copy(Path(Config.dataset_file()), dataset_file_path)
             else:
-                dataset_file_path = Config.dataset_file()
+                dataset_file_path = Path(Config.dataset_file())
             print('dataset was saved to {}'.format(str(dataset_file_path.absolute())))
 
 
