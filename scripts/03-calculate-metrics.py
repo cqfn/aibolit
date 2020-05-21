@@ -22,8 +22,7 @@ current_location: str = os.path.realpath(
 csv_files = []
 for dir_local in Path(dir_to_analyze).iterdir():
     if dir_local.is_dir():
-        print('Run for path {}'.format(dir_local.parts[-1]))
-        print('Start metrics calculation...')
+        print('Start metrics calculation for path {}'.format(dir_local.parts[-1]))
         csv_filename = "./_tmp/{}_pmd_out.csv".format(dir_local.parts[-1])
         csv_files.append(csv_filename)
         f = open(csv_filename, "w")
