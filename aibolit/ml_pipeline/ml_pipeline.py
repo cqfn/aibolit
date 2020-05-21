@@ -63,7 +63,9 @@ def collect_dataset(args):
     print('Download PMD and compute metrics...')
     run_cmd(metrics_cmd)
     make_patterns(args, cur_work_dir)
+    print('Building halstead.jar...')
     run_cmd(build_halstead_cmd)
+    print('Calculating halstead metrics...')
     run_cmd(make_hl_cmd)
 
     print('Merge results and create dataset...')
