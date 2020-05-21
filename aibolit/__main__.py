@@ -87,7 +87,7 @@ def run_parse_args(commands_dict):
         parser.print_help()
         exit(1)
 
-    commands_dict[args.command]()
+    return commands_dict[args.command]()
 
 
 def train():
@@ -289,6 +289,35 @@ def create_xml_tree(results, full_report):
     return top
 
 
+def get_exit_code(results):
+    """
+    Analyzed recommendation results and generate exit_code for pipeline
+    """
+
+    files_analyzed = len(results)
+    errors_number = 0
+    perfect_code_number = 0
+    for result_for_file in results:
+        results = result_for_file.get('results')
+        errors_string = result_for_file.get('error_string')
+        if not results and not errors_string:
+            perfect_code_number += 1
+        elif not results and errors_string:
+            errors_number += 1
+
+    if errors_number == files_analyzed:
+        # we have errors everywhere
+        exit_code = 2
+    elif perfect_code_number == files_analyzed:
+        # everything is good
+        exit_code = 0
+    else:
+        # we have some recommendation
+        exit_code = 1
+
+    return exit_code
+
+
 def recommend():
     """Run recommendation pipeline."""
 
@@ -357,6 +386,8 @@ def recommend():
     root = create_xml_tree(results, args.full)
     tree = root.getroottree()
     tree.write(filename, pretty_print=True)
+    exit_code = get_exit_code(results)
+    return exit_code
 
 
 def version():
@@ -386,18 +417,17 @@ def run_thread(files, args):
 
 
 def main():
-    exit_status = 0
     try:
         commands = {
             'train': lambda: train(),
             'recommend': lambda: recommend(),
             'version': lambda: version(),
         }
-        run_parse_args(commands)
-
-    except KeyboardInterrupt:
-        exit_status = -1
-    sys.exit(exit_status)
+        exit_code = run_parse_args(commands)
+    except Exception:
+        sys.exit(2)
+    else:
+        sys.exit(exit_code)
 
 
 if __name__ == '__main__':

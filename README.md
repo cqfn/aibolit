@@ -42,10 +42,10 @@ Model is automatically installed with *aibolit* package, but you can also try yo
 $ aibolit recommend --folder src/java --model_file /mnt/d/some_folder/model.pkl
 ```
 
-You can get full report with `--full_report` command, then all patterns will be included to the output:
+You can get full report with `--full` command, then all patterns will be included to the output:
 
 ```bash
-$ aibolit recommend --folder src/java --full_report
+$ aibolit recommend --folder src/java --full
 ```
 
 If you need help, run 
@@ -76,7 +76,13 @@ $ aibolit recommend --help
  Run train pipeline:
 
 ```bash
-$ aibolit train --java_folder=src/java [--max_classes=100]
+$ aibolit train --java_folder=src/java [--max_classes=100] [--dataset_file]
+```
+
+If you need to save the dataset with all calculated metrics to a different directory, you need to use `dataset_file` parameter
+
+```bash
+$ aibolit train --java_folder=src/java --dataset_file /mnt/d/new_dir/dataset.csv
 ```
 
 ## How to contribute?
