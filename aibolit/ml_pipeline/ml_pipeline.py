@@ -18,7 +18,7 @@ def collect_dataset(args):
         result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE, encoding='utf-8', cwd=cur_work_dir)
         print(result.returncode)
         if result.returncode != 0:
-            print(result.stderr.decode())
+            print(result.stderr)
             exit(3)
         else:
             print(result.stdout.decode())
@@ -74,7 +74,7 @@ def collect_dataset(args):
     run_cmd(make_hl_cmd, cur_work_dir)
 
     print('Merge results and create dataset...')
-    run_cmd(merge_cmd)
+    run_cmd(merge_cmd, cur_work_dir)
 
 
 def train_process(model_folder=None):
