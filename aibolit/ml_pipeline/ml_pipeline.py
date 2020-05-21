@@ -15,7 +15,7 @@ def collect_dataset(args):
 
     def make_patterns(args, cur_work_dir):
         print('Compute patterns...')
-        result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE)
+        result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE, encoding='utf-8')
         print(result)
         if result.returncode != 0:
             print(result.stderr)
