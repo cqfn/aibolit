@@ -21,7 +21,7 @@ def collect_dataset(args):
             print(result.stderr)
             exit(3)
         else:
-            print(result.stdout.decode())
+            print(result.stdout)
             if args.dataset_file:
                 dataset_file_path = Path(cur_work_dir, args.dataset_file)
                 if not dataset_file_path.parent.exists():
@@ -33,12 +33,12 @@ def collect_dataset(args):
 
 
     def run_cmd(metrics_cmd, cur_work_dir):
-        result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE, cwd=cur_work_dir)
+        result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE, encoding='utf-8', cwd=cur_work_dir)
         if result.returncode != 0:
             print(result.stderr)
             exit(1)
         else:
-            print(result.stdout.decode())
+            print(result.stdout)
 
     # path to java files which will be analyzed
     java_folder = args.java_folder
