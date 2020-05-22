@@ -109,11 +109,14 @@ def train_process(model_folder=None):
         model.fit(X_train, y_train)
         model.features_conf = features_conf
 
-        with open(Path(Config.folder_to_save_model_data(), 'model.pkl'), 'wb') as fid:
+        save_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
+        print('Saving model to loaded model from file {}:'.format(save_model_file))
+        with open(save_model_file, 'wb') as fid:
             pickle.dump(model, fid)
 
-        print('Test loaded model from file {}:'.format(Path(Config.folder_to_save_model_data(), 'model.pkl')))
-        with open(Path(Config.folder_to_save_model_data(), 'model.pkl'), 'rb') as fid:
+        load_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
+        print('Test loaded model from file {}:'.format(load_model_file))
+        with open(load_model_file, 'rb') as fid:
             model_new = pickle.load(fid)
             preds = model_new.predict(X_test)
             print(preds)
