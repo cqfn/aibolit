@@ -42,7 +42,7 @@ if not top_level_folder.exists():
     top_level_folder.mkdir()
 
 for file in java_files:
-    print('Copying from {} to {}'.format(str(file), str(Path(dir_to_analyze, file.name))))
+    print('Copying from {} to {}'.format(str(file), str(Path(top_level_folder, file.name))))
     # shutil.move(str(file), str(Path(dir_to_analyze, file.name)))
 
 cur_df = pd.DataFrame(
