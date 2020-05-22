@@ -112,7 +112,7 @@ def train_process(model_folder=None):
         with open(Path(Config.folder_to_save_model_data(), 'model.pkl'), 'wb') as fid:
             pickle.dump(model, fid)
 
-        print('Test loaded model:')
+        print('Test loaded model from file {}:'.format(Path(Config.folder_to_save_model_data(), 'model.pkl')))
         with open(Path(Config.folder_to_save_model_data(), 'model.pkl'), 'rb') as fid:
             model_new = pickle.load(fid)
             preds = model_new.predict(X_test)
