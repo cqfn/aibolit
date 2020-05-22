@@ -92,11 +92,11 @@ class TwoFoldRankingModel(BaseEstimator):
             grid,
             X=X,
             y=y,
-            verbose=display
+            verbose=display,
         )
 
         self.model = model
-        self.model.fit(X, y.ravel())
+        self.model.fit(X, y.ravel(), silent=True)
 
     def __get_pairs(self, item, th: float):
         def sigmoid(x):
