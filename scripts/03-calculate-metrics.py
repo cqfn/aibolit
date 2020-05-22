@@ -3,7 +3,6 @@ import pandas as pd
 import os
 from pathlib import Path
 import argparse
-import shutil
 
 parser = argparse.ArgumentParser(description='Filter important java files')
 parser.add_argument(
@@ -20,7 +19,6 @@ current_location: str = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__))
 )
 csv_files = []
-java_files = []
 for dir_local in Path(dir_to_analyze).iterdir():
     if dir_local.is_dir():
         print('Start metrics calculation for path {}'.format(dir_local.parts[-1]))
@@ -34,16 +32,7 @@ for dir_local in Path(dir_to_analyze).iterdir():
         ], stdout=f)
         print('Metrics have calculated.')
         f.close()
-    if dir_local.is_file():
-        java_files.append(dir_local.absolute())
 
-top_level_folder = Path(dir_to_analyze, 'top_level_folder')
-if not top_level_folder.exists():
-    top_level_folder.mkdir()
-
-for file in java_files:
-    print('Copying from {} to {}'.format(str(file), str(Path(top_level_folder, file.name))))
-    # shutil.move(str(file), str(Path(dir_to_analyze, file.name)))
 
 cur_df = pd.DataFrame(
     [["-555", "com.google.samples",
