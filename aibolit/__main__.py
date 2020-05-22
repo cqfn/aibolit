@@ -246,6 +246,7 @@ def create_xml_tree(results, full_report):
     """
     importances_for_all_classes = []
     top = etree.Element('report')
+    importances_for_all_classes_tag = etree.SubElement(top, 'score')
     files = etree.SubElement(top, 'files')
     if not full_report:
         files.addprevious(etree.Comment('Show pattern with the largest contribution to Cognitive Complexity'))
@@ -253,28 +254,26 @@ def create_xml_tree(results, full_report):
         files.addprevious(etree.Comment('Show all patterns'))
     for result_for_file in results:
         file = etree.SubElement(files, 'file')
+        output_string_tag = etree.SubElement(file, 'summary')
         filename = result_for_file.get('filename')
-        name = etree.SubElement(file, 'name')
+        name = etree.SubElement(file, 'path')
         name.text = filename
-        patterns_tag = etree.SubElement(file, 'patterns')
         results = result_for_file.get('results')
         errors_string = result_for_file.get('error_string')
         if not results and not errors_string:
             output_string = 'Your code is perfect in aibolit\'s opinion'
-            output_string_tag = etree.SubElement(file, 'summary')
             output_string_tag.text = output_string
         elif not results and errors_string:
             output_string = 'Error when calculating patterns: {}'.format(str(errors_string))
-            output_string_tag = etree.SubElement(file, 'summary')
             output_string_tag.text = output_string
         else:
             output_string = 'Some issues found'
-            output_string_tag = etree.SubElement(file, 'summary')
             output_string_tag.text = output_string
             importances_sum_tag = etree.SubElement(file, 'score')
             importances_value_per_class = result_for_file['importances']
             importances_sum_tag.text = str(importances_value_per_class)
             importances_for_all_classes.append(importances_value_per_class)
+            patterns_tag = etree.SubElement(file, 'patterns')
             for pattern in result_for_file['results']:
                 if pattern.get('pattern_code'):
                     pattern_item = etree.SubElement(patterns_tag, 'pattern')
@@ -289,7 +288,6 @@ def create_xml_tree(results, full_report):
                             code_line_elem = etree.SubElement(code_lines_lst_tree_node, 'number')
                             code_line_elem.text = str(code_line)
     if importances_for_all_classes:
-        importances_for_all_classes_tag = etree.SubElement(top, 'score')
         importances_for_all_classes_tag.text = str(np.mean(importances_for_all_classes))
 
     return top
