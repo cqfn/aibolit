@@ -77,49 +77,45 @@ def collect_dataset(args):
     run_cmd(merge_cmd, cur_work_dir)
 
 
-def train_process(model_folder=None):
+def train_process():
     """
     Define needed columns for dataset and run model training
-
-    :param model_folder: path to model
     """
-    if not model_folder:
-        config = Config.get_patterns_config()
-        only_patterns = [
-            x['code'] for x in list(config['patterns'])
-            if x['code'] not in config['patterns_exclude']
-        ]
-        only_metrics = \
-            [x['code'] for x in list(config['metrics'])
-             if x['code'] not in config['metrics_exclude']] \
-            + ['halstead volume']
-        columns_features = only_metrics + only_patterns
-        features_number = len(columns_features)
-        print("Number of features: ", features_number)
+    config = Config.get_patterns_config()
+    only_patterns = [
+        x['code'] for x in list(config['patterns'])
+        if x['code'] not in config['patterns_exclude']
+    ]
+    only_metrics = \
+        [x['code'] for x in list(config['metrics'])
+         if x['code'] not in config['metrics_exclude']] \
+        + ['halstead volume']
+    columns_features = only_metrics + only_patterns
+    features_number = len(columns_features)
+    print("Number of features: ", features_number)
 
-        dataset = Dataset(only_patterns)
-        dataset.preprocess_file()
-        features_conf = {
-            "features_order": dataset.feature_order,
-            "patterns_only": only_patterns
-        }
+    dataset = Dataset(only_patterns)
+    dataset.preprocess_file()
+    features_conf = {
+        "features_order": dataset.feature_order,
+        "patterns_only": only_patterns
+    }
 
-        X_train, X_test, y_train, y_test = train_test_split(dataset.input, dataset.target, test_size=0.3)
-        model = TwoFoldRankingModel()
-        model.fit(X_train, y_train)
-        model.features_conf = features_conf
+    X_train, X_test, y_train, y_test = train_test_split(dataset.input, dataset.target, test_size=0.3)
+    model = TwoFoldRankingModel()
+    model.fit(X_train, y_train)
+    model.features_conf = features_conf
 
-        save_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
-        print('Saving model to loaded model from file {}:'.format(save_model_file))
-        with open(save_model_file, 'wb') as fid:
-            pickle.dump(model, fid)
+    save_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
+    print('Saving model to loaded model from file {}:'.format(save_model_file))
+    with open(save_model_file, 'wb') as fid:
+        pickle.dump(model, fid)
 
-        load_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
-        print('Test loaded model from file {}:'.format(load_model_file))
-        with open(load_model_file, 'rb') as fid:
-            model_new = pickle.load(fid)
-            print('Model loaded')
-            preds, importances = model_new.predict(X_test[0])
+    load_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
+    print('Test loaded model from file {}:'.format(load_model_file))
+    with open(load_model_file, 'rb') as fid:
+        model_new = pickle.load(fid)
+        print('Model has been loaded successfully')
+        for x in X_test:
+            preds, importances = model_new.predict(x)
             print(preds)
-    else:
-        Exception('External models are not supported yet')
