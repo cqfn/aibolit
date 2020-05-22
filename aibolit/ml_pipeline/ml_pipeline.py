@@ -119,7 +119,7 @@ def train_process(model_folder=None):
         with open(load_model_file, 'rb') as fid:
             model_new = pickle.load(fid)
             print('Model loaded')
-            preds, importances = model_new.predict(X_test)
+            preds, importances = model_new.predict(X_test[0])
             print(preds)
     else:
         Exception('External models are not supported yet')
