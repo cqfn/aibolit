@@ -23,6 +23,7 @@ class Dataset:
             scale=False,
             **kwargs):
 
+        print('reading dataset from {}'.format(Config.dataset_file()))
         df = pd.read_csv(Config.dataset_file())
         df = df[~df["filename"].str.lower().str.contains("test")]
         config = Config.get_patterns_config()
@@ -63,7 +64,7 @@ class Dataset:
             self.input = new.values
 
         self.feature_order = list(new.columns)
-        
+
 
 class TwoFoldRankingModel(BaseEstimator):
 

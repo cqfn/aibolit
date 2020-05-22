@@ -51,7 +51,7 @@ for i in csv_files:
     except Exception:
         pass
 
-print("we have {} folder, {} datasets".format(len(csv_files), len(frames)))
+print("we have {} folders, {} datasets".format(len(csv_files), len(frames)))
 df = pd.concat(frames)
 df = df[df.Problem != -555]
 df.set_index("Problem")
