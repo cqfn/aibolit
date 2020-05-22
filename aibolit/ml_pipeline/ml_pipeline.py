@@ -119,5 +119,6 @@ def train_process():
         for x in X_test:
             preds, importances = model_new.predict(x)
             print(preds)
-    path_with_logs = Path(os.getcwd())
+    path_with_logs = Path(os.getcwd(), 'catboost_info')
     print('Removing path with catboost logs {}'.format(path_with_logs))
+    shutil.rmtree(path_with_logs)
