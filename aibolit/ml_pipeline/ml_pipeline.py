@@ -31,7 +31,6 @@ def collect_dataset(args):
                 dataset_file_path = Path(Config.dataset_file())
             print('dataset was saved to {}'.format(str(dataset_file_path.absolute())))
 
-
     def run_cmd(metrics_cmd, cur_work_dir):
         result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE, encoding='utf-8', cwd=cur_work_dir)
         if result.returncode != 0:
