@@ -87,9 +87,9 @@ class TestRecommendPipeline(TestCase):
         mock_input = [item, another_item, error_file]
         xml_string = create_xml_tree(mock_input, full_report=True)
         md5_hash = md5(etree.tostring(xml_string))
-        self.assertEqual(md5_hash.hexdigest(), '9b74a0bf07c1703f3ea1ee1f85ec65e0')
+        self.assertEqual(md5_hash.hexdigest(), '35f56275d4ba073e8d9c89b143c124da')
 
     def test_xml_empty_resutls(self):
         xml_string = create_xml_tree([], True)
         md5_hash = md5(etree.tostring(xml_string))
-        self.assertEqual(md5_hash.hexdigest(), 'c5ab46bd9cdc6824606ea195f7047651')
+        self.assertEqual(md5_hash.hexdigest(), '7d55be99025f9d9bba410bdbd2c42cee')

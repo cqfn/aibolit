@@ -254,9 +254,9 @@ def create_xml_tree(results, full_report):
         files.addprevious(etree.Comment('Show all patterns'))
     for result_for_file in results:
         file = etree.SubElement(files, 'file')
-        output_string_tag = etree.SubElement(file, 'summary')
         filename = result_for_file.get('filename')
         name = etree.SubElement(file, 'path')
+        output_string_tag = etree.SubElement(file, 'summary')
         name.text = filename
         results = result_for_file.get('results')
         errors_string = result_for_file.get('error_string')
