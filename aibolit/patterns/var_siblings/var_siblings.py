@@ -1,10 +1,20 @@
+import javalang
+import re
+from aibolit.utils.ast import AST
+
 
 class VarSiblings:
     def __init__(self):
         pass
 
     def value(self, filename: str):
-        # @todo #141:30min: Implement var_siblings pattern.
-        #  This pattern must return a tuple containing the line numbers of the two siblings. After implementing that
-        #  activate the tests in test_car_sibling.py
-        return []
+        numbers = []
+        for _, node in AST(filename).value().filter(javalang.tree.LocalVariableDeclaration):
+            composed = re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', node.declarators[0].name)
+            if len(composed) > 1:
+                for _, inner in AST(filename).value().filter(javalang.tree.LocalVariableDeclaration):
+                    if node != inner:
+                        if inner.declarators[0].name.startswith(composed[0]):
+                            numbers.append(node.position.line)
+                            break
+        return numbers
