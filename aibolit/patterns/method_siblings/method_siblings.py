@@ -19,15 +19,25 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+from typing import List
+from aibolit.types_decl import LineNumber
+from aibolit.utils.ast import AST
+import javalang
+import re
 
 
 class MethodSiblings:
     def __init__(self):
         pass
 
-    def value(self, filename: str):
+    def value(self, filename: str) -> List[LineNumber]:
 
-        # @todo #142:30min: Implement method_siblings pattern.
-        #  This pattern must return a list of line numbers of methods which have siblings.
-        #  After implementing that activate the tests in test_method_sibling.py
-        return []
+        numbers = []
+        for _, node in AST(filename).value().filter(javalang.tree.MethodDeclaration):
+            composed = re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', node.name)
+            if len(composed) > 1:
+                for _, inner in AST(filename).value().filter(javalang.tree.MethodDeclaration):
+                    if node.name != inner.name:
+                        if inner.name.startswith(composed[0]):
+                            numbers.append(node.position.line)
+        return numbers
