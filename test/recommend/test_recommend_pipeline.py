@@ -28,7 +28,8 @@ from unittest import TestCase
 from aibolit.config import Config
 from lxml import etree
 
-from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, create_xml_tree
+from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, \
+    create_xml_tree, create_text, format_converter_for_pattern
 
 
 class TestRecommendPipeline(TestCase):
@@ -37,6 +38,38 @@ class TestRecommendPipeline(TestCase):
         super(TestRecommendPipeline, self).__init__(*args, **kwargs)
         self.cur_file_dir = Path(os.path.realpath(__file__)).parent
         self.config = Config.get_patterns_config()
+
+    def __create_mock_input(self):
+        patterns = [x['code'] for x in self.config['patterns']]
+        item = {
+            'filename': '1.java',
+            'results': [
+                {'pattern_code': 'P23',
+                 'pattern_name': 'Some patterns name',
+                 'code_lines': [1, 2, 4]
+                 }
+            ],
+            'importances': sum([0.1 + x for x in range(len(patterns))])
+        }
+        another_item = {
+            'filename': 'hdd/home/jardani_jovonovich/John_wick.java',
+            'results': [
+                {'pattern_code': 'P2',
+                 'pattern_name': 'Somebody please get this man a gun',
+                 'code_lines': [10, 100, 15000]},
+                {'pattern_code': 'P4',
+                 'pattern_name': 'New item',
+                 'code_lines': [5, 6]}
+            ],
+            'importances': sum([0.1 + 2 * x for x in range(len(patterns))])
+        }
+        error_file = {
+            'error_string': "Error occured",
+            'filename': 'hdd/home/Error.java',
+            'results': []
+        }
+        mock_input = [item, another_item, error_file]
+        return mock_input
 
     def test_calculate_patterns_and_metrics(self):
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
@@ -93,3 +126,16 @@ class TestRecommendPipeline(TestCase):
         xml_string = create_xml_tree([], True)
         md5_hash = md5(etree.tostring(xml_string))
         self.assertEqual(md5_hash.hexdigest(), '7d55be99025f9d9bba410bdbd2c42cee')
+
+    def test_text_format(self):
+        mock_input = self.__create_mock_input()
+        new_mock = format_converter_for_pattern(mock_input)
+        text = create_text(new_mock, full_report=True)
+        md5_hash = md5('\n'.join(text).encode('utf-8'))
+        self.assertEqual(md5_hash.hexdigest(), 'e59a6eced350dc1320dffc2b99dcfecd')
+
+    def test_empty_text_format(self):
+        new_mock = format_converter_for_pattern([])
+        text = create_text(new_mock, full_report=True)
+        md5_hash = md5('\n'.join(text).encode('utf-8'))
+        self.assertEqual(md5_hash.hexdigest(), 'bc22beda46ca18267a677eb32361a2aa')

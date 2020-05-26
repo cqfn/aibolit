@@ -33,8 +33,89 @@ It will run recommendation function for the model (model is located in [aibolit/
 The model finds a pattern which contribution is the largest to the Cyclomatic Complexity. 
 If anything is found, you will see all recommendations for the mentioned patterns. 
 You can see the list of all patterns in [Patterns.md](https://github.com/yegor256/aibolit/blob/master/PATTERNS.md).
-The output of recommendation will be saved to the `out.xml` file into the current directory.
-You can change the output file, using the `--output` parameter.
+The output of recommendation will be redirected to the stdout. 
+If the program has the `0` exit code, it means that all analyzed files do not have any issues.
+If the program has the `1` exit code, it means that at least 1 analyzed file has an issue.
+If the program has the `2` exit code, it means that program crash occurred.
+
+You can change the format, using the `--format` parameter. The default parameter is `--format=text`.
+```bash
+$ aibolit recommend --folder src/java --format=text --full
+```
+
+It will show the text, where all data are sorted by pattern's importance in descending order and grouped by a pattern name:
+
+```
+Show all patterns
+Filename /mnt/d/src/java/Configuration.java: 
+Score for file: 127.67642529949538
+Some issues found
+line 294: Null check (P13)
+line 391: Null check (P13)
+line 235: Non final attribute (P12)
+line 3840: Var in the middle (P21)
+line 3844: Var in the middle (P21)
+line 3848: Var in the middle (P21)
+line 2411: Null Assignment (P28)
+Filename /mnt/d/src/java/ErrorExample.java: 
+Error when calculating patterns: Can't count P1 metric: 
+Filename /mnt/d/src/java/MavenSlice.java: 
+Your code is perfect in aibolit's opinion
+Total score: 127.67642529949538
+
+```
+
+You can also choose xml format. It will have the same format as `text` mode, but xml will be created:
+
+```xml
+<report>
+  <score>127.67642529949538</score>
+  <!--Show all patterns-->
+  <files>
+    <file>
+      <path>/mnt/d/src/java/Configuration.java</path>
+      <summary>Some issues found</summary>
+      <score>127.67642529949538</score>
+      <patterns>
+        <pattern code="P13">
+          <details>Null check</details>
+          <lines>
+            <number>294</number>
+            <number>391</number>
+          </lines>
+        </pattern>
+        <pattern code="P12">
+          <details>Non final attribute</details>
+          <lines>
+            <number>235</number>
+          </lines>
+        </pattern>
+		<pattern code="P21">
+          <details>Var in the middle</details>
+          <lines>
+            <number>235</number>
+          </lines>
+        </pattern>
+		<pattern code="P28">
+          <details>Null Assignment</details>
+          <lines>
+            <number>2411</number>
+          </lines>
+        </pattern>
+      </patterns>
+    </file>
+    <file>
+      <path>/mnt/d/src/java/ErrorExample.java</path>
+      <summary>Error when calculating patterns: Can't count P1 metric: </summary>
+    </file>
+    <file>
+      <path>/mnt/d/src/java/MavenSlice.java</path>
+      <summary>Your code is perfect in aibolit's opinion</summary>
+    </file>
+  </files>
+</report>
+
+```
 
 Model is automatically installed with *aibolit* package, but you can also try your own model
 

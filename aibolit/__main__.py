@@ -39,6 +39,7 @@ import os
 from pathlib import Path
 import pickle
 from aibolit.model.model import TwoFoldRankingModel, Dataset  # type: ignore  # noqa: F401
+from sys import stdout
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -225,7 +226,6 @@ def run_recommend_for_file(file: str, args):
     :param args: different command line arguments
     :return: dict with code lines, filename and pattern name
     """
-    print('Analyzing {}'.format(file))
     java_file = str(Path(os.getcwd(), file))
     input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file)
     results_list, importances = inference(input_params, code_lines_dict, args)
@@ -322,13 +322,48 @@ def get_exit_code(results):
     return exit_code
 
 
+def create_text(results, full_report):
+    importances_for_all_classes = []
+    buffer = []
+    if not full_report:
+        buffer.append('Show pattern with the largest contribution to Cognitive Complexity')
+    else:
+        buffer.append('Show all patterns')
+    for result_for_file in results:
+        filename = result_for_file.get('filename')
+        buffer.append('Filename {}: '.format(filename))
+        results = result_for_file.get('results')
+        errors_string = result_for_file.get('error_string')
+        if not results and not errors_string:
+            output_string = 'Your code is perfect in aibolit\'s opinion'
+            buffer.append(output_string)
+        elif not results and errors_string:
+            output_string = 'Error when calculating patterns: {}'.format(str(errors_string))
+            buffer.append(output_string)
+        else:
+            output_string = 'Some issues found'
+            score = result_for_file['importances']
+            importances_for_all_classes.append(score)
+            buffer.append('Score for file: {}'.format(score))
+            buffer.append(output_string)
+            for pattern_item in result_for_file['results']:
+                code = pattern_item.get('pattern_code')
+                if code:
+                    pattern_name_str = pattern_item.get('pattern_name')
+                    buffer.append('line {}: {} ({})'.format(pattern_item.get('code_line'), pattern_name_str, code))
+    if importances_for_all_classes:
+        buffer.append('Total score: {}'.format(np.mean(importances_for_all_classes)))
+
+    return buffer
+
+
 def recommend():
     """Run recommendation pipeline."""
 
     parser = argparse.ArgumentParser(
         description='Get recommendations for Java code',
         usage='''
-        aibolit recommend < --folder | --filenames > [--output] [--model_file] [--threshold] [--full]
+        aibolit recommend < --folder | --filenames > [--output] [--model_file] [--threshold] [--full] [--format]
         ''')
 
     group_exclusive = parser.add_mutually_exclusive_group(required=True)
@@ -344,12 +379,6 @@ def recommend():
         nargs="*",
         default=False
     )
-    parser.add_argument(
-        '--output',
-        help='output of xml file where all results will be saved, default is out.xml of the current directory',
-        default=False
-    )
-
     parser.add_argument(
         '--model_file',
         help='''file where pretrained model is located, the default path is located
@@ -368,6 +397,11 @@ def recommend():
         default=False,
         action='store_true'
     )
+    parser.add_argument(
+        '--format',
+        default='text',
+        help='text (by default) or xml. Usage: --format=xml'
+    )
 
     args = parser.parse_args(sys.argv[2:])
 
@@ -382,16 +416,42 @@ def recommend():
 
     results = list(run_thread(files, args))
 
-    if args.output:
-        filename = args.output
-    else:
-        filename = 'out.xml'
+    if args.format:
+        new_results = format_converter_for_pattern(results)
+        if args.format == 'text':
+            text = create_text(new_results, args)
+            print('\n'.join(text))
+        elif args.format == 'xml':
+            root = create_xml_tree(results, args.full)
+            tree = root.getroottree()
+            tree.write(stdout.buffer, pretty_print=True)
+        else:
+            raise Exception('Unknown format')
 
-    root = create_xml_tree(results, args.full)
-    tree = root.getroottree()
-    tree.write(filename, pretty_print=True)
     exit_code = get_exit_code(results)
     return exit_code
+
+
+def format_converter_for_pattern(results):
+    """Reformat data where data are sorted by patterns importance
+    (it is already sorted in the input).
+    Then lines are sorted in ascending order."""
+
+    def flatten(l):
+        return [item for sublist in l for item in sublist]
+
+    for file in results:
+        items = file.get('results')
+        if items:
+            new_items = flatten([
+                [{'pattern_code': x['pattern_code'],
+                  'pattern_name': x['pattern_name'],
+                  'code_line': line,
+                  } for line in sorted(x['code_lines'])] for x in items
+            ])
+            file['results'] = new_items
+
+    return results
 
 
 def version():
@@ -429,6 +489,8 @@ def main():
         }
         exit_code = run_parse_args(commands)
     except Exception:
+        import traceback
+        traceback.print_exc()
         sys.exit(2)
     else:
         sys.exit(exit_code)
