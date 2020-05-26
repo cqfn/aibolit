@@ -73,7 +73,7 @@ Total score: 127.67642529949538
 
 ```
 
-You can use `format=long`. In this case lines all results will be sorted by line number:
+You can use `format=long`. In this case all results will be sorted by a line number:
 
 ```
 Show all patterns
