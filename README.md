@@ -38,7 +38,7 @@ If the program has the `0` exit code, it means that all analyzed files do not ha
 If the program has the `1` exit code, it means that at least 1 analyzed file has an issue.
 If the program has the `2` exit code, it means that program crash occurred.
 
-You can change the format, using the `--format` parameter. The default parameter is `--format=compact`.
+You can change the format, using the `--format` parameter. The default value is `--format=compact`.
 ```bash
 $ aibolit recommend --folder src/java --format=compact --full
 ```
