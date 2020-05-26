@@ -43,16 +43,12 @@ You can change the format, using the `--format` parameter. The default value is 
 $ aibolit recommend --folder src/java --format=compact --full
 ```
 
-It will show the text, where all data are sorted by pattern's importance in descending order and grouped by a pattern name:
+It will output sorted patterns by importance in descending order and grouped by a pattern name:
 
 ```
 Show all patterns
 /mnt/d/src/java/Configuration.java: some issues found
 /mnt/d/src/java/Configuration.java score: 127.67642529949538
-/mnt/d/src/java/Configuration.java[294]: Null check (P13)
-/mnt/d/src/java/Configuration.java[391]: Null check (P13)
-/mnt/d/src/java/Configuration.java[235]: Non final attribute (P12)
-/mnt/d/src/java/Configuration.java[235]: Non final attribute (P12)
 /mnt/d/src/java/Configuration.java[3840]: Var in the middle (P21)
 /mnt/d/src/java/Configuration.java[3844]: Var in the middle (P21)
 /mnt/d/src/java/Configuration.java[3848]: Var in the middle (P21)
@@ -79,9 +75,6 @@ You can use `format=long`. In this case all results will be sorted by a line num
 Show all patterns
 /mnt/d/src/java/Configuration.java: some issues found
 /mnt/d/src/java/Configuration.java score: 127.67642529949538
-/mnt/d/src/java/Configuration.java[235]: Non final attribute (P12)
-/mnt/d/src/java/Configuration.java[294]: Null check (P13)
-/mnt/d/src/java/Configuration.java[391]: Null check (P13)
 /mnt/d/src/java/Configuration.java[826]: Many primary constructors (P9)
 /mnt/d/src/java/Configuration.java[829]: Partial synchronized (P14)
 /mnt/d/src/java/Configuration.java[840]: Many primary constructors (P9)
