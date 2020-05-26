@@ -38,32 +38,70 @@ If the program has the `0` exit code, it means that all analyzed files do not ha
 If the program has the `1` exit code, it means that at least 1 analyzed file has an issue.
 If the program has the `2` exit code, it means that program crash occurred.
 
-You can change the format, using the `--format` parameter. The default parameter is `--format=text`.
+You can change the format, using the `--format` parameter. The default parameter is `--format=compact`.
 ```bash
-$ aibolit recommend --folder src/java --format=text --full
+$ aibolit recommend --folder src/java --format=compact --full
 ```
 
 It will show the text, where all data are sorted by pattern's importance in descending order and grouped by a pattern name:
 
 ```
 Show all patterns
-Filename /mnt/d/src/java/Configuration.java: 
-Score for file: 127.67642529949538
-Some issues found
-line 294: Null check (P13)
-line 391: Null check (P13)
-line 235: Non final attribute (P12)
-line 3840: Var in the middle (P21)
-line 3844: Var in the middle (P21)
-line 3848: Var in the middle (P21)
-line 2411: Null Assignment (P28)
-Filename /mnt/d/src/java/ErrorExample.java: 
-Error when calculating patterns: Can't count P1 metric: 
-Filename /mnt/d/src/java/MavenSlice.java: 
-Your code is perfect in aibolit's opinion
+/mnt/d/src/java/Configuration.java: some issues found
+/mnt/d/src/java/Configuration.java score: 127.67642529949538
+/mnt/d/src/java/Configuration.java[294]: Null check (P13)
+/mnt/d/src/java/Configuration.java[391]: Null check (P13)
+/mnt/d/src/java/Configuration.java[235]: Non final attribute (P12)
+/mnt/d/src/java/Configuration.java[235]: Non final attribute (P12)
+/mnt/d/src/java/Configuration.java[3840]: Var in the middle (P21)
+/mnt/d/src/java/Configuration.java[3844]: Var in the middle (P21)
+/mnt/d/src/java/Configuration.java[3848]: Var in the middle (P21)
+/mnt/d/src/java/Configuration.java[2411]: Null Assignment (P28)
+/mnt/d/src/java/Configuration.java[826]: Many primary constructors (P9)
+/mnt/d/src/java/Configuration.java[840]: Many primary constructors (P9)
+/mnt/d/src/java/Configuration.java[829]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[841]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[865]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[2586]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[3230]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[3261]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[3727]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[3956]: Partial synchronized (P14)
+/mnt/d/src/java/ErrorExample.java: error when calculating patterns: Can't count P1 metric: 
+/mnt/d/src/java/MavenSlice.java: your code is perfect in aibolit's opinion
 Total score: 127.67642529949538
 
 ```
+
+You can use `format=long`. In this case lines all results will be sorted by line number:
+
+```
+Show all patterns
+/mnt/d/src/java/Configuration.java: some issues found
+/mnt/d/src/java/Configuration.java score: 127.67642529949538
+/mnt/d/src/java/Configuration.java[235]: Non final attribute (P12)
+/mnt/d/src/java/Configuration.java[294]: Null check (P13)
+/mnt/d/src/java/Configuration.java[391]: Null check (P13)
+/mnt/d/src/java/Configuration.java[826]: Many primary constructors (P9)
+/mnt/d/src/java/Configuration.java[829]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[840]: Many primary constructors (P9)
+/mnt/d/src/java/Configuration.java[841]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[865]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[2411]: Null Assignment (P28)
+/mnt/d/src/java/Configuration.java[2586]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[3230]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[3261]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[3727]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[3840]: Var in the middle (P21)
+/mnt/d/src/java/Configuration.java[3844]: Var in the middle (P21)
+/mnt/d/src/java/Configuration.java[3848]: Var in the middle (P21)
+/mnt/d/src/java/Configuration.java[3956]: Partial synchronized (P14)
+/mnt/d/src/java/ErrorExample.java: error when calculating patterns: Can't count P1 metric: 
+/mnt/d/src/java/MavenSlice.java: your code is perfect in aibolit's opinion
+Total score: 127.67642529949538
+```
+
+
 
 You can also choose xml format. It will have the same format as `text` mode, but xml will be created:
 

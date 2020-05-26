@@ -26,6 +26,7 @@
 import argparse
 import concurrent.futures
 import multiprocessing
+import operator
 import sys
 from os import scandir
 from typing import List
@@ -331,28 +332,38 @@ def create_text(results, full_report):
         buffer.append('Show all patterns')
     for result_for_file in results:
         filename = result_for_file.get('filename')
-        buffer.append('Filename {}: '.format(filename))
         results = result_for_file.get('results')
         errors_string = result_for_file.get('error_string')
         if not results and not errors_string:
-            output_string = 'Your code is perfect in aibolit\'s opinion'
+            output_string = '{}: your code is perfect in aibolit\'s opinion'.format(
+                filename
+            )
             buffer.append(output_string)
         elif not results and errors_string:
-            output_string = 'Error when calculating patterns: {}'.format(str(errors_string))
+            output_string = '{}: error when calculating patterns: {}'.format(
+                filename,
+                str(errors_string)
+            )
             buffer.append(output_string)
         else:
-            output_string = 'Some issues found'
+            output_string = '{}: some issues found'.format(
+                filename
+            )
             score = result_for_file['importances']
             importances_for_all_classes.append(score)
-            buffer.append('Score for file: {}'.format(score))
             buffer.append(output_string)
+            buffer.append('{} score: {}'.format(filename, score))
             for pattern_item in result_for_file['results']:
                 code = pattern_item.get('pattern_code')
                 if code:
                     pattern_name_str = pattern_item.get('pattern_name')
-                    buffer.append('line {}: {} ({})'.format(pattern_item.get('code_line'), pattern_name_str, code))
+                    buffer.append('{}[{}]: {} ({})'.format(
+                        filename,
+                        pattern_item.get('code_line'),
+                        pattern_name_str, code)
+                    )
     if importances_for_all_classes:
-        buffer.append('Total score: {}'.format(np.mean(importances_for_all_classes)))
+        buffer.append('Total average score: {}'.format(np.mean(importances_for_all_classes)))
 
     return buffer
 
@@ -399,8 +410,8 @@ def recommend():
     )
     parser.add_argument(
         '--format',
-        default='text',
-        help='text (by default) or xml. Usage: --format=xml'
+        default='compact',
+        help='compact (by default), long or xml. Usage: --format=xml'
     )
 
     args = parser.parse_args(sys.argv[2:])
@@ -417,22 +428,25 @@ def recommend():
     results = list(run_thread(files, args))
 
     if args.format:
-        new_results = format_converter_for_pattern(results)
-        if args.format == 'text':
-            text = create_text(new_results, args)
-            print('\n'.join(text))
-        elif args.format == 'xml':
+        if args.format == 'xml':
             root = create_xml_tree(results, args.full)
             tree = root.getroottree()
             tree.write(stdout.buffer, pretty_print=True)
         else:
-            raise Exception('Unknown format')
+            if args.format == 'compact':
+                new_results = format_converter_for_pattern(results)
+            elif args.format == 'long':
+                new_results = format_converter_for_pattern(results, 'code_line')
+            else:
+                raise Exception('Unknown format')
+            text = create_text(new_results, args.full)
+            print('\n'.join(text))
 
     exit_code = get_exit_code(results)
     return exit_code
 
 
-def format_converter_for_pattern(results):
+def format_converter_for_pattern(results, sorted_by=None):
     """Reformat data where data are sorted by patterns importance
     (it is already sorted in the input).
     Then lines are sorted in ascending order."""
@@ -449,7 +463,10 @@ def format_converter_for_pattern(results):
                   'code_line': line,
                   } for line in sorted(x['code_lines'])] for x in items
             ])
-            file['results'] = new_items
+            if not sorted_by:
+                file['results'] = new_items
+            else:
+                file['results'] = sorted(new_items, key=operator.itemgetter(sorted_by, 'pattern_code'))
 
     return results
 
