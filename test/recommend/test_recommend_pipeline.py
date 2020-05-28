@@ -134,7 +134,7 @@ class TestRecommendPipeline(TestCase):
         md5_hash = md5('\n'.join(text).encode('utf-8'))
         self.assertEqual(md5_hash.hexdigest(), '2d0558bae9655726e0e4c82d82e9f44e')
 
-    def test_empty_empty_lines_format(self):
+    def test_empty_lines_format(self):
         new_mock = format_converter_for_pattern([])
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
