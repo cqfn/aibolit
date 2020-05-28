@@ -337,23 +337,17 @@ def create_text(results, full_report):
         results = result_for_file.get('results')
         errors_string = result_for_file.get('error_string')
         if not results and not errors_string:
-            output_string = '{}: your code is perfect in aibolit\'s opinion'.format(
-                filename
-            )
-            buffer.append(output_string)
-        elif not results and errors_string:
+            # Do nothing, patterns were not found
+            pass
+        if not results and errors_string:
             output_string = '{}: error when calculating patterns: {}'.format(
                 filename,
                 str(errors_string)
             )
             buffer.append(output_string)
-        else:
-            output_string = '{}: some issues found'.format(
-                filename
-            )
+        elif results and not errors_string:
             score = result_for_file['importances']
             importances_for_all_classes.append(score)
-            buffer.append(output_string)
             buffer.append('{} score: {}'.format(filename, score))
             for pattern_item in result_for_file['results']:
                 code = pattern_item.get('pattern_code')
