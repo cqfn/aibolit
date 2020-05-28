@@ -127,7 +127,7 @@ class TestRecommendPipeline(TestCase):
         md5_hash = md5(etree.tostring(xml_string))
         self.assertEqual(md5_hash.hexdigest(), '7d55be99025f9d9bba410bdbd2c42cee')
 
-    def test_text_format_(self):
+    def test_text_format(self):
         mock_input = self.__create_mock_input()
         new_mock = format_converter_for_pattern(mock_input)
         text = create_text(new_mock, full_report=True)
