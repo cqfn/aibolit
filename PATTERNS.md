@@ -11,7 +11,7 @@ such patterns may affect the quality of source code.
 
 *Title*: Variable is declared in the middle of the method body.
 
-*Code:* **var_middle**
+*Code:* **P21**
 
 *Description*: All variable we need  have to be declared at the 
 beginning of its scope. If variable declared inside the scope following 
