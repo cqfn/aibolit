@@ -127,22 +127,22 @@ class TestRecommendPipeline(TestCase):
         md5_hash = md5(etree.tostring(xml_string))
         self.assertEqual(md5_hash.hexdigest(), '7d55be99025f9d9bba410bdbd2c42cee')
 
-    def test_text_format(self):
+    def test_text_format_(self):
         mock_input = self.__create_mock_input()
         new_mock = format_converter_for_pattern(mock_input)
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), 'a816108b88fc902296067d748487c529')
+        self.assertEqual(md5_hash.hexdigest(), '2d0558bae9655726e0e4c82d82e9f44e')
 
-    def test_empty_text_format(self):
+    def test_empty_empty_lines_format(self):
         new_mock = format_converter_for_pattern([])
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
         self.assertEqual(md5_hash.hexdigest(), 'bc22beda46ca18267a677eb32361a2aa')
 
-    def test_empty_lines_format(self):
+    def test_text_format_sort_by_code_line(self):
         mock_input = self.__create_mock_input()
         new_mock = format_converter_for_pattern(mock_input, 'code_line')
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), 'a61d719999a79a4ef54ede1f5de9ff75')
+        self.assertEqual(md5_hash.hexdigest(), '88d49cc9645f10b7a6bb205419a0fb42')
