@@ -52,7 +52,8 @@ def list_dir(path, files):
             dir_list.append(entry.path)
             dir_list.extend(list_dir(entry.path, files))
         elif entry.is_file() \
-                and entry.path.endswith('.java'):
+                and entry.path.endswith('.java') \
+                and entry.name != 'package-info.java':
             files.append(entry.path)
     return dir_list
 
