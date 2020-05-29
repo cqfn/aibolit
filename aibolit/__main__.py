@@ -188,7 +188,7 @@ def inference(
 
     :return: list of results with code_lies for each pattern and its name
     """
-    model_path = args.model_file
+    model_path = args.model
     do_full_report = args.full
     results = []
     importances = [-1]
@@ -370,7 +370,7 @@ def check():
     parser = argparse.ArgumentParser(
         description='Get recommendations for Java code',
         usage='''
-        aibolit check < --folder | --filenames > [--model_file] [--threshold] [--full] [--format]
+        aibolit check < --folder | --filenames > [--model] [--threshold] [--full] [--format]
         ''')
 
     group_exclusive = parser.add_mutually_exclusive_group(required=True)
@@ -387,7 +387,7 @@ def check():
         default=False
     )
     parser.add_argument(
-        '--model_file',
+        '--model',
         help='''file where pretrained model is located, the default path is located
         in site-packages and is installed with aibolit automatically''',
         default=False
