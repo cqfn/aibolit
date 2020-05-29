@@ -156,7 +156,7 @@ You can also choose xml format. It will have the same format as `text` mode, but
 Model is automatically installed with *aibolit* package, but you can also try your own model
 
 ```bash
-$ aibolit recommend --folder src/java --model_file /mnt/d/some_folder/model.pkl
+$ aibolit recommend --folder src/java --model /mnt/d/some_folder/model.pkl
 ```
 
 You can get full report with `--full` command, then all patterns will be included to the output:
