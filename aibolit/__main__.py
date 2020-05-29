@@ -76,7 +76,7 @@ def run_parse_args(commands_dict):
 
         You can run 1 command:
         train          Train model
-        recommend      Recommend pattern
+        check          Recommend pattern
         ''')
 
     parser.add_argument('command', help='Subcommand to run')
@@ -224,7 +224,7 @@ def inference(
 
 def run_recommend_for_file(file: str, args):
     """
-    Calculate patterns and metrics, pass values to model and recommend pattern to change
+    Calculate patterns and metrics, pass values to model and suggest pattern to change
     :param file: file to analyze
     :param args: different command line arguments
     :return: dict with code lines, filename and pattern name
@@ -243,8 +243,8 @@ def run_recommend_for_file(file: str, args):
 
 def create_xml_tree(results, full_report):
     """
-    Creates xml from output of `recommend` function
-    :param results: output of `recommend` function
+    Creates xml from output of `check` function
+    :param results: output of `check` function
     :return: xml string
     """
     importances_for_all_classes = []
@@ -364,13 +364,13 @@ def create_text(results, full_report):
     return buffer
 
 
-def recommend():
-    """Run recommendation pipeline."""
+def check():
+    """Run check pipeline."""
 
     parser = argparse.ArgumentParser(
         description='Get recommendations for Java code',
         usage='''
-        aibolit recommend < --folder | --filenames > [--output] [--model_file] [--threshold] [--full] [--format]
+        aibolit check < --folder | --filenames > [--model_file] [--threshold] [--full] [--format]
         ''')
 
     group_exclusive = parser.add_mutually_exclusive_group(required=True)
@@ -497,7 +497,7 @@ def main():
     try:
         commands = {
             'train': lambda: train(),
-            'recommend': lambda: recommend(),
+            'check': lambda: check(),
             'version': lambda: version(),
         }
         exit_code = run_parse_args(commands)
