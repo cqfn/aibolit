@@ -77,6 +77,7 @@ def run_parse_args(commands_dict):
         You can run 1 command:
         train          Train model
         check          Recommend pattern
+        recommend      Recommend pattern. The same as recommend, just another acronym
         ''')
 
     parser.add_argument('command', help='Subcommand to run')
@@ -498,6 +499,7 @@ def main():
         commands = {
             'train': lambda: train(),
             'check': lambda: check(),
+            'recommend': lambda: check(),
             'version': lambda: version(),
         }
         exit_code = run_parse_args(commands)
