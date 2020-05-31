@@ -16,3 +16,8 @@ class TestVarSiblings(unittest.TestCase):
         self.assertEqual(
             [3, 5], VarSiblings().value(Path(self.dir_path, 'AlternateVarSiblings.java'))
         )
+
+    def test_find_length_4_var_siblings(self):
+        self.assertEqual(
+            [9, 10], VarSiblings().value(Path(self.dir_path, 'ShortVarSiblings.java'))
+        )

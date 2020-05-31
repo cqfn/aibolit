@@ -1,6 +1,7 @@
 import javalang
 import re
 from aibolit.utils.ast import AST
+import itertools
 
 
 class VarSiblings:
@@ -9,12 +10,16 @@ class VarSiblings:
 
     def value(self, filename: str):
         numbers = []
-        for _, node in AST(filename).value().filter(javalang.tree.LocalVariableDeclaration):
-            composed = re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', node.declarators[0].name)
-            if len(composed) > 1:
-                for _, inner in AST(filename).value().filter(javalang.tree.LocalVariableDeclaration):
-                    if node != inner:
-                        if inner.declarators[0].name.startswith(composed[0]):
-                            numbers.append(node.position.line)
-                            break
+        for first, second in itertools.product(
+            [node
+                for _, node in AST(filename).value().filter(javalang.tree.LocalVariableDeclaration)
+                if len(re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', node.declarators[0].name)) > 1
+                and len(re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', node.declarators[0].name)[0]) > 3],  # noqa: W503
+                repeat=2
+        ):
+            if first != second:
+                if second.declarators[0].name.startswith(
+                    re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', first.declarators[0].name)[0]
+                ):
+                    numbers.append(first.position.line)
         return numbers
