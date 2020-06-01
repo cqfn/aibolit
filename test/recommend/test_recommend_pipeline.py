@@ -40,28 +40,30 @@ class TestRecommendPipeline(TestCase):
         self.config = Config.get_patterns_config()
 
     def __create_mock_input(self):
-        patterns = [x['code'] for x in self.config['patterns']]
         item = {
             'filename': '1.java',
             'results': [
                 {'pattern_code': 'P23',
                  'pattern_name': 'Some patterns name',
-                 'code_lines': [1, 2, 4]
+                 'code_lines': [1, 2, 4],
+                 'importance': 0.10
                  }
-            ],
-            'importances': sum([0.1 + x for x in range(len(patterns))])
+            ]
         }
         another_item = {
             'filename': 'hdd/home/jardani_jovonovich/John_wick.java',
             'results': [
                 {'pattern_code': 'P2',
                  'pattern_name': 'Somebody please get this man a gun',
-                 'code_lines': [10, 100, 15000]},
+                 'code_lines': [10, 100, 15000],
+                 'importance': 5.67
+                 },
                 {'pattern_code': 'P4',
                  'pattern_name': 'New item',
-                 'code_lines': [5, 6]}
-            ],
-            'importances': sum([0.1 + 2 * x for x in range(len(patterns))])
+                 'code_lines': [5, 6],
+                 'importance': 5.67
+                 }
+            ]
         }
         error_file = {
             'error_string': "Error occured",

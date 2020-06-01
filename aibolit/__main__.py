@@ -192,7 +192,6 @@ def inference(
     model_path = args.model
     do_full_report = args.full
     results = []
-    importances = [-1]
     if input_params:
         if not model_path:
             model_path = Config.folder_model_data()
@@ -213,14 +212,15 @@ def inference(
                         results.append(
                             {'code_lines': code_lines,
                              'pattern_code': pattern_code,
-                             'pattern_name': pattern_name
+                             'pattern_name': pattern_name,
+                             'importance': importances[iter]
                              })
                     if not do_full_report:
                         break
     else:
-        return results, sum(importances)
+        return results
 
-    return results, sum(importances)
+    return results
 
 
 def run_recommend_for_file(file: str, args):
@@ -232,13 +232,12 @@ def run_recommend_for_file(file: str, args):
     """
     java_file = str(Path(os.getcwd(), file))
     input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file)
-    results_list, importances = inference(input_params, code_lines_dict, args)
+    results_list = inference(input_params, code_lines_dict, args)
 
     return {
         'filename': file,
         'results': results_list,
-        'error_string': error_string,
-        'importances': importances
+        'error_string': error_string
     }
 
 
@@ -274,11 +273,10 @@ def create_xml_tree(results, full_report):
             output_string = 'Some issues found'
             output_string_tag.text = output_string
             importances_sum_tag = etree.SubElement(file, 'score')
-            importances_value_per_class = result_for_file['importances']
-            importances_sum_tag.text = str(importances_value_per_class)
-            importances_for_all_classes.append(importances_value_per_class)
             patterns_tag = etree.SubElement(file, 'patterns')
-            for pattern in result_for_file['results']:
+            patterns_number = len(result_for_file['results'])
+            importance_for_class = []
+            for i, pattern in enumerate(result_for_file['results'], start=1):
                 if pattern.get('pattern_code'):
                     pattern_item = etree.SubElement(patterns_tag, 'pattern')
                     pattern_name_str = pattern.get('pattern_name')
@@ -286,11 +284,20 @@ def create_xml_tree(results, full_report):
                     details.text = pattern_name_str or ''
                     pattern_item.attrib['code'] = pattern.get('pattern_code')
                     code_lines_items = pattern.get('code_lines')
+                    pattern_score = pattern.get('importance')
+                    pattern_score_tag = etree.SubElement(pattern_item, 'score')
+                    pattern_score_tag.text = str(pattern_score) or ''
+                    pattern_score_tag = etree.SubElement(pattern_item, 'order')
+                    pattern_score_tag.text = '{}/{}'.format(i, patterns_number)
+                    importance_for_class.append(pattern_score)
                     if code_lines_items:
                         code_lines_lst_tree_node = etree.SubElement(pattern_item, 'lines')
                         for code_line in code_lines_items:
                             code_line_elem = etree.SubElement(code_lines_lst_tree_node, 'number')
                             code_line_elem.text = str(code_line)
+            score_for_class = sum(importance_for_class)
+            importances_sum_tag.text = str(score_for_class)
+            importances_for_all_classes.append(score_for_class)
     if importances_for_all_classes:
         importances_for_all_classes_tag.text = str(np.mean(importances_for_all_classes))
 
@@ -347,22 +354,45 @@ def create_text(results, full_report):
             )
             buffer.append(output_string)
         elif results and not errors_string:
-            score = result_for_file['importances']
-            importances_for_all_classes.append(score)
-            buffer.append('{} score: {}'.format(filename, score))
+            # get unique patterns score
+            patterns_scores = print_total_score_for_file(buffer, filename, importances_for_all_classes, result_for_file)
+            patterns_number = len(patterns_scores)
+            pattern__number = 0
+            cur_pattern_name = ''
             for pattern_item in result_for_file['results']:
+                pattern_score = pattern_item.get('importance')
                 code = pattern_item.get('pattern_code')
                 if code:
                     pattern_name_str = pattern_item.get('pattern_name')
-                    buffer.append('{}[{}]: {} ({})'.format(
+                    if cur_pattern_name != pattern_name_str:
+                        pattern__number += 1
+                        cur_pattern_name = pattern_name_str
+                    buffer.append('{}[{}]: {} ({}: {:.2f} {}/{})'.format(
                         filename,
                         pattern_item.get('code_line'),
-                        pattern_name_str, code)
-                    )
+                        pattern_name_str,
+                        code,
+                        pattern_score,
+                        pattern__number,
+                        patterns_number))
     if importances_for_all_classes:
         buffer.append('Total average score: {}'.format(np.mean(importances_for_all_classes)))
 
     return buffer
+
+
+def print_total_score_for_file(
+        buffer: List[str],
+        filename: str,
+        importances_for_all_classes: List[int],
+        result_for_file):
+    patterns_scores = {}
+    for x in result_for_file['results']:
+        patterns_scores[x['pattern_name']] = x['importance']
+    importances_for_class = sum(patterns_scores.values())
+    importances_for_all_classes.append(importances_for_class)
+    buffer.append('{} score: {}'.format(filename, importances_for_class))
+    return patterns_scores
 
 
 def check():
@@ -458,6 +488,7 @@ def format_converter_for_pattern(results, sorted_by=None):
                 [{'pattern_code': x['pattern_code'],
                   'pattern_name': x['pattern_name'],
                   'code_line': line,
+                  'importance': x['importance']
                   } for line in sorted(x['code_lines'])] for x in items
             ])
             if not sorted_by:
