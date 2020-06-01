@@ -73,6 +73,36 @@ class TestRecommendPipeline(TestCase):
         mock_input = [item, another_item, error_file]
         return mock_input
 
+    def __create_input_for_xml(self):
+        return [
+            {'filename': 'D:\\target\\0001\\fast\\Configuration.java',
+             'results': [
+                 {'code_lines': [294, 391],
+                  'pattern_code': 'P13',
+                  'pattern_name': 'Null check',
+                  'importance': 30.95612931128819},
+                 {'code_lines': [235, 240],
+                  'pattern_code': 'P12',
+                  'pattern_name': 'Non final attribute',
+                  'importance': 17.89671525822768}
+             ]},
+            {'filename': 'D:\\target\\0001\\fast\\Error.java',
+             'results': [],
+             'error_string': "Smth happened"
+             },
+            {'filename': 'D:\\target\\0001\\fast\\Another.java',
+             'results': [
+                 {'code_lines': [23, 2],
+                  'pattern_code': 'P13',
+                  'pattern_name': 'Null check',
+                  'importance': 10.95},
+                 {'code_lines': [235, 240],
+                  'pattern_code': 'P12',
+                  'pattern_name': 'Non final attribute',
+                  'importance': 0.23}
+             ]}
+        ]
+
     def test_calculate_patterns_and_metrics(self):
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
         calculate_patterns_and_metrics(file)
@@ -91,38 +121,10 @@ class TestRecommendPipeline(TestCase):
         self.assertEqual(filenames, resuls)
 
     def test_xml_create_full_report(self):
-        patterns = [x['code'] for x in self.config['patterns']]
-        item = {
-            'filename': '1.java',
-            'results': [
-                {'pattern_code': 'P23',
-                 'pattern_name': 'Some patterns name',
-                 'code_lines': [1, 2, 4]
-                 }
-            ],
-            'importances': sum([0.1 + x for x in range(len(patterns))])
-        }
-        another_item = {
-            'filename': 'hdd/home/jardani_jovonovich/John_wick.java',
-            'results': [
-                {'pattern_code': 'P2',
-                 'pattern_name': 'Somebody please get this man a gun',
-                 'code_lines': [10, 100, 15000]},
-                {'pattern_code': 'P4',
-                 'pattern_name': 'New item',
-                 'code_lines': [5, 6]}
-            ],
-            'importances': sum([0.1 + 2 * x for x in range(len(patterns))])
-        }
-        error_file = {
-            'error_string': "Error occured",
-            'filename': 'hdd/home/Error.java',
-            'results': []
-        }
-        mock_input = [item, another_item, error_file]
+        mock_input = self.__create_input_for_xml()
         xml_string = create_xml_tree(mock_input, full_report=True)
         md5_hash = md5(etree.tostring(xml_string))
-        self.assertEqual(md5_hash.hexdigest(), '35f56275d4ba073e8d9c89b143c124da')
+        self.assertEqual(md5_hash.hexdigest(), 'fbf4aa0bb080483fff9b101103af9a51')
 
     def test_xml_empty_resutls(self):
         xml_string = create_xml_tree([], True)
@@ -134,7 +136,7 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input)
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), '2d0558bae9655726e0e4c82d82e9f44e')
+        self.assertEqual(md5_hash.hexdigest(), '4ac43ebd666b8edf061e7203cd691564')
 
     def test_empty_lines_format(self):
         new_mock = format_converter_for_pattern([])
@@ -147,4 +149,4 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input, 'code_line')
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), '88d49cc9645f10b7a6bb205419a0fb42')
+        self.assertEqual(md5_hash.hexdigest(), 'f026fb25ba62d835cb189978d6f049c4')
