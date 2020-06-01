@@ -120,7 +120,7 @@ class TestRecommendPipeline(TestCase):
         mock_input = [item, another_item, error_file]
         xml_string = create_xml_tree(mock_input, full_report=True)
         md5_hash = md5(etree.tostring(xml_string))
-        self.assertEqual(md5_hash.hexdigest(), '35f56275d4ba073e8d9c89b143c124da')
+        self.assertEqual(md5_hash.hexdigest(), 'b58fb229a4406de31690b474e8069243')
 
     def test_xml_empty_resutls(self):
         xml_string = create_xml_tree([], True)
@@ -132,7 +132,7 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input)
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), '2d0558bae9655726e0e4c82d82e9f44e')
+        self.assertEqual(md5_hash.hexdigest(), 'bffbf233edaae09128cf63537bc4ea9c')
 
     def test_empty_lines_format(self):
         new_mock = format_converter_for_pattern([])
@@ -145,4 +145,4 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input, 'code_line')
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), '88d49cc9645f10b7a6bb205419a0fb42')
+        self.assertEqual(md5_hash.hexdigest(), '8aed27d9bb858363d1910aa97c3d0ca4')
