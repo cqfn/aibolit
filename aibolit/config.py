@@ -123,7 +123,6 @@ class Config(metaclass=Singleton):
                 {"name": "Protected Method", "code": "P30", "make": lambda: P30()},
                 {"name": "Send Null", "code": "P31", "make": lambda: P31()},
                 {"name": "Nested Loop", "code": "P32", "make": lambda: P32()},
-                {"name": "MultipleWhile", "code": "P33", "make": lambda: P33()},
 
             ],
             "metrics": [
