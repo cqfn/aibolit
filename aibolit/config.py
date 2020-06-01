@@ -39,7 +39,6 @@ from aibolit.patterns.this_finder.this_finder import ThisFinder as P19
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
 from aibolit.patterns.var_middle.var_middle import VarMiddle as P21
 from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
-from aibolit.patterns.multiple_while.multiple_while import MultipleWhile as P33
 
 
 class Singleton(type):
