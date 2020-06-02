@@ -155,15 +155,19 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
         )
 
 
-def calculate_patterns_and_metrics(file):
+def calculate_patterns_and_metrics(file, args):
     code_lines_dict = input_params = {}  # type: ignore
     error_string = None
+    patterns_to_suppress = args.suppress
     try:
         config = Config.get_patterns_config()
         for pattern in config['patterns']:
             if pattern['code'] in config['patterns_exclude']:
                 continue
-            __count_value(pattern, input_params, code_lines_dict, file)
+            if pattern['code'] in patterns_to_suppress:
+                input_params[pattern['code']] = 0
+            else:
+                __count_value(pattern, input_params, code_lines_dict, file)
 
         for metric in config['metrics']:
             if metric['code'] in config['metrics_exclude']:
@@ -231,7 +235,7 @@ def run_recommend_for_file(file: str, args):
     :return: dict with code lines, filename and pattern name
     """
     java_file = str(Path(os.getcwd(), file))
-    input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file)
+    input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file, args)
     results_list = inference(input_params, code_lines_dict, args)
 
     return {
@@ -439,6 +443,12 @@ def check():
         '--format',
         default='compact',
         help='compact (by default), long or xml. Usage: --format=xml'
+    )
+
+    parser.add_argument(
+        '--suppress',
+        default=[],
+        nargs="*",
     )
 
     args = parser.parse_args(sys.argv[2:])
