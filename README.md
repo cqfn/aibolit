@@ -54,11 +54,6 @@ You can change the format, using the `--format` parameter. The default value is 
 $ aibolit recommend --folder src/java --format=compact --full
 ```
 
-You can change the format, using the `--format` parameter. The default value is `--format=compact`.
-```bash
-$ aibolit recommend --folder src/java --format=compact --full
-```
-
 It will output sorted patterns by importance in descending order and grouped by a pattern name:
 
 ```
