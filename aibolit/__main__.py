@@ -447,12 +447,13 @@ def check():
 
     parser.add_argument(
         '--suppress',
-        default=[],
-        nargs="*",
+        default=[]
     )
 
     args = parser.parse_args(sys.argv[2:])
 
+    if args.suppress:
+        args.suppress = args.suppress.strip().split(',')
     if args.threshold:
         print('Threshold for model has been set to {}'.format(args.threshold))
 
