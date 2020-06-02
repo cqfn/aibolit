@@ -52,27 +52,36 @@ It will output sorted patterns by importance in descending order and grouped by 
 
 ```
 Show all patterns
-/mnt/d/src/java/Configuration.java: some issues found
 /mnt/d/src/java/Configuration.java score: 127.67642529949538
-/mnt/d/src/java/Configuration.java[3840]: Var in the middle (P21)
-/mnt/d/src/java/Configuration.java[3844]: Var in the middle (P21)
-/mnt/d/src/java/Configuration.java[3848]: Var in the middle (P21)
-/mnt/d/src/java/Configuration.java[2411]: Null Assignment (P28)
-/mnt/d/src/java/Configuration.java[826]: Many primary constructors (P9)
-/mnt/d/src/java/Configuration.java[840]: Many primary constructors (P9)
-/mnt/d/src/java/Configuration.java[829]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[841]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[865]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[2586]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[3230]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[3261]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[3727]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[3956]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[3840]: Var in the middle (P21: 30.95612931128819 1/4)
+/mnt/d/src/java/Configuration.java[3844]: Var in the middle (P21: 30.95612931128819 1/4)
+/mnt/d/src/java/Configuration.java[3848]: Var in the middle (P21: 30.95612931128819 1/4)
+/mnt/d/src/java/Configuration.java[2411]: Null Assignment (P28: 10.76 2/4)
+/mnt/d/src/java/Configuration.java[826]: Many primary constructors (P9: 10.76 3/4)
+/mnt/d/src/java/Configuration.java[840]: Many primary constructors (P9: 10.76 3/4)
+/mnt/d/src/java/Configuration.java[829]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[841]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[865]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[2586]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[3230]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[3261]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[3727]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[3956]: Partial synchronized (P14: 0.228 4/4)
 /mnt/d/src/java/ErrorExample.java: error when calculating patterns: Can't count P1 metric: 
-/mnt/d/src/java/MavenSlice.java: your code is perfect in aibolit's opinion
 Total score: 127.67642529949538
+```
+
+`(P21: 30.95612931128819 1/4)` means the following:
+
 
 ```
+30.95612931128819 is the score of this pattern
+1 is the position of this pattern in the total list of patterns found in the file
+4 is the total number of found patterns
+```
+
+The score is the relative importance of the pattern (there is no range for it). 
+The larger value is the more important pattern is.
 
 You can use `format=long`. In this case all results will be sorted by a line number:
 
@@ -80,20 +89,20 @@ You can use `format=long`. In this case all results will be sorted by a line num
 Show all patterns
 /mnt/d/src/java/Configuration.java: some issues found
 /mnt/d/src/java/Configuration.java score: 127.67642529949538
-/mnt/d/src/java/Configuration.java[826]: Many primary constructors (P9)
-/mnt/d/src/java/Configuration.java[829]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[840]: Many primary constructors (P9)
-/mnt/d/src/java/Configuration.java[841]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[865]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[2411]: Null Assignment (P28)
-/mnt/d/src/java/Configuration.java[2586]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[3230]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[3261]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[3727]: Partial synchronized (P14)
-/mnt/d/src/java/Configuration.java[3840]: Var in the middle (P21)
-/mnt/d/src/java/Configuration.java[3844]: Var in the middle (P21)
-/mnt/d/src/java/Configuration.java[3848]: Var in the middle (P21)
-/mnt/d/src/java/Configuration.java[3956]: Partial synchronized (P14)
+/mnt/d/src/java/Configuration.java[826]: Many primary constructors (P9: 10.76 3/4)
+/mnt/d/src/java/Configuration.java[829]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[840]: Many primary constructors (P9: 10.76 3/4)
+/mnt/d/src/java/Configuration.java[841]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[865]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[2411]: Null Assignment (P28: 10.76 2/4)
+/mnt/d/src/java/Configuration.java[2586]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[3230]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[3261]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[3727]: Partial synchronized (P14: 0.228 4/4)
+/mnt/d/src/java/Configuration.java[3840]: Var in the middle (P21: 30.95612931128819 1/4)
+/mnt/d/src/java/Configuration.java[3844]: Var in the middle (P21: 30.95612931128819 1/4)
+/mnt/d/src/java/Configuration.java[3848]: Var in the middle (P21: 30.95612931128819 1/4)
+/mnt/d/src/java/Configuration.java[3956]: Partial synchronized (P14: 0.228 4/4)
 /mnt/d/src/java/ErrorExample.java: error when calculating patterns: Can't count P1 metric: 
 /mnt/d/src/java/MavenSlice.java: your code is perfect in aibolit's opinion
 Total score: 127.67642529949538
@@ -119,24 +128,32 @@ You can also choose xml format. It will have the same format as `text` mode, but
             <number>294</number>
             <number>391</number>
           </lines>
+          <score>30.95612931128819</score>
+          <order>1/4</order>
         </pattern>
         <pattern code="P12">
           <details>Non final attribute</details>
           <lines>
             <number>235</number>
           </lines>
+          <score>10.76</score>
+          <order>2/4</order>
         </pattern>
-		<pattern code="P21">
+          <pattern code="P21">
           <details>Var in the middle</details>
           <lines>
             <number>235</number>
           </lines>
+          <score>2.056</score>
+          <order>3/4</order>
         </pattern>
-		<pattern code="P28">
+          <pattern code="P28">
           <details>Null Assignment</details>
           <lines>
             <number>2411</number>
           </lines>
+          <score>0.228</score>
+          <order>4/4</order>
         </pattern>
       </patterns>
     </file>
