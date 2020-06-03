@@ -112,7 +112,7 @@ class TwoFoldRankingModel(BaseEstimator):
     def __vstack_arrays(self, res):
         return np.vstack(res).T
 
-    def predict(self, X, quantity_func='log', th=1.0):
+    def predict(self, X, return_acts = False, quantity_func='log', th=1.0):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
@@ -122,16 +122,13 @@ class TwoFoldRankingModel(BaseEstimator):
             th (float): Sensitivity of algorithm to recommend.
                 0 - ignore all recomendations
                 1 - use all recommendations
-
         Returns:
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for each snippet of
                 code.
         """
 
-        if X.ndim != 1:
-            raise Exception("Only input with size 1, N is allowed")
-        else:
+        if X.ndim == 1:
             X = X.copy()
             X = np.expand_dims(X, axis=0)
 
@@ -151,9 +148,11 @@ class TwoFoldRankingModel(BaseEstimator):
             except Exception:
                 raise Exception("Unknown func")
 
-        return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
+        if return_acts == False:
+            return np.array(ranked)
+        return np.array(ranked), np.zeros(X.shape[0]) - 1
 
-    def get_complexity(self, X, mask, i, add):
+    def get_array(self, X, mask, i, incr):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns).
@@ -161,35 +160,30 @@ class TwoFoldRankingModel(BaseEstimator):
             i: int, 0 <= i < number of patterns.
             add: bool.
         Returns:
-            complexity: np.array with shape (number of snippets, ).
+            X1: modified np.array with shape (number of snippets, ).
         """
 
         X1 = X.copy()
-        if add:
-            X1[:, i][mask[:, i]] += 1
-        else:
-            X1[:, i][mask[:, i]] -= 1
-        complexity = self.model.predict(X1)
+        X1[:, i][mask[:, i]] += incr
 
-        return complexity
+        return X1
 
     def get_minimum(self, c1, c2, c3):
         """
         Args:
             c1, c2, c3: np.array with shape (number of snippets, ).
         Returns:
-            c: np.array with shape (number of snippets, ).
-            number: np.array with shape (number of snippets, ).
+            c: np.array with shape (number of snippets, ) - 
+            elemental minimum of 3 arrays.
+            number: np.array with shape (number of snippets, ) of
+            arrays' numbers with minimum elements.            .
         """
 
-        c = np.minimum(np.minimum(c1, c2), c3)
-        number = np.zeros(c.shape[0])
-        number[c == c3] = 3
-        number[c == c2] = 2
-        number[c == c1] = 1
-        return c, number
+        c = np.vstack((c1, c2, c3))
 
-    def informative(self, X):
+        return np.min(c, 0), np.argmin(c, 0)
+
+    def informative(self, X, return_acts = False):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
@@ -198,7 +192,8 @@ class TwoFoldRankingModel(BaseEstimator):
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for each snippet of
                 code.
-            acts: np.array with shape (number of snippets, ).
+            acts: np.array with shape (number of snippets, ) of 
+            numbers of necessary actions for complexity's decrement.
         """
 
         if X.ndim == 1:
@@ -211,12 +206,14 @@ class TwoFoldRankingModel(BaseEstimator):
         importances = np.zeros(X.shape)
         actions = np.zeros(X.shape)
         for i in range(k):
-            complexity1 = self.get_complexity(X, mask, i, False)
-            complexity2 = self.get_complexity(X, mask, i, True)
-            c, number = self.get_minimum(complexity, complexity1, complexity2)
+            complexity_minus = self.model.predict(self.get_array(X, mask, i, -1))
+            complexity_plus = self.model.predict(self.get_array(X, mask, i, 1))
+            c, number = self.get_minimum(complexity, complexity_minus, complexity_plus)
             importances[:, i] = c
             actions[:, i] = number
 
         ranked = np.argsort(importances, 1)
+        if return_acts == False:
+            return ranked
         acts = actions[np.argsort(ranked, 1) == 0]
         return ranked, acts
