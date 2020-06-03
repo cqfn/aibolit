@@ -28,7 +28,7 @@ setup(
     name='aibolit',
     version=aibolit.__version__,
     description=aibolit.__doc__.strip(),
-    long_description='Defect Detection with Machine Learning in Mind',
+    long_description='DevTool recommending how to improve the maintenance quality of your Java classes',
     url='https://github.com/yegor256/aibolit',
     download_url='https://github.com/yegor256/aibolit',
     author=aibolit.__author__,
