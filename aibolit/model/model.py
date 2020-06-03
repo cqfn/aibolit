@@ -112,7 +112,7 @@ class TwoFoldRankingModel(BaseEstimator):
     def __vstack_arrays(self, res):
         return np.vstack(res).T
 
-    def predict(self, X, return_acts = False, quantity_func='log', th=1.0):
+    def predict(self, X, return_acts=False, quantity_func='log', th=1.0):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
@@ -148,7 +148,7 @@ class TwoFoldRankingModel(BaseEstimator):
             except Exception:
                 raise Exception("Unknown func")
 
-        if return_acts == False:
+        if not return_acts:
             return np.array(ranked)
         return np.array(ranked), np.zeros(X.shape[0]) - 1
 
@@ -183,7 +183,7 @@ class TwoFoldRankingModel(BaseEstimator):
 
         return np.min(c, 0), np.argmin(c, 0)
 
-    def informative(self, X, return_acts = False):
+    def informative(self, X, return_acts=False):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
@@ -213,7 +213,7 @@ class TwoFoldRankingModel(BaseEstimator):
             actions[:, i] = number
 
         ranked = np.argsort(importances, 1)
-        if return_acts == False:
+        if not return_acts:
             return ranked
         acts = actions[np.argsort(ranked, 1) == 0]
         return ranked, acts
