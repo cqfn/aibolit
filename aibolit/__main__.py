@@ -62,8 +62,13 @@ def predict(input_params, model, args):
     features_order = model.features_conf['features_order']
     # load model
     input = [input_params[i] for i in features_order]
-    th = float(args.threshold) or 1.0
-    preds, importances = model.predict(np.array(input), th=th)
+    if args.weight:
+        weights = {x[0].split(':')[0]: float(x[0].split(':')[1]) for x in args.weight}
+        weights = [weights.get(i, 1.00) for i in features_order]
+    else:
+        weights = [1.0] * len(features_order)
+
+    preds, importances = model.predict(np.array(input), weights)
 
     return {features_order[int(x)]: int(x) for x in preds.tolist()[0]}, importances
 
@@ -193,14 +198,19 @@ def inference(
 
     :return: list of results with code_lies for each pattern and its name
     """
-    model_path = args.model
-    do_full_report = args.full
-    results = []
-    if input_params:
+
+    def load_model(model_path):
         if not model_path:
             model_path = Config.folder_model_data()
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
+        return model
+
+    model_path = args.model
+    do_full_report = args.full
+    results = []
+    if input_params:
+        model = load_model(model_path)
         sorted_result, importances = predict(input_params, model, args)
         patterns_list = model.features_conf['patterns_only']
         for iter, (key, val) in enumerate(sorted_result.items()):
@@ -449,11 +459,6 @@ def check():
         default=[]
     )
     parser.add_argument('--weight', action='append', nargs='+')
-
-    parser.add_argument(
-        '--suppress',
-        default=[]
-    )
 
     args = parser.parse_args(sys.argv[2:])
 
