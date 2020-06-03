@@ -173,7 +173,7 @@ class TwoFoldRankingModel(BaseEstimator):
         Args:
             c1, c2, c3: np.array with shape (number of snippets, ).
         Returns:
-            c: np.array with shape (number of snippets, ) - 
+            c: np.array with shape (number of snippets, ) -
             elemental minimum of 3 arrays.
             number: np.array with shape (number of snippets, ) of
             arrays' numbers with minimum elements.            .
@@ -192,7 +192,7 @@ class TwoFoldRankingModel(BaseEstimator):
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for each snippet of
                 code.
-            acts: np.array with shape (number of snippets, ) of 
+            acts: np.array with shape (number of snippets, ) of
             numbers of necessary actions for complexity's decrement.
         """
 
