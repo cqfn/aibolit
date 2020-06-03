@@ -440,6 +440,11 @@ def check():
         default='compact',
         help='compact (by default), long or xml. Usage: --format=xml'
     )
+    parser.add_argument(
+        '--suppress',
+        default=[]
+    )
+    parser.add_argument('--weight', action='append', nargs='+')
 
     args = parser.parse_args(sys.argv[2:])
 
