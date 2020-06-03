@@ -49,6 +49,12 @@ You can suppress certain patterns (comma separated value) and they will be ignor
 $ aibolit recommend --folder src/java --suppress=P12,P13
 ```
 
+You can define the weight for certain patterns in the final calculation:
+```bash
+$ aibolit recommend --folder src/java --weight=P10:0.5 --weight=P21:1.5
+```
+
+
 You can change the format, using the `--format` parameter. The default value is `--format=compact`.
 ```bash
 $ aibolit recommend --folder src/java --format=compact --full
