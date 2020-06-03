@@ -152,3 +152,71 @@ class TwoFoldRankingModel(BaseEstimator):
                 raise Exception("Unknown func")
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
+
+    def get_complexity(self, X, mask, i, add):
+        """
+        Args:
+            X: np.array with shape (number of snippets, number of patterns).
+            mask: np.array with shape (number of snippets, number of patterns).
+            i: int, 0 <= i < number of patterns.
+            add: bool.
+        Returns:
+            complexity: np.array with shape (number of snippets, ).
+        """
+
+        X1 = X.copy()
+        if add:
+            X1[:, i][mask[:, i]] += 1
+        else:
+            X1[:, i][mask[:, i]] -= 1
+        complexity = self.model.predict(X1)
+
+        return complexity
+
+    def get_minimum(self, c1, c2, c3):
+        """
+        Args:
+            c1, c2, c3: np.array with shape (number of snippets, ).
+        Returns:
+            c: np.array with shape (number of snippets, ).
+            number: np.array with shape (number of snippets, ).
+        """
+
+        c = np.minimum(np.minimum(c1, c2), c3)
+        number = np.zeros(c.shape[0])
+        number[c == c3] = 3
+        number[c == c2] = 2
+        number[c == c1] = 1
+        return c, number
+
+    def informative(self, X):
+        """
+        Args:
+            X: np.array with shape (number of snippets, number of patterns) or
+                (number of patterns, ).
+        Returns:
+            ranked: np.array with shape (number of snippets, number of patterns)
+                of sorted patterns in non-increasing order for each snippet of
+                code.
+            acts: np.array with shape (number of snippets, ).
+        """
+
+        if X.ndim == 1:
+            X = X.copy()
+            X = np.expand_dims(X, axis=0)
+
+        k = X.shape[1]
+        complexity = self.model.predict(X)
+        mask = X > 0
+        importances = np.zeros(X.shape)
+        actions = np.zeros(X.shape)
+        for i in range(k):
+            complexity1 = self.get_complexity(X, mask, i, False)
+            complexity2 = self.get_complexity(X, mask, i, True)
+            c, number = self.get_minimum(complexity, complexity1, complexity2)
+            importances[:, i] = c
+            actions[:, i] = number
+
+        ranked = np.argsort(importances, 1)
+        acts = actions[np.argsort(ranked, 1) == 0]
+        return ranked, acts
