@@ -39,7 +39,6 @@ from aibolit.patterns.this_finder.this_finder import ThisFinder as P19
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
 from aibolit.patterns.var_middle.var_middle import VarMiddle as P21
 from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
-from aibolit.patterns.multiple_while.multiple_while import MultipleWhile as P33
 
 
 class Singleton(type):
@@ -81,9 +80,9 @@ class Config(metaclass=Singleton):
                 {"name": "Setters", "code": "P2", "make": lambda: P2()},
                 {"name": "Empty Rethrow", "code": "P3", "make": lambda: P3()},
                 {"name": "Prohibited class name", "code": "P4", "make": lambda: P4()},
-                {"name": "Force Type Casting Finder", "code": "P5", "make": lambda: P5()},
+                {"name": "Force Type Casting", "code": "P5", "make": lambda: P5()},
                 {"name": "Count If Return", "code": "P6", "make": lambda: P6()},
-                {"name": "Implements Multi Finder", "code": "P7", "make": lambda: P7()},
+                {"name": "Implements Multi", "code": "P7", "make": lambda: P7()},
                 {"name": "Instance of", "code": "P8", "make": lambda: P8()},
                 {"name": "Many primary constructors", "code": "P9", "make": lambda: P9()},
                 {"name": "Method chain", "code": "P10", "make": lambda: P10()},
@@ -93,9 +92,9 @@ class Config(metaclass=Singleton):
                 {"name": "Partial synchronized", "code": "P14", "make": lambda: P14()},
                 {"name": "Redundant catch", "code": "P15", "make": lambda: P15()},
                 {"name": "Return null", "code": "P16", "make": lambda: P16()},
-                {"name": "String concat finder", "code": "P17", "make": lambda: P17()},
+                {"name": "String concat", "code": "P17", "make": lambda: P17()},
                 {"name": "Super Method", "code": "P18", "make": lambda: P18()},
-                {"name": "This finder", "code": "P19", "make": lambda: P19()},
+                {"name": "This in constructor", "code": "P19", "make": lambda: P19()},
                 {
                     "name": "Var declaration distance for 5 lines",
                     "code": "P20_5",
@@ -123,8 +122,8 @@ class Config(metaclass=Singleton):
                 {"name": "Protected Method", "code": "P30", "make": lambda: P30()},
                 {"name": "Send Null", "code": "P31", "make": lambda: P31()},
                 {"name": "Nested Loop", "code": "P32", "make": lambda: P32()},
-                {"name": "MultipleWhile", "code": "P33", "make": lambda: P33()},
-
+                # Dirty fix, TODO remove when the model will be retrained
+                {"name": "Multiple While", "code": "P33", "make": lambda: P29()},
             ],
             "metrics": [
                 {"name": "Entropy", "code": "M1", "make": lambda: M1()},

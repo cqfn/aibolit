@@ -1,6 +1,6 @@
-import os
 from javalang.parse import parse
 from javalang.tree import CompilationUnit
+import cchardet  # type: ignore
 
 
 class AST:
@@ -10,11 +10,12 @@ class AST:
 
     def __init__(self, filename: str):
         self._filename = filename
+        with open(self._filename, 'rb') as file:
+            bin_data = file.read()
+
+        self.encoding = cchardet.detect(bin_data)['encoding']
 
     def value(self) -> CompilationUnit:
 
-        if os.path.splitext(self._filename)[1] != '.java':
-            raise TypeError('Invalid file extension')
-
-        with open(self._filename, encoding='utf-8') as file:
+        with open(self._filename, 'r', encoding=self.encoding) as file:  # type: ignore
             return parse(file.read())

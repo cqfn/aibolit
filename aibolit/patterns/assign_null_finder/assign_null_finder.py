@@ -23,15 +23,17 @@
 import re
 from typing import List
 
+from aibolit.utils.ast import AST
+
 
 class NullAssignment:
     def value(self, filename: str) -> List:
-        file_d = open(filename)
-        string = r'[^=!><]=(\s)*null(\s)*;'
-        num_str = []
-        for i, line in enumerate(file_d):
-            match = re.search(string, line)
-            if match is not None:
-                num_str.append(i + 1)
-        file_d.close()
-        return num_str
+        ast = AST(filename)
+        with open(filename, encoding=ast.encoding) as f:
+            string = r'[^=!><]=(\s)*null(\s)*;'
+            num_str = []
+            for i, line in enumerate(f.readlines()):
+                match = re.search(string, line)
+                if match is not None:
+                    num_str.append(i + 1)
+            return num_str

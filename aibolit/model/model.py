@@ -23,6 +23,7 @@ class Dataset:
             scale=False,
             **kwargs):
 
+        print('reading dataset from {}'.format(Config.dataset_file()))
         df = pd.read_csv(Config.dataset_file())
         df = df[~df["filename"].str.lower().str.contains("test")]
         config = Config.get_patterns_config()
@@ -47,12 +48,13 @@ class Dataset:
 
         df.drop('filename', axis=1, inplace=True)
         df.drop('index', axis=1, inplace=True)
-        self.target = df[['cyclo']].copy().values
+        self.target = np.array(df[['M4']].values[:, 0], dtype=np.float64)
         if scale_ncss:
             new = pd.DataFrame(
                 df[self.only_patterns].values / df['M2'].values.reshape((-1, 1)),
                 columns=self.only_patterns
             )
+            self.target /= df['M2'].values.reshape(-1)
         else:
             new = df[self.only_patterns].copy()
         if scale:
@@ -90,10 +92,11 @@ class TwoFoldRankingModel(BaseEstimator):
             grid,
             X=X,
             y=y,
-            verbose=display)
+            verbose=display,
+        )
 
         self.model = model
-        self.model.fit(X, y.ravel())
+        self.model.fit(X, y.ravel(), logging_level='Silent')
 
     def __get_pairs(self, item, th: float):
         def sigmoid(x):
@@ -126,7 +129,9 @@ class TwoFoldRankingModel(BaseEstimator):
                 code.
         """
 
-        if X.ndim == 1:
+        if X.ndim != 1:
+            raise Exception("Only input with size 1, N is allowed")
+        else:
             X = X.copy()
             X = np.expand_dims(X, axis=0)
 
@@ -146,4 +151,4 @@ class TwoFoldRankingModel(BaseEstimator):
             except Exception:
                 raise Exception("Unknown func")
 
-        return np.array(ranked)
+        return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
