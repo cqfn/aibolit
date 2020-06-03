@@ -460,14 +460,18 @@ def check():
             tree = root.getroottree()
             tree.write(stdout.buffer, pretty_print=True)
         else:
-            if args.format == 'compact':
+            if args.format in ['compact', 'short']:
                 new_results = format_converter_for_pattern(results)
             elif args.format == 'long':
                 new_results = format_converter_for_pattern(results, 'code_line')
             else:
                 raise Exception('Unknown format')
             text = create_text(new_results, args.full)
-            print('\n'.join(text))
+
+            if args.format == 'short':
+                print(text[-1])
+            else:
+                print('\n'.join(text))
 
     exit_code = get_exit_code(results)
     return exit_code
