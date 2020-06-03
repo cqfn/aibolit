@@ -6,6 +6,7 @@ from javalang.parse import parse
 
 from aibolit.utils.encoding_detector import read_text_with_autodetected_encoding
 
+
 class Lines:
     """
     Return the lines for some AST
