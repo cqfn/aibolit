@@ -1,6 +1,6 @@
 import javalang
 
-from aibolit.utils.ast import AST
+from aibolit.utils.ast_builder import build_ast
 
 
 class MultipleWhile:
@@ -17,7 +17,7 @@ class MultipleWhile:
         """
 
         res = []
-        for _, method_node in AST(filename).value().filter(javalang.tree.MethodDeclaration):
+        for _, method_node in build_ast(filename).filter(javalang.tree.MethodDeclaration):
             if len(list(method_node.filter(javalang.tree.WhileStatement))) > 1:
                 res.append(method_node.position.line)
 

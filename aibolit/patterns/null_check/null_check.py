@@ -26,8 +26,7 @@ from javalang.ast import Node
 from javalang.tree import CompilationUnit, BinaryOperation, Expression, Literal, ConstructorDeclaration
 
 from aibolit.types_decl import LineNumber
-from aibolit.utils.ast import AST
-
+from aibolit.utils.ast_builder import build_ast
 Path = Tuple
 
 
@@ -38,7 +37,7 @@ _LT_NULL = "null"
 
 class NullCheck(object):
     def value(self, filename: str) -> List[LineNumber]:
-        tree: CompilationUnit = AST(filename).value()
+        tree: CompilationUnit = build_ast(filename)
 
         return self._traverse_node(tree)
 
