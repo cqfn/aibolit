@@ -28,6 +28,7 @@ import concurrent.futures
 import multiprocessing
 import operator
 import sys
+import time
 from os import scandir
 from typing import List
 
@@ -245,7 +246,7 @@ def run_recommend_for_file(file: str, args):
     }
 
 
-def create_xml_tree(results, full_report):
+def create_xml_tree(results, full_report, cmd, exit_code):
     """
     Creates xml from output of `check` function
     :param results: output of `check` function
@@ -253,7 +254,18 @@ def create_xml_tree(results, full_report):
     """
     importances_for_all_classes = []
     top = etree.Element('report')
-    importances_for_all_classes_tag = etree.SubElement(top, 'score')
+    header_tag = etree.SubElement(top, 'header')
+    importances_for_all_classes_tag = etree.SubElement(header_tag, 'score')
+    datetime_tag = etree.SubElement(header_tag, 'datetime')
+    datetime_tag.addprevious(etree.Comment('datetime in ms'))
+    datetime_tag.text = str(time.time_ns() // 1000000)
+    version_tag = etree.SubElement(header_tag, 'version')
+    version_tag.text = str(__version__)
+    cmd_tag = etree.SubElement(header_tag, 'cmd')
+    cmd_tag.text = ' '.join(cmd)
+    cmd_tag = etree.SubElement(header_tag, 'exit_code')
+    cmd_tag.text = str(exit_code)
+
     files = etree.SubElement(top, 'files')
     if not full_report:
         files.addprevious(etree.Comment('Show pattern with the largest contribution to Cognitive Complexity'))
@@ -302,6 +314,7 @@ def create_xml_tree(results, full_report):
             score_for_class = sum(importance_for_class)
             importances_sum_tag.text = str(score_for_class)
             importances_for_all_classes.append(score_for_class)
+
     if importances_for_all_classes:
         importances_for_all_classes_tag.text = str(np.mean(importances_for_all_classes))
 
@@ -464,10 +477,11 @@ def check():
         list_dir(args.folder, files)
 
     results = list(run_thread(files, args))
+    exit_code = get_exit_code(results)
 
     if args.format:
         if args.format == 'xml':
-            root = create_xml_tree(results, args.full)
+            root = create_xml_tree(results, args.full, sys.argv, exit_code)
             tree = root.getroottree()
             tree.write(stdout.buffer, pretty_print=True)
         else:
@@ -484,7 +498,7 @@ def check():
             else:
                 print('\n'.join(text))
 
-    exit_code = get_exit_code(results)
+
     return exit_code
 
 
