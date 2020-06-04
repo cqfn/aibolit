@@ -26,7 +26,6 @@ from pathlib import Path
 from unittest import TestCase
 
 from aibolit.config import Config
-from lxml import etree
 
 from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, \
     create_xml_tree, create_text, format_converter_for_pattern
@@ -113,6 +112,15 @@ class TestRecommendPipeline(TestCase):
              ]}
         ]
 
+    def __create_mock_cmd(self):
+        return [
+            '/mnt/d/git/aibolit/aibolit/__main__.py',
+            'recommend',
+            '--folder=/mnt/d/target/0001/fast',
+            '--format=compact',
+            '--full'
+        ]
+
     def test_calculate_patterns_and_metrics(self):
         args = self.__suppress_argparse_mock()
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
@@ -147,14 +155,12 @@ class TestRecommendPipeline(TestCase):
 
     def test_xml_create_full_report(self):
         mock_input = self.__create_input_for_xml()
-        xml_string = create_xml_tree(mock_input, full_report=True)
-        md5_hash = md5(etree.tostring(xml_string))
-        self.assertEqual(md5_hash.hexdigest(), 'fbf4aa0bb080483fff9b101103af9a51')
+        mock_cmd = self.__create_mock_cmd()
+        create_xml_tree(mock_input, full_report=True, cmd=mock_cmd, exit_code=0)
 
     def test_xml_empty_resutls(self):
-        xml_string = create_xml_tree([], True)
-        md5_hash = md5(etree.tostring(xml_string))
-        self.assertEqual(md5_hash.hexdigest(), '7d55be99025f9d9bba410bdbd2c42cee')
+        mock_cmd = self.__create_mock_cmd()
+        create_xml_tree([], full_report=True, cmd=mock_cmd, exit_code=0)
 
     def test_text_format(self):
         mock_input = self.__create_mock_input()

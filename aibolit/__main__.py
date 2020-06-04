@@ -498,7 +498,6 @@ def check():
             else:
                 print('\n'.join(text))
 
-
     return exit_code
 
 
