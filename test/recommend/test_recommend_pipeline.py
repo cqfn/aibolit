@@ -19,7 +19,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
+import argparse
 import os
 from hashlib import md5
 from pathlib import Path
@@ -73,6 +73,16 @@ class TestRecommendPipeline(TestCase):
         mock_input = [item, another_item, error_file]
         return mock_input
 
+    def __suppress_argparse_mock(self):
+        argparse_mock = argparse.ArgumentParser()
+        argparse_mock.add_argument(
+            '--suppress',
+            default=[],
+            nargs="*",
+        )
+        argparse_mock.suppress = []
+        return argparse_mock
+
     def __create_input_for_xml(self):
         return [
             {'filename': 'D:\\target\\0001\\fast\\Configuration.java',
@@ -104,8 +114,23 @@ class TestRecommendPipeline(TestCase):
         ]
 
     def test_calculate_patterns_and_metrics(self):
+        args = self.__suppress_argparse_mock()
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
-        calculate_patterns_and_metrics(file)
+        input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(file, args)
+        val = code_lines_dict['P2']
+        self.assertNotEqual(val, 0)
+        val = code_lines_dict['P24']
+        self.assertNotEqual(val, 0)
+
+    def test_calculate_patterns_and_metrics_wih_suppress(self):
+        args = self.__suppress_argparse_mock()
+        args.suppress = 'P2'
+        file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
+        input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(file, args)
+        val = code_lines_dict['P2']
+        self.assertEqual(val, 0)
+        val = code_lines_dict['P24']
+        self.assertNotEqual(val, 0)
 
     def test_list_dir_no_java_files(self):
         found_files = []
