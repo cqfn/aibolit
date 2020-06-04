@@ -90,3 +90,8 @@ class VarMiddleTest(TestCase):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/14.java')
         self.assertEqual(lines, [88])
+
+    def test_variable_after_curly_braces(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/15.java')
+        self.assertEqual(lines, [])
