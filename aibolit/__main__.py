@@ -258,7 +258,7 @@ def create_xml_tree(results, full_report, cmd, exit_code):
     importances_for_all_classes_tag = etree.SubElement(header_tag, 'score')
     datetime_tag = etree.SubElement(header_tag, 'datetime')
     datetime_tag.addprevious(etree.Comment('datetime in ms'))
-    datetime_tag.text = str(time.time_ns() // 1000000)
+    datetime_tag.text = str(int(round(time.time() * 1000)))
     version_tag = etree.SubElement(header_tag, 'version')
     version_tag.text = str(__version__)
     cmd_tag = etree.SubElement(header_tag, 'cmd')
