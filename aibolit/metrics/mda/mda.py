@@ -1,4 +1,4 @@
-from aibolit.utils.ast import AST
+from aibolit.utils.ast_builder import build_ast
 
 
 class MDAMetric:
@@ -25,7 +25,7 @@ class MDAMetric:
 
     @staticmethod
     def value(filename: str) -> int:
-        tree = AST(filename).value()
+        tree = build_ast(filename)
         metric = MDAMetric.get_depth(tree)
 
         return metric

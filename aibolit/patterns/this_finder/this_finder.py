@@ -21,7 +21,8 @@
 # SOFTWARE.
 
 import javalang
-from aibolit.utils.ast import AST
+
+from aibolit.utils.ast_builder import build_ast
 
 
 class ThisFinder:
@@ -109,9 +110,9 @@ class ThisFinder:
 
     def value(self, filename: str):
         '''main function'''
-        tree = AST(filename).value()
+        tree = build_ast(filename)
         num_str = []
-        for path, node in tree.filter(javalang.tree.ConstructorDeclaration):
+        for _, node in tree.filter(javalang.tree.ConstructorDeclaration):
             number = node.position.line
             stats = node.children[-1]
             result, _, _ = self.__work_with_stats(stats, 0, 0)

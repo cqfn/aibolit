@@ -23,7 +23,8 @@
 import javalang
 from javalang.tree import Node
 from typing import List, Callable, Optional, Any
-from aibolit.utils.ast import AST
+
+from aibolit.utils.ast_builder import build_ast
 
 
 class BlockType:
@@ -89,7 +90,7 @@ class NestedBlocks:
 
     def value(self, filename: str) -> List[int]:
         '''Return line numbers in the file where patterns are found'''
-        tree = AST(filename).value()
+        tree = build_ast(filename)
         for_links: List[Node] = []
         self.__for_node_depth(
             tree,
