@@ -1,6 +1,6 @@
 Patterns Dictionary
 
-If your pattern is not located there, it means that it has been recently implemented and doesn't have docs. Try to search it is github issues.
+If your pattern is not located there, it means that it has been recently implemented and doesn't have docs. Try to search it in github issues.
 
 ---
 

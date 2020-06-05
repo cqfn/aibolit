@@ -22,7 +22,7 @@
 from typing import List
 import sys
 from aibolit.types_decl import LineNumber
-from aibolit.patterns.var_middle.var_middle import JavalangImproved
+from aibolit.utils.java_parser import JavalangImproved
 from javalang.tree import BinaryOperation, ThrowStatement, IfStatement
 
 

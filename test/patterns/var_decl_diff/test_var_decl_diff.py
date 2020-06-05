@@ -25,7 +25,7 @@ from unittest import TestCase
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
 
 
-class VarMiddleTest(TestCase):
+class VarDeclarationDiffTest(TestCase):
     def test_good_class(self):
         pattern = VarDeclarationDistance(lines_th=2)
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/1.java')

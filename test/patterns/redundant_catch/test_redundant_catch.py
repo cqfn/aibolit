@@ -25,7 +25,7 @@ from unittest import TestCase
 from aibolit.patterns.redundant_catch.redundant_catch import RedundantCatch
 
 
-class VarMiddleTest(TestCase):
+class RedundantCatchTest(TestCase):
 
     def test_simple(self):
         pattern = RedundantCatch()
