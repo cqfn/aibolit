@@ -56,6 +56,11 @@ class VarMiddleTest(TestCase):
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/6.java')
         self.assertEqual(lines, [30, 33])
 
+    def test_declaration_after_super_class_method_call(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/7.java')
+        self.assertEqual(lines, [14])
+
     def test_for_scope_good(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/8.java')
