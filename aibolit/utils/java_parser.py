@@ -60,9 +60,12 @@ class ASTNode:
         self.scope = scope  # ID of scope this node belongs
 
 
-# TODO: This class needs to be removed
-# and all its dependents must traverse AST instead of flatening it
 class JavalangImproved:
+    """
+    Thi class flattens AST to provie easier interface.
+    Deprecated: flatening the AST leads to lose of information and bugs.
+                All patterns using it should start traversing the tree manually.
+    """
 
     def __init__(self, filename: str):
         tree, lines = Lines(filename).value()
