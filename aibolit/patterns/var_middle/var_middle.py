@@ -53,25 +53,36 @@ class VarMiddle:
             return
         
         node_type = type(node)
+        children = VarMiddle._get_node_children(node)
+        cleanup_procedures = []
+
         if node_type in VarMiddle._var_declaration_node_types:
-            scope_status.add_flag(ScopeStatusFlags.CURRENTLY_DECLARING_VARIABLE)
-            if ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS not in scope_status.get_status():
+            scope_status.add_flag(ScopeStatusFlags.INSIDE_VARIABLE_DECLARATION_SUBTREE)
+            cleanup_procedures.append(
+                    lambda: scope_status.remove_flag(ScopeStatusFlags.INSIDE_VARIABLE_DECLARATION_SUBTREE))
+
+            if ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS_PRESENT not in scope_status.get_status():
                 lines_with_error.append(node.position.line)
         else:
-            if ScopeStatusFlags.CURRENTLY_DECLARING_VARIABLE not in scope_status.get_status() and \
+            if node_type == javalang.tree.StatementExpression and \
+                javalang.tree.SuperConstructorInvocation in map(type, children):
+                scope_status.add_flag(ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE)
+                cleanup_procedures.append(
+                    lambda: scope_status.remove_flag(ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE))
+
+            if  len( scope_status.get_status() & VarMiddle._ignore_scope_statuses ) == 0 and \
                 node_type not in VarMiddle._ignore_node_types:
-                scope_status.remove_flag(ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS)
+                scope_status.remove_flag(ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS_PRESENT)
 
             if node_type in VarMiddle._new_scope_node_types:
                 scope_status.enter_new_scope()
+                cleanup_procedures.append(lambda: scope_status.leave_current_scope())
         
-        for child in VarMiddle._get_node_children(node):
+        for child in children:
             VarMiddle._traverse_tree(child, scope_status, lines_with_error)
 
-        if node_type in VarMiddle._new_scope_node_types:
-            scope_status.leave_current_scope()
-        elif node_type in VarMiddle._var_declaration_node_types:
-            scope_status.remove_flag(ScopeStatusFlags.CURRENTLY_DECLARING_VARIABLE)
+        for cleanup_procedure in cleanup_procedures:
+            cleanup_procedure()
 
 
     @staticmethod
@@ -107,9 +118,15 @@ class VarMiddle:
 
     _ignore_node_types = \
     {
-            javalang.tree.FormalParameter,
-            javalang.tree.ReferenceType,
-            javalang.tree.BasicType,
-            javalang.tree.CatchClauseParameter,
-            javalang.tree.Annotation,
+        javalang.tree.FormalParameter,
+        javalang.tree.ReferenceType,
+        javalang.tree.BasicType,
+        javalang.tree.CatchClauseParameter,
+        javalang.tree.Annotation,
+    }
+
+    _ignore_scope_statuses = \
+    {
+        ScopeStatusFlags.INSIDE_VARIABLE_DECLARATION_SUBTREE,
+        ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE,
     }

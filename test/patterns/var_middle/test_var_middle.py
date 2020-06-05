@@ -54,7 +54,7 @@ class VarMiddleTest(TestCase):
     def test_case_nested_class(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/6.java')
-        self.assertEqual(lines, [10, 22, 30, 33])
+        self.assertEqual(lines, [30, 33])
 
     def test_for_scope_good(self):
         pattern = VarMiddle()

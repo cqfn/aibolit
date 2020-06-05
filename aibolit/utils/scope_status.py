@@ -26,13 +26,14 @@ from typing import List, Set
 
 
 class ScopeStatusFlags(Enum):
-    ONLY_VARIABLE_DECLARATIONS = auto()
-    CURRENTLY_DECLARING_VARIABLE = auto()
+    ONLY_VARIABLE_DECLARATIONS_PRESENT = auto()
+    INSIDE_VARIABLE_DECLARATION_SUBTREE = auto()
+    INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE = auto()
 
 class ScopeStatus:
     _default_scope_status: Set[ScopeStatusFlags] = \
     {
-        ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS,
+        ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS_PRESENT,
     }
 
     def __init__(self):
