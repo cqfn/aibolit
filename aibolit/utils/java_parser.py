@@ -20,13 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List, Tuple, Type
-from enum import Enum
-from functools import reduce
+from typing import List, Type
 
 import javalang
 
-from aibolit.types_decl import LineNumber
 from aibolit.utils.lines import Lines
 
 
@@ -165,4 +162,3 @@ class JavalangImproved:
     def get_non_empty_lines(self) -> List[int]:
         '''Figure out file lines that contains statements'''
         return list(map(lambda v: v.line, self.tree_to_nodes()))
-
