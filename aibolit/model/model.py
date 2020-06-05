@@ -194,6 +194,7 @@ class TwoFoldRankingModel(BaseEstimator):
                 code.
             acts: np.array with shape (number of snippets, ) of
             numbers of necessary actions for complexity's decrement.
+            1 - do not modify the pattern, 2 - decrease by 1, 3 - increase by 1.
         """
 
         if X.ndim == 1:
