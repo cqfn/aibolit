@@ -149,8 +149,8 @@ class TwoFoldRankingModel(BaseEstimator):
                 raise Exception("Unknown func")
 
         if not return_acts:
-            return np.array(ranked)
-        return np.array(ranked), np.zeros(X.shape[0]) - 1
+            return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
+        return np.array(ranked), pairs[:, 0].T.tolist()[::-1], np.zeros(X.shape[0]) - 1
 
     def get_array(self, X, mask, i, incr):
         """
@@ -209,11 +209,11 @@ class TwoFoldRankingModel(BaseEstimator):
             complexity_minus = self.model.predict(self.get_array(X, mask, i, -1))
             complexity_plus = self.model.predict(self.get_array(X, mask, i, 1))
             c, number = self.get_minimum(complexity, complexity_minus, complexity_plus)
-            importances[:, i] = c
+            importances[:, i] = complexity - c
             actions[:, i] = number
 
-        ranked = np.argsort(importances, 1)
+        ranked = np.argsort(-1 * importances, 1)
         if not return_acts:
-            return ranked
+            return ranked, importances
         acts = actions[np.argsort(ranked, 1) == 0]
-        return ranked, acts
+        return ranked, importances, acts
