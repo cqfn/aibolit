@@ -1,0 +1,1 @@
+This class is aimed to count number of methods and variables in class
