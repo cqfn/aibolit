@@ -119,6 +119,7 @@ class VarMiddle:
             javalang.tree.BasicType,
             javalang.tree.CatchClauseParameter,
             javalang.tree.Annotation,
+            javalang.tree.TypeArgument,
         }
 
     _ignore_scope_statuses = \
