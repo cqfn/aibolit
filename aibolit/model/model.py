@@ -160,7 +160,7 @@ class TwoFoldRankingModel(BaseEstimator):
             i: int, 0 <= i < number of patterns.
             add: bool.
         Returns:
-            X1: modified np.array with shape (number of snippets, ).
+            X1: modified np.array with shape (number of snippets, number of patterns).
         """
 
         X1 = X.copy()
