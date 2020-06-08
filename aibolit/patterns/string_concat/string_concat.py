@@ -1,7 +1,9 @@
 from typing import Tuple, Dict, List
 from typing import Tuple, Dict, List
+import javalang
 
 from aibolit.types_decl import LineNumber
+from aibolit.utils.ast_builder import build_ast
 from aibolit.utils.utils import RemoveComments
 
 
@@ -12,10 +14,9 @@ class StringConcatFinder:
 
     # flake8: noqa: C901
     def value(self, filename: str) -> List[LineNumber]:
-        import javalang
+
         lines = set()
-        with open(filename, encoding='utf-8') as file:
-            text = javalang.parse.parse(file.read())
+        text = build_ast(filename)
 
         for _, node in text.filter(javalang.tree.BinaryOperation):
             if node.operator == '+':
@@ -28,7 +29,7 @@ class StringConcatFinder:
                 is_l_this = isinstance(node.operandl, javalang.tree.This)
                 is_r_this = isinstance(node.operandr, javalang.tree.This)
                 if is_l_literal and (is_r_member or is_r_meth_inv or is_r_this):
-                    is_string_literal = '"' in node.operandl.value
+                    is_string_literal = '"' in node.operandl.value  # type: ignore
                     if is_string_literal:
                         if node.operandl.position:
                             lines.add(node.operandl.position.line)
@@ -39,7 +40,7 @@ class StringConcatFinder:
                         elif hasattr(node.operandr, '_position'):
                             lines.add(node.operandr._position.line)
                 elif is_r_literal and (is_l_member or is_l_meth_inv or is_l_this):
-                    is_string_literal = '"' in node.operandr.value
+                    is_string_literal = '"' in node.operandr.value  # type: ignore
                     if is_string_literal:
                         if node.operandl.position:
                             lines.add(node.operandl.position.line)

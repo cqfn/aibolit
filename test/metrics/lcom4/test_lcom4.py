@@ -21,7 +21,6 @@
 # SOFTWARE.
 
 import os
-import unittest
 from unittest import TestCase
 from pathlib import Path
 from aibolit.metrics.lcom4.lcom4 import LCOM4
@@ -32,41 +31,47 @@ class TestLCOM4(TestCase):
     pattern = LCOM4()
 
     def test_class_with_empty_method(self):
-        lcom4_val = self.pattern.value(Path(self.dir_path, 'EmptyMethod.java'))
+        name = 'EmptyMethod.java'
+        lcom4_val = self.pattern.value(Path(self.dir_path, name))
         self.assertEqual(lcom4_val, 2)
 
-    def test_overloaded(self):
-        lcom4_val = self.pattern.value(Path(self.dir_path, 'Overloaded.java'))
-        lcom4_val2 = self.pattern.value(Path(self.dir_path, 'OverloadedDiffComp.java'))
-        self.assertEqual(lcom4_val, 1)
-        self.assertTrue(lcom4_val2, 2)
-
     def test_constructor(self):
-        lcom4_val = self.pattern.value(Path(self.dir_path, 'Constructor.java'))
+        name = 'Constructor.java'
+        lcom4_val = self.pattern.value(Path(self.dir_path, name))
         self.assertEqual(lcom4_val, 1)
+
+    def test_scope_with_anonymous(self):
+        name = 'ScopeAnonymous.java'
+        lcom4_val = self.pattern.value(Path(self.dir_path, name))
+        self.assertEqual(lcom4_val, 2)
 
     def test_simple(self):
-        lcom4_val = self.pattern.value(Path(self.dir_path, 'Simple.java'))
-        # If not possible, change to 1
-        self.assertTrue(lcom4_val, 2)
+        name = 'Simple.java'
+        lcom4_val = self.pattern.value(Path(self.dir_path, name))
+        self.assertEqual(lcom4_val, 1)
 
-    @unittest.skip("Not implemented")
     def test_getter_setter(self):
-        lcom4_val = self.pattern.value(Path(self.dir_path, 'GetterSetter.java'))
+        name = 'GetterSetter.java'
+        lcom4_val = self.pattern.value(Path(self.dir_path, name))
         # We should ignore all setters and getters
         self.assertEqual(lcom4_val, 1)
 
-    @unittest.skip("Not implemented")
     def test_scope(self):
-        lcom4_val = self.pattern.value(Path(self.dir_path, 'Scope.java'))
+        name = 'Scope.java'
+        lcom4_val = self.pattern.value(Path(self.dir_path, name))
         self.assertEqual(lcom4_val, 2)
 
-    @unittest.skip("Not implemented")
+    def test_overloaded(self):
+        name = 'Overloaded.java'
+        lcom4_val = self.pattern.value(Path(self.dir_path, name))
+        self.assertEqual(lcom4_val, 1)
+
     def test_class_with_chain(self):
-        lcom4_val = self.pattern.value(Path(self.dir_path, 'MethodChain.java'))
-        self.assertEqual(lcom4_val, 3)
-
-    @unittest.skip("Not implemented")
-    def test_scope_with_anonymous(self):
-        lcom4_val = self.pattern.value(Path(self.dir_path, 'ScopeAnonymous.java'))
+        name = 'MethodChain.java'
+        lcom4_val = self.pattern.value(Path(self.dir_path, name))
         self.assertEqual(lcom4_val, 2)
+
+    def test_overloaded_diff(self):
+        name = 'OverloadedDiffComp.java'
+        lcom4_val = self.pattern.value(Path(self.dir_path, name))
+        self.assertEqual(lcom4_val, 1)

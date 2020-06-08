@@ -7,21 +7,20 @@ from javalang.tree import (
 )
 
 from aibolit.types_decl import LineNumber
-from aibolit.utils.ast import AST
+from aibolit.utils.ast_builder import build_ast
 
 _TEST_CLASS_SUFFIX = 'Test'
 
 
 class AssertInCode(object):
     def value(self, filename: str) -> List[LineNumber]:
-        tree: CompilationUnit = AST(filename).value()
-
+        tree = build_ast(filename)
         return self.__traverse_node(tree)
 
     def __traverse_node(self, tree: CompilationUnit) -> List[LineNumber]:
         lines: List[LineNumber] = list()
 
-        for path, node in tree.filter(AssertStatement):
+        for _, node in tree.filter(AssertStatement):
             lines.append(node.position.line)
         return lines
 

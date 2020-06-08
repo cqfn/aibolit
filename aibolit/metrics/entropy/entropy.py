@@ -25,6 +25,8 @@ from typing import List
 import numpy as np  # type: ignore
 from scipy.stats import entropy  # type: ignore
 
+from aibolit.utils.encoding_detector import read_text_with_autodetected_encoding
+
 
 class Entropy:
     def __init__(self):
@@ -32,12 +34,11 @@ class Entropy:
 
     def __file_to_tokens(self, filename: str) -> List[str]:
         '''Takes path to java class file and returns tokens'''
-        with open(filename, encoding='utf-8') as file:
-            tokens = javalang.tokenizer.tokenize(file.read())
-
-        return list(map(lambda v: v.value, tokens))
+        source_code = read_text_with_autodetected_encoding(filename)
+        tokens = javalang.tokenizer.tokenize(source_code)
+        return [token.value for token in tokens]
 
     def value(self, filename: str):
         tokens = self.__file_to_tokens(filename)
-        values, counts = np.unique(tokens, return_counts=True)
+        _, counts = np.unique(tokens, return_counts=True)
         return entropy(counts)

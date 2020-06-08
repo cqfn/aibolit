@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 
-import javalang
+from aibolit.utils.ast_builder import build_ast
 
 
 class NCSSMetric():
@@ -32,14 +32,10 @@ class NCSSMetric():
         if len(filename) == 0:
             raise ValueError('Empty file for analysis')
 
-        f = open(filename, "r", encoding='utf8')
-        code = f.read()
-        f.close()
-
-        tree = javalang.parse.parse(code)
+        tree = build_ast(filename)
 
         metric = 0
-        for path, node in tree:
+        for _, node in tree:
             node_type = str(type(node))
             if 'Statement' in node_type:
                 metric += 1

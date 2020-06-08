@@ -21,7 +21,8 @@
 # SOFTWARE.
 
 import javalang
-from aibolit.utils.ast import AST
+
+from aibolit.utils.ast_builder import build_ast
 
 
 class ThisFinder:
@@ -40,7 +41,9 @@ class ThisFinder:
 
     def __try_stat(self, expr, flag_this, flag_else):
         '''function to work with TryStatement block'''
-        if (expr.resources is not None) or (expr.catches[0].block != []) or (expr.finally_block is not None):
+        if (expr.resources is not None) or \
+            (expr.catches is not None and expr.catches[0].block != []) or \
+                (expr.finally_block is not None):
             flag_else = 1
         try_exprs = expr.block
         for expr1 in try_exprs:
@@ -77,6 +80,7 @@ class ThisFinder:
                 return 1, flag_this, flag_else
         return 0, flag_this, flag_else
 
+    # flake8: noqa
     def __work_with_stats(self, stats, flag_this, flag_else):
         '''function to work with objects in constructor'''
         for expr in stats:
@@ -90,11 +94,14 @@ class ThisFinder:
             elif isinstance(expr, javalang.tree.IfStatement):
                 res, flag_this, flag_else = self.__if_stat(expr, flag_this, flag_else)
             elif isinstance(expr, javalang.tree.ForStatement):
-                res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
+                if hasattr(expr.body, 'statements'):
+                    res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
             elif isinstance(expr, javalang.tree.WhileStatement):
-                res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
+                if hasattr(expr.body, 'statements'):
+                    res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
             elif isinstance(expr, javalang.tree.DoStatement):
-                res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
+                if hasattr(expr.body, 'statements'):
+                    res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
             else:
                 res = flag_this
             if res > 0:
@@ -103,9 +110,9 @@ class ThisFinder:
 
     def value(self, filename: str):
         '''main function'''
-        tree = AST(filename).value()
+        tree = build_ast(filename)
         num_str = []
-        for path, node in tree.filter(javalang.tree.ConstructorDeclaration):
+        for _, node in tree.filter(javalang.tree.ConstructorDeclaration):
             number = node.position.line
             stats = node.children[-1]
             result, _, _ = self.__work_with_stats(stats, 0, 0)

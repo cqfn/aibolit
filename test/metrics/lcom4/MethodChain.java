@@ -7,7 +7,8 @@ class MethodChain {
 
     public void start_chain_var() {
         DifferentMethods a = new DifferentMethods();
-        a.chain1().chain2();
+        chain1();
+        chain1();
     }
 
     public void start_chain_method_inv() {
@@ -22,7 +23,7 @@ class MethodChain {
     }
 
 
-    public Object chain1() {
+    public Object chain1(int a, float b, int c) {
         ++a;
         return new Object();
     }

@@ -22,24 +22,34 @@
 
 
 import argparse
-import itertools
-import multiprocessing
 import os
+import sys
 import time
-import javalang
+import traceback
+from ctypes import c_bool
 from enum import Enum
+from functools import partial
+from multiprocessing import Value, Manager, cpu_count, Lock
 from pathlib import Path
+
+import cchardet as chardet
+import javalang
 import pandas as pd
 
 parser = argparse.ArgumentParser(description='Filter important java files')
 parser.add_argument(
     '--dir',
     help='dir for Java files search',
-    required=True)
-parser.add_argument('--max_classes', type=int, required=False, default=None)
+    required=True
+)
+parser.add_argument(
+    '--max_classes',
+    type=lambda v: sys.maxsize if v == '' else int(v),
+    required=False,
+    default=None
+)
 args = parser.parse_args()
 MAX_CLASSES = args.max_classes
-
 TXT_OUT = 'found-java-files.txt'
 CSV_OUT = '02-java-files.csv'
 
@@ -59,8 +69,12 @@ class ClassType(Enum):
     CLASS = 999
 
 
-def get_class_type(filename):
-    with open(filename, 'r', encoding='utf-8') as f:
+def get_class_type(filename: Path):
+    with open(filename, 'rb') as f:
+        msg = f.read()
+        result = chardet.detect(msg)
+
+    with open(filename, 'r', encoding=result['encoding']) as f:
         text = f.read()
         class_type = ClassType.CLASS
         try:
@@ -87,36 +101,93 @@ def get_class_type(filename):
         return class_type
 
 
-def worker(filename):
+def worker(queue, counter):
     """
     Identify type of class
-    :param filename: filename of Java class
+
     :return: tuple of java file path and it's type
     """
     results = []
-    if filename.lower().endswith('.java'):
-        if filename.lower().endswith('test.java') or \
-                any([x.lower().find('test') > -1 for x in Path(filename).parts]):
-            class_type = ClassType.TEST
-        else:
-            class_type = get_class_type(filename)
-        results = [Path(filename).as_posix(), class_type.value]
+    if not queue.empty():
+        filename = queue.get()
+        str_filename = str(filename)
+        if str_filename.lower().endswith('.java'):
+            if str_filename.lower().endswith('test.java') or \
+                    any([x.lower().find('test') > -1 for x in filename.parts]) or \
+                    str_filename.lower().find('package-info') > -1:
+                class_type = ClassType.TEST
+            else:
+                try:
+                    class_type = get_class_type(filename)
+                except Exception:
+                    print("Can't open file {}. Ignoring the file ...".format(str_filename))
+                    traceback.print_exc()
+                    class_type = ClassType.JAVA_PARSE_ERROR
+
+            results = [filename.as_posix(), class_type.value]
+
+        if results:
+            if results[1] == 999:
+                counter.increment()
 
     return results
 
 
+def scantree(path):
+    """Recursively yield DirEntry objects for given directory."""
+    for entry in os.scandir(path):
+        if entry.is_dir(follow_symlinks=False):
+            yield from scantree(entry.path)  # see below for Python 2.x
+        else:
+            if entry.name.endswith('.java') and entry.is_file():
+                yield entry.path
+
+
+class Counter(object):
+    def __init__(self, initval=0):
+        self.val = Value('i', initval)
+        self.lock = Lock()
+
+    def increment(self):
+        with self.lock:
+            self.val.value += 1
+
+    @property
+    def value(self):
+        return self.val.value
+
+
 def walk_in_parallel():
-    with multiprocessing.Pool(multiprocessing.cpu_count()) as pool:
-        walk = os.walk(args.dir)
-        fn_gen = itertools.chain.from_iterable(
-            (os.path.join(root, file)
-             for file in files)
-            for root, dirs, files in walk)
+    manager = Manager()
+    queue = manager.Queue()
 
-        results = pool.map(worker, fn_gen)
+    for i in scantree(args.dir):
+        queue.put(Path(i))
 
-    top_n = MAX_CLASSES if MAX_CLASSES is not None else len(results)
-    return [v for v in results if len(v) > 0][0: top_n]
+    cancel = Value(c_bool, False)
+    counter = Counter(0)
+
+    def call_back():
+        if counter.value > MAX_CLASSES:
+            cancel.value = True
+            try:
+                while True:
+                    queue.get_nowait()
+            except Exception:
+                pass
+
+    results = []
+
+    counter = Counter(1)
+    from concurrent.futures.thread import ThreadPoolExecutor
+    p = ThreadPoolExecutor(cpu_count())
+
+    while not cancel.value and not queue.empty():
+        call_back()
+        f = partial(worker, queue)
+        results.append(p.submit(f, counter).result())
+
+    return [v for v in results if len(v) > 0]
 
 
 if __name__ == '__main__':
