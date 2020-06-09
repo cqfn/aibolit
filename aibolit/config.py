@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+from aibolit.metrics.number_variables.numVariables import NumVars as M7
 from aibolit.metrics.cognitiveC.cognitive_c import CognitiveComplexity as M4
 from aibolit.metrics.entropy.entropy import Entropy as M1
 from aibolit.metrics.lcom4.lcom4 import LCOM4 as M5
@@ -150,7 +151,8 @@ class Config(metaclass=Singleton):
                 },
                 {"name": "Cognitive Complexity", "code": "M4", "make": lambda: M4()},
                 {"name": "LCOM4", "code": "M5", "make": lambda: M5()},
-                {"name": "Max diameter of AST", "code": "M6", "make": lambda: M6()}
+                {"name": "Max diameter of AST", "code": "M6", "make": lambda: M6()},
+                {"name": "Number of variables", "code": "M7", "make": lambda: M7()}
             ],
             "target": {
 
