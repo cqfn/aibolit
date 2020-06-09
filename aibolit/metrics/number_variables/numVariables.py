@@ -17,7 +17,7 @@ class NumVars:
         # for variables defined as the arguments of method
         for _, var_body in tree.filter(ConstructorDeclaration):
             if hasattr(var_body, 'parameters'):  # type: ignore
-                check_params = var_body.parameters
+                check_params = var_body.parameters  # type: ignore
                 if len(check_params) != 0:
                     for _ in check_params:
                         count_variables += 1
