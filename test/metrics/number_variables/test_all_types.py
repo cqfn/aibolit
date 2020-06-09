@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from aibolit.metrics.number_methods_variables.numMethodsVars import NumMethodsAndVars
+from aibolit.metrics.number_variables.numVariables import NumVars
 import os
 from unittest import TestCase
 from pathlib import Path
@@ -28,7 +28,7 @@ from pathlib import Path
 
 class TestNum_MethodsandVars(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
-    get_num = NumMethodsAndVars()
+    get_num = NumVars()
 
     def test1(self):
         lines = self.get_num.value(Path(self.dir_path, '1.java'))

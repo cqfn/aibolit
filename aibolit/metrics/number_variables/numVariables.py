@@ -2,7 +2,7 @@ from aibolit.utils.ast_builder import build_ast
 from javalang.tree import VariableDeclarator, ConstructorDeclaration
 
 
-class NumMethodsAndVars:
+class NumVars:
     '''
     This class count number of methods and variables in class
     input: filename
