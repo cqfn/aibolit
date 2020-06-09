@@ -159,8 +159,6 @@ class Config(metaclass=Singleton):
             },
             "patterns_exclude": [
                 "P27",  # empty implementation
-                'P31',  # errors
-                'P32',  # errors
             ],
             "metrics_exclude": []
         }
