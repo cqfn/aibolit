@@ -25,23 +25,28 @@
 
 import argparse
 import concurrent.futures
+import json
 import multiprocessing
 import operator
+import os
+import pickle
 import sys
 import time
+import traceback
 from os import scandir
+from pathlib import Path
+from sys import stdout
 from typing import List
 
-from lxml import etree  # type: ignore
 import numpy as np  # type: ignore
+import requests
+from lxml import etree  # type: ignore
+from pkg_resources import parse_version
+
 from aibolit import __version__
 from aibolit.config import Config
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
-import os
-from pathlib import Path
-import pickle
 from aibolit.model.model import TwoFoldRankingModel, Dataset  # type: ignore  # noqa: F401
-from sys import stdout
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -553,7 +558,22 @@ def run_thread(files, args):
             yield future.result()
 
 
+def get_versions(pkg_name):
+    url = f'https://pypi.python.org/pypi/{pkg_name}/json'
+    releases = json.loads(requests.get(url).content)['releases']
+    return sorted(releases, key=parse_version, reverse=True)
+
+
 def main():
+    try:
+        max_available_version = get_versions('aibolit')[0]
+        if max_available_version != __version__:
+            print('Version {} is available, but you are using {}'.format(
+                max_available_version,
+                __version__
+            ))
+    except requests.exceptions.ConnectionError:
+        print('Can\'t check aibolit version. Network is not available')
     try:
         commands = {
             'train': lambda: train(),
@@ -563,7 +583,6 @@ def main():
         }
         exit_code = run_parse_args(commands)
     except Exception:
-        import traceback
         traceback.print_exc()
         sys.exit(2)
     else:
