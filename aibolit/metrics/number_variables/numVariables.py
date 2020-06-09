@@ -14,10 +14,9 @@ class NumVars:
     def value(self, filename: str) -> int:
         tree = build_ast(filename)
         count_variables = set()
-        
         for _, var_body in tree.filter(VariableDeclarator):
             count_variables.add(var_body.name)  # type: ignore
-            
+
         for _, var_body in tree.filter(MemberReference):
             count_variables.add(var_body.member)  # type: ignore
 
