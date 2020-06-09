@@ -110,4 +110,3 @@ class NestedBlocks:
         n_lines = [v for v in n_lines if len(v) > 0]
 
         return list(map(min, n_lines))  # type: ignore
-
