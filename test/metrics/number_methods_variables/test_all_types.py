@@ -32,16 +32,20 @@ class TestNum_MethodsandVars(TestCase):
 
     def test1(self):
         lines = self.get_num.value(Path(self.dir_path, '1.java'))
-        self.assertEqual(lines, [2, 6])
+        self.assertEqual(lines, 6)
 
     def test2(self):
         lines = self.get_num.value(Path(self.dir_path, '2.java'))
-        self.assertEqual(lines, [1, 5])
+        self.assertEqual(lines, 5)
 
     def test3(self):
         lines = self.get_num.value(Path(self.dir_path, '3.java'))
-        self.assertEqual(lines, [3, 10])
+        self.assertEqual(lines, 10)
 
     def test4(self):
         lines = self.get_num.value(Path(self.dir_path, '4.java'))
-        self.assertEqual(lines, [6, 12])
+        self.assertEqual(lines, 12)
+
+    def test5(self):
+        lines = self.get_num.value(Path(self.dir_path, '5.java'))
+        self.assertEqual(lines, 6)
