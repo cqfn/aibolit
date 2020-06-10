@@ -4,7 +4,6 @@ import os
 from pathlib import Path
 import argparse
 
-
 parser = argparse.ArgumentParser(description='Filter important java files')
 parser.add_argument(
     '--dir',
@@ -22,8 +21,7 @@ current_location: str = os.path.realpath(
 csv_files = []
 for dir_local in Path(dir_to_analyze).iterdir():
     if dir_local.is_dir():
-        print('Run for path {}'.format(dir_local.parts[-1]))
-        print('Start metrics calculation...')
+        print('Start metrics calculation for path {}'.format(dir_local.parts[-1]))
         csv_filename = "./_tmp/{}_pmd_out.csv".format(dir_local.parts[-1])
         csv_files.append(csv_filename)
         f = open(csv_filename, "w")
@@ -34,6 +32,7 @@ for dir_local in Path(dir_to_analyze).iterdir():
         ], stdout=f)
         print('Metrics have calculated.')
         f.close()
+
 
 cur_df = pd.DataFrame(
     [["-555", "com.google.samples",
@@ -52,7 +51,7 @@ for i in csv_files:
     except Exception:
         pass
 
-print("we have {} folder, {} datasets".format(len(csv_files), len(frames)))
+print("we have {} folders, {} datasets".format(len(csv_files), len(frames)))
 df = pd.concat(frames)
 df = df[df.Problem != -555]
 df.set_index("Problem")

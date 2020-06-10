@@ -25,19 +25,27 @@
 
 import argparse
 import concurrent.futures
+import json
 import multiprocessing
+import operator
+import os
+import pickle
 import sys
+import time
+import traceback
 from os import scandir
+from pathlib import Path
+from sys import stdout
 from typing import List
 
-from lxml import etree  # type: ignore
 import numpy as np  # type: ignore
+import requests
+from lxml import etree  # type: ignore
+from pkg_resources import parse_version
+
 from aibolit import __version__
 from aibolit.config import Config
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
-import os
-from pathlib import Path
-import pickle
 from aibolit.model.model import TwoFoldRankingModel, Dataset  # type: ignore  # noqa: F401
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -49,7 +57,9 @@ def list_dir(path, files):
         if entry.is_dir():
             dir_list.append(entry.path)
             dir_list.extend(list_dir(entry.path, files))
-        elif entry.is_file() and entry.path.endswith('.java'):
+        elif entry.is_file() \
+                and entry.path.endswith('.java') \
+                and entry.name != 'package-info.java':
             files.append(entry.path)
     return dir_list
 
@@ -72,7 +82,8 @@ def run_parse_args(commands_dict):
 
         You can run 1 command:
         train          Train model
-        recommend      Recommend pattern
+        check          Recommend pattern
+        recommend      Recommend pattern. The same as recommend, just another acronym
         ''')
 
     parser.add_argument('command', help='Subcommand to run')
@@ -150,15 +161,19 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
         )
 
 
-def calculate_patterns_and_metrics(file):
+def calculate_patterns_and_metrics(file, args):
     code_lines_dict = input_params = {}  # type: ignore
     error_string = None
+    patterns_to_suppress = args.suppress
     try:
         config = Config.get_patterns_config()
         for pattern in config['patterns']:
             if pattern['code'] in config['patterns_exclude']:
                 continue
-            __count_value(pattern, input_params, code_lines_dict, file)
+            if pattern['code'] in patterns_to_suppress:
+                input_params[pattern['code']] = 0
+            else:
+                __count_value(pattern, input_params, code_lines_dict, file)
 
         for metric in config['metrics']:
             if metric['code'] in config['metrics_exclude']:
@@ -184,10 +199,9 @@ def inference(
 
     :return: list of results with code_lies for each pattern and its name
     """
-    model_path = args.model_file
+    model_path = args.model
     do_full_report = args.full
     results = []
-    importances = [-1]
     if input_params:
         if not model_path:
             model_path = Config.folder_model_data()
@@ -208,82 +222,105 @@ def inference(
                         results.append(
                             {'code_lines': code_lines,
                              'pattern_code': pattern_code,
-                             'pattern_name': pattern_name
+                             'pattern_name': pattern_name,
+                             'importance': importances[iter]
                              })
                     if not do_full_report:
                         break
     else:
-        return results, sum(importances)
+        return results
 
-    return results, sum(importances)
+    return results
 
 
 def run_recommend_for_file(file: str, args):
     """
-    Calculate patterns and metrics, pass values to model and recommend pattern to change
+    Calculate patterns and metrics, pass values to model and suggest pattern to change
     :param file: file to analyze
     :param args: different command line arguments
     :return: dict with code lines, filename and pattern name
     """
-    print('Analyzing {}'.format(file))
     java_file = str(Path(os.getcwd(), file))
-    input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file)
-    results_list, importances = inference(input_params, code_lines_dict, args)
+    input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file, args)
+    results_list = inference(input_params, code_lines_dict, args)
 
     return {
         'filename': file,
         'results': results_list,
-        'error_string': error_string,
-        'importances': importances
+        'error_string': error_string
     }
 
 
-def create_xml_tree(results, full_report):
+def create_xml_tree(results, full_report, cmd, exit_code):
     """
-    Creates xml from output of `recommend` function
-    :param results: output of `recommend` function
+    Creates xml from output of `check` function
+    :param results: output of `check` function
     :return: xml string
     """
     importances_for_all_classes = []
-    top = etree.Element('files')
+    top = etree.Element('report')
+    header_tag = etree.SubElement(top, 'header')
+    importances_for_all_classes_tag = etree.SubElement(header_tag, 'score')
+    datetime_tag = etree.SubElement(header_tag, 'datetime')
+    datetime_tag.addprevious(etree.Comment('datetime in ms'))
+    datetime_tag.text = str(int(round(time.time() * 1000)))
+    version_tag = etree.SubElement(header_tag, 'version')
+    version_tag.text = str(__version__)
+    cmd_tag = etree.SubElement(header_tag, 'cmd')
+    cmd_tag.text = ' '.join(cmd)
+    cmd_tag = etree.SubElement(header_tag, 'exit_code')
+    cmd_tag.text = str(exit_code)
+
+    files = etree.SubElement(top, 'files')
     if not full_report:
-        top.addprevious(etree.Comment('Show pattern with the largest contribution to Cognitive Complexity'))
+        files.addprevious(etree.Comment('Show pattern with the largest contribution to Cognitive Complexity'))
     else:
-        top.addprevious(etree.Comment('Show all patterns'))
+        files.addprevious(etree.Comment('Show all patterns'))
     for result_for_file in results:
-        child = etree.SubElement(top, 'filename')
+        file = etree.SubElement(files, 'file')
         filename = result_for_file.get('filename')
-        child.text = filename
-        patterns_tag = etree.SubElement(child, 'patterns')
+        name = etree.SubElement(file, 'path')
+        output_string_tag = etree.SubElement(file, 'summary')
+        name.text = filename
         results = result_for_file.get('results')
         errors_string = result_for_file.get('error_string')
         if not results and not errors_string:
             output_string = 'Your code is perfect in aibolit\'s opinion'
-            output_string_tag = etree.SubElement(child, 'output_string')
             output_string_tag.text = output_string
         elif not results and errors_string:
             output_string = 'Error when calculating patterns: {}'.format(str(errors_string))
-            output_string_tag = etree.SubElement(child, 'output_string')
             output_string_tag.text = output_string
         else:
-            importances_sum_tag = etree.SubElement(child, 'maintainability_score')
-            importances_value_per_class = result_for_file['importances']
-            importances_sum_tag.text = str(importances_value_per_class)
-            importances_for_all_classes.append(importances_value_per_class)
-            for pattern in result_for_file['results']:
+            output_string = 'Some issues found'
+            output_string_tag.text = output_string
+            importances_sum_tag = etree.SubElement(file, 'score')
+            patterns_tag = etree.SubElement(file, 'patterns')
+            patterns_number = len(result_for_file['results'])
+            importance_for_class = []
+            for i, pattern in enumerate(result_for_file['results'], start=1):
                 if pattern.get('pattern_code'):
                     pattern_item = etree.SubElement(patterns_tag, 'pattern')
                     pattern_name_str = pattern.get('pattern_name')
-                    pattern_item.text = pattern_name_str or ''
-                    pattern_item.attrib['pattern_code'] = pattern.get('pattern_code')
+                    details = etree.SubElement(pattern_item, 'details')
+                    details.text = pattern_name_str or ''
+                    pattern_item.attrib['code'] = pattern.get('pattern_code')
                     code_lines_items = pattern.get('code_lines')
+                    pattern_score = pattern.get('importance')
+                    pattern_score_tag = etree.SubElement(pattern_item, 'score')
+                    pattern_score_tag.text = str(pattern_score) or ''
+                    pattern_score_tag = etree.SubElement(pattern_item, 'order')
+                    pattern_score_tag.text = '{}/{}'.format(i, patterns_number)
+                    importance_for_class.append(pattern_score)
                     if code_lines_items:
-                        code_lines_lst_tree_node = etree.SubElement(pattern_item, 'code_lines')
+                        code_lines_lst_tree_node = etree.SubElement(pattern_item, 'lines')
                         for code_line in code_lines_items:
-                            code_line_elem = etree.SubElement(code_lines_lst_tree_node, 'line_number')
+                            code_line_elem = etree.SubElement(code_lines_lst_tree_node, 'number')
                             code_line_elem.text = str(code_line)
+            score_for_class = sum(importance_for_class)
+            importances_sum_tag.text = str(score_for_class)
+            importances_for_all_classes.append(score_for_class)
+
     if importances_for_all_classes:
-        importances_for_all_classes_tag = etree.SubElement(top, 'total_maintainability_score')
         importances_for_all_classes_tag.text = str(np.mean(importances_for_all_classes))
 
     return top
@@ -318,13 +355,75 @@ def get_exit_code(results):
     return exit_code
 
 
-def recommend():
-    """Run recommendation pipeline."""
+def create_text(results, full_report):
+    importances_for_all_classes = []
+    buffer = []
+    if not full_report:
+        buffer.append('Show pattern with the largest contribution to Cognitive Complexity')
+    else:
+        buffer.append('Show all patterns')
+    for result_for_file in results:
+        filename = result_for_file.get('filename')
+        results = result_for_file.get('results')
+        errors_string = result_for_file.get('error_string')
+        if not results and not errors_string:
+            # Do nothing, patterns were not found
+            pass
+        if not results and errors_string:
+            output_string = '{}: error when calculating patterns: {}'.format(
+                filename,
+                str(errors_string)
+            )
+            buffer.append(output_string)
+        elif results and not errors_string:
+            # get unique patterns score
+            patterns_scores = print_total_score_for_file(buffer, filename, importances_for_all_classes, result_for_file)
+            patterns_number = len(patterns_scores)
+            pattern__number = 0
+            cur_pattern_name = ''
+            for pattern_item in result_for_file['results']:
+                pattern_score = pattern_item.get('importance')
+                code = pattern_item.get('pattern_code')
+                if code:
+                    pattern_name_str = pattern_item.get('pattern_name')
+                    if cur_pattern_name != pattern_name_str:
+                        pattern__number += 1
+                        cur_pattern_name = pattern_name_str
+                    buffer.append('{}[{}]: {} ({}: {:.2f} {}/{})'.format(
+                        filename,
+                        pattern_item.get('code_line'),
+                        pattern_name_str,
+                        code,
+                        pattern_score,
+                        pattern__number,
+                        patterns_number))
+    if importances_for_all_classes:
+        buffer.append('Total average score: {}'.format(np.mean(importances_for_all_classes)))
+
+    return buffer
+
+
+def print_total_score_for_file(
+        buffer: List[str],
+        filename: str,
+        importances_for_all_classes: List[int],
+        result_for_file):
+    patterns_scores = {}
+    for x in result_for_file['results']:
+        patterns_scores[x['pattern_name']] = x['importance']
+    importances_for_class = sum(patterns_scores.values())
+    importances_for_all_classes.append(importances_for_class)
+    buffer.append('{} score: {}'.format(filename, importances_for_class))
+    return patterns_scores
+
+
+def check():
+    """Run check pipeline."""
 
     parser = argparse.ArgumentParser(
         description='Get recommendations for Java code',
         usage='''
-        aibolit recommend < --folder | --filenames > [--output] [--model_file] [--threshold] [--full]
+        aibolit check < --folder | --filenames > [--model] [--threshold] [--full] [--format]
         ''')
 
     group_exclusive = parser.add_mutually_exclusive_group(required=True)
@@ -341,13 +440,7 @@ def recommend():
         default=False
     )
     parser.add_argument(
-        '--output',
-        help='output of xml file where all results will be saved, default is out.xml of the current directory',
-        default=False
-    )
-
-    parser.add_argument(
-        '--model_file',
+        '--model',
         help='''file where pretrained model is located, the default path is located
         in site-packages and is installed with aibolit automatically''',
         default=False
@@ -364,9 +457,21 @@ def recommend():
         default=False,
         action='store_true'
     )
+    parser.add_argument(
+        '--format',
+        default='compact',
+        help='compact (by default), long or xml. Usage: --format=xml'
+    )
+
+    parser.add_argument(
+        '--suppress',
+        default=[]
+    )
 
     args = parser.parse_args(sys.argv[2:])
 
+    if args.suppress:
+        args.suppress = args.suppress.strip().split(',')
     if args.threshold:
         print('Threshold for model has been set to {}'.format(args.threshold))
 
@@ -377,17 +482,54 @@ def recommend():
         list_dir(args.folder, files)
 
     results = list(run_thread(files, args))
-
-    if args.output:
-        filename = args.output
-    else:
-        filename = 'out.xml'
-
-    root = create_xml_tree(results, args.full)
-    tree = root.getroottree()
-    tree.write(filename, pretty_print=True)
     exit_code = get_exit_code(results)
+
+    if args.format:
+        if args.format == 'xml':
+            root = create_xml_tree(results, args.full, sys.argv, exit_code)
+            tree = root.getroottree()
+            tree.write(stdout.buffer, pretty_print=True)
+        else:
+            if args.format in ['compact', 'short']:
+                new_results = format_converter_for_pattern(results)
+            elif args.format == 'long':
+                new_results = format_converter_for_pattern(results, 'code_line')
+            else:
+                raise Exception('Unknown format')
+            text = create_text(new_results, args.full)
+
+            if args.format == 'short':
+                print(text[-1])
+            else:
+                print('\n'.join(text))
+
     return exit_code
+
+
+def format_converter_for_pattern(results, sorted_by=None):
+    """Reformat data where data are sorted by patterns importance
+    (it is already sorted in the input).
+    Then lines are sorted in ascending order."""
+
+    def flatten(l):
+        return [item for sublist in l for item in sublist]
+
+    for file in results:
+        items = file.get('results')
+        if items:
+            new_items = flatten([
+                [{'pattern_code': x['pattern_code'],
+                  'pattern_name': x['pattern_name'],
+                  'code_line': line,
+                  'importance': x['importance']
+                  } for line in sorted(x['code_lines'])] for x in items
+            ])
+            if not sorted_by:
+                file['results'] = new_items
+            else:
+                file['results'] = sorted(new_items, key=operator.itemgetter(sorted_by, 'pattern_code'))
+
+    return results
 
 
 def version():
@@ -416,15 +558,32 @@ def run_thread(files, args):
             yield future.result()
 
 
+def get_versions(pkg_name):
+    url = f'https://pypi.python.org/pypi/{pkg_name}/json'
+    releases = json.loads(requests.get(url).content)['releases']
+    return sorted(releases, key=parse_version, reverse=True)
+
+
 def main():
+    try:
+        max_available_version = get_versions('aibolit')[0]
+        if max_available_version != __version__:
+            print('Version {} is available, but you are using {}'.format(
+                max_available_version,
+                __version__
+            ))
+    except requests.exceptions.ConnectionError:
+        print('Can\'t check aibolit version. Network is not available')
     try:
         commands = {
             'train': lambda: train(),
-            'recommend': lambda: recommend(),
+            'check': lambda: check(),
+            'recommend': lambda: check(),
             'version': lambda: version(),
         }
         exit_code = run_parse_args(commands)
     except Exception:
+        traceback.print_exc()
         sys.exit(2)
     else:
         sys.exit(exit_code)

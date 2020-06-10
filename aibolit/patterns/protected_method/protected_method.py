@@ -1,5 +1,6 @@
 import javalang
-from aibolit.utils.ast import AST
+
+from aibolit.utils.ast_builder import build_ast
 
 
 class ProtectedMethod:
@@ -10,6 +11,6 @@ class ProtectedMethod:
     def value(self, filename: str):
         return [
             node.position.line
-            for _, node in AST(filename).value().filter(javalang.tree.MethodDeclaration)
+            for _, node in build_ast(filename).filter(javalang.tree.MethodDeclaration)
             if all(elem in node.modifiers for elem in ['protected'])
         ]

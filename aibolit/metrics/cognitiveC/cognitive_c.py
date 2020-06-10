@@ -1,7 +1,7 @@
 from javalang.tree import IfStatement, SwitchStatement, ForStatement, WhileStatement
 from javalang.tree import DoStatement, CatchClause, BreakStatement, ContinueStatement
 from javalang.tree import TernaryExpression, BinaryOperation, MethodDeclaration, MethodInvocation
-from aibolit.utils.ast import AST
+from aibolit.utils.ast_builder import build_ast
 import javalang
 from typing import List, Any, Type
 
@@ -117,7 +117,7 @@ class CognitiveComplexity:
 
     def value(self, filename: str) -> int:
 
-        tree = AST(filename).value()
+        tree = build_ast(filename)
         for _, class_body in tree.filter(javalang.tree.ClassDeclaration):
             for each_object in class_body.body:
                 if isinstance(each_object, MethodDeclaration):

@@ -22,7 +22,7 @@
 
 from statistics import variance
 
-from aibolit.utils.ast import AST
+from aibolit.utils.encoding_detector import read_text_with_autodetected_encoding
 from aibolit.utils.utils import RemoveComments
 
 
@@ -41,16 +41,10 @@ class IndentationCounter:
         :param filename: file name
         :return: list of counted spaces
         """
-        ast = AST(filename)
-        with open(filename, encoding=ast.encoding) as file:
-            text = RemoveComments.remove_comments(file.read())
-            lines = []
-            for x in text.splitlines():
-                line = x.replace('\n', '').replace('\t', '    ')
-                if line:
-                    lines.append(line)
-
-        return lines
+        source_code = read_text_with_autodetected_encoding(filename)
+        source_code = RemoveComments.remove_comments(source_code)
+        return [line.replace('\t', '    ') for line in source_code.splitlines()
+                if line]
 
     def value(self, filename: str):
         lines = self.__file_to_tokens(filename)

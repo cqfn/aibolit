@@ -1,6 +1,6 @@
 import javalang
 import re
-from aibolit.utils.ast import AST
+from aibolit.utils.ast_builder import build_ast
 import itertools
 
 
@@ -12,7 +12,7 @@ class VarSiblings:
         numbers = []
         for first, second in itertools.product(
             [node
-                for _, node in AST(filename).value().filter(javalang.tree.LocalVariableDeclaration)
+                for _, node in build_ast(filename).filter(javalang.tree.LocalVariableDeclaration)
                 if len(re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', node.declarators[0].name)) > 1
                 and len(re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', node.declarators[0].name)[0]) > 3],  # noqa: W503
                 repeat=2

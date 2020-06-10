@@ -23,6 +23,7 @@ class Dataset:
             scale=False,
             **kwargs):
 
+        print('reading dataset from {}'.format(Config.dataset_file()))
         df = pd.read_csv(Config.dataset_file())
         df = df[~df["filename"].str.lower().str.contains("test")]
         config = Config.get_patterns_config()
@@ -91,11 +92,11 @@ class TwoFoldRankingModel(BaseEstimator):
             grid,
             X=X,
             y=y,
-            verbose=display
+            verbose=display,
         )
 
         self.model = model
-        self.model.fit(X, y.ravel())
+        self.model.fit(X, y.ravel(), logging_level='Silent')
 
     def __get_pairs(self, item, th: float):
         def sigmoid(x):
@@ -111,7 +112,7 @@ class TwoFoldRankingModel(BaseEstimator):
     def __vstack_arrays(self, res):
         return np.vstack(res).T
 
-    def predict(self, X, quantity_func='log', th=1.0):
+    def predict(self, X, return_acts=False, quantity_func='log', th=1.0):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
@@ -121,16 +122,13 @@ class TwoFoldRankingModel(BaseEstimator):
             th (float): Sensitivity of algorithm to recommend.
                 0 - ignore all recomendations
                 1 - use all recommendations
-
         Returns:
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for each snippet of
                 code.
         """
 
-        if X.ndim != 1:
-            raise Exception("Only input with size 1, N is allowed")
-        else:
+        if X.ndim == 1:
             X = X.copy()
             X = np.expand_dims(X, axis=0)
 
@@ -150,4 +148,73 @@ class TwoFoldRankingModel(BaseEstimator):
             except Exception:
                 raise Exception("Unknown func")
 
-        return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
+        if not return_acts:
+            return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
+        return np.array(ranked), pairs[:, 0].T.tolist()[::-1], np.zeros(X.shape[0]) - 1
+
+    def get_array(self, X, mask, i, incr):
+        """
+        Args:
+            X: np.array with shape (number of snippets, number of patterns).
+            mask: np.array with shape (number of snippets, number of patterns).
+            i: int, 0 <= i < number of patterns.
+            add: bool.
+        Returns:
+            X1: modified np.array with shape (number of snippets, number of patterns).
+        """
+
+        X1 = X.copy()
+        X1[:, i][mask[:, i]] += incr
+
+        return X1
+
+    def get_minimum(self, c1, c2, c3):
+        """
+        Args:
+            c1, c2, c3: np.array with shape (number of snippets, ).
+        Returns:
+            c: np.array with shape (number of snippets, ) -
+            elemental minimum of 3 arrays.
+            number: np.array with shape (number of snippets, ) of
+            arrays' numbers with minimum elements.            .
+        """
+
+        c = np.vstack((c1, c2, c3))
+
+        return np.min(c, 0), np.argmin(c, 0)
+
+    def informative(self, X, return_acts=False):
+        """
+        Args:
+            X: np.array with shape (number of snippets, number of patterns) or
+                (number of patterns, ).
+        Returns:
+            ranked: np.array with shape (number of snippets, number of patterns)
+                of sorted patterns in non-increasing order for each snippet of
+                code.
+            acts: np.array with shape (number of snippets, ) of
+            numbers of necessary actions for complexity's decrement.
+            0 - do not modify the pattern, 1 - decrease by 1, 2 - increase by 1.
+        """
+
+        if X.ndim == 1:
+            X = X.copy()
+            X = np.expand_dims(X, axis=0)
+
+        k = X.shape[1]
+        complexity = self.model.predict(X)
+        mask = X > 0
+        importances = np.zeros(X.shape)
+        actions = np.zeros(X.shape)
+        for i in range(k):
+            complexity_minus = self.model.predict(self.get_array(X, mask, i, -1))
+            complexity_plus = self.model.predict(self.get_array(X, mask, i, 1))
+            c, number = self.get_minimum(complexity, complexity_minus, complexity_plus)
+            importances[:, i] = complexity - c
+            actions[:, i] = number
+
+        ranked = np.argsort(-1 * importances, 1)
+        if not return_acts:
+            return ranked, importances
+        acts = actions[np.argsort(ranked, 1) == 0]
+        return ranked, importances, acts

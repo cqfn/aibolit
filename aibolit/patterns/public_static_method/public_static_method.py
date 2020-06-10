@@ -1,5 +1,6 @@
 import javalang
-from aibolit.utils.ast import AST
+
+from aibolit.utils.ast_builder import build_ast
 
 
 class PublicStaticMethod:
@@ -8,7 +9,7 @@ class PublicStaticMethod:
         pass
 
     def value(self, filename: str):
-        tree = AST(filename).value().filter(javalang.tree.MethodDeclaration)
+        tree = build_ast(filename).filter(javalang.tree.MethodDeclaration)
         return [
             node.position.line for
             path, node in tree if

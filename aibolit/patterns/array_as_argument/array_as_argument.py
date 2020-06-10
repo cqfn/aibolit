@@ -20,8 +20,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from aibolit.utils.ast import AST
 import javalang
+
+from aibolit.utils.ast_builder import build_ast
 
 
 class ArrayAsArgument:
@@ -30,9 +31,9 @@ class ArrayAsArgument:
         pass
 
     def value(self, filename):
-        tree = AST(filename).value().filter(javalang.tree.MethodDeclaration)
+        tree = build_ast(filename).filter(javalang.tree.MethodDeclaration)
         ret = []
-        for path, node in tree:
+        for _, node in tree:
             if len(node.parameters) > 0:
                 if any(len(parameter.type.dimensions) > 0 for parameter in node.parameters):
                     ret += [node.position.line]

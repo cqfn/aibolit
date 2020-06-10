@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 
-from aibolit.utils.ast import AST
+from aibolit.utils.ast_builder import build_ast
 
 
 class NCSSMetric():
@@ -32,10 +32,10 @@ class NCSSMetric():
         if len(filename) == 0:
             raise ValueError('Empty file for analysis')
 
-        tree = AST(filename).value()
+        tree = build_ast(filename)
 
         metric = 0
-        for path, node in tree:
+        for _, node in tree:
             node_type = str(type(node))
             if 'Statement' in node_type:
                 metric += 1

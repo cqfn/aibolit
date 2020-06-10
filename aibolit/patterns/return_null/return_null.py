@@ -20,10 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from collections import defaultdict
-from aibolit.utils.ast import AST
-
 import javalang
+from collections import defaultdict
+
+from aibolit.utils.ast_builder import build_ast
 
 
 class ReturnNull:
@@ -36,7 +36,7 @@ class ReturnNull:
         Travers over AST tree and finds pattern
         :param filename:
         """
-        tree = AST(filename).value()
+        tree = build_ast(filename)
         chain_lst = defaultdict(int)
         for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
             for _, return_node in method_node.filter(javalang.tree.ReturnStatement):
