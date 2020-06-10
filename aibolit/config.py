@@ -122,9 +122,7 @@ class Config(metaclass=Singleton):
                 {"name": "Multiple While", "code": "P29", "make": lambda: P29()},
                 {"name": "Protected Method", "code": "P30", "make": lambda: P30()},
                 {"name": "Send Null", "code": "P31", "make": lambda: P31()},
-                {"name": "Nested Loop", "code": "P32", "make": lambda: P32()},
-                # Dirty fix, TODO remove when the model will be retrained
-                {"name": "Multiple While", "code": "P33", "make": lambda: P29()},
+                {"name": "Nested Loop", "code": "P32", "make": lambda: P32()}
             ],
             "metrics": [
                 {"name": "Entropy", "code": "M1", "make": lambda: M1()},
