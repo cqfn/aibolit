@@ -112,7 +112,7 @@ class TwoFoldRankingModel(BaseEstimator):
     def __vstack_arrays(self, res):
         return np.vstack(res).T
 
-    def predict(self, X, return_acts=False, quantity_func='log', th=1.0):
+    def predict1(self, X, return_acts=False, quantity_func='log', th=1.0):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
@@ -152,6 +152,48 @@ class TwoFoldRankingModel(BaseEstimator):
             return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
         return np.array(ranked), pairs[:, 0].T.tolist()[::-1], np.zeros(X.shape[0]) - 1
 
+    def predict(self, X, quantity_func='log', th=1.0):
+        """
+        Args:
+            X: np.array with shape (number of snippets, number of patterns) or
+                (number of patterns, ).
+            quantity_func: str, type of function that will be applied to
+                number of occurrences.
+            th (float): Sensitivity of algorithm to recommend.
+                0 - ignore all recomendations
+                1 - use all recommendations
+
+        Returns:
+            ranked: np.array with shape (number of snippets, number of patterns)
+                of sorted patterns in non-increasing order for each snippet of
+                code.
+        """
+
+        if X.ndim != 1:
+            raise Exception("Only input with size 1, N is allowed")
+        else:
+            X = X.copy()
+            X = np.expand_dims(X, axis=0)
+
+        ranked = []
+        quantity_funcs = {
+            'log': lambda x: np.log1p(x) / np.log(10),
+            'exp': lambda x: np.exp(x + 1),
+            'linear': lambda x: x,
+        }
+
+        for snippet in X:
+            try:
+                item = quantity_funcs[quantity_func](snippet)
+                pairs = self.__vstack_arrays(self.__get_pairs(item, th))
+                pairs = pairs[pairs[:, 0].argsort()]
+                ranked.append(pairs[:, 1].T.tolist()[::-1])
+            except Exception:
+                raise Exception("Unknown func")
+
+        return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
+
+
     def get_array(self, X, mask, i, incr):
         """
         Args:
@@ -183,7 +225,7 @@ class TwoFoldRankingModel(BaseEstimator):
 
         return np.min(c, 0), np.argmin(c, 0)
 
-    def informative(self, X, return_acts=False):
+    def informative(self, X):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
@@ -196,25 +238,19 @@ class TwoFoldRankingModel(BaseEstimator):
             numbers of necessary actions for complexity's decrement.
             0 - do not modify the pattern, 1 - decrease by 1, 2 - increase by 1.
         """
-
-        if X.ndim == 1:
-            X = X.copy()
-            X = np.expand_dims(X, axis=0)
+        X = X.copy()
+        X = np.expand_dims(X, axis=0)
 
         k = X.shape[1]
         complexity = self.model.predict(X)
         mask = X > 0
-        importances = np.zeros(X.shape)
-        actions = np.zeros(X.shape)
+        importances = []
         for i in range(k):
             complexity_minus = self.model.predict(self.get_array(X, mask, i, -1))
-            complexity_plus = self.model.predict(self.get_array(X, mask, i, 1))
-            c, number = self.get_minimum(complexity, complexity_minus, complexity_plus)
-            importances[:, i] = complexity - c
-            actions[:, i] = number
+            diff = complexity - complexity_minus
+            if i == 11:
+                print()
+            importances.append((i, diff[0]))
 
-        ranked = np.argsort(-1 * importances, 1)
-        if not return_acts:
-            return ranked, importances
-        acts = actions[np.argsort(ranked, 1) == 0]
-        return ranked, importances, acts
+        sorted_arr = sorted(importances, key=lambda x: x[1], reverse=True)
+        return [x[0] for x in sorted_arr], [x[1] for x in sorted_arr]
