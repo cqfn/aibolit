@@ -164,7 +164,7 @@ class TwoFoldRankingModel(BaseEstimator):
         """
 
         X1 = X.copy()
-        X1[:, i][mask[:, i]] += incr
+        X1[:, i][mask[:, i]] += incr[mask[:, i]]
 
         return X1
 
@@ -183,11 +183,11 @@ class TwoFoldRankingModel(BaseEstimator):
 
         return np.min(c, 0), np.argmin(c, 0)
 
-    def informative(self, X, return_acts=False):
+    def informative(self, X, scale=True, return_acts=False):
         """
         Args:
-            X: np.array with shape (number of snippets, number of patterns) or
-                (number of patterns, ).
+            X: np.array with shape (number of snippets, number of patterns + 1) or
+                (number of patterns + 1, ).
         Returns:
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for each snippet of
@@ -200,15 +200,19 @@ class TwoFoldRankingModel(BaseEstimator):
         if X.ndim == 1:
             X = X.copy()
             X = np.expand_dims(X, axis=0)
-
+        ncss = X[:, -1]
+        if scale:
+            X = X[:, :-1] / ncss.reshape(-1, 1)
+        else:
+            X = X[:, :-1]
         k = X.shape[1]
         complexity = self.model.predict(X)
         mask = X > 0
         importances = np.zeros(X.shape)
         actions = np.zeros(X.shape)
         for i in range(k):
-            complexity_minus = self.model.predict(self.get_array(X, mask, i, -1))
-            complexity_plus = self.model.predict(self.get_array(X, mask, i, 1))
+            complexity_minus = self.model.predict(self.get_array(X, mask, i, -1.0 / ncss))
+            complexity_plus = self.model.predict(self.get_array(X, mask, i, 1.0 / ncss))
             c, number = self.get_minimum(complexity, complexity_minus, complexity_plus)
             importances[:, i] = complexity - c
             actions[:, i] = number
