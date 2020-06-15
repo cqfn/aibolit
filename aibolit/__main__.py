@@ -66,13 +66,12 @@ def list_dir(path, files):
 
 def predict(input_params, model, args):
     features_order = model.features_conf['features_order']
-    # load model
-    input = [input_params[i] for i in features_order]
+    # add ncss to last column. We will normalize all patterns by that value
+    input = [input_params[i] for i in features_order] + [input_params['M2']]
     th = float(args.threshold) or 1.0
-    # preds, importances = model.predict(np.array(input))
-    preds, importances = model.informative(np.array(input))
+    preds, importances = model.informative(np.array(input), th=th)
 
-    return {features_order[int(x)]: int(x) for x in preds}, importances
+    return {features_order[int(x)]: int(x) for x in preds[0]}, importances
 
 
 def run_parse_args(commands_dict):
@@ -217,7 +216,7 @@ def inference(
                 code_lines = code_lines_dict.get('lines_' + key)
                 importance = importances[iter]
                 # We show only patterns with positive importance
-                if code_lines and importance > 0.00000e-20:
+                if code_lines and importance > 0:
                     if code_lines:
                         pattern_name = \
                             [x['name'] for x in Config.get_patterns_config()['patterns']
