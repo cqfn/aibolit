@@ -25,7 +25,7 @@ from unittest import TestCase
 from aibolit.patterns.partial_synchronized.partial_synchronized import PartialSync
 
 
-class VarMiddleTest(TestCase):
+class PartialSynchronizedTest(TestCase):
 
     def test_simple(self):
         pattern = PartialSync()

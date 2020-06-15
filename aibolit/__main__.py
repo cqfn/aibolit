@@ -25,22 +25,28 @@
 
 import argparse
 import concurrent.futures
+import json
 import multiprocessing
 import operator
+import os
+import pickle
 import sys
+import time
+import traceback
 from os import scandir
+from pathlib import Path
+from sys import stdout
 from typing import List
 
-from lxml import etree  # type: ignore
 import numpy as np  # type: ignore
+import requests
+from lxml import etree  # type: ignore
+from pkg_resources import parse_version
+
 from aibolit import __version__
 from aibolit.config import Config
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
-import os
-from pathlib import Path
-import pickle
 from aibolit.model.model import TwoFoldRankingModel, Dataset  # type: ignore  # noqa: F401
-from sys import stdout
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -155,15 +161,19 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
         )
 
 
-def calculate_patterns_and_metrics(file):
+def calculate_patterns_and_metrics(file, args):
     code_lines_dict = input_params = {}  # type: ignore
     error_string = None
+    patterns_to_suppress = args.suppress
     try:
         config = Config.get_patterns_config()
         for pattern in config['patterns']:
             if pattern['code'] in config['patterns_exclude']:
                 continue
-            __count_value(pattern, input_params, code_lines_dict, file)
+            if pattern['code'] in patterns_to_suppress:
+                input_params[pattern['code']] = 0
+            else:
+                __count_value(pattern, input_params, code_lines_dict, file)
 
         for metric in config['metrics']:
             if metric['code'] in config['metrics_exclude']:
@@ -231,7 +241,7 @@ def run_recommend_for_file(file: str, args):
     :return: dict with code lines, filename and pattern name
     """
     java_file = str(Path(os.getcwd(), file))
-    input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file)
+    input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file, args)
     results_list = inference(input_params, code_lines_dict, args)
 
     return {
@@ -241,7 +251,7 @@ def run_recommend_for_file(file: str, args):
     }
 
 
-def create_xml_tree(results, full_report):
+def create_xml_tree(results, full_report, cmd, exit_code):
     """
     Creates xml from output of `check` function
     :param results: output of `check` function
@@ -249,7 +259,18 @@ def create_xml_tree(results, full_report):
     """
     importances_for_all_classes = []
     top = etree.Element('report')
-    importances_for_all_classes_tag = etree.SubElement(top, 'score')
+    header_tag = etree.SubElement(top, 'header')
+    importances_for_all_classes_tag = etree.SubElement(header_tag, 'score')
+    datetime_tag = etree.SubElement(header_tag, 'datetime')
+    datetime_tag.addprevious(etree.Comment('datetime in ms'))
+    datetime_tag.text = str(int(round(time.time() * 1000)))
+    version_tag = etree.SubElement(header_tag, 'version')
+    version_tag.text = str(__version__)
+    cmd_tag = etree.SubElement(header_tag, 'cmd')
+    cmd_tag.text = ' '.join(cmd)
+    cmd_tag = etree.SubElement(header_tag, 'exit_code')
+    cmd_tag.text = str(exit_code)
+
     files = etree.SubElement(top, 'files')
     if not full_report:
         files.addprevious(etree.Comment('Show pattern with the largest contribution to Cognitive Complexity'))
@@ -298,6 +319,7 @@ def create_xml_tree(results, full_report):
             score_for_class = sum(importance_for_class)
             importances_sum_tag.text = str(score_for_class)
             importances_for_all_classes.append(score_for_class)
+
     if importances_for_all_classes:
         importances_for_all_classes_tag.text = str(np.mean(importances_for_all_classes))
 
@@ -441,8 +463,15 @@ def check():
         help='compact (by default), long or xml. Usage: --format=xml'
     )
 
+    parser.add_argument(
+        '--suppress',
+        default=[]
+    )
+
     args = parser.parse_args(sys.argv[2:])
 
+    if args.suppress:
+        args.suppress = args.suppress.strip().split(',')
     if args.threshold:
         print('Threshold for model has been set to {}'.format(args.threshold))
 
@@ -453,23 +482,27 @@ def check():
         list_dir(args.folder, files)
 
     results = list(run_thread(files, args))
+    exit_code = get_exit_code(results)
 
     if args.format:
         if args.format == 'xml':
-            root = create_xml_tree(results, args.full)
+            root = create_xml_tree(results, args.full, sys.argv, exit_code)
             tree = root.getroottree()
             tree.write(stdout.buffer, pretty_print=True)
         else:
-            if args.format == 'compact':
+            if args.format in ['compact', 'short']:
                 new_results = format_converter_for_pattern(results)
             elif args.format == 'long':
                 new_results = format_converter_for_pattern(results, 'code_line')
             else:
                 raise Exception('Unknown format')
             text = create_text(new_results, args.full)
-            print('\n'.join(text))
 
-    exit_code = get_exit_code(results)
+            if args.format == 'short':
+                print(text[-1])
+            else:
+                print('\n'.join(text))
+
     return exit_code
 
 
@@ -525,7 +558,22 @@ def run_thread(files, args):
             yield future.result()
 
 
+def get_versions(pkg_name):
+    url = f'https://pypi.python.org/pypi/{pkg_name}/json'
+    releases = json.loads(requests.get(url).content)['releases']
+    return sorted(releases, key=parse_version, reverse=True)
+
+
 def main():
+    try:
+        max_available_version = get_versions('aibolit')[0]
+        if max_available_version != __version__:
+            print('Version {} is available, but you are using {}'.format(
+                max_available_version,
+                __version__
+            ))
+    except requests.exceptions.ConnectionError:
+        print('Can\'t check aibolit version. Network is not available')
     try:
         commands = {
             'train': lambda: train(),
@@ -535,7 +583,6 @@ def main():
         }
         exit_code = run_parse_args(commands)
     except Exception:
-        import traceback
         traceback.print_exc()
         sys.exit(2)
     else:

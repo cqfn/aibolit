@@ -1,5 +1,5 @@
 import javalang
-from aibolit.patterns.var_middle.var_middle import JavalangImproved
+from aibolit.utils.java_parser import JavalangImproved
 
 
 class newJavalangImproved(JavalangImproved):

@@ -54,7 +54,12 @@ class VarMiddleTest(TestCase):
     def test_case_nested_class(self):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/6.java')
-        self.assertEqual(lines, [10, 22, 30, 33])
+        self.assertEqual(lines, [30, 33])
+
+    def test_declaration_after_super_class_method_call(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/7.java')
+        self.assertEqual(lines, [14])
 
     def test_for_scope_good(self):
         pattern = VarMiddle()
@@ -90,3 +95,13 @@ class VarMiddleTest(TestCase):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/14.java')
         self.assertEqual(lines, [88])
+
+    def test_variable_after_curly_braces(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/15.java')
+        self.assertEqual(lines, [])
+
+    def test_variable_inside_lambda(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/16.java')
+        self.assertEqual(lines, [])

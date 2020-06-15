@@ -19,14 +19,13 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
+import argparse
 import os
 from hashlib import md5
 from pathlib import Path
 from unittest import TestCase
 
 from aibolit.config import Config
-from lxml import etree
 
 from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, \
     create_xml_tree, create_text, format_converter_for_pattern
@@ -73,6 +72,16 @@ class TestRecommendPipeline(TestCase):
         mock_input = [item, another_item, error_file]
         return mock_input
 
+    def __suppress_argparse_mock(self):
+        argparse_mock = argparse.ArgumentParser()
+        argparse_mock.add_argument(
+            '--suppress',
+            default=[],
+            nargs="*",
+        )
+        argparse_mock.suppress = []
+        return argparse_mock
+
     def __create_input_for_xml(self):
         return [
             {'filename': 'D:\\target\\0001\\fast\\Configuration.java',
@@ -103,9 +112,33 @@ class TestRecommendPipeline(TestCase):
              ]}
         ]
 
+    def __create_mock_cmd(self):
+        return [
+            '/mnt/d/git/aibolit/aibolit/__main__.py',
+            'recommend',
+            '--folder=/mnt/d/target/0001/fast',
+            '--format=compact',
+            '--full'
+        ]
+
     def test_calculate_patterns_and_metrics(self):
+        args = self.__suppress_argparse_mock()
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
-        calculate_patterns_and_metrics(file)
+        input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(file, args)
+        val = code_lines_dict['P2']
+        self.assertNotEqual(val, 0)
+        val = code_lines_dict['P24']
+        self.assertNotEqual(val, 0)
+
+    def test_calculate_patterns_and_metrics_wih_suppress(self):
+        args = self.__suppress_argparse_mock()
+        args.suppress = 'P2'
+        file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
+        input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(file, args)
+        val = code_lines_dict['P2']
+        self.assertEqual(val, 0)
+        val = code_lines_dict['P24']
+        self.assertNotEqual(val, 0)
 
     def test_list_dir_no_java_files(self):
         found_files = []
@@ -122,14 +155,12 @@ class TestRecommendPipeline(TestCase):
 
     def test_xml_create_full_report(self):
         mock_input = self.__create_input_for_xml()
-        xml_string = create_xml_tree(mock_input, full_report=True)
-        md5_hash = md5(etree.tostring(xml_string))
-        self.assertEqual(md5_hash.hexdigest(), 'fbf4aa0bb080483fff9b101103af9a51')
+        mock_cmd = self.__create_mock_cmd()
+        create_xml_tree(mock_input, full_report=True, cmd=mock_cmd, exit_code=0)
 
     def test_xml_empty_resutls(self):
-        xml_string = create_xml_tree([], True)
-        md5_hash = md5(etree.tostring(xml_string))
-        self.assertEqual(md5_hash.hexdigest(), '7d55be99025f9d9bba410bdbd2c42cee')
+        mock_cmd = self.__create_mock_cmd()
+        create_xml_tree([], full_report=True, cmd=mock_cmd, exit_code=0)
 
     def test_text_format(self):
         mock_input = self.__create_mock_input()

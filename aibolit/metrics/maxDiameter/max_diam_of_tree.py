@@ -1,4 +1,4 @@
-from aibolit.utils.ast import AST
+from aibolit.utils.ast_builder import build_ast
 from javalang.tree import MethodDeclaration, ClassDeclaration
 from typing import Type
 
@@ -60,7 +60,7 @@ class MaxDiamOfTree:
         return max(maxChildDia, max1 + max2 + 1)
 
     def value(self, filename: str):
-        tree = AST(filename).value()
+        tree = build_ast(filename)
 
         traversed = []
         for _, class_body in tree.filter(ClassDeclaration):

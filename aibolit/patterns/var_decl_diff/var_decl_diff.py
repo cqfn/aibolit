@@ -25,7 +25,7 @@ from typing import List, Optional, Tuple, Dict
 
 import javalang
 
-from aibolit.patterns.var_middle.var_middle import JavalangImproved, ASTNode
+from aibolit.utils.java_parser import JavalangImproved, ASTNode
 
 
 class VarDeclarationDistance:

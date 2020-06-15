@@ -1,5 +1,5 @@
 import javalang
-from aibolit.utils.ast import AST
+from aibolit.utils.ast_builder import build_ast
 from typing import List, Type, Any
 
 
@@ -34,7 +34,7 @@ class CountNumberOfLeaves:
 
     def value(self, filename: str) -> int:
 
-        tree = AST(filename).value()
+        tree = build_ast(filename)
         traversed = []
         for _, class_body in tree.filter(javalang.tree.ClassDeclaration):
             for each_object in class_body.body:
