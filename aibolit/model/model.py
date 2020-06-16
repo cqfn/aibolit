@@ -198,9 +198,6 @@ class TwoFoldRankingModel(BaseEstimator):
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for each snippet of
                 code.
-            acts: np.array with shape (number of snippets, ) of
-            numbers of necessary actions for complexity's decrement.
-            0 - do not modify the pattern, 1 - decrease by 1, 2 - increase by 1.
         """
         X = X.copy()
         X = np.expand_dims(X, axis=0)
