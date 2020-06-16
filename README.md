@@ -177,18 +177,18 @@ The larger score is, the most important pattern is.
 E.g., if you have 2 patterns, first you need to fix the pattern with the score 3.55215:
 
 ```
-D:\target\0001\SampleTests.java[100]: Partial synchronized (P14: 3.55215 1/4)
-D:\target\0001\SampleTests.java[106]: Partial synchronized (P14: 3.55215 1/4)
-D:\target\0001\SampleTests.java[113]: Partial synchronized (P14: 3.55215 1/4)
-D:\target\0001\SampleTests.java[43]: Non final attribute (P12: 0.71568 2/4)
-D:\target\0001\SampleTests.java[44]: Non final attribute (P12: 0.71568 2/4)
-D:\target\0001\SampleTests.java[122]: Var declaration distance for 5 lines (P20_5: 0.51175 3/4)
-D:\target\0001\SampleTests.java[59]: Force Type Casting (P5: 0.42144 4/4)
+/mnt/d/src/java/SampleTests.java[100]: Partial synchronized (P14: 3.55215 1/4)
+/mnt/d/src/java/SampleTests.java[106]: Partial synchronized (P14: 3.55215 1/4)
+/mnt/d/src/java/SampleTests.java[113]: Partial synchronized (P14: 3.55215 1/4)
+/mnt/d/src/java/SampleTests.java[43]: Non final attribute (P12: 0.71568 2/4)
+/mnt/d/src/java/SampleTests.java[44]: Non final attribute (P12: 0.71568 2/4)
+/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 5 lines (P20_5: 0.51175 3/4)
+/mnt/d/src/java/SampleTests.java[59]: Force Type Casting (P5: 0.42144 4/4)
 ```
 The class has and average score among all patterns.
 
 ```
-D:\target\0001\SampleTests.java score: 5.201028817472813
+/mnt/d/src/java/SampleTests.java score: 5.201028817472813
 ```
 
 The total score is an average among all java files in a project (folder you've set to analyze)
