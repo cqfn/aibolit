@@ -151,7 +151,7 @@ class TwoFoldRankingModel(BaseEstimator):
                 pairs = self.__vstack_arrays(self.__get_pairs(item, th, feature_importances))
                 pairs = pairs[pairs[:, 0].argsort()]
                 ranked.append(pairs[:, 1].T.tolist()[::-1])
-            except Exception as e:
+            except Exception:
                 import traceback
                 traceback.print_exc()
                 raise Exception("Unknown func")
