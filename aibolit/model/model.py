@@ -192,8 +192,8 @@ class TwoFoldRankingModel(BaseEstimator):
     def informative(self, X, scale=True, th=1.0):
         """
         Args:
-            X: np.array with shape (number of snippets, number of patterns) or
-                (number of patterns, ).
+            X: np.array with shape (number of snippets, number of patterns + 1),
+            because last column is ncss
         Returns:
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for each snippet of
