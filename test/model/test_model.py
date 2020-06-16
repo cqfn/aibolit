@@ -19,7 +19,6 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-import unittest
 
 import numpy as np
 from unittest import TestCase
@@ -28,7 +27,6 @@ from aibolit.model.model import TwoFoldRankingModel
 
 class TestModel(TestCase):
 
-    @unittest.skip("interface and implementation has been changed")
     def test_get_minimum(self):
         ranking_model = TwoFoldRankingModel()
         c1 = np.array([1, 4, 5, 3, 6, 6, 4, 3, 1])
@@ -38,13 +36,12 @@ class TestModel(TestCase):
         np.testing.assert_array_equal(c, np.array([1, 2, 5, 3, 6, 3, 0, -3, -1]))
         np.testing.assert_array_equal(number, np.array([0, 1, 0, 0, 0, 2, 2, 2, 1]))
 
-    @unittest.skip("interface and implementation has been changed")
     def test_get_array(self):
         ranking_model = TwoFoldRankingModel()
         X = np.array([[1, 0, 2, 0], [4, 0, 0, 5]])
         X_1 = np.array([[0, 0, 2, 0], [3, 0, 0, 5]])
         X_2 = np.array([[1, 0, 2, 0], [4, 0, 0, 6]])
-        X1 = ranking_model.get_array(X, X > 0, 0, -1)
-        X2 = ranking_model.get_array(X, X > 0, 3, 1)
+        X1 = ranking_model.get_array(X, X > 0, 0, np.array([-1] * 2))
+        X2 = ranking_model.get_array(X, X > 0, 3, np.array([1] * 2))
         np.testing.assert_array_equal(X1, X_1)
         np.testing.assert_array_equal(X2, X_2)
