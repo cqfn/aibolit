@@ -185,7 +185,7 @@ E.g., if you have 2 patterns, first you need to fix the pattern with the score 3
 /mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 5 lines (P20_5: 0.51175 3/4)
 /mnt/d/src/java/SampleTests.java[59]: Force Type Casting (P5: 0.42144 4/4)
 ```
-The class has and average score among all patterns.
+The class calculates average score among all patterns score.
 
 ```
 /mnt/d/src/java/SampleTests.java score: 5.201028817472813
