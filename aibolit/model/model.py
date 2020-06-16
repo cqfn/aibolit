@@ -231,11 +231,9 @@ class TwoFoldRankingModel(BaseEstimator):
                     abs_diff = abs(complexity - complexity_minus)[0]
                     diff = Decimal(abs_diff).quantize(Decimal('0.001'))
                     diff = float(diff * 100)
-            elif complexity_minus > complexity:
+            else:
                 # complexity increased, we do not need such value, set to 0,
                 # cause we need only patterns when complexity decreased
-                diff = 0
-            else:
                 diff = 0
             importances.append((i, diff))
 

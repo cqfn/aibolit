@@ -67,6 +67,7 @@ def list_dir(path, files):
 def predict(input_params, model, args):
     features_order = model.features_conf['features_order']
     # add ncss to last column. We will normalize all patterns by that value
+    # deepcode ignore ExpectsIntDislikesStr: false-positive recommendation of deepcode
     input = [input_params[i] for i in features_order] + [input_params['M2']]
     th = float(args.threshold) or 1.0
     preds, importances = model.informative(np.array(input), th=th)
