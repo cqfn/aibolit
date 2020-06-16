@@ -174,21 +174,28 @@ You can also choose xml format. It will have the same format as `text` mode, but
 ```
 The score is the relative importance of the pattern (there is no range for it). 
 The larger score is, the most important pattern is. 
-E.g., if you have 2 patterns, first you need to fix the pattern with the score 3.55215:
+E.g., if you have several patterns, first you need to fix the pattern with the score 5.45:
 
 ```
-/mnt/d/src/java/SampleTests.java[100]: Partial synchronized (P14: 3.55215 1/4)
-/mnt/d/src/java/SampleTests.java[106]: Partial synchronized (P14: 3.55215 1/4)
-/mnt/d/src/java/SampleTests.java[113]: Partial synchronized (P14: 3.55215 1/4)
-/mnt/d/src/java/SampleTests.java[43]: Non final attribute (P12: 0.71568 2/4)
-/mnt/d/src/java/SampleTests.java[44]: Non final attribute (P12: 0.71568 2/4)
-/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 5 lines (P20_5: 0.51175 3/4)
-/mnt/d/src/java/SampleTests.java[59]: Force Type Casting (P5: 0.42144 4/4)
+/mnt/d/src/java/SampleTests.java[43]: Non final attribute (P12: 5.45 1/10)
+/mnt/d/src/java/SampleTests.java[44]: Non final attribute (P12: 5.45 1/10)
+/mnt/d/src/java/SampleTests.java[80]: Var in the middle (P21: 3.71 2/10)
+/mnt/d/src/java/SampleTests.java[121]: Var in the middle (P21: 3.71 2/10)
+/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 5 lines (P20_5: 2.13 3/10)
+/mnt/d/src/java/SampleTests.java[41]: Non final class (P24: 1.95 4/10)
+/mnt/d/src/java/SampleTests.java[59]: Force Type Casting (P5: 1.45 5/10)
+/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 7 lines (P20_7: 1.07 6/10)
+/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 11 lines (P20_11: 0.78 7/10)
+/mnt/d/src/java/SampleTests.java[51]: Protected Method (P30: 0.60 8/10)
+/mnt/d/src/java/SampleTests.java[52]: Super Method (P18: 0.35 9/10)
+/mnt/d/src/java/SampleTests.java[100]: Partial synchronized (P14: 0.08 10/10)
+/mnt/d/src/java/SampleTests.java[106]: Partial synchronized (P14: 0.08 10/10)
+/mnt/d/src/java/SampleTests.java[113]: Partial synchronized (P14: 0.08 10/10)
 ```
-The class calculates average score among all patterns score.
+The score per class is the sum of all patterns scores.
 
 ```
-/mnt/d/src/java/SampleTests.java score: 5.201028817472813
+/mnt/d/src/java/SampleTests.java score: 17.54698560768407
 ```
 
 The total score is an average among all java files in a project (folder you've set to analyze)
