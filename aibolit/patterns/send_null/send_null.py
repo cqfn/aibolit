@@ -30,6 +30,7 @@ class SendNull:
         return position
 
     # flake8: noqa
+    # after fix addition, errors are shown
     def value(self, filename: str) -> List[int]:
 
         lst: List[int] = []
