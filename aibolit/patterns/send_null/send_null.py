@@ -29,8 +29,9 @@ class SendNull:
 
         return position
 
-
+    # flake8: noqa
     def value(self, filename: str) -> List[int]:
+
         lst: List[int] = []
         tree = build_ast(filename)
 
