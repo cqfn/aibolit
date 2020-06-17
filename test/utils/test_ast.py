@@ -22,7 +22,7 @@
 
 from unittest import TestCase
 from pathlib import Path
-from networkx import dfs_preorder_nodes
+from networkx import dfs_preorder_nodes  # type: ignore
 
 from aibolit.utils.ast_builder import build_ast
 from aibolit.utils.ast import AST, ASTNodeType
@@ -42,7 +42,7 @@ class ASTTestSuite(TestCase):
 
     _java_source_code_filename_to_ast_preordered_traversed = \
         [
-            ('simple_class.java', [
+            ('SimpleClass.java', [
                 ASTNodeType.COMPILATION_UNIT,
                 ASTNodeType.CLASS_DECLARATION,
                 ASTNodeType.COLLECTION,
