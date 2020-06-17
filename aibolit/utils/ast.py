@@ -21,11 +21,12 @@
 # SOFTWARE.
 
 from enum import Enum, auto
+from functools import lru_cache
 
 import javalang.tree
 from javalang.tree import Node
-from typing import Union, Any, Set, Dict, Type
-from networkx import DiGraph, dfs_labeled_edges  # type: ignore
+from typing import Union, Any, Set, Dict, Type, List, Iterator
+from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
 
 
 class ASTNodeType(Enum):
@@ -130,6 +131,45 @@ class AST:
             elif edge_type == 'reverse':
                 depth -= print_step
         return printed_graph
+
+    def subtrees_with_root_type(self, root_type: ASTNodeType) -> Iterator[List[int]]:
+        '''
+        Yields subtrees with given type of the root.
+        If such subtrees are one including the other, only the larger one is
+        going to be in resulted sequence.
+        '''
+        is_inside_subtree = False
+        current_subtree_root = -1  # all node indexes are positive
+        subtree: List[int] = []
+        for _, destination, edge_type in dfs_labeled_edges(self.tree, self.root):
+            if edge_type == 'forward':
+                if is_inside_subtree:
+                    subtree.append(destination)
+                elif self.tree.nodes[destination]['type'] == root_type:
+                    subtree.append(destination)
+                    is_inside_subtree = True
+                    current_subtree_root = destination
+            elif edge_type == 'reverse' and destination == current_subtree_root:
+                is_inside_subtree = False
+                yield subtree
+                subtree = []
+
+    def children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
+        '''
+        Yields children of node with given type.
+        '''
+        for child in self.tree.succ[node]:
+            if self.tree.nodes[child]['type'] == child_type:
+                yield child
+
+    @property  # type: ignore
+    @lru_cache
+    def node_types(self) -> Iterator[ASTNodeType]:
+        '''
+        Yields types of nodes in preorder tree traversal.
+        '''
+        for node in dfs_preorder_nodes(self.tree, self.root):
+            yield self.tree.nodes[node]['type']
 
     def _build_networkx_tree_from_javalang(self, javalang_node: Node) -> int:
         node_index = len(self.tree) + 1
