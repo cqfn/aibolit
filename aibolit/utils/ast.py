@@ -163,7 +163,7 @@ class AST:
                 yield child
 
     @property  # type: ignore
-    @lru_cache
+    @lru_cache()
     def node_types(self) -> Iterator[ASTNodeType]:
         '''
         Yields types of nodes in preorder tree traversal.

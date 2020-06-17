@@ -38,7 +38,7 @@ class JavaClassMethod(AST):
         self._java_class = java_class
 
     @property  # type: ignore
-    @lru_cache
+    @lru_cache()
     def name(self) -> str:
         try:
             method_name = next(self.children_with_type(self.root, ASTNodeType.STRING))

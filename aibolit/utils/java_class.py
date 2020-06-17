@@ -41,7 +41,7 @@ class JavaClass(AST):
         self._java_package = java_package
 
     @property  # type: ignore
-    @lru_cache
+    @lru_cache()
     def name(self) -> str:
         try:
             class_name = next(self.children_with_type(self.root, ASTNodeType.STRING))
@@ -54,13 +54,13 @@ class JavaClass(AST):
         return self._java_package
 
     @property  # type: ignore
-    @lru_cache
+    @lru_cache()
     def methods(self) -> Iterator[JavaClassMethod]:
         for nodes in self.subtrees_with_root_type(ASTNodeType.METHOD_DECLARATION):
             yield JavaClassMethod(self.tree.subgraph(nodes), nodes[0], self)
 
     @property  # type: ignore
-    @lru_cache
+    @lru_cache()
     def fields(self) -> Iterator[JavaClassField]:
         for nodes in self.subtrees_with_root_type(ASTNodeType.FIELD_DECLARATION):
             yield JavaClassField(self.tree.subgraph(nodes), nodes[0], self)

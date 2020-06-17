@@ -34,7 +34,7 @@ class JavaPackage(AST):
         super().__init__(build_ast(filename))
 
     @property  # type: ignore
-    @lru_cache
+    @lru_cache()
     def name(self) -> str:
         try:
             package_declaration = next(self.children_with_type(self.root, ASTNodeType.PACKAGE_DECLARATION))
@@ -46,7 +46,7 @@ class JavaPackage(AST):
         return '.'  # default package name
 
     @property  # type: ignore
-    @lru_cache
+    @lru_cache()
     def java_classes(self) -> Iterator[JavaClass]:
         for nodes in self.subtrees_with_root_type(ASTNodeType.CLASS_DECLARATION):
             yield JavaClass(self.tree.subgraph(nodes), nodes[0], self)
