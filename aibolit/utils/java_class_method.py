@@ -23,20 +23,29 @@
 from functools import lru_cache
 
 from typing import TYPE_CHECKING
+from networkx import DiGraph  # type: ignore
 
-from aibolit.utils.ast import AST
+from aibolit.utils.ast import AST, ASTNodeType
 
 if TYPE_CHECKING:
     from aibolit.utils.java_class import JavaClass
 
 
 class JavaClassMethod(AST):
-    @property  # type: ignore
-    @lru_cache
-    def name(self) -> str:
-        pass
+    def __init__(self, tree: DiGraph, root: int, java_class: 'JavaClass'):
+        self.tree = tree
+        self.root = root
+        self._java_class = java_class
 
     @property  # type: ignore
     @lru_cache
+    def name(self) -> str:
+        try:
+            method_name = next(self.children_with_type(self.root, ASTNodeType.STRING))
+            return self.tree.nodes[method_name]['string']
+        except StopIteration:
+            raise ValueError("Provided AST does not has 'STRING' node type right under the root")
+
+    @property
     def java_class(self) -> 'JavaClass':
-        pass
+        return self._java_class

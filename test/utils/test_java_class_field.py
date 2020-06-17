@@ -20,33 +20,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from functools import lru_cache
+from unittest import TestCase
+from pathlib import Path
 
-from typing import Iterator
-
-from aibolit.utils.ast import AST, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
-from aibolit.utils.java_class import JavaClass
+from aibolit.utils.java_package import JavaPackage
 
 
-class JavaPackage(AST):
-    def __init__(self, filename: str):
-        super().__init__(build_ast(filename))
-
-    @property  # type: ignore
-    @lru_cache
-    def name(self) -> str:
-        try:
-            package_declaration = next(self.children_with_type(self.root, ASTNodeType.PACKAGE_DECLARATION))
-            package_name = next(self.children_with_type(package_declaration, ASTNodeType.STRING))
-            return self.tree.nodes[package_name]['string']
-        except StopIteration:
-            pass
-
-        return '.'  # default package name
-
-    @property  # type: ignore
-    @lru_cache
-    def java_classes(self) -> Iterator[JavaClass]:
-        for nodes in self.subtrees_with_root_type(ASTNodeType.CLASS_DECLARATION):
-            yield JavaClass(self.tree.subgraph(nodes), nodes[0], self)
+class JavaClassFieldTestCase(TestCase):
+    def test_field_name(self):
+        java_package = JavaPackage(Path(__file__).parent.absolute() / "TwoClasses.java")
+        _, second_java_class = java_package.java_classes
+        expected_field_names = ["x", "y"]
+        for java_field, expected_field_name in zip(second_java_class.fields, expected_field_names):
+            with self.subTest():
+                self.assertEqual(java_field.name, expected_field_name)

@@ -23,17 +23,160 @@
 from unittest import TestCase
 from pathlib import Path
 
+from aibolit.utils.ast import ASTNodeType
 from aibolit.utils.java_package import JavaPackage
 
 
 class JavaPackageTestCase(TestCase):
-    _java_packages_with_names = [
-        ("SimpleClass.java", "."),
-        ("SimpleClassInPackage.java", "simple.javapackage")
-    ]
 
     def test_java_package_name(self):
         for filename, package_name in JavaPackageTestCase._java_packages_with_names:
             with self.subTest():
                 java_package = JavaPackage(Path(__file__).parent.absolute() / filename)
                 self.assertEqual(java_package.name, package_name)
+
+    def test_classes(self):
+        for filename, flatten_classes in JavaPackageTestCase._java_packages_with_classes:
+            with self.subTest():
+                java_package = JavaPackage(Path(__file__).parent.absolute() / filename)
+                for java_class, flatten_class in zip(java_package.java_classes, flatten_classes):
+                    self.assertEqual(list(java_class.node_types), flatten_class)
+
+    _java_packages_with_names = [
+        ("SimpleClass.java", "."),
+        ("TwoClasses.java", "two.classes")
+    ]
+
+    _simple_class_preorder_traversal_types = [
+        ASTNodeType.CLASS_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.FIELD_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.BASIC_TYPE,
+        ASTNodeType.STRING,
+        ASTNodeType.VARIABLE_DECLARATOR,
+        ASTNodeType.STRING,
+        ASTNodeType.LITERAL,
+        ASTNodeType.STRING,
+        ASTNodeType.METHOD_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.BASIC_TYPE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.STATEMENT_EXPRESSION,
+        ASTNodeType.ASSIGNMENT,
+        ASTNodeType.MEMBER_REFERENCE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.LITERAL,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.RETURN_STATEMENT,
+        ASTNodeType.MEMBER_REFERENCE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+    ]
+
+    _first_class_preorder_traversal_types = [
+        ASTNodeType.CLASS_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.FIELD_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.BASIC_TYPE,
+        ASTNodeType.STRING,
+        ASTNodeType.VARIABLE_DECLARATOR,
+        ASTNodeType.STRING,
+        ASTNodeType.LITERAL,
+        ASTNodeType.STRING,
+        ASTNodeType.METHOD_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.BASIC_TYPE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.STATEMENT_EXPRESSION,
+        ASTNodeType.ASSIGNMENT,
+        ASTNodeType.MEMBER_REFERENCE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.LITERAL,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.RETURN_STATEMENT,
+        ASTNodeType.MEMBER_REFERENCE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+    ]
+
+    _second_class_preorder_traversal_types = [
+        ASTNodeType.CLASS_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.FIELD_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.BASIC_TYPE,
+        ASTNodeType.STRING,
+        ASTNodeType.VARIABLE_DECLARATOR,
+        ASTNodeType.STRING,
+        ASTNodeType.LITERAL,
+        ASTNodeType.STRING,
+        ASTNodeType.FIELD_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.BASIC_TYPE,
+        ASTNodeType.STRING,
+        ASTNodeType.VARIABLE_DECLARATOR,
+        ASTNodeType.STRING,
+        ASTNodeType.LITERAL,
+        ASTNodeType.STRING,
+        ASTNodeType.METHOD_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.BASIC_TYPE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.STATEMENT_EXPRESSION,
+        ASTNodeType.ASSIGNMENT,
+        ASTNodeType.MEMBER_REFERENCE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.LITERAL,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.RETURN_STATEMENT,
+        ASTNodeType.MEMBER_REFERENCE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.METHOD_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.BASIC_TYPE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.STATEMENT_EXPRESSION,
+        ASTNodeType.ASSIGNMENT,
+        ASTNodeType.MEMBER_REFERENCE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.LITERAL,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.RETURN_STATEMENT,
+        ASTNodeType.MEMBER_REFERENCE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+    ]
+
+    _java_packages_with_classes = [
+        ("SimpleClass.java", [_simple_class_preorder_traversal_types]),
+        ("TwoClasses.java", [
+            _first_class_preorder_traversal_types,
+            _second_class_preorder_traversal_types,
+        ])
+    ]

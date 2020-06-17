@@ -23,9 +23,10 @@
 
 from functools import lru_cache
 
-from typing import List, TYPE_CHECKING
+from typing import Iterator, TYPE_CHECKING
+from networkx import DiGraph  # type: ignore
 
-from aibolit.utils.ast import AST
+from aibolit.utils.ast import AST, ASTNodeType
 from aibolit.utils.java_class_method import JavaClassMethod
 from aibolit.utils.java_class_field import JavaClassField
 
@@ -34,23 +35,32 @@ if TYPE_CHECKING:
 
 
 class JavaClass(AST):
+    def __init__(self, tree: DiGraph, root: int, java_package: 'JavaPackage'):
+        self.tree = tree
+        self.root = root
+        self._java_package = java_package
 
     @property  # type: ignore
     @lru_cache
     def name(self) -> str:
-        pass
+        try:
+            class_name = next(self.children_with_type(self.root, ASTNodeType.STRING))
+            return self.tree.nodes[class_name]['string']
+        except StopIteration:
+            raise ValueError("Provided AST does not has 'STRING' node type right under the root")
 
-    @property  # type: ignore
-    @lru_cache
+    @property
     def package(self) -> 'JavaPackage':
-        pass
+        return self._java_package
 
     @property  # type: ignore
     @lru_cache
-    def methods(self) -> List[JavaClassMethod]:
-        pass
+    def methods(self) -> Iterator[JavaClassMethod]:
+        for nodes in self.subtrees_with_root_type(ASTNodeType.METHOD_DECLARATION):
+            yield JavaClassMethod(self.tree.subgraph(nodes), nodes[0], self)
 
     @property  # type: ignore
     @lru_cache
-    def fields(self) -> List[JavaClassField]:
-        pass
+    def fields(self) -> Iterator[JavaClassField]:
+        for nodes in self.subtrees_with_root_type(ASTNodeType.FIELD_DECLARATION):
+            yield JavaClassField(self.tree.subgraph(nodes), nodes[0], self)
