@@ -20,33 +20,20 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from functools import lru_cache
+from unittest import TestCase
+from pathlib import Path
 
-from typing import List
-
-from aibolit.utils.ast import AST, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
-from aibolit.utils.java_class import JavaClass
+from aibolit.utils.java_package import JavaPackage
 
 
-class JavaPackage(AST):
-    def __init__(self, filename: str):
-        super().__init__(build_ast(filename))
+class JavaPackageTestCase(TestCase):
+    _java_packages_with_names = [
+        ("SimpleClass.java", "."),
+        ("SimpleClassInPackage.java", "simple.javapackage")
+    ]
 
-    @property  # type: ignore
-    @lru_cache
-    def name(self) -> str:
-        for compilation_unit_child in self.tree.succ[self.root]:
-            if self.tree.nodes[compilation_unit_child]['type'] == \
-               ASTNodeType.PACKAGE_DECLARATION:
-                for package_declaration_child in self.tree.succ[compilation_unit_child]:
-                    if self.tree.nodes[package_declaration_child]['type'] == \
-                       ASTNodeType.STRING:
-                        return self.tree.nodes[package_declaration_child]['string']
-
-        return '.'  # default package name
-
-    @property  # type: ignore
-    @lru_cache
-    def java_classes(self) -> List[JavaClass]:
-        pass
+    def test_java_package_name(self):
+        for filename, package_name in JavaPackageTestCase._java_packages_with_names:
+            with self.subTest():
+                java_package = JavaPackage(Path(__file__).parent.absolute() / filename)
+                self.assertEqual(java_package.name, package_name)
