@@ -22,13 +22,14 @@
 
 from functools import lru_cache
 
-from typing import TYPE_CHECKING
+from typing import Iterator, TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
 
 from aibolit.utils.ast import AST, ASTNodeType
 
 if TYPE_CHECKING:
     from aibolit.utils.java_class import JavaClass
+    from aibolit.utils.java_class_field import JavaClassField
 
 
 class JavaClassMethod(AST):
@@ -49,3 +50,13 @@ class JavaClassMethod(AST):
     @property
     def java_class(self) -> 'JavaClass':
         return self._java_class
+
+    @property  # type: ignore
+    @lru_cache()
+    def used_methods(self) -> Iterator['JavaClassMethod']:
+        pass
+
+    @property  # type: ignore
+    @lru_cache()
+    def used_fields(self) -> Iterator[JavaClassField]:
+        pass
