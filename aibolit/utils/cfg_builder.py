@@ -20,37 +20,18 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from functools import lru_cache
-
-from typing import TYPE_CHECKING
+# from functools import lru_cache
+# from typing import TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
-from aibolit.utils.cfg_builder import build_cfg
-
-from aibolit.utils.ast import AST, ASTNodeType
-
-if TYPE_CHECKING:
-    from aibolit.utils.java_class import JavaClass
+from aibolit.utils.ast import AST
+from javalang.tree import Node
 
 
-class JavaClassMethod(AST):
-    def __init__(self, tree: DiGraph, root: int, java_class: 'JavaClass'):
-        self.tree = tree
-        self.root = root
-        self._java_class = java_class
+def build_cfg(tree: AST) -> DiGraph:
+    '''Create Control Flow Graph'''
+    pass
 
-    @property  # type: ignore
-    @lru_cache()
-    def name(self) -> str:
-        try:
-            method_name = next(self.children_with_type(self.root, ASTNodeType.STRING))
-            return self.tree.nodes[method_name]['string']
-        except StopIteration:
-            raise ValueError("Provided AST does not has 'STRING' node type right under the root")
 
-    @property
-    def java_class(self) -> 'JavaClass':
-        return self._java_class
-
-    def cfg(self) -> DiGraph:
-        '''Make Control Flow Graph representation of this method'''
-        return build_cfg(self)
+def _mk_cfg_graph(node: Node) -> DiGraph:
+    '''Takes in Javalang statement and returns corresponding CFG'''
+    pass

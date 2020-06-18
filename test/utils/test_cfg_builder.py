@@ -20,37 +20,20 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from functools import lru_cache
+from unittest import TestCase, skip
+from pathlib import Path
 
-from typing import TYPE_CHECKING
-from networkx import DiGraph  # type: ignore
-from aibolit.utils.cfg_builder import build_cfg
-
-from aibolit.utils.ast import AST, ASTNodeType
-
-if TYPE_CHECKING:
-    from aibolit.utils.java_class import JavaClass
+from aibolit.utils.java_package import JavaPackage
+from aibolit.utils.java_class import JavaClass
+from aibolit.utils.java_class_method import JavaClassMethod
 
 
-class JavaClassMethod(AST):
-    def __init__(self, tree: DiGraph, root: int, java_class: 'JavaClass'):
-        self.tree = tree
-        self.root = root
-        self._java_class = java_class
+class CFGBuilderTestCase(TestCase):
 
-    @property  # type: ignore
-    @lru_cache()
-    def name(self) -> str:
-        try:
-            method_name = next(self.children_with_type(self.root, ASTNodeType.STRING))
-            return self.tree.nodes[method_name]['string']
-        except StopIteration:
-            raise ValueError("Provided AST does not has 'STRING' node type right under the root")
-
-    @property
-    def java_class(self) -> 'JavaClass':
-        return self._java_class
-
-    def cfg(self) -> DiGraph:
-        '''Make Control Flow Graph representation of this method'''
-        return build_cfg(self)
+    @skip("not implemented yet")
+    def test_cfg_of_method(self):
+        java_package = JavaPackage(Path(__file__).parent.absolute() / "SimpleClass.java")
+        fst: JavaClass = [c for c in java_package.java_classes][0]
+        method: JavaClassMethod = [m for m in fst.methods()][0]
+        cfg = method.cfg()
+        self.assertEqual(cfg.size(), 2)
