@@ -23,8 +23,7 @@
 # from functools import lru_cache
 # from typing import TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
-from aibolit.utils.ast import AST
-from javalang.tree import Node
+from aibolit.utils.ast import AST, ASTNodeType
 
 
 def build_cfg(tree: AST) -> DiGraph:
@@ -32,6 +31,6 @@ def build_cfg(tree: AST) -> DiGraph:
     pass
 
 
-def _mk_cfg_graph(node: Node) -> DiGraph:
+def _mk_cfg_graph(node: ASTNodeType) -> DiGraph:
     '''Takes in Javalang statement and returns corresponding CFG'''
     pass
