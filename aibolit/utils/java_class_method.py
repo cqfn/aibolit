@@ -23,7 +23,7 @@
 from functools import lru_cache
 
 from typing import TYPE_CHECKING
-from networkx import DiGraph  # type: ignore
+from networkx import DiGraph, Graph  # type: ignore
 from aibolit.utils.cfg_builder import build_cfg
 
 from aibolit.utils.ast import AST, ASTNodeType
@@ -51,6 +51,6 @@ class JavaClassMethod(AST):
     def java_class(self) -> 'JavaClass':
         return self._java_class
 
-    def cfg(self) -> DiGraph:
+    def cfg(self) -> Graph:
         '''Make Control Flow Graph representation of this method'''
         return build_cfg(self)
