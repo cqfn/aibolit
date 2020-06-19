@@ -24,6 +24,7 @@ from cached_property import cached_property  # type: ignore
 
 from typing import Dict, Set, TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
+from aibolit.utils.cfg_builder import build_cfg
 
 from aibolit.utils.ast import AST, ASTNodeType
 from aibolit.utils.java_class_field import JavaClassField
@@ -64,3 +65,8 @@ class JavaClassMethod(AST):
     @cached_property
     def used_fields(self) -> Dict[str, Set[JavaClassField]]:
         pass
+
+    @cached_property
+    def cfg(self) -> DiGraph:
+        '''Make Control Flow Graph representation of this method'''
+        return build_cfg(self)

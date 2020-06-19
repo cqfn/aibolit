@@ -219,6 +219,12 @@ You can get full report with `--full` command, then all patterns will be include
 $ aibolit recommend --folder src/java --full
 ```
 
+You can exclude folder with `--exclude` command. The last parameter is the folder to exclude, 
+the rest of them are glob patterns.
+```bash
+$ aibolit recommend --folder src/java --exclude=**/*Test*.java --exclude=**/*Impl*.java --exclude=/mnt/d/src/java/tests
+```
+
 If you need help, run 
 
 ```bash
