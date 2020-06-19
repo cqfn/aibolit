@@ -23,42 +23,36 @@
 from unittest import TestCase
 from pathlib import Path
 
-from aibolit.utils.ast_builder import build_ast
-from aibolit.utils.ast import AST, ASTNodeType
+from aibolit.utils.java_package import JavaPackage
+from aibolit.utils.ast import ASTNodeType
 
 
-class ASTTestSuite(TestCase):
-    def test_parsing(self):
-        ast = self._build_ast("SimpleClass.java")
-        self.assertEqual(list(ast.node_types),
-                         ASTTestSuite._java_simple_class_preordered)
-
-    def test_subtrees_selection(self):
-        ast = self._build_ast("SimpleClass.java")
-        subtrees = ast.subtrees_with_root_type(ASTNodeType.BASIC_TYPE)
-        for subtree_nodes, expected_subtree in \
-                zip(subtrees, ASTTestSuite._java_simple_class_basic_type_subtrees):
+class JavaClassTestCase(TestCase):
+    def test_class_name(self):
+        for filename, class_names in JavaClassTestCase._java_packages_with_class_names:
             with self.subTest():
-                self.assertEqual(subtree_nodes, expected_subtree)
+                java_package = JavaPackage(Path(__file__).parent.absolute() / filename)
+                for java_class, class_name in zip(java_package.java_classes, class_names):
+                    self.assertEqual(java_class.name, class_name)
 
-    def _build_ast(self, filename: str):
-        javalang_ast = build_ast(Path(__file__).parent.absolute() / filename)
-        return AST(javalang_ast)
+    def test_class_mathod(self):
+        java_package = JavaPackage(Path(__file__).parent.absolute() / "SimpleClass.java")
+        java_class = next(java_package.java_classes)
+        java_method = next(java_class.methods)
+        self.assertEqual(list(java_method.node_types), JavaClassTestCase._java_method_preorder_traversal_types)
 
-    _java_simple_class_preordered = [
-        ASTNodeType.COMPILATION_UNIT,
-        ASTNodeType.CLASS_DECLARATION,
-        ASTNodeType.COLLECTION,
-        ASTNodeType.STRING,
-        ASTNodeType.FIELD_DECLARATION,
-        ASTNodeType.COLLECTION,
-        ASTNodeType.STRING,
-        ASTNodeType.BASIC_TYPE,
-        ASTNodeType.STRING,
-        ASTNodeType.VARIABLE_DECLARATOR,
-        ASTNodeType.STRING,
-        ASTNodeType.LITERAL,
-        ASTNodeType.STRING,
+    def test_class_field(self):
+        java_package = JavaPackage(Path(__file__).parent.absolute() / "SimpleClass.java")
+        java_class = next(java_package.java_classes)
+        java_method = next(java_class.fields)
+        self.assertEqual(list(java_method.node_types), JavaClassTestCase._java_field_preorder_traversal_types)
+
+    _java_packages_with_class_names = [
+        ("SimpleClass.java", ["Simple"]),
+        ("TwoClasses.java", ["First", "Second"])
+    ]
+
+    _java_method_preorder_traversal_types = [
         ASTNodeType.METHOD_DECLARATION,
         ASTNodeType.COLLECTION,
         ASTNodeType.STRING,
@@ -79,7 +73,14 @@ class ASTTestSuite(TestCase):
         ASTNodeType.STRING,
     ]
 
-    _java_simple_class_basic_type_subtrees = [
-        [8, 9],
-        [17, 18],
+    _java_field_preorder_traversal_types = [
+        ASTNodeType.FIELD_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.BASIC_TYPE,
+        ASTNodeType.STRING,
+        ASTNodeType.VARIABLE_DECLARATOR,
+        ASTNodeType.STRING,
+        ASTNodeType.LITERAL,
+        ASTNodeType.STRING,
     ]
