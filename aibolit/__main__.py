@@ -527,9 +527,10 @@ def handle_exclude_command_line(args):
             glob_patterns = [x[0] for x in args.exclude[:-1]]
             for glob_p in glob_patterns:
                 files_to_exclude.extend([str(x.absolute()) for x in list(Path(folder_to_exclude).glob(glob_p))])
-            return files_to_exclude
+
         except Exception:
             raise Exception(exc_string)
+    return files_to_exclude
 
 
 def format_converter_for_pattern(results, sorted_by=None):
