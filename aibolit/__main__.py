@@ -517,16 +517,16 @@ def check():
 def handle_exclude_command_line(args):
     files_to_exclude = []
     exc_string = 'Usage: --exclude=<glob pattern> ' \
-                 '--exclude=folder_to_find_exceptions ' \
-                 '--exclude=folder_to_find_exceptions ...'
+                 '--exclude=<glob pattern> ...' \
+                 '--exclude=folder_to_find_exceptions '
     if args.exclude:
         if len(args.exclude) < 2:
             raise Exception(exc_string)
         try:
-            folders_to_exclude = [x[0] for x in args.exclude[1:]]
-            regexp = args.exclude[0][0]
-            for folder in folders_to_exclude:
-                files_to_exclude.extend([str(x.absolute()) for x in list(Path(folder).glob(regexp))])
+            folder_to_exclude = args.exclude[-1][0]
+            glob_patterns = [x[0] for x in args.exclude[:-1]]
+            for glob_p in glob_patterns:
+                files_to_exclude.extend([str(x.absolute()) for x in list(Path(folder_to_exclude).glob(glob_p))])
             return files_to_exclude
         except Exception:
             raise Exception(exc_string)
