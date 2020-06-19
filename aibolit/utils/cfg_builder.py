@@ -40,8 +40,8 @@ def build_cfg(tree: AST) -> Graph:
     for node_idx in dfs_preorder_nodes(tree.tree, tree.root):
         if tree.tree.nodes[node_idx]['type'] not in NODE_TYPES:
             continue
-        sg, _ = _mk_cfg_graph(tree.tree.nodes[node_idx]['type'])
-        g = _compose_two_graphs(g, sg)
+        _g = _mk_cfg_graph(tree.tree.nodes[node_idx]['type'])
+        g = _compose_two_graphs(g, _g)
     return g
 
 
@@ -49,7 +49,7 @@ def _mk_cfg_graph(node: ASTNodeType) -> Tuple[Graph, int]:
     '''Takes in Javalang statement and returns corresponding CFG'''
     g = Graph()
     g.add_node(0)
-    return g, 0
+    return g
 
 
 def _compose_two_graphs(g1: Graph, g2: Graph) -> Graph:
