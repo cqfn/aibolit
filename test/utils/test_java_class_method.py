@@ -35,15 +35,17 @@ class JavaClassMethodTestCase(TestCase):
     def test_used_methods(self):
         java_package = JavaPackage(Path(__file__).parent.absolute() / 'MethodUseOtherMethodExample.java')
         java_class = java_package.java_classes['MethodUseOtherMethod']
-        for method_name, method in java_class.methods.items():
+        for method_name, methods in java_class.methods.items():
             with self.subTest(f'Method: {method_name}'):
-                self.assertEqual(JavaClassMethodTestCase._used_methods_by_name[method.name],
+                self.assertEqual(len(methods), 1)
+                method = next(iter(methods))
+                self.assertEqual(JavaClassMethodTestCase._used_methods_by_name[method_name],
                                  method.used_methods.keys())
 
     _used_methods_by_name = {
         'useOnlyMethods1': {'useOnlyMethods2'},
         'useOnlyMethods2': {'useOnlyMethods1'},
-        'getField': {},
-        'setField': {},
-        'standAloneMethod': {},
+        'getField': set(),
+        'setField': set(),
+        'standAloneMethod': set(),
     }
