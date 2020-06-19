@@ -53,10 +53,9 @@ class JavaClassMethod(AST):
     @cached_property
     def used_methods(self) -> Dict[str, Set['JavaClassMethod']]:
         method_invocation_nodes = self.nodes_by_type(ASTNodeType.METHOD_INVOCATION)
-        used_method_invocation_params = map(lambda node: self.get_method_invoked_name(node),
-                                            method_invocation_nodes)
-        used_local_method_invocation_params = filter(lambda params: len(params.object_name) == 0,
-                                                     used_method_invocation_params)
+        used_method_invocation_params = (self.get_method_invoked_name(node) for node in method_invocation_nodes)
+        used_local_method_invocation_params = (params for params in used_method_invocation_params
+                                               if len(params.object_name) == 0)
         used_local_method_names = {params.method_name for params in used_local_method_invocation_params}
 
         return {method_name: self.java_class.methods[method_name] for method_name in self.java_class.methods
