@@ -52,8 +52,16 @@ class JavaClassMethod(AST):
 
     @cached_property
     def used_methods(self) -> Iterator['JavaClassMethod']:
-        pass
+        method_invocation_nodes = self.nodes_by_type(ASTNodeType.METHOD_INVOCATION)
+        used_method_invocation_params = map(lambda node: self.get_method_invoked_name(node),
+                                            method_invocation_nodes)
+        used_local_method_invocation_params = filter(lambda params: len(params.object_name) == 0,
+                                                     used_method_invocation_params)
+        used_local_method_names = {params.method_name for params in used_local_method_invocation_params}
+
+        return filter(lambda method: method.name in used_local_method_names,
+                      self.java_class.methods)
 
     @cached_property
-    def used_fields(self) -> Iterator[JavaClassField]:
+    def used_fields(self) -> Iterator['JavaClassField']:
         pass

@@ -34,3 +34,20 @@ class JavaClassMethodTestCase(TestCase):
         for java_method, expected_method_name in zip(second_java_class.methods, expected_method_names):
             with self.subTest():
                 self.assertEqual(java_method.name, expected_method_name)
+
+    def test_used_methods(self):
+        java_package = JavaPackage(Path(__file__).parent.absolute() / "MethodUseOtherMethodExample.java")
+        java_class = next(java_package.java_classes)
+        for method in java_class.methods:
+            with self.subTest(f'Method "{method.name}"'):
+                used_methods_names = [used_method.name for used_method in method.used_methods]
+                self.assertEqual(JavaClassMethodTestCase._used_methods_by_name[method.name],
+                                 used_methods_names)
+
+    _used_methods_by_name = {
+        "useOnlyMethods1": ["useOnlyMethods2"],
+        "useOnlyMethods2": ["useOnlyMethods1"],
+        "getField": [],
+        "setField": [],
+        "standAloneMethod": [],
+    }
