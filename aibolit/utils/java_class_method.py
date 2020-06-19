@@ -22,7 +22,7 @@
 
 from functools import cached_property
 
-from typing import Iterator, TYPE_CHECKING
+from typing import Dict, Set, TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
 
 from aibolit.utils.ast import AST, ASTNodeType
@@ -51,7 +51,7 @@ class JavaClassMethod(AST):
         return self._java_class
 
     @cached_property
-    def used_methods(self) -> Iterator['JavaClassMethod']:
+    def used_methods(self) -> Dict[str, Set['JavaClassMethod']]:
         method_invocation_nodes = self.nodes_by_type(ASTNodeType.METHOD_INVOCATION)
         used_method_invocation_params = map(lambda node: self.get_method_invoked_name(node),
                                             method_invocation_nodes)
@@ -59,9 +59,9 @@ class JavaClassMethod(AST):
                                                      used_method_invocation_params)
         used_local_method_names = {params.method_name for params in used_local_method_invocation_params}
 
-        return filter(lambda method: method.name in used_local_method_names,
-                      self.java_class.methods)
+        return {method_name: self.java_class.methods[method_name] for method_name in self.java_class.methods
+                if method_name in used_local_method_names}
 
     @cached_property
-    def used_fields(self) -> Iterator['JavaClassField']:
+    def used_fields(self) -> Dict[str, Set['JavaClassField']]:
         pass

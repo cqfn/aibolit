@@ -28,9 +28,6 @@ from aibolit.utils.java_package import JavaPackage
 
 class JavaClassFieldTestCase(TestCase):
     def test_field_name(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / "TwoClasses.java")
-        _, second_java_class = java_package.java_classes
-        expected_field_names = ["x", "y"]
-        for java_field, expected_field_name in zip(second_java_class.fields, expected_field_names):
-            with self.subTest():
-                self.assertEqual(java_field.name, expected_field_name)
+        java_package = JavaPackage(Path(__file__).parent.absolute() / 'TwoClasses.java')
+        java_class = java_package.java_classes['Second']
+        self.assertEqual(java_class.fields.keys(), {'x', 'y'})

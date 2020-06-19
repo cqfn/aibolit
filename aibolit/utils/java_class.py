@@ -23,7 +23,7 @@
 
 from functools import cached_property
 
-from typing import Iterator, TYPE_CHECKING
+from typing import Dict, Set, TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
 
 from aibolit.utils.ast import AST, ASTNodeType
@@ -53,11 +53,20 @@ class JavaClass(AST):
         return self._java_package
 
     @cached_property
-    def methods(self) -> Iterator[JavaClassMethod]:
+    def methods(self) -> Dict[str, Set[JavaClassMethod]]:
+        methods: Dict[str, Set[JavaClassMethod]] = {}
         for nodes in self.subtrees_with_root_type(ASTNodeType.METHOD_DECLARATION):
-            yield JavaClassMethod(self.tree.subgraph(nodes), nodes[0], self)
+            method = JavaClassMethod(self.tree.subgraph(nodes), nodes[0], self)
+            if method.name in methods:
+                methods[method.name].add(method)
+            else:
+                methods[method.name] = {method}
+        return methods
 
     @cached_property
-    def fields(self) -> Iterator[JavaClassField]:
+    def fields(self) -> Dict[str, JavaClassField]:
+        fields: Dict[str, JavaClassField] = {}
         for nodes in self.subtrees_with_root_type(ASTNodeType.FIELD_DECLARATION):
-            yield JavaClassField(self.tree.subgraph(nodes), nodes[0], self)
+            field = JavaClassField(self.tree.subgraph(nodes), nodes[0], self)
+            fields[field.name] = field
+        return fields

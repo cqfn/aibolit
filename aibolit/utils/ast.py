@@ -168,12 +168,11 @@ class AST:
                 yield child
 
     @cached_property
-    def node_types(self) -> Iterator[ASTNodeType]:
+    def node_types(self) -> List[ASTNodeType]:
         '''
         Yields types of nodes in preorder tree traversal.
         '''
-        for node in dfs_preorder_nodes(self.tree, self.root):
-            yield self.tree.nodes[node]['type']
+        return [self.tree.nodes[node]['type'] for node in dfs_preorder_nodes(self.tree, self.root)]
 
     def nodes_by_type(self, type: ASTNodeType) -> Iterator[int]:
         return filter(lambda node: self.tree.nodes[node]['type'] == type, self.tree.nodes)

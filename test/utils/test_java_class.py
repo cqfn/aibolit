@@ -30,26 +30,27 @@ from aibolit.utils.ast import ASTNodeType
 class JavaClassTestCase(TestCase):
     def test_class_name(self):
         for filename, class_names in JavaClassTestCase._java_packages_with_class_names:
-            with self.subTest():
+            with self.subTest(f'Filename: {filename}'):
                 java_package = JavaPackage(Path(__file__).parent.absolute() / filename)
-                for java_class, class_name in zip(java_package.java_classes, class_names):
-                    self.assertEqual(java_class.name, class_name)
+                self.assertEqual(java_package.java_classes.keys(), class_names)
 
-    def test_class_mathod(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / "SimpleClass.java")
-        java_class = next(java_package.java_classes)
-        java_method = next(java_class.methods)
-        self.assertEqual(list(java_method.node_types), JavaClassTestCase._java_method_preorder_traversal_types)
+    def test_class_method(self):
+        java_package = JavaPackage(Path(__file__).parent.absolute() / 'SimpleClass.java')
+        java_class = java_package.java_classes['Simple']
+        java_methods = java_class.methods['Increment']
+        self.assertEqual(len(java_methods), 1)
+        java_method = next(iter(java_methods))
+        self.assertEqual(java_method.node_types, JavaClassTestCase._java_method_preorder_traversal_types)
 
     def test_class_field(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / "SimpleClass.java")
-        java_class = next(java_package.java_classes)
-        java_method = next(java_class.fields)
-        self.assertEqual(list(java_method.node_types), JavaClassTestCase._java_field_preorder_traversal_types)
+        java_package = JavaPackage(Path(__file__).parent.absolute() / 'SimpleClass.java')
+        java_class = java_package.java_classes['Simple']
+        java_field = java_class.fields['x']
+        self.assertEqual(java_field.node_types, JavaClassTestCase._java_field_preorder_traversal_types)
 
     _java_packages_with_class_names = [
-        ("SimpleClass.java", ["Simple"]),
-        ("TwoClasses.java", ["First", "Second"])
+        ('SimpleClass.java', {'Simple'}),
+        ('TwoClasses.java', {'First', 'Second'})
     ]
 
     _java_method_preorder_traversal_types = [

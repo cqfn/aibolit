@@ -3,7 +3,7 @@
 # Copyright (c) 2020 Aibolit
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
+# of this software and associated documentation files (the 'Software'), to deal
 # in the Software without restriction, including without limitation the rights
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
@@ -12,7 +12,7 @@
 # The above copyright notice and this permission notice shall be included
 # in all copies or substantial portions of the Software.
 #
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
 # AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
@@ -28,26 +28,22 @@ from aibolit.utils.java_package import JavaPackage
 
 class JavaClassMethodTestCase(TestCase):
     def test_method_name(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / "TwoClasses.java")
-        _, second_java_class = java_package.java_classes
-        expected_method_names = ["Decrement", "Increment"]
-        for java_method, expected_method_name in zip(second_java_class.methods, expected_method_names):
-            with self.subTest():
-                self.assertEqual(java_method.name, expected_method_name)
+        java_package = JavaPackage(Path(__file__).parent.absolute() / 'TwoClasses.java')
+        java_class = java_package.java_classes['Second']
+        self.assertEqual(java_class.methods.keys(), {'Decrement', 'Increment'})
 
     def test_used_methods(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / "MethodUseOtherMethodExample.java")
-        java_class = next(java_package.java_classes)
-        for method in java_class.methods:
-            with self.subTest(f'Method "{method.name}"'):
-                used_methods_names = [used_method.name for used_method in method.used_methods]
+        java_package = JavaPackage(Path(__file__).parent.absolute() / 'MethodUseOtherMethodExample.java')
+        java_class = java_package.java_classes['MethodUseOtherMethod']
+        for method_name, method in java_class.methods.items():
+            with self.subTest(f'Method: {method_name}'):
                 self.assertEqual(JavaClassMethodTestCase._used_methods_by_name[method.name],
-                                 used_methods_names)
+                                 method.used_methods.keys())
 
     _used_methods_by_name = {
-        "useOnlyMethods1": ["useOnlyMethods2"],
-        "useOnlyMethods2": ["useOnlyMethods1"],
-        "getField": [],
-        "setField": [],
-        "standAloneMethod": [],
+        'useOnlyMethods1': {'useOnlyMethods2'},
+        'useOnlyMethods2': {'useOnlyMethods1'},
+        'getField': {},
+        'setField': {},
+        'standAloneMethod': {},
     }

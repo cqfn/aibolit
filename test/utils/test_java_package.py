@@ -23,6 +23,8 @@
 from unittest import TestCase
 from pathlib import Path
 
+from typing import Set
+
 from aibolit.utils.ast import ASTNodeType
 from aibolit.utils.java_package import JavaPackage
 
@@ -31,20 +33,26 @@ class JavaPackageTestCase(TestCase):
 
     def test_java_package_name(self):
         for filename, package_name in JavaPackageTestCase._java_packages_with_names:
-            with self.subTest():
+            with self.subTest(f'Filename: {filename}'):
                 java_package = JavaPackage(Path(__file__).parent.absolute() / filename)
                 self.assertEqual(java_package.name, package_name)
 
     def test_classes(self):
         for filename, flatten_classes in JavaPackageTestCase._java_packages_with_classes:
-            with self.subTest():
+            with self.subTest(f'Filename: {filename}'):
                 java_package = JavaPackage(Path(__file__).parent.absolute() / filename)
-                for java_class, flatten_class in zip(java_package.java_classes, flatten_classes):
-                    self.assertEqual(list(java_class.node_types), flatten_class)
+                found_class_names: Set[str] = set()
+                for class_name in java_package.java_classes:
+                    with self.subTest(f'Class name: {class_name}'):
+                        found_class_names.add(class_name)
+                        java_class = java_package.java_classes[class_name]
+                        self.assertEqual(java_class.node_types,
+                                         flatten_classes[class_name])
+                self.assertEqual(found_class_names, flatten_classes.keys())
 
     _java_packages_with_names = [
-        ("SimpleClass.java", "."),
-        ("TwoClasses.java", "two.classes")
+        ('SimpleClass.java', '.'),
+        ('TwoClasses.java', 'two.classes')
     ]
 
     _simple_class_preorder_traversal_types = [
@@ -174,9 +182,9 @@ class JavaPackageTestCase(TestCase):
     ]
 
     _java_packages_with_classes = [
-        ("SimpleClass.java", [_simple_class_preorder_traversal_types]),
-        ("TwoClasses.java", [
-            _first_class_preorder_traversal_types,
-            _second_class_preorder_traversal_types,
-        ])
+        ('SimpleClass.java', {'Simple': _simple_class_preorder_traversal_types}),
+        ('TwoClasses.java', {
+            'First': _first_class_preorder_traversal_types,
+            'Second': _second_class_preorder_traversal_types,
+        })
     ]

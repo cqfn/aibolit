@@ -22,7 +22,7 @@
 
 from functools import cached_property
 
-from typing import Iterator
+from typing import Dict
 
 from aibolit.utils.ast import AST, ASTNodeType
 from aibolit.utils.ast_builder import build_ast
@@ -45,6 +45,9 @@ class JavaPackage(AST):
         return '.'  # default package name
 
     @cached_property
-    def java_classes(self) -> Iterator[JavaClass]:
+    def java_classes(self) -> Dict[str, JavaClass]:
+        classes: Dict[str, JavaClass] = {}
         for nodes in self.subtrees_with_root_type(ASTNodeType.CLASS_DECLARATION):
-            yield JavaClass(self.tree.subgraph(nodes), nodes[0], self)
+            java_class = JavaClass(self.tree.subgraph(nodes), nodes[0], self)
+            classes[java_class.name] = java_class
+        return classes
