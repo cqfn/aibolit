@@ -225,7 +225,6 @@ the rest of them are glob patterns.
 $ aibolit recommend --folder src/java --exclude=**/*Test*.java --exclude=**/*Impl*.java --exclude=/mnt/d/src/java/tests
 ```
 
-
 If you need help, run 
 
 ```bash

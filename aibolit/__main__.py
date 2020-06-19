@@ -517,7 +517,7 @@ def check():
 def handle_exclude_command_line(args):
     files_to_exclude = []
     exc_string = 'Usage: --exclude=<glob pattern> ' \
-                 '--exclude=<glob pattern> ...' \
+                 '--exclude=<glob pattern> ... ' \
                  '--exclude=folder_to_find_exceptions '
     if args.exclude:
         if len(args.exclude) < 2:
