@@ -29,7 +29,9 @@ from aibolit.utils.java_package import JavaPackage
 class CFGBuilderTestCase(TestCase):
 
     def test_cfg_of_method(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / "SimpleClass.java")
-        fst = [c for c in java_package.java_classes][0]
-        method = [m for m in fst.methods][0]
+        java_package = JavaPackage(Path(__file__).parent.absolute() / 'SimpleClass.java')
+        java_class = java_package.java_classes['Simple']
+        methods = java_class.methods['Increment']
+        self.assertEqual(len(methods), 1)
+        method = next(iter(methods))
         self.assertEqual(method.cfg.size(), 2)
