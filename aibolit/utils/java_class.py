@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 
-from functools import cached_property
+from cached_property import cached_property  # type: ignore
 
 from typing import Dict, Set, TYPE_CHECKING
 from networkx import DiGraph  # type: ignore

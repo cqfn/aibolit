@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 from enum import Enum, auto
-from functools import cached_property
+from cached_property import cached_property  # type: ignore
 from itertools import islice
 from collections import namedtuple
 
