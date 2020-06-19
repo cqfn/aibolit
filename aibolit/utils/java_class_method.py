@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from functools import lru_cache
+from functools import cached_property
 
 from typing import Iterator, TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
@@ -38,8 +38,7 @@ class JavaClassMethod(AST):
         self.root = root
         self._java_class = java_class
 
-    @property  # type: ignore
-    @lru_cache()
+    @cached_property
     def name(self) -> str:
         try:
             method_name = next(self.children_with_type(self.root, ASTNodeType.STRING))
@@ -51,12 +50,10 @@ class JavaClassMethod(AST):
     def java_class(self) -> 'JavaClass':
         return self._java_class
 
-    @property  # type: ignore
-    @lru_cache()
+    @cached_property
     def used_methods(self) -> Iterator['JavaClassMethod']:
         pass
 
-    @property  # type: ignore
-    @lru_cache()
+    @cached_property
     def used_fields(self) -> Iterator[JavaClassField]:
         pass
