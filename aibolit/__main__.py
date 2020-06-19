@@ -467,6 +467,12 @@ def check():
         default=[]
     )
 
+    parser.add_argument(
+        '--exclude',
+        action='append',
+        nargs='+'
+    )
+
     args = parser.parse_args(sys.argv[2:])
 
     if args.suppress:
@@ -474,11 +480,14 @@ def check():
     if args.threshold:
         print('Threshold for model has been set to {}'.format(args.threshold))
 
+    files_to_exclude = handle_exclude_command_line(args)
+
     if args.filenames:
-        files = args.filenames
+        files = [str(Path(x).absolute()) for x in args.filenames if x not in files_to_exclude]
     elif args.folder:
-        files = []
-        list_dir(args.folder, files)
+        all_files = []
+        list_dir(args.folder, all_files)
+        files = [str(Path(x).absolute()) for x in all_files if str(x) not in files_to_exclude]
 
     results = list(run_thread(files, args))
     exit_code = get_exit_code(results)
@@ -503,6 +512,25 @@ def check():
                 print('\n'.join(text))
 
     return exit_code
+
+
+def handle_exclude_command_line(args):
+    files_to_exclude = []
+    exc_string = 'Usage: --exclude=<glob pattern> ' \
+                 '--exclude=<glob pattern> ... ' \
+                 '--exclude=folder_to_find_exceptions '
+    if args.exclude:
+        if len(args.exclude) < 2:
+            raise Exception(exc_string)
+        try:
+            folder_to_exclude = args.exclude[-1][0]
+            glob_patterns = [x[0] for x in args.exclude[:-1]]
+            for glob_p in glob_patterns:
+                files_to_exclude.extend([str(x.absolute()) for x in list(Path(folder_to_exclude).glob(glob_p))])
+
+        except Exception:
+            raise Exception(exc_string)
+    return files_to_exclude
 
 
 def format_converter_for_pattern(results, sorted_by=None):
