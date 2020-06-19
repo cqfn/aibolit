@@ -22,7 +22,7 @@
 
 # from functools import lru_cache
 # from typing import TYPE_CHECKING
-from networkx import Graph, dfs_preorder_nodes, compose, disjoint_union  # type: ignore
+from networkx import Graph, dfs_preorder_nodes, disjoint_union  # type: ignore
 from aibolit.utils.ast import AST, ASTNodeType
 from typing import Tuple
 

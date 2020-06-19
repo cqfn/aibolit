@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from unittest import TestCase, skip
+from unittest import TestCase
 from pathlib import Path
 
 from aibolit.utils.java_package import JavaPackage
@@ -30,7 +30,6 @@ from aibolit.utils.java_class_method import JavaClassMethod
 
 class CFGBuilderTestCase(TestCase):
 
-    # @skip("not implemented yet")
     def test_cfg_of_method(self):
         java_package = JavaPackage(Path(__file__).parent.absolute() / "SimpleClass.java")
         fst: JavaClass = [c for c in java_package.java_classes][0]
