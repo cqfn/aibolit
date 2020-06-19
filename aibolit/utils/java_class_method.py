@@ -55,3 +55,4 @@ class JavaClassMethod(AST):
     def cfg(self) -> DiGraph:
         '''Make Control Flow Graph representation of this method'''
         return build_cfg(self)
+
