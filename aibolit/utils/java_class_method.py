@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from functools import lru_cache, cached_property
+from functools import lru_cache
 
 from typing import TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
@@ -51,8 +51,8 @@ class JavaClassMethod(AST):
     def java_class(self) -> 'JavaClass':
         return self._java_class
 
-    @cached_property
+    @property  # type: ignore
+    @lru_cache()
     def cfg(self) -> DiGraph:
         '''Make Control Flow Graph representation of this method'''
         return build_cfg(self)
-
