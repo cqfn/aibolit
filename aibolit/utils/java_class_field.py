@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from functools import lru_cache
+from functools import cached_property
 
 from typing import TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
@@ -37,8 +37,7 @@ class JavaClassField(AST):
         self.root = root
         self._java_class = java_class
 
-    @property  # type: ignore
-    @lru_cache()
+    @cached_property
     def name(self) -> str:
         try:
             field_declarator = next(self.children_with_type(self.root, ASTNodeType.VARIABLE_DECLARATOR))

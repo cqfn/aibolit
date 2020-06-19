@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from functools import lru_cache
+from functools import cached_property
 
 from typing import Iterator
 
@@ -33,8 +33,7 @@ class JavaPackage(AST):
     def __init__(self, filename: str):
         super().__init__(build_ast(filename))
 
-    @property  # type: ignore
-    @lru_cache()
+    @cached_property
     def name(self) -> str:
         try:
             package_declaration = next(self.children_with_type(self.root, ASTNodeType.PACKAGE_DECLARATION))
@@ -45,8 +44,7 @@ class JavaPackage(AST):
 
         return '.'  # default package name
 
-    @property  # type: ignore
-    @lru_cache()
+    @cached_property
     def java_classes(self) -> Iterator[JavaClass]:
         for nodes in self.subtrees_with_root_type(ASTNodeType.CLASS_DECLARATION):
             yield JavaClass(self.tree.subgraph(nodes), nodes[0], self)

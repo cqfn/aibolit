@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 from enum import Enum, auto
-from functools import lru_cache
+from functools import cached_property
 
 import javalang.tree
 from javalang.tree import Node
@@ -162,8 +162,7 @@ class AST:
             if self.tree.nodes[child]['type'] == child_type:
                 yield child
 
-    @property  # type: ignore
-    @lru_cache()
+    @cached_property
     def node_types(self) -> Iterator[ASTNodeType]:
         '''
         Yields types of nodes in preorder tree traversal.

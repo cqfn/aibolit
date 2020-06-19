@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 
-from functools import lru_cache
+from functools import cached_property
 
 from typing import Iterator, TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
@@ -40,8 +40,7 @@ class JavaClass(AST):
         self.root = root
         self._java_package = java_package
 
-    @property  # type: ignore
-    @lru_cache()
+    @cached_property
     def name(self) -> str:
         try:
             class_name = next(self.children_with_type(self.root, ASTNodeType.STRING))
@@ -53,14 +52,12 @@ class JavaClass(AST):
     def package(self) -> 'JavaPackage':
         return self._java_package
 
-    @property  # type: ignore
-    @lru_cache()
+    @cached_property
     def methods(self) -> Iterator[JavaClassMethod]:
         for nodes in self.subtrees_with_root_type(ASTNodeType.METHOD_DECLARATION):
             yield JavaClassMethod(self.tree.subgraph(nodes), nodes[0], self)
 
-    @property  # type: ignore
-    @lru_cache()
+    @cached_property
     def fields(self) -> Iterator[JavaClassField]:
         for nodes in self.subtrees_with_root_type(ASTNodeType.FIELD_DECLARATION):
             yield JavaClassField(self.tree.subgraph(nodes), nodes[0], self)
