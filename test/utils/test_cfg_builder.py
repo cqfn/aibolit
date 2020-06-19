@@ -24,15 +24,12 @@ from unittest import TestCase
 from pathlib import Path
 
 from aibolit.utils.java_package import JavaPackage
-from aibolit.utils.java_class import JavaClass
-from aibolit.utils.java_class_method import JavaClassMethod
 
 
 class CFGBuilderTestCase(TestCase):
 
     def test_cfg_of_method(self):
         java_package = JavaPackage(Path(__file__).parent.absolute() / "SimpleClass.java")
-        fst: JavaClass = [c for c in java_package.java_classes][0]
-        method: JavaClassMethod = [m for m in fst.methods][0]
-        cfg = method.cfg()
-        self.assertEqual(cfg.size(), 2)
+        fst = [c for c in java_package.java_classes][0]
+        method = [m for m in fst.methods][0]
+        self.assertEqual(method.cfg.size(), 2)

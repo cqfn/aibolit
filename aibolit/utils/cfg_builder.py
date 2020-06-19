@@ -20,9 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# from functools import lru_cache
-# from typing import TYPE_CHECKING
-from networkx import Graph, dfs_preorder_nodes, disjoint_union  # type: ignore
+from networkx import DiGraph, dfs_preorder_nodes, disjoint_union  # type: ignore
 from aibolit.utils.ast import AST, ASTNodeType
 from typing import Tuple
 
@@ -33,9 +31,9 @@ NODE_TYPES = [
 ]
 
 
-def build_cfg(tree: AST) -> Graph:
+def build_cfg(tree: AST) -> DiGraph:
     '''Create Control Flow Graph'''
-    g = Graph()
+    g = DiGraph()
     g.add_node(0)
     for node_idx in dfs_preorder_nodes(tree.tree, tree.root):
         if tree.tree.nodes[node_idx]['type'] not in NODE_TYPES:
@@ -45,14 +43,14 @@ def build_cfg(tree: AST) -> Graph:
     return g
 
 
-def _mk_cfg_graph(node: ASTNodeType) -> Tuple[Graph, int]:
+def _mk_cfg_graph(node: ASTNodeType) -> Tuple[DiGraph, int]:
     '''Takes in Javalang statement and returns corresponding CFG'''
-    g = Graph()
+    g = DiGraph()
     g.add_node(0)
     return g
 
 
-def _compose_two_graphs(g1: Graph, g2: Graph) -> Graph:
+def _compose_two_graphs(g1: DiGraph, g2: DiGraph) -> DiGraph:
     '''Compose two graphs by creating the edge between last of the fist graph and fist of the second.
        We assume that node in the each graph G has order from 0 to len(G)-1
     '''
