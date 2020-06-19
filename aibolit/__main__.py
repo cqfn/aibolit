@@ -466,6 +466,12 @@ def check():
         '--suppress',
         default=[]
     )
+    
+    parser.add_argument(
+        '--exclude',
+        action='append',
+        nargs='+'
+    )
 
     args = parser.parse_args(sys.argv[2:])
 
@@ -474,11 +480,19 @@ def check():
     if args.threshold:
         print('Threshold for model has been set to {}'.format(args.threshold))
 
+    files_to_exclude = []
+    if args.exclude:
+        folders_to_exclude = [x[0] for x in args.exclude[1:]]
+        regexp = args.exclude[0][0]
+        for folder in folders_to_exclude:
+            files_to_exclude.extend([str(x) for x in list(Path(folder).glob(regexp))])
+
     if args.filenames:
-        files = args.filenames
+        files = [x for x in args.filenames if x not in files_to_exclude]
     elif args.folder:
-        files = []
-        list_dir(args.folder, files)
+        all_files = []
+        list_dir(args.folder, all_files)
+        files = [x for x in all_files if str(x) not in files_to_exclude]
 
     results = list(run_thread(files, args))
     exit_code = get_exit_code(results)
