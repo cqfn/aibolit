@@ -26,10 +26,10 @@ from typing import Dict, Set, TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
 
 from aibolit.utils.ast import AST, ASTNodeType
+from aibolit.utils.java_class_field import JavaClassField
 
 if TYPE_CHECKING:
     from aibolit.utils.java_class import JavaClass
-    from aibolit.utils.java_class_field import JavaClassField
 
 
 class JavaClassMethod(AST):
@@ -63,5 +63,5 @@ class JavaClassMethod(AST):
                 if method_name in used_local_method_names}
 
     @cached_property
-    def used_fields(self) -> Dict[str, Set['JavaClassField']]:
+    def used_fields(self) -> Dict[str, Set[JavaClassField]]:
         pass
