@@ -214,7 +214,6 @@ class TwoFoldRankingModel(BaseEstimator):
         complexity = self.model.predict(X)
         mask = X > 0
         importances = []
-        print(f' complexity: {complexity}')
         for i in range(k):
             if X[0][i] == 0:
                 # do not need to predict if we have 0

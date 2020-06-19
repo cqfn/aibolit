@@ -78,14 +78,12 @@ def predict(input_params, model, args):
 def run_parse_args(commands_dict):
     parser = argparse.ArgumentParser(
         description='Find the pattern which has the largest impact on readability',
-        usage='''
-        aibolit <command> [<args>]
+        usage='''aibolit <command> [<args>]
 
         You can run 1 command:
         train          Train model
         check          Recommend pattern
-        recommend      Recommend pattern. The same as recommend, just another acronym
-        ''')
+        recommend      Recommend pattern. The same as recommend, just another acronym''')
 
     parser.add_argument('command', help='Subcommand to run')
     parser.add_argument(
@@ -209,7 +207,6 @@ def inference(
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
         sorted_result, importances = predict(input_params, model, args)
-        print(importances)
         patterns_list = model.features_conf['patterns_only']
         for iter, (key, val) in enumerate(sorted_result.items()):
             if key in patterns_list:
@@ -425,9 +422,8 @@ def check():
 
     parser = argparse.ArgumentParser(
         description='Get recommendations for Java code',
-        usage='''
-        aibolit check < --folder | --filenames > [--model] [--threshold] [--full] [--format]
-        ''')
+        usage='aibolit check < --folder | --filenames > [--model] '
+              '[--threshold] [--full] [--format]')
 
     group_exclusive = parser.add_mutually_exclusive_group(required=True)
 
