@@ -10,7 +10,7 @@ class MethodUseOtherMethod {
     }
 
     public int useOnlyMethods2(int x) {
-        if( x == 1) {
+        if(x == 1) {
             return 1;
         }
 
