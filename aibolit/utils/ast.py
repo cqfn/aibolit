@@ -22,7 +22,6 @@
 
 from enum import Enum, auto
 from cached_property import cached_property  # type: ignore
-from itertools import islice
 from collections import namedtuple
 
 import javalang.tree
@@ -196,12 +195,14 @@ class AST:
     def get_type(self, node: int) -> ASTNodeType:
         return self.get_attr(node, 'type')
 
-    def get_method_invoked_name(self, invocation_node: int) -> MethodInvocationParams:
+    def get_method_invocation_params(self, invocation_node: int) -> MethodInvocationParams:
         assert(self.get_type(invocation_node) == ASTNodeType.METHOD_INVOCATION)
-        # first two STRING nodes represent object and method names
-        object_name, method_name = islice(self.children_with_type(invocation_node, ASTNodeType.STRING), 2)
-        return MethodInvocationParams(self.get_attr(object_name, 'string'),
-                                      self.get_attr(method_name, 'string'))
+        params = [self.get_attr(node, 'string') for node in
+                  self.children_with_type(invocation_node, ASTNodeType.STRING)]
+        if len(params) != 2:
+            raise ValueError('Node must have 2 children with type "STRING": ' + str(params))
+
+        return MethodInvocationParams(object_name=params[0], method_name=params[1])
 
     def get_member_reference_params(self, member_reference_node: int) -> MemberReferenceParams:
         assert(self.get_type(member_reference_node) == ASTNodeType.MEMBER_REFERENCE)

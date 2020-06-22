@@ -25,7 +25,7 @@ from pathlib import Path
 from itertools import zip_longest
 
 from aibolit.utils.ast_builder import build_ast
-from aibolit.utils.ast import AST, ASTNodeType, MemberReferenceParams
+from aibolit.utils.ast import AST, ASTNodeType, MemberReferenceParams, MethodInvocationParams
 
 
 class ASTTestSuite(TestCase):
@@ -47,6 +47,12 @@ class ASTTestSuite(TestCase):
         for node, expected_params in zip_longest(ast.nodes_by_type(ASTNodeType.MEMBER_REFERENCE),
                                                  ASTTestSuite._expected_member_reference_params):
             self.assertEqual(ast.get_member_reference_params(node), expected_params)
+
+    def test_method_invocation_params(self):
+        ast = self._build_ast("MethodInvokeExample.java")
+        for node, expected_params in zip_longest(ast.nodes_by_type(ASTNodeType.METHOD_INVOCATION),
+                                                 ASTTestSuite._expected_method_invocation_params):
+            self.assertEqual(ast.get_method_invocation_params(node), expected_params)
 
     def _build_ast(self, filename: str):
         javalang_ast = build_ast(Path(__file__).parent.absolute() / filename)
@@ -99,4 +105,9 @@ class ASTTestSuite(TestCase):
         MemberReferenceParams('', 'block_variable'),
         MemberReferenceParams('Something', 'outer_field'),
         MemberReferenceParams('', 'field'),
+    ]
+
+    _expected_method_invocation_params = [
+        MethodInvocationParams(object_name='System.out', method_name='println'),
+        MethodInvocationParams(object_name='', method_name='method1'),
     ]
