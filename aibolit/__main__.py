@@ -37,7 +37,6 @@ from os import scandir
 from pathlib import Path
 from sys import stdout
 from typing import List
-
 import numpy as np  # type: ignore
 import requests
 from lxml import etree  # type: ignore
@@ -70,9 +69,9 @@ def predict(input_params, model, args):
     # deepcode ignore ExpectsIntDislikesStr: false-positive recommendation of deepcode
     input = [input_params[i] for i in features_order] + [input_params['M2']]
     th = float(args.threshold) or 1.0
-    preds, importances = model.informative(np.array(input), th=th)
+    preds, importances = model.informative(input, th=th)
 
-    return {features_order[int(x)]: int(x) for x in preds[0]}, importances
+    return {features_order[int(x)]: int(x) for x in preds}, list(importances)
 
 
 def run_parse_args(commands_dict):
@@ -212,7 +211,8 @@ def inference(
             if key in patterns_list:
                 pattern_code = key
                 code_lines = code_lines_dict.get('lines_' + key)
-                importance = importances[iter]
+                importance = importances[iter] * input_params[pattern_code]
+
                 # We show only patterns with positive importance
                 if code_lines and importance > 0:
                     if code_lines:
@@ -307,7 +307,7 @@ def create_xml_tree(results, full_report, cmd, exit_code):
                     code_lines_items = pattern.get('code_lines')
                     pattern_score = pattern.get('importance')
                     pattern_score_tag = etree.SubElement(pattern_item, 'score')
-                    pattern_score_tag.text = str(pattern_score) or ''
+                    pattern_score_tag.text = '{:.2f}'.format(pattern_score) or ''
                     pattern_score_tag = etree.SubElement(pattern_item, 'order')
                     pattern_score_tag.text = '{}/{}'.format(i, patterns_number)
                     importance_for_class.append(pattern_score)
@@ -389,7 +389,7 @@ def create_text(results, full_report):
                     if cur_pattern_name != pattern_name_str:
                         pattern__number += 1
                         cur_pattern_name = pattern_name_str
-                    buffer.append('{}[{}]: {} ({}: {:.5f} {}/{})'.format(
+                    buffer.append('{}[{}]: {} ({}: {:.2f} {}/{})'.format(
                         filename,
                         pattern_item.get('code_line'),
                         pattern_name_str,
