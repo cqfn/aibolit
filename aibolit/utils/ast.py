@@ -131,7 +131,11 @@ class AST:
             if edge_type == 'forward':
                 if depth > 0:
                     printed_graph += ' ' * depth + '|---'
-                printed_graph += str(self.tree.nodes[destination]['type']) + '\n'
+                node_type = self.get_type(destination)
+                printed_graph += str(node_type)
+                if node_type == ASTNodeType.STRING:
+                    printed_graph += ': ' + self.get_attr(destination, 'string')
+                printed_graph += '\n'
                 depth += print_step
             elif edge_type == 'reverse':
                 depth -= print_step
