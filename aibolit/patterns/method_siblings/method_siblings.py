@@ -21,7 +21,7 @@
 # SOFTWARE.
 from typing import List
 from aibolit.types_decl import LineNumber
-from aibolit.utils.ast import AST
+from aibolit.utils.ast_builder import build_ast
 import javalang
 import re
 
@@ -33,10 +33,10 @@ class MethodSiblings:
     def value(self, filename: str) -> List[LineNumber]:
 
         numbers = []
-        for _, node in AST(filename).value().filter(javalang.tree.MethodDeclaration):
+        for _, node in build_ast(filename).filter(javalang.tree.MethodDeclaration):
             composed = re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', node.name)
             if len(composed) > 1:
-                for _, inner in AST(filename).value().filter(javalang.tree.MethodDeclaration):
+                for _, inner in build_ast(filename).filter(javalang.tree.MethodDeclaration):
                     if node.name != inner.name:
                         if inner.name.startswith(composed[0]):
                             numbers.append(node.position.line)
