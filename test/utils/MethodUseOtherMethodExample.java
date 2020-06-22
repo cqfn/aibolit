@@ -28,4 +28,8 @@ class MethodUseOtherMethod {
     public void standAloneMethod() {
             System.out.println("Stand alone");
     }
+
+    public int shadowing(int redundantField) {
+        return redundantField + 1;
+    }
 }
