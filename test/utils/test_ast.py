@@ -43,7 +43,7 @@ class ASTTestSuite(TestCase):
 
     def _build_ast(self, filename: str):
         javalang_ast = build_ast(Path(__file__).parent.absolute() / filename)
-        return AST(javalang_ast)
+        return AST.build_from_javalang(javalang_ast)
 
     _java_simple_class_preordered = [
         ASTNodeType.COMPILATION_UNIT,
