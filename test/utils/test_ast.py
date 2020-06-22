@@ -98,13 +98,13 @@ class ASTTestSuite(TestCase):
     ]
 
     _expected_member_reference_params = [
-        MemberReferenceParams('', 'block_variable'),
-        MemberReferenceParams('', 'method_parameter'),
+        MemberReferenceParams('', 'block_variable', ''),
+        MemberReferenceParams('', 'method_parameter', ''),
         MemberReferenceParams('', 'block_variable', '++'),
-        MemberReferenceParams('', 'field'),
-        MemberReferenceParams('', 'block_variable'),
-        MemberReferenceParams('Something', 'outer_field'),
-        MemberReferenceParams('', 'field'),
+        MemberReferenceParams('', 'field', ''),
+        MemberReferenceParams('', 'block_variable', ''),
+        MemberReferenceParams('Something', 'outer_field', ''),
+        MemberReferenceParams('', 'field', ''),
     ]
 
     _expected_method_invocation_params = [
