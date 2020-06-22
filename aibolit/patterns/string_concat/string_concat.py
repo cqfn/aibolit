@@ -1,8 +1,9 @@
 from typing import Tuple, Dict, List
 from typing import Tuple, Dict, List
 import javalang
+
 from aibolit.types_decl import LineNumber
-from aibolit.utils.ast import AST
+from aibolit.utils.ast_builder import build_ast
 from aibolit.utils.utils import RemoveComments
 
 
@@ -15,7 +16,7 @@ class StringConcatFinder:
     def value(self, filename: str) -> List[LineNumber]:
 
         lines = set()
-        text = AST(filename).value()
+        text = build_ast(filename)
 
         for _, node in text.filter(javalang.tree.BinaryOperation):
             if node.operator == '+':

@@ -23,17 +23,12 @@
 import re
 from typing import List
 
-from aibolit.utils.ast import AST
+from aibolit.utils.encoding_detector import read_text_with_autodetected_encoding
 
 
 class NullAssignment:
     def value(self, filename: str) -> List:
-        ast = AST(filename)
-        with open(filename, encoding=ast.encoding) as f:
-            string = r'[^=!><]=(\s)*null(\s)*;'
-            num_str = []
-            for i, line in enumerate(f.readlines()):
-                match = re.search(string, line)
-                if match is not None:
-                    num_str.append(i + 1)
-            return num_str
+        source_code = read_text_with_autodetected_encoding(filename)
+        pattern = r'[^=!><]=(\s)*null(\s)*;'
+        return [lineIndex + 1 for lineIndex, line in
+                enumerate(source_code.split('\n')) if re.search(pattern, line)]

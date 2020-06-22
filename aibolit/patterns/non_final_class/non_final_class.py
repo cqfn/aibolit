@@ -1,7 +1,8 @@
 from typing import List
 from javalang.tree import ClassDeclaration
+
 from aibolit.types_decl import LineNumber
-from aibolit.utils.ast import AST
+from aibolit.utils.ast_builder import build_ast
 
 
 class NonFinalClass:
@@ -10,7 +11,7 @@ class NonFinalClass:
         pass
 
     def value(self, filename: str) -> List[LineNumber]:
-        tree = AST(filename).value()
+        tree = build_ast(filename)
         classes = tree.filter(ClassDeclaration)
         return [
             node.position.line for _, node in classes

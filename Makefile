@@ -25,7 +25,7 @@ xcop:
 	xcop $(find . -name '*.xml')
 
 flake8:
-	python3 -m flake8 aibolit test scripts setup.py
+	python3 -m flake8 aibolit test scripts setup.py --exclude scripts/target/*
 
 doc:
 	rm -rf sphinx html
