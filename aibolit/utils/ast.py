@@ -114,8 +114,7 @@ class ASTNodeType(Enum):
 
 MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'method_name'])
 
-MemberReferenceParams = namedtuple('MemberReferenceParams', ('object_name', 'member_name', 'unary_operator'),
-                                   defaults=('',))
+MemberReferenceParams = namedtuple('MemberReferenceParams', ('object_name', 'member_name', 'unary_operator'))
 
 
 class AST:
@@ -211,9 +210,11 @@ class AST:
 
         member_reference_params: MemberReferenceParams
         if len(params) == 1:
-            member_reference_params = MemberReferenceParams(object_name='', member_name=params[0])
+            member_reference_params = MemberReferenceParams(object_name='', member_name=params[0],
+                                                            unary_operator='')
         elif len(params) == 2:
-            member_reference_params = MemberReferenceParams(object_name=params[0], member_name=params[1])
+            member_reference_params = MemberReferenceParams(object_name=params[0], member_name=params[1],
+                                                            unary_operator='')
         elif len(params) == 3:
             member_reference_params = MemberReferenceParams(unary_operator=params[0], object_name=params[1],
                                                             member_name=params[2])
