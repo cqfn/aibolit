@@ -115,6 +115,9 @@ class ASTNodeType(Enum):
 
 MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'method_name'])
 
+MemberReferenceParams = namedtuple('MemberReferenceParams', ('object_name', 'member_name', 'unary_operator'),
+                                   defaults=('',))
+
 
 class AST:
     _NODE_SKIPED = -1
@@ -200,10 +203,23 @@ class AST:
         return MethodInvocationParams(self.get_attr(object_name, 'string'),
                                       self.get_attr(method_name, 'string'))
 
-    def _build_networkx_tree_from_javalang(self, javalang_node: Node) -> int:
-        node_index = len(self.tree) + 1
-        self.tree.add_node(node_index)
-        self._extract_javalang_node_attributes(javalang_node, node_index)
+    def get_member_reference_params(self, member_reference_node: int) -> MemberReferenceParams:
+        assert(self.get_type(member_reference_node) == ASTNodeType.MEMBER_REFERENCE)
+        params = [self.get_attr(child, 'string') for child in
+                  self.children_with_type(member_reference_node, ASTNodeType.STRING)]
+
+        member_reference_params: MemberReferenceParams
+        if len(params) == 1:
+            member_reference_params = MemberReferenceParams(object_name='', member_name=params[0])
+        elif len(params) == 2:
+            member_reference_params = MemberReferenceParams(object_name=params[0], member_name=params[1])
+        elif len(params) == 3:
+            member_reference_params = MemberReferenceParams(unary_operator=params[0], object_name=params[1],
+                                                            member_name=params[2])
+        else:
+            raise ValueError('Node has 0 or more then 3 children with type "STRING": ' + str(params))
+
+        return member_reference_params
 
     @staticmethod
     def _build_from_javalang(tree, javalang_node: Node) -> int:
