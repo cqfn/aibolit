@@ -168,10 +168,10 @@ class TwoFoldRankingModel(BaseEstimator):
 
         return np.min(c, 0), np.argmin(c, 0)
 
-    def informative(self, X, scale=True, th=1.0):
+    def informative(self, snippet, scale=True, th=1.0):
         """
         Args:
-            X: np.array with shape (number of snippets, number of patterns + 1),
+            snippet: np.array with shape (number of snippets, number of patterns + 1),
             because last column is ncss
         Returns:
             ranked: np.array with shape (number of snippets, number of patterns)
@@ -180,23 +180,23 @@ class TwoFoldRankingModel(BaseEstimator):
         """
 
         # remember it, since we will use `log` function for non-normalized input value
-        X_old = np.array(X[:-1])
-        ncss = X[-1]
+        patterns_orig = np.array(snippet[:-1])
+        ncss = snippet[-1]
 
         if scale:
-            X = X_old / ncss
+            snippet = patterns_orig / ncss
         else:
-            X = X_old
+            snippet = patterns_orig
 
-        k = X.size
-        complexity = self.model.predict(X)
+        k = snippet.size
+        complexity = self.model.predict(snippet)
         importances = []
         for i in range(k):
-            if X[i] == 0:
+            if snippet[i] == 0:
                 # do not need to predict if we have 0
                 importances.append((i, 0))
                 continue
-            temp_arr = X.copy()
+            temp_arr = snippet.copy()
             temp_arr[i] = temp_arr[i] - (1 / ncss)
             complexity_minus = self.model.predict(temp_arr)
             if complexity_minus < complexity:

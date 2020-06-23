@@ -4,6 +4,7 @@ import subprocess
 from pathlib import Path
 from sklearn.model_selection import train_test_split  # type: ignore
 import pickle
+from random import randint
 from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
 from aibolit.config import Config
 
@@ -116,7 +117,8 @@ def train_process():
         model_new = pickle.load(fid)
         print('Model has been loaded successfully')
         for x in X_test:
-            preds, importances = model_new.predict(x)
+            snippet = [i for i in x] + [randint(1, 200)]
+            preds, importances = model_new.informative(snippet)
             print(preds)
     path_with_logs = Path(os.getcwd(), 'catboost_info')
     print('Removing path with catboost logs {}'.format(path_with_logs))
