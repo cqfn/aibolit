@@ -167,7 +167,7 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input)
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), 'f93718bc733b6fbbd3facdb0838045d8')
+        self.assertEqual(md5_hash.hexdigest(), '4ac43ebd666b8edf061e7203cd691564')
 
     def test_empty_lines_format(self):
         new_mock = format_converter_for_pattern([])
@@ -180,4 +180,4 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input, 'code_line')
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), '2541a4709e00544714fcb648832c5e1f')
+        self.assertEqual(md5_hash.hexdigest(), 'f026fb25ba62d835cb189978d6f049c4')
