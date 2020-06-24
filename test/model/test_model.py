@@ -35,13 +35,3 @@ class TestModel(TestCase):
         c, number = ranking_model.get_minimum(c1, c2, c3)
         np.testing.assert_array_equal(c, np.array([1, 2, 5, 3, 6, 3, 0, -3, -1]))
         np.testing.assert_array_equal(number, np.array([0, 1, 0, 0, 0, 2, 2, 2, 1]))
-
-    def test_get_array(self):
-        ranking_model = TwoFoldRankingModel()
-        X = np.array([[1, 0, 2, 0], [4, 0, 0, 5]])
-        X_1 = np.array([[0, 0, 2, 0], [3, 0, 0, 5]])
-        X_2 = np.array([[1, 0, 2, 0], [4, 0, 0, 6]])
-        X1 = ranking_model.get_array(X, X > 0, 0, np.array([-1] * 2))
-        X2 = ranking_model.get_array(X, X > 0, 3, np.array([1] * 2))
-        np.testing.assert_array_equal(X1, X_1)
-        np.testing.assert_array_equal(X2, X_2)

@@ -15,3 +15,7 @@ class TestNonFinalAttribute(TestCase):
     def test_nested_class(self):
         lines = NonFinalAttribute().value(Path(self.dir_path, 'File.java'))
         self.assertEqual(lines, [12, 16, 64])
+
+    def test_attribute_in_interface(self):
+        lines = NonFinalAttribute().value(Path(self.dir_path, 'AttributeInInterface.java'))
+        self.assertEqual(lines, [])

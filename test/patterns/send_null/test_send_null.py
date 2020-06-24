@@ -31,3 +31,15 @@ class TestSendNull(TestCase):
     def test_constructor_send_null(self):
         lines = self.method_send_null_finder.value(Path(self.dir_path, 'Constructor.java'))
         self.assertEqual(lines, [5, 14, 15, 16, 17, 18])
+
+    def test_super_in_constructor_with_ternary_operator(self):
+        lines = self.method_send_null_finder.value(Path(self.dir_path, 'AclPermissionParam.java'))
+        self.assertEqual(lines, [46, 50])
+
+    def test_this_with_ternary_operator(self):
+        lines = self.method_send_null_finder.value(Path(self.dir_path, 'AddOp.java'))
+        self.assertEqual(lines, [44, 48])
+
+    def test_super_in_constructor_with_method_inv(self):
+        lines = self.method_send_null_finder.value(Path(self.dir_path, 'ByteArrayMultipartFileEditor.java'))
+        self.assertEqual(lines, [49])
