@@ -99,15 +99,15 @@ class TwoFoldRankingModel(BaseEstimator):
         self.model = model
         self.model.fit(X, y.ravel(), logging_level='Silent')
 
-    def __get_pairs(self, item, th: float, feature_importances=None):
-        def sigmoid(x):
-            return 1 / (1 + np.exp(-x))
+    def sigmoid(self, x):
+        return 1 / (1 + np.exp(-x))
 
+    def __get_pairs(self, item, th: float, feature_importances=None):
         if not feature_importances:
             feature_importances = self.model.feature_importances_
         pattern_importances = item * feature_importances
         # mask discards not significant patterns
-        th_mask = (sigmoid(pattern_importances) <= th) + 0
+        th_mask = (self.sigmoid(pattern_importances) <= th) + 0
         pattern_importances = pattern_importances * th_mask
         order = np.arange(self.model.feature_importances_.size)
         return (pattern_importances, order)
@@ -118,12 +118,11 @@ class TwoFoldRankingModel(BaseEstimator):
     def calculate_score(self, X, quantity_func='log', th=1.0, feature_importances=None):
         """
         Args:
-            X: np.array with shape (number of snippets, number of patterns) or
-                (number of patterns, ).
+            X: np.array with shape ( number of patterns).
             quantity_func: str, type of function that will be applied to
                 number of occurrences.
             th (float): Sensitivity of algorithm to recommend.
-                0 - ignore all recomendations
+                0 - ignore all recommendations
                 1 - use all recommendations
 
         Returns:
@@ -132,11 +131,8 @@ class TwoFoldRankingModel(BaseEstimator):
                 code.
         """
 
-        if X.ndim != 1:
-            raise Exception("Only input with size 1, N is allowed")
-        else:
-            X = X.copy()
-            X = np.expand_dims(X, axis=0)
+        X = X.copy()
+        X = np.expand_dims(X, axis=0)
 
         ranked = []
         quantity_funcs = {
@@ -145,34 +141,17 @@ class TwoFoldRankingModel(BaseEstimator):
             'linear': lambda x: x,
         }
 
-        for snippet in X:
-            try:
-                item = quantity_funcs[quantity_func](snippet)
-                pairs = self.__vstack_arrays(self.__get_pairs(item, th, feature_importances))
-                pairs = pairs[pairs[:, 0].argsort()]
-                ranked.append(pairs[:, 1].T.tolist()[::-1])
-            except Exception:
-                import traceback
-                traceback.print_exc()
-                raise Exception("Unknown func")
+        try:
+            item = quantity_funcs[quantity_func](X)
+            pairs = self.__vstack_arrays(self.__get_pairs(item, th, feature_importances))
+            pairs = pairs[pairs[:, 0].argsort()]
+            ranked.append(pairs[:, 1].T.tolist()[::-1])
+        except Exception:
+            import traceback
+            traceback.print_exc()
+            raise Exception("Unknown func")
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
-
-    def get_array(self, X, mask, i, incr):
-        """
-        Args:
-            X: np.array with shape (number of snippets, number of patterns).
-            mask: np.array with shape (number of snippets, number of patterns).
-            i: int, 0 <= i < number of patterns.
-            add: bool.
-        Returns:
-            X1: modified np.array with shape (number of snippets, number of patterns).
-        """
-
-        X1 = X.copy()
-        X1[:, i][mask[:, i]] += incr[mask[:, i]]
-
-        return X1
 
     def get_minimum(self, c1, c2, c3):
         """
@@ -189,43 +168,42 @@ class TwoFoldRankingModel(BaseEstimator):
 
         return np.min(c, 0), np.argmin(c, 0)
 
-    def informative(self, X, scale=True, th=1.0):
+    def informative(self, snippet, scale=True, th=1.0):
         """
         Args:
-            X: np.array with shape (number of snippets, number of patterns + 1),
+            snippet: np.array with shape (number of snippets, number of patterns + 1),
             because last column is ncss
         Returns:
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for each snippet of
                 code.
         """
-        X = X.copy()
-        X = np.expand_dims(X, axis=0)
+
         # remember it, since we will use `log` function for non-normalized input value
-        X_old = X[:, :-1]
+        patterns_orig = np.array(snippet[:-1])
+        ncss = snippet[-1]
 
-        ncss = X[:, -1]
         if scale:
-            X = X[:, :-1] / ncss.reshape(-1, 1)
+            snippet = patterns_orig / ncss
         else:
-            X = X[:, :-1]
+            snippet = patterns_orig
 
-        k = X.shape[1]
-        complexity = self.model.predict(X)
-        mask = X > 0
+        k = snippet.size
+        complexity = self.model.predict(snippet)
         importances = []
-        print(f' complexity: {complexity}')
         for i in range(k):
-            if X[0][i] == 0:
+            if snippet[i] == 0:
                 # do not need to predict if we have 0
                 importances.append((i, 0))
                 continue
-            complexity_minus = self.model.predict(self.get_array(X, mask, i, -1 / ncss))
+            temp_arr = snippet.copy()
+            temp_arr[i] = temp_arr[i] - (1 / ncss)
+            complexity_minus = self.model.predict(temp_arr)
             if complexity_minus < complexity:
                 # complexity decreased
                 with localcontext() as ctx:
                     ctx.rounding = ROUND_DOWN
-                    abs_diff = abs(complexity - complexity_minus)[0]
+                    abs_diff = abs(complexity - complexity_minus)
                     diff = Decimal(abs_diff).quantize(Decimal('0.001'))
                     diff = float(diff * 100)
             else:
@@ -234,5 +212,5 @@ class TwoFoldRankingModel(BaseEstimator):
                 diff = 0
             importances.append((i, diff))
 
-        only_importances = list(np.array(importances).T[1])
-        return self.calculate_score(X_old[0], th=th, feature_importances=only_importances)
+        sorted_importances = dict(sorted(importances, key=lambda x: x[1], reverse=True))
+        return sorted_importances.keys(), sorted_importances.values()

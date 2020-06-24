@@ -37,7 +37,6 @@ from os import scandir
 from pathlib import Path
 from sys import stdout
 from typing import List
-
 import numpy as np  # type: ignore
 import requests
 from lxml import etree  # type: ignore
@@ -70,22 +69,20 @@ def predict(input_params, model, args):
     # deepcode ignore ExpectsIntDislikesStr: false-positive recommendation of deepcode
     input = [input_params[i] for i in features_order] + [input_params['M2']]
     th = float(args.threshold) or 1.0
-    preds, importances = model.informative(np.array(input), th=th)
+    preds, importances = model.informative(input, th=th)
 
-    return {features_order[int(x)]: int(x) for x in preds[0]}, importances
+    return {features_order[int(x)]: int(x) for x in preds}, list(importances)
 
 
 def run_parse_args(commands_dict):
     parser = argparse.ArgumentParser(
         description='Find the pattern which has the largest impact on readability',
-        usage='''
-        aibolit <command> [<args>]
+        usage='''aibolit <command> [<args>]
 
         You can run 1 command:
         train          Train model
         check          Recommend pattern
-        recommend      Recommend pattern. The same as recommend, just another acronym
-        ''')
+        recommend      Recommend pattern. The same as recommend, just another acronym''')
 
     parser.add_argument('command', help='Subcommand to run')
     parser.add_argument(
@@ -209,13 +206,13 @@ def inference(
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
         sorted_result, importances = predict(input_params, model, args)
-        print(importances)
         patterns_list = model.features_conf['patterns_only']
         for iter, (key, val) in enumerate(sorted_result.items()):
             if key in patterns_list:
                 pattern_code = key
                 code_lines = code_lines_dict.get('lines_' + key)
-                importance = importances[iter]
+                importance = importances[iter] * input_params[pattern_code]
+
                 # We show only patterns with positive importance
                 if code_lines and importance > 0:
                     if code_lines:
@@ -310,7 +307,7 @@ def create_xml_tree(results, full_report, cmd, exit_code):
                     code_lines_items = pattern.get('code_lines')
                     pattern_score = pattern.get('importance')
                     pattern_score_tag = etree.SubElement(pattern_item, 'score')
-                    pattern_score_tag.text = str(pattern_score) or ''
+                    pattern_score_tag.text = '{:.2f}'.format(pattern_score) or ''
                     pattern_score_tag = etree.SubElement(pattern_item, 'order')
                     pattern_score_tag.text = '{}/{}'.format(i, patterns_number)
                     importance_for_class.append(pattern_score)
@@ -392,7 +389,7 @@ def create_text(results, full_report):
                     if cur_pattern_name != pattern_name_str:
                         pattern__number += 1
                         cur_pattern_name = pattern_name_str
-                    buffer.append('{}[{}]: {} ({}: {:.5f} {}/{})'.format(
+                    buffer.append('{}[{}]: {} ({}: {:.2f} {}/{})'.format(
                         filename,
                         pattern_item.get('code_line'),
                         pattern_name_str,
@@ -425,9 +422,8 @@ def check():
 
     parser = argparse.ArgumentParser(
         description='Get recommendations for Java code',
-        usage='''
-        aibolit check < --folder | --filenames > [--model] [--threshold] [--full] [--format]
-        ''')
+        usage='aibolit check < --folder | --filenames > [--model] '
+              '[--threshold] [--full] [--format]')
 
     group_exclusive = parser.add_mutually_exclusive_group(required=True)
 
@@ -471,6 +467,12 @@ def check():
         default=[]
     )
 
+    parser.add_argument(
+        '--exclude',
+        action='append',
+        nargs='+'
+    )
+
     args = parser.parse_args(sys.argv[2:])
 
     if args.suppress:
@@ -478,11 +480,14 @@ def check():
     if args.threshold:
         print('Threshold for model has been set to {}'.format(args.threshold))
 
+    files_to_exclude = handle_exclude_command_line(args)
+
     if args.filenames:
-        files = args.filenames
+        files = [str(Path(x).absolute()) for x in args.filenames if x not in files_to_exclude]
     elif args.folder:
-        files = []
-        list_dir(args.folder, files)
+        all_files = []
+        list_dir(args.folder, all_files)
+        files = [str(Path(x).absolute()) for x in all_files if str(x) not in files_to_exclude]
 
     results = list(run_thread(files, args))
     exit_code = get_exit_code(results)
@@ -507,6 +512,25 @@ def check():
                 print('\n'.join(text))
 
     return exit_code
+
+
+def handle_exclude_command_line(args):
+    files_to_exclude = []
+    exc_string = 'Usage: --exclude=<glob pattern> ' \
+                 '--exclude=<glob pattern> ... ' \
+                 '--exclude=folder_to_find_exceptions '
+    if args.exclude:
+        if len(args.exclude) < 2:
+            raise Exception(exc_string)
+        try:
+            folder_to_exclude = args.exclude[-1][0]
+            glob_patterns = [x[0] for x in args.exclude[:-1]]
+            for glob_p in glob_patterns:
+                files_to_exclude.extend([str(x.absolute()) for x in list(Path(folder_to_exclude).glob(glob_p))])
+
+        except Exception:
+            raise Exception(exc_string)
+    return files_to_exclude
 
 
 def format_converter_for_pattern(results, sorted_by=None):

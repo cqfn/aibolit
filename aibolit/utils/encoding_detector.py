@@ -17,5 +17,5 @@ def read_text_with_autodetected_encoding(filename: str):
     if not data:
         return ''  # In case of empty file, return empty string
 
-    encoding = detect_encoding_of_data(data)
+    encoding = detect_encoding_of_data(data) or 'utf-8'
     return data.decode(encoding)
