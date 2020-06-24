@@ -64,6 +64,10 @@ class VarMiddle:
             if ASTNodeType.SUPER_CONSTRUCTOR_INVOCATION in children_types:
                 scope_status.add_flag(ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE)
 
+        # mark scope for annotation usage
+        elif node_type == ASTNodeType.ANNOTATION:
+            scope_status.add_flag(ScopeStatusFlags.INSIDE_ANNOTATION_SUBTREE)
+
         else:
             # if we are not calling super constructor or declaring a variable
             # and node type not in black list spoil the scope
@@ -87,6 +91,10 @@ class VarMiddle:
             children_types = {ast.nodes[child]['type'] for child in ast.succ[node]}
             if ASTNodeType.SUPER_CONSTRUCTOR_INVOCATION in children_types:
                 scope_status.remove_flag(ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE)
+
+        # on the end of annotation remove according flag
+        elif node_type == ASTNodeType.ANNOTATION:
+            scope_status.remove_flag(ScopeStatusFlags.INSIDE_ANNOTATION_SUBTREE)
 
         elif node_type in VarMiddle._new_scope_node_types:
             scope_status.leave_current_scope()
@@ -123,4 +131,5 @@ class VarMiddle:
     _ignore_scope_statuses = {
         ScopeStatusFlags.INSIDE_VARIABLE_DECLARATION_SUBTREE,
         ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE,
+        ScopeStatusFlags.INSIDE_ANNOTATION_SUBTREE,
     }

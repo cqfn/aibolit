@@ -22,57 +22,64 @@
 
 from unittest import TestCase
 from pathlib import Path
-from networkx import dfs_preorder_nodes
 
 from aibolit.utils.ast_builder import build_ast
 from aibolit.utils.ast import AST, ASTNodeType
 
 
 class ASTTestSuite(TestCase):
-    def test_parsing_with_preorder_traversal(self):
-        for filename, ast_preordered_traversed in \
-                ASTTestSuite._java_source_code_filename_to_ast_preordered_traversed:
+    def test_parsing(self):
+        ast = self._build_ast("SimpleClass.java")
+        self.assertEqual(list(ast.node_types),
+                         ASTTestSuite._java_simple_class_preordered)
 
-            with self.subTest('Parsing {}'.format(filename)):
-                javalang_ast = build_ast(Path(__file__).parent.absolute() / filename)
-                ast = AST(javalang_ast)
-                self.assertEqual([ast.tree.nodes[node_index]['type']
-                                  for node_index in dfs_preorder_nodes(ast.tree, ast.root)],
-                                 ast_preordered_traversed)
+    def test_subtrees_selection(self):
+        ast = self._build_ast("SimpleClass.java")
+        subtrees = ast.subtrees_with_root_type(ASTNodeType.BASIC_TYPE)
+        for subtree_nodes, expected_subtree in \
+                zip(subtrees, ASTTestSuite._java_simple_class_basic_type_subtrees):
+            with self.subTest():
+                self.assertEqual(subtree_nodes, expected_subtree)
 
-    _java_source_code_filename_to_ast_preordered_traversed = \
-        [
-            ('simple_class.java', [
-                ASTNodeType.COMPILATION_UNIT,
-                ASTNodeType.CLASS_DECLARATION,
-                ASTNodeType.COLLECTION,
-                ASTNodeType.STRING,
-                ASTNodeType.FIELD_DECLARATION,
-                ASTNodeType.COLLECTION,
-                ASTNodeType.STRING,
-                ASTNodeType.BASIC_TYPE,
-                ASTNodeType.STRING,
-                ASTNodeType.VARIABLE_DECLARATOR,
-                ASTNodeType.STRING,
-                ASTNodeType.LITERAL,
-                ASTNodeType.STRING,
-                ASTNodeType.METHOD_DECLARATION,
-                ASTNodeType.COLLECTION,
-                ASTNodeType.STRING,
-                ASTNodeType.BASIC_TYPE,
-                ASTNodeType.STRING,
-                ASTNodeType.STRING,
-                ASTNodeType.STATEMENT_EXPRESSION,
-                ASTNodeType.ASSIGNMENT,
-                ASTNodeType.MEMBER_REFERENCE,
-                ASTNodeType.STRING,
-                ASTNodeType.STRING,
-                ASTNodeType.LITERAL,
-                ASTNodeType.STRING,
-                ASTNodeType.STRING,
-                ASTNodeType.RETURN_STATEMENT,
-                ASTNodeType.MEMBER_REFERENCE,
-                ASTNodeType.STRING,
-                ASTNodeType.STRING,
-            ])
-        ]
+    def _build_ast(self, filename: str):
+        javalang_ast = build_ast(Path(__file__).parent.absolute() / filename)
+        return AST(javalang_ast)
+
+    _java_simple_class_preordered = [
+        ASTNodeType.COMPILATION_UNIT,
+        ASTNodeType.CLASS_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.FIELD_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.BASIC_TYPE,
+        ASTNodeType.STRING,
+        ASTNodeType.VARIABLE_DECLARATOR,
+        ASTNodeType.STRING,
+        ASTNodeType.LITERAL,
+        ASTNodeType.STRING,
+        ASTNodeType.METHOD_DECLARATION,
+        ASTNodeType.COLLECTION,
+        ASTNodeType.STRING,
+        ASTNodeType.BASIC_TYPE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.STATEMENT_EXPRESSION,
+        ASTNodeType.ASSIGNMENT,
+        ASTNodeType.MEMBER_REFERENCE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.LITERAL,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+        ASTNodeType.RETURN_STATEMENT,
+        ASTNodeType.MEMBER_REFERENCE,
+        ASTNodeType.STRING,
+        ASTNodeType.STRING,
+    ]
+
+    _java_simple_class_basic_type_subtrees = [
+        [8, 9],
+        [17, 18],
+    ]
