@@ -18,9 +18,10 @@ class FanOut:
             for _, invoked_class in class_body.filter(ClassCreator):
                 each_fanout += 1
 
+            # to count calling external class's methods
             for _, external_method in class_body.filter(MethodInvocation):
-                if external_method.qualifier not in ('', class_body.name):
+                if external_method.qualifier not in ['', class_body.name]:
                     each_fanout += 1
 
             fan_outs.append(each_fanout)
-        return fan_outs
+        return fan_outs 
