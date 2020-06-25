@@ -24,4 +24,4 @@ class FanOut:
                     each_fanout += 1
 
             fan_outs.append(each_fanout)
-        return fan_outs 
+        return fan_outs
