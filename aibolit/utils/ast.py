@@ -167,6 +167,15 @@ class AST:
             if self.tree.nodes[child]['type'] == child_type:
                 yield child
 
+    def all_children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
+        '''
+        Yields all children of node with given type.
+        '''
+        for child in self.tree.succ[node]:
+            if self.tree.nodes[child]['type'] == child_type:
+                yield child
+                self.all_children_with_type(child, child_type)
+
     @cached_property
     def node_types(self) -> List[ASTNodeType]:
         '''
