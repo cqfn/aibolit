@@ -176,6 +176,11 @@ class AST:
                 yield child
                 self.all_children_with_type(child, child_type)
 
+    def get_binary_operation_name(self, node: int) -> str:
+        assert(self.get_type(node) == ASTNodeType.BINARY_OPERATION)
+        name_node, = islice(self.children_with_type(node, ASTNodeType.STRING), 1)
+        return self.get_attr(name_node, 'string')
+
     @cached_property
     def node_types(self) -> List[ASTNodeType]:
         '''
