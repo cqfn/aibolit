@@ -100,3 +100,13 @@ class VarMiddleTest(TestCase):
         pattern = VarMiddle()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/15.java')
         self.assertEqual(lines, [])
+
+    def test_variable_inside_lambda(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/16.java')
+        self.assertEqual(lines, [])
+
+    def test_annotation_with_parameters(self):
+        pattern = VarMiddle()
+        lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/17.java')
+        self.assertEqual(lines, [22])

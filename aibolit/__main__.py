@@ -25,23 +25,27 @@
 
 import argparse
 import concurrent.futures
+import json
 import multiprocessing
 import operator
+import os
+import pickle
 import sys
 import time
+import traceback
 from os import scandir
+from pathlib import Path
+from sys import stdout
 from typing import List
-
-from lxml import etree  # type: ignore
 import numpy as np  # type: ignore
+import requests
+from lxml import etree  # type: ignore
+from pkg_resources import parse_version
+
 from aibolit import __version__
 from aibolit.config import Config
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
-import os
-from pathlib import Path
-import pickle
 from aibolit.model.model import TwoFoldRankingModel, Dataset  # type: ignore  # noqa: F401
-from sys import stdout
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -61,25 +65,24 @@ def list_dir(path, files):
 
 def predict(input_params, model, args):
     features_order = model.features_conf['features_order']
-    # load model
-    input = [input_params[i] for i in features_order]
+    # add ncss to last column. We will normalize all patterns by that value
+    # deepcode ignore ExpectsIntDislikesStr: false-positive recommendation of deepcode
+    input = [input_params[i] for i in features_order] + [input_params['M2']]
     th = float(args.threshold) or 1.0
-    preds, importances = model.predict(np.array(input), th=th)
+    preds, importances = model.informative(input, th=th)
 
-    return {features_order[int(x)]: int(x) for x in preds.tolist()[0]}, importances
+    return {features_order[int(x)]: int(x) for x in preds}, list(importances)
 
 
 def run_parse_args(commands_dict):
     parser = argparse.ArgumentParser(
         description='Find the pattern which has the largest impact on readability',
-        usage='''
-        aibolit <command> [<args>]
+        usage='''aibolit <command> [<args>]
 
         You can run 1 command:
         train          Train model
         check          Recommend pattern
-        recommend      Recommend pattern. The same as recommend, just another acronym
-        ''')
+        recommend      Recommend pattern. The same as recommend, just another acronym''')
 
     parser.add_argument('command', help='Subcommand to run')
     parser.add_argument(
@@ -208,8 +211,10 @@ def inference(
             if key in patterns_list:
                 pattern_code = key
                 code_lines = code_lines_dict.get('lines_' + key)
+                importance = importances[iter] * input_params[pattern_code]
+
                 # We show only patterns with positive importance
-                if code_lines and val > 1.00000e-20:
+                if code_lines and importance > 0:
                     if code_lines:
                         pattern_name = \
                             [x['name'] for x in Config.get_patterns_config()['patterns']
@@ -218,7 +223,7 @@ def inference(
                             {'code_lines': code_lines,
                              'pattern_code': pattern_code,
                              'pattern_name': pattern_name,
-                             'importance': importances[iter]
+                             'importance': importance
                              })
                     if not do_full_report:
                         break
@@ -302,7 +307,7 @@ def create_xml_tree(results, full_report, cmd, exit_code):
                     code_lines_items = pattern.get('code_lines')
                     pattern_score = pattern.get('importance')
                     pattern_score_tag = etree.SubElement(pattern_item, 'score')
-                    pattern_score_tag.text = str(pattern_score) or ''
+                    pattern_score_tag.text = '{:.2f}'.format(pattern_score) or ''
                     pattern_score_tag = etree.SubElement(pattern_item, 'order')
                     pattern_score_tag.text = '{}/{}'.format(i, patterns_number)
                     importance_for_class.append(pattern_score)
@@ -417,9 +422,8 @@ def check():
 
     parser = argparse.ArgumentParser(
         description='Get recommendations for Java code',
-        usage='''
-        aibolit check < --folder | --filenames > [--model] [--threshold] [--full] [--format]
-        ''')
+        usage='aibolit check < --folder | --filenames > [--model] '
+              '[--threshold] [--full] [--format]')
 
     group_exclusive = parser.add_mutually_exclusive_group(required=True)
 
@@ -463,6 +467,12 @@ def check():
         default=[]
     )
 
+    parser.add_argument(
+        '--exclude',
+        action='append',
+        nargs='+'
+    )
+
     args = parser.parse_args(sys.argv[2:])
 
     if args.suppress:
@@ -470,11 +480,14 @@ def check():
     if args.threshold:
         print('Threshold for model has been set to {}'.format(args.threshold))
 
+    files_to_exclude = handle_exclude_command_line(args)
+
     if args.filenames:
-        files = args.filenames
+        files = [str(Path(x).absolute()) for x in args.filenames if x not in files_to_exclude]
     elif args.folder:
-        files = []
-        list_dir(args.folder, files)
+        all_files = []
+        list_dir(args.folder, all_files)
+        files = [str(Path(x).absolute()) for x in all_files if str(x) not in files_to_exclude]
 
     results = list(run_thread(files, args))
     exit_code = get_exit_code(results)
@@ -501,6 +514,25 @@ def check():
     return exit_code
 
 
+def handle_exclude_command_line(args):
+    files_to_exclude = []
+    exc_string = 'Usage: --exclude=<glob pattern> ' \
+                 '--exclude=<glob pattern> ... ' \
+                 '--exclude=folder_to_find_exceptions '
+    if args.exclude:
+        if len(args.exclude) < 2:
+            raise Exception(exc_string)
+        try:
+            folder_to_exclude = args.exclude[-1][0]
+            glob_patterns = [x[0] for x in args.exclude[:-1]]
+            for glob_p in glob_patterns:
+                files_to_exclude.extend([str(x.absolute()) for x in list(Path(folder_to_exclude).glob(glob_p))])
+
+        except Exception:
+            raise Exception(exc_string)
+    return files_to_exclude
+
+
 def format_converter_for_pattern(results, sorted_by=None):
     """Reformat data where data are sorted by patterns importance
     (it is already sorted in the input).
@@ -520,7 +552,7 @@ def format_converter_for_pattern(results, sorted_by=None):
                   } for line in sorted(x['code_lines'])] for x in items
             ])
             if not sorted_by:
-                file['results'] = new_items
+                file['results'] = sorted(new_items, key=lambda e: (-e['importance'], e['pattern_code'], e['code_line']))
             else:
                 file['results'] = sorted(new_items, key=operator.itemgetter(sorted_by, 'pattern_code'))
 
@@ -553,7 +585,22 @@ def run_thread(files, args):
             yield future.result()
 
 
+def get_versions(pkg_name):
+    url = f'https://pypi.python.org/pypi/{pkg_name}/json'
+    releases = json.loads(requests.get(url).content)['releases']
+    return sorted(releases, key=parse_version, reverse=True)
+
+
 def main():
+    try:
+        max_available_version = get_versions('aibolit')[0]
+        if max_available_version != __version__:
+            print('Version {} is available, but you are using {}'.format(
+                max_available_version,
+                __version__
+            ))
+    except requests.exceptions.ConnectionError:
+        print('Can\'t check aibolit version. Network is not available')
     try:
         commands = {
             'train': lambda: train(),
@@ -563,7 +610,6 @@ def main():
         }
         exit_code = run_parse_args(commands)
     except Exception:
-        import traceback
         traceback.print_exc()
         sys.exit(2)
     else:

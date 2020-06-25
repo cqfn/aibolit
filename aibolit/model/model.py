@@ -1,3 +1,4 @@
+from decimal import localcontext, ROUND_DOWN, Decimal
 from typing import List
 
 import numpy as np
@@ -98,13 +99,15 @@ class TwoFoldRankingModel(BaseEstimator):
         self.model = model
         self.model.fit(X, y.ravel(), logging_level='Silent')
 
-    def __get_pairs(self, item, th: float):
-        def sigmoid(x):
-            return 1 / (1 + np.exp(-x))
+    def sigmoid(self, x):
+        return 1 / (1 + np.exp(-x))
 
-        pattern_importances = item * self.model.feature_importances_
+    def __get_pairs(self, item, th: float, feature_importances=None):
+        if not feature_importances:
+            feature_importances = self.model.feature_importances_
+        pattern_importances = item * feature_importances
         # mask discards not significant patterns
-        th_mask = (sigmoid(pattern_importances) <= th) + 0
+        th_mask = (self.sigmoid(pattern_importances) <= th) + 0
         pattern_importances = pattern_importances * th_mask
         order = np.arange(self.model.feature_importances_.size)
         return (pattern_importances, order)
@@ -112,15 +115,14 @@ class TwoFoldRankingModel(BaseEstimator):
     def __vstack_arrays(self, res):
         return np.vstack(res).T
 
-    def predict(self, X, quantity_func='log', th=1.0):
+    def calculate_score(self, X, quantity_func='log', th=1.0, feature_importances=None):
         """
         Args:
-            X: np.array with shape (number of snippets, number of patterns) or
-                (number of patterns, ).
+            X: np.array with shape ( number of patterns).
             quantity_func: str, type of function that will be applied to
                 number of occurrences.
             th (float): Sensitivity of algorithm to recommend.
-                0 - ignore all recomendations
+                0 - ignore all recommendations
                 1 - use all recommendations
 
         Returns:
@@ -129,11 +131,8 @@ class TwoFoldRankingModel(BaseEstimator):
                 code.
         """
 
-        if X.ndim != 1:
-            raise Exception("Only input with size 1, N is allowed")
-        else:
-            X = X.copy()
-            X = np.expand_dims(X, axis=0)
+        X = X.copy()
+        X = np.expand_dims(X, axis=0)
 
         ranked = []
         quantity_funcs = {
@@ -142,13 +141,76 @@ class TwoFoldRankingModel(BaseEstimator):
             'linear': lambda x: x,
         }
 
-        for snippet in X:
-            try:
-                item = quantity_funcs[quantity_func](snippet)
-                pairs = self.__vstack_arrays(self.__get_pairs(item, th))
-                pairs = pairs[pairs[:, 0].argsort()]
-                ranked.append(pairs[:, 1].T.tolist()[::-1])
-            except Exception:
-                raise Exception("Unknown func")
+        try:
+            item = quantity_funcs[quantity_func](X)
+            pairs = self.__vstack_arrays(self.__get_pairs(item, th, feature_importances))
+            pairs = pairs[pairs[:, 0].argsort()]
+            ranked.append(pairs[:, 1].T.tolist()[::-1])
+        except Exception:
+            import traceback
+            traceback.print_exc()
+            raise Exception("Unknown func")
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
+
+    def get_minimum(self, c1, c2, c3):
+        """
+        Args:
+            c1, c2, c3: np.array with shape (number of snippets, ).
+        Returns:
+            c: np.array with shape (number of snippets, ) -
+            elemental minimum of 3 arrays.
+            number: np.array with shape (number of snippets, ) of
+            arrays' numbers with minimum elements.            .
+        """
+
+        c = np.vstack((c1, c2, c3))
+
+        return np.min(c, 0), np.argmin(c, 0)
+
+    def informative(self, snippet, scale=True, th=1.0):
+        """
+        Args:
+            snippet: np.array with shape (number of snippets, number of patterns + 1),
+            because last column is ncss
+        Returns:
+            ranked: np.array with shape (number of snippets, number of patterns)
+                of sorted patterns in non-increasing order for each snippet of
+                code.
+        """
+
+        # remember it, since we will use `log` function for non-normalized input value
+        patterns_orig = np.array(snippet[:-1])
+        ncss = snippet[-1]
+
+        if scale:
+            snippet = patterns_orig / ncss
+        else:
+            snippet = patterns_orig
+
+        k = snippet.size
+        complexity = self.model.predict(snippet)
+        importances = []
+        for i in range(k):
+            if snippet[i] == 0:
+                # do not need to predict if we have 0
+                importances.append((i, 0))
+                continue
+            temp_arr = snippet.copy()
+            temp_arr[i] = temp_arr[i] - (1 / ncss)
+            complexity_minus = self.model.predict(temp_arr)
+            if complexity_minus < complexity:
+                # complexity decreased
+                with localcontext() as ctx:
+                    ctx.rounding = ROUND_DOWN
+                    abs_diff = abs(complexity - complexity_minus)
+                    diff = Decimal(abs_diff).quantize(Decimal('0.001'))
+                    diff = float(diff * 100)
+            else:
+                # complexity increased, we do not need such value, set to 0,
+                # cause we need only patterns when complexity decreased
+                diff = 0
+            importances.append((i, diff))
+
+        sorted_importances = dict(sorted(importances, key=lambda x: x[1], reverse=True))
+        return sorted_importances.keys(), sorted_importances.values()

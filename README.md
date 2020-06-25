@@ -86,9 +86,6 @@ Total score: 127.67642529949538
 4 is the total number of found patterns
 ```
 
-The score is the relative importance of the pattern (there is no range for it). 
-The larger value is the more important pattern is.
-
 You can use `format=long`. In this case all results will be sorted by a line number:
 
 ```
@@ -175,6 +172,40 @@ You can also choose xml format. It will have the same format as `text` mode, but
 </report>
 
 ```
+The score is the relative importance of the pattern (there is no range for it). 
+The larger score is, the most important pattern is. 
+E.g., if you have several patterns, first you need to fix the pattern with the score 5.45:
+
+```
+/mnt/d/src/java/SampleTests.java[43]: Non final attribute (P12: 5.45 1/10)
+/mnt/d/src/java/SampleTests.java[44]: Non final attribute (P12: 5.45 1/10)
+/mnt/d/src/java/SampleTests.java[80]: Var in the middle (P21: 3.71 2/10)
+/mnt/d/src/java/SampleTests.java[121]: Var in the middle (P21: 3.71 2/10)
+/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 5 lines (P20_5: 2.13 3/10)
+/mnt/d/src/java/SampleTests.java[41]: Non final class (P24: 1.95 4/10)
+/mnt/d/src/java/SampleTests.java[59]: Force Type Casting (P5: 1.45 5/10)
+/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 7 lines (P20_7: 1.07 6/10)
+/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 11 lines (P20_11: 0.78 7/10)
+/mnt/d/src/java/SampleTests.java[51]: Protected Method (P30: 0.60 8/10)
+/mnt/d/src/java/SampleTests.java[52]: Super Method (P18: 0.35 9/10)
+/mnt/d/src/java/SampleTests.java[100]: Partial synchronized (P14: 0.08 10/10)
+/mnt/d/src/java/SampleTests.java[106]: Partial synchronized (P14: 0.08 10/10)
+/mnt/d/src/java/SampleTests.java[113]: Partial synchronized (P14: 0.08 10/10)
+```
+The score per class is the sum of all patterns scores.
+
+```
+/mnt/d/src/java/SampleTests.java score: 17.54698560768407
+```
+
+The total score is an average among all java files in a project (folder you've set to analyze)
+```
+Total average score: 4.0801854775508914
+```
+
+If you have 2 scores of different projects, the worst project is that one which has the highest score.
+
+
 
 Model is automatically installed with *aibolit* package, but you can also try your own model
 
@@ -186,6 +217,12 @@ You can get full report with `--full` command, then all patterns will be include
 
 ```bash
 $ aibolit recommend --folder src/java --full
+```
+
+You can exclude folder with `--exclude` command. The last parameter is the folder to exclude, 
+the rest of them are glob patterns.
+```bash
+$ aibolit recommend --folder src/java --exclude=**/*Test*.java --exclude=**/*Impl*.java --exclude=/mnt/d/src/java/tests
 ```
 
 If you need help, run 
