@@ -6,19 +6,6 @@ class InstanceOf:
     def __init__(self):
         pass
 
-    def get_line_number(self, node, tree):
-        cur_line = 0
-        cur_node = tree.tree.nodes[node]
-        if 'source_code_line' in cur_node:
-            cur_line = cur_node['source_code_line']
-            return cur_line
-        for child in tree.tree.succ[node]:
-            cur_node = tree.tree.nodes[child]
-            if 'source_code_line' in cur_node:
-                cur_line = cur_node['source_code_line']
-                break
-        return cur_line
-
     def value(self, filename: str):
         """
         Traverse over AST tree finds instance_of and .isInstance().
@@ -27,23 +14,13 @@ class InstanceOf:
         List of code lines
         """
         tree = AST(build_ast(filename))
-        lines = []
-
-        nodes = tree.nodes_by_type(ASTNodeType.BINARY_OPERATION)
-        for node in nodes:
-            cur_line = self.get_line_number(node, tree)
-            children = tree.children_with_type(node, ASTNodeType.STRING)
-            for child in children:
-                cur_node = tree.tree.nodes[child]
-                if cur_node['type'] == ASTNodeType.STRING and cur_node['string'] == 'instanceof':
-                    lines.append(cur_line)
+        lines = tree.check_binary_operation('instanceof', [])
 
         nodes = tree.nodes_by_type(ASTNodeType.METHOD_INVOCATION)
         for node in nodes:
-            cur_line = self.get_line_number(node, tree)
-            children = tree.children_with_type(node, ASTNodeType.STRING)
-            for child in children:
-                cur_node = tree.tree.nodes[child]
-                if cur_node['type'] == ASTNodeType.STRING and cur_node['string'] == 'isInstance':
-                    lines.append(cur_line)
+            cur_line = tree.get_attr(node, 'source_code_line')
+            str_attrs = list(tree.children_with_type(node, ASTNodeType.STRING))
+            if tree.tree.nodes[str_attrs[0]]['string'] == 'isInstance':
+                lines.append(cur_line)
+
         return lines
