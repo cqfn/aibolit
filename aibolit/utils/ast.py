@@ -176,19 +176,10 @@ class AST:
                 yield child
                 self.all_children_with_type(child, child_type)
 
-    def check_binary_operation(self, operation: str, lines: List[int]) -> List[int]:
-        nodes = self.nodes_by_type(ASTNodeType.BINARY_OPERATION)
-        for node in nodes:
-            cur_line = 0
-            for child in self.tree.succ[node]:
-                cur_line = max(self.get_attr(child, 'source_code_line', 0), cur_line)
-
-            children = self.children_with_type(node, ASTNodeType.STRING)
-            for child in children:
-                if self.tree.nodes[child]['string'] == operation:
-                    lines.append(cur_line)
-
-        return lines
+    def get_binary_operation_name(self, node: int) -> str:
+        assert(self.get_type(node) == ASTNodeType.BINARY_OPERATION)
+        name_node, = islice(self.children_with_type(node, ASTNodeType.STRING), 1)
+        return self.get_attr(name_node, 'string')
 
     @cached_property
     def node_types(self) -> List[ASTNodeType]:

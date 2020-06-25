@@ -1,3 +1,5 @@
+from typing import List
+
 from aibolit.utils.ast_builder import build_ast
 from aibolit.utils.ast import AST, ASTNodeType
 
@@ -14,7 +16,10 @@ class InstanceOf:
         List of code lines
         """
         tree = AST(build_ast(filename))
-        lines = tree.check_binary_operation('instanceof', [])
+        lines: List[int] = []
+        for node in tree.nodes_by_type(ASTNodeType.BINARY_OPERATION):
+            if tree.get_binary_operation_name(node) == 'instanceof':
+                lines.append(tree.get_attr(node, 'source_code_line'))
 
         nodes = tree.nodes_by_type(ASTNodeType.METHOD_INVOCATION)
         for node in nodes:
