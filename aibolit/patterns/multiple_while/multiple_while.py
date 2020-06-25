@@ -20,12 +20,8 @@ class MultipleWhile:
         nodes = tree.nodes_by_type(ASTNodeType.METHOD_DECLARATION)
         for node in nodes:
             cur_line = tree.get_attr(node, 'source_code_line')
-            while_cyclo = tree.all_children_with_type(node, ASTNodeType.WHILE_STATEMENT)
-            count = 0
-            for cyclo in while_cyclo:
-                count += 1
-                if count > 1:
-                    res.append(cur_line)
-                    break
+            while_cycle = list(tree.all_children_with_type(node, ASTNodeType.WHILE_STATEMENT))
+            if len(while_cycle) > 1:
+                res.append(cur_line)
 
         return res
