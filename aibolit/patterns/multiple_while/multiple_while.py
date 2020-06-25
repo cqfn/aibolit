@@ -1,5 +1,4 @@
-import javalang
-
+from aibolit.utils.ast import AST, ASTNodeType
 from aibolit.utils.ast_builder import build_ast
 
 
@@ -16,9 +15,17 @@ class MultipleWhile:
         List of LineNumber of methods which have sequential while statements
         """
 
+        tree = AST(build_ast(filename))
         res = []
-        for _, method_node in build_ast(filename).filter(javalang.tree.MethodDeclaration):
-            if len(list(method_node.filter(javalang.tree.WhileStatement))) > 1:
-                res.append(method_node.position.line)
+        nodes = tree.nodes_by_type(ASTNodeType.METHOD_DECLARATION)
+        for node in nodes:
+            cur_line = tree.get_attr(node, 'source_code_line')
+            while_cyclo = tree.all_children_with_type(node, ASTNodeType.WHILE_STATEMENT)
+            count = 0
+            for cyclo in while_cyclo:
+                count += 1
+                if count > 1:
+                    res.append(cur_line)
+                    break
 
         return res
