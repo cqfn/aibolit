@@ -22,7 +22,6 @@
 
 from enum import Enum, auto
 from cached_property import cached_property  # type: ignore
-from itertools import islice
 from collections import namedtuple
 
 import javalang.tree
@@ -195,7 +194,13 @@ class AST:
     def get_method_invoked_name(self, invocation_node: int) -> MethodInvocationParams:
         assert(self.get_type(invocation_node) == ASTNodeType.METHOD_INVOCATION)
         # first two STRING nodes represent object and method names
-        object_name, method_name = islice(self.children_with_type(invocation_node, ASTNodeType.STRING), 2)
+        children = list(self.children_with_type(invocation_node, ASTNodeType.STRING))
+        if len(children) == 1:
+            object_name = 'inline method'
+            method_name = children[0]
+        else:
+            object_name = children[0]
+            method_name = children[1]
         return MethodInvocationParams(self.get_attr(object_name, 'string'),
                                       self.get_attr(method_name, 'string'))
 
