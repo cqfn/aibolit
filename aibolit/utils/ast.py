@@ -196,13 +196,10 @@ class AST:
         # first two STRING nodes represent object and method names
         children = list(self.children_with_type(invocation_node, ASTNodeType.STRING))
         if len(children) == 1:
-            object_name = 'inline method'
-            method_name = children[0]
-        else:
-            object_name = children[0]
-            method_name = children[1]
-        return MethodInvocationParams(self.get_attr(object_name, 'string'),
-                                      self.get_attr(method_name, 'string'))
+            return MethodInvocationParams('inline method', self.get_attr(children[0], 'string'))
+
+        return MethodInvocationParams(self.get_attr(children[0], 'string'),
+                                      self.get_attr(children[1], 'string'))
 
     def _build_networkx_tree_from_javalang(self, javalang_node: Node) -> int:
         node_index = len(self.tree) + 1
