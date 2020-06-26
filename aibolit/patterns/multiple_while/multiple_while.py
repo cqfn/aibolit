@@ -15,7 +15,7 @@ class MultipleWhile:
         List of LineNumber of methods which have sequential while statements
         """
 
-        tree = AST(build_ast(filename))
+        tree = AST.build_from_javalang(build_ast(filename))
         res = []
         nodes = tree.nodes_by_type(ASTNodeType.METHOD_DECLARATION)
         for node in nodes:
