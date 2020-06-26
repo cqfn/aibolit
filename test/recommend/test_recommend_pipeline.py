@@ -41,6 +41,7 @@ class TestRecommendPipeline(TestCase):
     def __create_mock_input(self):
         item = {
             'filename': '1.java',
+            'ncss': 100,
             'results': [
                 {'pattern_code': 'P23',
                  'pattern_name': 'Some patterns name',
@@ -51,6 +52,7 @@ class TestRecommendPipeline(TestCase):
         }
         another_item = {
             'filename': 'hdd/home/jardani_jovonovich/John_wick.java',
+            'ncss': 50,
             'results': [
                 {'pattern_code': 'P2',
                  'pattern_name': 'Somebody please get this man a gun',
@@ -85,6 +87,7 @@ class TestRecommendPipeline(TestCase):
     def __create_input_for_xml(self):
         return [
             {'filename': 'D:\\target\\0001\\fast\\Configuration.java',
+             'ncss': 100,
              'results': [
                  {'code_lines': [294, 391],
                   'pattern_code': 'P13',
@@ -97,9 +100,11 @@ class TestRecommendPipeline(TestCase):
              ]},
             {'filename': 'D:\\target\\0001\\fast\\Error.java',
              'results': [],
+             'ncss': 0,
              'error_string': "Smth happened"
              },
             {'filename': 'D:\\target\\0001\\fast\\Another.java',
+             'ncss': 50,
              'results': [
                  {'code_lines': [23, 2],
                   'pattern_code': 'P13',
@@ -158,7 +163,7 @@ class TestRecommendPipeline(TestCase):
         mock_cmd = self.__create_mock_cmd()
         create_xml_tree(mock_input, full_report=True, cmd=mock_cmd, exit_code=0)
 
-    def test_xml_empty_resutls(self):
+    def test_xml_empty_results(self):
         mock_cmd = self.__create_mock_cmd()
         create_xml_tree([], full_report=True, cmd=mock_cmd, exit_code=0)
 
@@ -167,7 +172,7 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input)
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), 'f93718bc733b6fbbd3facdb0838045d8')
+        self.assertEqual(md5_hash.hexdigest(), '5efdc7930a66874e9d0c7dcfef734687')
 
     def test_empty_lines_format(self):
         new_mock = format_converter_for_pattern([])
@@ -180,4 +185,4 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input, 'code_line')
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), '2541a4709e00544714fcb648832c5e1f')
+        self.assertEqual(md5_hash.hexdigest(), '1324e129e6badbfb6e10f742667023ae')

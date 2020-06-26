@@ -178,6 +178,27 @@ class AST:
             if self.tree.nodes[child]['type'] == child_type:
                 yield child
 
+    def all_children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
+        '''
+        Yields all children of node with given type.
+        '''
+        for child in self.tree.succ[node]:
+            if self.tree.nodes[child]['type'] == child_type:
+                yield child
+                self.all_children_with_type(child, child_type)
+
+    def get_binary_operation_name(self, node: int) -> str:
+        assert(self.get_type(node) == ASTNodeType.BINARY_OPERATION)
+        name_node, = islice(self.children_with_type(node, ASTNodeType.STRING), 1)
+        return self.get_attr(name_node, 'string')
+
+    def get_line_number_from_children(self, node: int) -> int:
+        for child in self.tree.succ[node]:
+            cur_line = self.get_attr(child, 'source_code_line', -1)
+            if cur_line >= 0:
+                return cur_line
+        return 0
+
     @cached_property
     def node_types(self) -> List[ASTNodeType]:
         '''
