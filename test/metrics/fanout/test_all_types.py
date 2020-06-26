@@ -46,6 +46,6 @@ class TestFanOut(TestCase):
         lines = self.fanout.value(Path(self.dir_path, '4.java'))
         self.assertEqual(lines, 1)
 
-    def test_4(self):
+    def test_5(self):
         lines = self.fanout.value(Path(self.dir_path, '5.java'))
         self.assertEqual(lines, 3)
