@@ -207,9 +207,12 @@ class AST:
     def get_method_invoked_name(self, invocation_node: int) -> MethodInvocationParams:
         assert(self.get_type(invocation_node) == ASTNodeType.METHOD_INVOCATION)
         # first two STRING nodes represent object and method names
-        object_name, method_name = islice(self.children_with_type(invocation_node, ASTNodeType.STRING), 2)
-        return MethodInvocationParams(self.get_attr(object_name, 'string'),
-                                      self.get_attr(method_name, 'string'))
+        children = list(self.children_with_type(invocation_node, ASTNodeType.STRING))
+        if len(children) == 1:
+            return MethodInvocationParams('', self.get_attr(children[0], 'string'))
+
+        return MethodInvocationParams(self.get_attr(children[0], 'string'),
+                                      self.get_attr(children[1], 'string'))
 
     def _build_networkx_tree_from_javalang(self, javalang_node: Node) -> int:
         node_index = len(self.tree) + 1
