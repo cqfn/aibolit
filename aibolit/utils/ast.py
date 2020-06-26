@@ -23,6 +23,7 @@
 from enum import Enum, auto
 from cached_property import cached_property  # type: ignore
 from collections import namedtuple
+from itertools import islice
 
 import javalang.tree
 from javalang.tree import Node
