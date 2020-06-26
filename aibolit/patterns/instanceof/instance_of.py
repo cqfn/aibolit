@@ -19,13 +19,11 @@ class InstanceOf:
         lines: List[int] = []
         for node in tree.nodes_by_type(ASTNodeType.BINARY_OPERATION):
             if tree.get_binary_operation_name(node) == 'instanceof':
-                lines.append(tree.get_attr(node, 'source_code_line'))
+                lines.append(tree.get_line_number_from_children(node))
 
-        nodes = tree.nodes_by_type(ASTNodeType.METHOD_INVOCATION)
-        for node in nodes:
-            cur_line = tree.get_attr(node, 'source_code_line')
-            str_attrs = list(tree.children_with_type(node, ASTNodeType.STRING))
-            if tree.tree.nodes[str_attrs[0]]['string'] == 'isInstance':
-                lines.append(cur_line)
+        for node in tree.nodes_by_type(ASTNodeType.METHOD_INVOCATION):
+            method_name = tree.get_method_invoked_name(node).method_name
+            if method_name == 'isInstance':
+                lines.append(tree.get_attr(node, 'source_code_line'))
 
         return lines
