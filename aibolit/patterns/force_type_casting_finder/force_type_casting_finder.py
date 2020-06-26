@@ -20,16 +20,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+from typing import List
 from aibolit.utils.ast_builder import build_ast
 from aibolit.utils.ast import AST, ASTNodeType
 
 
 class ForceTypeCastingFinder:
 
-    def value(self, filename: str):
-        ''''''
+    def value(self, filename: str) -> List[int]:
         tree = AST(build_ast(filename))
-        lines = []
+        lines: List[int] = []
 
         nodes = tree.nodes_by_type(ASTNodeType.CAST)
         for node in nodes:
