@@ -181,6 +181,13 @@ class AST:
         name_node, = islice(self.children_with_type(node, ASTNodeType.STRING), 1)
         return self.get_attr(name_node, 'string')
 
+    def get_line_number_from_children(self, node: int) -> int:
+        for child in self.tree.succ[node]:
+            cur_line = self.get_attr(child, 'source_code_line', -1)
+            if cur_line >= 0:
+                return cur_line
+        return 0
+
     @cached_property
     def node_types(self) -> List[ASTNodeType]:
         '''
