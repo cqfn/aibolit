@@ -6,16 +6,3 @@ public class Class1 {
          //your actual code
     }
 }
-
-public class Class2 {
-     public static void doSomething(){
-     }
-}
-
-public class Class1 {
-    public void loginAs(String username, String password)
-    {
-         Class2.doSomething();
-         //your actual code
-    }
-}

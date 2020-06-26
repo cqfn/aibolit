@@ -32,12 +32,20 @@ class TestFanOut(TestCase):
 
     def test_1(self):
         lines = self.fanout.value(Path(self.dir_path, '1.java'))
-        self.assertEqual(lines, [1, 5])
+        self.assertEqual(lines, 5)
 
     def test_2(self):
         lines = self.fanout.value(Path(self.dir_path, '2.java'))
-        self.assertEqual(lines, [2, 0, 1])
+        self.assertEqual(lines, 1)
 
     def test_3(self):
         lines = self.fanout.value(Path(self.dir_path, '3.java'))
-        self.assertEqual(lines, [0, 3])
+        self.assertEqual(lines, 2)
+
+    def test_4(self):
+        lines = self.fanout.value(Path(self.dir_path, '4.java'))
+        self.assertEqual(lines, 1)
+
+    def test_4(self):
+        lines = self.fanout.value(Path(self.dir_path, '5.java'))
+        self.assertEqual(lines, 3)

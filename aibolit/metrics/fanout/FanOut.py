@@ -1,6 +1,5 @@
 from aibolit.utils.ast_builder import build_ast
-from javalang.tree import ClassCreator, ClassDeclaration, MethodInvocation
-from typing import List
+from javalang.tree import ClassCreator, ClassDeclaration, MethodInvocation, VariableDeclarator
 
 
 class FanOut:
@@ -10,18 +9,26 @@ class FanOut:
     def __init__(self):
         pass
 
-    def value(self, filename: str) -> List[int]:
-        fan_outs = []
+    def value(self, filename: str) -> int:
+        considered_classes = {'System.out': 0,}
+        fan_outs = 0
         tree = build_ast(filename)
+        # to not increment java.util classes
+        for import_ in tree.imports:
+            if import_.path.startswith('java.util'):
+                considered_classes[import_.path.split('.')[-1]] = 0
+
         for _, class_body in tree.filter(ClassDeclaration):
-            each_fanout = 0
-            for _, invoked_class in class_body.filter(ClassCreator):
-                each_fanout += 1
-
-            # to count calling external class's methods
+            for _, declaration in class_body.filter(VariableDeclarator):
+                if type(declaration.initializer) == ClassCreator:
+                    if considered_classes.get(declaration.initializer.type.name) == None:
+                        considered_classes[declaration.initializer.type.name] = 0
+                        considered_classes[declaration.name] = 0
+                        fan_outs += 1
+                        
             for _, external_method in class_body.filter(MethodInvocation):
-                if external_method.qualifier not in ['', class_body.name]:
-                    each_fanout += 1
+                if considered_classes.get(external_method.qualifier) == None:
+                    considered_classes[external_method.qualifier] = 0
+                    fan_outs += 1
 
-            fan_outs.append(each_fanout)
         return fan_outs

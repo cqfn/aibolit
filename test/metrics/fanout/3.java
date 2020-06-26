@@ -1,9 +1,3 @@
-class aaa{
-    String value="good luck";
-    String txt="Best of luck";
-      void mthod(){
-      }
-    }
 class bbb{
     aaa obj=new aaa();
     bbb(){//constructor
