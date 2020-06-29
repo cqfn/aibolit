@@ -22,7 +22,7 @@ class InstanceOf:
                 lines.append(tree.get_line_number_from_children(node))
 
         for node in tree.nodes_by_type(ASTNodeType.METHOD_INVOCATION):
-            method_name = tree.get_method_invoked_name(node).method_name
+            method_name = tree.get_method_invocation_params(node).method_name
             if method_name == 'isInstance':
                 lines.append(tree.get_attr(node, 'source_code_line'))
 
