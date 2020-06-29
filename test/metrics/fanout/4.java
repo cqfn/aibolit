@@ -18,3 +18,5 @@ public class Program{
         // получаем последний элемент без удаления
         String sLast = states.getLast();
         System.out.println(sLast);      // Italy
+    }
+}
