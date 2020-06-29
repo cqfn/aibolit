@@ -31,7 +31,8 @@ from aibolit.utils.java_class import JavaClass
 
 class JavaPackage(AST):
     def __init__(self, filename: str):
-        super().__init__(build_ast(filename))
+        ast = AST.build_from_javalang(build_ast(filename))
+        super().__init__(ast.tree, ast.root)
 
     @cached_property
     def name(self) -> str:
