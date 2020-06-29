@@ -1,30 +1,29 @@
-import javalang
+from typing import List
 
 from aibolit.utils.ast_builder import build_ast
+from aibolit.utils.ast import AST, ASTNodeType
 
 
 class InstanceOf:
     def __init__(self):
         pass
 
-    def __traverse_node(self, node):
+    def value(self, filename: str):
         """
         Traverse over AST tree finds instance_of and .isInstance().
         :param filename:
         :return:
         List of code lines
         """
-        lines = []
-        for _, node_elem in node.filter(javalang.tree.BinaryOperation):
-            if node_elem.operator == 'instanceof' and node_elem.operandl.position is not None:
-                code_line = node_elem.operandl.position.line or node_elem.operandr.position.line
-                lines.append(code_line)
-        for _, node_elem in node.filter(javalang.tree.MethodInvocation):
-            if node_elem.member == 'isInstance':
-                lines.append(node_elem.position.line)
+        tree = AST.build_from_javalang(build_ast(filename))
+        lines: List[int] = []
+        for node in tree.nodes_by_type(ASTNodeType.BINARY_OPERATION):
+            if tree.get_binary_operation_name(node) == 'instanceof':
+                lines.append(tree.get_line_number_from_children(node))
+
+        for node in tree.nodes_by_type(ASTNodeType.METHOD_INVOCATION):
+            method_name = tree.get_method_invocation_params(node).method_name
+            if method_name == 'isInstance':
+                lines.append(tree.get_attr(node, 'source_code_line'))
 
         return lines
-
-    def value(self, filename: str):
-        tree = build_ast(filename)
-        return self.__traverse_node(tree)

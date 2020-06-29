@@ -243,11 +243,16 @@ def run_recommend_for_file(file: str, args):
     java_file = str(Path(os.getcwd(), file))
     input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file, args)
     results_list = inference(input_params, code_lines_dict, args)
+    if error_string:
+        ncss = 0
+    else:
+        ncss = input_params.get('M4', 0)
 
     return {
         'filename': file,
         'results': results_list,
-        'error_string': error_string
+        'error_string': error_string,
+        'ncss': ncss,
     }
 
 
@@ -266,11 +271,20 @@ def create_xml_tree(results, full_report, cmd, exit_code):
     datetime_tag.text = str(int(round(time.time() * 1000)))
     version_tag = etree.SubElement(header_tag, 'version')
     version_tag.text = str(__version__)
+    files_number_tag = etree.SubElement(header_tag, 'files')
+    files_number_tag.addprevious(etree.Comment('Files with found patterns'))
+    files_number_tag.text = str(len(
+        [x for x in results
+         if (not x.get('error_string') and x.get('results'))]
+    ))
+    patterns_number_tag = etree.SubElement(header_tag, 'patterns')
+    ncss_tag = etree.SubElement(header_tag, 'ncss')
+    ncss_tag.text = str(sum([x['ncss'] for x in results]))
     cmd_tag = etree.SubElement(header_tag, 'cmd')
     cmd_tag.text = ' '.join(cmd)
     cmd_tag = etree.SubElement(header_tag, 'exit_code')
     cmd_tag.text = str(exit_code)
-
+    total_patterns = 0
     files = etree.SubElement(top, 'files')
     if not full_report:
         files.addprevious(etree.Comment('Show pattern with the largest contribution to Cognitive Complexity'))
@@ -282,12 +296,12 @@ def create_xml_tree(results, full_report, cmd, exit_code):
         name = etree.SubElement(file, 'path')
         output_string_tag = etree.SubElement(file, 'summary')
         name.text = filename
-        results = result_for_file.get('results')
+        results_item = result_for_file.get('results')
         errors_string = result_for_file.get('error_string')
-        if not results and not errors_string:
+        if not results_item and not errors_string:
             output_string = 'Your code is perfect in aibolit\'s opinion'
             output_string_tag.text = output_string
-        elif not results and errors_string:
+        elif not results_item and errors_string:
             output_string = 'Error when calculating patterns: {}'.format(str(errors_string))
             output_string_tag.text = output_string
         else:
@@ -296,6 +310,7 @@ def create_xml_tree(results, full_report, cmd, exit_code):
             importances_sum_tag = etree.SubElement(file, 'score')
             patterns_tag = etree.SubElement(file, 'patterns')
             patterns_number = len(result_for_file['results'])
+            total_patterns += patterns_number
             importance_for_class = []
             for i, pattern in enumerate(result_for_file['results'], start=1):
                 if pattern.get('pattern_code'):
@@ -320,6 +335,7 @@ def create_xml_tree(results, full_report, cmd, exit_code):
             importances_sum_tag.text = str(score_for_class)
             importances_for_all_classes.append(score_for_class)
 
+    patterns_number_tag.text = str(total_patterns)
     if importances_for_all_classes:
         importances_for_all_classes_tag.text = str(np.mean(importances_for_all_classes))
 
@@ -355,31 +371,32 @@ def get_exit_code(results):
     return exit_code
 
 
-def create_text(results, full_report):
+def create_text(results, full_report, is_long=False):
     importances_for_all_classes = []
     buffer = []
+    total_patterns = 0
     if not full_report:
         buffer.append('Show pattern with the largest contribution to Cognitive Complexity')
     else:
         buffer.append('Show all patterns')
     for result_for_file in results:
         filename = result_for_file.get('filename')
-        results = result_for_file.get('results')
+        results_item = result_for_file.get('results')
         errors_string = result_for_file.get('error_string')
-        if not results and not errors_string:
+        if not results_item and not errors_string:
             # Do nothing, patterns were not found
             pass
-        if not results and errors_string:
+        if not results_item and errors_string:
             output_string = '{}: error when calculating patterns: {}'.format(
                 filename,
                 str(errors_string)
             )
             buffer.append(output_string)
-        elif results and not errors_string:
+        elif results_item and not errors_string:
             # get unique patterns score
             patterns_scores = print_total_score_for_file(buffer, filename, importances_for_all_classes, result_for_file)
             patterns_number = len(patterns_scores)
-            pattern__number = 0
+            pattern_number = 0
             cur_pattern_name = ''
             for pattern_item in result_for_file['results']:
                 pattern_score = pattern_item.get('importance')
@@ -387,7 +404,7 @@ def create_text(results, full_report):
                 if code:
                     pattern_name_str = pattern_item.get('pattern_name')
                     if cur_pattern_name != pattern_name_str:
-                        pattern__number += 1
+                        pattern_number += 1
                         cur_pattern_name = pattern_name_str
                     buffer.append('{}[{}]: {} ({}: {:.2f} {}/{})'.format(
                         filename,
@@ -395,12 +412,37 @@ def create_text(results, full_report):
                         pattern_name_str,
                         code,
                         pattern_score,
-                        pattern__number,
+                        pattern_number,
                         patterns_number))
+
+            total_patterns += pattern_number
     if importances_for_all_classes:
-        buffer.append('Total average score: {}'.format(np.mean(importances_for_all_classes)))
+        show_summary(buffer, importances_for_all_classes, is_long, results, total_patterns)
 
     return buffer
+
+
+def show_summary(buffer, importances_for_all_classes, is_long, results, total_patterns):
+    files_number = len(
+        [x for x in results
+         if (not x.get('errors_string') and x.get('results'))
+         ])
+    ncss = sum(
+        [x['ncss'] for x in results
+         if (not x.get('errors_string') and x.get('results'))])
+    if not is_long:
+        buffer.append('Total score: {:.2f}, files seen: {}, patterns found: {}, ncss: {}'.format(
+            np.mean(importances_for_all_classes),
+            files_number,
+            total_patterns,
+            ncss
+        ))
+    else:
+        buffer.append('Total score: {:.2f}, files seen: {}, ncss {}'.format(
+            np.mean(importances_for_all_classes),
+            files_number,
+            ncss
+        ))
 
 
 def print_total_score_for_file(
@@ -504,7 +546,7 @@ def check():
                 new_results = format_converter_for_pattern(results, 'code_line')
             else:
                 raise Exception('Unknown format')
-            text = create_text(new_results, args.full)
+            text = create_text(new_results, args.full, True)
 
             if args.format == 'short':
                 print(text[-1])

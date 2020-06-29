@@ -22,9 +22,10 @@
 
 from unittest import TestCase
 from pathlib import Path
+from itertools import zip_longest
 
 from aibolit.utils.ast_builder import build_ast
-from aibolit.utils.ast import AST, ASTNodeType
+from aibolit.utils.ast import AST, ASTNodeType, MemberReferenceParams, MethodInvocationParams
 
 
 class ASTTestSuite(TestCase):
@@ -37,13 +38,25 @@ class ASTTestSuite(TestCase):
         ast = self._build_ast("SimpleClass.java")
         subtrees = ast.subtrees_with_root_type(ASTNodeType.BASIC_TYPE)
         for subtree_nodes, expected_subtree in \
-                zip(subtrees, ASTTestSuite._java_simple_class_basic_type_subtrees):
+                zip_longest(subtrees, ASTTestSuite._java_simple_class_basic_type_subtrees):
             with self.subTest():
                 self.assertEqual(subtree_nodes, expected_subtree)
 
+    def test_member_reference_params(self):
+        ast = self._build_ast("MemberReferencesExample.java")
+        for node, expected_params in zip_longest(ast.nodes_by_type(ASTNodeType.MEMBER_REFERENCE),
+                                                 ASTTestSuite._expected_member_reference_params):
+            self.assertEqual(ast.get_member_reference_params(node), expected_params)
+
+    def test_method_invocation_params(self):
+        ast = self._build_ast("MethodInvokeExample.java")
+        for node, expected_params in zip_longest(ast.nodes_by_type(ASTNodeType.METHOD_INVOCATION),
+                                                 ASTTestSuite._expected_method_invocation_params):
+            self.assertEqual(ast.get_method_invocation_params(node), expected_params)
+
     def _build_ast(self, filename: str):
         javalang_ast = build_ast(Path(__file__).parent.absolute() / filename)
-        return AST(javalang_ast)
+        return AST.build_from_javalang(javalang_ast)
 
     _java_simple_class_preordered = [
         ASTNodeType.COMPILATION_UNIT,
@@ -82,4 +95,19 @@ class ASTTestSuite(TestCase):
     _java_simple_class_basic_type_subtrees = [
         [8, 9],
         [17, 18],
+    ]
+
+    _expected_member_reference_params = [
+        MemberReferenceParams('', 'block_variable', ''),
+        MemberReferenceParams('', 'method_parameter', ''),
+        MemberReferenceParams('', 'block_variable', '++'),
+        MemberReferenceParams('', 'field', ''),
+        MemberReferenceParams('', 'block_variable', ''),
+        MemberReferenceParams('Something', 'outer_field', ''),
+        MemberReferenceParams('', 'field', ''),
+    ]
+
+    _expected_method_invocation_params = [
+        MethodInvocationParams(object_name='System.out', method_name='println'),
+        MethodInvocationParams(object_name='', method_name='method1'),
     ]
