@@ -251,9 +251,9 @@ def run_recommend_for_file(file: str, args):
         results_list = inference(input_params, code_lines_dict, args)
 
     if error_string:
-        ncss = 0.000000000000001
+        ncss = 0
     else:
-        ncss = input_params.get('M4', 0.000000000000001)
+        ncss = input_params.get('M4', 0)
 
     return {
         'filename': file,
