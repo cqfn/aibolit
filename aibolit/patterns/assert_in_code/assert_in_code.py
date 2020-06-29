@@ -5,7 +5,7 @@ from aibolit.utils.ast import AST, ASTNodeType
 
 class AssertInCode:
     def value(self, filename: str) -> List[int]:
-        tree = AST(build_ast(filename))
+        tree = AST.build_from_javalang(build_ast(filename))
         lines: List[int] = []
         nodes = tree.nodes_by_type(ASTNodeType.ASSERT_STATEMENT)
         for node in nodes:
