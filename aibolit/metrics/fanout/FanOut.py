@@ -27,7 +27,7 @@ class FanOut:
         fan_outs = 0
 
         # check imported classes
-        tree = AST.build_from_javalang(build_ast(filename))
+        tree = AST.build_from_javalang(build_ast(filename)) #type: ignore
         for i in (tree.children_with_type(tree.root, ASTNodeType.IMPORT)):
             name_node, = islice(tree.children_with_type(i, ASTNodeType.STRING), 1)
             new_class = tree.get_attr(name_node, 'string').split('.')[-1]
@@ -36,13 +36,13 @@ class FanOut:
                 considered_classes[new_class] = 0      
 
         for i in tree.subtrees_with_root_type(ASTNodeType.CLASS_DECLARATION):
-            ast = AST(tree.tree.subgraph(i), i[0])
+            ast = AST(tree.tree.subgraph(i), i[0]) #type: ignore
             for j in ast.subtrees_with_root_type(ASTNodeType.VARIABLE_DECLARATOR):
-                ast_ = AST(tree.tree.subgraph(j), j[0])
+                ast_ = AST(tree.tree.subgraph(j), j[0]) #type: ignore
                 for inv_class in ast_.subtrees_with_root_type(ASTNodeType.CLASS_CREATOR):
                     name_node, = islice(ast_.children_with_type(j[0], ASTNodeType.STRING), 1)
                     new_class_name = ast_.get_attr(name_node, 'string')
-                    ast__ = AST(tree.tree.subgraph(inv_class), inv_class[0])           
+                    ast__ = AST(tree.tree.subgraph(inv_class), inv_class[0]) #type: ignore           
 
                     for each_name in ast__.subtrees_with_root_type(ASTNodeType.REFERENCE_TYPE):
                         name_node, = islice(ast__.children_with_type(each_name[0], ASTNodeType.STRING), 1)
@@ -56,9 +56,9 @@ class FanOut:
 
             # check classes of invokated methods
             for j in ast.subtrees_with_root_type(ASTNodeType.STATEMENT_EXPRESSION):
-                ast1 = AST(tree.tree.subgraph(j), j[0])
+                ast1 = AST(tree.tree.subgraph(j), j[0]) #type: ignore
                 for each_method in ast1.subtrees_with_root_type(ASTNodeType.METHOD_INVOCATION):
-                    name_of_invoked_class = ast1.get_method_invocation_params(each_method[0]).object_name
+                    name_of_invoked_class = ast1.get_method_invocation_params(each_method[0]).object_name #type: ignore
                     if considered_classes.get(name_of_invoked_class) is None:
                         considered_classes[name_of_invoked_class] = 0
                         fan_outs += 1
