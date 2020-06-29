@@ -15,7 +15,7 @@ class InstanceOf:
         :return:
         List of code lines
         """
-        tree = AST(build_ast(filename))
+        tree = AST.build_from_javalang(build_ast(filename))
         lines: List[int] = []
         for node in tree.nodes_by_type(ASTNodeType.BINARY_OPERATION):
             if tree.get_binary_operation_name(node) == 'instanceof':

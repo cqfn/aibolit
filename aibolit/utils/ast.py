@@ -22,8 +22,8 @@
 
 from enum import Enum, auto
 from cached_property import cached_property  # type: ignore
-from itertools import islice
 from collections import namedtuple
+from itertools import islice
 
 import javalang.tree
 from javalang.tree import Node
@@ -115,13 +115,21 @@ class ASTNodeType(Enum):
 
 MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'method_name'])
 
+MemberReferenceParams = namedtuple('MemberReferenceParams', ('object_name', 'member_name', 'unary_operator'))
+
 
 class AST:
     _NODE_SKIPED = -1
 
-    def __init__(self, javalang_ast_root: Node):
-        self.tree = DiGraph()
-        self.root = self._build_networkx_tree_from_javalang(javalang_ast_root)
+    def __init__(self, networkx_tree: DiGraph, root: int):
+        self.tree = networkx_tree
+        self.root = root
+
+    @staticmethod
+    def build_from_javalang(javalang_ast_root: Node) -> 'AST':
+        tree = DiGraph()
+        root = AST._build_from_javalang(tree, javalang_ast_root)
+        return AST(tree, root)
 
     def __str__(self) -> str:
         printed_graph = ''
@@ -131,7 +139,11 @@ class AST:
             if edge_type == 'forward':
                 if depth > 0:
                     printed_graph += ' ' * depth + '|---'
-                printed_graph += str(self.tree.nodes[destination]['type']) + '\n'
+                node_type = self.get_type(destination)
+                printed_graph += str(node_type)
+                if node_type == ASTNodeType.STRING:
+                    printed_graph += ': ' + self.get_attr(destination, 'string')
+                printed_graph += '\n'
                 depth += print_step
             elif edge_type == 'reverse':
                 depth -= print_step
@@ -204,7 +216,7 @@ class AST:
     def get_type(self, node: int) -> ASTNodeType:
         return self.get_attr(node, 'type')
 
-    def get_method_invoked_name(self, invocation_node: int) -> MethodInvocationParams:
+    def get_method_invocation_params(self, invocation_node: int) -> MethodInvocationParams:
         assert(self.get_type(invocation_node) == ASTNodeType.METHOD_INVOCATION)
         # first two STRING nodes represent object and method names
         children = list(self.children_with_type(invocation_node, ASTNodeType.STRING))
@@ -214,52 +226,77 @@ class AST:
         return MethodInvocationParams(self.get_attr(children[0], 'string'),
                                       self.get_attr(children[1], 'string'))
 
-    def _build_networkx_tree_from_javalang(self, javalang_node: Node) -> int:
-        node_index = len(self.tree) + 1
-        self.tree.add_node(node_index)
-        self._extract_javalang_node_attributes(javalang_node, node_index)
+    def get_member_reference_params(self, member_reference_node: int) -> MemberReferenceParams:
+        assert(self.get_type(member_reference_node) == ASTNodeType.MEMBER_REFERENCE)
+        params = [self.get_attr(child, 'string') for child in
+                  self.children_with_type(member_reference_node, ASTNodeType.STRING)]
+
+        member_reference_params: MemberReferenceParams
+        if len(params) == 1:
+            member_reference_params = MemberReferenceParams(object_name='', member_name=params[0],
+                                                            unary_operator='')
+        elif len(params) == 2:
+            member_reference_params = MemberReferenceParams(object_name=params[0], member_name=params[1],
+                                                            unary_operator='')
+        elif len(params) == 3:
+            member_reference_params = MemberReferenceParams(unary_operator=params[0], object_name=params[1],
+                                                            member_name=params[2])
+        else:
+            raise ValueError('Node has 0 or more then 3 children with type "STRING": ' + str(params))
+
+        return member_reference_params
+
+    @staticmethod
+    def _build_from_javalang(tree, javalang_node: Node) -> int:
+        node_index = len(tree) + 1
+        tree.add_node(node_index)
+        AST._extract_javalang_node_attributes(tree, javalang_node, node_index)
 
         for children_item in javalang_node.children:
             if type(children_item) == list:
                 for child in children_item:
-                    child_node_index = self._handle_javalang_ast_node(child)
+                    child_node_index = AST._handle_javalang_ast_node(tree, child)
                     if child_node_index != AST._NODE_SKIPED:
-                        self.tree.add_edge(node_index, child_node_index)
+                        tree.add_edge(node_index, child_node_index)
             else:
-                child_node_index = self._handle_javalang_ast_node(children_item)
+                child_node_index = AST._handle_javalang_ast_node(tree, children_item)
                 if child_node_index != AST._NODE_SKIPED:
-                    self.tree.add_edge(node_index, child_node_index)
+                    tree.add_edge(node_index, child_node_index)
 
         return node_index
 
-    def _extract_javalang_node_attributes(self, javalang_node: Node, node_index: int) -> None:
-        self.tree.add_node(node_index, type=AST._javalang_types_map[type(javalang_node)])
+    @staticmethod
+    def _extract_javalang_node_attributes(tree, javalang_node: Node, node_index: int) -> None:
+        tree.add_node(node_index, type=AST._javalang_types_map[type(javalang_node)])
 
         if hasattr(javalang_node.position, 'line'):
-            self.tree.add_node(node_index, source_code_line=javalang_node.position.line)
+            tree.add_node(node_index, source_code_line=javalang_node.position.line)
 
-    def _handle_javalang_ast_node(self, javalang_node: Union[Node, Set[Any], str]) -> int:
+    @staticmethod
+    def _handle_javalang_ast_node(tree, javalang_node: Union[Node, Set[Any], str]) -> int:
         if isinstance(javalang_node, Node):
-            return self._build_networkx_tree_from_javalang(javalang_node)
+            return AST._build_from_javalang(tree, javalang_node)
         elif isinstance(javalang_node, set):
-            return self._handle_javalang_collection_node(javalang_node)
+            return AST._handle_javalang_collection_node(tree, javalang_node)
         elif isinstance(javalang_node, str):
-            return self._handle_javalang_string_node(javalang_node)
+            return AST._handle_javalang_string_node(tree, javalang_node)
 
         return AST._NODE_SKIPED
 
-    def _handle_javalang_string_node(self, string_node: str) -> int:
-        node_index = len(self.tree) + 1
-        self.tree.add_node(node_index, type=ASTNodeType.STRING, string=string_node)
+    @staticmethod
+    def _handle_javalang_string_node(tree, string_node: str) -> int:
+        node_index = len(tree) + 1
+        tree.add_node(node_index, type=ASTNodeType.STRING, string=string_node)
         return node_index
 
-    def _handle_javalang_collection_node(self, collection_node: Set[Any]) -> int:
-        node_index = len(self.tree) + 1
-        self.tree.add_node(node_index, type=ASTNodeType.COLLECTION)
+    @staticmethod
+    def _handle_javalang_collection_node(tree, collection_node: Set[Any]) -> int:
+        node_index = len(tree) + 1
+        tree.add_node(node_index, type=ASTNodeType.COLLECTION)
         for item in collection_node:
             if type(item) == str:
-                string_node_index = self._handle_javalang_string_node(item)
-                self.tree.add_edge(node_index, string_node_index)
+                string_node_index = AST._handle_javalang_string_node(tree, item)
+                tree.add_edge(node_index, string_node_index)
             elif item is not None:
                 raise RuntimeError('Unexpected javalang AST node type {} inside \
                                     "COLLECTION" node'.format(type(item)))

@@ -36,7 +36,7 @@ class VarMiddle:
     '''
 
     def value(self, filename):
-        ast = AST(build_ast(filename))
+        ast = AST.build_from_javalang(build_ast(filename))
         scope_status = ScopeStatus()
         lines_with_error: List[LineNumber] = []
         for _, destination, edge_type in dfs_labeled_edges(ast.tree, ast.root):
