@@ -30,8 +30,8 @@ class FanOut:
 
         # check imported classes
         tree = AST.build_from_javalang(build_ast(filename))
-        for i in (tree.children_with_type(tree.root, ASTNodeType.IMPORT)):
-            name_node, = islice(tree.children_with_type(i, ASTNodeType.STRING), 1)
+        for each_import in (tree.children_with_type(tree.root, ASTNodeType.IMPORT)):
+            name_node, = islice(tree.children_with_type(each_import, ASTNodeType.STRING), 1)
             new_class = tree.get_attr(name_node, 'string').split('.')[-1]
             if considered_classes.get(new_class) is None:
                 fan_outs += 1
