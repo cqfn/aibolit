@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List
+from typing import List, Tuple
 from aibolit.utils.ast_builder import build_ast
 from aibolit.utils.ast import AST, ASTNodeType
 
@@ -34,7 +34,7 @@ class JoinedValidation:
     def __init__(self):
         pass
 
-    def check_throw(self, node: int, tree: 'AST', lines: List[int]) -> (List[int], bool):
+    def check_throw(self, node: int, tree: 'AST', lines: List[int]) -> Tuple[List[int], bool]:
         children_throw = list(tree.children_with_type(node, ASTNodeType.THROW_STATEMENT))
         if len(children_throw) > 0:
             lines.append(tree.get_attr(node, 'source_code_line'))
