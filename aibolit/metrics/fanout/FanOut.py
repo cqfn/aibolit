@@ -37,7 +37,7 @@ class FanOut:
                 fan_outs += 1
                 considered_classes[new_class] = 0
 
-        for i in tree.subtrees_with_root_type(ASTNodeType.CLASS_DECLARATION):
+        for i in tree.subtrees_with_root_type(ASTNodeType.CLASS_DECLARATION):  # type: ignore
             ast = AST(tree.tree.subgraph(i), i[0])  # type: ignore
             for j in ast.subtrees_with_root_type(ASTNodeType.VARIABLE_DECLARATOR):
                 ast_ = AST(tree.tree.subgraph(j), j[0])  # type: ignore
