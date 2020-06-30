@@ -1,6 +1,7 @@
 from aibolit.utils.ast_builder import build_ast
 from aibolit.utils.ast import AST, ASTNodeType
 from itertools import islice
+from aibolit.utils.java_package import JavaPackage
 
 
 class FanOut:
@@ -37,32 +38,29 @@ class FanOut:
                 fan_outs += 1
                 considered_classes[new_class] = 0
 
-        for i in tree.subtrees_with_root_type(ASTNodeType.CLASS_DECLARATION):
-            ast = AST(tree.tree.subgraph(i), i[0])
-            for j in ast.subtrees_with_root_type(ASTNodeType.VARIABLE_DECLARATOR):
-                ast_ = AST(tree.tree.subgraph(j), j[0])
-                for inv_class in ast_.subtrees_with_root_type(ASTNodeType.CLASS_CREATOR):
-                    name_node, = islice(ast_.children_with_type(j[0], ASTNodeType.STRING), 1)
-                    new_class_name = ast_.get_attr(name_node, 'string')
-                    ast__ = AST(tree.tree.subgraph(inv_class), inv_class[0])
+        p = JavaPackage(filename)
+        for class_name in p.java_classes:
+            tree = p.java_classes[class_name]
+            for var_node in tree.nodes_by_type(ASTNodeType.VARIABLE_DECLARATOR):
+                var_child = list(tree.children_with_type(var_node, ASTNodeType.STRING))
+                new_class_name = tree.get_attr(var_child[0], 'string')
 
-                    for each_name in ast__.subtrees_with_root_type(ASTNodeType.REFERENCE_TYPE):
-                        name_node, = islice(ast__.children_with_type(each_name[0], ASTNodeType.STRING), 1)
-                        used_class_name = ast__.get_attr(name_node, 'string')
-
+                for class_creator_node in tree.children_with_type(var_node, ASTNodeType.CLASS_CREATOR):
+                    for go_to_name in tree.children_with_type(class_creator_node, ASTNodeType.REFERENCE_TYPE):
+                        classC_child = list(tree.children_with_type(go_to_name, ASTNodeType.STRING))
+                        used_class_name = tree.get_attr(classC_child[0], 'string')
                         if considered_classes.get(used_class_name) is None:
                             considered_classes[used_class_name] = 0
                             fan_outs += 1
                         if considered_classes.get(new_class_name) is None:
                             considered_classes[new_class_name] = 0
 
-            # check classes of invokated methods
-            for j in ast.subtrees_with_root_type(ASTNodeType.STATEMENT_EXPRESSION):
-                ast1 = AST(tree.tree.subgraph(j), j[0])
-                for each_method in ast1.subtrees_with_root_type(ASTNodeType.METHOD_INVOCATION):
-                    name_of_invoked_class = ast1.get_method_invocation_params(each_method[0])
-                    if considered_classes.get(name_of_invoked_class.object_name) is None:
-                        considered_classes[name_of_invoked_class.object_name] = 0
-                        fan_outs += 1
+        # check classes of invokated methods
+        for i in tree.nodes_by_type(ASTNodeType.STATEMENT_EXPRESSION):
+            for invoked_method_child in tree.children_with_type(i, ASTNodeType.METHOD_INVOCATION):
+                name_of_invoked_class = tree.get_method_invocation_params(invoked_method_child)
+                if considered_classes.get(name_of_invoked_class.object_name) is None:
+                    considered_classes[name_of_invoked_class.object_name] = 0
+                    fan_outs += 1
 
         return fan_outs
