@@ -40,4 +40,4 @@ class TestNum_MethodsandVars(TestCase):
 
     def test3(self):
         lines = self.get_rfc.value(Path(self.dir_path, '3.java'))
-        self.assertEqual(lines, 21)
+        self.assertEqual(lines, 17)

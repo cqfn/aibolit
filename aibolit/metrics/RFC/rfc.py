@@ -24,6 +24,8 @@ class RFC:
                 # to form a set of all methods in the class
                 names = list(ast_each_method.children_with_type(ast_each_method.root, ASTNodeType.STRING))
                 method_name = tree.get_attr(names[0], 'string')
+                # we need to check the name because even comments are counted as the childs with string type
+                # need to get rid of them
                 if not method_name.startswith('/'):
                     class_methods.add(method_name)
 

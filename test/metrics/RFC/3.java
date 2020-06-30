@@ -69,26 +69,12 @@ final class Routine implements Runnable, Closeable {
     @Override
     @SuppressWarnings("PMD.AvoidCatchingThrowable")
     public void run() {
-        try {
-            Logger.info(
+        Logger.info(
                 this, "%d active talks, alive for %[ms]s: %tc",
                 this.safe(),
                 System.currentTimeMillis() - this.start, new Date()
             );
             this.pulse.error(Collections.<Throwable>emptyList());
-            // @checkstyle IllegalCatchCheck (1 line)
-        } catch (final Throwable ex) {
-            if (!this.down.get()) {
-                Logger.error(this, "#run(): %[exception]s", ex);
-                try {
-                    TimeUnit.MICROSECONDS.sleep(1L);
-                } catch (final InterruptedException iex) {
-                    Logger.info(this, "%[exception]s", iex);
-                }
-            }
-            Sentry.capture(ex);
-            this.pulse.error(Collections.singleton(ex));
-        }
     }
 
     /**
