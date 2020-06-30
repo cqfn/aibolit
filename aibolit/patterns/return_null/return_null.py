@@ -30,21 +30,18 @@ class ReturnNull:
     def __init__(self):
         pass
 
-    def get_return_args(self, node: int, tree: 'AST') -> bool:
+    def __check_null_in_return_args(self, node: int, tree: AST) -> bool:
         for child1 in tree.children_with_type(node, ASTNodeType.LITERAL):
             for child2 in tree.children_with_type(child1, ASTNodeType.STRING):
                 if tree.get_attr(child2, 'string') == 'null':
                     return True
         return False
 
-    def work_with_return(self, node: int, lines: List[int], tree: 'AST') -> List[int]:
-        for child in tree.children_with_type(node, ASTNodeType.TERNARY_EXPRESSION):
-            if self.get_return_args(child, tree):
-                lines.append(tree.get_attr(node, 'source_code_line'))
-            return lines
-        if self.get_return_args(node, tree):
-            lines.append(tree.get_attr(node, 'source_code_line'))
-        return lines
+    def __check_null_in_return_statement(self, node: int, tree: AST) -> bool:
+        child_ternary = list(tree.children_with_type(node, ASTNodeType.TERNARY_EXPRESSION))
+        if len(child_ternary) > 0:
+            return self.__check_null_in_return_args(child_ternary[0], tree)
+        return self.__check_null_in_return_args(node, tree)
 
     def value(self, filename: str) -> List[int]:
         """
@@ -55,6 +52,7 @@ class ReturnNull:
         lines: List[int] = []
         for node in tree.nodes_by_type(ASTNodeType.METHOD_DECLARATION):
             for child in tree.children_with_type(node, ASTNodeType.RETURN_STATEMENT):
-                lines = self.work_with_return(child, lines, tree)
+                if self.__check_null_in_return_statement(child, tree):
+                    lines.append(tree.get_attr(child, 'source_code_line'))
 
         return lines
