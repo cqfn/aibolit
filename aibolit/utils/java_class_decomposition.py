@@ -22,7 +22,7 @@
 
 from typing import List, Dict, Set, Iterator
 
-from networkx import DiGraph, strongly_connected_components, weakly_connected_components
+from networkx import DiGraph, strongly_connected_components, weakly_connected_components  # type: ignore
 
 from aibolit.utils.ast import AST
 from aibolit.utils.java_class import JavaClass
