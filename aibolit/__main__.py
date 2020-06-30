@@ -244,10 +244,11 @@ def run_recommend_for_file(file: str, args):
     input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file, args)
 
     if not input_params:
-        results_list = []
+        results_list = []  # type: ignore
         error_string = 'Empty java file; ncss = 0'
+    #  deepcode ignore ExpectsIntDislikesStr: False positive
     elif input_params['M2'] == 0:
-        results_list = []
+        results_list = []  # type: ignore
         error_string = 'Empty java file; ncss = 0'
     else:
         results_list = inference(input_params, code_lines_dict, args)
