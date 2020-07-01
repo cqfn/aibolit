@@ -16,7 +16,7 @@ class NonFinalClass:
 
         positions = []
         for node in nodes:
-            line = tree.get_attr(node, 'line')
+            line = tree.get_attr(node, 'source_code_line')
             modifiers = tree.get_attr(node, 'modifiers')
 
             if len([v for v in ['final', 'abstract'] if v in modifiers]) == 0:
