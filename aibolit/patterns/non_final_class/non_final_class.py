@@ -19,7 +19,7 @@ class NonFinalClass:
             line = tree.get_attr(node, 'line')
             modifiers = tree.get_attr(node, 'modifiers')
 
-            if len([v for v in ['final', 'abstract'] if v in modifiers]) == 0:
+            if modifiers is None or len([v for v in ['final', 'abstract'] if v in modifiers]) == 0:
                 positions.append(line)
 
         return positions
