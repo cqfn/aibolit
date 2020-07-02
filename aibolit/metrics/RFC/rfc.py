@@ -23,11 +23,13 @@ class RFC:
                 ast_each_method = AST(tree.tree.subgraph(class_method), class_method[0])
                 # to form a set of all methods in the class
                 names = list(ast_each_method.children_with_type(ast_each_method.root, ASTNodeType.STRING))
-                method_name = tree.get_attr(names[0], 'string')
-                # we need to check the name because even comments are counted as the childs with string type
-                # need to get rid of them
-                if not method_name.startswith('/'):
-                    class_methods.add(method_name)
+                for each_string in names:
+                    method_name = tree.get_attr(each_string, 'string')
+                    # we need to check the name because even comments are counted as the childs with string type
+                    # need to get rid of them
+                    if not method_name.startswith('/'):
+                        class_methods.add(method_name)
+                        break
 
                 for new_method_var in ast_each_method.nodes_by_type(ASTNodeType.VARIABLE_DECLARATOR):
                     for inv_method in ast_each_method.children_with_type(new_method_var, ASTNodeType.METHOD_INVOCATION):

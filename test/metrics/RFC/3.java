@@ -29,7 +29,7 @@ final class Routine implements Runnable, Closeable {
     /**
      * When I started.
      */
-    private final transient long start = System.currentTimeMillis();
+    private final transient long start = System.currentTimeMillis(); // +1
 
     /**
      * Ticks.
@@ -59,22 +59,22 @@ final class Routine implements Runnable, Closeable {
         this.talks = tlks;
         this.pulse = pls;
         this.agents = new Agents(github, sttc);
-    }
+    } // +1
 
     @Override
-    public void close() {
-        this.down.set(true);
+    public void close() { // +1
+        this.down.set(true); // +1
     }
 
     @Override
     @SuppressWarnings("PMD.AvoidCatchingThrowable")
-    public void run() {
-        Logger.info(
+    public void run() { // +1
+        Logger.info( // +1
                 this, "%d active talks, alive for %[ms]s: %tc",
                 this.safe(),
                 System.currentTimeMillis() - this.start, new Date()
             );
-            this.pulse.error(Collections.<Throwable>emptyList());
+            this.pulse.error(Collections.<Throwable>emptyList()); // +2
     }
 
     /**
@@ -83,15 +83,15 @@ final class Routine implements Runnable, Closeable {
      * @throws IOException If fails
      */
     @Timeable(limit = Tv.TWENTY, unit = TimeUnit.MINUTES)
-    private int safe() throws IOException {
+    private int safe() throws IOException { // +1
         final long begin = System.currentTimeMillis();
         int total = 0;
-        if (new Toggles.InFile().readOnly()) {
+        if (new Toggles.InFile().readOnly()) { // +1
             Logger.info(this, "read-only mode");
         } else {
             total = this.process();
         }
-        this.pulse.add(
+        this.pulse.add( // +1
             new Tick(begin, System.currentTimeMillis() - begin, total)
         );
         return total;
@@ -102,16 +102,16 @@ final class Routine implements Runnable, Closeable {
      * @return Total talks processed
      * @throws IOException If fails
      */
-    private int process() throws IOException {
-        this.agents.starter().execute(this.talks);
+    private int process() throws IOException { // +1
+        this.agents.starter().execute(this.talks); // +1
         final Profiles profiles = new Profiles();
         int total = 0;
-        for (final Talk talk : this.talks.active()) {
+        for (final Talk talk : this.talks.active()) { // +1
             ++total;
-            final Profile profile = profiles.fetch(talk);
-            this.agents.agent(talk, profile).execute(talk);
+            final Profile profile = profiles.fetch(talk); // +1
+            this.agents.agent(talk, profile).execute(talk); // +1
         }
-        this.agents.closer().execute(this.talks);
+        this.agents.closer().execute(this.talks); // +1
         return total;
     }
 
