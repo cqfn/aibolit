@@ -11,7 +11,7 @@ class RFC:
     def __init__(self):
         pass
 
-    def value(self, filename: str) -> int:
+    def value(self, filename: str) -> int:  # noqa: C901
         class_methods = set()
         called_methods = set()
         initialized_method_vars = set()
