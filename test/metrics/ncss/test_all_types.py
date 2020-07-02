@@ -48,3 +48,9 @@ class TestNCSSMetric(unittest.TestCase):
         metric = NCSSMetric()
         res = metric.value(file)
         self.assertEqual(res, 16)
+
+    def testSimpleExample2(self):
+        file = 'test/metrics/ncss/SimpleExample2.java'
+        metric = NCSSMetric()
+        res = metric.value(file)
+        self.assertEqual(res, 16)
