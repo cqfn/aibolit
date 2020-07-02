@@ -17,7 +17,7 @@ class RFC:
         for each_method in self.class_methods.keys():
             counter = 0
             for i in self.class_methods[each_method]:
-                if i in self.class_methods.keys():
+                if i in self.class_methods:
                     counter += 1
                 else:
                     counter -= 1
