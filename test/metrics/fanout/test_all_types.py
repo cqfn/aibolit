@@ -22,34 +22,30 @@
 
 import os
 from unittest import TestCase
-from aibolit.patterns.return_null.return_null import ReturnNull
+from aibolit.metrics.fanout.FanOut import FanOut
 from pathlib import Path
 
 
-class TestMethodChain(TestCase):
+class TestFanOut(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
-    method_chain_finder = ReturnNull()
+    fanout = FanOut()
 
-    def test_anonymous(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'Anonymous.java'))
-        self.assertEqual(lines, [28, 24])
+    def test_1(self):
+        lines = self.fanout.value(Path(self.dir_path, '1.java'))
+        self.assertEqual(lines, 3)
 
-    def test_empty(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'Empty.java'))
-        self.assertEqual(lines, [])
+    def test_2(self):
+        lines = self.fanout.value(Path(self.dir_path, '2.java'))
+        self.assertEqual(lines, 2)
 
-    def test_with_ternary1(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'With_Ternary1.java'))
-        self.assertEqual(lines, [12])
+    def test_3(self):
+        lines = self.fanout.value(Path(self.dir_path, '3.java'))
+        self.assertEqual(lines, 2)
 
-    def test_with_ternary2(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'With_Ternary2.java'))
-        self.assertEqual(lines, [12])
+    def test_4(self):
+        lines = self.fanout.value(Path(self.dir_path, '4.java'))
+        self.assertEqual(lines, 1)
 
-    def test_with_ternary_not_return_null(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'With_Ternary_not_return_null.java'))
-        self.assertEqual(lines, [])
-
-    def test_simple(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'Simple.java'))
-        self.assertEqual(lines, [12])
+    def test_5(self):
+        lines = self.fanout.value(Path(self.dir_path, '5.java'))
+        self.assertEqual(lines, 1)

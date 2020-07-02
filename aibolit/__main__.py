@@ -155,7 +155,7 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
         exc_type, exc_value, exc_tb = sys.exc_info()
         raise Exception("Can't count {} metric: {}".format(
             acronym,
-            str(exc_value))
+            str(type(exc_value)))
         )
 
 
@@ -242,7 +242,17 @@ def run_recommend_for_file(file: str, args):
     """
     java_file = str(Path(os.getcwd(), file))
     input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file, args)
-    results_list = inference(input_params, code_lines_dict, args)
+
+    if not input_params:
+        results_list = []  # type: ignore
+        error_string = 'Empty java file; ncss = 0'
+    #  deepcode ignore ExpectsIntDislikesStr: False positive
+    elif input_params['M2'] == 0:
+        results_list = []  # type: ignore
+        error_string = 'Empty java file; ncss = 0'
+    else:
+        results_list = inference(input_params, code_lines_dict, args)
+
     if error_string:
         ncss = 0
     else:
