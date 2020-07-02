@@ -3,7 +3,7 @@ public class MyClass {
       System.out.println("Hello World!"); // +1
     }
   
-    public static void main(String[] args) { // +1
+    public static void main(String[] args) { // +0 because of using only other methods
         
       myMethod();
     }

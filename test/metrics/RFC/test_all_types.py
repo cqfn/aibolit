@@ -32,11 +32,11 @@ class TestNum_MethodsandVars(TestCase):
 
     def test1(self):
         lines = self.get_rfc.value(Path(self.dir_path, '1.java'))
-        self.assertEqual(lines, 7)
+        self.assertEqual(lines, 6)
 
     def test2(self):
         lines = self.get_rfc.value(Path(self.dir_path, '2.java'))
-        self.assertEqual(lines, 13)
+        self.assertEqual(lines, 11)
 
     def test3(self):
         lines = self.get_rfc.value(Path(self.dir_path, '3.java'))
@@ -44,4 +44,8 @@ class TestNum_MethodsandVars(TestCase):
 
     def test4(self):
         lines = self.get_rfc.value(Path(self.dir_path, '4.java'))
-        self.assertEqual(lines, 8)
+        self.assertEqual(lines, 7)
+
+    def test5(self):
+        lines = self.get_rfc.value(Path(self.dir_path, '5.java'))
+        self.assertEqual(lines, 4)
