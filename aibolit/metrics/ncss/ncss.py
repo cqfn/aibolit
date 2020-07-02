@@ -22,6 +22,8 @@
 
 
 from aibolit.utils.ast_builder import build_ast
+from aibolit.utils.ast import AST, ASTNodeType
+from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
 
 
 class NCSSMetric():
@@ -32,19 +34,20 @@ class NCSSMetric():
         if len(filename) == 0:
             raise ValueError('Empty file for analysis')
 
-        tree = build_ast(filename)
+        tree = AST.build_from_javalang(build_ast(filename))
 
         metric = 0
-        for _, node in tree:
-            node_type = str(type(node))
-            if 'Statement' in node_type:
-                metric += 1
-            elif 'VariableDeclarator' == node_type:
-                metric += 1
-            elif 'Assignment' == node_type:
-                metric += 1
-            elif 'Declaration' in node_type and 'LocalVariableDeclaration' not in node_type \
-                 and 'PackageDeclaration' not in node_type:
-                metric += 1
+        for _, destination, edge_type in dfs_labeled_edges(tree.tree, tree.root):
+            if edge_type == 'forward':
+                node_type = str(tree.get_type(destination))
+                if 'STATEMENT' in node_type:
+                    metric += 1
+                elif 'VARIABLE_DECLARATOR' == node_type:
+                    metric += 1
+                elif 'ASSIGNMENT' == node_type:
+                    metric += 1
+                elif 'DECLARATION' in node_type and 'LOCAL_VARIABLE_DECLARATION' not in node_type \
+                     and 'PACKAGE_DECLARATION' not in node_type:
+                    metric += 1
 
         return metric
