@@ -247,7 +247,7 @@ class AST:
         return member_reference_params
 
     @staticmethod
-    def _build_from_javalang(tree, javalang_node: Node) -> int:
+    def _build_from_javalang(tree: DiGraph, javalang_node: Node) -> int:
         node_index = len(tree) + 1
         tree.add_node(node_index)
         AST._extract_javalang_node_attributes(tree, javalang_node, node_index)
@@ -265,14 +265,14 @@ class AST:
                     tree.add_edge(parent_index, child_index)
 
     @staticmethod
-    def _extract_javalang_node_attributes(tree, javalang_node: Node, node_index: int) -> None:
+    def _extract_javalang_node_attributes(tree: DiGraph, javalang_node: Node, node_index: int) -> None:
         tree.add_node(node_index, type=AST._javalang_types_map[type(javalang_node)])
 
         if hasattr(javalang_node.position, 'line'):
             tree.add_node(node_index, source_code_line=javalang_node.position.line)
 
     @staticmethod
-    def _handle_javalang_ast_node(tree, javalang_node: Union[Node, Set[Any], str]) -> int:
+    def _handle_javalang_ast_node(tree: DiGraph, javalang_node: Union[Node, Set[Any], str]) -> int:
         if isinstance(javalang_node, Node):
             return AST._build_from_javalang(tree, javalang_node)
         elif isinstance(javalang_node, set):
@@ -283,13 +283,13 @@ class AST:
         return AST._NODE_SKIPED
 
     @staticmethod
-    def _handle_javalang_string_node(tree, string_node: str) -> int:
+    def _handle_javalang_string_node(tree: DiGraph, string_node: str) -> int:
         node_index = len(tree) + 1
         tree.add_node(node_index, type=ASTNodeType.STRING, string=string_node)
         return node_index
 
     @staticmethod
-    def _handle_javalang_collection_node(tree, collection_node: Set[Any]) -> int:
+    def _handle_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:
         node_index = len(tree) + 1
         tree.add_node(node_index, type=ASTNodeType.COLLECTION)
         for item in collection_node:
