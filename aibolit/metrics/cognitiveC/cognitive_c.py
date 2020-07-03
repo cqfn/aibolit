@@ -65,7 +65,7 @@ class CognitiveComplexity:
         if ast.get_type(binary_operation_node) != ASTNodeType.BINARY_OPERATION:
             return []
 
-        operator, left_side_node, right_side_node = ast.get_binary_operation_params(binary_operation_node)
+        operator, left_side_node, right_side_node = self.get_binary_operation_params(binary_operation_node)
         if operator not in logical_operators:
             return []
 
@@ -106,7 +106,7 @@ class CognitiveComplexity:
                     bin_operator = ast.get_binary_operation_name(each_block)
                     if bin_operator in logical_operators:
                         self.complexity += 1
-                        self._increment_logical_operators(ast, each_block, bin_operator)
+                        self._increment_logical_operators(ast, each_block)
                 elif each_block_type == ASTNodeType.METHOD_INVOCATION:
                     is_recursion = self._is_recursion_call(ast, each_block)
                     self.complexity += is_recursion
