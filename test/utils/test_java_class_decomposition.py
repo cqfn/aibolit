@@ -23,8 +23,8 @@
 from unittest import TestCase
 from pathlib import Path
 
-from aibolit.utils.java_class_decomposition import decompose_java_class
-from aibolit.utils.java_package import JavaPackage
+from aibolit.ast.java_class_decomposition import decompose_java_class
+from aibolit.ast.java_package import JavaPackage
 
 
 class JavaClassDecompositionTestSuite(TestCase):

@@ -25,8 +25,8 @@ from pathlib import Path
 
 from typing import Set
 
-from aibolit.utils.ast import ASTNodeType
-from aibolit.utils.java_package import JavaPackage
+from aibolit.ast import ASTNodeType
+from aibolit.ast.java_package import JavaPackage
 
 
 class JavaPackageTestCase(TestCase):

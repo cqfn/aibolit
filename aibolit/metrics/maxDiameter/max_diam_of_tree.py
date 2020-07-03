@@ -1,4 +1,4 @@
-from aibolit.utils.ast_builder import build_ast
+from aibolit.ast import build_ast
 from javalang.tree import MethodDeclaration, ClassDeclaration
 from typing import Type
 

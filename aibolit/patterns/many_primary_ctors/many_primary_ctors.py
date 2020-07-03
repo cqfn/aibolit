@@ -27,7 +27,7 @@ import javalang.parse
 import javalang.tree
 
 from aibolit.types_decl import LineNumber
-from aibolit.utils.ast_builder import build_ast
+from aibolit.ast import build_ast
 
 
 class ManyPrimaryCtors(object):

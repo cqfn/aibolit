@@ -24,7 +24,7 @@ import javalang
 from javalang.tree import Node
 from typing import List, Callable, Optional, Any
 
-from aibolit.utils.ast_builder import build_ast
+from aibolit.ast import build_ast
 
 
 class BlockType:

@@ -1,7 +1,7 @@
 from javalang.tree import IfStatement, SwitchStatement, ForStatement, WhileStatement
 from javalang.tree import DoStatement, CatchClause, BreakStatement, ContinueStatement
 from javalang.tree import TernaryExpression, BinaryOperation, MethodDeclaration, MethodInvocation
-from aibolit.utils.ast_builder import build_ast
+from aibolit.ast import build_ast
 import javalang
 from typing import List, Any, Type
 

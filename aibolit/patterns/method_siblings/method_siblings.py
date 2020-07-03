@@ -21,7 +21,7 @@
 # SOFTWARE.
 from typing import List
 from aibolit.types_decl import LineNumber
-from aibolit.utils.ast_builder import build_ast
+from aibolit.ast import build_ast
 import javalang
 import re
 

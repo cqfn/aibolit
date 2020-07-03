@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 from networkx import DiGraph, dfs_preorder_nodes, disjoint_union  # type: ignore
-from aibolit.utils.ast import AST, ASTNodeType
+from aibolit.ast import AST, ASTNodeType
 from typing import Tuple
 
 

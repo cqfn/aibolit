@@ -20,97 +20,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from enum import Enum, auto
-from cached_property import cached_property  # type: ignore
 from collections import namedtuple
 from itertools import islice
 
-import javalang.tree
+from cached_property import cached_property  # type: ignore
 from javalang.tree import Node
-from typing import Union, Any, Set, Dict, Type, List, Iterator
+from typing import Union, Any, Set, List, Iterator
 from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
 
-
-class ASTNodeType(Enum):
-    ANNOTATION = auto()
-    ANNOTATION_DECLARATION = auto()
-    ANNOTATION_METHOD = auto()
-    ARRAY_CREATOR = auto()
-    ARRAY_INITIALIZER = auto()
-    ARRAY_SELECTOR = auto()
-    ASSERT_STATEMENT = auto()
-    ASSIGNMENT = auto()
-    BASIC_TYPE = auto()
-    BINARY_OPERATION = auto()
-    BLOCK_STATEMENT = auto()
-    BREAK_STATEMENT = auto()
-    CAST = auto()
-    CATCH_CLAUSE = auto()
-    CATCH_CLAUSE_PARAMETER = auto()
-    CLASS_CREATOR = auto()
-    CLASS_DECLARATION = auto()
-    CLASS_REFERENCE = auto()
-    COLLECTION = auto()  # Custom type, represent set (as a node) in AST
-    COMPILATION_UNIT = auto()
-    CONSTANT_DECLARATION = auto()
-    CONSTRUCTOR_DECLARATION = auto()
-    CONTINUE_STATEMENT = auto()
-    CREATOR = auto()
-    DECLARATION = auto()
-    DO_STATEMENT = auto()
-    DOCUMENTED = auto()
-    ELEMENT_ARRAY_VALUE = auto()
-    ELEMENT_VALUE_PAIR = auto()
-    ENHANCED_FOR_CONTROL = auto()
-    ENUM_BODY = auto()
-    ENUM_CONSTANT_DECLARATION = auto()
-    ENUM_DECLARATION = auto()
-    EXPLICIT_CONSTRUCTOR_INVOCATION = auto()
-    EXPRESSION = auto()
-    FIELD_DECLARATION = auto()
-    FOR_CONTROL = auto()
-    FOR_STATEMENT = auto()
-    FORMAL_PARAMETER = auto()
-    IF_STATEMENT = auto()
-    IMPORT = auto()
-    INFERRED_FORMAL_PARAMETER = auto()
-    INNER_CLASS_CREATOR = auto()
-    INTERFACE_DECLARATION = auto()
-    INVOCATION = auto()
-    LAMBDA_EXPRESSION = auto()
-    LITERAL = auto()
-    LOCAL_VARIABLE_DECLARATION = auto()
-    MEMBER = auto()
-    MEMBER_REFERENCE = auto()
-    METHOD_DECLARATION = auto()
-    METHOD_INVOCATION = auto()
-    METHOD_REFERENCE = auto()
-    PACKAGE_DECLARATION = auto()
-    PRIMARY = auto()
-    REFERENCE_TYPE = auto()
-    RETURN_STATEMENT = auto()
-    STATEMENT = auto()
-    STATEMENT_EXPRESSION = auto()
-    STRING = auto()  # Custom type, represent just string in AST
-    SUPER_CONSTRUCTOR_INVOCATION = auto()
-    SUPER_MEMBER_REFERENCE = auto()
-    SUPER_METHOD_INVOCATION = auto()
-    SWITCH_STATEMENT = auto()
-    SWITCH_STATEMENT_CASE = auto()
-    SYNCHRONIZED_STATEMENT = auto()
-    TERNARY_EXPRESSION = auto()
-    THIS = auto()
-    THROW_STATEMENT = auto()
-    TRY_RESOURCE = auto()
-    TRY_STATEMENT = auto()
-    TYPE = auto()
-    TYPE_ARGUMENT = auto()
-    TYPE_DECLARATION = auto()
-    TYPE_PARAMETER = auto()
-    VARIABLE_DECLARATION = auto()
-    VARIABLE_DECLARATOR = auto()
-    VOID_CLASS_REFERENCE = auto()
-    WHILE_STATEMENT = auto()
+from aibolit.ast.ast_node_type import ASTNodeType, javalang_types_map
 
 
 MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'method_name'])
@@ -266,7 +184,7 @@ class AST:
 
     @staticmethod
     def _extract_javalang_node_attributes(tree: DiGraph, javalang_node: Node, node_index: int) -> None:
-        tree.add_node(node_index, type=AST._javalang_types_map[type(javalang_node)])
+        tree.add_node(node_index, type=javalang_types_map[type(javalang_node)])
 
         if hasattr(javalang_node.position, 'line'):
             tree.add_node(node_index, source_code_line=javalang_node.position.line)
@@ -300,83 +218,3 @@ class AST:
                 raise RuntimeError('Unexpected javalang AST node type {} inside \
                                     "COLLECTION" node'.format(type(item)))
         return node_index
-
-    _javalang_types_map: Dict[Type, ASTNodeType] = {
-        javalang.tree.Annotation: ASTNodeType.ANNOTATION,
-        javalang.tree.AnnotationDeclaration: ASTNodeType.ANNOTATION_DECLARATION,
-        javalang.tree.AnnotationMethod: ASTNodeType.ANNOTATION_METHOD,
-        javalang.tree.ArrayCreator: ASTNodeType.ARRAY_CREATOR,
-        javalang.tree.ArrayInitializer: ASTNodeType.ARRAY_INITIALIZER,
-        javalang.tree.ArraySelector: ASTNodeType.ARRAY_SELECTOR,
-        javalang.tree.AssertStatement: ASTNodeType.ASSERT_STATEMENT,
-        javalang.tree.Assignment: ASTNodeType.ASSIGNMENT,
-        javalang.tree.BasicType: ASTNodeType.BASIC_TYPE,
-        javalang.tree.BinaryOperation: ASTNodeType.BINARY_OPERATION,
-        javalang.tree.BlockStatement: ASTNodeType.BLOCK_STATEMENT,
-        javalang.tree.BreakStatement: ASTNodeType.BREAK_STATEMENT,
-        javalang.tree.Cast: ASTNodeType.CAST,
-        javalang.tree.CatchClause: ASTNodeType.CATCH_CLAUSE,
-        javalang.tree.CatchClauseParameter: ASTNodeType.CATCH_CLAUSE_PARAMETER,
-        javalang.tree.ClassCreator: ASTNodeType.CLASS_CREATOR,
-        javalang.tree.ClassDeclaration: ASTNodeType.CLASS_DECLARATION,
-        javalang.tree.ClassReference: ASTNodeType.CLASS_REFERENCE,
-        javalang.tree.CompilationUnit: ASTNodeType.COMPILATION_UNIT,
-        javalang.tree.ConstantDeclaration: ASTNodeType.CONSTANT_DECLARATION,
-        javalang.tree.ConstructorDeclaration: ASTNodeType.CONSTRUCTOR_DECLARATION,
-        javalang.tree.ContinueStatement: ASTNodeType.CONTINUE_STATEMENT,
-        javalang.tree.Creator: ASTNodeType.CREATOR,
-        javalang.tree.Declaration: ASTNodeType.DECLARATION,
-        javalang.tree.Documented: ASTNodeType.DOCUMENTED,
-        javalang.tree.DoStatement: ASTNodeType.DO_STATEMENT,
-        javalang.tree.ElementArrayValue: ASTNodeType.ELEMENT_ARRAY_VALUE,
-        javalang.tree.ElementValuePair: ASTNodeType.ELEMENT_VALUE_PAIR,
-        javalang.tree.EnhancedForControl: ASTNodeType.ENHANCED_FOR_CONTROL,
-        javalang.tree.EnumBody: ASTNodeType.ENUM_BODY,
-        javalang.tree.EnumConstantDeclaration: ASTNodeType.ENUM_CONSTANT_DECLARATION,
-        javalang.tree.EnumDeclaration: ASTNodeType.ENUM_DECLARATION,
-        javalang.tree.ExplicitConstructorInvocation: ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION,
-        javalang.tree.Expression: ASTNodeType.EXPRESSION,
-        javalang.tree.FieldDeclaration: ASTNodeType.FIELD_DECLARATION,
-        javalang.tree.ForControl: ASTNodeType.FOR_CONTROL,
-        javalang.tree.FormalParameter: ASTNodeType.FORMAL_PARAMETER,
-        javalang.tree.ForStatement: ASTNodeType.FOR_STATEMENT,
-        javalang.tree.IfStatement: ASTNodeType.IF_STATEMENT,
-        javalang.tree.Import: ASTNodeType.IMPORT,
-        javalang.tree.InferredFormalParameter: ASTNodeType.INFERRED_FORMAL_PARAMETER,
-        javalang.tree.InnerClassCreator: ASTNodeType.INNER_CLASS_CREATOR,
-        javalang.tree.InterfaceDeclaration: ASTNodeType.INTERFACE_DECLARATION,
-        javalang.tree.Invocation: ASTNodeType.INVOCATION,
-        javalang.tree.LambdaExpression: ASTNodeType.LAMBDA_EXPRESSION,
-        javalang.tree.Literal: ASTNodeType.LITERAL,
-        javalang.tree.LocalVariableDeclaration: ASTNodeType.LOCAL_VARIABLE_DECLARATION,
-        javalang.tree.Member: ASTNodeType.MEMBER,
-        javalang.tree.MemberReference: ASTNodeType.MEMBER_REFERENCE,
-        javalang.tree.MethodDeclaration: ASTNodeType.METHOD_DECLARATION,
-        javalang.tree.MethodInvocation: ASTNodeType.METHOD_INVOCATION,
-        javalang.tree.MethodReference: ASTNodeType.METHOD_REFERENCE,
-        javalang.tree.PackageDeclaration: ASTNodeType.PACKAGE_DECLARATION,
-        javalang.tree.Primary: ASTNodeType.PRIMARY,
-        javalang.tree.ReferenceType: ASTNodeType.REFERENCE_TYPE,
-        javalang.tree.ReturnStatement: ASTNodeType.RETURN_STATEMENT,
-        javalang.tree.Statement: ASTNodeType.STATEMENT,
-        javalang.tree.StatementExpression: ASTNodeType.STATEMENT_EXPRESSION,
-        javalang.tree.SuperConstructorInvocation: ASTNodeType.SUPER_CONSTRUCTOR_INVOCATION,
-        javalang.tree.SuperMemberReference: ASTNodeType.SUPER_MEMBER_REFERENCE,
-        javalang.tree.SuperMethodInvocation: ASTNodeType.SUPER_METHOD_INVOCATION,
-        javalang.tree.SwitchStatement: ASTNodeType.SWITCH_STATEMENT,
-        javalang.tree.SwitchStatementCase: ASTNodeType.SWITCH_STATEMENT_CASE,
-        javalang.tree.SynchronizedStatement: ASTNodeType.SYNCHRONIZED_STATEMENT,
-        javalang.tree.TernaryExpression: ASTNodeType.TERNARY_EXPRESSION,
-        javalang.tree.This: ASTNodeType.THIS,
-        javalang.tree.ThrowStatement: ASTNodeType.THROW_STATEMENT,
-        javalang.tree.TryResource: ASTNodeType.TRY_RESOURCE,
-        javalang.tree.TryStatement: ASTNodeType.TRY_STATEMENT,
-        javalang.tree.Type: ASTNodeType.TYPE,
-        javalang.tree.TypeArgument: ASTNodeType.TYPE_ARGUMENT,
-        javalang.tree.TypeDeclaration: ASTNodeType.TYPE_DECLARATION,
-        javalang.tree.TypeParameter: ASTNodeType.TYPE_PARAMETER,
-        javalang.tree.VariableDeclaration: ASTNodeType.VARIABLE_DECLARATION,
-        javalang.tree.VariableDeclarator: ASTNodeType.VARIABLE_DECLARATOR,
-        javalang.tree.VoidClassReference: ASTNodeType.VOID_CLASS_REFERENCE,
-        javalang.tree.WhileStatement: ASTNodeType.WHILE_STATEMENT,
-    }

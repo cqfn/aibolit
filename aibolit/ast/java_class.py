@@ -26,12 +26,12 @@ from cached_property import cached_property  # type: ignore
 from typing import Dict, Set, TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
 
-from aibolit.utils.ast import AST, ASTNodeType
-from aibolit.utils.java_class_method import JavaClassMethod
-from aibolit.utils.java_class_field import JavaClassField
+from aibolit.ast import AST, ASTNodeType
+from aibolit.ast.java_class_method import JavaClassMethod
+from aibolit.ast.java_class_field import JavaClassField
 
 if TYPE_CHECKING:
-    from aibolit.utils.java_package import JavaPackage
+    from aibolit.ast.java_package import JavaPackage
 
 
 class JavaClass(AST):

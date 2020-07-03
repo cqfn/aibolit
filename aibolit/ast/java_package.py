@@ -22,30 +22,32 @@
 
 from cached_property import cached_property  # type: ignore
 
-from typing import TYPE_CHECKING
-from networkx import DiGraph  # type: ignore
+from typing import Dict
 
-from aibolit.utils.ast import AST, ASTNodeType
-
-if TYPE_CHECKING:
-    from aibolit.utils.java_class import JavaClass
+from aibolit.ast import build_ast, AST, ASTNodeType
+from aibolit.ast.java_class import JavaClass
 
 
-class JavaClassField(AST):
-    def __init__(self, tree: DiGraph, root: int, java_class: 'JavaClass'):
-        self.tree = tree
-        self.root = root
-        self._java_class = java_class
+class JavaPackage(AST):
+    def __init__(self, filename: str):
+        ast = AST.build_from_javalang(build_ast(filename))
+        super().__init__(ast.tree, ast.root)
 
     @cached_property
     def name(self) -> str:
         try:
-            field_declarator = next(self.children_with_type(self.root, ASTNodeType.VARIABLE_DECLARATOR))
-            field_name = next(self.children_with_type(field_declarator, ASTNodeType.STRING))
-            return self.tree.nodes[field_name]['string']
+            package_declaration = next(self.children_with_type(self.root, ASTNodeType.PACKAGE_DECLARATION))
+            package_name = next(self.children_with_type(package_declaration, ASTNodeType.STRING))
+            return self.tree.nodes[package_name]['string']
         except StopIteration:
-            raise ValueError("Provided AST does not has 'STRING' node type right under the root")
+            pass
 
-    @property
-    def java_class(self) -> 'JavaClass':
-        return self._java_class
+        return '.'  # default package name
+
+    @cached_property
+    def java_classes(self) -> Dict[str, JavaClass]:
+        classes: Dict[str, JavaClass] = {}
+        for nodes in self.subtrees_with_root_type(ASTNodeType.CLASS_DECLARATION):
+            java_class = JavaClass(self.tree.subgraph(nodes), nodes[0], self)
+            classes[java_class.name] = java_class
+        return classes
