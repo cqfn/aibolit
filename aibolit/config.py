@@ -74,6 +74,11 @@ class Config(metaclass=Singleton):
         return os.environ.get('HOME_DATASET_CSV') or dataset_path
 
     @staticmethod
+    def get_dataset_archive():
+        dataset_path = Path(Config().home_aibolit_folder(), 'aibolit', 'binary_files', 'dataset.tar.gz')
+        return os.environ.get('HOME_DATASET_ARCHIVE') or dataset_path
+
+    @staticmethod
     def get_patterns_config():
         return {
             "patterns": [
