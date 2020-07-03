@@ -247,33 +247,32 @@ class AST:
         return member_reference_params
 
     @staticmethod
-    def _build_from_javalang(tree, javalang_node: Node) -> int:
+    def _build_from_javalang(tree: DiGraph, javalang_node: Node) -> int:
         node_index = len(tree) + 1
         tree.add_node(node_index)
         AST._extract_javalang_node_attributes(tree, javalang_node, node_index)
-
-        for children_item in javalang_node.children:
-            if type(children_item) == list:
-                for child in children_item:
-                    child_node_index = AST._handle_javalang_ast_node(tree, child)
-                    if child_node_index != AST._NODE_SKIPED:
-                        tree.add_edge(node_index, child_node_index)
-            else:
-                child_node_index = AST._handle_javalang_ast_node(tree, children_item)
-                if child_node_index != AST._NODE_SKIPED:
-                    tree.add_edge(node_index, child_node_index)
-
+        AST._iterate_over_children_list(tree, javalang_node.children, node_index)
         return node_index
 
     @staticmethod
-    def _extract_javalang_node_attributes(tree, javalang_node: Node, node_index: int) -> None:
+    def _iterate_over_children_list(tree: DiGraph, children_list: List[Any], parent_index: int) -> None:
+        for child in children_list:
+            if isinstance(child, list):
+                AST._iterate_over_children_list(tree, child, parent_index)
+            else:
+                child_index = AST._handle_javalang_ast_node(tree, child)
+                if child_index != AST._NODE_SKIPED:
+                    tree.add_edge(parent_index, child_index)
+
+    @staticmethod
+    def _extract_javalang_node_attributes(tree: DiGraph, javalang_node: Node, node_index: int) -> None:
         tree.add_node(node_index, type=AST._javalang_types_map[type(javalang_node)])
 
         if hasattr(javalang_node.position, 'line'):
             tree.add_node(node_index, source_code_line=javalang_node.position.line)
 
     @staticmethod
-    def _handle_javalang_ast_node(tree, javalang_node: Union[Node, Set[Any], str]) -> int:
+    def _handle_javalang_ast_node(tree: DiGraph, javalang_node: Union[Node, Set[Any], str]) -> int:
         if isinstance(javalang_node, Node):
             return AST._build_from_javalang(tree, javalang_node)
         elif isinstance(javalang_node, set):
@@ -284,13 +283,13 @@ class AST:
         return AST._NODE_SKIPED
 
     @staticmethod
-    def _handle_javalang_string_node(tree, string_node: str) -> int:
+    def _handle_javalang_string_node(tree: DiGraph, string_node: str) -> int:
         node_index = len(tree) + 1
         tree.add_node(node_index, type=ASTNodeType.STRING, string=string_node)
         return node_index
 
     @staticmethod
-    def _handle_javalang_collection_node(tree, collection_node: Set[Any]) -> int:
+    def _handle_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:
         node_index = len(tree) + 1
         tree.add_node(node_index, type=ASTNodeType.COLLECTION)
         for item in collection_node:

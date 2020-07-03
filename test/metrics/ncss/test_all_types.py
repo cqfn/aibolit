@@ -32,22 +32,10 @@ class TestNCSSMetric(unittest.TestCase):
         self.assertEqual(res, 0)
 
     def testLowScore(self):
-        file = 'test/metrics/ncss/GraalSDK.java'
+        file = 'test/metrics/ncss/Simple.java'
         metric = NCSSMetric()
         res = metric.value(file)
         self.assertEqual(res, 2)
-
-    def testMediumScore(self):
-        file = 'test/metrics/ncss/WorkflowRunActionRepetitionDefinitionInner.java'
-        metric = NCSSMetric()
-        res = metric.value(file)
-        self.assertEqual(res, 73)
-
-    def testHighScore(self):
-        file = 'test/metrics/ncss/YarnConfiguration.java'
-        metric = NCSSMetric()
-        res = metric.value(file)
-        self.assertEqual(res, 1301)
 
     def testBasicExample(self):
         file = 'test/metrics/ncss/BasicExample.java'
@@ -55,8 +43,14 @@ class TestNCSSMetric(unittest.TestCase):
         res = metric.value(file)
         self.assertEqual(res, 12)
 
-    def testAnotherScore(self):
-        file = 'test/metrics/ncss/WebAppsImpl.java'
+    def testSimpleExample(self):
+        file = 'test/metrics/ncss/SimpleExample.java'
         metric = NCSSMetric()
         res = metric.value(file)
-        self.assertEqual(res, 1429)
+        self.assertEqual(res, 16)
+
+    def testSimpleExample2(self):
+        file = 'test/metrics/ncss/SimpleExample2.java'
+        metric = NCSSMetric()
+        res = metric.value(file)
+        self.assertEqual(res, 16)
