@@ -117,6 +117,8 @@ MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'm
 
 MemberReferenceParams = namedtuple('MemberReferenceParams', ('object_name', 'member_name', 'unary_operator'))
 
+BinaryOperationParams = namedtuple('BinaryOperationParams', ('operation', 'left_side', 'right_side'))
+
 
 class AST:
     _NODE_SKIPED = -1
@@ -245,6 +247,11 @@ class AST:
             raise ValueError('Node has 0 or more then 3 children with type "STRING": ' + str(params))
 
         return member_reference_params
+
+    def get_binary_operation_params(self, binary_operation_node: int) -> BinaryOperationParams:
+        assert(self.get_type(binary_operation_node) == ASTNodeType.BINARY_OPERATION)
+        operation_node, left_side_node, right_side_node = self.tree.succ[binary_operation_node]
+        return BinaryOperationParams(self.get_attr(operation_node, 'string'), left_side_node, right_side_node)
 
     @staticmethod
     def _build_from_javalang(tree, javalang_node: Node) -> int:
