@@ -1,5 +1,4 @@
 from itertools import groupby
-
 from aibolit.utils.ast import AST, ASTNodeType
 from aibolit.utils.java_package import JavaPackage
 from typing import List, Any
@@ -39,11 +38,18 @@ class CognitiveComplexity:
     def _check_if_statement(self, ast, expr, nested_level: int) -> None:
         '''function to work with IfStatement block'''
         all_child = ast.tree.succ[expr]
-        
+        check_else = len(list(ast.children_with_type(expr, ASTNodeType.BLOCK_STATEMENT))) > 1
+        if check_else:
+            self.complexity += 1
+            
         for if_child in all_child:
             type_child = ast.get_type(if_child)
             check_nested_if = len(list(ast.children_with_type(if_child, ASTNodeType.IF_STATEMENT))) > 0
             if type_child == ASTNodeType.IF_STATEMENT:
+                check_else = len(list(ast.children_with_type(if_child, ASTNodeType.BLOCK_STATEMENT))) > 1
+                if check_else:
+                    self.complexity += 1
+
                 self.complexity += 1 + nested_level
                 self._get_complexity(ast, if_child, nested_level + 1)
             elif type_child == ASTNodeType.BLOCK_STATEMENT:
@@ -65,7 +71,7 @@ class CognitiveComplexity:
         if ast.get_type(binary_operation_node) != ASTNodeType.BINARY_OPERATION:
             return []
 
-        operator, left_side_node, right_side_node = self.get_binary_operation_params(binary_operation_node)
+        operator, left_side_node, right_side_node = ast.get_binary_operation_params(binary_operation_node)
         if operator not in logical_operators:
             return []
 
