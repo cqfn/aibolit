@@ -2,6 +2,7 @@ from itertools import groupby
 from aibolit.utils.ast import AST, ASTNodeType
 from aibolit.utils.java_package import JavaPackage
 from typing import List, Any
+import re
 
 increment_for: List[ASTNodeType] = [
     ASTNodeType.IF_STATEMENT,
@@ -119,7 +120,7 @@ class CognitiveComplexity:
         names = list(ast.children_with_type(node, ASTNodeType.STRING))
         for each_string in names:
             method_name = ast.get_attr(each_string, 'string')
-            if not method_name.startswith('/') and method_name not in ['', None, []]:
+            if not method_name.startswith('/') and re.search(r'[^\W\d]', method_name) is not None:
                 extracted_name = method_name
                 return extracted_name
 
