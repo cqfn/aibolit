@@ -35,7 +35,7 @@ class CognitiveComplexity:
         self.complexity = 0
         self.method_name = None
     
-    def _check_if_statement(self, ast, expr, nested_level: int) -> None:
+    def _check_if_statement(self, ast: AST, expr: int, nested_level: int) -> None:
         '''function to work with IfStatement block'''
         all_child = ast.tree.succ[expr]
         check_else = len(list(ast.children_with_type(expr, ASTNodeType.BLOCK_STATEMENT))) > 1
@@ -79,13 +79,13 @@ class CognitiveComplexity:
         right_sequence = self._create_logical_operators_sequence(ast, right_side_node)
         return left_sequence + [operator] + right_sequence
     
-    def _is_recursion_call(self, ast, node) -> bool:
+    def _is_recursion_call(self, ast: AST, node: int) -> bool:
         if ast.get_type(node) == ASTNodeType.METHOD_INVOCATION:
             if self.method_name == self._get_node_name(ast, node):
                 return True
             return False
 
-    def _nested_methods(self, ast, node, nested_level: int) -> None:
+    def _nested_methods(self, ast: AST, node: int, nested_level: int) -> None:
         original_name = self.method_name
         self.method_name = self._get_node_name(ast, node)
         self._get_complexity(ast, node, nested_level + 1)
@@ -122,7 +122,7 @@ class CognitiveComplexity:
             else:
                 self._get_complexity(ast, each_block, nested_level) 
     
-    def _get_node_name(self, ast, node) -> str:
+    def _get_node_name(self, ast: AST, node: int) -> str:
         extracted_name = None
         names = list(ast.children_with_type(node, ASTNodeType.STRING))
         for each_string in names:
