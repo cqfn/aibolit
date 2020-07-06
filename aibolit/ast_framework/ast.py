@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 from collections import namedtuple
-from itertools import islice
+from itertools import islice, repeat, chain
 
 from cached_property import cached_property  # type: ignore
 from javalang.tree import Node
@@ -105,6 +105,15 @@ class AST:
             if self.tree.nodes[child]['type'] == child_type:
                 yield child
                 self.all_children_with_type(child, child_type)
+
+    def get_first_n_children_with_type(self, node: int, child_type: ASTNodeType, quantity: int) -> List[int]:
+        '''
+        Returns first quantity of children of node with type child_type.
+        Resulted list is padded with None to length quantity.
+        '''
+        children_with_type = (child for child in self.tree.succ[node] if self.get_type(child) == child_type)
+        children_with_type_padded = chain(children_with_type, repeat(None))
+        return list(islice(children_with_type_padded, 0, quantity))
 
     def get_binary_operation_name(self, node: int) -> str:
         assert(self.get_type(node) == ASTNodeType.BINARY_OPERATION)

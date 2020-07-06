@@ -66,6 +66,7 @@ class ClassType(Enum):
     ABSTRACT_CLASS = 3
     TEST = 4
     JAVA_PARSE_ERROR = 5
+    NESTED_CLASSES = 6
     CLASS = 999
 
 
@@ -79,23 +80,27 @@ def get_class_type(filename: Path):
         class_type = ClassType.CLASS
         try:
             tree = javalang.parse.parse(text)
-            for _, node in tree:
-                if type(node) == javalang.tree.InterfaceDeclaration:
-                    class_type = ClassType.INTERFACE
-                    break
-                elif type(node) == javalang.tree.EnumDeclaration:
-                    class_type = ClassType.ENUM
-                    break
-                elif type(node) == javalang.tree.ClassDeclaration:
-                    if 'abstract' in node.modifiers:
-                        class_type = ClassType.ABSTRACT_CLASS
+            classes = list(tree.filter(javalang.tree.ClassDeclaration))
+            if len(classes) > 1:
+                class_type = ClassType.NESTED_CLASSES
+            else:
+                for _, node in tree:
+                    if type(node) == javalang.tree.InterfaceDeclaration:
+                        class_type = ClassType.INTERFACE
                         break
-                    elif 'Test' in node.name:
-                        class_type = ClassType.TEST
+                    elif type(node) == javalang.tree.EnumDeclaration:
+                        class_type = ClassType.ENUM
                         break
-                    else:
-                        class_type = ClassType.CLASS
-                        break
+                    elif type(node) == javalang.tree.ClassDeclaration:
+                        if 'abstract' in node.modifiers:
+                            class_type = ClassType.ABSTRACT_CLASS
+                            break
+                        elif 'Test' in node.name:
+                            class_type = ClassType.TEST
+                            break
+                        else:
+                            class_type = ClassType.CLASS
+                            break
         except Exception:
             class_type = ClassType.JAVA_PARSE_ERROR
         return class_type
