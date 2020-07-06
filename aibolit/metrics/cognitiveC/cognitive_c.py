@@ -72,7 +72,7 @@ class CognitiveComplexity:
         right_sequence = self._create_logical_operators_sequence(ast, right_side_node)
         return left_sequence + [operator] + right_sequence
 
-    def _is_recursion_call(self, ast, node) -> bool:   # type: ignore
+    def _is_recursion_call(self, ast, node) -> bool:
         assert(ast.get_type(node) == ASTNodeType.METHOD_INVOCATION)
         if self.method_name == self._get_node_name(ast, node):
             return True
@@ -84,7 +84,7 @@ class CognitiveComplexity:
         self._get_complexity(ast, node, nested_level + 1)
         self.method_name = original_name
 
-    def _get_complexity(self, ast: Any, each_block: int, nested_level: int) -> None:
+    def _get_complexity(self, ast: AST, each_block: int, nested_level: int) -> None:
         each_block_name = self._get_node_name(ast, each_block)
         each_block_type = ast.get_type(each_block)
 
@@ -115,7 +115,7 @@ class CognitiveComplexity:
         else:
             self._traverse_childs(ast, each_block, nested_level)
 
-    def _get_node_name(self, ast, node) -> str:  # type: ignore
+    def _get_node_name(self, ast, node) -> str:
         '''
         here want to get the name of a given node.
         Mostly, it is used to get the name of method 
@@ -132,6 +132,7 @@ class CognitiveComplexity:
             if not method_name.startswith('/') and re.search(r'[^\W\d]', method_name) is not None:
                 extracted_name = method_name
                 return extracted_name
+        return ''
 
     def value(self, filename: str) -> int:
         p = JavaPackage(filename)
