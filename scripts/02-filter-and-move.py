@@ -35,6 +35,7 @@ from pathlib import Path
 import cchardet as chardet
 import javalang
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
 parser = argparse.ArgumentParser(description='Filter important java files')
 parser.add_argument(
@@ -219,7 +220,6 @@ if __name__ == '__main__':
         df['filename'].to_csv(path_txt_out, header=None, index=None)
         end = time.time()
         print('It took ' + str(end - start) + ' seconds')
-    from sklearn.model_selection import train_test_split
     df = pd.read_csv(path_csv_out)
     train, test = train_test_split(df['filename'], test_size=0.3, random_state=42)
     train_csv_file = str(Path(current_location, DIR_TO_CREATE, '02-train.csv'))
