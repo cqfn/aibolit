@@ -20,54 +20,6 @@ class Dataset:
         self.do_rename_columns = False
         self.only_patterns = only_patterns
 
-    def preprocess_file(
-            self,
-            scale_ncss=True,
-            scale=False,
-            **kwargs):
-
-        print('reading dataset from {}'.format(Config.dataset_file()))
-        df = pd.read_csv(Config.dataset_file())
-        df = df[~df["filename"].str.lower().str.contains("test")]
-        config = Config.get_patterns_config()
-        if self.do_rename_columns:
-            p_codes = \
-                [x['code'] for x in config['patterns']] \
-                + ['lines' + x['code'] for x in config['patterns']]
-            m_codes = [x['code'] for x in config['metrics']]
-            keys = p_codes + m_codes
-            vals = \
-                [x['name'] for x in config['patterns']] \
-                + ['lines' + x['name'] for x in config['patterns']] \
-                + [x['name'] for x in config['metrics']]
-
-            replace_dict = dict(zip(keys, vals))
-            df = df.rename(replace_dict)
-            df.columns = vals
-            print('Columns renamed:' + df.head())
-
-        df = df.dropna().drop_duplicates(subset=df.columns.difference(['filename']))
-        df = df[(df.ncss > 20) & (df.ncss < 100) & (df.npath_method_avg < 100000.00)].copy().reset_index()
-
-        df.drop('filename', axis=1, inplace=True)
-        df.drop('index', axis=1, inplace=True)
-        self.target = np.array(df[['M4']].values[:, 0], dtype=np.float64)
-        if scale_ncss:
-            new = pd.DataFrame(
-                df[self.only_patterns].values / df['M2'].values.reshape((-1, 1)),
-                columns=self.only_patterns
-            )
-            self.target /= df['M2'].values.reshape(-1)
-        else:
-            new = df[self.only_patterns].copy()
-        if scale:
-            self.input = pd.DataFrame(StandardScaler().fit_transform(new.values), columns=new.columns,
-                                      index=new.index).values
-        else:
-            self.input = new.values
-
-        self.feature_order = list(new.columns)
-
 
 class TwoFoldRankingModel(BaseEstimator):
 

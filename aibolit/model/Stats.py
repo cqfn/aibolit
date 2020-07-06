@@ -7,7 +7,7 @@ from aibolit.config import Config
 from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
 
 
-class Stats():
+class Stats(object):
 
     def stats(self):
         dataset_archive = Config.get_dataset_file()
