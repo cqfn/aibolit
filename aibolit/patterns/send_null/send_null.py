@@ -1,7 +1,7 @@
 import javalang
 from typing import List
 
-from aibolit.ast import build_ast
+from aibolit.utils.ast_builder import build_ast
 
 
 class SendNull:

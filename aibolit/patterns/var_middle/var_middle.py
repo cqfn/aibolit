@@ -24,7 +24,8 @@ from typing import List
 from networkx import DiGraph, dfs_labeled_edges  # type: ignore
 
 from aibolit.types_decl import LineNumber
-from aibolit.ast import build_ast, AST, ASTNodeType
+from aibolit.utils.ast_builder import build_ast
+from aibolit.ast import AST, ASTNodeType
 from aibolit.utils.scope_status import ScopeStatus, ScopeStatusFlags
 
 

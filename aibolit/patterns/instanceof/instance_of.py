@@ -1,6 +1,7 @@
 from typing import List
 
-from aibolit.ast import AST, ASTNodeType, build_ast
+from aibolit.utils.ast_builder import build_ast
+from aibolit.ast import AST, ASTNodeType
 
 
 class InstanceOf:
