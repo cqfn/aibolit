@@ -4,13 +4,7 @@ from aibolit.utils.java_package import JavaPackage
 from typing import List, Set
 import re
 
-increment_for: Set[ASTNodeType] = set([
-    ASTNodeType.IF_STATEMENT,
-    ASTNodeType.SWITCH_STATEMENT,
-    ASTNodeType.FOR_STATEMENT,
-    ASTNodeType.WHILE_STATEMENT,
-    ASTNodeType.DO_STATEMENT,
-    ASTNodeType.CATCH_CLAUSE,
+only_increment_for: Set[ASTNodeType] = set([
     ASTNodeType.BREAK_STATEMENT,
     ASTNodeType.CONTINUE_STATEMENT,
     ASTNodeType.TERNARY_EXPRESSION,
@@ -18,7 +12,7 @@ increment_for: Set[ASTNodeType] = set([
     ASTNodeType.METHOD_INVOCATION,
 ])
 
-nested_for: Set[ASTNodeType] = set([
+increment_and_nested_for: Set[ASTNodeType] = set([
     ASTNodeType.IF_STATEMENT,
     ASTNodeType.SWITCH_STATEMENT,
     ASTNodeType.FOR_STATEMENT,
@@ -121,12 +115,11 @@ class CognitiveComplexity:
         elif each_block_type == ASTNodeType.IF_STATEMENT:
             complexity += self._check_if_statement(ast, each_block, nested_level)
 
-        elif each_block_type in increment_for:
-            if each_block_type in nested_for:
-                complexity += 1 + nested_level
-                complexity += self._traverse_childs(ast, each_block, nested_level + 1)
-            else:
-                complexity += self._process_not_nested_structure(ast, each_block, nested_level)
+        elif each_block_type in increment_and_nested_for:
+            complexity += 1 + nested_level
+            complexity += self._traverse_childs(ast, each_block, nested_level + 1)
+        elif each_block_type in only_increment_for:  
+            complexity += self._process_not_nested_structure(ast, each_block, nested_level)
         else:
             complexity += self._traverse_childs(ast, each_block, nested_level)
         return complexity
