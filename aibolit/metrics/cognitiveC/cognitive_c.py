@@ -1,10 +1,10 @@
 from itertools import groupby
 from aibolit.utils.ast import AST, ASTNodeType
 from aibolit.utils.java_package import JavaPackage
-from typing import List, Any
+from typing import List, Any, Set
 import re
 
-increment_for: List[ASTNodeType] = [
+increment_for: Set[ASTNodeType] = set([
     ASTNodeType.IF_STATEMENT,
     ASTNodeType.SWITCH_STATEMENT,
     ASTNodeType.FOR_STATEMENT,
@@ -16,16 +16,16 @@ increment_for: List[ASTNodeType] = [
     ASTNodeType.TERNARY_EXPRESSION,
     ASTNodeType.BINARY_OPERATION,
     ASTNodeType.METHOD_INVOCATION,
-]
+])
 
-nested_for: List[ASTNodeType] = [
+nested_for: Set[ASTNodeType] = set([
     ASTNodeType.IF_STATEMENT,
     ASTNodeType.SWITCH_STATEMENT,
     ASTNodeType.FOR_STATEMENT,
     ASTNodeType.WHILE_STATEMENT,
     ASTNodeType.DO_STATEMENT,
     ASTNodeType.CATCH_CLAUSE,
-]
+])
 
 logical_operators = ['&&', '||']
 
@@ -42,7 +42,7 @@ class CognitiveComplexity:
 
     def _check_if_statement(self, ast, expr, nested_level: int) -> None:
         '''function to work with IfStatement block'''
-        all_childs = [i for i in ast.tree.succ[expr]]
+        all_childs = list([i for i in ast.tree.succ[expr]])
         self._get_complexity(ast, all_childs[0], 0)
         if len(all_childs) >= 2:
             self.complexity += nested_level + 1
@@ -73,10 +73,10 @@ class CognitiveComplexity:
         return left_sequence + [operator] + right_sequence
 
     def _is_recursion_call(self, ast, node) -> bool:   # type: ignore
-        if ast.get_type(node) == ASTNodeType.METHOD_INVOCATION:
-            if self.method_name == self._get_node_name(ast, node):
-                return True
-            return False
+        assert(ast.get_type(node) == ASTNodeType.METHOD_INVOCATION)
+        if self.method_name == self._get_node_name(ast, node):
+            return True
+        return False
 
     def _nested_methods(self, ast, node, nested_level: int) -> None:
         original_name = self.method_name
@@ -116,8 +116,17 @@ class CognitiveComplexity:
             self._traverse_childs(ast, each_block, nested_level)
 
     def _get_node_name(self, ast, node) -> str:  # type: ignore
+        '''
+        here want to get the name of a given node.
+        Mostly, it is used to get the name of method 
+        (choise the right one from all string types).
+        Checking not to start with '/' is aimed to get
+        rid of comments, which are all childs of node.
+        We check the occurance any letter in name in order 
+        to get rid of '' string and None.
+        '''
         extracted_name = None
-        names = list(ast.children_with_type(node, ASTNodeType.STRING))
+        names = ast.children_with_type(node, ASTNodeType.STRING)
         for each_string in names:
             method_name = ast.get_attr(each_string, 'string')
             if not method_name.startswith('/') and re.search(r'[^\W\d]', method_name) is not None:
