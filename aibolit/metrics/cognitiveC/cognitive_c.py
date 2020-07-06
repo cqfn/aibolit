@@ -118,7 +118,7 @@ class CognitiveComplexity:
         elif each_block_type in increment_and_nested_for:
             complexity += 1 + nested_level
             complexity += self._traverse_childs(ast, each_block, nested_level + 1)
-        elif each_block_type in only_increment_for:  
+        elif each_block_type in only_increment_for:
             complexity += self._process_not_nested_structure(ast, each_block, nested_level)
         else:
             complexity += self._traverse_childs(ast, each_block, nested_level)
