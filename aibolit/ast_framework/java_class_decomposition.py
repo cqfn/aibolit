@@ -24,8 +24,8 @@ from typing import List, Dict, Set, Iterator
 
 from networkx import DiGraph, strongly_connected_components, weakly_connected_components  # type: ignore
 
-from aibolit.ast import AST
-from aibolit.ast.java_class import JavaClass
+from aibolit.ast_framework import AST
+from aibolit.ast_framework.java_class import JavaClass
 
 
 def decompose_java_class(java_class: JavaClass, strength: str) -> List[AST]:

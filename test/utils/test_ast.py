@@ -25,8 +25,8 @@ from pathlib import Path
 from itertools import zip_longest
 
 from aibolit.utils.ast_builder import build_ast
-from aibolit.ast import AST, ASTNodeType
-from aibolit.ast.ast import MemberReferenceParams, MethodInvocationParams
+from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework.ast import MemberReferenceParams, MethodInvocationParams
 
 
 class ASTTestSuite(TestCase):

@@ -1,7 +1,7 @@
 from aibolit.utils.ast_builder import build_ast
-from aibolit.ast import AST, ASTNodeType
+from aibolit.ast_framework import AST, ASTNodeType
 from itertools import islice
-from aibolit.ast.java_package import JavaPackage
+from aibolit.ast_framework.java_package import JavaPackage
 
 
 class FanOut:

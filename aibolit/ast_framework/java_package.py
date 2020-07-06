@@ -25,8 +25,8 @@ from cached_property import cached_property  # type: ignore
 from typing import Dict
 
 from aibolit.utils.ast_builder import build_ast
-from aibolit.ast import AST, ASTNodeType
-from aibolit.ast.java_class import JavaClass
+from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework.java_class import JavaClass
 
 
 class JavaPackage(AST):

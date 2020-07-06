@@ -20,53 +20,32 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
 from cached_property import cached_property  # type: ignore
 
-from typing import Dict, Set, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
 
-from aibolit.ast import AST, ASTNodeType
-from aibolit.ast.java_class_method import JavaClassMethod
-from aibolit.ast.java_class_field import JavaClassField
+from aibolit.ast_framework import AST, ASTNodeType
 
 if TYPE_CHECKING:
-    from aibolit.ast.java_package import JavaPackage
+    from aibolit.ast_framework.java_class import JavaClass
 
 
-class JavaClass(AST):
-    def __init__(self, tree: DiGraph, root: int, java_package: 'JavaPackage'):
+class JavaClassField(AST):
+    def __init__(self, tree: DiGraph, root: int, java_class: 'JavaClass'):
         self.tree = tree
         self.root = root
-        self._java_package = java_package
+        self._java_class = java_class
 
     @cached_property
     def name(self) -> str:
         try:
-            class_name = next(self.children_with_type(self.root, ASTNodeType.STRING))
-            return self.tree.nodes[class_name]['string']
+            field_declarator = next(self.children_with_type(self.root, ASTNodeType.VARIABLE_DECLARATOR))
+            field_name = next(self.children_with_type(field_declarator, ASTNodeType.STRING))
+            return self.tree.nodes[field_name]['string']
         except StopIteration:
             raise ValueError("Provided AST does not has 'STRING' node type right under the root")
 
     @property
-    def package(self) -> 'JavaPackage':
-        return self._java_package
-
-    @cached_property
-    def methods(self) -> Dict[str, Set[JavaClassMethod]]:
-        methods: Dict[str, Set[JavaClassMethod]] = {}
-        for nodes in self.subtrees_with_root_type(ASTNodeType.METHOD_DECLARATION):
-            method = JavaClassMethod(self.tree.subgraph(nodes), nodes[0], self)
-            if method.name in methods:
-                methods[method.name].add(method)
-            else:
-                methods[method.name] = {method}
-        return methods
-
-    @cached_property
-    def fields(self) -> Dict[str, JavaClassField]:
-        fields: Dict[str, JavaClassField] = {}
-        for nodes in self.subtrees_with_root_type(ASTNodeType.FIELD_DECLARATION):
-            field = JavaClassField(self.tree.subgraph(nodes), nodes[0], self)
-            fields[field.name] = field
-        return fields
+    def java_class(self) -> 'JavaClass':
+        return self._java_class

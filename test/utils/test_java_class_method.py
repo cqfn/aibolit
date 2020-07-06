@@ -23,7 +23,7 @@
 from unittest import TestCase
 from pathlib import Path
 
-from aibolit.ast.java_package import JavaPackage
+from aibolit.ast_framework.java_package import JavaPackage
 
 
 class JavaClassMethodTestCase(TestCase):

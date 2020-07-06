@@ -28,7 +28,7 @@ from javalang.tree import Node
 from typing import Union, Any, Set, List, Iterator
 from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
 
-from aibolit.ast.ast_node_type import ASTNodeType, javalang_types_map
+from aibolit.ast_framework.ast_node_type import ASTNodeType, javalang_types_map
 
 
 MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'method_name'])
