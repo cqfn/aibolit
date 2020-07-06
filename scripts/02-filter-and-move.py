@@ -58,7 +58,6 @@ parser.add_argument(
 args = parser.parse_args()
 MAX_CLASSES = args.max_classes
 TXT_OUT = 'found-java-files.txt'
-SPLIT_CSV = 'split.csv'
 CSV_OUT = '02-java-files.csv'
 
 DIR_TO_CREATE = 'target/02'
