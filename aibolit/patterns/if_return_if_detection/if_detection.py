@@ -13,13 +13,13 @@ class CountIfReturn:
 
     def value(self, filename: str) -> List[int]:
         detected_lines = []
-        p = JavaPackage(filename)
-        for class_name in p.java_classes:
-            tree = p.java_classes[class_name]
-            for index, each_object in enumerate(tree.nodes_by_type(ASTNodeType.IF_STATEMENT)):
-                all_childs = list([i for i in tree.tree.succ[each_object]])
+        ast = JavaPackage(filename).java_classes
+        for class_name in ast:
+            tree = ast[class_name]
+            for index, if_node in enumerate(tree.nodes_by_type(ASTNodeType.IF_STATEMENT)):
+                all_childs = [i for i in tree.tree.succ[if_node]]
                 if len(all_childs) == 3:
                     for i in tree.tree.succ[all_childs[1]]:
                         if tree.get_type(i) == ASTNodeType.RETURN_STATEMENT:
-                            detected_lines += [tree.get_attr(each_object, 'source_code_line')]
+                            detected_lines += [tree.get_attr(if_node, 'source_code_line')]
         return detected_lines
