@@ -15,8 +15,6 @@ and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
 $ pip3 install aibolit
 ```
 
-### Recommend command
-
 To analyze your Java sources, located at `src/java` (for example), run:
 
 ```bash
@@ -231,7 +229,8 @@ If you need help, run
 $ aibolit recommend --help
 ```
 
-### Train command
+## How to retrain it?
+
 `Train` command does the following:
 
  - Calculates patterns and metrics
