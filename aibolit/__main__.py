@@ -45,9 +45,6 @@ from pkg_resources import parse_version
 from aibolit import __version__
 from aibolit.config import Config
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
-from aibolit.model.model import TwoFoldRankingModel, Dataset  # type: ignore  # noqa: F401
-from aibolit.utils.ast import ASTNodeType
-from aibolit.utils.java_package import JavaPackage
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -161,6 +158,32 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
         )
 
 
+def flatten(l):
+    return [item for sublist in l for item in sublist]
+
+
+def find_start_and_end_lines(node):
+    max_line = node.position.line
+
+    def traverse(node):
+        if hasattr(node, 'children'):
+            for child in node.children:
+                if isinstance(child, list) and (len(child) > 0):
+                    for item in child:
+                        traverse(item)
+                else:
+                    if hasattr(child, '_position'):
+                        nonlocal max_line
+                        if child._position.line > max_line:
+                            max_line = child._position.line
+                            return
+        else:
+            return
+
+    traverse(node)
+    return node.position.line, max_line
+
+
 def calculate_patterns_and_metrics(file, args):
     code_lines_dict = input_params = {}  # type: ignore
     error_string = None
@@ -242,21 +265,6 @@ def run_recommend_for_file(file: str, args):
     :param args: different command line arguments
     :return: dict with code lines, filename and pattern name
     """
-    source_tree = JavaPackage(file)
-    for int_bu in source_tree.nodes_by_type(ASTNodeType.CLASS_DECLARATION):
-        a = list(source_tree.children_with_type(int_bu, ASTNodeType.ANNOTATION))
-        line_number = source_tree.get_attr(int_bu, 'source_code_line')
-        for i in a:
-            c = source_tree.children_with_type(i, ASTNodeType.STRING)
-            for j in c:
-                print(source_tree.get_attr(j, 'string'))
-        f = list(source_tree.tree.succ[int_bu].keys())[0]
-        line_number = source_tree.get_attr(3209, 'source_code_line')
-
-
-    for int_bu in p.nodes_by_type(ASTNodeType.METHOD_DECLARATION):
-        a = p.children_with_type(int_bu, ASTNodeType.ANNOTATION)
-
     java_file = str(Path(os.getcwd(), file))
     input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file, args)
 
@@ -603,12 +611,11 @@ def handle_exclude_command_line(args):
 
 
 def format_converter_for_pattern(results, sorted_by=None):
-    """Reformat data where data are sorted by patterns importance
+    """
+    Reformat data where data are sorted by patterns importance
     (it is already sorted in the input).
-    Then lines are sorted in ascending order."""
-
-    def flatten(l):
-        return [item for sublist in l for item in sublist]
+    Then lines are sorted in ascending order.
+    """
 
     for file in results:
         items = file.get('results')
