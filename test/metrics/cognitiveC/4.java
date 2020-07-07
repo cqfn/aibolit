@@ -8,7 +8,7 @@ class Test {
 
 	public static void main(String[] arg) {
 		int a = 1;
-        if ( a && !(b && c)) { // +1 +2
+        if ( a && !(b && c)) { // +1 +1
 			a = 1;
     }
 }
