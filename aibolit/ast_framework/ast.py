@@ -28,7 +28,7 @@ from javalang.tree import Node
 from typing import Union, Any, Set, List, Iterator
 from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
 
-from aibolit.ast_framework.ast_node_type import ASTNodeType, javalang_types_map
+from aibolit.ast_framework.ast_node_type import ASTNodeType, javalang_types_map, node_attributes_by_type
 
 
 MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'method_name'])
@@ -204,11 +204,15 @@ class AST:
 
     @staticmethod
     def _extract_javalang_node_attributes(tree: DiGraph, javalang_node: Node, node_index: int) -> None:
-        tree.add_node(node_index, type=javalang_types_map[type(javalang_node)])
+        node_type = javalang_types_map[type(javalang_node)]
 
-        if hasattr(javalang_node.position, 'line'):
-            tree.add_node(node_index, source_code_line=javalang_node.position.line)
+        attr_names = node_attributes_by_type[node_type]
+        attributes = {attr_name: getattr(javalang_node, attr_name) for attr_name in attr_names}
 
+        attributes['type'] = node_type
+        attributes['line'] = javalang_node.position.line
+
+        tree.add_node(node_index, *attributes)
 
     @staticmethod
     def _handle_javalang_string_node(tree: DiGraph, string_node: str) -> int:
