@@ -2,7 +2,7 @@ from aibolit.utils.ast import AST, ASTNodeType
 from aibolit.utils.java_package import JavaPackage
 from aibolit.utils.encoding_detector import read_text_with_autodetected_encoding
 import re
-from typing import Set
+from typing import List
 
 
 class SuperMethod:
@@ -24,7 +24,7 @@ class SuperMethod:
                 return extracted_name
         return ''
 
-    def value(self, filename: str) -> Set[int]:
+    def value(self, filename: str) -> List[int]:
         """
         Iterates over functions and finds super.func() calls.
         Javalang doesn't have code line for super.func() call,
@@ -37,14 +37,15 @@ class SuperMethod:
         source_code = read_text_with_autodetected_encoding(filename)
         lines = source_code.splitlines()
         tree = JavaPackage(filename)
-        for method_decl_node in tree.nodes_by_type(ASTNodeType.METHOD_DECLARATION):
-            code_line = tree.get_attr(method_decl_node, 'source_code_line')
-            for super_method_inv in tree.nodes_by_type(ASTNodeType.SUPER_METHOD_INVOCATION):
+        for method_decl_node in tree.subtrees_with_root_type(ASTNodeType.METHOD_DECLARATION):
+            ast = AST(tree.tree.subgraph(method_decl_node), method_decl_node[0])
+            code_line = ast.get_attr(method_decl_node[0], 'source_code_line')
+            for super_method_inv in ast.nodes_by_type(ASTNodeType.SUPER_METHOD_INVOCATION):
                 str_to_find = 'super.{method_name}('.format(
-                    method_name=self._get_node_name(tree, super_method_inv)).strip()
+                    method_name=self._get_node_name(ast, super_method_inv)).strip()
                 for iter, line in enumerate(lines[code_line - 1:]):
                     string_strip = line.strip().replace('\t', '')
                     if string_strip.find(str_to_find) > -1:
                         results.append(code_line + iter)
                         break
-        return set(results)
+        return results
