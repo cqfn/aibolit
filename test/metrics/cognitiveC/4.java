@@ -5,7 +5,7 @@ class Test {
 			a = 1;
     }
 }
-    
+
 	public static void main(String[] arg) {
 		int a = 1;
         if ( a && !(b && c)) { // +1 +2
