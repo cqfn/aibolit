@@ -92,7 +92,6 @@ class CognitiveComplexity:
         if each_block_type == ASTNodeType.BINARY_OPERATION:
             bin_operator = ast.get_binary_operation_name(each_block)
             if bin_operator in logical_operators:
-                complexity += 1
                 complexity += self._increment_logical_operators(ast, each_block)
 
         elif each_block_type == ASTNodeType.METHOD_INVOCATION:
@@ -102,6 +101,7 @@ class CognitiveComplexity:
         else:
             complexity += 1
             complexity += self._traverse_childs(ast, each_block, nested_level)
+
         return complexity
 
     def _get_complexity(self, ast: AST, each_block: int, nested_level: int) -> int:
