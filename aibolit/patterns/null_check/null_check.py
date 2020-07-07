@@ -27,6 +27,7 @@ from javalang.tree import CompilationUnit, BinaryOperation, Expression, Literal,
 
 from aibolit.types_decl import LineNumber
 from aibolit.utils.ast_builder import build_ast
+
 Path = Tuple
 
 
