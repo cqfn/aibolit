@@ -51,7 +51,7 @@ class ReturnNull:
         """
         tree = AST.build_from_javalang(build_ast(filename))
         lines: List[int] = []
-        for node in tree.nodes_by_type(ASTNodeType.METHOD_DECLARATION):
+        for node in tree.get_nodes_with_type(ASTNodeType.METHOD_DECLARATION):
             for child in tree.children_with_type(node, ASTNodeType.RETURN_STATEMENT):
                 if self.__check_null_in_return_statement(child, tree):
                     lines.append(tree.get_attr(child, 'line'))

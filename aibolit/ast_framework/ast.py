@@ -139,8 +139,10 @@ class AST:
         '''
         return [self.tree.nodes[node]['type'] for node in dfs_preorder_nodes(self.tree, self.root)]
 
-    def nodes_by_type(self, type: ASTNodeType) -> Iterator[int]:
-        return (node for node in self.tree.nodes if self.tree.nodes[node]['type'] == type)
+    def get_nodes_with_type(self, type: ASTNodeType) -> Iterator[int]:
+        for node in self.tree.nodes:
+            if self.tree.nodes[node]['type'] == type:
+                yield node
 
     def get_attr(self, node: int, attr_name: str, default_value: Any = None) -> Any:
         return self.tree.nodes[node].get(attr_name, default_value)

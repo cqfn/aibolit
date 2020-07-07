@@ -48,7 +48,7 @@ class JoinedValidation:
         """
         tree = AST.build_from_javalang(build_ast(filename))
         lines: List[int] = []
-        for node in tree.nodes_by_type(ASTNodeType.IF_STATEMENT):
+        for node in tree.get_nodes_with_type(ASTNodeType.IF_STATEMENT):
             flag_or = False
             for child in tree.all_children_with_type(node, ASTNodeType.BINARY_OPERATION):
                 operation_name = tree.get_binary_operation_name(child)

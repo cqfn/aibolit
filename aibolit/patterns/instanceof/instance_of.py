@@ -17,11 +17,11 @@ class InstanceOf:
         """
         tree = AST.build_from_javalang(build_ast(filename))
         lines: List[int] = []
-        for node in tree.nodes_by_type(ASTNodeType.BINARY_OPERATION):
+        for node in tree.get_nodes_with_type(ASTNodeType.BINARY_OPERATION):
             if tree.get_binary_operation_name(node) == 'instanceof':
                 lines.append(tree.get_line_number_from_children(node))
 
-        for node in tree.nodes_by_type(ASTNodeType.METHOD_INVOCATION):
+        for node in tree.get_nodes_with_type(ASTNodeType.METHOD_INVOCATION):
             method_name = tree.get_method_invocation_params(node).method_name
             if method_name == 'isInstance':
                 lines.append(tree.get_attr(node, 'line'))
