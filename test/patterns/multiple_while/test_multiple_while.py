@@ -33,7 +33,37 @@ class TestMultipleWhile(TestCase):
             Path(
                 Path(
                     os.path.realpath(__file__)
-                ).parent, 'MultipleWhile.java'
+                ).parent, 'Simple.java'
             )
         )
         self.assertEqual(lines, [2])
+
+    def test_one_while(self):
+        lines = MultipleWhile().value(
+            Path(
+                Path(
+                    os.path.realpath(__file__)
+                ).parent, 'OneWhile.java'
+            )
+        )
+        self.assertEqual(lines, [])
+
+    def test_if_while(self):
+        lines = MultipleWhile().value(
+            Path(
+                Path(
+                    os.path.realpath(__file__)
+                ).parent, 'IfWhile.java'
+            )
+        )
+        self.assertEqual(lines, [2])
+
+    def test_multiple_while(self):
+        lines = MultipleWhile().value(
+            Path(
+                Path(
+                    os.path.realpath(__file__)
+                ).parent, 'MultipleWhile.java'
+            )
+        )
+        self.assertEqual(lines, [])

@@ -97,14 +97,16 @@ class AST:
             if self.tree.nodes[child]['type'] == child_type:
                 yield child
 
-    def all_children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
+    def all_children_with_type(self, node: int, child_type: ASTNodeType) -> List[int]:
         '''
         Yields all children of node with given type.
         '''
+        list_node: List[int] = []
         for child in self.tree.succ[node]:
+            list_node = list_node + self.all_children_with_type(child, child_type)
             if self.tree.nodes[child]['type'] == child_type:
-                yield child
-                self.all_children_with_type(child, child_type)
+                list_node.append(child)
+        return list_node
 
     def get_first_n_children_with_type(self, node: int, child_type: ASTNodeType, quantity: int) -> List[int]:
         '''
