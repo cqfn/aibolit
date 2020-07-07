@@ -35,6 +35,7 @@ from pathlib import Path
 import cchardet as chardet
 import javalang
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
 parser = argparse.ArgumentParser(description='Filter important java files')
 parser.add_argument(
@@ -47,6 +48,13 @@ parser.add_argument(
     type=lambda v: sys.maxsize if v == '' else int(v),
     required=False,
     default=None
+)
+parser.add_argument(
+    '--split_only',
+    required=False,
+    help='Only split filenames into train and test, do not filter',
+    default=False,
+    action='store_true'
 )
 args = parser.parse_args()
 MAX_CLASSES = args.max_classes
@@ -196,17 +204,25 @@ def walk_in_parallel():
 
 
 if __name__ == '__main__':
-    start = time.time()
-    results = walk_in_parallel()
-
-    if not os.path.isdir(DIR_TO_CREATE):
-        os.makedirs(DIR_TO_CREATE)
-
     path_csv_out = str(Path(current_location, DIR_TO_CREATE, CSV_OUT))
     path_txt_out = str(Path(current_location, DIR_TO_CREATE, TXT_OUT))
-    df = pd.DataFrame(results, columns=['filename', 'class_type'])
-    df = df[df['class_type'] == 999]
-    df.to_csv(path_csv_out, index=False)
-    df['filename'].to_csv(path_txt_out, header=None, index=None)
-    end = time.time()
-    print('It took ' + str(end - start) + ' seconds')
+
+    if not args.split_only:
+        start = time.time()
+        results = walk_in_parallel()
+
+        if not os.path.isdir(DIR_TO_CREATE):
+            os.makedirs(DIR_TO_CREATE)
+
+        df = pd.DataFrame(results, columns=['filename', 'class_type'])
+        df = df[df['class_type'] == 999]
+        df.to_csv(path_csv_out, index=False)
+        df['filename'].to_csv(path_txt_out, header=None, index=None)
+        end = time.time()
+        print('It took ' + str(end - start) + ' seconds')
+    df = pd.read_csv(path_csv_out)
+    train, test = train_test_split(df['filename'], test_size=0.3, random_state=42)
+    train_csv_file = str(Path(current_location, DIR_TO_CREATE, '02-train.csv'))
+    test_csv_file = str(Path(current_location, DIR_TO_CREATE, '02-test.csv'))
+    train.to_csv(train_csv_file, index=False)
+    test.to_csv(test_csv_file, index=False)
