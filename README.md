@@ -5,7 +5,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/wjjcd6amnt3p2tdg?svg=true)](https://ci.appveyor.com/project/yegor256/aibolit-lyf56)
 [![Hits-of-Code](https://hitsofcode.com/github/cqfn/aibolit)](https://hitsofcode.com/view/github/cqfn/aibolit)
 [![Test Coverage](https://img.shields.io/codecov/c/github/cqfn/aibolit.svg)](https://codecov.io/github/cqfn/aibolit?branch=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/e90e80a143a9457ee3af/maintainability)](https://codeclimate.com/github/cqfn/aibolit/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/fd7e32d8472b4d5e8ecb/maintainability)](https://codeclimate.com/github/cqfn/aibolit/maintainability)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/cqfn/aibolit/blob/master/LICENSE.txt)
 
 First, you install it (you must have [Python 3.7.7](https://www.python.org/downloads/)
