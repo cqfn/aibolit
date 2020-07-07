@@ -1,6 +1,6 @@
 from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework import AST, ASTNodeType
-from typing import List
+from typing import List, Set
 
 
 class MultipleWhile:
@@ -9,8 +9,8 @@ class MultipleWhile:
         pass
 
     def get_number_of_sequential_while_statement_in_function(self, tree: AST, node: int) -> int:
-        list_while_nodes = []
-        set_child_while_nodes = set()
+        list_while_nodes: List[int] = []
+        set_child_while_nodes: Set[int] = set()
         for child in tree.all_children_with_type(node, ASTNodeType.WHILE_STATEMENT):
             list_while_nodes.append(child)
             set_internal_while = set(tree.all_children_with_type(child, ASTNodeType.WHILE_STATEMENT))
