@@ -23,7 +23,7 @@
 from unittest import TestCase
 from pathlib import Path
 
-from aibolit.utils.java_package import JavaPackage
+from aibolit.ast_framework.java_package import JavaPackage
 
 
 class CFGBuilderTestCase(TestCase):
