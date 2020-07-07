@@ -21,7 +21,7 @@ class NonFinalClass:
             modifiers = {tree.get_attr(child, 'string') for child in
                          tree.children_with_type(modifiers_node, ASTNodeType.STRING)}
             if len(modifiers & NonFinalClass._allowed_class_modifiers) == 0:
-                positions.append(tree.get_attr(class_declaration_root, 'source_code_line'))
+                positions.append(tree.get_attr(class_declaration_root, 'line'))
 
         return positions
 

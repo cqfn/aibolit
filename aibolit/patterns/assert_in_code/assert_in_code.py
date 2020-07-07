@@ -10,6 +10,6 @@ class AssertInCode:
         lines: List[int] = []
         nodes = tree.nodes_by_type(ASTNodeType.ASSERT_STATEMENT)
         for node in nodes:
-            lines.append(tree.get_attr(node, 'source_code_line'))
+            lines.append(tree.get_attr(node, 'line'))
 
         return lines

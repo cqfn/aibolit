@@ -25,7 +25,7 @@ from itertools import islice, repeat, chain
 
 from cached_property import cached_property  # type: ignore
 from javalang.tree import Node
-from typing import Union, Any, Set, List, Iterator
+from typing import Union, Any, Set, List, Iterator, Tuple
 from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
 
 from aibolit.ast_framework.ast_node_type import ASTNodeType, javalang_types_map, node_attributes_by_type
@@ -37,8 +37,6 @@ MemberReferenceParams = namedtuple('MemberReferenceParams', ('object_name', 'mem
 
 
 class AST:
-    _NODE_SKIPED = -1
-
     def __init__(self, networkx_tree: DiGraph, root: int):
         self.tree = networkx_tree
         self.root = root
@@ -46,7 +44,7 @@ class AST:
     @staticmethod
     def build_from_javalang(javalang_ast_root: Node) -> 'AST':
         tree = DiGraph()
-        root = AST._build_from_javalang(tree, javalang_ast_root)
+        root = AST._add_subtree_from_javalang_node(tree, javalang_ast_root)
         return AST(tree, root)
 
     def __str__(self) -> str:
@@ -122,7 +120,7 @@ class AST:
 
     def get_line_number_from_children(self, node: int) -> int:
         for child in self.tree.succ[node]:
-            cur_line = self.get_attr(child, 'source_code_line', -1)
+            cur_line = self.get_attr(child, 'line', -1)
             if cur_line >= 0:
                 return cur_line
         return 0
@@ -174,61 +172,72 @@ class AST:
         return member_reference_params
 
     @staticmethod
-    def _build_from_javalang(tree: DiGraph, javalang_node: Node) -> int:
-        node_index = len(tree) + 1
-        tree.add_node(node_index)
-        AST._extract_javalang_node_attributes(tree, javalang_node, node_index)
-        AST._iterate_over_children_list(tree, javalang_node.children, node_index)
+    def _add_subtree_from_javalang_node(tree: DiGraph, javalang_node: Node) -> int:
+        node_index, node_type = AST._add_javalang_node(tree, javalang_node)
+        if node_index != AST._UNKNOWN_NODE_TYPE and \
+           node_type not in {ASTNodeType.COLLECTION, ASTNodeType.STRING}:
+            AST._add_javalang_children(tree, javalang_node.children, node_index)
         return node_index
 
     @staticmethod
-    def _iterate_over_children_list(tree: DiGraph, children_list: List[Any], parent_index: int) -> None:
-        for child in children_list:
+    def _add_javalang_children(tree: DiGraph, children: List[Any], parent_index: int) -> None:
+        for child in children:
             if isinstance(child, list):
-                AST._iterate_over_children_list(tree, child, parent_index)
+                AST._add_javalang_children(tree, child, parent_index)
             else:
-                child_index = AST._handle_javalang_ast_node(tree, child)
-                if child_index != AST._NODE_SKIPED:
+                child_index = AST._add_subtree_from_javalang_node(tree, child)
+                if child_index != AST._UNKNOWN_NODE_TYPE:
                     tree.add_edge(parent_index, child_index)
 
     @staticmethod
-    def _handle_javalang_ast_node(tree: DiGraph, javalang_node: Union[Node, Set[Any], str]) -> int:
+    def _add_javalang_node(tree: DiGraph, javalang_node: Union[Node, Set[Any], str]) -> Tuple[int, ASTNodeType]:
+        node_index = AST._UNKNOWN_NODE_TYPE
+        node_type = ASTNodeType.UNKNOWN
         if isinstance(javalang_node, Node):
-            return AST._build_from_javalang(tree, javalang_node)
+            node_index, node_type = AST._add_javalang_standard_node(tree, javalang_node)
         elif isinstance(javalang_node, set):
-            return AST._handle_javalang_collection_node(tree, javalang_node)
+            node_index = AST._add_javalang_collection_node(tree, javalang_node)
+            node_type = ASTNodeType.COLLECTION
         elif isinstance(javalang_node, str):
-            return AST._handle_javalang_string_node(tree, javalang_node)
+            node_index = AST._add_javalang_string_node(tree, javalang_node)
+            node_type = ASTNodeType.STRING
 
-        return AST._NODE_SKIPED
+        return node_index, node_type
 
     @staticmethod
-    def _extract_javalang_node_attributes(tree: DiGraph, javalang_node: Node, node_index: int) -> None:
+    def _add_javalang_standard_node(tree: DiGraph, javalang_node: Node) -> Tuple[int, ASTNodeType]:
+        node_index = len(tree) + 1
         node_type = javalang_types_map[type(javalang_node)]
 
         attr_names = node_attributes_by_type[node_type]
         attributes = {attr_name: getattr(javalang_node, attr_name) for attr_name in attr_names}
 
         attributes['type'] = node_type
-        attributes['line'] = javalang_node.position.line
+        if javalang_node.position is not None:
+            attributes['line'] = javalang_node.position.line
 
-        tree.add_node(node_index, *attributes)
+        tree.add_node(node_index, **attributes)
+        return node_index, node_type
 
     @staticmethod
-    def _handle_javalang_string_node(tree: DiGraph, string_node: str) -> int:
+    def _add_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:
+        node_index = len(tree) + 1
+        tree.add_node(node_index, type=ASTNodeType.COLLECTION)
+        # we expect only strings in collection
+        # we add them here as children
+        for item in collection_node:
+            if type(item) == str:
+                string_node_index = AST._add_javalang_string_node(tree, item)
+                tree.add_edge(node_index, string_node_index)
+            elif item is not None:
+                raise ValueError('Unexpected javalang AST node type {} inside \
+                                 "COLLECTION" node'.format(type(item)))
+        return node_index
+
+    @staticmethod
+    def _add_javalang_string_node(tree: DiGraph, string_node: str) -> int:
         node_index = len(tree) + 1
         tree.add_node(node_index, type=ASTNodeType.STRING, string=string_node)
         return node_index
 
-    @staticmethod
-    def _handle_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:
-        node_index = len(tree) + 1
-        tree.add_node(node_index, type=ASTNodeType.COLLECTION)
-        for item in collection_node:
-            if type(item) == str:
-                string_node_index = AST._handle_javalang_string_node(tree, item)
-                tree.add_edge(node_index, string_node_index)
-            elif item is not None:
-                raise RuntimeError('Unexpected javalang AST node type {} inside \
-                                    "COLLECTION" node'.format(type(item)))
-        return node_index
+    _UNKNOWN_NODE_TYPE = -1

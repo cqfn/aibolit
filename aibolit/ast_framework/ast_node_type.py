@@ -103,6 +103,7 @@ class ASTNodeType(Enum):
     TYPE_ARGUMENT = auto()
     TYPE_DECLARATION = auto()
     TYPE_PARAMETER = auto()
+    UNKNOWN = auto()  # Custom type, used only in parsing javalang AST
     VARIABLE_DECLARATION = auto()
     VARIABLE_DECLARATOR = auto()
     VOID_CLASS_REFERENCE = auto()

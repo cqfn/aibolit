@@ -24,6 +24,6 @@ class InstanceOf:
         for node in tree.nodes_by_type(ASTNodeType.METHOD_INVOCATION):
             method_name = tree.get_method_invocation_params(node).method_name
             if method_name == 'isInstance':
-                lines.append(tree.get_attr(node, 'source_code_line'))
+                lines.append(tree.get_attr(node, 'line'))
 
         return lines

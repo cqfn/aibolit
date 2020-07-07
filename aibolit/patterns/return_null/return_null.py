@@ -54,6 +54,6 @@ class ReturnNull:
         for node in tree.nodes_by_type(ASTNodeType.METHOD_DECLARATION):
             for child in tree.children_with_type(node, ASTNodeType.RETURN_STATEMENT):
                 if self.__check_null_in_return_statement(child, tree):
-                    lines.append(tree.get_attr(child, 'source_code_line'))
+                    lines.append(tree.get_attr(child, 'line'))
 
         return lines
