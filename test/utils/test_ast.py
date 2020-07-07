@@ -56,7 +56,7 @@ class ASTTestSuite(TestCase):
             self.assertEqual(ast.get_method_invocation_params(node), expected_params)
 
     def _build_ast(self, filename: str):
-        javalang_ast = build_ast(Path(__file__).parent.absolute() / filename)
+        javalang_ast = build_ast(str(Path(__file__).parent.absolute() / filename))
         return AST.build_from_javalang(javalang_ast)
 
     _java_simple_class_preordered = [
