@@ -1,12 +1,12 @@
 <img src="/logo.svg" height="92px"/>
 
 [![PyPi version](https://img.shields.io/pypi/v/aibolit.svg)](https://pypi.org/project/aibolit/)
-[![Build Status](https://travis-ci.org/yegor256/aibolit.svg)](https://travis-ci.org/yegor256/aibolit)
-[![Build status](https://ci.appveyor.com/api/projects/status/1k7q7eumnhia0e3a?svg=true)](https://ci.appveyor.com/project/yegor256/aibolit)
-[![Hits-of-Code](https://hitsofcode.com/github/yegor256/aibolit)](https://hitsofcode.com/view/github/yegor256/aibolit)
-[![Test Coverage](https://img.shields.io/codecov/c/github/yegor256/aibolit.svg)](https://codecov.io/github/yegor256/aibolit?branch=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/e90e80a143a9457ee3af/maintainability)](https://codeclimate.com/github/yegor256/aibolit/maintainability)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/aibolit/blob/master/LICENSE.txt)
+[![Build Status](https://travis-ci.org/cqfn/aibolit.svg)](https://travis-ci.org/cqfn/aibolit)
+[![Build status](https://ci.appveyor.com/api/projects/status/1k7q7eumnhia0e3a?svg=true)](https://ci.appveyor.com/project/cqfn/aibolit)
+[![Hits-of-Code](https://hitsofcode.com/github/cqfn/aibolit)](https://hitsofcode.com/view/github/cqfn/aibolit)
+[![Test Coverage](https://img.shields.io/codecov/c/github/cqfn/aibolit.svg)](https://codecov.io/github/cqfn/aibolit?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e90e80a143a9457ee3af/maintainability)](https://codeclimate.com/github/cqfn/aibolit/maintainability)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/cqfn/aibolit/blob/master/LICENSE.txt)
 
 First, you install it (you must have [Python 3.7.7](https://www.python.org/downloads/)
 and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
@@ -34,11 +34,11 @@ Also, you can set a folder with Java files:
 $ aibolit recommend --folder src/java
 ```
 
-It will run recommendation function for the model (model is located in [aibolit/binary_files/model.pkl](https://github.com/yegor256/aibolit/blob/master/aibolit/binary_files/model.pkl). 
-The model finds a pattern which contribution is the largest to the Cyclomatic Complexity. 
-If anything is found, you will see all recommendations for the mentioned patterns. 
-You can see the list of all patterns in [Patterns.md](https://github.com/yegor256/aibolit/blob/master/PATTERNS.md).
-The output of recommendation will be redirected to the stdout. 
+It will run recommendation function for the model (model is located in [aibolit/binary_files/model.pkl](https://github.com/cqfn/aibolit/blob/master/aibolit/binary_files/model.pkl).
+The model finds a pattern which contribution is the largest to the Cyclomatic Complexity.
+If anything is found, you will see all recommendations for the mentioned patterns.
+You can see the list of all patterns in [Patterns.md](https://github.com/cqfn/aibolit/blob/master/PATTERNS.md).
+The output of recommendation will be redirected to the stdout.
 If the program has the `0` exit code, it means that all analyzed files do not have any issues.
 If the program has the `1` exit code, it means that at least 1 analyzed file has an issue.
 If the program has the `2` exit code, it means that program crash occurred.
@@ -73,7 +73,7 @@ Show all patterns
 /mnt/d/src/java/Configuration.java[3261]: Partial synchronized (P14: 0.228 4/4)
 /mnt/d/src/java/Configuration.java[3727]: Partial synchronized (P14: 0.228 4/4)
 /mnt/d/src/java/Configuration.java[3956]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/ErrorExample.java: error when calculating patterns: Can't count P1 metric: 
+/mnt/d/src/java/ErrorExample.java: error when calculating patterns: Can't count P1 metric:
 Total score: 127.67642529949538
 ```
 
@@ -106,7 +106,7 @@ Show all patterns
 /mnt/d/src/java/Configuration.java[3844]: Var in the middle (P21: 30.95612931128819 1/4)
 /mnt/d/src/java/Configuration.java[3848]: Var in the middle (P21: 30.95612931128819 1/4)
 /mnt/d/src/java/Configuration.java[3956]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/ErrorExample.java: error when calculating patterns: Can't count P1 metric: 
+/mnt/d/src/java/ErrorExample.java: error when calculating patterns: Can't count P1 metric:
 /mnt/d/src/java/MavenSlice.java: your code is perfect in aibolit's opinion
 Total score: 127.67642529949538
 ```
@@ -172,8 +172,8 @@ You can also choose xml format. It will have the same format as `text` mode, but
 </report>
 
 ```
-The score is the relative importance of the pattern (there is no range for it). 
-The larger score is, the most important pattern is. 
+The score is the relative importance of the pattern (there is no range for it).
+The larger score is, the most important pattern is.
 E.g., if you have several patterns, first you need to fix the pattern with the score 5.45:
 
 ```
@@ -219,13 +219,13 @@ You can get full report with `--full` command, then all patterns will be include
 $ aibolit recommend --folder src/java --full
 ```
 
-You can exclude folder with `--exclude` command. The last parameter is the folder to exclude, 
+You can exclude folder with `--exclude` command. The last parameter is the folder to exclude,
 the rest of them are glob patterns.
 ```bash
 $ aibolit recommend --folder src/java --exclude=**/*Test*.java --exclude=**/*Impl*.java --exclude=/mnt/d/src/java/tests
 ```
 
-If you need help, run 
+If you need help, run
 
 ```bash
 $ aibolit recommend --help
@@ -236,10 +236,10 @@ $ aibolit recommend --help
 
  - Calculates patterns and metrics
  - Creates a dataset
- - Trains model and save it 
- 
+ - Trains model and save it
+
  Train works only with cloned git repository.
- 1. Clone aibolit repository 
+ 1. Clone aibolit repository
  2. Go to `cloned_aibolit_path`
  3. Run `pip install .`
  4. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for Linux).
@@ -247,9 +247,9 @@ $ aibolit recommend --help
  Otherwise model will be saved into `cloned_aibolit_path/aibolit/binary_files/model.pkl`
  6. If you need to set up own folder with Java files, use `--java_folder parameter`, the default value will be `scripts/target/01` of aibolit cloned repo
  7. You need to install Java 13 and Maven
- 
+
  Or you can use our docker image (link will be soon here)
- 
+
  Run train pipeline:
 
 ```bash
@@ -299,5 +299,5 @@ Using Docker recommendation pipeline
 $ docker run --rm -it \
   -v <absolute_path_to_folder_with_classes>:/in \
   -v <absolute_path_to_out_dir>:/out \
-  yegor256/aibolit-image
+  cqfn/aibolit-image
 ```
