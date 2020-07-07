@@ -71,7 +71,7 @@ class AST:
                 depth -= print_step
         return printed_graph
 
-    def subtrees_with_root_type(self, root_type: ASTNodeType) -> Iterator[List[int]]:
+    def get_subtrees(self, root_type: ASTNodeType) -> Iterator['AST']:
         '''
         Yields subtrees with given type of the root.
         If such subtrees are one including the other, only the larger one is
@@ -90,8 +90,9 @@ class AST:
                     current_subtree_root = destination
             elif edge_type == 'reverse' and destination == current_subtree_root:
                 is_inside_subtree = False
-                yield subtree
+                yield AST(self.tree.subgraph(subtree), current_subtree_root)
                 subtree = []
+                current_subtree_root = -1
 
     def children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
         '''

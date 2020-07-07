@@ -38,11 +38,11 @@ class ASTTestSuite(TestCase):
 
     def test_subtrees_selection(self):
         ast = self._build_ast("SimpleClass.java")
-        subtrees = ast.subtrees_with_root_type(ASTNodeType.BASIC_TYPE)
-        for subtree_nodes, expected_subtree in \
+        subtrees = ast.get_subtrees(ASTNodeType.BASIC_TYPE)
+        for actual_subtree, expected_subtree in \
                 zip_longest(subtrees, ASTTestSuite._java_simple_class_basic_type_subtrees):
             with self.subTest():
-                self.assertEqual(subtree_nodes, expected_subtree)
+                self.assertEqual(list(actual_subtree.get_nodes()), expected_subtree)
 
     def test_member_reference_params(self):
         ast = self._build_ast("MemberReferencesExample.java")
