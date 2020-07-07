@@ -2,7 +2,7 @@
 
 [![PyPi version](https://img.shields.io/pypi/v/aibolit.svg)](https://pypi.org/project/aibolit/)
 [![Build Status](https://travis-ci.org/cqfn/aibolit.svg)](https://travis-ci.org/cqfn/aibolit)
-[![Build status](https://ci.appveyor.com/api/projects/status/1k7q7eumnhia0e3a?svg=true)](https://ci.appveyor.com/project/cqfn/aibolit)
+[![Build status](https://ci.appveyor.com/api/projects/status/wjjcd6amnt3p2tdg?svg=true)](https://ci.appveyor.com/project/yegor256/aibolit-lyf56)
 [![Hits-of-Code](https://hitsofcode.com/github/cqfn/aibolit)](https://hitsofcode.com/view/github/cqfn/aibolit)
 [![Test Coverage](https://img.shields.io/codecov/c/github/cqfn/aibolit.svg)](https://codecov.io/github/cqfn/aibolit?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e90e80a143a9457ee3af/maintainability)](https://codeclimate.com/github/cqfn/aibolit/maintainability)
