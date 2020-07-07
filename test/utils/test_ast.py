@@ -32,7 +32,8 @@ from aibolit.ast_framework.ast import MemberReferenceParams, MethodInvocationPar
 class ASTTestSuite(TestCase):
     def test_parsing(self):
         ast = self._build_ast("SimpleClass.java")
-        self.assertEqual(list(ast.node_types),
+        actual_node_types = [ast.get_type(node) for node in ast.get_nodes()]
+        self.assertEqual(actual_node_types,
                          ASTTestSuite._java_simple_class_preordered)
 
     def test_subtrees_selection(self):
@@ -45,13 +46,13 @@ class ASTTestSuite(TestCase):
 
     def test_member_reference_params(self):
         ast = self._build_ast("MemberReferencesExample.java")
-        for node, expected_params in zip_longest(ast.get_nodes_with_type(ASTNodeType.MEMBER_REFERENCE),
+        for node, expected_params in zip_longest(ast.get_nodes(ASTNodeType.MEMBER_REFERENCE),
                                                  ASTTestSuite._expected_member_reference_params):
             self.assertEqual(ast.get_member_reference_params(node), expected_params)
 
     def test_method_invocation_params(self):
         ast = self._build_ast("MethodInvokeExample.java")
-        for node, expected_params in zip_longest(ast.get_nodes_with_type(ASTNodeType.METHOD_INVOCATION),
+        for node, expected_params in zip_longest(ast.get_nodes(ASTNodeType.METHOD_INVOCATION),
                                                  ASTTestSuite._expected_method_invocation_params):
             self.assertEqual(ast.get_method_invocation_params(node), expected_params)
 

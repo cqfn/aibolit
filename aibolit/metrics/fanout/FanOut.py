@@ -41,7 +41,7 @@ class FanOut:
         p = JavaPackage(filename)
         for class_name in p.java_classes:
             tree = p.java_classes[class_name]
-            for var_node in tree.get_nodes_with_type(ASTNodeType.VARIABLE_DECLARATOR):
+            for var_node in tree.get_nodes(ASTNodeType.VARIABLE_DECLARATOR):
                 var_child = list(tree.children_with_type(var_node, ASTNodeType.STRING))
                 new_class_name = tree.get_attr(var_child[0], 'string')
 
@@ -56,7 +56,7 @@ class FanOut:
                             considered_classes[new_class_name] = 0
 
         # check classes of invokated methods
-        for i in tree.get_nodes_with_type(ASTNodeType.STATEMENT_EXPRESSION):
+        for i in tree.get_nodes(ASTNodeType.STATEMENT_EXPRESSION):
             for invoked_method_child in tree.children_with_type(i, ASTNodeType.METHOD_INVOCATION):
                 name_of_invoked_class = tree.get_method_invocation_params(invoked_method_child)
                 if considered_classes.get(name_of_invoked_class.object_name) is None:

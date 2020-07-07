@@ -17,7 +17,7 @@ class MultipleWhile:
 
         tree = AST.build_from_javalang(build_ast(filename))
         res = []
-        nodes = tree.get_nodes_with_type(ASTNodeType.METHOD_DECLARATION)
+        nodes = tree.get_nodes(ASTNodeType.METHOD_DECLARATION)
         for node in nodes:
             cur_line = tree.get_attr(node, 'line')
             while_cycle = list(tree.all_children_with_type(node, ASTNodeType.WHILE_STATEMENT))

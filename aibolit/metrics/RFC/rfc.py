@@ -35,7 +35,7 @@ class RFC:
 
     def get_invoked(self, tree) -> Set[Any]:
         inv_names = set()
-        inv_methods = tree.get_nodes_with_type(ASTNodeType.METHOD_INVOCATION)
+        inv_methods = tree.get_nodes(ASTNodeType.METHOD_INVOCATION)
         for inv_method in inv_methods:
             name_of_invoked_class = tree.get_method_invocation_params(inv_method)
             current_name = name_of_invoked_class.method_name

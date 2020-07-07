@@ -23,10 +23,9 @@
 from collections import namedtuple
 from itertools import islice, repeat, chain
 
-from cached_property import cached_property  # type: ignore
 from javalang.tree import Node
 from typing import Union, Any, Set, List, Iterator, Tuple, Dict, cast, NamedTuple
-from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
+from networkx import DiGraph, dfs_labeled_edges  # type: ignore
 
 from aibolit.ast_framework.ast_node_type import ASTNodeType, javalang_types_map, node_attributes_by_type
 
@@ -132,16 +131,9 @@ class AST:
                 return cur_line
         return 0
 
-    @cached_property
-    def node_types(self) -> List[ASTNodeType]:
-        '''
-        Yields types of nodes in preorder tree traversal.
-        '''
-        return [self.tree.nodes[node]['type'] for node in dfs_preorder_nodes(self.tree, self.root)]
-
-    def get_nodes_with_type(self, type: ASTNodeType) -> Iterator[int]:
+    def get_nodes(self, type: Union[ASTNodeType, None] = None) -> Iterator[int]:
         for node in self.tree.nodes:
-            if self.tree.nodes[node]['type'] == type:
+            if type is None or self.tree.nodes[node]['type'] == type:
                 yield node
 
     def get_attr(self, node: int, attr_name: str, default_value: Any = None) -> Any:
