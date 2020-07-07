@@ -8,6 +8,7 @@ from javalang.tree import FormalParameter
 
 from aibolit.utils.ast_builder import build_ast
 
+
 class MultipleTry:
 
     def __init__(self):

@@ -20,8 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+from networkx import dfs_labeled_edges  # type: ignore
 
 from aibolit.utils.ast_builder import build_ast
+from aibolit.ast_framework import AST, ASTNodeType
 
 
 class NCSSMetric():
@@ -29,22 +31,48 @@ class NCSSMetric():
         pass
 
     def value(self, filename: str):
+        set_of_the_types = {ASTNodeType.ANNOTATION_DECLARATION,
+                            ASTNodeType.CLASS_DECLARATION,
+                            ASTNodeType.CONSTANT_DECLARATION,
+                            ASTNodeType.CONSTRUCTOR_DECLARATION,
+                            ASTNodeType.DECLARATION,
+                            ASTNodeType.ENUM_CONSTANT_DECLARATION,
+                            ASTNodeType.ENUM_DECLARATION,
+                            ASTNodeType.FIELD_DECLARATION,
+                            ASTNodeType.INTERFACE_DECLARATION,
+                            ASTNodeType.LOCAL_VARIABLE_DECLARATION,
+                            ASTNodeType.METHOD_DECLARATION,
+                            ASTNodeType.TYPE_DECLARATION,
+                            ASTNodeType.VARIABLE_DECLARATION,
+                            ASTNodeType.CATCH_CLAUSE,
+                            ASTNodeType.ASSERT_STATEMENT,
+                            ASTNodeType.BREAK_STATEMENT,
+                            ASTNodeType.CONTINUE_STATEMENT,
+                            ASTNodeType.DO_STATEMENT,
+                            ASTNodeType.FOR_STATEMENT,
+                            ASTNodeType.IF_STATEMENT,
+                            ASTNodeType.RETURN_STATEMENT,
+                            ASTNodeType.STATEMENT,
+                            ASTNodeType.STATEMENT_EXPRESSION,
+                            ASTNodeType.SWITCH_STATEMENT,
+                            ASTNodeType.SWITCH_STATEMENT_CASE,
+                            ASTNodeType.SYNCHRONIZED_STATEMENT,
+                            ASTNodeType.THROW_STATEMENT,
+                            ASTNodeType.TRY_STATEMENT,
+                            ASTNodeType.WHILE_STATEMENT}
+
         if len(filename) == 0:
             raise ValueError('Empty file for analysis')
 
-        tree = build_ast(filename)
-
+        tree = AST.build_from_javalang(build_ast(filename))
         metric = 0
-        for _, node in tree:
-            node_type = str(type(node))
-            if 'Statement' in node_type:
-                metric += 1
-            elif 'VariableDeclarator' == node_type:
-                metric += 1
-            elif 'Assignment' == node_type:
-                metric += 1
-            elif 'Declaration' in node_type and 'LocalVariableDeclaration' not in node_type \
-                 and 'PackageDeclaration' not in node_type:
-                metric += 1
+        for _, destination, edge_type in dfs_labeled_edges(tree.tree, tree.root):
+            if edge_type == 'forward':
+                node_type = tree.get_type(destination)
+                if node_type in set_of_the_types:
+                    metric += 1
+                if node_type == ASTNodeType.FOR_CONTROL:
+                    metric -= len(list(tree.children_with_type(destination, ASTNodeType.VARIABLE_DECLARATION)))
+                    metric -= len(list(tree.children_with_type(destination, ASTNodeType.LOCAL_VARIABLE_DECLARATION)))
 
         return metric

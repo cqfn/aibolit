@@ -1,6 +1,6 @@
 from itertools import groupby
-from aibolit.utils.ast import AST, ASTNodeType
-from aibolit.utils.java_package import JavaPackage
+from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework.java_package import JavaPackage
 from typing import List, Set
 import re
 
