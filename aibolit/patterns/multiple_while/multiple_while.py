@@ -13,7 +13,7 @@ class MultipleWhile:
         set_child_while_nodes: Set[int] = set()
         for child in tree.all_children_with_type(node, ASTNodeType.WHILE_STATEMENT):
             list_while_nodes.append(child)
-            set_internal_while = set(tree.all_children_with_type(child, ASTNodeType.WHILE_STATEMENT))
+            set_internal_while = set(tree.list_all_children_with_type(child, ASTNodeType.WHILE_STATEMENT))
             set_child_while_nodes = set.union(set_child_while_nodes, set_internal_while)
         return len(list_while_nodes) - len(set_child_while_nodes)
 
