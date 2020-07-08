@@ -22,5 +22,4 @@ class CountIfReturn:
                     for i in java_class.tree.succ[all_childs[1]]:
                         if java_class.get_type(i) == ASTNodeType.RETURN_STATEMENT:
                             detected_lines += [java_class.get_attr(if_node, 'source_code_line')]
-
         return detected_lines
