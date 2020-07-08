@@ -33,6 +33,7 @@ import pickle
 import sys
 import time
 import traceback
+from collections import defaultdict
 from os import scandir
 from pathlib import Path
 from sys import stdout
@@ -160,6 +161,32 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
 
 def flatten(l):
     return [item for sublist in l for item in sublist]
+
+
+def find_annotation_by_node_type(tree, node_type):
+    """Search nodes with annotations.
+
+    :param tree: javalang.tree
+    :param node_type: Node type of javalang.tree
+    :return
+    dict with annotations, where key is node, value is list of string annotations;
+    """
+    annonations = defaultdict(list)
+    for _, node in tree.filter(node_type):
+        if node.annotations:
+            for a in node.annotations:
+                if hasattr(a.element, 'value'):
+                    if 'aibolit' in a.element.value:
+                        annonations[node].append(
+                            a.element.value.split('.')[1].rstrip('\"')
+                        )
+                elif hasattr(a.element, 'values'):
+                    for j in a.element.values:
+                        if 'aibolit' in j.value:
+                            annonations[node].append(
+                                j.value.split('.')[1].rstrip('\"')
+                            )
+    return annonations
 
 
 def find_start_and_end_lines(node):

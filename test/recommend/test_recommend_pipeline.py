@@ -30,7 +30,7 @@ import javalang
 from aibolit.config import Config
 
 from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, \
-    create_xml_tree, create_text, format_converter_for_pattern, find_start_and_end_lines
+    create_xml_tree, create_text, format_converter_for_pattern, find_start_and_end_lines, find_annotation_by_node_type
 
 
 class TestRecommendPipeline(TestCase):
@@ -255,3 +255,35 @@ class TestRecommendPipeline(TestCase):
             start, end = find_start_and_end_lines(method)
             self.assertEqual(start, 11)
             self.assertEqual(end, 59)
+
+    def test_find_annotation_by_class_declaration(self):
+        file = Path(self.cur_file_dir, 'annotations/ClassAnnotations.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            classes_with_annonations = find_annotation_by_node_type(tree, javalang.tree.ClassDeclaration)
+            pattern_found = list(classes_with_annonations.values())[0][0]
+            self.assertEqual(pattern_found, 'P11')
+
+    def test_find_mutiple_annotations_by_class_declaration(self):
+        file = Path(self.cur_file_dir, 'annotations/MutipleAnnotations.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            classes_with_annonations = find_annotation_by_node_type(tree, javalang.tree.ClassDeclaration)
+            patterns_found = list(classes_with_annonations.values())[0]
+            self.assertEqual(patterns_found, ['P23', 'P11'])
+
+    def test_find_annotation_method_declaration(self):
+        file = Path(self.cur_file_dir, 'annotations/MutipleAnnotations.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            functions_with_annotations = find_annotation_by_node_type(tree, javalang.tree.MethodDeclaration)
+            patterns_found_with_functions = [(x.name, y) for x, y in functions_with_annotations.items()]
+            self.assertEqual(patterns_found_with_functions, [('set', ['P23']), ('getStreamReader', ['P23', 'P22'])])
+
+    def test_find_annotation_by_field_declaration(self):
+        file = Path(self.cur_file_dir, 'annotations/MutipleAnnotations.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            fields_with_annotations = find_annotation_by_node_type(tree, javalang.tree.FieldDeclaration)
+            patterns_found_with_fields = list(fields_with_annotations.values())
+            self.assertEqual(patterns_found_with_fields, [['P23'], ['P23', 'P22']])
