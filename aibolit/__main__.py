@@ -37,7 +37,7 @@ from collections import defaultdict
 from os import scandir
 from pathlib import Path
 from sys import stdout
-from typing import List, Any, Dict
+from typing import List, Any, Dict, Tuple
 
 import javalang
 import numpy as np  # type: ignore
@@ -165,7 +165,9 @@ def flatten(l):
     return [item for sublist in l for item in sublist]
 
 
-def find_annotation_by_node_type(tree: javalang.tree.CompilationUnit, node_type):
+def find_annotation_by_node_type(
+        tree: javalang.tree.CompilationUnit,
+        node_type) -> Dict[Any, Any]:
     """Search nodes with annotations.
 
     :param tree: javalang.tree
@@ -173,7 +175,7 @@ def find_annotation_by_node_type(tree: javalang.tree.CompilationUnit, node_type)
     :return
     dict with annotations, where key is node, value is list of string annotations;
     """
-    annonations: Dict[Any, Any] = defaultdict(list)
+    annonations = defaultdict(list)
     for _, node in tree.filter(node_type):
         if node.annotations:
             for a in node.annotations:
@@ -191,7 +193,7 @@ def find_annotation_by_node_type(tree: javalang.tree.CompilationUnit, node_type)
     return annonations
 
 
-def find_start_and_end_lines(node):
+def find_start_and_end_lines(node) -> Tuple[int, int]:
     max_line = node.position.line
 
     def traverse(node):
