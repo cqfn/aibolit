@@ -38,9 +38,17 @@ class TestMethodChain(TestCase):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'Empty.java'))
         self.assertEqual(lines, [])
 
-    def test_with_ternary(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'With_Ternary.java'))
+    def test_with_ternary1(self):
+        lines = self.method_chain_finder.value(Path(self.dir_path, 'With_Ternary1.java'))
         self.assertEqual(lines, [12])
+
+    def test_with_ternary2(self):
+        lines = self.method_chain_finder.value(Path(self.dir_path, 'With_Ternary2.java'))
+        self.assertEqual(lines, [12])
+
+    def test_with_ternary_not_return_null(self):
+        lines = self.method_chain_finder.value(Path(self.dir_path, 'With_Ternary_not_return_null.java'))
+        self.assertEqual(lines, [])
 
     def test_simple(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'Simple.java'))

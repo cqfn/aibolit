@@ -20,10 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import javalang
-from collections import defaultdict
+from typing import List
 
 from aibolit.utils.ast_builder import build_ast
+from aibolit.ast_framework import AST, ASTNodeType
 
 
 class ReturnNull:
@@ -31,20 +31,29 @@ class ReturnNull:
     def __init__(self):
         pass
 
-    def value(self, filename: str):
+    def __check_null_in_return_args(self, node: int, tree: AST) -> bool:
+        for child1 in tree.children_with_type(node, ASTNodeType.LITERAL):
+            for child2 in tree.children_with_type(child1, ASTNodeType.STRING):
+                if tree.get_attr(child2, 'string') == 'null':
+                    return True
+        return False
+
+    def __check_null_in_return_statement(self, node: int, tree: AST) -> bool:
+        child_ternary = list(tree.children_with_type(node, ASTNodeType.TERNARY_EXPRESSION))
+        if len(child_ternary) > 0:
+            return self.__check_null_in_return_args(child_ternary[0], tree)
+        return self.__check_null_in_return_args(node, tree)
+
+    def value(self, filename: str) -> List[int]:
         """
         Travers over AST tree and finds pattern
         :param filename:
         """
-        tree = build_ast(filename)
-        chain_lst = defaultdict(int)
-        for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
-            for _, return_node in method_node.filter(javalang.tree.ReturnStatement):
-                return_literal = return_node.children[1]
-                if isinstance(return_literal, javalang.tree.Literal) and return_literal.value == 'null':
-                    chain_lst[method_node.name] = return_literal.position.line or return_node.position.line
-                elif isinstance(return_literal, javalang.tree.TernaryExpression):
-                    chain_lst[method_node.name] = return_node.position.line
+        tree = AST.build_from_javalang(build_ast(filename))
+        lines: List[int] = []
+        for node in tree.nodes_by_type(ASTNodeType.METHOD_DECLARATION):
+            for child in tree.children_with_type(node, ASTNodeType.RETURN_STATEMENT):
+                if self.__check_null_in_return_statement(child, tree):
+                    lines.append(tree.get_attr(child, 'source_code_line'))
 
-        filtered_dict = list(filter(lambda elem: elem > 0, chain_lst.values()))
-        return filtered_dict
+        return lines
