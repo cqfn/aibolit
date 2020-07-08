@@ -1,5 +1,5 @@
-from aibolit.utils.ast import AST, ASTNodeType
-from aibolit.utils.java_package import JavaPackage
+from aibolit.ast_framework.ast import AST, ASTNodeType
+from aibolit.ast_framework.java_package import JavaPackage
 from aibolit.utils.encoding_detector import read_text_with_autodetected_encoding
 import re
 from typing import List
