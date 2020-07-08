@@ -45,7 +45,6 @@ from pkg_resources import parse_version
 from aibolit import __version__
 from aibolit.config import Config
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
-from aibolit.model.model import TwoFoldRankingModel, Dataset  # type: ignore  # noqa: F401
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -157,6 +156,32 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
             acronym,
             str(type(exc_value)))
         )
+
+
+def flatten(l):
+    return [item for sublist in l for item in sublist]
+
+
+def find_start_and_end_lines(node):
+    max_line = node.position.line
+
+    def traverse(node):
+        if hasattr(node, 'children'):
+            for child in node.children:
+                if isinstance(child, list) and (len(child) > 0):
+                    for item in child:
+                        traverse(item)
+                else:
+                    if hasattr(child, '_position'):
+                        nonlocal max_line
+                        if child._position.line > max_line:
+                            max_line = child._position.line
+                            return
+        else:
+            return
+
+    traverse(node)
+    return node.position.line, max_line
 
 
 def calculate_patterns_and_metrics(file, args):
@@ -586,12 +611,11 @@ def handle_exclude_command_line(args):
 
 
 def format_converter_for_pattern(results, sorted_by=None):
-    """Reformat data where data are sorted by patterns importance
+    """
+    Reformat data where data are sorted by patterns importance
     (it is already sorted in the input).
-    Then lines are sorted in ascending order."""
-
-    def flatten(l):
-        return [item for sublist in l for item in sublist]
+    Then lines are sorted in ascending order.
+    """
 
     for file in results:
         items = file.get('results')
