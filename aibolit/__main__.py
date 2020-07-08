@@ -165,7 +165,7 @@ def flatten(l):
     return [item for sublist in l for item in sublist]
 
 
-def find_annotation_by_node_type(tree: javalang.tree.CompilationUnit, node_type: javalang.tree.Node):
+def find_annotation_by_node_type(tree: javalang.tree.CompilationUnit, node_type):
     """Search nodes with annotations.
 
     :param tree: javalang.tree
