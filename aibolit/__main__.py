@@ -38,6 +38,8 @@ from os import scandir
 from pathlib import Path
 from sys import stdout
 from typing import List
+
+import javalang
 import numpy as np  # type: ignore
 import requests
 from lxml import etree  # type: ignore
@@ -163,7 +165,7 @@ def flatten(l):
     return [item for sublist in l for item in sublist]
 
 
-def find_annotation_by_node_type(tree, node_type):
+def find_annotation_by_node_type(tree: javalang.tree.CompilationUnit, node_type: javalang.tree.Node):
     """Search nodes with annotations.
 
     :param tree: javalang.tree
