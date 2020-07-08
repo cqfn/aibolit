@@ -1,19 +1,6 @@
-import javalang
-from aibolit.utils.java_parser import JavalangImproved
-
-
-class newJavalangImproved(JavalangImproved):
-
-    def filter(self, ntypes):
-        nodes = self.tree_to_nodes()
-        array = []
-        for index, i in enumerate(nodes):
-            if (type(i.node) in ntypes):
-                if type(i.node.then_statement) in [javalang.tree.BlockStatement] and i.node.else_statement is not None:
-                    for check_return in i.node.then_statement.statements:
-                        if type(check_return) in [javalang.tree.ReturnStatement]:
-                            array.append(nodes[index].line)
-        return array
+from aibolit.ast_framework import ASTNodeType
+from aibolit.ast_framework.java_package import JavaPackage
+from typing import List
 
 
 class CountIfReturn:
@@ -24,9 +11,15 @@ class CountIfReturn:
     def __init__(self):
         pass
 
-    def value(self, filename: str):
-        ''''''
-        tree = newJavalangImproved(filename)
-        if_decls = tree.filter([javalang.tree.IfStatement])
-
-        return if_decls
+    def value(self, filename: str) -> List[int]:
+        detected_lines = []
+        ast = JavaPackage(filename).java_classes
+        for class_name in ast:
+            java_class = ast[class_name]
+            for index, if_node in enumerate(java_class.nodes_by_type(ASTNodeType.IF_STATEMENT)):
+                all_childs = [i for i in java_class.tree.succ[if_node]]
+                if len(all_childs) == 3:
+                    for i in java_class.tree.succ[all_childs[1]]:
+                        if java_class.get_type(i) == ASTNodeType.RETURN_STATEMENT:
+                            detected_lines += [java_class.get_attr(if_node, 'source_code_line')]
+        return detected_lines
