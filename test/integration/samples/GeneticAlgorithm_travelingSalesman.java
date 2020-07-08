@@ -1,3 +1,8 @@
+// This Java code is taken from a public GitHub repository
+// and is used inside Aibolit only for integration testing
+// purposes. The code is never compiled or executed.
+
+
 /**
  * An implementation of the TSP problem using a genetic algorithm. This implementation works well
  * for graph with < 30 nodes, beyond this it seems to struggle getting near the optimal solution.
