@@ -37,7 +37,7 @@ from collections import defaultdict
 from os import scandir
 from pathlib import Path
 from sys import stdout
-from typing import List
+from typing import List, Any, Dict
 
 import javalang
 import numpy as np  # type: ignore
@@ -173,7 +173,7 @@ def find_annotation_by_node_type(tree: javalang.tree.CompilationUnit, node_type:
     :return
     dict with annotations, where key is node, value is list of string annotations;
     """
-    annonations = defaultdict(list)
+    annonations: Dict[Any, Any] = defaultdict(list)
     for _, node in tree.filter(node_type):
         if node.annotations:
             for a in node.annotations:
