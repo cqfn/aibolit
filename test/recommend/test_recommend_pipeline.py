@@ -30,7 +30,7 @@ import javalang
 from aibolit.config import Config
 
 from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, \
-    create_xml_tree, create_text, format_converter_for_pattern, find_start_and_end_lines
+    create_xml_tree, create_text, format_converter_for_pattern, find_start_and_end_lines, add_pattern_if_ignored
 
 
 class TestRecommendPipeline(TestCase):
@@ -253,5 +253,26 @@ class TestRecommendPipeline(TestCase):
             tree = javalang.parse.parse(f.read())
             method = list(tree.filter(javalang.tree.ClassDeclaration))[0][1]
             start, end = find_start_and_end_lines(method)
+            self.assertEqual(start, 11)
+            self.assertEqual(end, 59)
+
+    def test_add_patterns_if_ignored(self):
+        file = Path(self.cur_file_dir, 'start_end/LottieImageAsset.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            patterns = []{'code_lines': [294, 391],
+                  'pattern_code': 'P13',
+                  'pattern_name': 'Null check',
+                  'importance': 30.95612931128819}
+            start, end = add_pattern_if_ignored()
+            self.assertEqual(start, 11)
+            self.assertEqual(end, 59)
+
+    def test_add_patterns_if_ignored(self):
+        file = Path(self.cur_file_dir, 'start_end/LottieImageAsset.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            patterns = []
+            start, end = add_pattern_if_ignored()
             self.assertEqual(start, 11)
             self.assertEqual(end, 59)
