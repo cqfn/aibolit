@@ -37,9 +37,13 @@ from collections import defaultdict
 from os import scandir
 from pathlib import Path
 from sys import stdout
+<<<<<<< Updated upstream
 from typing import List, Any, Dict, Tuple
 
 import javalang
+=======
+from typing import List, Dict, Any, Tuple
+>>>>>>> Stashed changes
 import numpy as np  # type: ignore
 import requests
 from lxml import etree  # type: ignore
