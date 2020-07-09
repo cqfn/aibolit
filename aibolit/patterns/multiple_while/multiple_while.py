@@ -1,5 +1,6 @@
 from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework import AST, ASTNodeType
+from typing import List, Set
 
 
 class MultipleWhile:
@@ -7,7 +8,16 @@ class MultipleWhile:
     def __init__(self):
         pass
 
-    def value(self, filename: str):
+    def get_top_level_while_qty(self, tree: AST, node: int) -> int:
+        list_while_nodes: List[int] = []
+        set_child_while_nodes: Set[int] = set()
+        for child in tree.all_children_with_type(node, ASTNodeType.WHILE_STATEMENT):
+            list_while_nodes.append(child)
+            set_internal_while = set(tree.list_all_children_with_type(child, ASTNodeType.WHILE_STATEMENT))
+            set_child_while_nodes |= set_internal_while
+        return len(list_while_nodes) - len(set_child_while_nodes)
+
+    def value(self, filename: str) -> List[int]:
         """
         Travers over AST tree and finds function with sequential while statement
         :param filename:
@@ -16,12 +26,9 @@ class MultipleWhile:
         """
 
         tree = AST.build_from_javalang(build_ast(filename))
-        res = []
-        nodes = tree.get_nodes(ASTNodeType.METHOD_DECLARATION)
-        for node in nodes:
-            cur_line = tree.get_attr(node, 'line')
-            while_cycle = list(tree.all_children_with_type(node, ASTNodeType.WHILE_STATEMENT))
-            if len(while_cycle) > 1:
-                res.append(cur_line)
+        lines: List[int] = []
+        for node in tree.nodes_by_type(ASTNodeType.METHOD_DECLARATION):
+            if self.get_top_level_while_qty(tree, node) > 1:
+                lines.append(tree.get_attr(node, 'line'))
 
-        return res
+        return lines

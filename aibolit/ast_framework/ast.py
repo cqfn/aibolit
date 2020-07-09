@@ -34,6 +34,8 @@ MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'm
 
 MemberReferenceParams = namedtuple('MemberReferenceParams', ('object_name', 'member_name', 'unary_operator'))
 
+BinaryOperationParams = namedtuple('BinaryOperationParams', ('operation', 'left_side', 'right_side'))
+
 
 class ASTNodeReference(NamedTuple):
     node_index: int
@@ -102,14 +104,20 @@ class AST:
             if self.tree.nodes[child]['type'] == child_type:
                 yield child
 
+    def list_all_children_with_type(self, node: int, child_type: ASTNodeType) -> List[int]:
+        list_node: List[int] = []
+        for child in self.tree.succ[node]:
+            list_node = list_node + self.list_all_children_with_type(child, child_type)
+            if self.tree.nodes[child]['type'] == child_type:
+                list_node.append(child)
+        return sorted(list_node)
+
     def all_children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
         '''
         Yields all children of node with given type.
         '''
-        for child in self.tree.succ[node]:
-            if self.tree.nodes[child]['type'] == child_type:
-                yield child
-                self.all_children_with_type(child, child_type)
+        for child in self.list_all_children_with_type(node, child_type):
+            yield child
 
     def get_first_n_children_with_type(self, node: int, child_type: ASTNodeType, quantity: int) -> List[int]:
         '''
@@ -172,6 +180,11 @@ class AST:
             raise ValueError('Node has 0 or more then 3 children with type "STRING": ' + str(params))
 
         return member_reference_params
+
+    def get_binary_operation_params(self, binary_operation_node: int) -> BinaryOperationParams:
+        assert(self.get_type(binary_operation_node) == ASTNodeType.BINARY_OPERATION)
+        operation_node, left_side_node, right_side_node = self.tree.succ[binary_operation_node]
+        return BinaryOperationParams(self.get_attr(operation_node, 'string'), left_side_node, right_side_node)
 
     @staticmethod
     def _add_subtree_from_javalang_node(tree: DiGraph, javalang_node: Union[Node, Set[Any], str],

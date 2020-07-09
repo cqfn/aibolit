@@ -3,17 +3,17 @@ public class Foo {
 
     boolean a, b = true;
     int j = 0;
-    switch (j) {
+    switch (j) { // +1
       case 0:
       case 1:
-      case 3: if (a || b) {} break;
+      case 3: if (a || b) {} break; // +2 +1 +1
     }
-    switch (j) {
+    switch (j) { // +1
       case 0:
       case 1:
-      case 3: if (a || b) {} break;
+      case 3: if (a || b) {} break; // +2 +1 +1
     }
-    if (true || a && b);
-    while (j++ < 20);
+    if (true || a && b); // +1 +2
+    while (j++ < 20); // +1
   }
 }
