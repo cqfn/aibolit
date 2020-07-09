@@ -24,10 +24,11 @@ from collections import namedtuple
 from itertools import islice, repeat, chain
 
 from javalang.tree import Node
-from typing import Union, Any, Set, List, Iterator, Tuple, Dict, cast, NamedTuple
+from typing import Union, Any, Set, List, Iterator, Tuple, Dict, cast
 from networkx import DiGraph, dfs_labeled_edges  # type: ignore
 
-from aibolit.ast_framework.ast_node_type import ASTNodeType, javalang_types_map, node_attributes_by_type
+from aibolit.ast_framework.ast_node_type import ASTNodeType
+from aibolit.ast_framework._auxiliary_data import javalang_to_ast_node_type, attributes_by_node_type, ASTNodeReference
 
 
 MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'method_name'])
@@ -35,10 +36,6 @@ MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'm
 MemberReferenceParams = namedtuple('MemberReferenceParams', ('object_name', 'member_name', 'unary_operator'))
 
 BinaryOperationParams = namedtuple('BinaryOperationParams', ('operation', 'left_side', 'right_side'))
-
-
-class ASTNodeReference(NamedTuple):
-    node_index: int
 
 
 class AST:
@@ -227,9 +224,9 @@ class AST:
     @staticmethod
     def _add_javalang_standard_node(tree: DiGraph, javalang_node: Node) -> Tuple[int, ASTNodeType]:
         node_index = len(tree) + 1
-        node_type = javalang_types_map[type(javalang_node)]
+        node_type = javalang_to_ast_node_type[type(javalang_node)]
 
-        attr_names = node_attributes_by_type[node_type]
+        attr_names = attributes_by_node_type[node_type]
         attributes = {attr_name: getattr(javalang_node, attr_name) for attr_name in attr_names}
 
         attributes['type'] = node_type
