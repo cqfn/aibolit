@@ -2,39 +2,31 @@ import os
 import pickle
 from pathlib import Path
 
+from sklearn.model_selection import train_test_split
+
 from aibolit.config import Config
 import pandas as pd
 
 
-def preprocess_file(
-        filename,
-        scale_ncss=True,
-        **kwargs):
-    print('reading dataset from {}'.format(Config.dataset_file()))
-    df = pd.read_csv(filename).set_index('filename')
+def preprocess_file(filename: str):
+    print('reading dataset from {}'.format(filename))
+    df = pd.read_csv(filename)
     df = df[~df["filename"].str.lower().str.contains("test")]
-    config = Config.get_patterns_config()
-    if self.do_rename_columns:
-        p_codes = \
-            [x['code'] for x in config['patterns']] \
-            + ['lines' + x['code'] for x in config['patterns']]
-        m_codes = [x['code'] for x in config['metrics']]
-        keys = p_codes + m_codes
-        vals = \
-            [x['name'] for x in config['patterns']] \
-            + ['lines' + x['name'] for x in config['patterns']] \
-            + [x['name'] for x in config['metrics']]
-
-        replace_dict = dict(zip(keys, vals))
-        df = df.rename(replace_dict)
-        df.columns = vals
-        print('Columns renamed:' + df.head())
-
     df = df.dropna().drop_duplicates(subset=df.columns.difference(['filename']))
     df = df[(df.ncss > 20) & (df.ncss < 100) & (df.npath_method_avg < 100000.00)].copy().reset_index()
+    return df
+
+
+def scale(
+        df: pd.DataFrame,
+        scale_ncss=True,
+        **kwargs):
+
+    config = Config.get_patterns_config()
     patterns_codes_set = set([x['code'] for x in config['patterns']])
     metrics_codes_set = [x['code'] for x in config['metrics']]
-    target = df[['M4']].values[:, 0]
+    exclude_features = set(config['patterns_exclude']).union(set(config['metrics_exclude']))
+    target = df[['M4']].values[:, 0].astype(float)
 
     load_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
     print('Test loaded model from file {}:'.format(load_model_file))
@@ -43,15 +35,17 @@ def preprocess_file(
         model = pickle.load(fid)
         print('Model has been loaded successfully')
 
-    used_codes = set(model.features_conf)
+    used_codes = set(model.features_conf['features_order'])
     used_codes.add('M4')
-    not_scaled_codes = set(patterns_codes_set).union(set(metrics_codes_set)).difference(used_codes)
+    not_scaled_codes = set(patterns_codes_set).union(set(metrics_codes_set)).difference(used_codes).difference(
+        exclude_features)
+    df.set_index('filename')
     if scale_ncss:
         scaled_df = pd.DataFrame(
             df[used_codes].values / df['M2'].values.reshape((-1, 1)),
             columns=used_codes
         )
-        target /= df['M2'].values.reshape(-1)
+        target /= df['M2'].values.astype(float).reshape(-1)
         not_scaled_df = df[not_scaled_codes]
         input = pd.merge(not_scaled_df, scaled_df, left_index=True, right_index=True)
     else:
@@ -59,16 +53,37 @@ def preprocess_file(
 
     return input
 
-if __name__ == '__main__':
-    input = preprocess_file('./target/dataset.csv')
-    parent_cwd = Path(os.getcwd()).parent
-    train_csv_path = Path(parent_cwd, 'target/02/02-train.csv')
-    train_csv_path = Path(parent_cwd, 'target/02/02-test.csv')
-    path
-    path_csv_out = str(Path(, SPLIT_CSV, 'target/02/02-train.csv'))
-    df = pd.read_csv(path_csv_out)
-    train, test = train_test_split(df['filename'], test_size=0.3, random_state=42)
-    train_csv_file = str(Path(current_location, DIR_TO_CREATE, '02-train.csv'))
-    test_csv_file = str(Path(current_location, DIR_TO_CREATE, '02-test.csv'))
 
-    train_rows = input[input['filename'] in ]
+if __name__ == '__main__':
+    current_location: str = os.path.realpath(
+        os.path.join(os.getcwd(), os.path.dirname(__file__))
+    )
+    dir_to_create = 'target/08'
+
+    train_f = pd.read_csv(Path(current_location, 'target/02/02-train.csv'))
+    test_f = pd.read_csv(Path(current_location, 'target/02/02-test.csv'))
+    total_elems = train_f.shape[0] + test_f.shape[0]
+    print('{} train elems ({}%) and {} test elems test ({}%) of all dataset'.format(
+        train_f.shape[0], train_f.shape[0] / total_elems,
+        test_f.shape[0], test_f.shape[0] / total_elems))
+    preprocessed_df = preprocess_file(str(Path(current_location, './target/dataset.csv')))
+    train, test = train_test_split(preprocessed_df, test_size=0.3, random_state=42)
+    full_folder_name = Path(current_location, dir_to_create)
+    print('{} post-train elems ({}%) and {} post-test elems test ({}%) of all dataset'.format(
+        train.shape[0], train.shape[0] / total_elems,
+        test.shape[0], test.shape[0] / total_elems))
+    if not full_folder_name.exists():
+        full_folder_name.mkdir()
+    train.to_csv(Path(current_location, dir_to_create, 'train_filtered.csv'))
+    test.to_csv(Path(current_location, dir_to_create, 'train_filtered.csv'))
+
+    # train_scaled = scale(train)
+    # test_scaled = scale(test)
+    #
+    # train_csv_file = Path(current_location, dir_to_create, '08-train.csv')
+    # test_csv_file = Path(current_location, dir_to_create, '08-test.csv')
+    # if not train_csv_file.parent.exists():
+    #     train_csv_file.parent.mkdir(parents=True)
+    #
+    # train_scaled.to_csv(Path(current_location, dir_to_create, 'train_filtered.csv'))
+    # test_scaled.to_csv(Path(current_location, dir_to_create, 'train_filtered.csv'))

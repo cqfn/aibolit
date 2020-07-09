@@ -207,23 +207,15 @@ if __name__ == '__main__':
     path_csv_out = str(Path(current_location, DIR_TO_CREATE, CSV_OUT))
     path_txt_out = str(Path(current_location, DIR_TO_CREATE, TXT_OUT))
 
-    if not args.split_only:
-        start = time.time()
-        results = walk_in_parallel()
+    start = time.time()
+    results = walk_in_parallel()
 
-        if not os.path.isdir(DIR_TO_CREATE):
-            os.makedirs(DIR_TO_CREATE)
+    if not os.path.isdir(DIR_TO_CREATE):
+        os.makedirs(DIR_TO_CREATE)
 
-        df = pd.DataFrame(results, columns=['filename', 'class_type'])
-        df = df[df['class_type'] == 999]
-        df.to_csv(path_csv_out, index=False)
-        df['filename'].to_csv(path_txt_out, header=None, index=None)
-        end = time.time()
-        print('It took ' + str(end - start) + ' seconds')
-
-    df = pd.read_csv(path_csv_out)
-    train, test = train_test_split(df['filename'], test_size=0.3, random_state=42)
-    train_csv_file = str(Path(current_location, DIR_TO_CREATE, '02-train.csv'))
-    test_csv_file = str(Path(current_location, DIR_TO_CREATE, '02-test.csv'))
-    train.to_csv(train_csv_file, index=False)
-    test.to_csv(test_csv_file, index=False)
+    df = pd.DataFrame(results, columns=['filename', 'class_type'])
+    df = df[df['class_type'] == 999]
+    df.to_csv(path_csv_out, index=False)
+    df['filename'].to_csv(path_txt_out, header=None, index=None)
+    end = time.time()
+    print('It took ' + str(end - start) + ' seconds')
