@@ -4,30 +4,30 @@ class LengthStringComparator implements Comparator<String> {
     }
 	public void recursionFucn() {
     System.out.println("Miss me?!");
-    recursionFucn();
+    recursionFucn(); // +1
 	}
 	
     int fact(int n)
 	{
     // wrong base case (it may cause
     // stack overflow).
-    if (n == 100) 
+    if (n == 100) // +1
         return 1;
 
-    else
-        return n*fact(n-1);
+    else // +1
+        return n*fact(n-1); // +1
 	}
 	
     static void printFun(int test) 
     { 
-        if (test < 1) 
+        if (test < 1) // +1
             return; 
   
-        else { 
+        else {  // +1
             System.out.printf("%d ", test); 
   
             // Statement 2 
-            printFun(test - 1); 
+            printFun(test - 1); // +1
   
             System.out.printf("%d ", test); 
             return; 

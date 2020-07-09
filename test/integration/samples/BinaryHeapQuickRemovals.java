@@ -1,3 +1,8 @@
+// This Java code is taken from a public GitHub repository
+// and is used inside Aibolit only for integration testing
+// purposes. The code is never compiled or executed.
+
+
 /**
  * A min priority queue implementation using a binary heap. This implementation tracks each element
  * inside the binary heap with a hashtable for quick removals.

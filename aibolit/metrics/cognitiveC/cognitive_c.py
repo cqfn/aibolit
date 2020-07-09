@@ -1,130 +1,152 @@
-from javalang.tree import IfStatement, SwitchStatement, ForStatement, WhileStatement
-from javalang.tree import DoStatement, CatchClause, BreakStatement, ContinueStatement
-from javalang.tree import TernaryExpression, BinaryOperation, MethodDeclaration, MethodInvocation
-from aibolit.utils.ast_builder import build_ast
-import javalang
-from typing import List, Any, Type
+from itertools import groupby
+from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework.java_package import JavaPackage
+from typing import List, Set
+import re
 
-increment_for: List[Type] = [
-    IfStatement,
-    SwitchStatement,
-    ForStatement,
-    WhileStatement,
-    DoStatement,
-    CatchClause,
-    BreakStatement,
-    ContinueStatement,
-    TernaryExpression,
-    BinaryOperation,
-    MethodInvocation,
-]
+only_increment_for: Set[ASTNodeType] = set([
+    ASTNodeType.BREAK_STATEMENT,
+    ASTNodeType.CONTINUE_STATEMENT,
+    ASTNodeType.TERNARY_EXPRESSION,
+    ASTNodeType.BINARY_OPERATION,
+    ASTNodeType.METHOD_INVOCATION,
+])
 
-nested_for: List[Type] = [
-    IfStatement,
-    SwitchStatement,
-    ForStatement,
-    WhileStatement,
-    DoStatement,
-    CatchClause,
-]
+increment_and_nested_for: Set[ASTNodeType] = set([
+    ASTNodeType.IF_STATEMENT,
+    ASTNodeType.SWITCH_STATEMENT,
+    ASTNodeType.FOR_STATEMENT,
+    ASTNodeType.WHILE_STATEMENT,
+    ASTNodeType.DO_STATEMENT,
+    ASTNodeType.CATCH_CLAUSE,
+])
 
-logical_operators: List[str] = ['&', '&&', '^', '|', '||']
+logical_operators = ['&&', '||']
 
 
 class CognitiveComplexity:
-    '''
-    beta version of Cognitive Complexity
-    '''
+
     def __init__(self):
-        self.complexity = 0
-        self.method_name = None
+        # store the name for the considered method declaration
+        self.__method_name = None
 
-    def _traverse_childs(self, block: Any, nested_level: int) -> None:
+    def _traverse_childs(self, ast: AST, node: int, nested_level: int) -> int:
+        complexity = 0
+        for each_child in ast.tree.succ[node]:
+            complexity += self._get_complexity(ast, each_child, nested_level)
+        return complexity
 
-        for each_child in block.children:
-            self._get_complexity(each_child, nested_level)
-
-    def _check_if_statement(self, expr: IfStatement, nested_level: int) -> None:
+    def _check_if_statement(self, ast, expr, nested_level: int) -> int:
         '''function to work with IfStatement block'''
-        self._get_complexity(expr.condition, 0)
-        if expr.then_statement is not None:
-            self.complexity += nested_level + 1
-            self._get_complexity(expr.then_statement, nested_level + 1)
+        complexity = 0
+        all_childs = list([i for i in ast.tree.succ[expr]])
+        complexity += self._get_complexity(ast, all_childs[0], 0)
+        if len(all_childs) >= 2:
+            complexity += nested_level + 1
+            complexity += self._get_complexity(ast, all_childs[1], nested_level + 1)
 
-        if expr.else_statement is not None:
-            if isinstance(expr.else_statement, IfStatement):
-                self.complexity -= nested_level
-                self._check_if_statement(expr.else_statement, nested_level)
+        if len(all_childs) == 3:
+            if ast.get_type(all_childs[2]) == ASTNodeType.IF_STATEMENT:
+                complexity -= nested_level
+                complexity += self._check_if_statement(ast, all_childs[2], nested_level)
             else:
-                self.complexity += 1
-                self._get_complexity(expr.else_statement, nested_level + 1)
+                complexity += 1
+                complexity += self._get_complexity(ast, all_childs[2], nested_level + 1)
+        return complexity
 
-    def _increment_logical_operators(self, block: BinaryOperation, prev_operator: str) -> None:
-        for each_block in [block.operandr, block.operandl]:
+    def _increment_logical_operators(self, ast: AST, binary_operation_node: int) -> int:
+        complexity = 0
+        logical_operators_sequence = self._create_logical_operators_sequence(ast, binary_operation_node)
+        complexity += len(list(groupby(logical_operators_sequence)))
+        return complexity
 
-            if isinstance(each_block, BinaryOperation) and prev_operator in logical_operators:
-                if prev_operator != each_block.operator:
-                    self.complexity += 1
+    def _create_logical_operators_sequence(self, ast: AST, binary_operation_node: int) -> List[str]:
+        if ast.get_type(binary_operation_node) != ASTNodeType.BINARY_OPERATION:
+            return []
 
-                elif isinstance(each_block.operandr, BinaryOperation):
-                    self.complexity += 1
+        operator, left_side_node, right_side_node = ast.get_binary_operation_params(binary_operation_node)
+        if operator not in logical_operators:
+            return []
 
-                self._increment_logical_operators(each_block, each_block.operator)
+        left_sequence = self._create_logical_operators_sequence(ast, left_side_node)
+        right_sequence = self._create_logical_operators_sequence(ast, right_side_node)
+        return left_sequence + [operator] + right_sequence
 
-    def _is_recursion_call(self, block: MethodInvocation) -> bool:
-        if self.method_name == block.member:
+    def _is_recursion_call(self, ast, node) -> bool:
+        assert(ast.get_type(node) == ASTNodeType.METHOD_INVOCATION)
+        if self.__method_name == self._get_node_name(ast, node):
             return True
         return False
 
-    def _nested_methods(self, block: MethodDeclaration, nested_level: int) -> None:
-        original_name = self.method_name
-        self.method_name = block.name
-        self._get_complexity(block, nested_level + 1)
-        self.method_name = original_name
+    def _nested_methods(self, ast, node, nested_level: int) -> int:
+        complexity = 0
+        original_name = self.__method_name
+        self.__method_name = self._get_node_name(ast, node)
+        complexity += self._get_complexity(ast, node, nested_level + 1)
+        self.__method_name = original_name
+        return complexity
 
-    def _get_complexity(self, block: Any, nested_level: int) -> None:
-        block_arr = block if isinstance(block, List) else [block]
+    def _process_not_nested_structure(self, ast: AST, each_block: int, nested_level: int) -> int:
+        complexity = 0
+        each_block_type = ast.get_type(each_block)
+        if each_block_type == ASTNodeType.BINARY_OPERATION:
+            bin_operator = ast.get_binary_operation_name(each_block)
+            if bin_operator in logical_operators:
+                complexity += self._increment_logical_operators(ast, each_block)
 
-        for each_block in block_arr:
-            if hasattr(each_block, 'children'):
+        elif each_block_type == ASTNodeType.METHOD_INVOCATION:
+            is_recursion = self._is_recursion_call(ast, each_block)
+            complexity += is_recursion
 
-                if type(each_block) == MethodDeclaration and each_block.name != self.method_name:
-                    self._nested_methods(each_block, nested_level)
+        else:
+            complexity += 1
+            complexity += self._traverse_childs(ast, each_block, nested_level)
 
-                elif isinstance(each_block, IfStatement):
-                    self._check_if_statement(each_block, nested_level)
+        return complexity
 
-                elif type(each_block) in increment_for and type(each_block) in nested_for:
-                    self.complexity += 1 + nested_level
-                    self._traverse_childs(each_block, nested_level + 1)
+    def _get_complexity(self, ast: AST, each_block: int, nested_level: int) -> int:
+        each_block_name = self._get_node_name(ast, each_block)
+        each_block_type = ast.get_type(each_block)
+        complexity = 0
 
-                elif type(each_block) in increment_for and type(each_block) not in nested_for:
-                    if isinstance(each_block, BinaryOperation):
-                        if each_block.operator in logical_operators:
-                            self.complexity += 1
-                            self._increment_logical_operators(each_block, each_block.operator)
+        if each_block_type == ASTNodeType.METHOD_DECLARATION and each_block_name != self.__method_name:
+            complexity += self._nested_methods(ast, each_block, nested_level)
 
-                    elif isinstance(each_block, MethodInvocation):
-                        is_recursion = self._is_recursion_call(each_block)
-                        self.complexity += is_recursion
+        elif each_block_type == ASTNodeType.IF_STATEMENT:
+            complexity += self._check_if_statement(ast, each_block, nested_level)
 
-                    else:
-                        self.complexity += 1
-                        self._traverse_childs(each_block, nested_level)
+        elif each_block_type in increment_and_nested_for:
+            complexity += 1 + nested_level
+            complexity += self._traverse_childs(ast, each_block, nested_level + 1)
 
-                else:
-                    self._traverse_childs(each_block, nested_level)
+        elif each_block_type in only_increment_for:
+            complexity += self._process_not_nested_structure(ast, each_block, nested_level)
+
+        else:
+            complexity += self._traverse_childs(ast, each_block, nested_level)
+        return complexity
+
+    def _get_node_name(self, ast, node) -> str:
+        extracted_name = None
+        names = ast.children_with_type(node, ASTNodeType.STRING)
+        for each_string in names:
+            method_name = ast.get_attr(each_string, 'string')
+            # Checking not to start with '/' is aimed to get
+            # rid of comments, which are all childs of node.
+            # We check the occurance any letter in name in order
+            # to get rid of '' string and None.
+            if not method_name.startswith('/') and re.search(r'[^\W\d]', method_name) is not None:
+                extracted_name = method_name
+                return extracted_name
+        return ''
 
     def value(self, filename: str) -> int:
-
-        tree = build_ast(filename)
-        for _, class_body in tree.filter(javalang.tree.ClassDeclaration):
-            for each_object in class_body.body:
-                if isinstance(each_object, MethodDeclaration):
-
-                    # memorize the name for detecting recursion call
-                    self.method_name = each_object.name
-                    self._get_complexity(each_object, 0)
-
-        final_value, self.complexity = self.complexity, 0
-        return final_value
+        complexity = 0
+        p = JavaPackage(filename)
+        for class_name in p.java_classes:
+            tree = p.java_classes[class_name]
+            for method_set in tree.methods.values():
+                for method_ast in method_set:
+                    self.__method_name = self._get_node_name(method_ast, method_ast.root)
+                    complexity += self._get_complexity(method_ast, method_ast.root, 0)
+        return complexity

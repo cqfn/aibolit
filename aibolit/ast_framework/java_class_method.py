@@ -21,16 +21,15 @@
 # SOFTWARE.
 
 from cached_property import cached_property  # type: ignore
-
 from typing import Dict, Set, TYPE_CHECKING
 from networkx import DiGraph, dfs_tree  # type: ignore
-from aibolit.utils.cfg_builder import build_cfg
 
-from aibolit.utils.ast import AST, ASTNodeType
-from aibolit.utils.java_class_field import JavaClassField
+from aibolit.utils.cfg_builder import build_cfg
+from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework.java_class_field import JavaClassField
 
 if TYPE_CHECKING:
-    from aibolit.utils.java_class import JavaClass
+    from aibolit.ast_framework.java_class import JavaClass
 
 
 class JavaClassMethod(AST):

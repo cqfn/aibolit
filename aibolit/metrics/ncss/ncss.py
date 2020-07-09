@@ -20,10 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+from networkx import dfs_labeled_edges  # type: ignore
 
 from aibolit.utils.ast_builder import build_ast
-from aibolit.utils.ast import AST, ASTNodeType
-from networkx import dfs_labeled_edges  # type: ignore
+from aibolit.ast_framework import AST, ASTNodeType
 
 
 class NCSSMetric():
