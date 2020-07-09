@@ -168,7 +168,7 @@ def flatten(l):
 def add_pattern_if_ignored(
         dct: Dict[str, Any],
         pattern_item: Dict[Any, Any],
-        results_list: List[Any]):
+        results_list: List[Any]) -> None:
     """ If pattern code is not ignored, add it to the result list
 
     :param dct: dict, where key is pattern, value is list of lines range to ignore
@@ -179,7 +179,7 @@ def add_pattern_if_ignored(
     ignored_lines = dct.get(pattern_item['pattern_code'])
     if ignored_lines:
         for place in ignored_lines:
-            # ger liens range of ignored code
+            # get lines range of ignored code
             start_line_to_ignore = place[0]
             end_line_to_ignore = place[1]
             new_code_lines = []
