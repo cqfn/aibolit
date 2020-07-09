@@ -66,16 +66,30 @@ if __name__ == '__main__':
     print('{} train elems ({}%) and {} test elems test ({}%) of all dataset'.format(
         train_f.shape[0], train_f.shape[0] / total_elems,
         test_f.shape[0], test_f.shape[0] / total_elems))
-    preprocessed_df = preprocess_file(str(Path(current_location, './target/dataset.csv')))
-    train, test = train_test_split(preprocessed_df, test_size=0.3, random_state=42)
-    full_folder_name = Path(current_location, dir_to_create)
-    print('{} post-train elems ({}%) and {} post-test elems test ({}%) of all dataset'.format(
-        train.shape[0], train.shape[0] / total_elems,
-        test.shape[0], test.shape[0] / total_elems))
-    if not full_folder_name.exists():
-        full_folder_name.mkdir()
-    train.to_csv(Path(current_location, dir_to_create, 'train_filtered.csv'))
-    test.to_csv(Path(current_location, dir_to_create, 'train_filtered.csv'))
+    # preprocessed_df = preprocess_file(str(Path(current_location, './target/dataset.csv')))
+    # train, test = train_test_split(preprocessed_df, test_size=0.3, random_state=42)
+    # full_folder_name = Path(current_location, dir_to_create)
+    # print('{} post-train elems ({}%) and {} post-test elems test ({}%) of all dataset'.format(
+    #     train.shape[0], train.shape[0] / total_elems,
+    #     test.shape[0], test.shape[0] / total_elems))
+    # if not full_folder_name.exists():
+    #     full_folder_name.mkdir()
+    # train.to_csv(Path(current_location, dir_to_create, 'train_filtered.csv'))
+    # test.to_csv(Path(current_location, dir_to_create, 'train_filtered.csv'))
+    df = pd.read_csv(str(Path(current_location, './target/dataset.csv')))
+    for i in range(100):
+        tr = list(train_f['filename'])
+        te = list(test_f['filename'])
+        test = df[df['filename'].isin(te)]
+        train = df[df['filename'].isin(tr)]
+        train.to_csv('temp1.csv')
+        test.to_csv('temp2.csv')
+        train_pre = preprocess_file('temp1.csv')
+        test_pre = preprocess_file('temp2.csv')
+        print('{} post-train elems ({}%) and {} post-test elems test ({}%) of all dataset'.format(
+            train_pre.shape[0], train_pre.shape[0] / total_elems,
+            test_pre.shape[0], test_pre.shape[0] / total_elems))
+
 
     # train_scaled = scale(train)
     # test_scaled = scale(test)
