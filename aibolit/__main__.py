@@ -33,10 +33,13 @@ import pickle
 import sys
 import time
 import traceback
+from collections import defaultdict
 from os import scandir
 from pathlib import Path
 from sys import stdout
-from typing import List
+from typing import List, Any, Dict, Tuple
+
+import javalang
 import numpy as np  # type: ignore
 import requests
 from lxml import etree  # type: ignore
@@ -45,7 +48,6 @@ from pkg_resources import parse_version
 from aibolit import __version__
 from aibolit.config import Config
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
-from aibolit.model.model import TwoFoldRankingModel, Dataset  # type: ignore  # noqa: F401
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -157,6 +159,90 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
             acronym,
             str(type(exc_value)))
         )
+
+
+def flatten(l):
+    return [item for sublist in l for item in sublist]
+
+
+def add_pattern_if_ignored(
+        dct: Dict[str, Any],
+        pattern_item: Dict[Any, Any],
+        results_list: List[Any]) -> None:
+    """ If pattern code is not ignored, add it to the result list
+
+    :param dct: dict, where key is pattern, value is list of lines range to ignore
+    :param pattern_item: pattern dict which was get after `inference` function
+    :param results_list: result list to add
+
+    """
+    ignored_lines = dct.get(pattern_item['pattern_code'])
+    if ignored_lines:
+        for place in ignored_lines:
+            # get lines range of ignored code
+            start_line_to_ignore = place[0]
+            end_line_to_ignore = place[1]
+            new_code_lines = []
+            for line in pattern_item['code_lines']:
+                if (line >= start_line_to_ignore) and (line <= end_line_to_ignore):
+                    continue
+                else:
+                    new_code_lines.append(line)
+            pattern_item['code_lines'] = new_code_lines
+            if len(pattern_item['code_lines']) > 0:
+                results_list.append(pattern_item)
+    else:
+        results_list.append(pattern_item)
+
+
+def find_annotation_by_node_type(
+        tree: javalang.tree.CompilationUnit,
+        node_type) -> Dict[Any, Any]:
+    """Search nodes with annotations.
+
+    :param tree: javalang.tree
+    :param node_type: Node type of javalang.tree
+    :return
+    dict with annotations, where key is node, value is list of string annotations;
+    """
+    annonations = defaultdict(list)
+    for _, node in tree.filter(node_type):
+        if node.annotations:
+            for a in node.annotations:
+                if hasattr(a.element, 'value'):
+                    if 'aibolit' in a.element.value:
+                        annonations[node].append(
+                            a.element.value.split('.')[1].rstrip('\"')
+                        )
+                elif hasattr(a.element, 'values'):
+                    for j in a.element.values:
+                        if 'aibolit' in j.value:
+                            annonations[node].append(
+                                j.value.split('.')[1].rstrip('\"')
+                            )
+    return annonations
+
+
+def find_start_and_end_lines(node) -> Tuple[int, int]:
+    max_line = node.position.line
+
+    def traverse(node):
+        if hasattr(node, 'children'):
+            for child in node.children:
+                if isinstance(child, list) and (len(child) > 0):
+                    for item in child:
+                        traverse(item)
+                else:
+                    if hasattr(child, '_position'):
+                        nonlocal max_line
+                        if child._position.line > max_line:
+                            max_line = child._position.line
+                            return
+        else:
+            return
+
+    traverse(node)
+    return node.position.line, max_line
 
 
 def calculate_patterns_and_metrics(file, args):
@@ -586,12 +672,11 @@ def handle_exclude_command_line(args):
 
 
 def format_converter_for_pattern(results, sorted_by=None):
-    """Reformat data where data are sorted by patterns importance
+    """
+    Reformat data where data are sorted by patterns importance
     (it is already sorted in the input).
-    Then lines are sorted in ascending order."""
-
-    def flatten(l):
-        return [item for sublist in l for item in sublist]
+    Then lines are sorted in ascending order.
+    """
 
     for file in results:
         items = file.get('results')

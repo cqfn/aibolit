@@ -3,29 +3,29 @@ package javalang.brewtab.com;
 class T1 {
     public static void main(String[] arg) {
 		int a = 1;
-        if (time < 2) {
+        if (time < 2) { // +1
 			a = 1;
-			if (time < 3) {
+			if (time < 3) { // +2
 				a = 2;
-			} else if (a) {
+			} else if (a) { // +1
 			  a = 3;
-			} else {
+			} else { // +1
 			  a = 4;
 			  }
-		} else if (a) {
-			if (time > 111) {
+		} else if (a) { // +1
+			if (time > 111) { // +2
 			a = 5;
 			}
-		} else {
+		} else { // +1
 		  return 5;
 		}	
     }
     public static void main(String[] arg) {
         int a = 1;
-        if (time < 2) {
+        if (time < 2) { // +1
             a = 1;
-    } else {
-    if (1 > 2) {
+    } else { // +1
+    if (1 > 2) { // +2
         time = 2;
 
     }

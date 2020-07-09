@@ -1,3 +1,8 @@
+// This Java code is taken from a public GitHub repository
+// and is used inside Aibolit only for integration testing
+// purposes. The code is never compiled or executed.
+
+
 /**
  * An implementation of the Bellman-Ford algorithm. The algorithm finds the shortest path between a
  * starting node and all other nodes in the graph. The algorithm also detects negative cycles.
