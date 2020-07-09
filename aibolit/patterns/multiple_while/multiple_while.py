@@ -27,7 +27,7 @@ class MultipleWhile:
 
         tree = AST.build_from_javalang(build_ast(filename))
         lines: List[int] = []
-        for node in tree.nodes_by_type(ASTNodeType.METHOD_DECLARATION):
+        for node in tree.get_nodes(ASTNodeType.METHOD_DECLARATION):
             if self.get_top_level_while_qty(tree, node) > 1:
                 lines.append(tree.get_attr(node, 'line'))
 
