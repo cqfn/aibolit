@@ -20,7 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
 from unittest import TestCase
 from aibolit.patterns.multiple_while.multiple_while import MultipleWhile
 from pathlib import Path
@@ -29,41 +28,17 @@ from pathlib import Path
 class TestMultipleWhile(TestCase):
 
     def test_simple(self):
-        lines = MultipleWhile().value(
-            Path(
-                Path(
-                    os.path.realpath(__file__)
-                ).parent, 'Simple.java'
-            )
-        )
+        lines = MultipleWhile().value(Path(__file__).parent.absolute() / 'Simple.java')
         self.assertEqual(lines, [2])
 
     def test_one_while(self):
-        lines = MultipleWhile().value(
-            Path(
-                Path(
-                    os.path.realpath(__file__)
-                ).parent, 'OneWhile.java'
-            )
-        )
+        lines = MultipleWhile().value(Path(__file__).parent.absolute() / 'OneWhile.java')
         self.assertEqual(lines, [])
 
     def test_if_while(self):
-        lines = MultipleWhile().value(
-            Path(
-                Path(
-                    os.path.realpath(__file__)
-                ).parent, 'IfWhile.java'
-            )
-        )
+        lines = MultipleWhile().value(Path(__file__).parent.absolute() / 'IfWhile.java')
         self.assertEqual(lines, [2])
 
     def test_multiple_while(self):
-        lines = MultipleWhile().value(
-            Path(
-                Path(
-                    os.path.realpath(__file__)
-                ).parent, 'MultipleWhile.java'
-            )
-        )
+        lines = MultipleWhile().value(Path(__file__).parent.absolute() / 'MultipleWhile.java')
         self.assertEqual(lines, [])
