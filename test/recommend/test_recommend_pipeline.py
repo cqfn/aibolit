@@ -30,7 +30,8 @@ import javalang
 from aibolit.config import Config
 
 from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, \
-    create_xml_tree, create_text, format_converter_for_pattern, find_start_and_end_lines, find_annotation_by_node_type
+    create_xml_tree, create_text, format_converter_for_pattern, find_start_and_end_lines, \
+    find_annotation_by_node_type, add_pattern_if_ignored
 
 
 class TestRecommendPipeline(TestCase):
@@ -287,3 +288,23 @@ class TestRecommendPipeline(TestCase):
             fields_with_annotations = find_annotation_by_node_type(tree, javalang.tree.FieldDeclaration)
             patterns_found_with_fields = list(fields_with_annotations.values())
             self.assertEqual(patterns_found_with_fields, [['P23'], ['P23', 'P22']])
+
+    def test_pattern_ignore(self):
+        pattern_item = {'code_lines': [20],
+                        'pattern_code': 'P13',
+                        'pattern_name': 'Null check',
+                        'importance': 30.95612931128819}
+        results = []
+        pattern_ignored = {'P13': [[10, 20]]}
+        add_pattern_if_ignored(pattern_ignored, pattern_item, results)
+        self.assertEqual(results, [])
+
+    def test_pattern_not_ignore(self):
+        pattern_item = {'code_lines': [20, 30],
+                        'pattern_code': 'P14',
+                        'pattern_name': 'Null check',
+                        'importance': 30.95612931128819}
+        results = []
+        pattern_ignored = {'P14': [[60, 100]]}
+        add_pattern_if_ignored(pattern_ignored, pattern_item, results)
+        self.assertEqual(results[0]['code_lines'], pattern_item['code_lines'])

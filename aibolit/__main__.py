@@ -165,6 +165,36 @@ def flatten(l):
     return [item for sublist in l for item in sublist]
 
 
+def add_pattern_if_ignored(
+        dct: Dict[str, Any],
+        pattern_item: Dict[Any, Any],
+        results_list: List[Any]) -> None:
+    """ If pattern code is not ignored, add it to the result list
+
+    :param dct: dict, where key is pattern, value is list of lines range to ignore
+    :param pattern_item: pattern dict which was get after `inference` function
+    :param results_list: result list to add
+
+    """
+    ignored_lines = dct.get(pattern_item['pattern_code'])
+    if ignored_lines:
+        for place in ignored_lines:
+            # get lines range of ignored code
+            start_line_to_ignore = place[0]
+            end_line_to_ignore = place[1]
+            new_code_lines = []
+            for line in pattern_item['code_lines']:
+                if (line >= start_line_to_ignore) and (line <= end_line_to_ignore):
+                    continue
+                else:
+                    new_code_lines.append(line)
+            pattern_item['code_lines'] = new_code_lines
+            if len(pattern_item['code_lines']) > 0:
+                results_list.append(pattern_item)
+    else:
+        results_list.append(pattern_item)
+
+
 def find_annotation_by_node_type(
         tree: javalang.tree.CompilationUnit,
         node_type) -> Dict[Any, Any]:
