@@ -35,10 +35,11 @@ class Stats(object):
             model
         )
 
-        m, p = self.count_acts(acts, ranked)
+        m, p = Stats.count_acts(acts, ranked)
         return self.get_table(model.features_conf['features_order'], m, p, acts_complexity)
 
-    def count_acts(self, acts, ranked):
+    @staticmethod
+    def count_acts(acts, ranked):
         patterns_numbers = ranked[:, 0]
         # number of times when pattern was on first place,
         # if we decrease pattern by 1/ncss
@@ -111,7 +112,8 @@ class Stats(object):
 
         return df
 
-    def divide_array(self, X, pattern_idx):
+    @staticmethod
+    def divide_array(X, pattern_idx):
         """ Divide dataset.
 
         :param X: dataset
@@ -130,7 +132,8 @@ class Stats(object):
 
         return np.array(nulls), np.array(not_nulls)
 
-    def get_minimum(self, c1, c2, c3):
+    @staticmethod
+    def get_minimum(c1, c2, c3):
         """
         Args:
             c1, c2, c3: np.array with shape (number of snippets, ).
@@ -145,7 +148,8 @@ class Stats(object):
 
         return np.min(c, 0), np.argmin(c, 0)
 
-    def get_array(self, arr, mask, i, incr):
+    @staticmethod
+    def get_array(arr, mask, i, incr):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns).
@@ -187,13 +191,13 @@ class Stats(object):
         actions = np.zeros(X.shape)
         acts_complexity = np.zeros((X.shape[1], 6))
         for i in range(k):
-            nulls, not_nulls = self.divide_array(X, i)
+            nulls, not_nulls = Stats.divide_array(X, i)
             mask = not_nulls > 0
-            dec_arr = self.get_array(not_nulls, mask, i, -1.0 / ncss[X[:, i] > 0])
+            dec_arr = Stats.get_array(not_nulls, mask, i, -1.0 / ncss[X[:, i] > 0])
             complexity_minus = model_input.model.predict(dec_arr)
-            incr_arr = self.get_array(not_nulls, mask, i, 1.0 / ncss[X[:, i] > 0])
+            incr_arr = Stats.get_array(not_nulls, mask, i, 1.0 / ncss[X[:, i] > 0])
             complexity_plus = model_input.model.predict(incr_arr)
-            c, number = self.get_minimum(complexity[X[:, i] > 0], complexity_minus, complexity_plus)
+            c, number = Stats.get_minimum(complexity[X[:, i] > 0], complexity_minus, complexity_plus)
             importances[:, i][X[:, i] > 0] = complexity[X[:, i] > 0] - c
             actions[:, i][X[:, i] > 0] = number
             acts_complexity[i, 0] += (complexity_minus < complexity[X[:, i] > 0]).sum()
