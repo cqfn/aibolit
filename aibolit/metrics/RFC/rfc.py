@@ -1,4 +1,4 @@
-from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework import ASTNodeType
 from aibolit.ast_framework.java_package import JavaPackage
 from typing import Set, Any
 
@@ -35,7 +35,7 @@ class RFC:
 
     def get_invoked(self, tree) -> Set[Any]:
         inv_names = set()
-        inv_methods = tree.nodes_by_type(ASTNodeType.METHOD_INVOCATION)
+        inv_methods = tree.get_nodes(ASTNodeType.METHOD_INVOCATION)
         for inv_method in inv_methods:
             name_of_invoked_class = tree.get_method_invocation_params(inv_method)
             current_name = name_of_invoked_class.method_name
@@ -46,11 +46,10 @@ class RFC:
         p = JavaPackage(filename)
         for class_name in p.java_classes:
             tree = p.java_classes[class_name]
-            declareted_methods = tree.subtrees_with_root_type(ASTNodeType.METHOD_DECLARATION)
+            declareted_methods = tree.get_subtrees(ASTNodeType.METHOD_DECLARATION)
             for class_method in declareted_methods:
-                ast_each_method = AST(tree.tree.subgraph(class_method), class_method[0])
                 # to form a set of all methods in the class
-                names = list(ast_each_method.children_with_type(ast_each_method.root, ASTNodeType.STRING))
+                names = list(class_method.children_with_type(class_method.root, ASTNodeType.STRING))
                 for each_string in names:
                     method_name = tree.get_attr(each_string, 'string')
                     # we need to check the name because even comments are counted as the childs with string type
@@ -61,10 +60,9 @@ class RFC:
 
             # to count invoked methods
             tree = p.java_classes[class_name]
-            declareted_methods = tree.subtrees_with_root_type(ASTNodeType.METHOD_DECLARATION)
+            declareted_methods = tree.get_subtrees(ASTNodeType.METHOD_DECLARATION)
             for meth_name, class_method in zip(self.class_methods.keys(), declareted_methods):
-                ast_each_method = AST(tree.tree.subgraph(class_method), class_method[0])
-                invoked_names = self.get_invoked(ast_each_method)
+                invoked_names = self.get_invoked(class_method)
                 for i in invoked_names:
                     self.class_methods[meth_name].add(i)
 

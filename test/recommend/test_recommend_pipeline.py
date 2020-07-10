@@ -25,10 +25,13 @@ from hashlib import md5
 from pathlib import Path
 from unittest import TestCase
 
+import javalang
+
 from aibolit.config import Config
 
 from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, \
-    create_xml_tree, create_text, format_converter_for_pattern
+    create_xml_tree, create_text, format_converter_for_pattern, find_start_and_end_lines, \
+    find_annotation_by_node_type, add_pattern_if_ignored
 
 
 class TestRecommendPipeline(TestCase):
@@ -186,3 +189,122 @@ class TestRecommendPipeline(TestCase):
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
         self.assertEqual(md5_hash.hexdigest(), '1324e129e6badbfb6e10f742667023ae')
+
+    def test_find_start_end_line_function(self):
+        # Check start and end line for MethodDeclaration,
+        # find_start_and_end_lines is used for functions only at the moment
+        file = Path(self.cur_file_dir, 'start_end/LottieImageAsset.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
+            start, end = find_start_and_end_lines(method)
+            self.assertEqual(start, 32)
+            self.assertEqual(end, 59)
+
+    def test_find_start_end_line_empty_function(self):
+        # Check start and end line for MethodDeclaration,
+        # find_start_and_end_lines is used for functions only at the moment
+        file = Path(self.cur_file_dir, 'start_end/EmptyFunction.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
+            start, end = find_start_and_end_lines(method)
+            self.assertEqual(start, 32)
+            self.assertEqual(end, 32)
+
+    def test_find_start_end_line_empty_function_with_one_line(self):
+        file = Path(self.cur_file_dir, 'start_end/OneLineFunction.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
+            start, end = find_start_and_end_lines(method)
+            self.assertEqual(start, 32)
+            self.assertEqual(end, 32)
+
+    def test_find_start_end_line_empty_function_with_lambda(self):
+        file = Path(self.cur_file_dir, 'start_end/Lambda.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
+            start, end = find_start_and_end_lines(method)
+            self.assertEqual(start, 32)
+            self.assertEqual(end, 43)
+
+    def test_find_start_end_line_empty_function_with_anonymous_class(self):
+        file = Path(self.cur_file_dir, 'start_end/AnonymousClass.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
+            start, end = find_start_and_end_lines(method)
+            self.assertEqual(start, 32)
+            self.assertEqual(end, 41)
+
+    def test_find_start_end_line_empty_function_in_anonymous_class(self):
+        file = Path(self.cur_file_dir, 'start_end/AnonymousClass.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            method = list(tree.filter(javalang.tree.MethodDeclaration))[1][1]
+            start, end = find_start_and_end_lines(method)
+            self.assertEqual(start, 37)
+            self.assertEqual(end, 38)
+
+    def test_find_start_end_line_in_class(self):
+        file = Path(self.cur_file_dir, 'start_end/LottieImageAsset.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            method = list(tree.filter(javalang.tree.ClassDeclaration))[0][1]
+            start, end = find_start_and_end_lines(method)
+            self.assertEqual(start, 11)
+            self.assertEqual(end, 59)
+
+    def test_find_annotation_by_class_declaration(self):
+        file = Path(self.cur_file_dir, 'annotations/ClassAnnotations.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            classes_with_annonations = find_annotation_by_node_type(tree, javalang.tree.ClassDeclaration)
+            pattern_found = list(classes_with_annonations.values())[0][0]
+            self.assertEqual(pattern_found, 'P11')
+
+    def test_find_mutiple_annotations_by_class_declaration(self):
+        file = Path(self.cur_file_dir, 'annotations/MutipleAnnotations.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            classes_with_annonations = find_annotation_by_node_type(tree, javalang.tree.ClassDeclaration)
+            patterns_found = list(classes_with_annonations.values())[0]
+            self.assertEqual(patterns_found, ['P23', 'P11'])
+
+    def test_find_annotation_method_declaration(self):
+        file = Path(self.cur_file_dir, 'annotations/MutipleAnnotations.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            functions_with_annotations = find_annotation_by_node_type(tree, javalang.tree.MethodDeclaration)
+            patterns_found_with_functions = [(x.name, y) for x, y in functions_with_annotations.items()]
+            self.assertEqual(patterns_found_with_functions, [('set', ['P23']), ('getStreamReader', ['P23', 'P22'])])
+
+    def test_find_annotation_by_field_declaration(self):
+        file = Path(self.cur_file_dir, 'annotations/MutipleAnnotations.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            fields_with_annotations = find_annotation_by_node_type(tree, javalang.tree.FieldDeclaration)
+            patterns_found_with_fields = list(fields_with_annotations.values())
+            self.assertEqual(patterns_found_with_fields, [['P23'], ['P23', 'P22']])
+
+    def test_pattern_ignore(self):
+        pattern_item = {'code_lines': [20],
+                        'pattern_code': 'P13',
+                        'pattern_name': 'Null check',
+                        'importance': 30.95612931128819}
+        results = []
+        pattern_ignored = {'P13': [[10, 20]]}
+        add_pattern_if_ignored(pattern_ignored, pattern_item, results)
+        self.assertEqual(results, [])
+
+    def test_pattern_not_ignore(self):
+        pattern_item = {'code_lines': [20, 30],
+                        'pattern_code': 'P14',
+                        'pattern_name': 'Null check',
+                        'importance': 30.95612931128819}
+        results = []
+        pattern_ignored = {'P14': [[60, 100]]}
+        add_pattern_if_ignored(pattern_ignored, pattern_item, results)
+        self.assertEqual(results[0]['code_lines'], pattern_item['code_lines'])

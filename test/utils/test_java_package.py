@@ -46,7 +46,8 @@ class JavaPackageTestCase(TestCase):
                     with self.subTest(f'Class name: {class_name}'):
                         found_class_names.add(class_name)
                         java_class = java_package.java_classes[class_name]
-                        self.assertEqual(java_class.node_types,
+                        java_class_node_types = [java_class.get_type(node) for node in java_class.get_nodes()]
+                        self.assertEqual(java_class_node_types,
                                          flatten_classes[class_name])
                 self.assertEqual(found_class_names, flatten_classes.keys())
 

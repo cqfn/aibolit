@@ -1,3 +1,8 @@
+// This Java code is taken from a public GitHub repository
+// and is used inside Aibolit only for integration testing
+// purposes. The code is never compiled or executed.
+
+
 /**
  * A compact array based segment tree implementation. This segment tree supports point updates and
  * range queries.
