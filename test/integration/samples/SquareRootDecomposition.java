@@ -1,3 +1,8 @@
+// This Java code is taken from a public GitHub repository
+// and is used inside Aibolit only for integration testing
+// purposes. The code is never compiled or executed.
+
+
 /**
  * Range queries in O(sqrt(n)) and point updates in O(1). Currently this implementation supports
  * summing over the entries in the array, but it can be modified to support many different

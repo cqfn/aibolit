@@ -30,13 +30,13 @@ class TestCountIfReturn(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
     countifreturn = CountIfReturn()
 
-    def test_no_return_inside(self):
-        lines = self.countifreturn.value(Path(self.dir_path, '2.java'))
-        self.assertEqual(lines, [])
-
     def test_2nd_level_inside(self):
         lines = self.countifreturn.value(Path(self.dir_path, '1.java'))
         self.assertEqual(lines, [6, 10])
+
+    def test_no_return_inside(self):
+        lines = self.countifreturn.value(Path(self.dir_path, '2.java'))
+        self.assertEqual(lines, [])
 
     def test_nested_one_goodreturn(self):
         lines = self.countifreturn.value(Path(self.dir_path, '3.java'))
