@@ -1,15 +1,17 @@
 import pickle
 import tarfile
 from pathlib import Path
+from typing import Dict, Any
+
 import numpy as np
 import pandas as pd
 from aibolit.config import Config
-from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
+from aibolit.model.model import TwoFoldRankingModel  # noqa: F401 type: ignore
 
 
 class Stats(object):
 
-    def stats(self):
+    def aibolit_stat(self):
         dataset_archive = Config.get_dataset_archive()
         try:
             tar = tarfile.open(str(dataset_archive))
@@ -34,7 +36,7 @@ class Stats(object):
         )
 
         m, p = self.count_acts(acts, ranked)
-        self.print_table(model.features_conf['features_order'], m, p, acts_complexity, latex_style=True)
+        return self.get_table(model.features_conf['features_order'], m, p, acts_complexity)
 
     def count_acts(self, acts, ranked):
         patterns_numbers = ranked[:, 0]
@@ -66,13 +68,12 @@ class Stats(object):
         replace_dict = dict(patterns, **metrics)
         return replace_dict
 
-    def print_table(
+    def get_table(
             self,
-            features_conf,
+            features_conf: Dict[Any, Any],
             m,
             p,
-            acts_complexity,
-            latex_style=False):
+            acts_complexity) -> pd.DataFrame:
         """
         Prints results, given with `check_impact`.
 
@@ -83,15 +84,14 @@ class Stats(object):
         :param p: number of times when pattern was on first place,
         if we increase pattern by 1/ncss
         :param acts_complexity:
-        :param latex_style: create latex output
 
         """
 
-        def spaces_number(number: int):
-            return len(str(number))
-
+        df = pd.DataFrame(columns=[
+            'pattern', ' -1(top1)', '+1(top1)',
+            'p-c-', 'p+c+', 'p-c+', 'p+c-', 'p-c=',
+            'p+c='])
         replace_dict = self.get_patterns_name()
-        patterns_results = {}
         for i in range(len(features_conf)):
             top_minus = int(m[i])
             top_plus = int(p[i])
@@ -102,71 +102,14 @@ class Stats(object):
             p_minus_c_euq = int(acts_complexity[i, 2])
             p_plus_c_euq = int(acts_complexity[i, 5])
             pattern = replace_dict.get(features_conf[i])
-            patterns_results[pattern] = [
-                top_minus, top_plus, p_minus_c_minus, p_plus_c_plus,
-                p_minus_c_plus, p_plus_c_minus, p_minus_c_euq, p_plus_c_euq]
+            df = df.append({
+                'pattern': pattern, ' -1(top1)': top_minus, '+1(top1)': top_plus,
+                'p-c-': p_minus_c_minus, 'p+c+': p_plus_c_plus, 'p-c+': p_minus_c_plus,
+                'p+c-': p_plus_c_minus, 'p-c=': p_minus_c_euq,
+                'p+c=': p_plus_c_euq
+            }, ignore_index=True)
 
-        if not latex_style:
-            print("p+ : pattern_increase")
-            print("p- : pattern_decrease")
-            print("c+ : complexity_increase")
-            print("c- : complexity_decrease")
-            print("c= : complexity_no_change")
-            print("-" * 119)
-            print(
-                "patterns" + ' ' * 31 + "|-1(top1) |+1(top1) |  p- c-  |  p+ c+  |  p- c+  |  p+ c-  |  p- c=  |  p+ c=  |")
-            print("-" * 119)
-            for pattern, res in patterns_results.items():
-                top_minus = res[0]
-                top_plus = res[1]
-                p_minus_c_minus = res[2]
-                p_plus_c_plus = res[3]
-                p_minus_c_plus = res[4]
-                p_plus_c_minus = res[5]
-                p_minus_c_euq = res[6]
-                p_plus_c_euq = res[7]
-
-                print(pattern, ' ' * (37 - len(pattern)), '|', top_minus, ' ' * (6 - spaces_number(top_minus)), '|',
-                      top_plus,
-                      ' ' * (6 - spaces_number(top_plus)), '|', p_minus_c_minus,
-                      ' ' * (6 - spaces_number(p_minus_c_minus)),
-                      '|', p_plus_c_plus, ' ' * (6 - spaces_number(p_plus_c_plus)), '|', p_minus_c_plus,
-                      ' ' * (6 - spaces_number(p_minus_c_plus)), '|', p_plus_c_minus,
-                      ' ' * (6 - spaces_number(p_plus_c_minus)), '|', p_minus_c_euq,
-                      ' ' * (6 - spaces_number(p_minus_c_euq)), '|',
-                      p_plus_c_euq, ' ' * (6 - spaces_number(p_plus_c_euq)), '|')
-        else:
-            print(r'''
-                \begin{table}[ht]
-                \tiny
-                \begin{tabular}{lllllllll}
-                patterns & -1(top1) & +1(top1) & p- c-  &  p+ c+  
-                &  p- c+  &  p+ c-  &  p- c=  &  p+ c=  \\ 
-                \\ \hline
-            ''')
-            for pattern, res in patterns_results.items():
-                print('{} &'.format(pattern), end='')
-                print('{} \\\\'.format(' & '.join([str(x) for x in res[1:]])))
-            print(r'''
-                \hline
-                \end{tabular}
-                \caption{Experiment summary \label{tab:results}}
-                \captionsetup{font=scriptsize}
-                \caption*{
-                    We use the following notation into named columns: \\
-                    \\
-                    \centering
-                    \begin{tabular}{rl}
-                        $p-$ & decrease pattern by $\frac{1}{ncss}$ \\
-                        $p+$ & increase pattern by $\frac{1}{ncss}$ \\
-                        $c-$ & complexity has been decreased \\
-                        $c+$ & complexity has been increased \\
-                        $c=$ & complexity has been not changed \\
-                        \emph{-1(top1)} & decreasing of pattern shows best \emph{CogC} improvement   \\
-                        \emph{+1(top1)} & increasing of pattern shows best \emph{CogC} improvement \\
-                    \end{tabular}
-                }
-                \end{table}''')
+        return df
 
     def divide_array(self, X, pattern_idx):
         """ Divide dataset.
@@ -263,6 +206,3 @@ class Stats(object):
         ranked = np.argsort(-1 * importances, 1)
         acts = actions[np.argsort(ranked, 1) == 0]
         return ranked, importances, acts_complexity, acts
-
-
-Stats().stats()

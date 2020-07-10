@@ -1,13 +1,10 @@
 from decimal import localcontext, ROUND_DOWN, Decimal
-from pathlib import Path
 from typing import List
 
 import numpy as np
 import pandas as pd
 from catboost import CatBoost
 from sklearn.base import BaseEstimator
-from sklearn.preprocessing import StandardScaler
-import tarfile
 
 from aibolit.config import Config
 

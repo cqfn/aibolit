@@ -68,3 +68,6 @@ merge:
 	
 clean:
 	rm -rf target _tmp
+
+split:
+	python3 08-split.py
