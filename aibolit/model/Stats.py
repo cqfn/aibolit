@@ -10,12 +10,7 @@ from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
 class Stats(object):
 
     def stats(self):
-        dataset_archive = Config.get_dataset_file()
-        # archive = tarfile.open("datasets.tar.gz", "w|gz")
-        # for f in files:
-        #     print(str(f), f.name)
-        #     archive.add(str(f), arcname=f.name)
-        # archive.close()
+        dataset_archive = Config.get_dataset_archive()
         try:
             tar = tarfile.open(str(dataset_archive))
             tar.extractall(path=dataset_archive.parent)
@@ -25,31 +20,35 @@ class Stats(object):
             print('Dataset unzip failed: {}'.format(str(e)))
             return 1
 
-        test_csv = pd.read_csv(Path(dataset_archive.parent, 'test.csv'), header=None)
+        test_csv = pd.read_csv(Path(dataset_archive.parent, '08-test.csv'))
         load_model_file = Config.folder_model_data()
-        print('Test loaded model from file {}:'.format(load_model_file))
+        print('Loading model from file {}:'.format(load_model_file))
         with open(load_model_file, 'rb') as fid:
             model = pickle.load(fid)
             print('Model has been loaded successfully')
+        scaled_dataset = model.scale_dataset(test_csv)
+        cleaned_dataset = scaled_dataset[model.features_conf['features_order'] + ['M2']]
         ranked, _, acts_complexity, acts = self.check_impact(
-            test_csv.values,
-            model,
-            scale=True,
-            return_acts=True
+            cleaned_dataset.values,
+            model
         )
 
         m, p = self.count_acts(acts, ranked)
-        self.print_table(model.feature_order, m, p, acts_complexity)
+        self.print_table(model.features_conf['features_order'], m, p, acts_complexity, latex_style=True)
 
     def count_acts(self, acts, ranked):
-        k = ranked[:, 0]
+        patterns_numbers = ranked[:, 0]
+        # number of times when pattern was on first place,
+        # if we decrease pattern by 1/ncss
         m = np.zeros(ranked.shape[1])
+        # number of times when pattern was on first place,
+        # if we increase pattern by 1/ncss
         p = np.zeros(ranked.shape[1])
-        for i in range(len(k)):
+        for i in range(len(patterns_numbers)):
             if acts[i] == 1:
-                m[k[i]] += 1
+                m[patterns_numbers[i]] += 1
             elif acts[i] == 2:
-                p[k[i]] += 1
+                p[patterns_numbers[i]] += 1
         return m, p
 
     def get_patterns_name(self):
@@ -67,49 +66,117 @@ class Stats(object):
         replace_dict = dict(patterns, **metrics)
         return replace_dict
 
-    def print_table(self, features_conf, m, p, acts_complexity):
-        def f(k):
-            if k >= 10000:
-                return 5
-            elif k >= 1000:
-                return 4
-            elif k >= 100:
-                return 3
-            elif k >= 10:
-                return 2
-            else:
-                return 1
+    def print_table(
+            self,
+            features_conf,
+            m,
+            p,
+            acts_complexity,
+            latex_style=False):
+        """
+        Prints results, given with `check_impact`.
+
+
+        :param features_conf: features config of model
+        :param m: number of times when pattern was on first place,
+        if we decrease pattern by 1/ncss
+        :param p: number of times when pattern was on first place,
+        if we increase pattern by 1/ncss
+        :param acts_complexity:
+        :param latex_style: create latex output
+
+        """
+
+        def spaces_number(number: int):
+            return len(str(number))
 
         replace_dict = self.get_patterns_name()
-        print("p+ : pattern_increase")
-        print("p- : pattern_decrease")
-        print("c+ : complexity_increase")
-        print("c- : complexity_decrease")
-        print("c= : complexity_no_change")
-        print(
-            "_______________________________________________________________________________________________________________________")
-        print(
-            "patterns                               |-1(top1) |+1(top1) |  p- c-  |  p+ c+  |  p- c+  |  p+ c-  |  p- c=  |  p+ c=  |")
-        print(
-            "_______________________________________________________________________________________________________________________")
-
+        patterns_results = {}
         for i in range(len(features_conf)):
-            a = int(m[i])
-            b = int(p[i])
-            p1 = int(acts_complexity[i, 0])
-            p2 = int(acts_complexity[i, 4])
-            p3 = int(acts_complexity[i, 1])
-            p4 = int(acts_complexity[i, 3])
-            p5 = int(acts_complexity[i, 2])
-            p6 = int(acts_complexity[i, 5])
+            top_minus = int(m[i])
+            top_plus = int(p[i])
+            p_minus_c_minus = int(acts_complexity[i, 0])
+            p_plus_c_plus = int(acts_complexity[i, 4])
+            p_minus_c_plus = int(acts_complexity[i, 1])
+            p_plus_c_minus = int(acts_complexity[i, 3])
+            p_minus_c_euq = int(acts_complexity[i, 2])
+            p_plus_c_euq = int(acts_complexity[i, 5])
             pattern = replace_dict.get(features_conf[i])
-            print(pattern, ' ' * (37 - len(pattern)), '|', a, ' ' * (6 - f(a)), '|', b, ' ' * (6 - f(b)), '|', p1,
-                  ' ' * (6 - f(p1)),
-                  '|', p2, ' ' * (6 - f(p2)), '|', p3, ' ' * (6 - f(p3)), '|', p4, ' ' * (6 - f(p4)), '|', p5,
-                  ' ' * (6 - f(p5)), '|',
-                  p6, ' ' * (6 - f(p6)), '|')
+            patterns_results[pattern] = [
+                top_minus, top_plus, p_minus_c_minus, p_plus_c_plus,
+                p_minus_c_plus, p_plus_c_minus, p_minus_c_euq, p_plus_c_euq]
+
+        if not latex_style:
+            print("p+ : pattern_increase")
+            print("p- : pattern_decrease")
+            print("c+ : complexity_increase")
+            print("c- : complexity_decrease")
+            print("c= : complexity_no_change")
+            print("-" * 119)
+            print(
+                "patterns" + ' ' * 31 + "|-1(top1) |+1(top1) |  p- c-  |  p+ c+  |  p- c+  |  p+ c-  |  p- c=  |  p+ c=  |")
+            print("-" * 119)
+            for pattern, res in patterns_results.items():
+                top_minus = res[0]
+                top_plus = res[1]
+                p_minus_c_minus = res[2]
+                p_plus_c_plus = res[3]
+                p_minus_c_plus = res[4]
+                p_plus_c_minus = res[5]
+                p_minus_c_euq = res[6]
+                p_plus_c_euq = res[7]
+
+                print(pattern, ' ' * (37 - len(pattern)), '|', top_minus, ' ' * (6 - spaces_number(top_minus)), '|',
+                      top_plus,
+                      ' ' * (6 - spaces_number(top_plus)), '|', p_minus_c_minus,
+                      ' ' * (6 - spaces_number(p_minus_c_minus)),
+                      '|', p_plus_c_plus, ' ' * (6 - spaces_number(p_plus_c_plus)), '|', p_minus_c_plus,
+                      ' ' * (6 - spaces_number(p_minus_c_plus)), '|', p_plus_c_minus,
+                      ' ' * (6 - spaces_number(p_plus_c_minus)), '|', p_minus_c_euq,
+                      ' ' * (6 - spaces_number(p_minus_c_euq)), '|',
+                      p_plus_c_euq, ' ' * (6 - spaces_number(p_plus_c_euq)), '|')
+        else:
+            print(r'''
+                \begin{table}[ht]
+                \tiny
+                \begin{tabular}{lllllllll}
+                patterns & -1(top1) & +1(top1) & p- c-  &  p+ c+  
+                &  p- c+  &  p+ c-  &  p- c=  &  p+ c=  \\ 
+                \\ \hline
+            ''')
+            for pattern, res in patterns_results.items():
+                print('{} &'.format(pattern), end='')
+                print('{} \\\\'.format(' & '.join([str(x) for x in res[1:]])))
+            print(r'''
+                \hline
+                \end{tabular}
+                \caption{Experiment summary \label{tab:results}}
+                \captionsetup{font=scriptsize}
+                \caption*{
+                    We use the following notation into named columns: \\
+                    \\
+                    \centering
+                    \begin{tabular}{rl}
+                        $p-$ & decrease pattern by $\frac{1}{ncss}$ \\
+                        $p+$ & increase pattern by $\frac{1}{ncss}$ \\
+                        $c-$ & complexity has been decreased \\
+                        $c+$ & complexity has been increased \\
+                        $c=$ & complexity has been not changed \\
+                        \emph{-1(top1)} & decreasing of pattern shows best \emph{CogC} improvement   \\
+                        \emph{+1(top1)} & increasing of pattern shows best \emph{CogC} improvement \\
+                    \end{tabular}
+                }
+                \end{table}''')
 
     def divide_array(self, X, pattern_idx):
+        """ Divide dataset.
+
+        :param X: dataset
+        :param pattern_idx: pattern index
+        :return:
+        1st is dataset with pattern where pattern can be null,
+        2nd is dataset with pattern where pattern is not null,
+        """
         nulls = []
         not_nulls = []
         for snipp in X:
@@ -119,6 +186,21 @@ class Stats(object):
                 not_nulls.append(snipp)
 
         return np.array(nulls), np.array(not_nulls)
+
+    def get_minimum(self, c1, c2, c3):
+        """
+        Args:
+            c1, c2, c3: np.array with shape (number of snippets, ).
+        Returns:
+            c: np.array with shape (number of snippets, ) -
+            elemental minimum of 3 arrays.
+            number: np.array with shape (number of snippets, ) of
+            arrays' numbers with minimum elements.            .
+        """
+
+        c = np.vstack((c1, c2, c3))
+
+        return np.min(c, 0), np.argmin(c, 0)
 
     def get_array(self, arr, mask, i, incr):
         """
@@ -136,7 +218,7 @@ class Stats(object):
 
         return X1
 
-    def check_impact(self, X, model_input, scale=True, return_acts=False):
+    def check_impact(self, X, model_input):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
@@ -154,10 +236,7 @@ class Stats(object):
             X = X.copy()
             X = np.expand_dims(X, axis=0)
         ncss = X[:, -1]
-        if scale:
-            X = X[:, :-1] / ncss.reshape((-1, 1))
-        else:
-            X = X[:, :-1]
+        X = X[:, :-1]
 
         k = X.shape[1]
         complexity = model_input.model.predict(X)
@@ -182,7 +261,8 @@ class Stats(object):
             acts_complexity[i, 5] += (complexity_plus == complexity[X[:, i] > 0]).sum()
 
         ranked = np.argsort(-1 * importances, 1)
-        if not return_acts:
-            return ranked, importances, acts_complexity
         acts = actions[np.argsort(ranked, 1) == 0]
         return ranked, importances, acts_complexity, acts
+
+
+Stats().stats()

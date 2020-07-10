@@ -75,7 +75,7 @@ class Config(metaclass=Singleton):
 
     @staticmethod
     def get_dataset_archive():
-        dataset_path = Path(Config().home_aibolit_folder(), 'aibolit', 'binary_files', 'dataset.tar.gz')
+        dataset_path = Path(Config().home_aibolit_folder(), 'aibolit', 'binary_files', 'datasets.tar.gz')
         return os.environ.get('HOME_DATASET_ARCHIVE') or dataset_path
 
     @staticmethod

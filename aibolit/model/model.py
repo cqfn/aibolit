@@ -56,6 +56,34 @@ class TwoFoldRankingModel(BaseEstimator):
     def sigmoid(self, x):
         return 1 / (1 + np.exp(-x))
 
+    def scale_dataset(
+            self,
+            df: pd.DataFrame,
+            scale_ncss=True):
+
+        config = Config.get_patterns_config()
+        patterns_codes_set = set([x['code'] for x in config['patterns']])
+        metrics_codes_set = [x['code'] for x in config['metrics']]
+        exclude_features = set(config['patterns_exclude']).union(set(config['metrics_exclude']))
+        target = df[['M4']].values[:, 0].astype(float)
+        used_codes = set(self.features_conf['features_order'])
+        used_codes.add('M4')
+        not_scaled_codes = set(patterns_codes_set).union(set(metrics_codes_set)).difference(used_codes).difference(
+            exclude_features)
+        df.set_index('filename')
+        if scale_ncss:
+            scaled_df = pd.DataFrame(
+                df[used_codes].values / df['M2'].values.reshape((-1, 1)),
+                columns=used_codes
+            )
+            target /= df['M2'].values.astype(float).reshape(-1)
+            not_scaled_df = df[not_scaled_codes]
+            input = pd.merge(not_scaled_df, scaled_df, left_index=True, right_index=True)
+        else:
+            input = df
+
+        return input
+
     def __get_pairs(self, item, th: float, feature_importances=None):
         if not feature_importances:
             feature_importances = self.model.feature_importances_
