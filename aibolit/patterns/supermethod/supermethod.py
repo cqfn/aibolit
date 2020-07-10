@@ -1,6 +1,5 @@
 from aibolit.ast_framework.ast import AST, ASTNodeType
 from aibolit.ast_framework.java_package import JavaPackage
-import re
 from typing import List
 
 
