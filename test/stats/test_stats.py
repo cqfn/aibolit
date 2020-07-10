@@ -28,9 +28,6 @@ from aibolit.model.stats import Stats
 
 class TestStats(TestCase):
 
-    def __init__(self, *args, **kwargs):
-        pass
-
     def test_get_minimum(self):
         minimum_arr = Stats.get_minimum([0, 0.23, 0.45], [0.34, 0.01, 0.37], [0.01, 0.50, 0.2])
         self.assertTrue(np.array_equal(minimum_arr[0], np.array([0, 0.01, 0.2])))
