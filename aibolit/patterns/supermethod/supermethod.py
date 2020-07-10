@@ -1,4 +1,4 @@
-from aibolit.ast_framework.ast import AST, ASTNodeType
+from aibolit.ast_framework.ast import ASTNodeType
 from aibolit.ast_framework.java_package import JavaPackage
 from typing import List
 
@@ -19,11 +19,10 @@ class SuperMethod:
         """
         results = []
         tree = JavaPackage(filename)
-        for method_decl_node in tree.subtrees_with_root_type(ASTNodeType.METHOD_DECLARATION):
-            ast = AST(tree.tree.subgraph(method_decl_node), method_decl_node[0])
-            for i in ast.nodes_by_type(ASTNodeType.STATEMENT_EXPRESSION):
-                code_line = ast.get_attr(i, 'source_code_line')
-                j = list(ast.children_with_type(i, ASTNodeType.SUPER_METHOD_INVOCATION))
-                if len(j):
+        for ast_method in tree.get_subtrees(ASTNodeType.METHOD_DECLARATION):
+            for statement in ast_method.get_nodes(ASTNodeType.STATEMENT_EXPRESSION):
+                code_line = ast_method.get_attr(statement, 'line')
+                all_super_methods = ast_method.children_with_type(statement, ASTNodeType.SUPER_METHOD_INVOCATION)
+                if len(list(all_super_methods)):
                     results.append(code_line)
         return results
