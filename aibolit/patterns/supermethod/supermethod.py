@@ -1,6 +1,5 @@
 from aibolit.ast_framework.ast import AST, ASTNodeType
 from aibolit.ast_framework.java_package import JavaPackage
-from aibolit.utils.encoding_detector import read_text_with_autodetected_encoding
 import re
 from typing import List
 
@@ -34,18 +33,12 @@ class SuperMethod:
         :return: Lines of code
         """
         results = []
-        source_code = read_text_with_autodetected_encoding(filename)
-        lines = source_code.splitlines()
         tree = JavaPackage(filename)
         for method_decl_node in tree.subtrees_with_root_type(ASTNodeType.METHOD_DECLARATION):
             ast = AST(tree.tree.subgraph(method_decl_node), method_decl_node[0])
-            code_line = ast.get_attr(method_decl_node[0], 'source_code_line')
-            for super_method_inv in ast.nodes_by_type(ASTNodeType.SUPER_METHOD_INVOCATION):
-                str_to_find = 'super.{method_name}('.format(
-                    method_name=self._get_node_name(ast, super_method_inv)).strip()
-                for iter, line in enumerate(lines[code_line - 1:]):
-                    string_strip = line.strip().replace('\t', '')
-                    if string_strip.find(str_to_find) > -1:
-                        results.append(code_line + iter)
-                        break
+            for i in ast.nodes_by_type(ASTNodeType.STATEMENT_EXPRESSION):
+                code_line = ast.get_attr(i, 'source_code_line')
+                j = list(ast.children_with_type(i, ASTNodeType.SUPER_METHOD_INVOCATION))
+                if len(j):
+                    results.append(code_line)
         return results
