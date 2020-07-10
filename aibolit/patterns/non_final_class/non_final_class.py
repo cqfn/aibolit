@@ -1,8 +1,8 @@
 from typing import List
 
 from aibolit.types_decl import LineNumber
-from aibolit.utils.ast_builder import build_ast
-from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework import ASTNodeType
+from aibolit.ast_framework.java_package import JavaPackage
 
 
 class NonFinalClass:
@@ -11,17 +11,18 @@ class NonFinalClass:
         pass
 
     def value(self, filename: str) -> List[LineNumber]:
-        tree = AST.build_from_javalang(build_ast(filename))
+        java_package = JavaPackage(filename)
         positions = []
-        for class_subgraph in tree.subtrees_with_root_type(ASTNodeType.CLASS_DECLARATION):
-            class_declaration_root = class_subgraph[0]
-            modifiers_node, = tree.get_first_n_children_with_type(class_declaration_root, ASTNodeType.COLLECTION, 1)
+        for java_class in java_package.java_classes.values():
+            class_declaration_root = java_class.root
+            modifiers_node, = java_class.get_first_n_children_with_type(class_declaration_root,
+                                                                        ASTNodeType.COLLECTION, 1)
             if modifiers_node is None:
                 continue
-            modifiers = {tree.get_attr(child, 'string') for child in
-                         tree.children_with_type(modifiers_node, ASTNodeType.STRING)}
+            modifiers = {java_class.get_attr(child, 'string') for child in
+                         java_class.children_with_type(modifiers_node, ASTNodeType.STRING)}
             if len(modifiers & NonFinalClass._allowed_class_modifiers) == 0:
-                positions.append(tree.get_attr(class_declaration_root, 'source_code_line'))
+                positions.append(java_class.get_attr(class_declaration_root, 'line'))
 
         return positions
 

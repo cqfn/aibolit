@@ -48,7 +48,7 @@ class JavaPackage(AST):
     @cached_property
     def java_classes(self) -> Dict[str, JavaClass]:
         classes: Dict[str, JavaClass] = {}
-        for nodes in self.subtrees_with_root_type(ASTNodeType.CLASS_DECLARATION):
-            java_class = JavaClass(self.tree.subgraph(nodes), nodes[0], self)
+        for class_ast in self.get_subtrees(ASTNodeType.CLASS_DECLARATION):
+            java_class = JavaClass(class_ast.tree, class_ast.root, self)
             classes[java_class.name] = java_class
         return classes

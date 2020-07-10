@@ -23,12 +23,11 @@
 from collections import namedtuple
 from itertools import islice, repeat, chain
 
-from cached_property import cached_property  # type: ignore
 from javalang.tree import Node
-from typing import Union, Any, Set, List, Iterator
-from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
+from typing import Union, Any, Set, List, Iterator, Tuple, Dict, cast, NamedTuple
+from networkx import DiGraph, dfs_labeled_edges  # type: ignore
 
-from aibolit.ast_framework.ast_node_type import ASTNodeType, javalang_types_map
+from aibolit.ast_framework.ast_node_type import ASTNodeType, javalang_types_map, node_attributes_by_type
 
 
 MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'method_name'])
@@ -38,9 +37,11 @@ MemberReferenceParams = namedtuple('MemberReferenceParams', ('object_name', 'mem
 BinaryOperationParams = namedtuple('BinaryOperationParams', ('operation', 'left_side', 'right_side'))
 
 
-class AST:
-    _NODE_SKIPED = -1
+class ASTNodeReference(NamedTuple):
+    node_index: int
 
+
+class AST:
     def __init__(self, networkx_tree: DiGraph, root: int):
         self.tree = networkx_tree
         self.root = root
@@ -48,7 +49,10 @@ class AST:
     @staticmethod
     def build_from_javalang(javalang_ast_root: Node) -> 'AST':
         tree = DiGraph()
-        root = AST._build_from_javalang(tree, javalang_ast_root)
+        javalang_node_to_index_map: Dict[Node, int] = {}
+        root = AST._add_subtree_from_javalang_node(tree, javalang_ast_root,
+                                                   javalang_node_to_index_map)
+        AST._change_node_attributes_to_index(tree, javalang_node_to_index_map)
         return AST(tree, root)
 
     def __str__(self) -> str:
@@ -69,7 +73,7 @@ class AST:
                 depth -= print_step
         return printed_graph
 
-    def subtrees_with_root_type(self, root_type: ASTNodeType) -> Iterator[List[int]]:
+    def get_subtrees(self, root_type: ASTNodeType) -> Iterator['AST']:
         '''
         Yields subtrees with given type of the root.
         If such subtrees are one including the other, only the larger one is
@@ -88,8 +92,9 @@ class AST:
                     current_subtree_root = destination
             elif edge_type == 'reverse' and destination == current_subtree_root:
                 is_inside_subtree = False
-                yield subtree
+                yield AST(self.tree.subgraph(subtree), current_subtree_root)
                 subtree = []
+                current_subtree_root = -1
 
     def children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
         '''
@@ -130,20 +135,15 @@ class AST:
 
     def get_line_number_from_children(self, node: int) -> int:
         for child in self.tree.succ[node]:
-            cur_line = self.get_attr(child, 'source_code_line', -1)
+            cur_line = self.get_attr(child, 'line', -1)
             if cur_line >= 0:
                 return cur_line
         return 0
 
-    @cached_property
-    def node_types(self) -> List[ASTNodeType]:
-        '''
-        Yields types of nodes in preorder tree traversal.
-        '''
-        return [self.tree.nodes[node]['type'] for node in dfs_preorder_nodes(self.tree, self.root)]
-
-    def nodes_by_type(self, type: ASTNodeType) -> Iterator[int]:
-        return (node for node in self.tree.nodes if self.tree.nodes[node]['type'] == type)
+    def get_nodes(self, type: Union[ASTNodeType, None] = None) -> Iterator[int]:
+        for node in self.tree.nodes:
+            if type is None or self.tree.nodes[node]['type'] == type:
+                yield node
 
     def get_attr(self, node: int, attr_name: str, default_value: Any = None) -> Any:
         return self.tree.nodes[node].get(attr_name, default_value)
@@ -187,56 +187,96 @@ class AST:
         return BinaryOperationParams(self.get_attr(operation_node, 'string'), left_side_node, right_side_node)
 
     @staticmethod
-    def _build_from_javalang(tree: DiGraph, javalang_node: Node) -> int:
-        node_index = len(tree) + 1
-        tree.add_node(node_index)
-        AST._extract_javalang_node_attributes(tree, javalang_node, node_index)
-        AST._iterate_over_children_list(tree, javalang_node.children, node_index)
+    def _add_subtree_from_javalang_node(tree: DiGraph, javalang_node: Union[Node, Set[Any], str],
+                                        javalang_node_to_index_map: Dict[Node, int]) -> int:
+        node_index, node_type = AST._add_javalang_node(tree, javalang_node)
+        if node_index != AST._UNKNOWN_NODE_TYPE and \
+           node_type not in {ASTNodeType.COLLECTION, ASTNodeType.STRING}:
+            javalang_standard_node = cast(Node, javalang_node)
+            javalang_node_to_index_map[javalang_standard_node] = node_index
+            AST._add_javalang_children(tree, javalang_standard_node.children, node_index,
+                                       javalang_node_to_index_map)
         return node_index
 
     @staticmethod
-    def _iterate_over_children_list(tree: DiGraph, children_list: List[Any], parent_index: int) -> None:
-        for child in children_list:
+    def _add_javalang_children(tree: DiGraph, children: List[Any], parent_index: int,
+                               javalang_node_to_index_map: Dict[Node, int]) -> None:
+        for child in children:
             if isinstance(child, list):
-                AST._iterate_over_children_list(tree, child, parent_index)
+                AST._add_javalang_children(tree, child, parent_index, javalang_node_to_index_map)
             else:
-                child_index = AST._handle_javalang_ast_node(tree, child)
-                if child_index != AST._NODE_SKIPED:
+                child_index = AST._add_subtree_from_javalang_node(tree, child, javalang_node_to_index_map)
+                if child_index != AST._UNKNOWN_NODE_TYPE:
                     tree.add_edge(parent_index, child_index)
 
     @staticmethod
-    def _extract_javalang_node_attributes(tree: DiGraph, javalang_node: Node, node_index: int) -> None:
-        tree.add_node(node_index, type=javalang_types_map[type(javalang_node)])
-
-        if hasattr(javalang_node.position, 'line'):
-            tree.add_node(node_index, source_code_line=javalang_node.position.line)
-
-    @staticmethod
-    def _handle_javalang_ast_node(tree: DiGraph, javalang_node: Union[Node, Set[Any], str]) -> int:
+    def _add_javalang_node(tree: DiGraph, javalang_node: Union[Node, Set[Any], str]) -> Tuple[int, ASTNodeType]:
+        node_index = AST._UNKNOWN_NODE_TYPE
+        node_type = ASTNodeType.UNKNOWN
         if isinstance(javalang_node, Node):
-            return AST._build_from_javalang(tree, javalang_node)
+            node_index, node_type = AST._add_javalang_standard_node(tree, javalang_node)
         elif isinstance(javalang_node, set):
-            return AST._handle_javalang_collection_node(tree, javalang_node)
+            node_index = AST._add_javalang_collection_node(tree, javalang_node)
+            node_type = ASTNodeType.COLLECTION
         elif isinstance(javalang_node, str):
-            return AST._handle_javalang_string_node(tree, javalang_node)
+            node_index = AST._add_javalang_string_node(tree, javalang_node)
+            node_type = ASTNodeType.STRING
 
-        return AST._NODE_SKIPED
+        return node_index, node_type
 
     @staticmethod
-    def _handle_javalang_string_node(tree: DiGraph, string_node: str) -> int:
+    def _add_javalang_standard_node(tree: DiGraph, javalang_node: Node) -> Tuple[int, ASTNodeType]:
+        node_index = len(tree) + 1
+        node_type = javalang_types_map[type(javalang_node)]
+
+        attr_names = node_attributes_by_type[node_type]
+        attributes = {attr_name: getattr(javalang_node, attr_name) for attr_name in attr_names}
+
+        attributes['type'] = node_type
+        if javalang_node.position is not None:
+            attributes['line'] = javalang_node.position.line
+
+        tree.add_node(node_index, **attributes)
+        return node_index, node_type
+
+    @staticmethod
+    def _add_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:
+        node_index = len(tree) + 1
+        tree.add_node(node_index, type=ASTNodeType.COLLECTION)
+        # we expect only strings in collection
+        # we add them here as children
+        for item in collection_node:
+            if type(item) == str:
+                string_node_index = AST._add_javalang_string_node(tree, item)
+                tree.add_edge(node_index, string_node_index)
+            elif item is not None:
+                raise ValueError('Unexpected javalang AST node type {} inside \
+                                 "COLLECTION" node'.format(type(item)))
+        return node_index
+
+    @staticmethod
+    def _add_javalang_string_node(tree: DiGraph, string_node: str) -> int:
         node_index = len(tree) + 1
         tree.add_node(node_index, type=ASTNodeType.STRING, string=string_node)
         return node_index
 
     @staticmethod
-    def _handle_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:
-        node_index = len(tree) + 1
-        tree.add_node(node_index, type=ASTNodeType.COLLECTION)
-        for item in collection_node:
-            if type(item) == str:
-                string_node_index = AST._handle_javalang_string_node(tree, item)
-                tree.add_edge(node_index, string_node_index)
-            elif item is not None:
-                raise RuntimeError('Unexpected javalang AST node type {} inside \
-                                    "COLLECTION" node'.format(type(item)))
-        return node_index
+    def _change_node_attributes_to_index(tree: DiGraph,
+                                         javalang_node_to_index_map: Dict[Node, int]) -> None:
+        '''
+        All javalang fields are stored as is. If some of those fields were pointing to Node
+        we change that attribute to have a networkx node index, which represent that node.
+        '''
+        for node, attributes in tree.nodes.items():
+            for attribute_name in attributes:
+                attribute_value = attributes[attribute_name]
+                if isinstance(attribute_value, Node):
+                    node_reference = ASTNodeReference(javalang_node_to_index_map[attribute_value])
+                    tree.add_node(node, **{attribute_name: node_reference})
+                elif isinstance(attribute_value, list) and \
+                        all(isinstance(item, Node) for item in attribute_value):
+                    node_references = [ASTNodeReference(javalang_node_to_index_map[item])
+                                       for item in attribute_value]
+                    tree.add_node(node, **{attribute_name: node_references})
+
+    _UNKNOWN_NODE_TYPE = -1

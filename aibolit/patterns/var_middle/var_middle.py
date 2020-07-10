@@ -56,7 +56,7 @@ class VarMiddle:
         if node_type in VarMiddle._var_declaration_node_types:
             scope_status.add_flag(ScopeStatusFlags.INSIDE_VARIABLE_DECLARATION_SUBTREE)
             if ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS_PRESENT not in scope_status.get_status():
-                lines_with_error.append(ast.nodes[node]['source_code_line'])
+                lines_with_error.append(ast.nodes[node]['line'])
 
         # mark scope for super constructor calling
         elif node_type == ASTNodeType.STATEMENT_EXPRESSION:
