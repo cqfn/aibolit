@@ -10,7 +10,7 @@ class ClassicSetter:
         pass
 
     def value(self, filename: str) -> List[LineNumber]:
-        lst: Set[LineNumber] = []
+        lst: List[LineNumber] = []
         ast = JavaPackage(filename)
         method_decls = list(ast.get_nodes(ASTNodeType.METHOD_DECLARATION))
         for node in method_decls:
