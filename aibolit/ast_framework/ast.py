@@ -29,7 +29,7 @@ from networkx import DiGraph, dfs_labeled_edges  # type: ignore
 
 from aibolit.ast_framework.ast_node_type import ASTNodeType
 from aibolit.ast_framework._auxiliary_data import javalang_to_ast_node_type, attributes_by_node_type, ASTNodeReference
-
+from aibolit.ast_framework.ast_node import ASTNode
 
 MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'method_name'])
 
@@ -69,6 +69,9 @@ class AST:
             elif edge_type == 'reverse':
                 depth -= print_step
         return printed_graph
+
+    def get_root(self) -> ASTNode:
+        return ASTNode(self.tree, self.root)
 
     def get_subtrees(self, root_type: ASTNodeType) -> Iterator['AST']:
         '''
