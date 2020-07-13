@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import Dict, List, Type, NamedTuple
+from typing import Dict, Set, Type, NamedTuple
 
 from javalang import tree
 
@@ -111,24 +111,26 @@ javalang_to_ast_node_type: Dict[Type, ASTNodeType] = {
     tree.WhileStatement: ASTNodeType.WHILE_STATEMENT,
 }
 
-attributes_by_node_type: Dict[ASTNodeType, List[str]] = {
-    ASTNodeType.ANNOTATION_DECLARATION: [
+common_attributes: Set[str] = {'type', 'line'}
+
+attributes_by_node_type: Dict[ASTNodeType, Set[str]] = {
+    ASTNodeType.ANNOTATION_DECLARATION: {
         "annotations",
         "body",
         "documentation",
         "modifiers",
         "name",
-    ],
-    ASTNodeType.ANNOTATION_METHOD: [
+    },
+    ASTNodeType.ANNOTATION_METHOD: {
         "annotations",
         "default",
         "dimensions",
         "modifiers",
         "name",
         "return_type",
-    ],
-    ASTNodeType.ANNOTATION: ["element", "name"],
-    ASTNodeType.ARRAY_CREATOR: [
+    },
+    ASTNodeType.ANNOTATION: {"element", "name"},
+    ASTNodeType.ARRAY_CREATOR: {
         "dimensions",
         "initializer",
         "postfix_operators",
@@ -136,19 +138,19 @@ attributes_by_node_type: Dict[ASTNodeType, List[str]] = {
         "qualifier",
         "selectors",
         "type",
-    ],
-    ASTNodeType.ARRAY_INITIALIZER: ["initializers"],
-    ASTNodeType.ARRAY_SELECTOR: ["index"],
-    ASTNodeType.ASSERT_STATEMENT: ["condition", "label", "value"],
-    ASTNodeType.ASSIGNMENT: ["expressionl", "type", "value"],
-    ASTNodeType.BASIC_TYPE: ["dimensions", "name"],
-    ASTNodeType.BINARY_OPERATION: ["operandl", "operandr", "operator"],
-    ASTNodeType.BLOCK_STATEMENT: ["label", "statements"],
-    ASTNodeType.BREAK_STATEMENT: ["goto", "label"],
-    ASTNodeType.CAST: ["expression", "type"],
-    ASTNodeType.CATCH_CLAUSE_PARAMETER: ["annotations", "name", "modifiers", "types"],
-    ASTNodeType.CATCH_CLAUSE: ["block", "label", "parameter"],
-    ASTNodeType.CLASS_CREATOR: [
+    },
+    ASTNodeType.ARRAY_INITIALIZER: {"initializers"},
+    ASTNodeType.ARRAY_SELECTOR: {"index"},
+    ASTNodeType.ASSERT_STATEMENT: {"condition", "label", "value"},
+    ASTNodeType.ASSIGNMENT: {"expressionl", "type", "value"},
+    ASTNodeType.BASIC_TYPE: {"dimensions", "name"},
+    ASTNodeType.BINARY_OPERATION: {"operandl", "operandr", "operator"},
+    ASTNodeType.BLOCK_STATEMENT: {"label", "statements"},
+    ASTNodeType.BREAK_STATEMENT: {"goto", "label"},
+    ASTNodeType.CAST: {"expression", "type"},
+    ASTNodeType.CATCH_CLAUSE_PARAMETER: {"annotations", "name", "modifiers", "types"},
+    ASTNodeType.CATCH_CLAUSE: {"block", "label", "parameter"},
+    ASTNodeType.CLASS_CREATOR: {
         "arguments",
         "body",
         "constructor_type_arguments",
@@ -157,8 +159,8 @@ attributes_by_node_type: Dict[ASTNodeType, List[str]] = {
         "qualifier",
         "selectors",
         "type",
-    ],
-    ASTNodeType.CLASS_DECLARATION: [
+    },
+    ASTNodeType.CLASS_DECLARATION: {
         "annotations",
         "body",
         "documentation",
@@ -167,23 +169,24 @@ attributes_by_node_type: Dict[ASTNodeType, List[str]] = {
         "modifiers",
         "name",
         "type_parameters",
-    ],
-    ASTNodeType.CLASS_REFERENCE: [
+    },
+    ASTNodeType.CLASS_REFERENCE: {
         "postfix_operators",
         "prefix_operators",
         "qualifier",
         "selectors",
         "type",
-    ],
-    ASTNodeType.COMPILATION_UNIT: ["imports", "package", "types"],
-    ASTNodeType.CONSTANT_DECLARATION: [
+    },
+    ASTNodeType.COLLECTION: set(),
+    ASTNodeType.COMPILATION_UNIT: {"imports", "package", "types"},
+    ASTNodeType.CONSTANT_DECLARATION: {
         "annotations",
         "declarators",
         "documentation",
         "modifiers",
         "type",
-    ],
-    ASTNodeType.CONSTRUCTOR_DECLARATION: [
+    },
+    ASTNodeType.CONSTRUCTOR_DECLARATION: {
         "annotations",
         "body",
         "documentation",
@@ -192,72 +195,72 @@ attributes_by_node_type: Dict[ASTNodeType, List[str]] = {
         "parameters",
         "throws",
         "type_parameters",
-    ],
-    ASTNodeType.CONTINUE_STATEMENT: ["goto", "label"],
-    ASTNodeType.CREATOR: [
+    },
+    ASTNodeType.CONTINUE_STATEMENT: {"goto", "label"},
+    ASTNodeType.CREATOR: {
         "postfix_operators",
         "prefix_operators",
         "qualifier",
         "selectors",
         "type",
-    ],
-    ASTNodeType.DECLARATION: ["annotations", "modifiers"],
-    ASTNodeType.DO_STATEMENT: ["body", "condition", "label"],
-    ASTNodeType.DOCUMENTED: ["documentation"],
-    ASTNodeType.ELEMENT_ARRAY_VALUE: ["values"],
-    ASTNodeType.ELEMENT_VALUE_PAIR: ["name", "value"],
-    ASTNodeType.ENHANCED_FOR_CONTROL: ["iterable", "var"],
-    ASTNodeType.ENUM_BODY: ["constants", "declarations"],
-    ASTNodeType.ENUM_CONSTANT_DECLARATION: [
+    },
+    ASTNodeType.DECLARATION: {"annotations", "modifiers"},
+    ASTNodeType.DO_STATEMENT: {"body", "condition", "label"},
+    ASTNodeType.DOCUMENTED: {"documentation"},
+    ASTNodeType.ELEMENT_ARRAY_VALUE: {"values"},
+    ASTNodeType.ELEMENT_VALUE_PAIR: {"name", "value"},
+    ASTNodeType.ENHANCED_FOR_CONTROL: {"iterable", "var"},
+    ASTNodeType.ENUM_BODY: {"constants", "declarations"},
+    ASTNodeType.ENUM_CONSTANT_DECLARATION: {
         "annotations",
         "arguments",
         "body",
         "documentation",
         "modifiers",
         "name",
-    ],
-    ASTNodeType.ENUM_DECLARATION: [
+    },
+    ASTNodeType.ENUM_DECLARATION: {
         "annotations",
         "body",
         "documentation",
         "implements",
         "modifiers",
         "name",
-    ],
-    ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION: [
+    },
+    ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION: {
         "arguments",
         "postfix_operators",
         "prefix_operators",
         "qualifier",
         "selectors",
         "type_arguments",
-    ],
-    ASTNodeType.EXPRESSION: [],
-    ASTNodeType.FIELD_DECLARATION: [
+    },
+    ASTNodeType.EXPRESSION: set(),
+    ASTNodeType.FIELD_DECLARATION: {
         "annotations",
         "declarators",
         "documentation",
         "modifiers",
         "type",
-    ],
-    ASTNodeType.FOR_CONTROL: ["condition", "init", "update"],
-    ASTNodeType.FOR_STATEMENT: ["body", "control", "label"],
-    ASTNodeType.FORMAL_PARAMETER: [
+    },
+    ASTNodeType.FOR_CONTROL: {"condition", "init", "update"},
+    ASTNodeType.FOR_STATEMENT: {"body", "control", "label"},
+    ASTNodeType.FORMAL_PARAMETER: {
         "annotations",
         "modifiers",
         "name",
         "type",
         "varargs",
-    ],
-    ASTNodeType.IF_STATEMENT: [
+    },
+    ASTNodeType.IF_STATEMENT: {
         "condition",
         "else_statement",
         "label",
         "then_statement",
-    ],
-    ASTNodeType.IMPORT: ["path", "static", "wildcard"],
-    ASTNodeType.INFERRED_FORMAL_PARAMETER: ["name"],
-    ASTNodeType.INNER_CLASS_CREATOR: [
+    },
+    ASTNodeType.IMPORT: {"path", "static", "wildcard"},
+    ASTNodeType.INFERRED_FORMAL_PARAMETER: {"name"},
+    ASTNodeType.INNER_CLASS_CREATOR: {
         "arguments",
         "body",
         "constructor_type_arguments",
@@ -266,8 +269,8 @@ attributes_by_node_type: Dict[ASTNodeType, List[str]] = {
         "qualifier",
         "selectors",
         "type",
-    ],
-    ASTNodeType.INTERFACE_DECLARATION: [
+    },
+    ASTNodeType.INTERFACE_DECLARATION: {
         "annotations",
         "body",
         "documentation",
@@ -275,38 +278,38 @@ attributes_by_node_type: Dict[ASTNodeType, List[str]] = {
         "modifiers",
         "name",
         "type_parameters",
-    ],
-    ASTNodeType.INVOCATION: [
+    },
+    ASTNodeType.INVOCATION: {
         "arguments",
         "postfix_operators",
         "prefix_operators",
         "qualifier",
         "selectors",
         "type_arguments",
-    ],
-    ASTNodeType.LAMBDA_EXPRESSION: ["body", "parameters"],
-    ASTNodeType.LITERAL: [
+    },
+    ASTNodeType.LAMBDA_EXPRESSION: {"body", "parameters"},
+    ASTNodeType.LITERAL: {
         "postfix_operators",
         "prefix_operators",
         "qualifier",
         "selectors",
         "value",
-    ],
-    ASTNodeType.LOCAL_VARIABLE_DECLARATION: [
+    },
+    ASTNodeType.LOCAL_VARIABLE_DECLARATION: {
         "annotations",
         "declarators",
         "modifiers",
         "type",
-    ],
-    ASTNodeType.MEMBER_REFERENCE: [
+    },
+    ASTNodeType.MEMBER_REFERENCE: {
         "member",
         "postfix_operators",
         "prefix_operators",
         "qualifier",
         "selectors",
-    ],
-    ASTNodeType.MEMBER: ["documentation"],
-    ASTNodeType.METHOD_DECLARATION: [
+    },
+    ASTNodeType.MEMBER: {"documentation"},
+    ASTNodeType.METHOD_DECLARATION: {
         "annotations",
         "body",
         "documentation",
@@ -316,8 +319,8 @@ attributes_by_node_type: Dict[ASTNodeType, List[str]] = {
         "return_type",
         "throws",
         "type_parameters",
-    ],
-    ASTNodeType.METHOD_INVOCATION: [
+    },
+    ASTNodeType.METHOD_INVOCATION: {
         "arguments",
         "member",
         "postfix_operators",
@@ -325,40 +328,41 @@ attributes_by_node_type: Dict[ASTNodeType, List[str]] = {
         "qualifier",
         "selectors",
         "type_arguments",
-    ],
-    ASTNodeType.METHOD_REFERENCE: ["expression", "method", "type_arguments"],
-    ASTNodeType.PACKAGE_DECLARATION: [
+    },
+    ASTNodeType.METHOD_REFERENCE: {"expression", "method", "type_arguments"},
+    ASTNodeType.PACKAGE_DECLARATION: {
         "annotations",
         "documentation",
         "modifiers",
         "name",
-    ],
-    ASTNodeType.PRIMARY: [
+    },
+    ASTNodeType.PRIMARY: {
         "postfix_operators",
         "prefix_operators",
         "qualifier",
         "selectors",
-    ],
-    ASTNodeType.REFERENCE_TYPE: ["arguments", "dimensions", "name", "sub_type"],
-    ASTNodeType.RETURN_STATEMENT: ["expression", "label"],
-    ASTNodeType.STATEMENT_EXPRESSION: ["expression", "label"],
-    ASTNodeType.STATEMENT: ["label"],
-    ASTNodeType.SUPER_CONSTRUCTOR_INVOCATION: [
+    },
+    ASTNodeType.REFERENCE_TYPE: {"arguments", "dimensions", "name", "sub_type"},
+    ASTNodeType.RETURN_STATEMENT: {"expression", "label"},
+    ASTNodeType.STATEMENT_EXPRESSION: {"expression", "label"},
+    ASTNodeType.STATEMENT: {"label"},
+    ASTNodeType.STRING: {"string"},
+    ASTNodeType.SUPER_CONSTRUCTOR_INVOCATION: {
         "arguments",
         "postfix_operators",
         "prefix_operators",
         "qualifier",
         "selectors",
         "type_arguments",
-    ],
-    ASTNodeType.SUPER_MEMBER_REFERENCE: [
+    },
+    ASTNodeType.SUPER_MEMBER_REFERENCE: {
         "member",
         "postfix_operators",
         "prefix_operators",
         "qualifier",
         "selectors",
-    ],
-    ASTNodeType.SUPER_METHOD_INVOCATION: [
+    },
+    ASTNodeType.SUPER_METHOD_INVOCATION: {
         "arguments",
         "member",
         "postfix_operators",
@@ -366,49 +370,49 @@ attributes_by_node_type: Dict[ASTNodeType, List[str]] = {
         "qualifier",
         "selectors",
         "type_arguments",
-    ],
-    ASTNodeType.SWITCH_STATEMENT_CASE: ["case", "statements"],
-    ASTNodeType.SWITCH_STATEMENT: ["cases", "expression", "label"],
-    ASTNodeType.SYNCHRONIZED_STATEMENT: ["block", "label", "lock"],
-    ASTNodeType.TERNARY_EXPRESSION: ["condition", "if_false", "if_true"],
-    ASTNodeType.THIS: [
+    },
+    ASTNodeType.SWITCH_STATEMENT_CASE: {"case", "statements"},
+    ASTNodeType.SWITCH_STATEMENT: {"cases", "expression", "label"},
+    ASTNodeType.SYNCHRONIZED_STATEMENT: {"block", "label", "lock"},
+    ASTNodeType.TERNARY_EXPRESSION: {"condition", "if_false", "if_true"},
+    ASTNodeType.THIS: {
         "postfix_operators",
         "prefix_operators",
         "qualifier",
         "selectors",
-    ],
-    ASTNodeType.THROW_STATEMENT: ["expression", "label"],
-    ASTNodeType.TRY_RESOURCE: ["annotations", "name", "modifiers", "type", "value"],
-    ASTNodeType.TRY_STATEMENT: [
+    },
+    ASTNodeType.THROW_STATEMENT: {"expression", "label"},
+    ASTNodeType.TRY_RESOURCE: {"annotations", "name", "modifiers", "type", "value"},
+    ASTNodeType.TRY_STATEMENT: {
         "block",
         "catches",
         "finally_block",
         "label",
         "resources",
-    ],
-    ASTNodeType.TYPE_ARGUMENT: ["pattern_type", "type"],
-    ASTNodeType.TYPE_DECLARATION: [
+    },
+    ASTNodeType.TYPE_ARGUMENT: {"pattern_type", "type"},
+    ASTNodeType.TYPE_DECLARATION: {
         "annotations",
         "body",
         "documentation",
         "modifiers",
         "name",
-    ],
-    ASTNodeType.TYPE_PARAMETER: ["extends", "name"],
-    ASTNodeType.TYPE: ["dimensions", "name"],
-    ASTNodeType.VARIABLE_DECLARATION: [
+    },
+    ASTNodeType.TYPE_PARAMETER: {"extends", "name"},
+    ASTNodeType.TYPE: {"dimensions", "name"},
+    ASTNodeType.VARIABLE_DECLARATION: {
         "annotations",
         "declarators",
         "modifiers",
         "type",
-    ],
-    ASTNodeType.VARIABLE_DECLARATOR: ["dimensions", "initializer", "name"],
-    ASTNodeType.VOID_CLASS_REFERENCE: [
+    },
+    ASTNodeType.VARIABLE_DECLARATOR: {"dimensions", "initializer", "name"},
+    ASTNodeType.VOID_CLASS_REFERENCE: {
         "postfix_operators",
         "prefix_operators",
         "qualifier",
         "selectors",
         "type",
-    ],
-    ASTNodeType.WHILE_STATEMENT: ["body", "condition", "label"],
+    },
+    ASTNodeType.WHILE_STATEMENT: {"body", "condition", "label"},
 }
