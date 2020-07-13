@@ -62,3 +62,6 @@ class ASTNode:
             text_representation += f'\n{attribute_name}: {self.__getattr__(attribute_name)}'
 
         return text_representation
+
+    def __repr__(self) -> str:
+        return f'<ASTNode node_type: {self.__getattr__("type")}, node_index: {self._node_index}>'
