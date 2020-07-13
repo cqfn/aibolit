@@ -1,6 +1,6 @@
-import javalang
-
-from aibolit.utils.ast_builder import build_ast
+from aibolit.ast_framework import ASTNodeType
+from aibolit.ast_framework.java_package import JavaPackage
+from typing import List
 
 
 class ErClass:
@@ -8,7 +8,8 @@ class ErClass:
     def __init__(self):
         pass
 
-    def value(self, filename: str):
+    def value(self, filename: str) -> List[int]:
+        lines: List[int] = []
         classes = ('manager',
                    'controller',
                    'router',
@@ -23,5 +24,14 @@ class ErClass:
                    'producer',
                    'holder',
                    'interceptor')
-        tree = build_ast(filename).filter(javalang.tree.ClassDeclaration)
-        return [node._position.line for _, node in tree if [n for n in classes if n in node.name.lower()] != []]
+        ast = JavaPackage(filename)
+        class_decls = list(ast.get_nodes(ASTNodeType.CLASS_DECLARATION))
+        for node in class_decls:
+            names = []
+            class_name = ast.get_attr(node, 'name').lower()
+            for n in classes:
+                if n in class_name:
+                    names.append(class_name)
+            if names:
+                lines.append(ast.get_attr(node, 'line'))
+        return lines
