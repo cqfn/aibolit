@@ -86,7 +86,7 @@ class AST:
             if edge_type == 'forward':
                 if is_inside_subtree:
                     subtree.append(destination)
-                elif self.tree.nodes[destination]['type'] == root_type:
+                elif self.tree.nodes[destination]['node_type'] == root_type:
                     subtree.append(destination)
                     is_inside_subtree = True
                     current_subtree_root = destination
@@ -101,14 +101,14 @@ class AST:
         Yields children of node with given type.
         '''
         for child in self.tree.succ[node]:
-            if self.tree.nodes[child]['type'] == child_type:
+            if self.tree.nodes[child]['node_type'] == child_type:
                 yield child
 
     def list_all_children_with_type(self, node: int, child_type: ASTNodeType) -> List[int]:
         list_node: List[int] = []
         for child in self.tree.succ[node]:
             list_node = list_node + self.list_all_children_with_type(child, child_type)
-            if self.tree.nodes[child]['type'] == child_type:
+            if self.tree.nodes[child]['node_type'] == child_type:
                 list_node.append(child)
         return sorted(list_node)
 
@@ -142,14 +142,14 @@ class AST:
 
     def get_nodes(self, type: Union[ASTNodeType, None] = None) -> Iterator[int]:
         for node in self.tree.nodes:
-            if type is None or self.tree.nodes[node]['type'] == type:
+            if type is None or self.tree.nodes[node]['node_type'] == type:
                 yield node
 
     def get_attr(self, node: int, attr_name: str, default_value: Any = None) -> Any:
         return self.tree.nodes[node].get(attr_name, default_value)
 
     def get_type(self, node: int) -> ASTNodeType:
-        return self.get_attr(node, 'type')
+        return self.get_attr(node, 'node_type')
 
     def get_method_invocation_params(self, invocation_node: int) -> MethodInvocationParams:
         assert(self.get_type(invocation_node) == ASTNodeType.METHOD_INVOCATION)
@@ -232,7 +232,7 @@ class AST:
         attr_names = attributes_by_node_type[node_type]
         attributes = {attr_name: getattr(javalang_node, attr_name) for attr_name in attr_names}
 
-        attributes['type'] = node_type
+        attributes['node_type'] = node_type
         attributes['line'] = javalang_node.position.line if javalang_node.position is not None else None
 
         tree.add_node(node_index, **attributes)
