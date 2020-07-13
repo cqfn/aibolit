@@ -230,8 +230,7 @@ class AST:
         attributes = {attr_name: getattr(javalang_node, attr_name) for attr_name in attr_names}
 
         attributes['type'] = node_type
-        if javalang_node.position is not None:
-            attributes['line'] = javalang_node.position.line
+        attributes['line'] = javalang_node.position.line if javalang_node.position is not None else None
 
         tree.add_node(node_index, **attributes)
         return node_index, node_type
