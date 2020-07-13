@@ -33,7 +33,7 @@ class ASTNode:
         self._node_index = node_index
 
     def __dir__(self) -> List[str]:
-        node_type = self._graph.nodes[self._node_index]['type']
+        node_type = self._graph.nodes[self._node_index]['node_type']
         return ['children'] + list(common_attributes) + list(attributes_by_node_type[node_type])
 
     @property
@@ -43,7 +43,7 @@ class ASTNode:
 
     def __getattr__(self, attribute_name: str):
         if attribute_name not in common_attributes:
-            node_type = self._graph.nodes[self._node_index]['type']
+            node_type = self._graph.nodes[self._node_index]['node_type']
             if(attribute_name not in attributes_by_node_type[node_type]):
                 raise AttributeError(f'{node_type} node does not have "{attribute_name}" attribute.')
 
@@ -57,7 +57,7 @@ class ASTNode:
 
     def __str__(self) -> str:
         text_representation = f'node index: {self._node_index}'
-        node_type = self.__getattr__('type')
+        node_type = self.__getattr__('node_type')
         for attribute_name in sorted(common_attributes | attributes_by_node_type[node_type]):
             text_representation += f'\n{attribute_name}: {self.__getattr__(attribute_name)}'
 

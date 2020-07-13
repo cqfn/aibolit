@@ -135,8 +135,8 @@ class AST:
 
     def get_line_number_from_children(self, node: int) -> int:
         for child in self.tree.succ[node]:
-            cur_line = self.get_attr(child, 'line', -1)
-            if cur_line >= 0:
+            cur_line = self.get_attr(child, 'line')
+            if cur_line is not None:
                 return cur_line
         return 0
 
@@ -241,7 +241,7 @@ class AST:
     @staticmethod
     def _add_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:
         node_index = len(tree) + 1
-        tree.add_node(node_index, type=ASTNodeType.COLLECTION)
+        tree.add_node(node_index, node_type=ASTNodeType.COLLECTION)
         # we expect only strings in collection
         # we add them here as children
         for item in collection_node:
@@ -256,7 +256,7 @@ class AST:
     @staticmethod
     def _add_javalang_string_node(tree: DiGraph, string_node: str) -> int:
         node_index = len(tree) + 1
-        tree.add_node(node_index, type=ASTNodeType.STRING, string=string_node)
+        tree.add_node(node_index, node_type=ASTNodeType.STRING, string=string_node)
         return node_index
 
     @staticmethod
