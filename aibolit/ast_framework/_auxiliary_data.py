@@ -23,6 +23,7 @@
 from typing import Dict, Set, Type, NamedTuple
 
 from javalang import tree
+from javalang.ast import Node
 
 from aibolit.ast_framework import ASTNodeType
 
@@ -31,7 +32,7 @@ class ASTNodeReference(NamedTuple):
     node_index: int
 
 
-javalang_to_ast_node_type: Dict[Type, ASTNodeType] = {
+javalang_to_ast_node_type: Dict[Type[Node], ASTNodeType] = {
     tree.Annotation: ASTNodeType.ANNOTATION,
     tree.AnnotationDeclaration: ASTNodeType.ANNOTATION_DECLARATION,
     tree.AnnotationMethod: ASTNodeType.ANNOTATION_METHOD,
