@@ -73,6 +73,10 @@ class AST:
     def get_root(self) -> ASTNode:
         return ASTNode(self.tree, self.root)
 
+    def __iter__(self) -> Iterator[ASTNode]:
+        for node_index in self.tree.nodes:
+            yield ASTNode(self.tree, node_index)
+
     def get_subtrees(self, root_type: ASTNodeType) -> Iterator['AST']:
         '''
         Yields subtrees with given type of the root.
@@ -144,6 +148,11 @@ class AST:
         for node in self.tree.nodes:
             if type is None or self.tree.nodes[node]['node_type'] == type:
                 yield node
+
+    def get_proxy_nodes(self, type: ASTNodeType) -> Iterator[ASTNode]:
+        for node in self.tree.nodes:
+            if self.tree.nodes[node]['node_type'] == type:
+                yield ASTNode(self.tree, node)
 
     def get_attr(self, node: int, attr_name: str, default_value: Any = None) -> Any:
         return self.tree.nodes[node].get(attr_name, default_value)
