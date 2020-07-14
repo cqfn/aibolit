@@ -6,7 +6,7 @@ from pathlib import Path
 import pickle
 from aibolit.model.model import TwoFoldRankingModel  # type: ignore
 from aibolit.config import Config
-import pandas as pd
+import pandas as pd  # type: ignore
 
 
 def collect_dataset(args):
