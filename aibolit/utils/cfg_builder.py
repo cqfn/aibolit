@@ -36,9 +36,9 @@ def build_cfg(tree: AST) -> DiGraph:
     g = DiGraph()
     g.add_node(0)
     for node_idx in dfs_preorder_nodes(tree.tree, tree.root):
-        if tree.tree.nodes[node_idx]['type'] not in NODE_TYPES:
+        if tree.get_type(node_idx) not in NODE_TYPES:
             continue
-        _g = _mk_cfg_graph(tree.tree.nodes[node_idx]['type'])
+        _g = _mk_cfg_graph(tree.get_type(node_idx))
         g = _compose_two_graphs(g, _g)
     return g
 

@@ -38,7 +38,7 @@ class JoinedValidation:
     def check_throw(self, node: int, tree: 'AST', lines: List[int]) -> Tuple[List[int], bool]:
         children_throw = list(tree.children_with_type(node, ASTNodeType.THROW_STATEMENT))
         if len(children_throw) > 0:
-            lines.append(tree.get_attr(node, 'source_code_line'))
+            lines.append(tree.get_attr(node, 'line'))
             return lines, True
         return lines, False
 
@@ -48,7 +48,7 @@ class JoinedValidation:
         """
         tree = AST.build_from_javalang(build_ast(filename))
         lines: List[int] = []
-        for node in tree.nodes_by_type(ASTNodeType.IF_STATEMENT):
+        for node in tree.get_nodes(ASTNodeType.IF_STATEMENT):
             flag_or = False
             for child in tree.all_children_with_type(node, ASTNodeType.BINARY_OPERATION):
                 operation_name = tree.get_binary_operation_name(child)

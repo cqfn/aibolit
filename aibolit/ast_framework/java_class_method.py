@@ -62,7 +62,7 @@ class JavaClassMethod(AST):
 
     @cached_property
     def used_methods(self) -> Dict[str, Set['JavaClassMethod']]:
-        method_invocation_nodes = self.nodes_by_type(ASTNodeType.METHOD_INVOCATION)
+        method_invocation_nodes = self.get_nodes(ASTNodeType.METHOD_INVOCATION)
         used_method_invocation_params = (self.get_method_invocation_params(node) for node
                                          in method_invocation_nodes)
         used_local_method_invocation_params = (params for params in used_method_invocation_params
@@ -75,7 +75,7 @@ class JavaClassMethod(AST):
     @cached_property
     def used_fields(self) -> Dict[str, JavaClassField]:
         used_member_reference_params = (self.get_member_reference_params(node) for node in
-                                        self.nodes_by_type(ASTNodeType.MEMBER_REFERENCE))
+                                        self.get_nodes(ASTNodeType.MEMBER_REFERENCE))
         used_local_member_reference_names = {params.member_name for params in used_member_reference_params
                                              if params.object_name == ''}
         # Local member references may lead to method parameters instead of class fields if they have same names
