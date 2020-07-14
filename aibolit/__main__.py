@@ -224,7 +224,7 @@ def find_annotation_by_node_type(
     return annonations
 
 
-def find_start_and_end_lines(node) -> Tuple[int, int]:
+def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
     max_line = node.position.line
 
     def check_max_position(node):
