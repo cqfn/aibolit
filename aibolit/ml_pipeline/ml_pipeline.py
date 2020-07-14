@@ -1,12 +1,12 @@
 import os
 import shutil
 import subprocess
+import tarfile
 from pathlib import Path
-from sklearn.model_selection import train_test_split  # type: ignore
 import pickle
-from random import randint
-from aibolit.model.model import Dataset, TwoFoldRankingModel  # type: ignore
+from aibolit.model.model import TwoFoldRankingModel  # type: ignore
 from aibolit.config import Config
+import pandas as pd
 
 
 def collect_dataset(args):
@@ -92,19 +92,25 @@ def train_process():
         + ['halstead volume']
     columns_features = only_metrics + only_patterns
     features_number = len(columns_features)
-    print("Number of features: ", features_number)
+    print("General number of features in config: ", features_number)
 
-    dataset = Dataset(only_patterns)
-    dataset.preprocess_file()
+    gzip_arc = Config.get_dataset_archive()
+    tar = tarfile.open(str(gzip_arc))
+    tar.extractall(path=gzip_arc.parent)
+    tar.close()
+
+    train_dataset = pd.read_csv(Config.train_csv(), index_col=None)
+    model = TwoFoldRankingModel()
     features_conf = {
-        "features_order": dataset.feature_order,
+        "features_order": only_patterns,
         "patterns_only": only_patterns
     }
-
-    X_train, X_test, y_train, y_test = train_test_split(dataset.input, dataset.target, test_size=0.3)
-    model = TwoFoldRankingModel()
-    model.fit(X_train, y_train)
     model.features_conf = features_conf
+    print('Scaling features...')
+    scaled_dataset = model.scale_dataset(train_dataset)
+    dataset = scaled_dataset[only_patterns]
+    print('Training model...')
+    model.fit(dataset, scaled_dataset['M4'])
 
     save_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
     print('Saving model to loaded model from file {}:'.format(save_model_file))
@@ -113,13 +119,18 @@ def train_process():
 
     load_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
     print('Test loaded model from file {}:'.format(load_model_file))
+    test_dataset = pd.read_csv(Config.test_csv(), index_col=None)
+    scaled_test_dataset = model.scale_dataset(test_dataset).sample(n=20, random_state=17)
+    # add ncss, ncss is needed in informative as a  last column
+    X_test = scaled_test_dataset[only_patterns + ['M2']]
     with open(load_model_file, 'rb') as fid:
         model_new = pickle.load(fid)
         print('Model has been loaded successfully')
-        for x in X_test:
-            snippet = [i for i in x] + [randint(1, 200)]
+        for _, row in X_test.iterrows():
+            snippet = [x for x in row]
             preds, importances = model_new.informative(snippet)
             print(preds)
     path_with_logs = Path(os.getcwd(), 'catboost_info')
     print('Removing path with catboost logs {}'.format(path_with_logs))
-    shutil.rmtree(path_with_logs)
+    if path_with_logs.exists():
+        shutil.rmtree(path_with_logs)

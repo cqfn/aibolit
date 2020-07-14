@@ -1,5 +1,4 @@
 from decimal import localcontext, ROUND_DOWN, Decimal
-from typing import List
 
 import numpy as np
 import pandas as pd
@@ -7,15 +6,6 @@ from catboost import CatBoost
 from sklearn.base import BaseEstimator
 
 from aibolit.config import Config
-
-
-class Dataset:
-
-    def __init__(self, only_patterns: List[str]):
-        self.input = None
-        self.target = None
-        self.do_rename_columns = False
-        self.only_patterns = only_patterns
 
 
 class TwoFoldRankingModel(BaseEstimator):
@@ -62,20 +52,20 @@ class TwoFoldRankingModel(BaseEstimator):
         patterns_codes_set = set([x['code'] for x in config['patterns']])
         metrics_codes_set = [x['code'] for x in config['metrics']]
         exclude_features = set(config['patterns_exclude']).union(set(config['metrics_exclude']))
-        target = df[['M4']].values[:, 0].astype(float)
         used_codes = set(self.features_conf['features_order'])
         used_codes.add('M4')
         not_scaled_codes = set(patterns_codes_set).union(set(metrics_codes_set)).difference(used_codes).difference(
             exclude_features)
-        df.set_index('filename')
+        features_not_in_config = set(df.columns).difference(not_scaled_codes).difference(used_codes)
+        not_scaled_codes = sorted(not_scaled_codes.union(features_not_in_config))
+        codes_to_scale = sorted(used_codes)
         if scale_ncss:
             scaled_df = pd.DataFrame(
-                df[used_codes].values / df['M2'].values.reshape((-1, 1)),
-                columns=used_codes
+                df[codes_to_scale].values / df['M2'].values.reshape((-1, 1)),
+                columns=codes_to_scale
             )
-            target /= df['M2'].values.astype(float).reshape(-1)
             not_scaled_df = df[not_scaled_codes]
-            input = pd.merge(not_scaled_df, scaled_df, left_index=True, right_index=True)
+            input = pd.concat([scaled_df, not_scaled_df], axis=1)
         else:
             input = df
 
