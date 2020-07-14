@@ -21,6 +21,7 @@ class EmptyRethrow:
                         mem_ref = list(ast.tree.succ[throw_node].keys())[0]
                         if ast.get_type(mem_ref) == ASTNodeType.CLASS_CREATOR:
                             continue
+
                         else:
                             member = ast.get_attr(mem_ref, 'member')
                             if member is not None and member in catch_classes:
