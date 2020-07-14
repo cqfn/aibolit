@@ -753,7 +753,7 @@ def run_thread(files, args):
 
 def get_versions(pkg_name):
     url = f'https://pypi.python.org/pypi/{pkg_name}/json'
-    releases = json.loads(requests.get(url, timeout=0.01).content)['releases']
+    releases = json.loads(requests.get(url, timeout=0.1).content)['releases']
     return sorted(releases, key=parse_version, reverse=True)
 
 
