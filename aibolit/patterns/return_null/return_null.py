@@ -42,6 +42,10 @@ class ReturnNull:
         return lines
 
     def _check_null_return_statement(self, return_statement: ASTNode) -> bool:
+        # return statement with no expression `return;` does not return null
+        if return_statement.expression is None:
+            return False
+
         if return_statement.expression.node_type == ASTNodeType.TERNARY_EXPRESSION:
             return self._check_null_expression(return_statement.expression.if_true) or \
                 self._check_null_expression(return_statement.expression.if_false)
