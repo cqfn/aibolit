@@ -224,21 +224,32 @@ def find_annotation_by_node_type(
     return annonations
 
 
-def find_start_and_end_lines(node) -> Tuple[int, int]:
+def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
     max_line = node.position.line
 
+    def check_max_position(node):
+        nonlocal max_line
+        if hasattr(node, '_position'):
+            if node.position.line > max_line:
+                max_line = node.position.line
+
     def traverse(node):
+        nonlocal max_line
+        check_max_position(node)
+
         if hasattr(node, 'children'):
             for child in node.children:
                 if isinstance(child, list) and (len(child) > 0):
                     for item in child:
                         traverse(item)
                 else:
-                    if hasattr(child, '_position'):
-                        nonlocal max_line
-                        if child._position.line > max_line:
-                            max_line = child._position.line
-                            return
+                    if hasattr(child, 'children'):
+                        infants = child.children
+                        for infant in infants:
+                            traverse(infant)
+                    else:
+                        check_max_position(child)
+
         else:
             return
 
@@ -753,7 +764,7 @@ def run_thread(files, args):
 
 def get_versions(pkg_name):
     url = f'https://pypi.python.org/pypi/{pkg_name}/json'
-    releases = json.loads(requests.get(url, timeout=0.1).content)['releases']
+    releases = json.loads(requests.get(url, timeout=1).content)['releases']
     return sorted(releases, key=parse_version, reverse=True)
 
 
