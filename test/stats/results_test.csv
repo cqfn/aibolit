@@ -1,0 +1,34 @@
+,pattern, -1(top1),+1(top1),p-c-,p+c+,p-c+,p+c-,p-c=,p+c=
+0,Asserts,0,0,0,0,0,0,1,1
+1,Setters,0,0,0,0,0,0,1,1
+2,Empty Rethrow,0,0,0,0,0,0,1,1
+3,Prohibited class name,1,0,2,0,0,0,0,2
+4,Force Type Casting,0,0,9,1,2,10,1,1
+5,Count If Return,0,0,0,0,7,1,1,7
+6,Implements Multi,0,0,0,0,0,0,18,18
+7,Instance of,0,0,2,0,2,4,0,0
+8,Many primary constructors,0,0,0,0,0,0,18,18
+9,Method chain,1,0,7,4,6,8,4,5
+10,Multiple try,0,0,1,0,0,1,9,9
+11,Non final attribute,4,3,15,46,23,24,60,28
+12,Null check,0,0,12,11,26,24,7,10
+13,Partial synchronized,0,0,0,0,0,0,1,1
+14,Redundant catch,0,0,0,0,0,0,1,1
+15,Return null,0,0,10,0,0,0,1,11
+16,String concat,1,0,5,4,4,1,3,7
+17,Super Method,0,0,1,0,5,2,2,6
+18,This in constructor,0,0,0,0,0,0,1,1
+19,Var declaration distance for 5 lines,0,0,5,4,2,1,1,3
+20,Var declaration distance for 7 lines,0,0,2,0,0,0,5,7
+21,Var declaration distance for 11 lines,0,0,3,0,0,3,3,3
+22,Var in the middle,5,0,16,9,6,9,2,6
+23,Array as function argument,0,0,1,0,1,0,0,2
+24,Joined validation,0,0,0,0,0,0,2,2
+25,Non final class,84,31,120,26,20,105,0,9
+26,Private static method,0,0,1,2,2,0,0,1
+27,Public static method,1,0,4,3,0,1,1,1
+28,Null Assignment,0,0,1,1,6,2,1,5
+29,Multiple While,0,0,0,0,0,0,1,1
+30,Protected Method,0,0,20,10,0,0,3,13
+31,Send Null,0,0,1,0,1,0,0,2
+32,Nested Loop,4,0,5,1,1,0,2,7

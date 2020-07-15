@@ -1,7 +1,6 @@
 import os
 import shutil
 import subprocess
-import tarfile
 from pathlib import Path
 import pickle
 from aibolit.model.model import TwoFoldRankingModel  # type: ignore
@@ -94,11 +93,6 @@ def train_process():
     features_number = len(columns_features)
     print("General number of features in config: ", features_number)
 
-    gzip_arc = Config.get_dataset_archive()
-    tar = tarfile.open(str(gzip_arc))
-    tar.extractall(path=gzip_arc.parent)
-    tar.close()
-
     train_dataset = pd.read_csv(Config.train_csv(), index_col=None)
     model = TwoFoldRankingModel()
     features_conf = {
@@ -110,7 +104,7 @@ def train_process():
     scaled_dataset = model.scale_dataset(train_dataset)
     dataset = scaled_dataset[only_patterns]
     print('Training model...')
-    model.fit(dataset, scaled_dataset['M4'])
+    model.fit_regressor(dataset, scaled_dataset['M4'])
 
     save_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
     print('Saving model to loaded model from file {}:'.format(save_model_file))
@@ -120,15 +114,14 @@ def train_process():
     load_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
     print('Test loaded model from file {}:'.format(load_model_file))
     test_dataset = pd.read_csv(Config.test_csv(), index_col=None)
-    scaled_test_dataset = model.scale_dataset(test_dataset).sample(n=20, random_state=17)
+    scaled_test_dataset = model.scale_dataset(test_dataset).sample(n=3, random_state=17)
     # add ncss, ncss is needed in informative as a  last column
     X_test = scaled_test_dataset[only_patterns + ['M2']]
     with open(load_model_file, 'rb') as fid:
         model_new = pickle.load(fid)
         print('Model has been loaded successfully')
         for _, row in X_test.iterrows():
-            snippet = [x for x in row]
-            preds, importances = model_new.informative(snippet)
+            preds, importances = model_new.informative(row.values)
             print(preds)
     path_with_logs = Path(os.getcwd(), 'catboost_info')
     print('Removing path with catboost logs {}'.format(path_with_logs))

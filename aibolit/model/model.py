@@ -8,14 +8,14 @@ from sklearn.base import BaseEstimator
 from aibolit.config import Config
 
 
-class TwoFoldRankingModel(BaseEstimator):
+class AibolitModel(BaseEstimator):
 
     def __init__(self):
         self.do_rename_columns = False
         self.model = None
         self.features_conf = None
 
-    def fit(self, X, y, display=False):
+    def fit_regressor(self, X, y, display=False):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or

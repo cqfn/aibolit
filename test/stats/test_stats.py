@@ -19,14 +19,25 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+import os
+import pickle
+from pathlib import Path
 from unittest import TestCase
 
 import numpy as np
+import pandas as pd
 
+from aibolit.config import Config
+from aibolit.model.model import TwoFoldRankingModel
 from aibolit.model.stats import Stats
 
 
 class TestStats(TestCase):
+
+    def __init__(self, *args, **kwargs):
+        super(TestStats, self).__init__(*args, **kwargs)
+        self.cur_file_dir = Path(os.path.realpath(__file__)).parent
+        self.config = Config.get_patterns_config()
 
     def test_get_minimum(self):
         minimum_arr = Stats.get_minimum([0, 0.23, 0.45], [0.34, 0.01, 0.37], [0.01, 0.50, 0.2])
@@ -54,3 +65,20 @@ class TestStats(TestCase):
         self.assertTrue(np.array_equal(nulls[0], np.array([0, 0, 0])))
         self.assertTrue(np.array_equal(not_nulls[0], np.array([0, 0, 1])))
         self.assertTrue(np.array_equal(not_nulls[1], np.array([1, 1, 2])))
+
+    def __load_mock_model(self):
+        load_model_file = Path(self.cur_file_dir, 'model.pkl')
+        with open(load_model_file, 'rb') as fid:
+            model: TwoFoldRankingModel = pickle.load(fid)
+            return model
+
+    def test_stat_aibolit_pipeline(self):
+        model = self.__load_mock_model()
+        test_csv = Path(self.cur_file_dir, 'test_dataset.csv')
+        test_df = pd.read_csv(test_csv)
+        table = Stats.aibolit_stat(test_df, model)
+        test_csv = Path(self.cur_file_dir, 'results_test.csv')
+        results_df = pd.read_csv(test_csv, index_col=0)
+        all_elements_compared: pd.DataFrame = table.eq(results_df)
+        are_equal = np.equal.reduce(np.ravel(all_elements_compared.values))
+        self.assertTrue(are_equal)

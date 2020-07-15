@@ -242,10 +242,14 @@ $ aibolit recommend --help
  2. Go to `cloned_aibolit_path`
  3. Run `pip install .`
  4. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for Linux).
- 5. If you need to set up own directory where model will be saved, set up also `SAVE_MODEL_FOLDER` environment variable.
+ 5. You have to specify train and test dataset: set the `HOME_TRAIN_DATASET` environment variable 
+ for train dataset and the `HOME_TEST_DATASET` environment variable for test dataset.
+ Usually, these files are in `scripts/target/08` directory after dataset collection (if you have not skipped it)
+ But you can use your own datasets.
+ 6. If you need to set up own directory where model will be saved, set up also `SAVE_MODEL_FOLDER` environment variable.
  Otherwise model will be saved into `cloned_aibolit_path/aibolit/binary_files/model.pkl`
- 6. If you need to set up own folder with Java files, use `--java_folder parameter`, the default value will be `scripts/target/01` of aibolit cloned repo
- 7. You need to install Java 13 and Maven
+ 7. If you need to set up own folder with Java files, use `--java_folder parameter`, the default value will be `scripts/target/01` of aibolit cloned repo
+ 8. You need to install Java 13 and Maven
 
  Or you can use our docker image (link will be soon here)
 
@@ -259,6 +263,13 @@ If you need to save the dataset with all calculated metrics to a different direc
 
 ```bash
 $ aibolit train --java_folder=src/java --dataset_file /mnt/d/new_dir/dataset.csv
+```
+
+You can skip dataset collection with `skip_collect_dataset` parameter. In this case
+the model will be trained with predefined dataset (see 5 point):
+
+```bash
+$ aibolit train --java_folder=src/java --skip_collect_dataset
 ```
 
 ## How to contribute?

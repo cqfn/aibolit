@@ -1,6 +1,4 @@
 import pickle
-import tarfile
-from pathlib import Path
 from typing import Dict, Any
 
 import numpy as np
@@ -11,32 +9,24 @@ from aibolit.model.model import TwoFoldRankingModel  # noqa: F401 type: ignore
 
 class Stats(object):
 
-    def aibolit_stat(self):
-        dataset_archive = Config.get_dataset_archive()
-        try:
-            tar = tarfile.open(str(dataset_archive))
-            tar.extractall(path=dataset_archive.parent)
-            tar.close()
-            print('Dataset has been unzipped successfully')
-        except Exception as e:
-            print('Dataset unzip failed: {}'.format(str(e)))
-            return 1
+    @staticmethod
+    def aibolit_stat(test_csv: pd.DataFrame, model=None):
+        if not model:
+            load_model_file = Config.folder_model_data()
+            print('Loading model from file {}:'.format(load_model_file))
+            with open(load_model_file, 'rb') as fid:
+                model = pickle.load(fid)
+                print('Model has been loaded successfully')
 
-        test_csv = pd.read_csv(Path(dataset_archive.parent, '08-test.csv'))
-        load_model_file = Config.folder_model_data()
-        print('Loading model from file {}:'.format(load_model_file))
-        with open(load_model_file, 'rb') as fid:
-            model = pickle.load(fid)
-            print('Model has been loaded successfully')
         scaled_dataset = model.scale_dataset(test_csv)
         cleaned_dataset = scaled_dataset[model.features_conf['features_order'] + ['M2']]
-        ranked, _, acts_complexity, acts = self.check_impact(
+        ranked, _, acts_complexity, acts = Stats.check_impact(
             cleaned_dataset.values,
             model
         )
 
         m, p = Stats.count_acts(acts, ranked)
-        return self.get_table(model.features_conf['features_order'], m, p, acts_complexity)
+        return Stats.get_table(model.features_conf['features_order'], m, p, acts_complexity)
 
     @staticmethod
     def count_acts(acts, ranked):
@@ -54,7 +44,8 @@ class Stats(object):
                 p[patterns_numbers[i]] += 1
         return m, p
 
-    def get_patterns_name(self):
+    @staticmethod
+    def get_patterns_name():
         only_patterns = []
         patterns_code = []
         config = Config.get_patterns_config()
@@ -69,8 +60,8 @@ class Stats(object):
         replace_dict = dict(patterns, **metrics)
         return replace_dict
 
+    @staticmethod
     def get_table(
-            self,
             features_conf: Dict[Any, Any],
             m,
             p,
@@ -92,7 +83,7 @@ class Stats(object):
             'pattern', ' -1(top1)', '+1(top1)',
             'p-c-', 'p+c+', 'p-c+', 'p+c-', 'p-c=',
             'p+c='])
-        replace_dict = self.get_patterns_name()
+        replace_dict = Stats.get_patterns_name()
         for i in range(len(features_conf)):
             top_minus = int(m[i])
             top_plus = int(p[i])
@@ -165,7 +156,8 @@ class Stats(object):
 
         return X1
 
-    def check_impact(self, X, model_input):
+    @staticmethod
+    def check_impact(X, model_input):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
