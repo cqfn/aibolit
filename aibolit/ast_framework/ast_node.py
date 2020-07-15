@@ -41,6 +41,10 @@ class ASTNode:
         for child_index in self._graph.succ[self._node_index]:
             yield ASTNode(self._graph, child_index)
 
+    @property
+    def node_index(self) -> int:
+        return self._node_index
+
     def __getattr__(self, attribute_name: str):
         if attribute_name not in common_attributes:
             node_type = self._graph.nodes[self._node_index]['node_type']
