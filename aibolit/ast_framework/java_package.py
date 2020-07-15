@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 from cached_property import cached_property  # type: ignore
+from deprecated import deprecated  # type: ignore
 
 from typing import Dict
 
@@ -29,6 +30,7 @@ from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class import JavaClass
 
 
+@deprecated("This functionality must be transmitted to ASTNode")
 class JavaPackage(AST):
     def __init__(self, filename: str):
         ast = AST.build_from_javalang(build_ast(filename))
