@@ -41,5 +41,6 @@ class EmptyRethrow:
                     if throw_child.node_type == ASTNodeType.CLASS_CREATOR:
                         continue
                     if hasattr(throw_child, 'member') and throw_child.member in catch_classes:
-                            total_code_lines.add(throw_child.line)
-        return sorted(total_code_lines)
+                        total_code_lines.add(throw_child.line)
+
+        return sorted(list(total_code_lines))
