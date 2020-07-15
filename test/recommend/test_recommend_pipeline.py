@@ -248,6 +248,15 @@ class TestRecommendPipeline(TestCase):
             self.assertEqual(start, 37)
             self.assertEqual(end, 38)
 
+    def test_find_start_end_line_in_function2(self):
+        file = Path(self.cur_file_dir, 'start_end/UpDirective.java')
+        with open(file, 'r', encoding='utf-8') as f:
+            tree = javalang.parse.parse(f.read())
+            method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
+            start, end = find_start_and_end_lines(method)
+            self.assertEqual(start, 49)
+            self.assertEqual(end, 65)
+
     def test_find_start_end_line_in_class(self):
         file = Path(self.cur_file_dir, 'start_end/LottieImageAsset.java')
         with open(file, 'r', encoding='utf-8') as f:
