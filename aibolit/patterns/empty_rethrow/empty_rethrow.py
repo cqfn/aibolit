@@ -28,19 +28,16 @@ class EmptyRethrow:
     '''
     Check if we throw the same exception as it was caught
     '''
-
     def value(self, filename) -> List[int]:
         total_code_lines: Set[int] = set()
         ast = AST.build_from_javalang(build_ast(filename))
         for try_node in ast.get_proxy_nodes(ASTNodeType.TRY_STATEMENT):
             for throw_node in ast.get_proxy_nodes(ASTNodeType.THROW_STATEMENT):
-                field_catche = try_node.catches
-                if field_catche:
-                    catch_classes = [x.parameter.name for x in field_catche]
+                catch_clauses = try_node.catches
+                if catch_clauses:
+                    exceptions_catching_names = [x.parameter.name for x in catch_clauses]
                     throw_child = list(throw_node.children)[0]
-                    if throw_child.node_type == ASTNodeType.CLASS_CREATOR:
-                        continue
-                    if hasattr(throw_child, 'member') and throw_child.member in catch_classes:
+                    if hasattr(throw_child, 'member') and throw_child.member in exceptions_catching_names:
                         total_code_lines.add(throw_child.line)
 
         return sorted(list(total_code_lines))
