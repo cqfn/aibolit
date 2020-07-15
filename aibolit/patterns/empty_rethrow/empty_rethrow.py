@@ -21,7 +21,6 @@ class EmptyRethrow:
                         mem_ref = list(throw_node.children)[0]
                         if mem_ref.node_type == ASTNodeType.CLASS_CREATOR:
                             continue
-
                         else:
                             if hasattr(mem_ref, 'member') and mem_ref.member in catch_classes:
                                 total_code_lines.add(mem_ref.line)
