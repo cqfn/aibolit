@@ -1,7 +1,6 @@
-from typing import List
-from aibolit.types_decl import LineNumber
+from typing import Set, List
 from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.ast_framework.java_package import JavaPackage
+from aibolit.utils.ast_builder import build_ast
 
 
 class ClassicSetter:
@@ -19,29 +18,28 @@ class ClassicSetter:
         This statement is not-directed child of
         STATEMENT_EXPRESSION.
         '''
-        suitable_nodes = [
+        suitable_nodes: List[ASTNodeType] = [
             ASTNodeType.ASSERT_STATEMENT,
             ASTNodeType.STATEMENT_EXPRESSION,
         ]
         for node in body_nodes:
-            if ast.get_type(node.node_index) not in suitable_nodes:
+            if node.node_type not in suitable_nodes:
                 return False
         return True
 
-    def value(self, filename: str) -> List[LineNumber]:
-        lst: List[LineNumber] = []
-        ast = JavaPackage(filename)
-        method_decls = list(ast.get_nodes(ASTNodeType.METHOD_DECLARATION))
+    def value(self, filename: str) -> List[int]:
+        lst: Set[int] = set()
+        ast = AST.build_from_javalang(build_ast(filename))
+        method_decls = list(ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION))
         for node in method_decls:
-            method_name = ast.get_attr(node, 'name')
-            body_nodes = ast.get_attr(node, 'body')
-            if ast.get_attr(node, 'return_type') is None:
-                if method_name.startswith('set') and self.check_nodes(ast, body_nodes):
-                    for child_this in ast.get_nodes(ASTNodeType.THIS):
-                        child_membref = ast.get_attr(child_this, 'selectors')
+            method_name = node.name
+            if node.return_type is None:
+                if method_name.startswith('set') and self.check_nodes(ast, node.body):
+                    for child_this in ast.get_proxy_nodes(ASTNodeType.THIS):
+                        child_membref = child_this.selectors
                         if len(child_membref):
-                            referenced_name = ast.get_attr(child_membref[0].node_index, 'member')
-                            source_line = ast.get_attr(node, 'line')
-                            if method_name.lower()[3:] == referenced_name.lower() and source_line not in lst:
-                                lst.append(source_line)
-        return lst
+                            referenced_name = child_membref[0].member
+                            source_line = node.line
+                            if method_name.lower()[3:] == referenced_name.lower():
+                                lst.add(source_line)
+        return sorted(list(lst))
