@@ -42,6 +42,7 @@ class EmptyRethrow:
                     # which we must consider
                     if throw_child.node_type == ASTNodeType.CLASS_CREATOR:
                         continue
+
                     elif hasattr(throw_child, 'member') and throw_child.member in exceptions_catching_names:
                         total_code_lines.add(throw_child.line)
 
