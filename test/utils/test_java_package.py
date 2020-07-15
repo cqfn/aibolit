@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from unittest import TestCase
+from unittest import TestCase, skip
 from pathlib import Path
 
 from typing import Set
@@ -29,6 +29,7 @@ from aibolit.ast_framework import ASTNodeType
 from aibolit.ast_framework.java_package import JavaPackage
 
 
+@skip('JavaPackage class is deprecated')
 class JavaPackageTestCase(TestCase):
 
     def test_java_package_name(self):
