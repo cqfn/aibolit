@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from unittest import TestCase
+from unittest import TestCase, skip
 from pathlib import Path
 from itertools import zip_longest
 
@@ -45,12 +45,14 @@ class ASTTestSuite(TestCase):
                 self.assertEqual([node.node_index for node in actual_subtree],
                                  expected_subtree)
 
+    @skip('Method "get_member_reference_params" is deprecated')
     def test_member_reference_params(self):
         ast = self._build_ast("MemberReferencesExample.java")
         for node, expected_params in zip_longest(ast.get_nodes(ASTNodeType.MEMBER_REFERENCE),
                                                  ASTTestSuite._expected_member_reference_params):
             self.assertEqual(ast.get_member_reference_params(node), expected_params)
 
+    @skip('Method "get_method_invocation_params" is deprecated')
     def test_method_invocation_params(self):
         ast = self._build_ast("MethodInvokeExample.java")
         for node, expected_params in zip_longest(ast.get_nodes(ASTNodeType.METHOD_INVOCATION),

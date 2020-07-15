@@ -20,13 +20,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from unittest import TestCase
+from unittest import TestCase, skip
 from pathlib import Path
 
 from aibolit.ast_framework.java_package import JavaPackage
 from aibolit.ast_framework import ASTNodeType
 
 
+@skip('JavaClass is deprecated')
 class JavaClassTestCase(TestCase):
     def test_class_name(self):
         for filename, class_names in JavaClassTestCase._java_packages_with_class_names:
