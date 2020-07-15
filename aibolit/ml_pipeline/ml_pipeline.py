@@ -3,7 +3,7 @@ import shutil
 import subprocess
 from pathlib import Path
 import pickle
-from aibolit.model.model import TwoFoldRankingModel  # type: ignore
+from aibolit.model.model import PatternRankingModel  # type: ignore
 from aibolit.config import Config
 import pandas as pd  # type: ignore
 
@@ -94,7 +94,7 @@ def train_process():
     print("General number of features in config: ", features_number)
 
     train_dataset = pd.read_csv(Config.train_csv(), index_col=None)
-    model = TwoFoldRankingModel()
+    model = PatternRankingModel()
     features_conf = {
         "features_order": only_patterns,
         "patterns_only": only_patterns
@@ -114,7 +114,7 @@ def train_process():
     load_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
     print('Test loaded model from file {}:'.format(load_model_file))
     test_dataset = pd.read_csv(Config.test_csv(), index_col=None)
-    scaled_test_dataset = model.scale_dataset(test_dataset).sample(n=3, random_state=17)
+    scaled_test_dataset = model.scale_dataset(test_dataset).sample(n=10, random_state=17)
     # add ncss, ncss is needed in informative as a  last column
     X_test = scaled_test_dataset[only_patterns + ['M2']]
     with open(load_model_file, 'rb') as fid:

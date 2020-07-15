@@ -28,7 +28,6 @@ import numpy as np
 import pandas as pd
 
 from aibolit.config import Config
-from aibolit.model.model import TwoFoldRankingModel
 from aibolit.model.stats import Stats
 
 
@@ -69,7 +68,7 @@ class TestStats(TestCase):
     def __load_mock_model(self):
         load_model_file = Path(self.cur_file_dir, 'model.pkl')
         with open(load_model_file, 'rb') as fid:
-            model: TwoFoldRankingModel = pickle.load(fid)
+            model = pickle.load(fid)
             return model
 
     def test_stat_aibolit_pipeline(self):

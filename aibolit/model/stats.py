@@ -4,7 +4,7 @@ from typing import Dict, Any
 import numpy as np
 import pandas as pd
 from aibolit.config import Config
-from aibolit.model.model import TwoFoldRankingModel  # noqa: F401 type: ignore
+from aibolit.model.model import PatternRankingModel  # noqa: F401 type: ignore
 
 
 class Stats(object):

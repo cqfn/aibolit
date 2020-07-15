@@ -8,7 +8,7 @@ from sklearn.base import BaseEstimator
 from aibolit.config import Config
 
 
-class AibolitModel(BaseEstimator):
+class PatternRankingModel(BaseEstimator):
 
     def __init__(self):
         self.do_rename_columns = False

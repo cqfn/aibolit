@@ -22,13 +22,13 @@
 
 import numpy as np
 from unittest import TestCase
-from aibolit.model.model import TwoFoldRankingModel
+from aibolit.model.model import PatternRankingModel
 
 
 class TestModel(TestCase):
 
     def test_get_minimum(self):
-        ranking_model = TwoFoldRankingModel()
+        ranking_model = PatternRankingModel()
         c1 = np.array([1, 4, 5, 3, 6, 6, 4, 3, 1])
         c2 = np.array([1, 2, 7, 3, 8, 4, 5, 3, -1])
         c3 = np.array([1, 4, 5, 7, 6, 3, 0, -3, 1])
