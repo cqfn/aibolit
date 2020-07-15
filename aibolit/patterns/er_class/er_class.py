@@ -26,7 +26,7 @@ from typing import List
 
 class ErClass:
     '''
-    Description: If a class name is one of the following (or ends with this word), it's the pattern
+    Check if a class name include the forbidden word
     '''
     forbiden_words_in_class_names = (
         'manager',
@@ -47,7 +47,7 @@ class ErClass:
     def value(self, filename: str) -> List[int]:
         lines: List[int] = []
         ast = AST.build_from_javalang(build_ast(filename))
-        for node in list(ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION)):
+        for node in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
             names = []
             class_name = node.name.lower()
             if any(forbiden_word in class_name for forbiden_word in self.forbiden_words_in_class_names):
