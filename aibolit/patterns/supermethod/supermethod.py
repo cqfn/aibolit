@@ -1,28 +1,37 @@
-from aibolit.ast_framework.ast import ASTNodeType
-from aibolit.ast_framework.java_package import JavaPackage
+# The MIT License (MIT)
+#
+# Copyright (c) 2020 Aibolit
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 from typing import List
+
+from aibolit.ast_framework.ast import AST, ASTNodeType
+from aibolit.utils.ast_builder import build_ast
 
 
 class SuperMethod:
-
-    def __init__(self):
-        pass
-
     def value(self, filename: str) -> List[int]:
-        """
-        Iterates over functions and finds super.func() calls.
-        Javalang doesn't have code line for super.func() call,
-        that's why we can only count the first match of a call inside some function.
-        It has MULTIPLE MATCHES if we call super.func() inside a ANONYMOUS CLASS.
-        :param filename:
-        :return: Lines of code
-        """
-        results = []
-        tree = JavaPackage(filename)
-        for ast_method in tree.get_subtrees(ASTNodeType.METHOD_DECLARATION):
-            for statement in ast_method.get_nodes(ASTNodeType.STATEMENT_EXPRESSION):
-                code_line = ast_method.get_attr(statement, 'line')
-                all_super_methods = ast_method.children_with_type(statement, ASTNodeType.SUPER_METHOD_INVOCATION)
-                if len(list(all_super_methods)):
-                    results.append(code_line)
-        return results
+        ast = AST.build_from_javalang(build_ast(filename))
+        lines: List[int] = []
+        for statement in ast.get_proxy_nodes(ASTNodeType.STATEMENT_EXPRESSION):
+            if any(child.node_type == ASTNodeType.SUPER_METHOD_INVOCATION
+                    for child in statement.children):
+                lines.append(statement.line)
+        return lines

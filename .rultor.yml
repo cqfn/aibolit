@@ -15,6 +15,10 @@ deploy:
     echo There is nothing to deploy
     exit 1
 release:
+  commanders:
+    - lyriccoder
+    - aravij
+    - acheshkov
   script: |-
     sed -i "s/0\.0\.0/${tag}/g" aibolit/__init__.py
     git add aibolit/__init__.py
