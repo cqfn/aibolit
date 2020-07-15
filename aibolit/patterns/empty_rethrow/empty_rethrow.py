@@ -28,6 +28,7 @@ class EmptyRethrow:
     '''
     Check if we throw the same exception as it was caught
     '''
+
     def value(self, filename) -> List[int]:
         total_code_lines: Set[int] = set()
         ast = AST.build_from_javalang(build_ast(filename))
@@ -37,7 +38,11 @@ class EmptyRethrow:
                 if catch_clauses:
                     exceptions_catching_names = [x.parameter.name for x in catch_clauses]
                     throw_child = list(throw_node.children)[0]
-                    if hasattr(throw_child, 'member') and throw_child.member in exceptions_catching_names:
+                    # we check if it class creator which also has the member attr or the other
+                    # which we must consider
+                    if throw_child.node_type == ASTNodeType.CLASS_CREATOR:
+                        continue
+                    elif hasattr(throw_child, 'member') and throw_child.member in exceptions_catching_names:
                         total_code_lines.add(throw_child.line)
 
         return sorted(list(total_code_lines))
