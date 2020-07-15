@@ -32,7 +32,7 @@ class TestMethodChain(TestCase):
 
     def test_anonymous(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'Anonymous.java'))
-        self.assertEqual(lines, [28, 24])
+        self.assertEqual(lines, [24, 28])
 
     def test_empty(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'Empty.java'))
