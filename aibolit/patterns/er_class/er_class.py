@@ -51,7 +51,5 @@ class ErClass:
             names = []
             class_name = node.name.lower()
             if any(forbiden_word in class_name for forbiden_word in self.forbiden_words_in_class_names):
-                names.append(class_name)
-            if names:
                 lines.append(node.line)
         return lines
