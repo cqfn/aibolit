@@ -24,21 +24,19 @@ from collections import namedtuple
 from itertools import islice, repeat, chain
 
 from javalang.tree import Node
-from typing import Union, Any, Set, List, Iterator, Tuple, Dict, cast, NamedTuple
+from typing import Union, Any, Set, List, Iterator, Tuple, Dict, cast
 from networkx import DiGraph, dfs_labeled_edges  # type: ignore
+from deprecated import deprecated  # type: ignore
 
-from aibolit.ast_framework.ast_node_type import ASTNodeType, javalang_types_map, node_attributes_by_type
-
+from aibolit.ast_framework.ast_node_type import ASTNodeType
+from aibolit.ast_framework._auxiliary_data import javalang_to_ast_node_type, attributes_by_node_type, ASTNodeReference
+from aibolit.ast_framework.ast_node import ASTNode
 
 MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'method_name'])
 
 MemberReferenceParams = namedtuple('MemberReferenceParams', ('object_name', 'member_name', 'unary_operator'))
 
 BinaryOperationParams = namedtuple('BinaryOperationParams', ('operation', 'left_side', 'right_side'))
-
-
-class ASTNodeReference(NamedTuple):
-    node_index: int
 
 
 class AST:
@@ -73,6 +71,13 @@ class AST:
                 depth -= print_step
         return printed_graph
 
+    def get_root(self) -> ASTNode:
+        return ASTNode(self.tree, self.root)
+
+    def __iter__(self) -> Iterator[ASTNode]:
+        for node_index in self.tree.nodes:
+            yield ASTNode(self.tree, node_index)
+
     def get_subtrees(self, root_type: ASTNodeType) -> Iterator['AST']:
         '''
         Yields subtrees with given type of the root.
@@ -86,7 +91,7 @@ class AST:
             if edge_type == 'forward':
                 if is_inside_subtree:
                     subtree.append(destination)
-                elif self.tree.nodes[destination]['type'] == root_type:
+                elif self.tree.nodes[destination]['node_type'] == root_type:
                     subtree.append(destination)
                     is_inside_subtree = True
                     current_subtree_root = destination
@@ -96,22 +101,25 @@ class AST:
                 subtree = []
                 current_subtree_root = -1
 
+    @deprecated(reason='Use ASTNode functionality instead.')
     def children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
         '''
         Yields children of node with given type.
         '''
         for child in self.tree.succ[node]:
-            if self.tree.nodes[child]['type'] == child_type:
+            if self.tree.nodes[child]['node_type'] == child_type:
                 yield child
 
+    @deprecated(reason='Use ASTNode functionality instead.')
     def list_all_children_with_type(self, node: int, child_type: ASTNodeType) -> List[int]:
         list_node: List[int] = []
         for child in self.tree.succ[node]:
             list_node = list_node + self.list_all_children_with_type(child, child_type)
-            if self.tree.nodes[child]['type'] == child_type:
+            if self.tree.nodes[child]['node_type'] == child_type:
                 list_node.append(child)
         return sorted(list_node)
 
+    @deprecated(reason='Use ASTNode functionality instead.')
     def all_children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
         '''
         Yields all children of node with given type.
@@ -119,6 +127,7 @@ class AST:
         for child in self.list_all_children_with_type(node, child_type):
             yield child
 
+    @deprecated(reason='Use ASTNode functionality instead.')
     def get_first_n_children_with_type(self, node: int, child_type: ASTNodeType, quantity: int) -> List[int]:
         '''
         Returns first quantity of children of node with type child_type.
@@ -128,29 +137,40 @@ class AST:
         children_with_type_padded = chain(children_with_type, repeat(None))
         return list(islice(children_with_type_padded, 0, quantity))
 
+    @deprecated(reason='Use ASTNode functionality instead.')
     def get_binary_operation_name(self, node: int) -> str:
         assert(self.get_type(node) == ASTNodeType.BINARY_OPERATION)
         name_node, = islice(self.children_with_type(node, ASTNodeType.STRING), 1)
         return self.get_attr(name_node, 'string')
 
+    @deprecated(reason='Use ASTNode functionality instead.')
     def get_line_number_from_children(self, node: int) -> int:
         for child in self.tree.succ[node]:
-            cur_line = self.get_attr(child, 'line', -1)
-            if cur_line >= 0:
+            cur_line = self.get_attr(child, 'line')
+            if cur_line is not None:
                 return cur_line
         return 0
 
+    @deprecated(reason='Use get_proxy_nodes instead.')
     def get_nodes(self, type: Union[ASTNodeType, None] = None) -> Iterator[int]:
         for node in self.tree.nodes:
-            if type is None or self.tree.nodes[node]['type'] == type:
+            if type is None or self.tree.nodes[node]['node_type'] == type:
                 yield node
 
+    def get_proxy_nodes(self, type: ASTNodeType) -> Iterator[ASTNode]:
+        for node in self.tree.nodes:
+            if self.tree.nodes[node]['node_type'] == type:
+                yield ASTNode(self.tree, node)
+
+    @deprecated(reason='Use ASTNode functionality instead.')
     def get_attr(self, node: int, attr_name: str, default_value: Any = None) -> Any:
         return self.tree.nodes[node].get(attr_name, default_value)
 
+    @deprecated(reason='Use ASTNode functionality instead.')
     def get_type(self, node: int) -> ASTNodeType:
-        return self.get_attr(node, 'type')
+        return self.get_attr(node, 'node_type')
 
+    @deprecated(reason='Use ASTNode functionality instead.')
     def get_method_invocation_params(self, invocation_node: int) -> MethodInvocationParams:
         assert(self.get_type(invocation_node) == ASTNodeType.METHOD_INVOCATION)
         # first two STRING nodes represent object and method names
@@ -161,6 +181,7 @@ class AST:
         return MethodInvocationParams(self.get_attr(children[0], 'string'),
                                       self.get_attr(children[1], 'string'))
 
+    @deprecated(reason='Use ASTNode functionality instead.')
     def get_member_reference_params(self, member_reference_node: int) -> MemberReferenceParams:
         assert(self.get_type(member_reference_node) == ASTNodeType.MEMBER_REFERENCE)
         params = [self.get_attr(child, 'string') for child in
@@ -181,6 +202,7 @@ class AST:
 
         return member_reference_params
 
+    @deprecated(reason='Use ASTNode functionality instead.')
     def get_binary_operation_params(self, binary_operation_node: int) -> BinaryOperationParams:
         assert(self.get_type(binary_operation_node) == ASTNodeType.BINARY_OPERATION)
         operation_node, left_side_node, right_side_node = self.tree.succ[binary_operation_node]
@@ -227,14 +249,13 @@ class AST:
     @staticmethod
     def _add_javalang_standard_node(tree: DiGraph, javalang_node: Node) -> Tuple[int, ASTNodeType]:
         node_index = len(tree) + 1
-        node_type = javalang_types_map[type(javalang_node)]
+        node_type = javalang_to_ast_node_type[type(javalang_node)]
 
-        attr_names = node_attributes_by_type[node_type]
+        attr_names = attributes_by_node_type[node_type]
         attributes = {attr_name: getattr(javalang_node, attr_name) for attr_name in attr_names}
 
-        attributes['type'] = node_type
-        if javalang_node.position is not None:
-            attributes['line'] = javalang_node.position.line
+        attributes['node_type'] = node_type
+        attributes['line'] = javalang_node.position.line if javalang_node.position is not None else None
 
         tree.add_node(node_index, **attributes)
         return node_index, node_type
@@ -242,7 +263,7 @@ class AST:
     @staticmethod
     def _add_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:
         node_index = len(tree) + 1
-        tree.add_node(node_index, type=ASTNodeType.COLLECTION)
+        tree.add_node(node_index, node_type=ASTNodeType.COLLECTION)
         # we expect only strings in collection
         # we add them here as children
         for item in collection_node:
@@ -257,7 +278,7 @@ class AST:
     @staticmethod
     def _add_javalang_string_node(tree: DiGraph, string_node: str) -> int:
         node_index = len(tree) + 1
-        tree.add_node(node_index, type=ASTNodeType.STRING, string=string_node)
+        tree.add_node(node_index, node_type=ASTNodeType.STRING, string=string_node)
         return node_index
 
     @staticmethod
