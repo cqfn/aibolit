@@ -23,37 +23,34 @@
 from typing import List
 
 from aibolit.utils.ast_builder import build_ast
-from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
 class ReturnNull:
-
-    def __init__(self):
-        pass
-
-    def __check_null_in_return_args(self, node: int, tree: AST) -> bool:
-        for child1 in tree.children_with_type(node, ASTNodeType.LITERAL):
-            for child2 in tree.children_with_type(child1, ASTNodeType.STRING):
-                if tree.get_attr(child2, 'string') == 'null':
-                    return True
-        return False
-
-    def __check_null_in_return_statement(self, node: int, tree: AST) -> bool:
-        child_ternary = list(tree.children_with_type(node, ASTNodeType.TERNARY_EXPRESSION))
-        if len(child_ternary) > 0:
-            return self.__check_null_in_return_args(child_ternary[0], tree)
-        return self.__check_null_in_return_args(node, tree)
+    '''
+    FInds all return statements that returns null directly or by ternary operator.
+    NOTICE: nested ternary operators are not checked.
+    '''
 
     def value(self, filename: str) -> List[int]:
-        """
-        Travers over AST tree and finds pattern
-        :param filename:
-        """
-        tree = AST.build_from_javalang(build_ast(filename))
+        ast = AST.build_from_javalang(build_ast(filename))
         lines: List[int] = []
-        for node in tree.get_nodes(ASTNodeType.METHOD_DECLARATION):
-            for child in tree.children_with_type(node, ASTNodeType.RETURN_STATEMENT):
-                if self.__check_null_in_return_statement(child, tree):
-                    lines.append(tree.get_attr(child, 'line'))
+        for return_statement in ast.get_proxy_nodes(ASTNodeType.RETURN_STATEMENT):
+            if self._check_null_return_statement(return_statement):
+                lines.append(return_statement.line)
 
         return lines
+
+    def _check_null_return_statement(self, return_statement: ASTNode) -> bool:
+        # return statement with no expression `return;` does not return null
+        if return_statement.expression is None:
+            return False
+
+        if return_statement.expression.node_type == ASTNodeType.TERNARY_EXPRESSION:
+            return self._check_null_expression(return_statement.expression.if_true) or \
+                self._check_null_expression(return_statement.expression.if_false)
+
+        return self._check_null_expression(return_statement.expression)
+
+    def _check_null_expression(self, expression: ASTNode) -> bool:
+        return expression.node_type == ASTNodeType.LITERAL and expression.value == 'null'

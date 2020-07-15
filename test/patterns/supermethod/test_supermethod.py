@@ -54,7 +54,7 @@ class TestSuperMethod(TestCase):
 
     def test_constructor(self):
         file = str(Path(self.cur_file_dir, 'Constructor.java'))
-        self.assertEqual(len(self.testClass.value(file)), 0)
+        self.assertEqual(len(self.testClass.value(file)), 3)
 
     def test_complicated_constructor(self):
         file = str(Path(self.cur_file_dir, 'ComplicatedChainConstructor.java'))
