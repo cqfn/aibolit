@@ -23,7 +23,6 @@ import os
 import shutil
 from pathlib import Path
 from time import time
-from unittest import TestCase
 
 import pandas as pd
 
@@ -31,26 +30,26 @@ from aibolit.config import Config
 from aibolit.model.model import PatternRankingModel
 
 
-class IntegrationTestModel(TestCase):
+def test_model_training():
+    cur_file_dir = Path(os.path.realpath(__file__)).parent
+    config = Config.get_patterns_config()
 
-    def __init__(self, *args, **kwargs):
-        super(IntegrationTestModel, self).__init__(*args, **kwargs)
-        self.cur_file_dir = Path(os.path.realpath(__file__)).parent
-        self.config = Config.get_patterns_config()
+    model = PatternRankingModel()
+    train_dataset = Path(cur_file_dir, 'train/train_mock.csv')
+    train_df = pd.read_csv(train_dataset)
+    patterns = [x['code'] for x in config['patterns']]
+    model.features_conf = {'features_order': patterns}
+    scaled_df = model.scale_dataset(train_df)
+    start = time()
+    print('Start training...')
+    model.fit_regressor(scaled_df[patterns], scaled_df['M4'])
+    end = time()
+    print('End training. Elapsed time: {:.2f} secs'.format(end - start))
+    # this folder is created by catboost library, impossible to get rid of it
+    catboost_folder = Path(cur_file_dir, 'catboost_info')
+    if catboost_folder.exists():
+        shutil.rmtree(catboost_folder)
 
-    def test_model_training(self):
-        model = PatternRankingModel()
-        train_dataset = Path(self.cur_file_dir, 'train/train_mock.csv')
-        train_df = pd.read_csv(train_dataset)
-        patterns = [x['code'] for x in self.config['patterns']]
-        model.features_conf = {'features_order': patterns}
-        scaled_df = model.scale_dataset(train_df)
-        start = time()
-        print('Start training...')
-        model.fit_regressor(scaled_df[patterns], scaled_df['M4'])
-        end = time()
-        print('End training. Elapsed time: {:.2f} secs'.format(end - start))
-        # this folder is created by catboost library, impossible to get rid of it
-        catboost_folder = Path(self.cur_file_dir, 'catboost_info')
-        if catboost_folder.exists():
-            shutil.rmtree(catboost_folder)
+
+if __name__ == '__main__':
+    test_model_training()
