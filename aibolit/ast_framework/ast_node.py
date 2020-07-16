@@ -20,15 +20,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List, Iterator, TYPE_CHECKING
+from typing import List, Iterator
 
-from networkx import DiGraph, dfs_preorder_nodes  # type: ignore
-from cached_property import cached_property  # type: ignore
+from networkx import DiGraph  # type: ignore
 
 from aibolit.ast_framework._auxiliary_data import common_attributes, attributes_by_node_type, ASTNodeReference
-
-if TYPE_CHECKING:
-    from aibolit.ast_framework import AST
 
 
 class ASTNode:
@@ -44,12 +40,6 @@ class ASTNode:
     @property
     def node_index(self) -> int:
         return self._node_index
-
-    @cached_property
-    def subtree(self) -> 'AST':
-        subtree_nodes_indexes = dfs_preorder_nodes(self._graph, self._node_index)
-        subtree = self._graph.subgraph(subtree_nodes_indexes)
-        return AST(subtree, self._node_index)
 
     def __getattr__(self, attribute_name: str):
         if attribute_name not in common_attributes:
