@@ -21,29 +21,30 @@
 # SOFTWARE.
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
-from typing import List, Set
+from typing import List
+from aibolit.ast_framework.ast_node import ASTNode
 
 
 class EmptyRethrow:
     '''
     Check if we throw the same exception as it was caught
     '''
+    def _process_catch(self, ast: AST, catch_clauses: List[ASTNode]):
+        lines: List[int] = []
+        for catch_clause in catch_clauses:
+            throw_statements = ast.get_subtree(catch_clause).get_proxy_nodes(ASTNodeType.THROW_STATEMENT)
+            for throw_stat in throw_statements:
+                if throw_stat.expression.node_type == ASTNodeType.MEMBER_REFERENCE \
+                   and throw_stat.expression.member == catch_clause.parameter.name:
+                    lines.append(throw_stat.line)
+        return lines
 
     def value(self, filename) -> List[int]:
-        total_code_lines: Set[int] = set()
+        total_code_lines: List[int] = []
         ast = AST.build_from_javalang(build_ast(filename))
         for try_node in ast.get_proxy_nodes(ASTNodeType.TRY_STATEMENT):
-            for throw_node in ast.get_proxy_nodes(ASTNodeType.THROW_STATEMENT):
-                catch_clauses = try_node.catches
-                if catch_clauses:
-                    exceptions_catching_names = [x.parameter.name for x in catch_clauses]
-                    throw_child = list(throw_node.children)[0]
-                    # we check if it class creator which also has the member attr or the other
-                    # which we must consider
-                    if throw_child.node_type == ASTNodeType.CLASS_CREATOR:
-                        continue
+            catch_clauses = try_node.catches
+            if catch_clauses:
+                total_code_lines.extend(self._process_catch(ast, catch_clauses))
 
-                    elif hasattr(throw_child, 'member') and throw_child.member in exceptions_catching_names:
-                        total_code_lines.add(throw_child.line)
-
-        return sorted(list(total_code_lines))
+        return sorted(total_code_lines)
