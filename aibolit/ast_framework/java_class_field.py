@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 from cached_property import cached_property  # type: ignore
+from deprecated import deprecated  # type: ignore
 
 from typing import TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
@@ -31,6 +32,7 @@ if TYPE_CHECKING:
     from aibolit.ast_framework.java_class import JavaClass
 
 
+@deprecated("This functionality must be transmitted to ASTNode")
 class JavaClassField(AST):
     def __init__(self, tree: DiGraph, root: int, java_class: 'JavaClass'):
         self.tree = tree

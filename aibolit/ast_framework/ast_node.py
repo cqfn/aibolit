@@ -32,14 +32,14 @@ class ASTNode:
         self._graph = graph
         self._node_index = node_index
 
-    def __dir__(self) -> List[str]:
-        node_type = self._graph.nodes[self._node_index]['node_type']
-        return ['children'] + list(common_attributes) + list(attributes_by_node_type[node_type])
-
     @property
     def children(self) -> Iterator['ASTNode']:
         for child_index in self._graph.succ[self._node_index]:
             yield ASTNode(self._graph, child_index)
+
+    @property
+    def node_index(self) -> int:
+        return self._node_index
 
     def __getattr__(self, attribute_name: str):
         if attribute_name not in common_attributes:
@@ -55,6 +55,11 @@ class ASTNode:
             attribute = [ASTNode(self._graph, item.node_index) for item in attribute]
         return attribute
 
+    def __dir__(self) -> List[str]:
+        node_type = self._graph.nodes[self._node_index]['node_type']
+        return ASTNode._public_fixed_interface + \
+            list(common_attributes) + list(attributes_by_node_type[node_type])
+
     def __str__(self) -> str:
         text_representation = f'node index: {self._node_index}'
         node_type = self.__getattr__('node_type')
@@ -65,3 +70,6 @@ class ASTNode:
 
     def __repr__(self) -> str:
         return f'<ASTNode node_type: {self.__getattr__("node_type")}, node_index: {self._node_index}>'
+
+    # names of methods and properties, which is not generated dynamically
+    _public_fixed_interface = ['children', 'node_index', 'subtree']
