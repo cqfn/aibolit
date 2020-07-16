@@ -111,7 +111,7 @@ Total score: 127.67642529949538
 
 
 
-You can also choose xml format. It will have the same format as `text` mode, but xml will be created:
+You can also choose xml format. It will have the same format as `compact` mode, but xml will be created:
 
 ```xml
 <report>

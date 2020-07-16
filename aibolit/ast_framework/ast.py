@@ -25,7 +25,7 @@ from itertools import islice, repeat, chain
 
 from javalang.tree import Node
 from typing import Union, Any, Set, List, Iterator, Tuple, Dict, cast
-from networkx import DiGraph, dfs_labeled_edges  # type: ignore
+from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
 from deprecated import deprecated  # type: ignore
 
 from aibolit.ast_framework.ast_node_type import ASTNodeType
@@ -100,6 +100,11 @@ class AST:
                 yield AST(self.tree.subgraph(subtree), current_subtree_root)
                 subtree = []
                 current_subtree_root = -1
+
+    def get_subtree(self, node: ASTNode) -> 'AST':
+        subtree_nodes_indexes = dfs_preorder_nodes(self.tree, node.node_index)
+        subtree = self.tree.subgraph(subtree_nodes_indexes)
+        return AST(subtree, node.node_index)
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
