@@ -8,7 +8,7 @@ EXCLUDE_PATTERNS = ['P31', 'P32']
 EXCLUDE_METRICS = []
 
 current_path: str = os.path.dirname(os.path.realpath(__file__))
-print('Progress of testing: ')
+print('Processed files in testing:')
 
 for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
 
