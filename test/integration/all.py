@@ -18,7 +18,7 @@ for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
         try:
             path_to_file = os.path.join(current_path, 'samples', filename)
             pattern['make']().value(path_to_file)
-        except Exception:
+        except Exception as e:
             print(
                 "Error apply the pattern:",
                 pattern['name'],
@@ -26,6 +26,7 @@ for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
                 "to file",
                 filename
             )
+            print(e)
             sys.exit(1)
 
     for metric in Config.get_patterns_config()['metrics']:
@@ -34,7 +35,7 @@ for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
         try:
             path_to_file = os.path.join(current_path, 'samples', filename)
             metric['make']().value(path_to_file)
-        except Exception:
+        except Exception as e:
             print(
                 "Error apply the metric:",
                 metric['name'],
@@ -42,6 +43,7 @@ for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
                 "to file",
                 filename
             )
+            print(e)
             sys.exit(1)
 
 sys.exit(0)
