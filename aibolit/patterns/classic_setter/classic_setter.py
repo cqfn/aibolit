@@ -1,4 +1,4 @@
-from typing import Optional, List
+from typing import List
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework.ast_node import ASTNode
@@ -15,15 +15,14 @@ class ClassicSetter:
         ASTNodeType.STATEMENT_EXPRESSION,
     ]
 
-    def _process_this_statements(self, ast: AST, node: ASTNode) -> Optional[int]:
+    def _check_this_statements(self, ast: AST, node: ASTNode) -> bool:
         for child_this in ast.get_subtree(node).get_proxy_nodes(ASTNodeType.THIS):
             child_membref = child_this.selectors
             if len(child_membref):
                 mem_referenced_name = child_membref[0].member
-                source_line = node.line
                 if node.name.lower() == 'set' + mem_referenced_name.lower():
-                    return source_line
-        return None
+                    return True
+        return False
 
     def _check_body_nodes(self, check_setter_body: List[ASTNode]) -> bool:
         '''
@@ -40,7 +39,7 @@ class ClassicSetter:
         ast = AST.build_from_javalang(build_ast(filename))
         for node in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             method_name = node.name
-            if node.return_type is None and \
-                    method_name.startswith('set') and self._check_body_nodes(node.body):
-                lines.append(self._process_this_statements(ast, node))
-        return sorted(filter(None, lines))
+            if node.return_type is None and method_name.startswith('set') and \
+               self._check_body_nodes(node.body) and self._check_this_statements(ast, node):
+                lines.append(node.line)
+        return sorted(lines)
