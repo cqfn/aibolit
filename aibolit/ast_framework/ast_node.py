@@ -20,11 +20,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List, Iterator
+from typing import List, Iterator, TYPE_CHECKING
 
-from networkx import DiGraph  # type: ignore
+from networkx import DiGraph, dfs_preorder_nodes  # type: ignore
+from cached_property import cached_property  # type: ignore
 
 from aibolit.ast_framework._auxiliary_data import common_attributes, attributes_by_node_type, ASTNodeReference
+
+if TYPE_CHECKING:
+    from aibolit.ast_framework import AST
 
 
 class ASTNode:
@@ -32,14 +36,20 @@ class ASTNode:
         self._graph = graph
         self._node_index = node_index
 
-    def __dir__(self) -> List[str]:
-        node_type = self._graph.nodes[self._node_index]['node_type']
-        return ['children'] + list(common_attributes) + list(attributes_by_node_type[node_type])
-
     @property
     def children(self) -> Iterator['ASTNode']:
         for child_index in self._graph.succ[self._node_index]:
             yield ASTNode(self._graph, child_index)
+
+    @property
+    def node_index(self) -> int:
+        return self._node_index
+
+    @cached_property
+    def subtree(self) -> 'AST':
+        subtree_nodes_indexes = dfs_preorder_nodes(self._graph, self._node_index)
+        subtree = self._graph.subgraph(subtree_nodes_indexes)
+        return AST(subtree, self._node_index)
 
     def __getattr__(self, attribute_name: str):
         if attribute_name not in common_attributes:
@@ -55,6 +65,11 @@ class ASTNode:
             attribute = [ASTNode(self._graph, item.node_index) for item in attribute]
         return attribute
 
+    def __dir__(self) -> List[str]:
+        node_type = self._graph.nodes[self._node_index]['node_type']
+        return ASTNode._public_fixed_interface + \
+            list(common_attributes) + list(attributes_by_node_type[node_type])
+
     def __str__(self) -> str:
         text_representation = f'node index: {self._node_index}'
         node_type = self.__getattr__('node_type')
@@ -65,3 +80,6 @@ class ASTNode:
 
     def __repr__(self) -> str:
         return f'<ASTNode node_type: {self.__getattr__("node_type")}, node_index: {self._node_index}>'
+
+    # names of methods and properties, which is not generated dynamically
+    _public_fixed_interface = ['children', 'node_index', 'subtree']
