@@ -1,14 +1,18 @@
 import os
 import sys
 from aibolit.config import Config
+import time
+import tqdm
 
 # TODO: fix all errors in the patterns/metrics and make these lists empty
 EXCLUDE_PATTERNS = ['P31', 'P32']
 EXCLUDE_METRICS = []
 
 current_path: str = os.path.dirname(os.path.realpath(__file__))
-for filename in os.listdir(current_path + '/samples'):
+print('Progress of samples: ')
 
+for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
+    
     for pattern in Config.get_patterns_config()['patterns']:
         if pattern['code'] in EXCLUDE_PATTERNS:
             continue
