@@ -162,9 +162,9 @@ class AST:
             if type is None or self.tree.nodes[node]['node_type'] == type:
                 yield node
 
-    def get_proxy_nodes(self, type: ASTNodeType) -> Iterator[ASTNode]:
+    def get_proxy_nodes(self, *types: ASTNodeType) -> Iterator[ASTNode]:
         for node in self.tree.nodes:
-            if self.tree.nodes[node]['node_type'] == type:
+            if len(types) == 0 or self.tree.nodes[node]['node_type'] in types:
                 yield ASTNode(self.tree, node)
 
     @deprecated(reason='Use ASTNode functionality instead.')
