@@ -27,19 +27,34 @@ from time import time
 import pandas as pd
 
 from aibolit.config import Config
-from aibolit.model.model import PatternRankingModel
+from aibolit.model.model import PatternRankingModel, scale_dataset
+
+
+def generate_fake_dataset() -> pd.DataFrame:
+    config = Config.get_patterns_config()
+    patterns = [x['code'] for x in config['patterns']]
+    metrics = [x['code'] for x in config['metrics']]
+
+    train_df = pd.DataFrame(columns=patterns)
+    min_rows_for_train = 10
+    for x in range(min_rows_for_train):
+        p = {p: (x + i) for i, p in enumerate(patterns)}
+        m = {p: (x + i) for i, p in enumerate(metrics)}
+        row = {**p, **m}
+        train_df = train_df.append(row, ignore_index=True)
+
+    train_df = train_df.astype(float)
+    return train_df
 
 
 def test_model_training():
     cur_file_dir = Path(os.path.realpath(__file__)).parent
     config = Config.get_patterns_config()
-
     model = PatternRankingModel()
-    train_dataset = Path(cur_file_dir, 'train/train_mock.csv')
-    train_df = pd.read_csv(train_dataset)
     patterns = [x['code'] for x in config['patterns']]
+    train_df = generate_fake_dataset()
     model.features_conf = {'features_order': patterns}
-    scaled_df = model.scale_dataset(train_df)
+    scaled_df = scale_dataset(train_df, model.features_conf)
     start = time()
     print('Start training...')
     model.fit_regressor(scaled_df[patterns], scaled_df['M4'])

@@ -1,16 +1,16 @@
 import pickle
-from typing import Dict, Any
+from typing import Dict, Any, Tuple
 
 import numpy as np
 import pandas as pd
 from aibolit.config import Config
-from aibolit.model.model import PatternRankingModel  # noqa: F401 type: ignore
+from aibolit.model.model import PatternRankingModel, scale_dataset, get_minimum  # noqa: F401 type: ignore
 
 
 class Stats(object):
 
     @staticmethod
-    def aibolit_stat(test_csv: pd.DataFrame, model=None):
+    def aibolit_stat(test_csv: pd.DataFrame, model=None) -> pd.DataFrame:
         if not model:
             load_model_file = Config.folder_model_data()
             print('Loading model from file {}:'.format(load_model_file))
@@ -18,7 +18,7 @@ class Stats(object):
                 model = pickle.load(fid)
                 print('Model has been loaded successfully')
 
-        scaled_dataset = model.scale_dataset(test_csv)
+        scaled_dataset = scale_dataset(test_csv, model.features_conf)
         cleaned_dataset = scaled_dataset[model.features_conf['features_order'] + ['M2']]
         ranked, _, acts_complexity, acts = Stats.check_impact(
             cleaned_dataset.values,
@@ -29,7 +29,9 @@ class Stats(object):
         return Stats.get_table(model.features_conf['features_order'], m, p, acts_complexity)
 
     @staticmethod
-    def count_acts(acts, ranked):
+    def count_acts(
+            acts: np.array,
+            ranked: np.array) -> Tuple[np.array, np.array]:
         patterns_numbers = ranked[:, 0]
         # number of times when pattern was on first place,
         # if we decrease pattern by 1/ncss
@@ -45,7 +47,7 @@ class Stats(object):
         return m, p
 
     @staticmethod
-    def get_patterns_name():
+    def get_patterns_name() -> Dict[Any, Any]:
         only_patterns = []
         patterns_code = []
         config = Config.get_patterns_config()
@@ -63,8 +65,8 @@ class Stats(object):
     @staticmethod
     def get_table(
             features_conf: Dict[Any, Any],
-            m,
-            p,
+            m: np.array,
+            p: np.array,
             acts_complexity) -> pd.DataFrame:
         """
         Prints results, given with `check_impact`.
@@ -104,7 +106,9 @@ class Stats(object):
         return df
 
     @staticmethod
-    def divide_array(X, pattern_idx):
+    def split_dataset_by_pattern_value(
+            X: np.array,
+            pattern_idx: int) -> Tuple[np.array, np.array]:
         """ Divide dataset.
 
         :param X: dataset
@@ -124,29 +128,18 @@ class Stats(object):
         return np.array(nulls), np.array(not_nulls)
 
     @staticmethod
-    def get_minimum(c1, c2, c3):
-        """
-        Args:
-            c1, c2, c3: np.array with shape (number of snippets, ).
-        Returns:
-            c: np.array with shape (number of snippets, ) -
-            elemental minimum of 3 arrays.
-            number: np.array with shape (number of snippets, ) of
-            arrays' numbers with minimum elements.            .
-        """
-
-        c = np.vstack((c1, c2, c3))
-
-        return np.min(c, 0), np.argmin(c, 0)
-
-    @staticmethod
-    def get_array(arr, mask, i, incr):
+    def change_matrix_by_value(
+            arr: np.array,
+            mask: np.array,
+            i: int,
+            incr: np.array):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns).
             mask: np.array with shape (number of snippets, number of patterns).
             i: int, 0 <= i < number of patterns.
-            add: bool.
+            incr: matrix values to add.
+            mask: matrix of bools
         Returns:
             X1: modified np.array with shape (number of snippets, number of patterns).
         """
@@ -157,11 +150,14 @@ class Stats(object):
         return X1
 
     @staticmethod
-    def check_impact(X, model_input):
+    def check_impact(
+            X: np.array,
+            model_input: Any):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
                 (number of patterns, ).
+            model_input: model to use
         Returns:
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for each snippet of
@@ -169,6 +165,10 @@ class Stats(object):
             acts: np.array with shape (number of snippets, ) of
             numbers of necessary actions for complexity's decrement.
             0 - do not modify the pattern, 1 - decrease by 1, 2 - increase by 1.
+            importances: importances of patters
+            acts_complexity: matrix with number of time for each pattern when:
+                pattern was increased, complexity increased,
+                pattern was increased, complexity decreased, etc.
         """
 
         if X.ndim == 1:
@@ -183,13 +183,13 @@ class Stats(object):
         actions = np.zeros(X.shape)
         acts_complexity = np.zeros((X.shape[1], 6))
         for i in range(k):
-            nulls, not_nulls = Stats.divide_array(X, i)
+            nulls, not_nulls = Stats.split_dataset_by_pattern_value(X, i)
             mask = not_nulls > 0
-            dec_arr = Stats.get_array(not_nulls, mask, i, -1.0 / ncss[X[:, i] > 0])
+            dec_arr = Stats.change_matrix_by_value(not_nulls, mask, i, -1.0 / ncss[X[:, i] > 0])
             complexity_minus = model_input.model.predict(dec_arr)
-            incr_arr = Stats.get_array(not_nulls, mask, i, 1.0 / ncss[X[:, i] > 0])
+            incr_arr = Stats.change_matrix_by_value(not_nulls, mask, i, 1.0 / ncss[X[:, i] > 0])
             complexity_plus = model_input.model.predict(incr_arr)
-            c, number = Stats.get_minimum(complexity[X[:, i] > 0], complexity_minus, complexity_plus)
+            c, number = get_minimum(complexity[X[:, i] > 0], complexity_minus, complexity_plus)
             importances[:, i][X[:, i] > 0] = complexity[X[:, i] > 0] - c
             actions[:, i][X[:, i] > 0] = number
             acts_complexity[i, 0] += (complexity_minus < complexity[X[:, i] > 0]).sum()

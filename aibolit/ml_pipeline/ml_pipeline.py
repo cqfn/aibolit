@@ -3,7 +3,7 @@ import shutil
 import subprocess
 from pathlib import Path
 import pickle
-from aibolit.model.model import PatternRankingModel  # type: ignore
+from aibolit.model.model import PatternRankingModel, scale_dataset  # type: ignore
 from aibolit.config import Config
 import pandas as pd  # type: ignore
 
@@ -95,13 +95,16 @@ def train_process():
 
     train_dataset = pd.read_csv(Config.train_csv(), index_col=None)
     model = PatternRankingModel()
+    # At the moment we use use patterns as features,
+    # but in future features can be also some metrics.
+    # We should differ them for any purpose (scaling, etc.)
     features_conf = {
         "features_order": only_patterns,
         "patterns_only": only_patterns
     }
     model.features_conf = features_conf
     print('Scaling features...')
-    scaled_dataset = model.scale_dataset(train_dataset)
+    scaled_dataset = scale_dataset(train_dataset, model.features_conf)
     dataset = scaled_dataset[only_patterns]
     print('Training model...')
     model.fit_regressor(dataset, scaled_dataset['M4'])
@@ -114,14 +117,15 @@ def train_process():
     load_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
     print('Test loaded model from file {}:'.format(load_model_file))
     test_dataset = pd.read_csv(Config.test_csv(), index_col=None)
-    scaled_test_dataset = model.scale_dataset(test_dataset).sample(n=10, random_state=17)
-    # add ncss, ncss is needed in informative as a  last column
-    X_test = scaled_test_dataset[only_patterns + ['M2']]
     with open(load_model_file, 'rb') as fid:
         model_new = pickle.load(fid)
+        scaled_test_dataset = scale_dataset(test_dataset, model_new.feature_conf).sample(n=10, random_state=17)
         print('Model has been loaded successfully')
+        # add ncss, ncss is needed in informative as a  last column
+        X_test = scaled_test_dataset[only_patterns + ['M2']]
+
         for _, row in X_test.iterrows():
-            preds, importances = model_new.informative(row.values)
+            preds, importances = model_new.rank(row.values)
             print(preds)
     path_with_logs = Path(os.getcwd(), 'catboost_info')
     print('Removing path with catboost logs {}'.format(path_with_logs))

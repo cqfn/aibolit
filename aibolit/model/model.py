@@ -1,4 +1,5 @@
 from decimal import localcontext, ROUND_DOWN, Decimal
+from typing import Dict, Any, Tuple
 
 import numpy as np
 import pandas as pd
@@ -6,6 +7,53 @@ from catboost import CatBoost
 from sklearn.base import BaseEstimator
 
 from aibolit.config import Config
+
+
+def get_minimum(
+        c1: np.array,
+        c2: np.array,
+        c3: np.array) -> Tuple[np.array, np.array]:
+    """
+    Args:
+        c1, c2, c3: np.array with shape (number of snippets, ).
+    Returns:
+        c: np.array with shape (number of snippets, ) -
+        elemental minimum of 3 arrays.
+        number: np.array with shape (number of snippets, ) of
+        arrays' numbers with minimum elements.            .
+    """
+
+    c = np.vstack((c1, c2, c3))
+
+    return np.min(c, 0), np.argmin(c, 0)
+
+
+def scale_dataset(
+        df: pd.DataFrame,
+        features_conf: Dict[Any, Any],
+        scale_ncss=True) -> pd.DataFrame:
+    config = Config.get_patterns_config()
+    patterns_codes_set = set([x['code'] for x in config['patterns']])
+    metrics_codes_set = [x['code'] for x in config['metrics']]
+    exclude_features = set(config['patterns_exclude']).union(set(config['metrics_exclude']))
+    used_codes = set(features_conf['features_order'])
+    used_codes.add('M4')
+    not_scaled_codes = set(patterns_codes_set).union(set(metrics_codes_set)).difference(used_codes).difference(
+        exclude_features)
+    features_not_in_config = set(df.columns).difference(not_scaled_codes).difference(used_codes)
+    not_scaled_codes = sorted(not_scaled_codes.union(features_not_in_config))
+    codes_to_scale = sorted(used_codes)
+    if scale_ncss:
+        scaled_df = pd.DataFrame(
+            df[codes_to_scale].values / df['M2'].values.reshape((-1, 1)),
+            columns=codes_to_scale
+        )
+        not_scaled_df = df[not_scaled_codes]
+        input = pd.concat([scaled_df, not_scaled_df], axis=1)
+    else:
+        input = df
+
+    return input
 
 
 class PatternRankingModel(BaseEstimator):
@@ -42,34 +90,6 @@ class PatternRankingModel(BaseEstimator):
 
     def sigmoid(self, x):
         return 1 / (1 + np.exp(-x))
-
-    def scale_dataset(
-            self,
-            df: pd.DataFrame,
-            scale_ncss=True):
-
-        config = Config.get_patterns_config()
-        patterns_codes_set = set([x['code'] for x in config['patterns']])
-        metrics_codes_set = [x['code'] for x in config['metrics']]
-        exclude_features = set(config['patterns_exclude']).union(set(config['metrics_exclude']))
-        used_codes = set(self.features_conf['features_order'])
-        used_codes.add('M4')
-        not_scaled_codes = set(patterns_codes_set).union(set(metrics_codes_set)).difference(used_codes).difference(
-            exclude_features)
-        features_not_in_config = set(df.columns).difference(not_scaled_codes).difference(used_codes)
-        not_scaled_codes = sorted(not_scaled_codes.union(features_not_in_config))
-        codes_to_scale = sorted(used_codes)
-        if scale_ncss:
-            scaled_df = pd.DataFrame(
-                df[codes_to_scale].values / df['M2'].values.reshape((-1, 1)),
-                columns=codes_to_scale
-            )
-            not_scaled_df = df[not_scaled_codes]
-            input = pd.concat([scaled_df, not_scaled_df], axis=1)
-        else:
-            input = df
-
-        return input
 
     def __get_pairs(self, item, th: float, feature_importances=None):
         if not feature_importances:
@@ -122,22 +142,7 @@ class PatternRankingModel(BaseEstimator):
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
-    def get_minimum(self, c1, c2, c3):
-        """
-        Args:
-            c1, c2, c3: np.array with shape (number of snippets, ).
-        Returns:
-            c: np.array with shape (number of snippets, ) -
-            elemental minimum of 3 arrays.
-            number: np.array with shape (number of snippets, ) of
-            arrays' numbers with minimum elements.            .
-        """
-
-        c = np.vstack((c1, c2, c3))
-
-        return np.min(c, 0), np.argmin(c, 0)
-
-    def informative(self, snippet, scale=True, th=1.0):
+    def rank(self, snippet, scale=True, th=1.0):
         """
         Args:
             snippet: np.array with shape (number of snippets, number of patterns + 1),

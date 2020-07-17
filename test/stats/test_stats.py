@@ -19,8 +19,8 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+import math
 import os
-import pickle
 from pathlib import Path
 from unittest import TestCase
 
@@ -29,6 +29,7 @@ import pandas as pd
 
 from aibolit.config import Config
 from aibolit.model.stats import Stats
+from aibolit.model.model import get_minimum
 
 
 class TestStats(TestCase):
@@ -39,7 +40,7 @@ class TestStats(TestCase):
         self.config = Config.get_patterns_config()
 
     def test_get_minimum(self):
-        minimum_arr = Stats.get_minimum([0, 0.23, 0.45], [0.34, 0.01, 0.37], [0.01, 0.50, 0.2])
+        minimum_arr = get_minimum([0, 0.23, 0.45], [0.34, 0.01, 0.37], [0.01, 0.50, 0.2])
         self.assertTrue(np.array_equal(minimum_arr[0], np.array([0, 0.01, 0.2])))
         self.assertTrue(np.array_equal(minimum_arr[1], np.array([0, 1, 2])))
 
@@ -49,7 +50,7 @@ class TestStats(TestCase):
         x = np.array(lst)
         mask = x > 0
         ncss = np.array([0.01, 0.02])
-        res = Stats.get_array(x, mask, 2, ncss)
+        res = Stats.change_matrix_by_value(x, mask, 2, ncss)
         self.assertTrue(
             np.array_equal(
                 res,
@@ -58,18 +59,37 @@ class TestStats(TestCase):
             )
         )
 
-    def test_divide_array(self):
+    def test_split_dataset_by_pattern_value(self):
         x = [[0, 0, 0], [0, 0, 1], [1, 1, 2]]
-        nulls, not_nulls = Stats.divide_array(x, 2)
+        nulls, not_nulls = Stats.split_dataset_by_pattern_value(x, 2)
         self.assertTrue(np.array_equal(nulls[0], np.array([0, 0, 0])))
         self.assertTrue(np.array_equal(not_nulls[0], np.array([0, 0, 1])))
         self.assertTrue(np.array_equal(not_nulls[1], np.array([1, 1, 2])))
 
     def __load_mock_model(self):
-        load_model_file = Path(self.cur_file_dir, 'model.pkl')
-        with open(load_model_file, 'rb') as fid:
-            model = pickle.load(fid)
-            return model
+        config = Config.get_patterns_config()
+        patterns = [x['code'] for x in config['patterns']]
+
+        class MockModel:
+
+            def predict(self, input: np.array) -> np.array:
+                results = []
+                for row in input:
+                    s = sum(row)
+                    radian = math.radians(s)
+                    results.append(math.sin(radian))
+                return np.array(results)
+
+        class PatternRankingModel:
+
+            def __init__(self):
+                self.features_conf = {
+                    'features_order': patterns,
+                    'patterns_only': patterns
+                }
+                self.model = MockModel()
+
+        return PatternRankingModel()
 
     def test_stat_aibolit_pipeline(self):
         model = self.__load_mock_model()

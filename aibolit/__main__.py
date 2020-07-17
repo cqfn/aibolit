@@ -72,7 +72,7 @@ def predict(input_params, model, args):
     # deepcode ignore ExpectsIntDislikesStr: false-positive recommendation of deepcode
     input = [input_params[i] for i in features_order] + [input_params['M2']]
     th = float(args.threshold) or 1.0
-    preds, importances = model.informative(input, th=th)
+    preds, importances = model.rank(input, th=th)
 
     return {features_order[int(x)]: int(x) for x in preds}, list(importances)
 
