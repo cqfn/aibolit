@@ -74,5 +74,14 @@ class ASTNode:
     def __repr__(self) -> str:
         return f'<ASTNode node_type: {self.__getattr__("node_type")}, node_index: {self._node_index}>'
 
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, ASTNode):
+            raise NotImplementedError(f'ASTNode support comparission only with themselves, \
+                                        but {type(other)} was provided.')
+        return self._graph == other._graph and self._node_index == other._node_index
+
+    def __hash__(self):
+        return hash(self._node_index)
+
     # names of methods and properties, which is not generated dynamically
     _public_fixed_interface = ['children', 'node_index', 'subtree']
