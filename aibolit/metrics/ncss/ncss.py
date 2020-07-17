@@ -39,8 +39,8 @@ class NCSSMetric():
                                         *NCSSMetric._declarations_node_types,
                                         *NCSSMetric._misc_node_types):
             metric += 1
-            if node.node_type == ASTNodeType.IF_STATEMENT:
-                metric += self._count_else_statements(node)
+            if node.node_type == ASTNodeType.IF_STATEMENT and self._has_pure_else_statements(node):
+                metric += 1
 
         for try_statement in ast.get_proxy_nodes(ASTNodeType.TRY_STATEMENT):
             if self._has_finally_block(try_statement):
@@ -48,25 +48,15 @@ class NCSSMetric():
 
         return metric
 
-    def _count_else_statements(self, if_statement: ASTNode) -> int:
+    def _has_pure_else_statements(self, if_statement: ASTNode) -> bool:
+        '''
+        Checks is there else branch.
+        If else branch appeared to be "else if" construction (not pure "else"),
+        returns False.
+        '''
         assert(if_statement.node_type == ASTNodeType.IF_STATEMENT)
-        else_statements_qty = 0
-        # elif_statement might be:
-        # - None, if there is no "else" branch
-        # - BLOCK_STATEMENT, if there is "else" branch
-        # - IF_STATEMENT, if there is "elif" branch
-        elif_statement = if_statement.else_statement
-
-        # iterating over sequence of "elif" branches
-        while elif_statement is not None and elif_statement.node_type == ASTNodeType.IF_STATEMENT:
-            else_statements_qty += 1
-            elif_statement = elif_statement.else_statement
-
-        # check for the possible "else" branch in the end of "elif" sequence
-        if elif_statement is not None:
-            else_statements_qty += 1
-
-        return else_statements_qty
+        return if_statement.else_statement is not None and \
+            if_statement.else_statement.node_type != ASTNodeType.IF_STATEMENT
 
     def _has_finally_block(self, try_statement: ASTNode) -> bool:
         assert(try_statement.node_type == ASTNodeType.TRY_STATEMENT)

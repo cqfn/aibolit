@@ -54,3 +54,21 @@ class TestNCSSMetric(unittest.TestCase):
         metric = NCSSMetric()
         res = metric.value(file)
         self.assertEqual(res, 18)
+
+    def testChainedIfElse(self):
+        file = 'test/metrics/ncss/ChainedIfElse.java'
+        metric = NCSSMetric()
+        res = metric.value(file)
+        self.assertEqual(res, 11)
+
+    def testChainedIfElseWithTrailingElse(self):
+        file = 'test/metrics/ncss/ChainedIfElseWithTrailingElse.java'
+        metric = NCSSMetric()
+        res = metric.value(file)
+        self.assertEqual(res, 12)
+
+    def testFinallyBlock(self):
+        file = 'test/metrics/ncss/FinallyBlock.java'
+        metric = NCSSMetric()
+        res = metric.value(file)
+        self.assertEqual(res, 6)
