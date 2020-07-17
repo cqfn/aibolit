@@ -25,8 +25,7 @@ for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
                 pattern['code'],
                 "to file",
                 filename,
-                '\n',
-                e
+                f'\nReason: {e}',
             )
             sys.exit(1)
 
@@ -43,8 +42,7 @@ for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
                 metric['code'],
                 "to file",
                 filename,
-                '\n',
-                e
+                f'\nReason: {e}',
             )
             sys.exit(1)
 
