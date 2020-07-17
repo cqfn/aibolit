@@ -20,11 +20,8 @@ for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
             pattern['make']().value(path_to_file)
         except Exception as e:
             print(
-                "Error apply the pattern:",
-                pattern['name'],
-                pattern['code'],
-                "to file",
-                filename,
+                f"Error in application of the pattern: {pattern['name']} \
+                    with code {pattern['code']} for file {filename}",
                 f'\nReason: {e}',
             )
             sys.exit(1)
@@ -37,11 +34,8 @@ for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
             metric['make']().value(path_to_file)
         except Exception as e:
             print(
-                "Error apply the metric:",
-                metric['name'],
-                metric['code'],
-                "to file",
-                filename,
+                f"Error in application of the metric: {metric['name']} \
+                    with code {metric['code']} for file {filename}",
                 f'\nReason: {e}',
             )
             sys.exit(1)
