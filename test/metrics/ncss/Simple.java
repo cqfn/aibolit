@@ -1,9 +1,11 @@
-import java.util.Collections;       
-import java.io.IOException;         
+// Total NCSS = 2
 
-class Foo {                       
-  
-  public void bigMethod() {
+import java.util.Collections;
+import java.io.IOException;
+
+class Foo {                 // +1
+
+  public void bigMethod() { // +1
   }
 }
 

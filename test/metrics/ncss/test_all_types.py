@@ -47,10 +47,10 @@ class TestNCSSMetric(unittest.TestCase):
         file = 'test/metrics/ncss/SimpleExample.java'
         metric = NCSSMetric()
         res = metric.value(file)
-        self.assertEqual(res, 16)
+        self.assertEqual(res, 17)
 
     def testSimpleExample2(self):
         file = 'test/metrics/ncss/SimpleExample2.java'
         metric = NCSSMetric()
         res = metric.value(file)
-        self.assertEqual(res, 16)
+        self.assertEqual(res, 18)
