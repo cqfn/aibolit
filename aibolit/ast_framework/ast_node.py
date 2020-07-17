@@ -64,7 +64,10 @@ class ASTNode:
         text_representation = f'node index: {self._node_index}'
         node_type = self.__getattr__('node_type')
         for attribute_name in sorted(common_attributes | attributes_by_node_type[node_type]):
-            text_representation += f'\n{attribute_name}: {self.__getattr__(attribute_name)}'
+            attribute_value = self.__getattr__(attribute_name)
+            attribute_representation = \
+                repr(attribute_value) if isinstance(attribute_value, ASTNode) else str(attribute_value)
+            text_representation += f'\n{attribute_name}: {attribute_representation}'
 
         return text_representation
 
