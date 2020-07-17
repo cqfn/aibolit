@@ -24,9 +24,10 @@ for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
                 pattern['name'],
                 pattern['code'],
                 "to file",
-                filename
+                filename,
+                '\n',
+                e
             )
-            print(e)
             sys.exit(1)
 
     for metric in Config.get_patterns_config()['metrics']:
@@ -41,9 +42,10 @@ for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
                 metric['name'],
                 metric['code'],
                 "to file",
-                filename
+                filename,
+                '\n',
+                e
             )
-            print(e)
             sys.exit(1)
 
 sys.exit(0)
