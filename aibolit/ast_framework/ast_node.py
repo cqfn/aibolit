@@ -64,12 +64,24 @@ class ASTNode:
         text_representation = f'node index: {self._node_index}'
         node_type = self.__getattr__('node_type')
         for attribute_name in sorted(common_attributes | attributes_by_node_type[node_type]):
-            text_representation += f'\n{attribute_name}: {self.__getattr__(attribute_name)}'
+            attribute_value = self.__getattr__(attribute_name)
+            attribute_representation = \
+                repr(attribute_value) if isinstance(attribute_value, ASTNode) else str(attribute_value)
+            text_representation += f'\n{attribute_name}: {attribute_representation}'
 
         return text_representation
 
     def __repr__(self) -> str:
         return f'<ASTNode node_type: {self.__getattr__("node_type")}, node_index: {self._node_index}>'
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, ASTNode):
+            raise NotImplementedError(f'ASTNode support comparission only with themselves, \
+                                        but {type(other)} was provided.')
+        return self._graph == other._graph and self._node_index == other._node_index
+
+    def __hash__(self):
+        return hash(self._node_index)
 
     # names of methods and properties, which is not generated dynamically
     _public_fixed_interface = ['children', 'node_index', 'subtree']
