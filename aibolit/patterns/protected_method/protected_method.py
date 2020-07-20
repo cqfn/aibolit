@@ -30,7 +30,6 @@ class ProtectedMethod:
     Once we find a protected method in a class, it's a pattern.
     '''
     def _check_protected(self, node: ASTNode) -> bool:
-        print(node.modifiers)
         if all(type in node.modifiers for type in ['protected']):
             return True
         return False
