@@ -17,6 +17,7 @@ unittest:
 
 integrationtest:
 	python3 ./test/integration/all.py
+	./test/integration/check.sh
 
 install:
 	python3 -m pip install .
