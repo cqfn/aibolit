@@ -1,5 +1,6 @@
 import os
 import sys
+import numpy as np
 from aibolit.config import Config
 import tqdm
 
@@ -10,7 +11,7 @@ EXCLUDE_METRICS = []
 current_path: str = os.path.dirname(os.path.realpath(__file__))
 print('Processed files in testing:')
 
-for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
+for filename in tqdm.tqdm([current_path + '/samples/Assertions.java']):
 
     for pattern in Config.get_patterns_config()['patterns']:
         if pattern['code'] in EXCLUDE_PATTERNS:
