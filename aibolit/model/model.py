@@ -28,6 +28,23 @@ def get_minimum(
     return np.min(c, 0), np.argmin(c, 0)
 
 
+def generate_fake_dataset() -> pd.DataFrame:
+    config = Config.get_patterns_config()
+    patterns = [x['code'] for x in config['patterns']]
+    metrics = [x['code'] for x in config['metrics']]
+
+    train_df = pd.DataFrame(columns=patterns)
+    min_rows_for_train = 10
+    for x in range(min_rows_for_train):
+        p = {p: (x + i) for i, p in enumerate(patterns)}
+        m = {p: (x + i) for i, p in enumerate(metrics)}
+        row = {**p, **m}
+        train_df = train_df.append(row, ignore_index=True)
+
+    train_df = train_df.astype(float)
+    return train_df
+
+
 def scale_dataset(
         df: pd.DataFrame,
         features_conf: Dict[Any, Any],

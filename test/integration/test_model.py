@@ -24,27 +24,8 @@ import shutil
 from pathlib import Path
 from time import time
 
-import pandas as pd
-
 from aibolit.config import Config
-from aibolit.model.model import PatternRankingModel, scale_dataset
-
-
-def generate_fake_dataset() -> pd.DataFrame:
-    config = Config.get_patterns_config()
-    patterns = [x['code'] for x in config['patterns']]
-    metrics = [x['code'] for x in config['metrics']]
-
-    train_df = pd.DataFrame(columns=patterns)
-    min_rows_for_train = 10
-    for x in range(min_rows_for_train):
-        p = {p: (x + i) for i, p in enumerate(patterns)}
-        m = {p: (x + i) for i, p in enumerate(metrics)}
-        row = {**p, **m}
-        train_df = train_df.append(row, ignore_index=True)
-
-    train_df = train_df.astype(float)
-    return train_df
+from aibolit.model.model import PatternRankingModel, scale_dataset, generate_fake_dataset
 
 
 def test_model_training():

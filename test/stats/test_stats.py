@@ -29,7 +29,7 @@ import pandas as pd
 
 from aibolit.config import Config
 from aibolit.model.stats import Stats
-from aibolit.model.model import get_minimum
+from aibolit.model.model import get_minimum, generate_fake_dataset
 
 
 class TestStats(TestCase):
@@ -93,11 +93,11 @@ class TestStats(TestCase):
 
     def test_stat_aibolit_pipeline(self):
         model = self.__load_mock_model()
-        test_csv = Path(self.cur_file_dir, 'test_dataset.csv')
-        test_df = pd.read_csv(test_csv)
+        test_df = generate_fake_dataset()
         table = Stats.aibolit_stat(test_df, model)
         test_csv = Path(self.cur_file_dir, 'results_test.csv')
         results_df = pd.read_csv(test_csv, index_col=0)
         all_elements_compared: pd.DataFrame = table.eq(results_df)
-        are_equal = np.equal.reduce(np.ravel(all_elements_compared.values))
-        self.assertTrue(are_equal)
+        bool_eq_elems = np.ravel(all_elements_compared.values)
+        are_equal_arrays = np.logical_and.reduce(bool_eq_elems, axis=0)
+        self.assertTrue(are_equal_arrays)
