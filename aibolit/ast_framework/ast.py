@@ -56,19 +56,21 @@ class AST:
     def __str__(self) -> str:
         printed_graph = ''
         depth = 0
-        print_step = 4
         for _, destination, edge_type in dfs_labeled_edges(self.tree, self.root):
             if edge_type == 'forward':
-                if depth > 0:
-                    printed_graph += ' ' * depth + '|---'
-                node_type = self.get_type(destination)
-                printed_graph += str(node_type)
+                printed_graph += '|   ' * depth
+                node_type = self.tree.nodes[destination]['node_type']
+                printed_graph += str(node_type) + ': '
                 if node_type == ASTNodeType.STRING:
-                    printed_graph += ': ' + self.get_attr(destination, 'string')
+                    printed_graph += self.tree.nodes[destination]['string'] + ', '
+                printed_graph += f'node index = {destination}'
+                node_line = self.tree.nodes[destination]['line']
+                if node_line is not None:
+                    printed_graph += f', line = {node_line}'
                 printed_graph += '\n'
-                depth += print_step
+                depth += 1
             elif edge_type == 'reverse':
-                depth -= print_step
+                depth -= 1
         return printed_graph
 
     def get_root(self) -> ASTNode:
