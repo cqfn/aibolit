@@ -29,13 +29,13 @@ class ProtectedMethod:
     '''
     Once we find a protected method in a class, it's a pattern.
     '''
-    def _check_protected(self, node: ASTNode):
+    def _check_protected(self, node: ASTNode) -> bool:
         print(node.modifiers)
         if all(type in node.modifiers for type in ['protected']):
             return True
         return False
 
-    def value(self, filename: str):
+    def value(self, filename: str) -> List[int]:
         lines: List[int] = []
         ast = AST.build_from_javalang(build_ast(filename))
         for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
