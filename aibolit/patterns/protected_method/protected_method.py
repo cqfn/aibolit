@@ -22,23 +22,17 @@
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
 from typing import List
-from aibolit.ast_framework.ast_node import ASTNode
 
 
 class ProtectedMethod:
     '''
     Once we find a protected method in a class, it's a pattern.
     '''
-    def _check_protected(self, node: ASTNode) -> bool:
-        if all(type in node.modifiers for type in ['protected']):
-            return True
-        return False
-
     def value(self, filename: str) -> List[int]:
         lines: List[int] = []
         ast = AST.build_from_javalang(build_ast(filename))
         for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
-            if self._check_protected(method_declaration):
+            if 'protected' in method_declaration.modifiers:
                 lines.append(method_declaration.line)
 
         return lines
