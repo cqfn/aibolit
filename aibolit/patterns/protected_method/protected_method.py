@@ -34,5 +34,4 @@ class ProtectedMethod:
         for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             if 'protected' in method_declaration.modifiers:
                 lines.append(method_declaration.line)
-
         return lines
