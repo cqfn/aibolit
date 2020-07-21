@@ -20,9 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List, Iterator
+from typing import List, Iterator, Optional
 
-from networkx import DiGraph  # type: ignore
+from networkx import DiGraph, dfs_preorder_nodes  # type: ignore
+from cached_property import cached_property  # type: ignore
 
 from aibolit.ast_framework._auxiliary_data import common_attributes, attributes_by_node_type, ASTNodeReference
 
@@ -40,6 +41,32 @@ class ASTNode:
     @property
     def node_index(self) -> int:
         return self._node_index
+
+    @cached_property
+    def line(self) -> int:
+        children_lines: List[int] = [
+            self._get_line(child_index)  # type: ignore # all Nones filtered out in list comprehension
+            for child_index in dfs_preorder_nodes(self._graph, self._node_index)
+            if self._get_line(child_index) is not None
+        ]
+
+        # try to find source code line information from nodes reachable from self
+        if children_lines:
+            return min(children_lines)
+
+        # try to  find source code line information from parents up to the root
+        line = self._get_line(self._node_index)
+        parent_index = self._get_parent(self._node_index)
+        while line is None and parent_index is not None:
+            line = self._get_line(parent_index)
+            parent_index = self._get_parent(parent_index)
+
+        if line is not None:
+            return line
+
+        raise RuntimeError(f"Failed to retrieve source code line information for {repr(self)} node. "
+                           "All nodes in a path from root to it and all nodes, reachable from it, "
+                           "does not have any source code line information either.")
 
     def __getattr__(self, attribute_name: str):
         if attribute_name not in common_attributes:
@@ -83,5 +110,12 @@ class ASTNode:
     def __hash__(self):
         return hash(self._node_index)
 
+    def _get_line(self, node_index: int) -> Optional[int]:
+        return self._graph.nodes[node_index]['line']
+
+    def _get_parent(self, node_index: int) -> Optional[int]:
+        # there is maximum one parent in a tree
+        return next(self._graph.predecessors(node_index), None)
+
     # names of methods and properties, which is not generated dynamically
-    _public_fixed_interface = ['children', 'node_index', 'subtree']
+    _public_fixed_interface = ['children', 'node_index', 'subtree', 'line']
