@@ -22,22 +22,16 @@
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
 from typing import List
-from aibolit.ast_framework.ast_node import ASTNode
 
 
 class NonFinalAttribute:
     '''
     return lines of non-final attributes
     '''
-    def _check_final(self, field: ASTNode) -> bool:
-        if 'final' not in field.modifiers:
-            return True
-        return False
-
     def value(self, filename: str) -> List[int]:
         lines: List[int] = []
         ast = AST.build_from_javalang(build_ast(filename))
         for field in ast.get_proxy_nodes(ASTNodeType.FIELD_DECLARATION):
-            if self._check_final(field):
+            if 'final' not in field.modifiers:
                 lines.append(field.line)
         return lines
