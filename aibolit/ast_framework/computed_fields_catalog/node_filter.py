@@ -36,6 +36,7 @@ def _create_filter(
                 f"Failed computing ASTNode field based on {base_field_name} field. "
                 f"Expected list, but got {base_field} of type {type(base_field)}."
             )
+
         for node in base_field:
             if isinstance(node, ASTNode) and node.node_type in node_types:
                 yield node
@@ -75,16 +76,12 @@ computed_fields_registry.register(
 computed_fields_registry.register(
     _create_filter("declarations", ASTNodeType.METHOD_DECLARATION),
     "methods",
-    ASTNodeType.CLASS_DECLARATION,
-    ASTNodeType.INTERFACE_DECLARATION,
-    ASTNodeType.ANNOTATION_DECLARATION,
+    ASTNodeType.ENUM_DECLARATION,
 )
 
 
 computed_fields_registry.register(
     _create_filter("declarations", ASTNodeType.FIELD_DECLARATION),
     "fields",
-    ASTNodeType.CLASS_DECLARATION,
-    ASTNodeType.INTERFACE_DECLARATION,
-    ASTNodeType.ANNOTATION_DECLARATION,
+    ASTNodeType.ENUM_DECLARATION,
 )
