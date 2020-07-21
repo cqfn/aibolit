@@ -17,6 +17,8 @@ unittest:
 
 integrationtest:
 	python3 ./test/integration/all.py
+	chmod 777 ./test/integration/test_recommend.sh
+	./test/integration/test_recommend.sh
 
 install:
 	python3 -m pip install .
