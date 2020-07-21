@@ -29,16 +29,11 @@ class PrivateStaticMethod:
     '''
     Once you see a 'private static' method, it's a pattern.
     '''
-    def _check_private_static(self, node: ASTNode) -> bool:
-        if all(type in node.modifiers for type in ['private', 'static']):
-            return True
-        return False
-
     def value(self, filename: str) -> List[int]:
         lines: List[int] = []
         ast = AST.build_from_javalang(build_ast(filename))
         for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
-            if self._check_private_static(method_declaration):
+            if {'private', 'static'}.issubset(method_declaration.modifiers):
                 lines.append(method_declaration.line)
 
         return lines
