@@ -26,16 +26,27 @@ participant "train" as train
 participant "collect_dataset" as collect_dataset
 participant "model" as model
 participant "test_dataset" as test_dataset
+participant "Config" as Config
+participant "run_cmd" as run_cmd
+activate main
 activate train
 main -> train: if not args.skip_collect_dataset:
-activate train
 train -> collect_dataset
-collect_dataset -> collect_dataset: external call 02-filter-and-move.py via make
-collect_dataset -> collect_dataset: external call 04-find-patterns.py via make
-collect_dataset -> collect_dataset: external call 06-calculate-halstead.py via make
-collect_dataset -> collect_dataset: external call 07-merge.py via make
-collect_dataset -> collect_dataset: external call 08-split.py via make
-deactivate train
+activate collect_dataset
+collect_dataset -> run_cmd: external call 02-filter-and-move.py via make
+
+collect_dataset -> make_patterns
+make_patterns -> run_cmd: external call 04-find-patterns.py via make
+activate Config
+make_patterns -> Config: dataset_file()
+Config -> make_patterns: file for saving results of 04-find-patterns.py
+deactivate Config
+
+collect_dataset -> run_cmd: external call 06-calculate-halstead.py via make
+collect_dataset -> run_cmd: external call 07-merge.py via make
+collect_dataset -> run_cmd: external call 08-split.py via make
+
+deactivate collect_dataset
 |||
 main -> train_process
 activate train_process
@@ -57,4 +68,6 @@ train_process -> train_process: remove trash catboost folder
 deactivate train_process
 train_process -> train
 train -> main
+deactivate train
+deactivate main
 @enduml
