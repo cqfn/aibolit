@@ -1,14 +1,36 @@
+# The MIT License (MIT)
+#
+# Copyright (c) 2020 Aibolit
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 import os
 import sys
-import numpy as np
-from aibolit.config import Config
-import tqdm
-from pathlib import Path
-import glob
+from typing import List
 
-# TODO: fix all errors in the patterns/metrics and make these lists empty
-EXCLUDE_PATTERNS = []
-EXCLUDE_METRICS = []
+import numpy as np
+import tqdm
+
+from aibolit.config import Config
+
+EXCLUDE_PATTERNS: List[str] = []
+EXCLUDE_METRICS: List[str] = []
 
 current_path: str = os.path.dirname(os.path.realpath(__file__))
 print('Processed files in testing:')
@@ -28,7 +50,7 @@ for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
                   f'with code {pattern["code"]} for file "{filename}"')
             print(f'Reason: {e}')
             sys.exit(1)
-    print(4)
+
     for metric in Config.get_patterns_config()['metrics']:
         if metric['code'] in EXCLUDE_METRICS:
             continue
