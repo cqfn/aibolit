@@ -84,4 +84,4 @@ class ASTNode:
         return hash(self._node_index)
 
     # names of methods and properties, which is not generated dynamically
-    _public_fixed_interface = ['children', 'node_index', 'subtree']
+    _public_fixed_interface = ['children', 'node_index']
