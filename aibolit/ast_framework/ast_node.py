@@ -25,6 +25,7 @@ from typing import List, Iterator, Optional
 from networkx import DiGraph, dfs_preorder_nodes  # type: ignore
 from cached_property import cached_property  # type: ignore
 
+from aibolit.ast_framework import ASTNodeType
 from aibolit.ast_framework._auxiliary_data import common_attributes, attributes_by_node_type, ASTNodeReference
 
 
@@ -70,7 +71,7 @@ class ASTNode:
 
     def __getattr__(self, attribute_name: str):
         if attribute_name not in common_attributes:
-            node_type = self._graph.nodes[self._node_index]['node_type']
+            node_type = self._get_type(self._node_index)
             if(attribute_name not in attributes_by_node_type[node_type]):
                 raise AttributeError(f'{node_type} node does not have "{attribute_name}" attribute.')
 
@@ -83,13 +84,13 @@ class ASTNode:
         return attribute
 
     def __dir__(self) -> List[str]:
-        node_type = self._graph.nodes[self._node_index]['node_type']
+        node_type = self._get_type(self._node_index)
         return ASTNode._public_fixed_interface + \
             list(common_attributes) + list(attributes_by_node_type[node_type])
 
     def __str__(self) -> str:
         text_representation = f'node index: {self._node_index}'
-        node_type = self.__getattr__('node_type')
+        node_type = self._get_type(self._node_index)
         for attribute_name in sorted(common_attributes | attributes_by_node_type[node_type]):
             attribute_value = self.__getattr__(attribute_name)
             attribute_representation = \
@@ -99,7 +100,7 @@ class ASTNode:
         return text_representation
 
     def __repr__(self) -> str:
-        return f'<ASTNode node_type: {self.__getattr__("node_type")}, node_index: {self._node_index}>'
+        return f'<ASTNode node_type: {self._get_type(self._node_index)}, node_index: {self._node_index}>'
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, ASTNode):
@@ -109,6 +110,9 @@ class ASTNode:
 
     def __hash__(self):
         return hash(self._node_index)
+
+    def _get_type(self, node_index: int) -> ASTNodeType:
+        return self._graph.nodes[node_index]['node_type']
 
     def _get_line(self, node_index: int) -> Optional[int]:
         return self._graph.nodes[node_index]['line']
