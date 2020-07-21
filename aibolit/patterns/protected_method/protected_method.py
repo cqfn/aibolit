@@ -24,6 +24,7 @@ from aibolit.utils.ast_builder import build_ast
 from typing import List
 from aibolit.ast_framework.ast_node import ASTNode
 
+
 class ProtectedMethod:
     '''
     Once we find a protected method in a class, it's a pattern.
