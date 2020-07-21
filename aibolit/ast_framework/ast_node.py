@@ -24,7 +24,12 @@ from typing import List, Iterator
 
 from networkx import DiGraph  # type: ignore
 
-from aibolit.ast_framework._auxiliary_data import common_attributes, attributes_by_node_type, ASTNodeReference
+from aibolit.ast_framework._auxiliary_data import (
+    common_attributes,
+    attributes_by_node_type,
+    ASTNodeReference,
+)
+from aibolit.ast_framework.computed_fields_registry import computed_fields_registry
 
 
 class ASTNode:
@@ -33,7 +38,7 @@ class ASTNode:
         self._node_index = node_index
 
     @property
-    def children(self) -> Iterator['ASTNode']:
+    def children(self) -> Iterator["ASTNode"]:
         for child_index in self._graph.succ[self._node_index]:
             yield ASTNode(self._graph, child_index)
 
@@ -42,32 +47,54 @@ class ASTNode:
         return self._node_index
 
     def __getattr__(self, attribute_name: str):
-        if attribute_name not in common_attributes:
-            node_type = self._graph.nodes[self._node_index]['node_type']
-            if(attribute_name not in attributes_by_node_type[node_type]):
-                raise AttributeError(f'{node_type} node does not have "{attribute_name}" attribute.')
+        node_type = self._graph.nodes[self._node_index]["node_type"]
+        existing_fields_names = attributes_by_node_type[node_type]
+        computed_fields = computed_fields_registry.get_fields(node_type)
+        if not (
+            attribute_name in common_attributes
+            or attribute_name in existing_fields_names
+            or attribute_name in computed_fields
+        ):
+            raise AttributeError(
+                "Failed to retrieve property. "
+                f"'{node_type}' node does not have '{attribute_name}' attribute."
+            )
 
-        attribute = self._graph.nodes[self._node_index][attribute_name]
+        if attribute_name in computed_fields:
+            attribute = computed_fields[attribute_name](self)
+        else:
+            attribute = self._graph.nodes[self._node_index][attribute_name]
+
         if isinstance(attribute, ASTNodeReference):
             attribute = ASTNode(self._graph, attribute.node_index)
-        elif isinstance(attribute, list) and \
-                all((isinstance(item, ASTNodeReference) for item in attribute)):
+        elif isinstance(attribute, list) and all(
+            (isinstance(item, ASTNodeReference) for item in attribute)
+        ):
             attribute = [ASTNode(self._graph, item.node_index) for item in attribute]
         return attribute
 
     def __dir__(self) -> List[str]:
-        node_type = self._graph.nodes[self._node_index]['node_type']
-        return ASTNode._public_fixed_interface + \
-            list(common_attributes) + list(attributes_by_node_type[node_type])
+        node_type = self._graph.nodes[self._node_index]["node_type"]
+        return (
+            ASTNode._public_fixed_interface
+            + list(common_attributes)
+            + list(attributes_by_node_type[node_type])
+            + list(computed_fields_registry.get_fields(node_type).keys())
+        )
 
     def __str__(self) -> str:
-        text_representation = f'node index: {self._node_index}'
-        node_type = self.__getattr__('node_type')
-        for attribute_name in sorted(common_attributes | attributes_by_node_type[node_type]):
+        text_representation = f"node index: {self._node_index}"
+        node_type = self.__getattr__("node_type")
+        for attribute_name in sorted(
+            common_attributes | attributes_by_node_type[node_type]
+        ):
             attribute_value = self.__getattr__(attribute_name)
-            attribute_representation = \
-                repr(attribute_value) if isinstance(attribute_value, ASTNode) else str(attribute_value)
-            text_representation += f'\n{attribute_name}: {attribute_representation}'
+            attribute_representation = (
+                repr(attribute_value)
+                if isinstance(attribute_value, ASTNode)
+                else str(attribute_value)
+            )
+            text_representation += f"\n{attribute_name}: {attribute_representation}"
 
         return text_representation
 
@@ -76,12 +103,14 @@ class ASTNode:
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, ASTNode):
-            raise NotImplementedError(f'ASTNode support comparission only with themselves, \
-                                        but {type(other)} was provided.')
+            raise NotImplementedError(
+                f"ASTNode support comparission only with themselves, \
+                                        but {type(other)} was provided."
+            )
         return self._graph == other._graph and self._node_index == other._node_index
 
     def __hash__(self):
         return hash(self._node_index)
 
     # names of methods and properties, which is not generated dynamically
-    _public_fixed_interface = ['children', 'node_index']
+    _public_fixed_interface = ["children", "node_index"]
