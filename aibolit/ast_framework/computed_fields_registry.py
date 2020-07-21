@@ -50,5 +50,8 @@ class _ComputedFieldsRegistry:
     def get_fields(self, node_type: ASTNodeType) -> Dict[str, Callable[[ASTNode], Any]]:
         return self._registry[node_type]
 
+    def clear(self) -> None:
+        self._registry = defaultdict(dict)
+
 
 computed_fields_registry = _ComputedFieldsRegistry()
