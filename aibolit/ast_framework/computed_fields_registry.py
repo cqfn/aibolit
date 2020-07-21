@@ -21,21 +21,22 @@
 # SOFTWARE.
 
 from collections import defaultdict
-from typing import Dict, Callable, Any
+from typing import Dict, Callable, Any, TYPE_CHECKING
 
-from aibolit.ast_framework import ASTNode, ASTNodeType
+if TYPE_CHECKING:
+    from aibolit.ast_framework import ASTNode, ASTNodeType  # noqa: F401
 
 
 class _ComputedFieldsRegistry:
     def __init__(self) -> None:
-        RegistryType = Dict[ASTNodeType, Dict[str, Callable[[ASTNode], Any]]]
+        RegistryType = Dict['ASTNodeType', Dict[str, Callable[['ASTNode'], Any]]]
         self._registry: RegistryType = defaultdict(dict)
 
     def register(
         self,
-        compute_field: Callable[[ASTNode], Any],
+        compute_field: Callable[['ASTNode'], Any],
         name: str,
-        *node_types: ASTNodeType,
+        *node_types: 'ASTNodeType',
     ) -> None:
         for node_type in node_types:
             computed_fields = self._registry[node_type]
@@ -47,7 +48,7 @@ class _ComputedFieldsRegistry:
 
             computed_fields[name] = compute_field
 
-    def get_fields(self, node_type: ASTNodeType) -> Dict[str, Callable[[ASTNode], Any]]:
+    def get_fields(self, node_type: 'ASTNodeType') -> Dict[str, Callable[['ASTNode'], Any]]:
         return self._registry[node_type]
 
     def clear(self) -> None:
