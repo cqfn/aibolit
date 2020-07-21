@@ -1,0 +1,68 @@
+@startuml
+
+set namespaceSeparator ::
+
+model::model::PatternRankingModel <|-- sklearn.base.BaseEstimator
+
+class model::stats::Stats {
+{method} {static} + aibolit_stat(test_csv: pd.DataFrame, model=None) -> pd.DataFrame
+{method} {static} + count_acts(acts: np.array, ranked: np.array) -> Tuple[np.array, np.array]
+{method} {static} + get_patterns_name() -> Dict[Any, Any]
+{method} {static} + get_table(features_conf: Dict[Any, Any], m: np.array, p: np.array, acts_complexity) -> pd.DataFrame
+{method} {static} + split_dataset_by_pattern_value(X: np.array, pattern_idx: int) -> Tuple[np.array, np.array]
+{method} {static} + change_matrix_by_value(arr: np.array, mask: np.array, i: int, incr: np.array) -> np.array
+{method} {static} + check_impact(X: np.array, model_input: Any) -> Tuple[np.array, np.array, np.array, np.array]
+}
+
+class model::model::PatternRankingModel {
+{field} +bool: do_rename_columns
+{field} +CatBoost: model
+{field} +Dict[Any, Any]: features_conf
+
+{method} +fit_regressor(self, X, y, display=False) -> None
+{method} +sigmoid(self, x) -> float
+{method} -__get_pairs(self, item, th: float, feature_importances=None) -> Tuple[np.array, np.array]
+{method} -__vstack_arrays(self, res) -> np.array
+{method} +calculate_score(self, X, quantity_func='log', th=1.0, feature_importances=None) -> Tuple[np.array, np.array]
+{method} +rank(self, snippet, scale=True, th=1) -> Tuple[List[int], List[int]]
+}
+
+class model::model::global_functions {
+
+{method} {static} + get_minimum(c1: np.array, c2: np.array, c3: np.array) -> Tuple[np.array, np.array]:
+{method} {static} + generate_fake_dataset() -> pd.DataFrame
+{method} {static} + scale_dataset(df: pd.DataFrame, features_conf: Dict[Any, Any], scale_ncss=True) -> pd.DataFrame
+
+}
+
+class aibolit::__main__ {
+
+{method} {static} +  list_dir(path, files)
+{method} {static} +  predict(input_params, model, args)
+{method} {static} + run_parse_args(commands_dict)
+{method} {static} +  train()
+{method} {static} +  __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_metric=False)
+{method} {static} +  flatten(l):
+{method} {static} +  add_pattern_if_ignored(dct: Dict[str, Any], pattern_item: Dict[Any, Any], results_list: List[Any]) -> None
+{method} {static} + find_annotation_by_node_type(tree: javalang.tree.CompilationUnit,node_type) -> Dict[Any, Any]
+{method} {static} + find_start_and_end_lines(node) -> Tuple[int, int]
+{method} {static} + check_max_position(node)
+{method} {static} + traverse(node):
+{method} {static} +  calculate_patterns_and_metrics(file, args):
+{method} {static} +  inference(input_params: List[int], code_lines_dict, args)
+{method} {static} + run_recommend_for_file(file: str, args)
+{method} {static} + create_xml_tree(results, full_report, cmd, exit_code)
+{method} {static} + get_exit_code(results):
+{method} {static} + create_text(results, full_report, is_long=False):
+{method} {static} + show_summary(buffer, importances_for_all_classes, is_long, results, total_patterns)
+{method} {static} + print_total_score_for_file
+{method} {static} +  check()
+{method} {static} + handle_exclude_command_line(args)
+{method} {static} + format_converter_for_pattern(results, sorted_by=None)
+{method} {static} + version()
+{method} {static} + run_thread(files, args)
+{method} {static} + get_versions(pkg_name)
+{method} {static} + main()
+
+}
+@enduml

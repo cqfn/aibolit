@@ -56,6 +56,7 @@ def collect_dataset(args):
     merge_cmd = ['make', 'merge']
     build_halstead_cmd = ['make', 'build_halstead']
     make_hl_cmd = ['make', 'hl']
+    split_cmd = ['make', 'split']
 
     if java_folder is not None:
         filter_cmd.append(f'dir={java_folder}')
@@ -72,8 +73,11 @@ def collect_dataset(args):
     print('Calculating halstead metrics...')
     run_cmd(make_hl_cmd, cur_work_dir)
 
-    print('Merge results and create dataset...')
+    print('Merge results...')
     run_cmd(merge_cmd, cur_work_dir)
+
+    print('Preprocess dataset, create train and test...')
+    run_cmd(split_cmd, cur_work_dir)
 
 
 def train_process():

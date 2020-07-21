@@ -1,0 +1,60 @@
+@startuml
+@startuml
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+skinparam sequence {
+ArrowColor DeepSkyBlue
+ActorBorderColor DeepSkyBlue
+LifeLineBorderColor blue
+LifeLineBackgroundColor #A9DCDF
+
+ParticipantBorderColor DeepSkyBlue
+ParticipantBackgroundColor DodgerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+
+ActorBackgroundColor aqua
+ActorFontColor DeepSkyBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+
+participant "main" as main
+participant "train" as train
+participant "collect_dataset" as collect_dataset
+participant "model" as model
+participant "test_dataset" as test_dataset
+activate train
+main -> train: if not args.skip_collect_dataset:
+activate train
+train -> collect_dataset
+collect_dataset -> collect_dataset: external call 02-filter-and-move.py via make
+collect_dataset -> collect_dataset: external call 04-find-patterns.py via make
+collect_dataset -> collect_dataset: external call 06-calculate-halstead.py via make
+collect_dataset -> collect_dataset: external call 07-merge.py via make
+collect_dataset -> collect_dataset: external call 08-split.py via make
+deactivate train
+|||
+main -> train_process
+activate train_process
+train_process -> train_process: read <train> dataset, made by 08-split.py
+train_process -> train_process: scale_dataset
+activate model
+train_process -> model: fit_regressor()
+deactivate model
+train_process -> train_process: save model to file
+activate model
+train_process -> train_process: load model to file
+train_process -> train_process: scale <test> dataset, made by 08-split.py
+activate train_process  #DarkSalmon
+train_process -> model: rank
+note right : Smoke tests
+model -> train_process: preds, importances
+deactivate model
+train_process -> train_process: remove trash catboost folder
+deactivate train_process
+train_process -> train
+train -> main
+@enduml
