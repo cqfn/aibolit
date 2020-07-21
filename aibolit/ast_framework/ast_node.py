@@ -45,6 +45,10 @@ class ASTNode:
 
     @cached_property
     def line(self) -> int:
+        line = self._get_line(self._node_index)
+        if line is not None:
+            return line
+
         children_lines: List[int] = [
             self._get_line(child_index)  # type: ignore # all Nones filtered out in list comprehension
             for child_index in dfs_preorder_nodes(self._graph, self._node_index)
@@ -56,7 +60,6 @@ class ASTNode:
             return min(children_lines)
 
         # try to  find source code line information from parents up to the root
-        line = self._get_line(self._node_index)
         parent_index = self._get_parent(self._node_index)
         while line is None and parent_index is not None:
             line = self._get_line(parent_index)
