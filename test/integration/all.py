@@ -3,16 +3,17 @@ import sys
 import numpy as np
 from aibolit.config import Config
 import tqdm
+from pathlib import Path
+import glob
 
 # TODO: fix all errors in the patterns/metrics and make these lists empty
-EXCLUDE_PATTERNS = ['P31', 'P32']
+EXCLUDE_PATTERNS = []
 EXCLUDE_METRICS = []
 
 current_path: str = os.path.dirname(os.path.realpath(__file__))
 print('Processed files in testing:')
 
-for filename in tqdm.tqdm([current_path + '/samples/Assertions.java']):
-
+for filename in tqdm.tqdm(os.listdir(current_path + '/samples')):
     for pattern in Config.get_patterns_config()['patterns']:
         if pattern['code'] in EXCLUDE_PATTERNS:
             continue
@@ -27,7 +28,7 @@ for filename in tqdm.tqdm([current_path + '/samples/Assertions.java']):
                   f'with code {pattern["code"]} for file "{filename}"')
             print(f'Reason: {e}')
             sys.exit(1)
-
+    print(4)
     for metric in Config.get_patterns_config()['metrics']:
         if metric['code'] in EXCLUDE_METRICS:
             continue
