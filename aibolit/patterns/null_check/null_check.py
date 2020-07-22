@@ -31,12 +31,10 @@ class NullCheck():
         ast = AST.build_from_javalang(build_ast(filename))
         for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             for bin_operation in ast.get_subtree(method_declaration).get_proxy_nodes(ASTNodeType.BINARY_OPERATION):
-                if self._check_null(ast, bin_operation):
+                if self._check_null(bin_operation):
                     lines.append(bin_operation.operandr.line)
         return lines
 
-    def _check_null(self, ast: AST, bin_operation: ASTNode) -> bool:
-        if bin_operation.operator in ["==", "!="] and (bin_operation.operandr.node_type == ASTNodeType.LITERAL) \
-                and (bin_operation.operandr.value == "null"):
-            return True
-        return False
+    def _check_null(self, bin_operation: ASTNode) -> bool:
+        return bin_operation.operator in ["==", "!="] and bin_operation.operandr.node_type == ASTNodeType.LITERAL \
+           and (bin_operation.operandr.value == "null")
