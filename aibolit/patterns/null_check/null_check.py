@@ -26,6 +26,11 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 
 class NullCheck():
+    '''
+    If we check that something equals 
+    (or not equals) null (except in constructor) 
+    it is considered a pattern.
+    '''
     def value(self, filename: str) -> List[int]:
         lines: List[int] = list()
         ast = AST.build_from_javalang(build_ast(filename))
