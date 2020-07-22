@@ -1,4 +1,4 @@
-all: requirements samples filter metrics patterns build_halstead hl merge split
+all: requirements samples filter patterns merge split
 
 # Fetch thousands of Java samples in GitHub and store them
 # all in target/01 directory. We don't filter anything at
@@ -19,7 +19,7 @@ endif
 # be stored in target/02-java-files.csv
 path_to_java_files := $(if $(dir),$(dir), target/01)
 filter:
-	python3 ./02-filter-and-move.py --dir=${path_to_java_files} --max_classes=${max_classes}
+	python3 ./02-filter-and-move.py --dir ${path_to_java_files} --max_classes=${max_classes}
 
 # Here we go through the list of all Java classes in target/02,
 # and calculate a few metrics per each of them. The result of
@@ -37,7 +37,7 @@ filter:
 
 path_to_java_files := $(if $(dir),$(dir), target/01)
 metrics: ./_tmp/pmd-bin/bin/run.sh
-	python3 ./03-calculate-metrics.py --dir=${path_to_java_files}
+	python3 ./03-calculate-metrics.py --dir ${path_to_java_files}
 
 # Here we go through the list of all Java classes in target/02
 # and attempt to find patterns there. We produce a summary

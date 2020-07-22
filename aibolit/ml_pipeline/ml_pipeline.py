@@ -52,26 +52,16 @@ def collect_dataset(args):
     print('Filtering java files...')
 
     filter_cmd = ['make', 'filter']
-    metrics_cmd = ['make', 'metrics']
     merge_cmd = ['make', 'merge']
-    build_halstead_cmd = ['make', 'build_halstead']
-    make_hl_cmd = ['make', 'hl']
     split_cmd = ['make', 'split']
 
     if java_folder is not None:
         filter_cmd.append(f'dir={java_folder}')
-        metrics_cmd.append(f'dir={java_folder}')
     if max_classes is not None:
         filter_cmd.append(f'max_classes={max_classes}')
 
     run_cmd(filter_cmd, cur_work_dir)
-    print('Download PMD and compute metrics...')
-    run_cmd(metrics_cmd, cur_work_dir)
     make_patterns(args, cur_work_dir)
-    print('Building halstead.jar...')
-    run_cmd(build_halstead_cmd, cur_work_dir)
-    print('Calculating halstead metrics...')
-    run_cmd(make_hl_cmd, cur_work_dir)
 
     print('Merge results...')
     run_cmd(merge_cmd, cur_work_dir)

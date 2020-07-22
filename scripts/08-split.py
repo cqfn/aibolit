@@ -9,11 +9,15 @@ def preprocess_file(filename: str):
     df = pd.read_csv(filename, index_col=0)
     df = df[~df["filename"].str.lower().str.contains("test")]
     df = df.dropna().drop_duplicates(subset=df.columns.difference(['filename']))
-    df = df[(df.ncss > 20) & (df.ncss < 100) & (df.npath_method_avg < 100000.00)].copy()
+    df = df[(df.M2 > 20) & (df.M2 < 100)].copy()
     return df
 
 
 if __name__ == '__main__':
+    target_folder = os.getenv('TARGET_FOLDER')
+    if target_folder:
+        os.chdir(target_folder)
+
     current_location: str = os.path.realpath(
         os.path.join(os.getcwd(), os.path.dirname(__file__))
     )

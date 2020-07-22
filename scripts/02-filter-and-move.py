@@ -60,12 +60,18 @@ args = parser.parse_args()
 MAX_CLASSES = args.max_classes
 TXT_OUT = 'found-java-files.txt'
 CSV_OUT = '02-java-files.csv'
-
-DIR_TO_CREATE = 'target/02'
-FILE_TO_SAVE = '02-java-files.csv'
 current_location: str = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__))
 )
+target_folder = os.getenv('TARGET_FOLDER')
+if target_folder:
+    Path(target_folder).mkdir(parents=True, exist_ok=True)
+else:
+    target_folder = str(Path(current_location).absolute())
+
+print(f'Target folder: {target_folder}')
+DIR_TO_CREATE = Path(target_folder, 'target/02')
+FILE_TO_SAVE = '02-java-files.csv'
 
 
 class ClassType(Enum):
@@ -204,8 +210,8 @@ def walk_in_parallel():
 
 
 if __name__ == '__main__':
-    path_csv_out = str(Path(current_location, DIR_TO_CREATE, CSV_OUT))
-    path_txt_out = str(Path(current_location, DIR_TO_CREATE, TXT_OUT))
+    path_csv_out = str(Path(DIR_TO_CREATE, CSV_OUT))
+    path_txt_out = str(Path(DIR_TO_CREATE, TXT_OUT))
 
     if not args.split_only:
         start = time.time()
@@ -222,7 +228,7 @@ if __name__ == '__main__':
         print('It took ' + str(end - start) + ' seconds')
     df = pd.read_csv(path_csv_out)
     train, test = train_test_split(df['filename'], test_size=0.3, random_state=42)
-    train_csv_file = str(Path(current_location, DIR_TO_CREATE, '02-train.csv'))
-    test_csv_file = str(Path(current_location, DIR_TO_CREATE, '02-test.csv'))
+    train_csv_file = str(Path(DIR_TO_CREATE, '02-train.csv'))
+    test_csv_file = str(Path(DIR_TO_CREATE, '02-test.csv'))
     train.to_csv(train_csv_file, index=False)
     test.to_csv(test_csv_file, index=False)
