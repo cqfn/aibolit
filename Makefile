@@ -16,8 +16,7 @@ unittest:
 	python3 aibolit --version
 
 integrationtest:
-	python3 ./test/integration/all.py
-	chmod 777 ./test/integration/test_recommend.sh
+	python3 -m test.integration.all
 	./test/integration/test_recommend.sh
 
 install:
