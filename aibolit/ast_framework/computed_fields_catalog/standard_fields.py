@@ -23,7 +23,7 @@
 from aibolit.ast_framework.computed_fields_registry import computed_fields_registry
 from aibolit.ast_framework import ASTNodeType
 
-from .node_filter import nodes_filter_factory
+from .nodes_filter import nodes_filter_factory
 from .chained_fields import chain_field_getter_factory
 
 
