@@ -140,15 +140,16 @@ class ASTNode:
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, ASTNode):
             raise NotImplementedError(
-                f"ASTNode support comparission only with themselves, \
-                                        but {type(other)} was provided."
+                f"ASTNode support comparission only with themselves, but {type(other)} was provided."
             )
         return self._graph == other._graph and self._node_index == other._node_index
 
     def __hash__(self):
         return hash(self._node_index)
 
-    def _replace_references_with_nodes(self, list_with_references: List[Any]) -> List[Any]:
+    def _replace_references_with_nodes(
+        self, list_with_references: List[Any]
+    ) -> List[Any]:
         list_with_nodes: List[Any] = []
         for item in list_with_references:
             if isinstance(item, ASTNodeReference):
@@ -158,13 +159,15 @@ class ASTNode:
             elif isinstance(item, (int, str)) or item is None:
                 list_with_nodes.append(item)
             else:
-                raise RuntimeError('Failed parsing attribute.\n'
-                                   f'An {item} with {type(item)} was found.\n'
-                                   'Expected: int, str, ASNodeReference of list of them.')
+                raise RuntimeError(
+                    "Failed parsing attribute.\n"
+                    f"An {item} with {type(item)} was found.\n"
+                    "Expected: int, str, ASNodeReference of list of them."
+                )
 
         return list_with_nodes
 
-    def _create_node_from_reference(self, reference: ASTNodeReference) -> 'ASTNode':
+    def _create_node_from_reference(self, reference: ASTNodeReference) -> "ASTNode":
         return ASTNode(self._graph, reference.node_index)
 
     def _get_type(self, node_index: int) -> ASTNodeType:
