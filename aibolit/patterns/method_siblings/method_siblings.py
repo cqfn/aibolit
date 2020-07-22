@@ -31,18 +31,17 @@ class MethodSiblings:
     Count those methods, which
     start with the same names
     '''
-    def __compare_next_nodes(self, node: ASTNode, new_node: ASTNode) -> List[int]:
-        node_name = re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', node.name)
-        if node.node_index < new_node.node_index and len(node_name) > 1 and \
-           new_node.name.startswith(node_name[0]):
-            return [node.line, new_node.line]
-        return []
+    def _is_method_names_close(self, node: ASTNode, new_node: ASTNode) -> bool:
+        node_name = re.split('([A-Z][^A-Z]*)', node.name)
+        return node.node_index < new_node.node_index and \
+            len(node_name) > 1 and new_node.name.startswith(node_name[0])
 
     def value(self, filename: str) -> List[int]:
         numbers: List[int] = []
-        method_nodes = AST.build_from_javalang(
-            build_ast(filename)).get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)
+        method_nodes = AST.build_from_javalang(build_ast(filename)).get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)
+
         for node in method_nodes:
             for new_node in method_nodes:
-                numbers.extend(self.__compare_next_nodes(node, new_node))
+                if self._is_method_names_close(node, new_node):
+                    numbers.extend([node.line, new_node.line])
         return sorted(list(set(numbers)))
