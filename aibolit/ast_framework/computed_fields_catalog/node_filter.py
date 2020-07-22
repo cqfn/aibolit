@@ -26,26 +26,28 @@ from aibolit.ast_framework import ASTNode, ASTNodeType
 from aibolit.ast_framework.computed_fields_registry import computed_fields_registry
 
 
-def _create_filter(
+def nodes_filter_factory(
     base_field_name: str, *node_types: ASTNodeType
 ) -> Callable[[ASTNode], Iterator[ASTNode]]:
     def filter(base_node: ASTNode) -> Iterator[ASTNode]:
         base_field = getattr(base_node, base_field_name)
-        if not isinstance(base_field, list):
-            raise RuntimeError(
-                f"Failed computing ASTNode field based on {base_field_name} field. "
-                f"Expected list, but got {base_field} of type {type(base_field)}."
-            )
+        if isinstance(base_field, list) and all(
+            isinstance(item, ASTNode) for item in base_field
+        ):
+            for node in base_field:
+                if node.node_type in node_types:
+                    yield node
 
-        for node in base_field:
-            if isinstance(node, ASTNode) and node.node_type in node_types:
-                yield node
+        raise RuntimeError(
+            f"Failed computing ASTNode field based on {base_field_name} field. "
+            f"Expected list, but got {base_field} of type {type(base_field)}."
+        )
 
     return filter
 
 
 computed_fields_registry.register(
-    _create_filter("body", ASTNodeType.CONSTRUCTOR_DECLARATION),
+    nodes_filter_factory("body", ASTNodeType.CONSTRUCTOR_DECLARATION),
     "constructors",
     ASTNodeType.CLASS_DECLARATION,
     ASTNodeType.INTERFACE_DECLARATION,
@@ -54,7 +56,7 @@ computed_fields_registry.register(
 
 
 computed_fields_registry.register(
-    _create_filter(
+    nodes_filter_factory(
         "body", ASTNodeType.CONSTRUCTOR_DECLARATION, ASTNodeType.METHOD_DECLARATION
     ),
     "methods",
@@ -65,7 +67,7 @@ computed_fields_registry.register(
 
 
 computed_fields_registry.register(
-    _create_filter("body", ASTNodeType.FIELD_DECLARATION),
+    nodes_filter_factory("body", ASTNodeType.FIELD_DECLARATION),
     "fields",
     ASTNodeType.CLASS_DECLARATION,
     ASTNodeType.INTERFACE_DECLARATION,
@@ -74,14 +76,14 @@ computed_fields_registry.register(
 
 
 computed_fields_registry.register(
-    _create_filter("declarations", ASTNodeType.METHOD_DECLARATION),
+    nodes_filter_factory("declarations", ASTNodeType.METHOD_DECLARATION),
     "methods",
     ASTNodeType.ENUM_DECLARATION,
 )
 
 
 computed_fields_registry.register(
-    _create_filter("declarations", ASTNodeType.FIELD_DECLARATION),
+    nodes_filter_factory("declarations", ASTNodeType.FIELD_DECLARATION),
     "fields",
     ASTNodeType.ENUM_DECLARATION,
 )
