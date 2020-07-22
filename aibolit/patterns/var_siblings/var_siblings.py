@@ -40,7 +40,7 @@ class VarSiblings:
             var_name = var_declaration.name
             if var_name not in vars_lines:
                 # to filter not complex names
-                temp_name = re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', var_name)
+                temp_name = re.split('([A-Z][^A-Z]*)', var_name)
                 if len(temp_name) > 1:
                     vars_lines[var_name] = var_line
         return vars_lines
@@ -48,7 +48,7 @@ class VarSiblings:
     def _compare_nodes_names(self, node_name_1: str, node_name_2: str) -> bool:
         # here we want to find those names, which start with the same word
         # and the lenght of this word > 3
-        common_names_prefix = re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', node_name_1)[0]
+        common_names_prefix = re.split('([A-Z][^A-Z]*)', node_name_1)[0]
         return node_name_2 != node_name_1 and \
             node_name_2.startswith(common_names_prefix) and len(common_names_prefix) > 3
 
