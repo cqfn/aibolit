@@ -36,8 +36,7 @@ class VarSiblings:
         vars_lines: Dict[str, int] = {}
         for local_var_node in ast.get_proxy_nodes(ASTNodeType.LOCAL_VARIABLE_DECLARATION):
             var_line = local_var_node.line
-            var_declaration = list(ast.get_subtree(
-                local_var_node).get_proxy_nodes(ASTNodeType.VARIABLE_DECLARATOR))[0]
+            var_declaration = local_var_node.declarators[0]
             var_name = var_declaration.name
             if var_name not in vars_lines:
                 # to filter not complex names
