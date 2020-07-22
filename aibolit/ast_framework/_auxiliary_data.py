@@ -112,7 +112,7 @@ javalang_to_ast_node_type: Dict[Type[Node], ASTNodeType] = {
     tree.WhileStatement: ASTNodeType.WHILE_STATEMENT,
 }
 
-common_attributes: Set[str] = {'node_type', 'line'}
+common_attributes: Set[str] = {'node_type'}
 
 attributes_by_node_type: Dict[ASTNodeType, Set[str]] = {
     ASTNodeType.ANNOTATION_DECLARATION: {
