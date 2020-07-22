@@ -32,8 +32,8 @@ class MethodSiblings:
     start with the same names
     '''
     def _is_method_names_close(self, node: ASTNode, new_node: ASTNode) -> bool:
-        node_name = re.split('([A-Z][^A-Z]*)', node.name)
-        return len(node_name) > 1 and new_node.name.startswith(node_name[0])
+        splited_name = re.split('([A-Z][^A-Z]*)', node.name)
+        return len(splited_name) > 1 and new_node.name.startswith(splited_name[0])
 
     def value(self, filename: str) -> List[int]:
         numbers: List[int] = []
