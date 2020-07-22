@@ -69,4 +69,4 @@ class MaxDiamOfTree:
                 if isinstance(each_object, MethodDeclaration):
                     traversed.append(self.diameter(each_object))
 
-        return max(traversed) if len(traversed) != 0 else traversed
+        return max(traversed, default=0)
