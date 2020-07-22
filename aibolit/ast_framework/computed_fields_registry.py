@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 from collections import defaultdict
+import sys
 from typing import Dict, Callable, Any, TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -40,7 +41,7 @@ class _ComputedFieldsRegistry:
     ) -> None:
         for node_type in node_types:
             computed_fields = self._registry[node_type]
-            if name in computed_fields:
+            if name in computed_fields and not _ComputedFieldsRegistry._is_in_interactive_shell():
                 raise RuntimeError(
                     f'Registry already has computed field '
                     f'named "{name}" for node type {node_type}.'
@@ -53,6 +54,10 @@ class _ComputedFieldsRegistry:
 
     def clear(self) -> None:
         self._registry = defaultdict(dict)
+
+    @staticmethod
+    def _is_in_interactive_shell() -> bool:
+        return bool(getattr(sys, 'ps1', sys.flags.interactive))
 
 
 computed_fields_registry = _ComputedFieldsRegistry()
