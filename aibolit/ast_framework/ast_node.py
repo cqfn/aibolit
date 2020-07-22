@@ -89,11 +89,14 @@ class ASTNode:
             common_attributes | attributes_by_node_type[node_type]
         ):
             attribute_value = self.__getattr__(attribute_name)
-            attribute_representation = (
-                repr(attribute_value)
-                if isinstance(attribute_value, ASTNode)
-                else str(attribute_value)
-            )
+
+            if isinstance(attribute_value, ASTNode):
+                attribute_representation = repr(attribute_value)
+            elif isinstance(attribute_value, str) and '\n' in attribute_value:
+                attribute_representation = '\n\t' + attribute_value.replace('\n', '\n\t')
+            else:
+                attribute_representation = str(attribute_value)
+
             text_representation += f"\n{attribute_name}: {attribute_representation}"
 
         return text_representation
