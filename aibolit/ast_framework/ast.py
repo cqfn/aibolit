@@ -50,7 +50,7 @@ class AST:
         javalang_node_to_index_map: Dict[Node, int] = {}
         root = AST._add_subtree_from_javalang_node(tree, javalang_ast_root,
                                                    javalang_node_to_index_map)
-        AST._change_node_attributes_to_index(tree, javalang_node_to_index_map)
+        AST._replace_javalang_nodes_in_attributes(tree, javalang_node_to_index_map)
         return AST(tree, root)
 
     def __str__(self) -> str:
@@ -289,22 +289,56 @@ class AST:
         return node_index
 
     @staticmethod
-    def _change_node_attributes_to_index(tree: DiGraph,
-                                         javalang_node_to_index_map: Dict[Node, int]) -> None:
+    def _replace_javalang_nodes_in_attributes(tree: DiGraph,
+                                              javalang_node_to_index_map: Dict[Node, int]) -> None:
         '''
-        All javalang fields are stored as is. If some of those fields were pointing to Node
-        we change that attribute to have a networkx node index, which represent that node.
+        All javalang nodes found in networkx nodes attributes are replaced
+        with references to according networkx nodes.
+        Supported attributes types:
+         - just javalang Node
+         - list of javalang Nodes and other such lists (with any depth)
         '''
         for node, attributes in tree.nodes.items():
             for attribute_name in attributes:
                 attribute_value = attributes[attribute_name]
                 if isinstance(attribute_value, Node):
-                    node_reference = ASTNodeReference(javalang_node_to_index_map[attribute_value])
+                    node_reference = AST._create_reference_to_node(attribute_value,
+                                                                   javalang_node_to_index_map)
                     tree.add_node(node, **{attribute_name: node_reference})
-                elif isinstance(attribute_value, list) and \
-                        all(isinstance(item, Node) for item in attribute_value):
-                    node_references = [ASTNodeReference(javalang_node_to_index_map[item])
-                                       for item in attribute_value]
+                elif isinstance(attribute_value, list):
+                    node_references = \
+                        AST._replace_javalang_nodes_in_list(attribute_value,
+                                                            javalang_node_to_index_map)
                     tree.add_node(node, **{attribute_name: node_references})
+
+    @staticmethod
+    def _replace_javalang_nodes_in_list(javalang_nodes_list: List[Any],
+                                        javalang_node_to_index_map: Dict[Node, int]) -> List[Any]:
+        '''
+        javalang_nodes_list: list of javalang Nodes or other such lists (with any depth)
+        All javalang nodes are replaces with according references
+        NOTICE: Any is used, because mypy does not support recurrent type definitions
+        '''
+        node_references_list: List[Any] = []
+        for item in javalang_nodes_list:
+            if isinstance(item, Node):
+                node_references_list.append(
+                    AST._create_reference_to_node(item, javalang_node_to_index_map))
+            elif isinstance(item, list):
+                node_references_list.append(
+                    AST._replace_javalang_nodes_in_list(item, javalang_node_to_index_map))
+            elif isinstance(item, (int, str)) or item is None:
+                node_references_list.append(item)
+            else:
+                raise RuntimeError('Cannot parse "Javalang" attribute:\n'
+                                   f'{item}\n'
+                                   'Expected: Node, list of Nodes, integer or string')
+
+        return node_references_list
+
+    @staticmethod
+    def _create_reference_to_node(javalang_node: Node,
+                                  javalang_node_to_index_map: Dict[Node, int]) -> ASTNodeReference:
+        return ASTNodeReference(javalang_node_to_index_map[javalang_node])
 
     _UNKNOWN_NODE_TYPE = -1
