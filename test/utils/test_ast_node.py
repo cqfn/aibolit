@@ -35,10 +35,8 @@ class ASTNodeTestSuite(TestCase):
             )
         )
         package = ast.get_root()
-        assert (
-            len(package.types) == 1
-            and package.types[0].node_type == ASTNodeType.CLASS_DECLARATION
-        )
+        assert len(package.types) == 1 and \
+            package.types[0].node_type == ASTNodeType.CLASS_DECLARATION
 
         java_class = package.types[0]
         self.assertEqual(java_class.name, "MethodUseOtherMethod")

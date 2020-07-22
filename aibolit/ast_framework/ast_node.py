@@ -83,11 +83,9 @@ class ASTNode:
         node_type = self._get_type(self._node_index)
         existing_fields_names = attributes_by_node_type[node_type]
         computed_fields = computed_fields_registry.get_fields(node_type)
-        if not (
-            attribute_name in common_attributes
-            or attribute_name in existing_fields_names
-            or attribute_name in computed_fields
-        ):
+        if attribute_name not in common_attributes and \
+           attribute_name not in existing_fields_names and \
+           attribute_name not in computed_fields:
             raise AttributeError(
                 "Failed to retrieve property. "
                 f"'{node_type}' node does not have '{attribute_name}' attribute."
@@ -106,12 +104,10 @@ class ASTNode:
 
     def __dir__(self) -> List[str]:
         node_type = self._get_type(self._node_index)
-        return (
-            ASTNode._public_fixed_interface
-            + list(common_attributes)
-            + list(attributes_by_node_type[node_type])
-            + list(computed_fields_registry.get_fields(node_type).keys())
-        )
+        return ASTNode._public_fixed_interface + \
+            list(common_attributes) + \
+            list(attributes_by_node_type[node_type]) + \
+            list(computed_fields_registry.get_fields(node_type).keys())
 
     def __str__(self) -> str:
         text_representation = f"node index: {self._node_index}"

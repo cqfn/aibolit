@@ -41,11 +41,9 @@ def chain_field_getter_factory(*steps: Union[str, int]) -> Callable[[ASTNode], A
     def get_chain_field(node: ASTNode) -> Any:
         field = node
         for step in steps:
-            if (
-                isinstance(field, list)
-                and isinstance(step, str)
-                and all(isinstance(item, ASTNode) for item in field)
-            ):
+            if isinstance(field, list) and \
+               isinstance(step, str) and \
+               all(isinstance(item, ASTNode) for item in field):
                 # get attribute from all elements from a list
                 field = [getattr(item, step) for item in field]
 
