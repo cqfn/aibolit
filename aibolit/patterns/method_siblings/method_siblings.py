@@ -37,7 +37,8 @@ class MethodSiblings:
 
     def value(self, filename: str) -> List[int]:
         numbers: List[int] = []
-        method_nodes = AST.build_from_javalang(build_ast(filename)).get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)
+        ast = AST.build_from_javalang(build_ast(filename))
+        method_nodes = ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)
 
         for node in method_nodes:
             for new_node in method_nodes:
