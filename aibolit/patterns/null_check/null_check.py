@@ -27,8 +27,8 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 class NullCheck():
     '''
-    If we check that something equals 
-    (or not equals) null (except in constructor) 
+    If we check that something equals
+    (or not equals) null (except in constructor)
     it is considered a pattern.
     '''
     def value(self, filename: str) -> List[int]:
@@ -42,4 +42,4 @@ class NullCheck():
 
     def _check_null(self, bin_operation: ASTNode) -> bool:
         return bin_operation.operator in ["==", "!="] and bin_operation.operandr.node_type == ASTNodeType.LITERAL \
-           and (bin_operation.operandr.value == "null")
+            and bin_operation.operandr.value == "null"
