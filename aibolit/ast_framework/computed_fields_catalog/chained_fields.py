@@ -23,8 +23,7 @@
 from typing import Union, Any, Callable
 from itertools import chain
 
-from aibolit.ast_framework import ASTNode, ASTNodeType
-from aibolit.ast_framework.computed_fields_registry import computed_fields_registry
+from aibolit.ast_framework import ASTNode
 
 
 def chain_field_getter_factory(*steps: Union[str, int]) -> Callable[[ASTNode], Any]:
@@ -63,13 +62,3 @@ def chain_field_getter_factory(*steps: Union[str, int]) -> Callable[[ASTNode], A
         return field
 
     return get_chain_field
-
-
-computed_fields_registry.register(
-    chain_field_getter_factory("declarators", "name"),
-    "name",
-    ASTNodeType.CONSTANT_DECLARATION,
-    ASTNodeType.FIELD_DECLARATION,
-    ASTNodeType.LOCAL_VARIABLE_DECLARATION,
-    ASTNodeType.VARIABLE_DECLARATION,
-)
