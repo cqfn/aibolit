@@ -1,4 +1,4 @@
-all: requirements samples filter metrics patterns rs build_halstead hl merge
+all: requirements samples filter metrics patterns build_halstead hl merge split
 
 # Fetch thousands of Java samples in GitHub and store them
 # all in target/01 directory. We don't filter anything at
