@@ -31,8 +31,9 @@ class VarSiblings:
     Find those variables, which have complex
     names and start with the same word
     '''
-    def _traverse_method_vars(self, ast: AST, node: ASTNode) -> Dict:
-        vars_info: Dict = {}
+    def _collect_method_variables_names(self, ast: AST, node: ASTNode) -> Dict[str, int]:
+        assert node.node_type == ASTNodeType.METHOD_DECLARATION
+        vars_info: Dict[str, int] = {}
         for local_var_node in ast.get_proxy_nodes(ASTNodeType.LOCAL_VARIABLE_DECLARATION):
             var_line = local_var_node.line
             var_declaration = list(ast.get_subtree(
@@ -66,6 +67,6 @@ class VarSiblings:
         lines: List[int] = []
         ast = AST.build_from_javalang(build_ast(filename))
         for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
-            variables_info = self._traverse_method_vars(ast, method_declaration)
+            variables_info = self._collect_method_variables_names(ast, method_declaration)
             lines.extend(self._find_sibling_vars(variables_info))
         return sorted(lines)
