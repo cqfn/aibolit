@@ -20,9 +20,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List, Optional
+from typing import List
 
-from aibolit.ast_framework import AST, ASTNode, ASTNodeType
+from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.utils.ast_builder import build_ast
 
 
@@ -36,23 +36,10 @@ class InstanceOf:
         lines: List[int] = []
         for binary_operator in ast.get_proxy_nodes(ASTNodeType.BINARY_OPERATION):
             if binary_operator.operator == 'instanceof':
-                operator_line = self._get_binary_operator_line(binary_operator)
-                if operator_line:
-                    lines.append(operator_line)
+                lines.append(binary_operator.line)
 
         for method_invocation in ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION):
             if method_invocation.member == 'isInstance':
                 lines.append(method_invocation.line)
 
         return lines
-
-    def _get_binary_operator_line(self, binary_operator_node: ASTNode) -> Optional[int]:
-        assert binary_operator_node.node_type == ASTNodeType.BINARY_OPERATION
-        if binary_operator_node.line is not None:
-            return binary_operator_node.lines
-
-        if binary_operator_node.operandl.line is not None:
-            return binary_operator_node.operandl.line
-
-        # TODO: log that operator line was not found
-        return None
