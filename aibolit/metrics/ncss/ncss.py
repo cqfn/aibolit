@@ -24,42 +24,44 @@ from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 from aibolit.utils.ast_builder import build_ast
 
 
-class NCSSMetric():
-    '''
+class NCSSMetric:
+    """
     NCSS metric counts non-commenting source statements.
-    It counts keywords, declarations and statement expressions.
-    Following description was used as a reference:
-    https://pmd.github.io/latest/pmd_java_metrics_index.html#non-commenting-source-statements-ncss
-    '''
+    It counts:
+     - keywords from _keyword_node_types
+     - declarations from _declarations_node_types
+     - local variable declarations and statement expressions
+    """
 
     def value(self, filename: str) -> int:
         metric = 0
         ast = AST.build_from_javalang(build_ast(filename))
-        for node in ast.get_proxy_nodes(*NCSSMetric._keyword_node_types,
-                                        *NCSSMetric._declarations_node_types,
-                                        *NCSSMetric._misc_node_types):
+        for node in ast.get_proxy_nodes(
+            *NCSSMetric._keyword_node_types,
+            *NCSSMetric._declarations_node_types,
+            *NCSSMetric._misc_node_types
+        ):
             metric += 1
+
             if node.node_type == ASTNodeType.IF_STATEMENT and self._has_pure_else_statements(node):
                 metric += 1
-
-        for try_statement in ast.get_proxy_nodes(ASTNodeType.TRY_STATEMENT):
-            if self._has_finally_block(try_statement):
+            elif node.node_type == ASTNodeType.TRY_STATEMENT and self._has_finally_block(node):
                 metric += 1
 
         return metric
 
     def _has_pure_else_statements(self, if_statement: ASTNode) -> bool:
-        '''
+        """
         Checks is there else branch.
         If else branch appeared to be "else if" construction (not pure "else"),
         returns False.
-        '''
-        assert(if_statement.node_type == ASTNodeType.IF_STATEMENT)
+        """
+        assert if_statement.node_type == ASTNodeType.IF_STATEMENT
         return if_statement.else_statement is not None and \
             if_statement.else_statement.node_type != ASTNodeType.IF_STATEMENT
 
     def _has_finally_block(self, try_statement: ASTNode) -> bool:
-        assert(try_statement.node_type == ASTNodeType.TRY_STATEMENT)
+        assert try_statement.node_type == ASTNodeType.TRY_STATEMENT
         return try_statement.finally_block is not None
 
     # Two keywords "else" and "finally" are not represented by any nodes
@@ -78,6 +80,7 @@ class NCSSMetric():
         ASTNodeType.SWITCH_STATEMENT,
         ASTNodeType.SYNCHRONIZED_STATEMENT,
         ASTNodeType.THROW_STATEMENT,
+        ASTNodeType.TRY_STATEMENT,
         ASTNodeType.WHILE_STATEMENT,
     }
 
