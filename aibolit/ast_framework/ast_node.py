@@ -73,9 +73,11 @@ class ASTNode:
         if line is not None:
             return line
 
-        raise RuntimeError(f"Failed to retrieve source code line information for {repr(self)} node. "
-                           "All nodes in a path from root to it and all nodes, reachable from it, "
-                           "does not have any source code line information either.")
+        raise RuntimeError(
+            f"Failed to retrieve source code line information for {repr(self)} node. "
+            "All nodes in a path from root to it and all nodes, reachable from it, "
+            "does not have any source code line information either."
+        )
 
     def __getattr__(self, attribute_name: str):
         node_type = self._get_type(self._node_index)
@@ -123,8 +125,10 @@ class ASTNode:
 
             if isinstance(attribute_value, ASTNode):
                 attribute_representation = repr(attribute_value)
-            elif isinstance(attribute_value, str) and '\n' in attribute_value:
-                attribute_representation = '\n\t' + attribute_value.replace('\n', '\n\t')
+            elif isinstance(attribute_value, str) and "\n" in attribute_value:
+                attribute_representation = "\n\t" + attribute_value.replace(
+                    "\n", "\n\t"
+                )
             else:
                 attribute_representation = str(attribute_value)
 
@@ -133,7 +137,7 @@ class ASTNode:
         return text_representation
 
     def __repr__(self) -> str:
-        return f'<ASTNode node_type: {self._get_type(self._node_index)}, node_index: {self._node_index}>'
+        return f"<ASTNode node_type: {self._get_type(self._node_index)}, node_index: {self._node_index}>"
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, ASTNode):
@@ -147,10 +151,10 @@ class ASTNode:
         return hash(self._node_index)
 
     def _get_type(self, node_index: int) -> ASTNodeType:
-        return self._graph.nodes[node_index]['node_type']
+        return self._graph.nodes[node_index]["node_type"]
 
     def _get_line(self, node_index: int) -> Optional[int]:
-        return self._graph.nodes[node_index]['line']
+        return self._graph.nodes[node_index]["line"]
 
     def _get_parent(self, node_index: int) -> Optional[int]:
         # there is maximum one parent in a tree
