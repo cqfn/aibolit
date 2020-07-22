@@ -33,32 +33,30 @@ class VarSiblings:
     '''
     def _collect_method_variables_names(self, ast: AST, node: ASTNode) -> Dict[str, int]:
         assert node.node_type == ASTNodeType.METHOD_DECLARATION
-        vars_info: Dict[str, int] = {}
+        vars_lines: Dict[str, int] = {}
         for local_var_node in ast.get_proxy_nodes(ASTNodeType.LOCAL_VARIABLE_DECLARATION):
             var_line = local_var_node.line
             var_declaration = list(ast.get_subtree(
                 local_var_node).get_proxy_nodes(ASTNodeType.VARIABLE_DECLARATOR))[0]
             var_name = var_declaration.name
-            if var_name not in vars_info:
+            if var_name not in vars_lines:
                 # to filter not complex names
                 temp_name = re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', var_name)
                 if len(temp_name) > 1:
-                    vars_info[var_name] = var_line
-        return vars_info
+                    vars_lines[var_name] = var_line
+        return vars_lines
 
-    def _compare_nodes_names(self, node1_name: str, node2_name: str) -> bool:
+    def _compare_nodes_names(self, node_name_1: str, node_name_2: str) -> bool:
         # here we want to find those names, which start with the same word
         # and the lenght of this word > 3
-        node_name = re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', node1_name)
-        if node2_name != node1_name and \
-                node2_name.startswith(node_name[0]) and len(node_name[0]) > 3:
-            return True
-        return False
+        common_names_prefix = re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', node_name_1)[0]
+        return node_name_2 != node_name_1 and \
+            node_name_2.startswith(common_names_prefix) and len(common_names_prefix) > 3
 
     def _find_sibling_vars(self, vars_info: Dict) -> List[int]:
         lines: List[int] = []
-        for node in vars_info.keys():
-            for new_node in vars_info.keys():
+        for node in vars_info:
+            for new_node in vars_info:
                 if self._compare_nodes_names(node, new_node) and vars_info[new_node] not in lines:
                     lines.append(vars_info[new_node])
         return lines
