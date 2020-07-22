@@ -1,5 +1,4 @@
 import os
-import tarfile
 from pathlib import Path
 
 import pandas as pd
@@ -48,9 +47,3 @@ if __name__ == '__main__':
     test_csv_path = Path(path_to_create, '08-test.csv')
     train_preprocessed.to_csv(train_csv_path, encoding='utf-8')
     test_preprocessed.to_csv(test_csv_path, encoding='utf-8')
-    tar_gz_path = Path(Path(current_location).parent, r'aibolit\binary_files\datasets.tar.gz')
-    archive = tarfile.open(str(tar_gz_path), "w|gz")
-    for f in [train_csv_path, test_csv_path]:
-        print('Archive {}'.format(str(f), f.name))
-        archive.add(str(f), arcname=f.name)
-    archive.close()
