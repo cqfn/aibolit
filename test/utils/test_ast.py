@@ -45,6 +45,17 @@ class ASTTestSuite(TestCase):
                 self.assertEqual([node.node_index for node in actual_subtree],
                                  expected_subtree)
 
+    def test_complex_fields(self):
+        ast = self._build_ast('StaticConstructor.java')
+        class_declaration = next((declaration for declaration in ast.get_root().types if
+                                 declaration.node_type == ASTNodeType.CLASS_DECLARATION), None)
+        assert class_declaration is not None, "Cannot find class declaration"
+
+        static_constructor, method_declaration = class_declaration.body
+        self.assertEqual([node.node_type for node in static_constructor],
+                         [ASTNodeType.STATEMENT_EXPRESSION, ASTNodeType.STATEMENT_EXPRESSION])
+        self.assertEqual(method_declaration.node_type, ASTNodeType.METHOD_DECLARATION)
+
     @skip('Method "get_member_reference_params" is deprecated')
     def test_member_reference_params(self):
         ast = self._build_ast("MemberReferencesExample.java")

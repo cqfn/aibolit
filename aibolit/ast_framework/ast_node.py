@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List, Iterator, Optional
+from typing import Any, List, Iterator, Optional
 
 from networkx import DiGraph, dfs_preorder_nodes  # type: ignore
 from cached_property import cached_property  # type: ignore
@@ -80,10 +80,9 @@ class ASTNode:
 
         attribute = self._graph.nodes[self._node_index][attribute_name]
         if isinstance(attribute, ASTNodeReference):
-            attribute = ASTNode(self._graph, attribute.node_index)
-        elif isinstance(attribute, list) and \
-                all((isinstance(item, ASTNodeReference) for item in attribute)):
-            attribute = [ASTNode(self._graph, item.node_index) for item in attribute]
+            attribute = self._create_node_from_reference(attribute)
+        elif isinstance(attribute, list):
+            attribute = self._replace_references_with_nodes(attribute)
         return attribute
 
     def __dir__(self) -> List[str]:
@@ -113,6 +112,25 @@ class ASTNode:
 
     def __hash__(self):
         return hash(self._node_index)
+
+    def _replace_references_with_nodes(self, list_with_references: List[Any]) -> List[Any]:
+        list_with_nodes: List[Any] = []
+        for item in list_with_references:
+            if isinstance(item, ASTNodeReference):
+                list_with_nodes.append(self._create_node_from_reference(item))
+            elif isinstance(item, list):
+                list_with_nodes.append(self._replace_references_with_nodes(item))
+            elif isinstance(item, (int, str)) or item is None:
+                list_with_nodes.append(item)
+            else:
+                raise RuntimeError('Failed parsing attribute.\n'
+                                   f'An {item} with {type(item)} was found.\n'
+                                   'Expected: int, str, ASNodeReference of list of them.')
+
+        return list_with_nodes
+
+    def _create_node_from_reference(self, reference: ASTNodeReference) -> 'ASTNode':
+        return ASTNode(self._graph, reference.node_index)
 
     def _get_type(self, node_index: int) -> ASTNodeType:
         return self._graph.nodes[node_index]['node_type']
