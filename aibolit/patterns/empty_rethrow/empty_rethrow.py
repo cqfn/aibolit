@@ -19,29 +19,32 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
-import javalang
-
+from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
+from typing import List
+from aibolit.ast_framework.ast_node import ASTNode
 
 
 class EmptyRethrow:
+    '''
+    Check if we throw the same exception as it was caught
+    '''
+    def _process_catch(self, ast: AST, catch_clauses: List[ASTNode]):
+        lines: List[int] = []
+        for catch_clause in catch_clauses:
+            throw_statements = ast.get_subtree(catch_clause).get_proxy_nodes(ASTNodeType.THROW_STATEMENT)
+            for throw_stat in throw_statements:
+                if throw_stat.expression.node_type == ASTNodeType.MEMBER_REFERENCE \
+                   and throw_stat.expression.member == catch_clause.parameter.name:
+                    lines.append(throw_stat.line)
+        return lines
 
-    def __init__(self):
-        pass
+    def value(self, filename) -> List[int]:
+        total_code_lines: List[int] = []
+        ast = AST.build_from_javalang(build_ast(filename))
+        for try_node in ast.get_proxy_nodes(ASTNodeType.TRY_STATEMENT):
+            catch_clauses = try_node.catches
+            if catch_clauses:
+                total_code_lines.extend(self._process_catch(ast, catch_clauses))
 
-    def value(self, filename):
-        tree = build_ast(filename)
-        total_code_lines = set()
-        for _, method_node in tree.filter(javalang.tree.MethodDeclaration):
-            for _, try_node in method_node.filter(javalang.tree.TryStatement):
-                for _, throw_node in try_node.filter(javalang.tree.ThrowStatement):
-                    if try_node.catches:
-                        catch_classes = [x.parameter.name for x in try_node.catches]
-                        mem_ref = throw_node.children[1]
-                        if isinstance(mem_ref, javalang.tree.ClassCreator):
-                            continue
-                        else:
-                            if hasattr(mem_ref, 'member') and mem_ref.member in catch_classes:
-                                total_code_lines.add(mem_ref.position.line)
         return sorted(total_code_lines)

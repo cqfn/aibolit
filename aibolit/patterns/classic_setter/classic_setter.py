@@ -1,34 +1,45 @@
 from typing import List
-
-import javalang
-
-from aibolit.types_decl import LineNumber
+from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
+from aibolit.ast_framework.ast_node import ASTNode
 
 
 class ClassicSetter:
+    '''
+    The method's name starts with set, then goes
+    the name of the attribute. There are attributes
+    assigning in the method. Also, asserts are ignored.
+    '''
+    suitable_nodes: List[ASTNodeType] = [
+        ASTNodeType.ASSERT_STATEMENT,
+        ASTNodeType.STATEMENT_EXPRESSION,
+    ]
 
-    def __init__(self):
-        pass
+    def _check_this_statements(self, ast: AST, node: ASTNode) -> bool:
+        for child_this in ast.get_subtree(node).get_proxy_nodes(ASTNodeType.THIS):
+            child_membref = child_this.selectors
+            if len(child_membref):
+                mem_referenced_name = child_membref[0].member
+                if node.name.lower() == 'set' + mem_referenced_name.lower():
+                    return True
+        return False
 
-    def value(self, filename: str) -> List[LineNumber]:
-        lst: List[LineNumber] = []
-        tree = build_ast(filename).filter(javalang.tree.MethodDeclaration)
-        for _, node in tree:
-            if (node.return_type is None) and ('set' in node.name[:3]):
-                if (isinstance(node.body, list)) and len(node.body) < 2:
-                    for statement in node.body:
-                        if isinstance(statement, javalang.tree.StatementExpression):
-                            if isinstance(statement.expression, javalang.tree.Assignment):
-                                expression = statement.expression.expressionl
-                                if isinstance(expression, javalang.tree.This):
-                                    if statement.expression.type == '=':
-                                        if expression.selectors[0].member.lower() == node.name.lower()[3:]:
-                                            lst.append(node._position.line)
-                                    else:
-                                        break
-                                else:
-                                    break
-                            else:
-                                break
-        return lst
+    def _check_body_nodes(self, check_setter_body: List[ASTNode]) -> bool:
+        '''
+        Check whether nodes are agree with the following types
+        (in self.suitable_nodes) or not.
+        '''
+        for node in check_setter_body:
+            if node.node_type not in self.suitable_nodes:
+                return False
+        return True
+
+    def value(self, filename: str) -> List[int]:
+        lines: List[int] = []
+        ast = AST.build_from_javalang(build_ast(filename))
+        for node in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
+            method_name = node.name
+            if node.return_type is None and method_name.startswith('set') and \
+               self._check_body_nodes(node.body) and self._check_this_statements(ast, node):
+                lines.append(node.line)
+        return sorted(lines)
