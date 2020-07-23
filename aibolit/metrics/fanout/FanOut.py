@@ -26,9 +26,9 @@ from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
 class FanOut:
-    '''
+    """
     Fan Out metric is defined as the number of other classes referenced by a class.
-    '''
+    """
 
     def value(self, ast: AST) -> int:
         fan_out = 0
@@ -48,7 +48,9 @@ class FanOut:
         # If class referred as 'package1.package2.class', than we get 3 REFERENCE_TYPE nodes
         # forming a subtree with 2 nodes pointing to packages names and last node pointing to class name.
         for type_reference in java_class.get_subtrees(ASTNodeType.REFERENCE_TYPE):
-            used_class_name = self._get_class_name_from_type_reference(type_reference.get_root())
+            used_class_name = self._get_class_name_from_type_reference(
+                type_reference.get_root()
+            )
             if used_class_name not in FanOut._excluded_class_names:
                 used_classes_names.add(used_class_name)
 
@@ -70,47 +72,47 @@ class FanOut:
     # exception are used from https://checkstyle.sourceforge.io/config_metrics.html#ClassFanOutComplexity
     # basic types ('int', 'long', etc.) are not used, because ASTNodeType.REFERENCE_TYPE match only class types
     _excluded_class_names = {
-        'ArrayIndexOutOfBoundsException',
-        'ArrayList',
-        'Boolean',
-        'Byte',
-        'Character',
-        'Class',
-        'Deprecated',
-        'Deque',
-        'Double',
-        'Exception',
-        'Float',
-        'FunctionalInterface',
-        'HashMap',
-        'HashSet',
-        'IllegalArgumentException',
-        'IllegalStateException',
-        'IndexOutOfBoundsException',
-        'Integer',
-        'LinkedList',
-        'List',
-        'Long',
-        'Map',
-        'NullPointerException',
-        'Object',
-        'Override',
-        'Queue',
-        'RuntimeException',
-        'SafeVarargs',
-        'SecurityException',
-        'Set',
-        'Short',
-        'SortedMap',
-        'SortedSet',
-        'String',
-        'StringBuffer',
-        'StringBuilder',
-        'SuppressWarnings',
-        'Throwable',
-        'TreeMap',
-        'TreeSet',
-        'UnsupportedOperationException',
-        'Void',
-        'System.out',
+        "ArrayIndexOutOfBoundsException",
+        "ArrayList",
+        "Boolean",
+        "Byte",
+        "Character",
+        "Class",
+        "Deprecated",
+        "Deque",
+        "Double",
+        "Exception",
+        "Float",
+        "FunctionalInterface",
+        "HashMap",
+        "HashSet",
+        "IllegalArgumentException",
+        "IllegalStateException",
+        "IndexOutOfBoundsException",
+        "Integer",
+        "LinkedList",
+        "List",
+        "Long",
+        "Map",
+        "NullPointerException",
+        "Object",
+        "Override",
+        "Queue",
+        "RuntimeException",
+        "SafeVarargs",
+        "SecurityException",
+        "Set",
+        "Short",
+        "SortedMap",
+        "SortedSet",
+        "String",
+        "StringBuffer",
+        "StringBuilder",
+        "SuppressWarnings",
+        "Throwable",
+        "TreeMap",
+        "TreeSet",
+        "UnsupportedOperationException",
+        "Void",
+        "System.out",
     }
