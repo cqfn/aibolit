@@ -33,18 +33,20 @@ class StringConcatFinder:
         ast = AST.build_from_javalang(build_ast(filename))
         for node in ast.get_proxy_nodes(ASTNodeType.BINARY_OPERATION):
             if node.operator == '+':
+                # by this check we want to filter nodes and consider only
+                # [Literal, MemberReference, MethodInvocation, This]
                 if hasattr(node.operandl, 'value') and isinstance(node.operandl.value, str) and \
                         not node.operandl.value.isdigit():
-                    if node.operandl.line:
-                        lines.add(node.operandl.line)
-                    elif node.operandr.line:
+                    if node.line:
+                        lines.add(node.line)
+                    elif node.line:
                         lines.add(node.operandr.line)
 
                 elif hasattr(node.operandr, 'value') and isinstance(node.operandr.value, str) and \
                         not node.operandr.value.isdigit():
-                    if node.operandl.line:
-                        lines.add(node.operandl.line)
-                    elif node.operandr.line:
-                        lines.add(node.operandr.line)
+                    if node.line:
+                        lines.add(node.line)
+                    elif node.line:
+                        lines.add(node.line)
 
         return sorted(lines)
