@@ -69,6 +69,16 @@ class RFCTestSuite(TestCase):
         rfc = RFC()
         self.assertEqual(rfc.value(ast), 2)
 
+    def test_inherited_methods(self):
+        ast = RFCTestSuite._get_ast("InheritedMethods.java")
+        rfc = RFC()
+        self.assertEqual(rfc.value(ast), 2)
+
+    def test_overwritten_inherited_methods(self):
+        ast = RFCTestSuite._get_ast("OverwrittenInheritedMethods.java")
+        rfc = RFC()
+        self.assertEqual(rfc.value(ast), 2)
+
     @staticmethod
     def _get_ast(filename: str) -> AST:
         path = Path(__file__).absolute().parent / filename

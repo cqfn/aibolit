@@ -53,13 +53,24 @@ class RFC:
 
         rfc = 0
         invoked_methods: Set[_MethodInvocationParams] = set()
+        local_methods_names: Set[str] = set()
         for class_item in class_declaration.body:
-            if class_item.node_type == ASTNodeType.METHOD_DECLARATION and \
-                    "public" in class_item.modifiers:
-                rfc += 1
-                invoked_methods |= self._get_all_method_invocation_params(
-                    java_class.get_subtree(class_item)
-                )
+            if class_item.node_type == ASTNodeType.METHOD_DECLARATION:
+                local_methods_names.add(class_item.name)
+                if "public" in class_item.modifiers:
+                    rfc += 1
+                    invoked_methods |= self._get_all_method_invocation_params(
+                        java_class.get_subtree(class_item)
+                    )
+
+        # filter out inherited methods
+        # consider local methods with name not found
+        # among methods names of current class as inherited
+        invoked_methods = {
+            invoked_method
+            for invoked_method in invoked_methods
+            if not invoked_method.isLocal or invoked_method.name in local_methods_names
+        }
 
         rfc += len(invoked_methods)
         return rfc
