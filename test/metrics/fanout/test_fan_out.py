@@ -20,32 +20,42 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
-from unittest import TestCase
-from aibolit.metrics.fanout.FanOut import FanOut
 from pathlib import Path
 
+from unittest import TestCase
 
-class TestFanOut(TestCase):
-    dir_path = Path(os.path.realpath(__file__)).parent
-    fanout = FanOut()
+from aibolit.metrics.fanout.FanOut import FanOut
+from aibolit.ast_framework import AST
+from aibolit.utils.ast_builder import build_ast
 
+
+class FanOutTestSuite(TestCase):
     def test_1(self):
-        lines = self.fanout.value(Path(self.dir_path, '1.java'))
-        self.assertEqual(lines, 3)
+        ast = FanOutTestSuite._build_ast('1.java')
+        fan_out = FanOut()
+        self.assertEqual(fan_out.value(ast), 3)
 
     def test_2(self):
-        lines = self.fanout.value(Path(self.dir_path, '2.java'))
-        self.assertEqual(lines, 2)
+        ast = FanOutTestSuite._build_ast('2.java')
+        fan_out = FanOut()
+        self.assertEqual(fan_out.value(ast), 1)
 
     def test_3(self):
-        lines = self.fanout.value(Path(self.dir_path, '3.java'))
-        self.assertEqual(lines, 2)
+        ast = FanOutTestSuite._build_ast('3.java')
+        fan_out = FanOut()
+        self.assertEqual(fan_out.value(ast), 2)
 
     def test_4(self):
-        lines = self.fanout.value(Path(self.dir_path, '4.java'))
-        self.assertEqual(lines, 1)
+        ast = FanOutTestSuite._build_ast('4.java')
+        fan_out = FanOut()
+        self.assertEqual(fan_out.value(ast), 1)
 
     def test_5(self):
-        lines = self.fanout.value(Path(self.dir_path, '5.java'))
-        self.assertEqual(lines, 1)
+        ast = FanOutTestSuite._build_ast('5.java')
+        fan_out = FanOut()
+        self.assertEqual(fan_out.value(ast), 1)
+
+    @staticmethod
+    def _build_ast(filename: str) -> AST:
+        path = Path(__file__).absolute().parent / filename
+        return AST.build_from_javalang(build_ast(str(path)))
