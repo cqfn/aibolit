@@ -113,7 +113,7 @@ def train_process():
     test_dataset = pd.read_csv(Config.test_csv(), index_col=None)
     with open(load_model_file, 'rb') as fid:
         model_new = pickle.load(fid)
-        scaled_test_dataset = scale_dataset(test_dataset, model_new.feature_conf).sample(n=10, random_state=17)
+        scaled_test_dataset = scale_dataset(test_dataset, model_new.features_conf).sample(n=10, random_state=17)
         print('Model has been loaded successfully')
         # add ncss, ncss is needed in informative as a  last column
         X_test = scaled_test_dataset[only_patterns + ['M2']]
