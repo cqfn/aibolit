@@ -37,23 +37,27 @@ class FanOut:
 
         return fan_out
 
-    def _calculate_class_fan_out(self, class_declaration: AST) -> int:
+    def _calculate_class_fan_out(self, java_class: AST) -> int:
+        class_declaration = java_class.get_root()
+        assert class_declaration.node_type == ASTNodeType.CLASS_DECLARATION
+
         used_classes_names: Set[str] = set()
 
         # Here we iterate over top level REFERENCE_TYPE nodes, because such subtrees
         # points to a single class and all intermidiate REFERENCE_TYPE nodes points to packages.
         # If class referred as 'package1.package2.class', than we get 3 REFERENCE_TYPE nodes
         # forming a subtree with 2 nodes pointing to packages names and last node pointing to class name.
-        for type_reference in class_declaration.get_subtrees(ASTNodeType.REFERENCE_TYPE):
+        for type_reference in java_class.get_subtrees(ASTNodeType.REFERENCE_TYPE):
             used_class_name = self._get_class_name_from_type_reference(type_reference.get_root())
             if used_class_name not in FanOut._excluded_class_names:
                 used_classes_names.add(used_class_name)
 
+        # remove name of the class
+        used_classes_names -= {class_declaration.name}
         return len(used_classes_names)
 
     def _get_class_name_from_type_reference(self, type_reference: ASTNode) -> str:
         assert type_reference.node_type == ASTNodeType.REFERENCE_TYPE
-
 
         # type_reference 'name' field may not have a name of class in case this class
         # is referenced from packages, like 'package1.package2.class'.

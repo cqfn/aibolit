@@ -43,7 +43,7 @@ class FanOutTestSuite(TestCase):
     def test_3(self):
         ast = FanOutTestSuite._build_ast('3.java')
         fan_out = FanOut()
-        self.assertEqual(fan_out.value(ast), 2)
+        self.assertEqual(fan_out.value(ast), 1)
 
     def test_4(self):
         ast = FanOutTestSuite._build_ast('4.java')
