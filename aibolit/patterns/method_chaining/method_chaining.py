@@ -16,6 +16,7 @@ class MethodChainFind:
         for i in node.children:
             if i.node_type == ASTNodeType.METHOD_INVOCATION:
                 return True
+
         return False
 
     def _check_chained_method(self, ast: AST, method_invocation: ASTNode) -> bool:
