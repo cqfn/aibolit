@@ -492,15 +492,21 @@ def get_exit_code(results):
     files_analyzed = len(results)
     errors_number = 0
     perfect_code_number = 0
+    errors_strings = []
     for result_for_file in results:
         results = result_for_file.get('results')
         errors_string = result_for_file.get('error_string')
         if not results and not errors_string:
             perfect_code_number += 1
         elif not results and errors_string:
-            errors_number += 1
+            if 'javalang.parser.JavaSyntaxError' not in errors_string:
+                errors_strings.append(errors_string)
+                errors_number += 1
+            else:
+                # ignore JavaSyntaxError, it is expected error
+                perfect_code_number +=1
 
-    if errors_number == files_analyzed:
+    if len(errors_strings) == files_analyzed:
         # we have errors everywhere
         exit_code = 2
     elif perfect_code_number == files_analyzed:
