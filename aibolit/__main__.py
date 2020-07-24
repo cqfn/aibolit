@@ -330,8 +330,8 @@ def inference(
 
     return results
 
-
-def run_recommend_for_file(file: str, args):
+# flake8: noqa: C901
+def run_recommend_for_file(file: str, args):  # flake8: noqa
     """
     Calculate patterns and metrics, pass values to model and suggest pattern to change
     :param file: file to analyze
