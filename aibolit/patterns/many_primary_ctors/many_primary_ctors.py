@@ -19,8 +19,6 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
-from typing import List
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework.ast_node import ASTNode
