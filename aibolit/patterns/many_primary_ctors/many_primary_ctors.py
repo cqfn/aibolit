@@ -22,6 +22,7 @@
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework.ast_node import ASTNode
+from typing import List
 
 
 class ManyPrimaryCtors(object):
