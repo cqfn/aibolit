@@ -24,26 +24,24 @@ from aibolit.utils.ast_builder import build_ast
 from typing import Set, List
 from aibolit.ast_framework.ast_node import ASTNode
 
+
 class StringConcatFinder:
     '''
     Any usage string concatenation using '+' operator is considered as a pattern.
     '''
-    def _check_operandr(self, node_operandr: ASTNode):
-        return node_operandr.node_type == ASTNodeType.LITERAL and isinstance(node_operandr.value, str) and \
-                not node_operandr.value.isdigit()
-
-    def _check_operandl(self, node_operandl: ASTNode):
-        return node_operandl.node_type == ASTNodeType.LITERAL and isinstance(node_operandl.value, str) and \
-                not node_operandl.value.isdigit()
+    def _check_left_right_operator(self, node: ASTNode):
+        assert node.node_type == ASTNodeType.BINARY_OPERATION
+        for operator_side in [node.operandr, node.operandl]:
+            if operator_side.node_type == ASTNodeType.LITERAL and isinstance(operator_side.value, str) and \
+               not operator_side.value.isdigit():
+                return True
+        return False
 
     def value(self, filename: str) -> List[int]:
         lines: Set[int] = set()
         ast = AST.build_from_javalang(build_ast(filename))
         for node in ast.get_proxy_nodes(ASTNodeType.BINARY_OPERATION):
-            if node.operator == '+':
-                if self._check_operandl(node.operandl):
-                    lines.add(node.line)
-                elif self._check_operandr(node.operandr):
-                    lines.add(node.line)
+            if node.operator == '+' and self._check_left_right_operator(node):
+                lines.add(node.line)
 
         return sorted(lines)
