@@ -22,7 +22,7 @@
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework.ast_node import ASTNode
-from typing import List
+from typing import List, Union
 
 
 class ManyPrimaryCtors(object):
@@ -47,8 +47,8 @@ class ManyPrimaryCtors(object):
                 lines.append(node.line)
         return lines
 
-    def __check_primary(self, ast: AST, node: ASTNode) -> bool:
-        node = node if not isinstance(node, list) else node[0] # type: ignore
+    def __check_primary(self, ast: AST, node: Union[ASTNode, List[ASTNode]]) -> bool:
+        node = node if not isinstance(node, list) else node[0]
         if node.node_type == ASTNodeType.CONSTRUCTOR_DECLARATION:
             for assignment in ast.get_subtree(node).get_proxy_nodes(ASTNodeType.ASSIGNMENT):
                 if assignment.expressionl.node_type == ASTNodeType.THIS:
