@@ -339,45 +339,51 @@ def run_recommend_for_file(file: str, args):
     :return: dict with code lines, filename and pattern name
     """
     java_file = str(Path(os.getcwd(), file))
-    tree = build_ast(file)
-    classes_with_annonations = find_annotation_by_node_type(tree, javalang.tree.ClassDeclaration)
-    functions_with_annotations = find_annotation_by_node_type(tree, javalang.tree.MethodDeclaration)
-    fields_with_annotations = find_annotation_by_node_type(tree, javalang.tree.FieldDeclaration)
-    classes_with_patterns_ignored = flatten(
-        [pattern_code for node, pattern_code in classes_with_annonations.items()])
-    patterns_ignored = defaultdict(list)
+    try:
+        tree = build_ast(file)
+        classes_with_annonations = find_annotation_by_node_type(tree, javalang.tree.ClassDeclaration)
+        functions_with_annotations = find_annotation_by_node_type(tree, javalang.tree.MethodDeclaration)
+        fields_with_annotations = find_annotation_by_node_type(tree, javalang.tree.FieldDeclaration)
+        classes_with_patterns_ignored = flatten(
+            [pattern_code for node, pattern_code in classes_with_annonations.items()])
+        patterns_ignored = defaultdict(list)
 
-    for node, patterns_list in functions_with_annotations.items():
-        start_pos, end_pos = find_start_and_end_lines(node)
-        for p in patterns_list:
-            patterns_ignored[p].append([start_pos, end_pos])
+        for node, patterns_list in functions_with_annotations.items():
+            start_pos, end_pos = find_start_and_end_lines(node)
+            for p in patterns_list:
+                patterns_ignored[p].append([start_pos, end_pos])
 
-    for node, patterns_list in fields_with_annotations.items():
-        for p in patterns_list:
-            patterns_ignored[p].append([node.position.line, node.position.line])
+        for node, patterns_list in fields_with_annotations.items():
+            for p in patterns_list:
+                patterns_ignored[p].append([node.position.line, node.position.line])
 
-    input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file, args)
+        input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file, args)
 
-    if not input_params:
-        results_list = []  # type: ignore
-        error_string = 'Empty java file; ncss = 0'
-    #  deepcode ignore ExpectsIntDislikesStr: False positive
-    elif input_params['M2'] == 0:
-        results_list = []  # type: ignore
-        error_string = 'Empty java file; ncss = 0'
-    else:
-        results_list = inference(input_params, code_lines_dict, args)
-        new_results: List[Any] = []
-        for pattern_item in results_list:
-            # check if the whole class is suppressed
-            if pattern_item['pattern_code'] not in classes_with_patterns_ignored:
-                # then check if patterns are ignored in fields or functions
-                add_pattern_if_ignored(patterns_ignored, pattern_item, new_results)
-                # add_pattern_if_ignored(patterns_for_fields_ignored, pattern_item, new_results)
-            else:
-                continue
+        if not input_params:
+            results_list = []  # type: ignore
+            error_string = 'Empty java file; ncss = 0'
+        #  deepcode ignore ExpectsIntDislikesStr: False positive
+        elif input_params['M2'] == 0:
+            results_list = []  # type: ignore
+            error_string = 'Empty java file; ncss = 0'
+        else:
+            results_list = inference(input_params, code_lines_dict, args)
+            new_results: List[Any] = []
+            for pattern_item in results_list:
+                # check if the whole class is suppressed
+                if pattern_item['pattern_code'] not in classes_with_patterns_ignored:
+                    # then check if patterns are ignored in fields or functions
+                    add_pattern_if_ignored(patterns_ignored, pattern_item, new_results)
+                    # add_pattern_if_ignored(patterns_for_fields_ignored, pattern_item, new_results)
+                else:
+                    continue
 
-        results_list = new_results
+            results_list = new_results
+
+    except Exception:
+        exc_type, _, _ = sys.exc_info()
+        error_string = str(exc_type)
+        results_list = []
 
     if error_string:
         ncss = 0
