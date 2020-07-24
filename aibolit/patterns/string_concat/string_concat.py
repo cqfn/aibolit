@@ -22,31 +22,28 @@
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
 from typing import Set, List
-
+from aibolit.ast_framework.ast_node import ASTNode
 
 class StringConcatFinder:
     '''
     Any usage string concatenation using '+' operator is considered as a pattern.
     '''
+    def _check_operandr(self, node_operandr: ASTNode):
+        return node_operandr.node_type == ASTNodeType.LITERAL and isinstance(node_operandr.value, str) and \
+                not node_operandr.value.isdigit()
+
+    def _check_operandl(self, node_operandl: ASTNode):
+        return node_operandl.node_type == ASTNodeType.LITERAL and isinstance(node_operandl.value, str) and \
+                not node_operandl.value.isdigit()
+
     def value(self, filename: str) -> List[int]:
         lines: Set[int] = set()
         ast = AST.build_from_javalang(build_ast(filename))
         for node in ast.get_proxy_nodes(ASTNodeType.BINARY_OPERATION):
             if node.operator == '+':
-                # by this check we want to filter nodes and consider only
-                # [Literal, MemberReference, MethodInvocation, This]
-                if hasattr(node.operandl, 'value') and isinstance(node.operandl.value, str) and \
-                        not node.operandl.value.isdigit():
-                    if node.line:
-                        lines.add(node.line)
-                    elif node.line:
-                        lines.add(node.operandr.line)
-
-                elif hasattr(node.operandr, 'value') and isinstance(node.operandr.value, str) and \
-                        not node.operandr.value.isdigit():
-                    if node.line:
-                        lines.add(node.line)
-                    elif node.line:
-                        lines.add(node.line)
+                if self._check_operandl(node.operandl):
+                    lines.add(node.line)
+                elif self._check_operandr(node.operandr):
+                    lines.add(node.line)
 
         return sorted(lines)
