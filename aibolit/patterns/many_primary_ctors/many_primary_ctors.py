@@ -48,7 +48,7 @@ class ManyPrimaryCtors(object):
         return lines
 
     def __check_primary(self, ast: AST, node: ASTNode) -> bool:
-        node = node if type(node) != list else node[0]
+        node = node if not isinstance(node, list) else node[0] # type: ignore
         if node.node_type == ASTNodeType.CONSTRUCTOR_DECLARATION:
             for assignment in ast.get_subtree(node).get_proxy_nodes(ASTNodeType.ASSIGNMENT):
                 if assignment.expressionl.node_type == ASTNodeType.THIS:
