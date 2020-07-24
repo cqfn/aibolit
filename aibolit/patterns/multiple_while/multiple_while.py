@@ -1,34 +1,42 @@
+# The MIT License (MIT)
+#
+# Copyright (c) 2020 Aibolit
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+from typing import List
+
 from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework import AST, ASTNodeType
-from typing import List, Set
 
 
 class MultipleWhile:
-
-    def __init__(self):
-        pass
-
-    def get_top_level_while_qty(self, tree: AST, node: int) -> int:
-        list_while_nodes: List[int] = []
-        set_child_while_nodes: Set[int] = set()
-        for child in tree.all_children_with_type(node, ASTNodeType.WHILE_STATEMENT):
-            list_while_nodes.append(child)
-            set_internal_while = set(tree.list_all_children_with_type(child, ASTNodeType.WHILE_STATEMENT))
-            set_child_while_nodes |= set_internal_while
-        return len(list_while_nodes) - len(set_child_while_nodes)
+    '''
+    Finds methods, with more than one "while" cycle, exceluding nested ones.
+    '''
 
     def value(self, filename: str) -> List[int]:
-        """
-        Travers over AST tree and finds function with sequential while statement
-        :param filename:
-        :return:
-        List of LineNumber of methods which have sequential while statements
-        """
-
-        tree = AST.build_from_javalang(build_ast(filename))
+        ast = AST.build_from_javalang(build_ast(filename))
         lines: List[int] = []
-        for node in tree.get_nodes(ASTNodeType.METHOD_DECLARATION):
-            if self.get_top_level_while_qty(tree, node) > 1:
-                lines.append(tree.get_attr(node, 'line'))
+        for method_declaration in ast.get_subtrees(ASTNodeType.METHOD_DECLARATION):
+            top_level_while_loops = method_declaration.get_subtrees(ASTNodeType.WHILE_STATEMENT)
+            if len(list(top_level_while_loops)) > 1:
+                lines.append(method_declaration.get_root().line)
 
         return lines

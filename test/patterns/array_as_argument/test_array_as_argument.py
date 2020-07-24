@@ -55,3 +55,11 @@ class TestArrayAsArgument(TestCase):
             self.pattern.value(file),
             'Should match method with generic array as argument'
         )
+
+    def test_ConstructorWithArrayAsArgument(self):
+        file = Path(self.dir_path, 'ConstructorWithArrayAsArgument.java')
+        self.assertEqual(
+            [2],
+            self.pattern.value(file),
+            'Should match constructor with array as argument'
+        )

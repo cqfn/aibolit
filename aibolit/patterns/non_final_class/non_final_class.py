@@ -1,29 +1,43 @@
+# The MIT License (MIT)
+#
+# Copyright (c) 2020 Aibolit
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 from typing import List
 
-from aibolit.types_decl import LineNumber
-from aibolit.ast_framework import ASTNodeType
-from aibolit.ast_framework.java_package import JavaPackage
+from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.utils.ast_builder import build_ast
 
 
 class NonFinalClass:
+    '''
+    Find all classes that are neither "final" nor "abstract".
+    '''
 
-    def __init__(self):
-        pass
+    def value(self, filename: str) -> List[int]:
+        ast = AST.build_from_javalang(build_ast(filename))
+        lines: List[int] = []
+        for class_declaration in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
+            if len(class_declaration.modifiers & NonFinalClass._allowed_class_modifiers) == 0:
+                lines.append(class_declaration.line)
 
-    def value(self, filename: str) -> List[LineNumber]:
-        java_package = JavaPackage(filename)
-        positions = []
-        for java_class in java_package.java_classes.values():
-            class_declaration_root = java_class.root
-            modifiers_node, = java_class.get_first_n_children_with_type(class_declaration_root,
-                                                                        ASTNodeType.COLLECTION, 1)
-            if modifiers_node is None:
-                continue
-            modifiers = {java_class.get_attr(child, 'string') for child in
-                         java_class.children_with_type(modifiers_node, ASTNodeType.STRING)}
-            if len(modifiers & NonFinalClass._allowed_class_modifiers) == 0:
-                positions.append(java_class.get_attr(class_declaration_root, 'line'))
-
-        return positions
+        return lines
 
     _allowed_class_modifiers = {'final', 'abstract'}
