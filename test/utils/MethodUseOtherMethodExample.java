@@ -1,3 +1,6 @@
+/**
+* Some documentation
+*/
 class MethodUseOtherMethod {
     private int connectingField = 0;
     private int redundantField = 0;
