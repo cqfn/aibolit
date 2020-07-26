@@ -1,4 +1,4 @@
-// Total NCSS = 12
+// Total NCSS = 13
 
 import java.util.Collections;
 import java.io.IOException;
@@ -11,7 +11,7 @@ class Foo {                                   // +1
     boolean a = false, b = true;              // +1
 
     if (a || b) {                             // +1
-      try {
+      try {                                   // +1
         do {                                  // +1
           x += 2;                             // +1
         } while (x < 12);
