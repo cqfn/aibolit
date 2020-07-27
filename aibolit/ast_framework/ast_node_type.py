@@ -104,3 +104,6 @@ class ASTNodeType(Enum):
     VARIABLE_DECLARATOR = auto()
     VOID_CLASS_REFERENCE = auto()
     WHILE_STATEMENT = auto()
+
+    def __str__(self) -> str:
+        return self.name.replace('_', ' ').capitalize()
