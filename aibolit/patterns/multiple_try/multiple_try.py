@@ -22,7 +22,6 @@
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
 from typing import List
-from aibolit.ast_framework.ast_node import ASTNode
 
 
 class MultipleTry:
