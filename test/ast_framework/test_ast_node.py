@@ -28,7 +28,7 @@ from aibolit.utils.ast_builder import build_ast
 
 
 class ASTNodeTestSuite(TestCase):
-    def test_fields(self):
+    def test_class_computed_fields(self):
         ast = AST.build_from_javalang(
             build_ast(
                 Path(__file__).absolute().parent / "MethodUseOtherMethodExample.java"
