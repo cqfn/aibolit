@@ -35,5 +35,4 @@ class MultipleTry:
             try_nodes = list(ast.get_subtree(method_declaration).get_proxy_nodes(ASTNodeType.TRY_STATEMENT))
             if len(try_nodes) > 1:
                 total_code_lines.append(method_declaration.line)
-
         return total_code_lines
