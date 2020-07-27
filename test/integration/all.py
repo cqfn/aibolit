@@ -29,6 +29,7 @@ import tqdm
 
 from aibolit.config import Config
 
+# TODO: fix all errors in the patterns/metrics and make these lists empty
 EXCLUDE_PATTERNS: List[str] = []
 EXCLUDE_METRICS: List[str] = []
 

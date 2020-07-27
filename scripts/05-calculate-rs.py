@@ -42,6 +42,10 @@ parser.add_argument('--filename',
 args = parser.parse_args()
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
+target_folder = Path(os.getenv('TARGET_FOLDER'))
+if target_folder:
+    os.chdir(str(target_folder))
+
 results = {}
 path = 'target/05'
 os.makedirs(path, exist_ok=True)

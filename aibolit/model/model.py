@@ -1,80 +1,86 @@
 from decimal import localcontext, ROUND_DOWN, Decimal
-from typing import List
+from typing import Dict, Any, Tuple
 
 import numpy as np
 import pandas as pd
 from catboost import CatBoost
 from sklearn.base import BaseEstimator
-from sklearn.preprocessing import StandardScaler
 
 from aibolit.config import Config
 
 
-class Dataset:
+def get_minimum(
+        c1: np.array,
+        c2: np.array,
+        c3: np.array) -> Tuple[np.array, np.array]:
+    """
+    Args:
+        c1, c2, c3: np.array with shape (number of snippets, ).
+    Returns:
+        c: np.array with shape (number of snippets, ) -
+        elemental minimum of 3 arrays.
+        number: np.array with shape (number of snippets, ) of
+        arrays' numbers with minimum elements.            .
+    """
 
-    def __init__(self, only_patterns: List[str]):
-        self.input = None
-        self.target = None
-        self.do_rename_columns = False
-        self.only_patterns = only_patterns
+    c = np.vstack((c1, c2, c3))
 
-    def preprocess_file(
-            self,
-            scale_ncss=True,
-            scale=False,
-            **kwargs):
-
-        print('reading dataset from {}'.format(Config.dataset_file()))
-        df = pd.read_csv(Config.dataset_file())
-        df = df[~df["filename"].str.lower().str.contains("test")]
-        config = Config.get_patterns_config()
-        if self.do_rename_columns:
-            p_codes = \
-                [x['code'] for x in config['patterns']] \
-                + ['lines' + x['code'] for x in config['patterns']]
-            m_codes = [x['code'] for x in config['metrics']]
-            keys = p_codes + m_codes
-            vals = \
-                [x['name'] for x in config['patterns']] \
-                + ['lines' + x['name'] for x in config['patterns']] \
-                + [x['name'] for x in config['metrics']]
-
-            replace_dict = dict(zip(keys, vals))
-            df = df.rename(replace_dict)
-            df.columns = vals
-            print('Columns renamed:' + df.head())
-
-        df = df.dropna().drop_duplicates(subset=df.columns.difference(['filename']))
-        df = df[(df.ncss > 20) & (df.ncss < 100) & (df.npath_method_avg < 100000.00)].copy().reset_index()
-
-        df.drop('filename', axis=1, inplace=True)
-        df.drop('index', axis=1, inplace=True)
-        self.target = np.array(df[['M4']].values[:, 0], dtype=np.float64)
-        if scale_ncss:
-            new = pd.DataFrame(
-                df[self.only_patterns].values / df['M2'].values.reshape((-1, 1)),
-                columns=self.only_patterns
-            )
-            self.target /= df['M2'].values.reshape(-1)
-        else:
-            new = df[self.only_patterns].copy()
-        if scale:
-            self.input = pd.DataFrame(StandardScaler().fit_transform(new.values), columns=new.columns,
-                                      index=new.index).values
-        else:
-            self.input = new.values
-
-        self.feature_order = list(new.columns)
+    return np.min(c, 0), np.argmin(c, 0)
 
 
-class TwoFoldRankingModel(BaseEstimator):
+def generate_fake_dataset() -> pd.DataFrame:
+    config = Config.get_patterns_config()
+    patterns = [x['code'] for x in config['patterns']]
+    metrics = [x['code'] for x in config['metrics']]
+
+    train_df = pd.DataFrame(columns=patterns)
+    min_rows_for_train = 10
+    for x in range(min_rows_for_train):
+        p = {p: (x + i) for i, p in enumerate(patterns)}
+        m = {p: (x + i) for i, p in enumerate(metrics)}
+        row = {**p, **m}
+        train_df = train_df.append(row, ignore_index=True)
+
+    train_df = train_df.astype(float)
+    return train_df
+
+
+def scale_dataset(
+        df: pd.DataFrame,
+        features_conf: Dict[Any, Any],
+        scale_ncss=True) -> pd.DataFrame:
+    config = Config.get_patterns_config()
+    patterns_codes_set = set([x['code'] for x in config['patterns']])
+    metrics_codes_set = [x['code'] for x in config['metrics']]
+    exclude_features = set(config['patterns_exclude']).union(set(config['metrics_exclude']))
+    used_codes = set(features_conf['features_order'])
+    used_codes.add('M4')
+    not_scaled_codes = set(patterns_codes_set).union(set(metrics_codes_set)).difference(used_codes).difference(
+        exclude_features)
+    features_not_in_config = set(df.columns).difference(not_scaled_codes).difference(used_codes)
+    not_scaled_codes = sorted(not_scaled_codes.union(features_not_in_config))
+    codes_to_scale = sorted(used_codes)
+    if scale_ncss:
+        scaled_df = pd.DataFrame(
+            df[codes_to_scale].values / df['M2'].values.reshape((-1, 1)),
+            columns=codes_to_scale
+        )
+        not_scaled_df = df[not_scaled_codes]
+        input = pd.concat([scaled_df, not_scaled_df], axis=1)
+    else:
+        input = df
+
+    return input
+
+
+class PatternRankingModel(BaseEstimator):
 
     def __init__(self):
         self.do_rename_columns = False
         self.model = None
         self.features_conf = None
 
-    def fit(self, X, y, display=False):
+    def fit_regressor(self, X, y, display=False):
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
@@ -153,22 +159,7 @@ class TwoFoldRankingModel(BaseEstimator):
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
-    def get_minimum(self, c1, c2, c3):
-        """
-        Args:
-            c1, c2, c3: np.array with shape (number of snippets, ).
-        Returns:
-            c: np.array with shape (number of snippets, ) -
-            elemental minimum of 3 arrays.
-            number: np.array with shape (number of snippets, ) of
-            arrays' numbers with minimum elements.            .
-        """
-
-        c = np.vstack((c1, c2, c3))
-
-        return np.min(c, 0), np.argmin(c, 0)
-
-    def informative(self, snippet, scale=True, th=1.0):
+    def rank(self, snippet, scale=True, th=1.0):
         """
         Args:
             snippet: np.array with shape (number of snippets, number of patterns + 1),
