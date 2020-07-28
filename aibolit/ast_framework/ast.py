@@ -264,8 +264,21 @@ class AST:
         attributes['node_type'] = node_type
         attributes['line'] = javalang_node.position.line if javalang_node.position is not None else None
 
+        AST._post_process_javalang_attributes(tree, node_type, attributes)
+
         tree.add_node(node_index, **attributes)
         return node_index, node_type
+
+    @staticmethod
+    def _post_process_javalang_attributes(tree: DiGraph, node_type: ASTNodeType, attributes: Dict[str, Any]) -> None:
+        """
+        Replace some attributes with more appropriate values for convince work
+        """
+
+        if node_type == ASTNodeType.METHOD_DECLARATION and \
+           "abstract" in attributes["modifiers"] and \
+           attributes["body"] is None:
+            attributes["body"] = []
 
     @staticmethod
     def _add_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:
