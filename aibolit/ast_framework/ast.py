@@ -80,7 +80,7 @@ class AST:
         for node_index in self.tree.nodes:
             yield ASTNode(self.tree, node_index)
 
-    def get_subtrees(self, root_type: ASTNodeType) -> Iterator['AST']:
+    def get_subtrees(self, *root_type: ASTNodeType) -> Iterator['AST']:
         '''
         Yields subtrees with given type of the root.
         If such subtrees are one including the other, only the larger one is
@@ -93,7 +93,7 @@ class AST:
             if edge_type == 'forward':
                 if is_inside_subtree:
                     subtree.append(destination)
-                elif self.tree.nodes[destination]['node_type'] == root_type:
+                elif self.tree.nodes[destination]['node_type'] in root_type:
                     subtree.append(destination)
                     is_inside_subtree = True
                     current_subtree_root = destination
