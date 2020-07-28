@@ -1,12 +1,12 @@
 import os
 from unittest import TestCase
-from aibolit.patterns.send_null.send_null import SendNullFixed
+from aibolit.patterns.send_null.send_null import SendNull
 from pathlib import Path
 
 
 class TestSendNull(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
-    method_send_null_finder = SendNullFixed()
+    method_send_null_finder = SendNull()
 
     def test_one_send(self):
         lines = self.method_send_null_finder.value(Path(self.dir_path, 'BaseKeyframeAnimation.java'))
