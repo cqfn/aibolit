@@ -42,6 +42,7 @@ class TestRecommendPipeline(TestCase):
         self.config = Config.get_patterns_config()
 
     def __create_mock_input(self):
+        ex = Exception("Error occurred")
         item = {
             'filename': '1.java',
             'ncss': 100,
@@ -70,7 +71,7 @@ class TestRecommendPipeline(TestCase):
             ]
         }
         error_file = {
-            'error_string': "Error occured",
+            'exception': str(ex),
             'filename': 'hdd/home/Error.java',
             'results': []
         }
@@ -88,6 +89,7 @@ class TestRecommendPipeline(TestCase):
         return argparse_mock
 
     def __create_input_for_xml(self):
+        ex = Exception("Smth happened")
         return [
             {'filename': 'D:\\target\\0001\\fast\\Configuration.java',
              'ncss': 100,
@@ -104,7 +106,7 @@ class TestRecommendPipeline(TestCase):
             {'filename': 'D:\\target\\0001\\fast\\Error.java',
              'results': [],
              'ncss': 0,
-             'error_string': "Smth happened"
+             'exception': str(ex)
              },
             {'filename': 'D:\\target\\0001\\fast\\Another.java',
              'ncss': 50,
@@ -132,7 +134,7 @@ class TestRecommendPipeline(TestCase):
     def test_calculate_patterns_and_metrics(self):
         args = self.__suppress_argparse_mock()
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
-        input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(file, args)
+        input_params, code_lines_dict, _ = calculate_patterns_and_metrics(file, args)
         val = code_lines_dict['P2']
         self.assertNotEqual(val, 0)
         val = code_lines_dict['P24']
@@ -142,7 +144,7 @@ class TestRecommendPipeline(TestCase):
         args = self.__suppress_argparse_mock()
         args.suppress = 'P2'
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
-        input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(file, args)
+        input_params, code_lines_dict, _ = calculate_patterns_and_metrics(file, args)
         val = code_lines_dict['P2']
         self.assertEqual(val, 0)
         val = code_lines_dict['P24']
@@ -175,7 +177,7 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input)
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), '5efdc7930a66874e9d0c7dcfef734687')
+        self.assertEqual(md5_hash.hexdigest(), '2a67e22091ba2cfd76847d292ed90142')
 
     def test_empty_lines_format(self):
         new_mock = format_converter_for_pattern([])
@@ -188,7 +190,7 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input, 'code_line')
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), '1324e129e6badbfb6e10f742667023ae')
+        self.assertEqual(md5_hash.hexdigest(), '8c6b91b8600848b66a9e91f2047d2d6d')
 
     def test_find_start_end_line_function(self):
         # Check start and end line for MethodDeclaration,

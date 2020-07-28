@@ -259,7 +259,7 @@ def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
 
 def calculate_patterns_and_metrics(file, args):
     code_lines_dict = input_params = {}  # type: ignore
-    error_string = None
+    error_exc = None
     patterns_to_suppress = args.suppress
     try:
         config = Config.get_patterns_config()
@@ -276,10 +276,10 @@ def calculate_patterns_and_metrics(file, args):
                 continue
             __count_value(metric, input_params, code_lines_dict, file, is_metric=True)
     except Exception as ex:
-        error_string = str(ex)
+        error_exc = ex
         input_params = []  # type: ignore
 
-    return input_params, code_lines_dict, error_string
+    return input_params, code_lines_dict, error_exc
 
 
 def inference(
@@ -330,7 +330,27 @@ def inference(
 
     return results
 
-# flake8: noqa: C901
+
+def create_results(
+        input_params: List[int],
+        code_lines_dict: Dict[Any, Any],
+        args: argparse.Namespace,
+        classes_with_patterns_ignored: List[Any],
+        patterns_ignored: Dict[Any, Any]):
+    results_list = inference(input_params, code_lines_dict, args)
+    new_results: List[Any] = []
+    for pattern_item in results_list:
+        # check if the whole class is suppressed
+        if pattern_item['pattern_code'] not in classes_with_patterns_ignored:
+            # then check if patterns are ignored in fields or functions
+            add_pattern_if_ignored(patterns_ignored, pattern_item, new_results)
+            # add_pattern_if_ignored(patterns_for_fields_ignored, pattern_item, new_results)
+        else:
+            continue
+
+    return new_results
+
+
 def run_recommend_for_file(file: str, args):  # flake8: noqa
     """
     Calculate patterns and metrics, pass values to model and suggest pattern to change
@@ -357,35 +377,28 @@ def run_recommend_for_file(file: str, args):  # flake8: noqa
             for p in patterns_list:
                 patterns_ignored[p].append([node.position.line, node.position.line])
 
-        input_params, code_lines_dict, error_string = calculate_patterns_and_metrics(java_file, args)
+        input_params, code_lines_dict, error_exception = calculate_patterns_and_metrics(java_file, args)
 
         if not input_params:
             results_list = []  # type: ignore
-            error_string = 'Empty java file; ncss = 0'
+            error_exception = 'Empty java file; ncss = 0'
         #  deepcode ignore ExpectsIntDislikesStr: False positive
         elif input_params['M2'] == 0:
             results_list = []  # type: ignore
-            error_string = 'Empty java file; ncss = 0'
+            error_exception = 'Empty java file; ncss = 0'
         else:
-            results_list = inference(input_params, code_lines_dict, args)
-            new_results: List[Any] = []
-            for pattern_item in results_list:
-                # check if the whole class is suppressed
-                if pattern_item['pattern_code'] not in classes_with_patterns_ignored:
-                    # then check if patterns are ignored in fields or functions
-                    add_pattern_if_ignored(patterns_ignored, pattern_item, new_results)
-                    # add_pattern_if_ignored(patterns_for_fields_ignored, pattern_item, new_results)
-                else:
-                    continue
+            results_list = create_results(
+                input_params,
+                code_lines_dict,
+                args,
+                classes_with_patterns_ignored,
+                patterns_ignored)
 
-            results_list = new_results
-
-    except Exception:
-        exc_type, _, _ = sys.exc_info()
-        error_string = str(exc_type)
+    except Exception as e:
+        error_exception = e
         results_list = []
 
-    if error_string:
+    if error_exception:
         ncss = 0
     else:
         ncss = input_params.get('M4', 0)
@@ -393,7 +406,7 @@ def run_recommend_for_file(file: str, args):  # flake8: noqa
     return {
         'filename': file,
         'results': results_list,
-        'error_string': error_string,
+        'exception': error_exception,
         'ncss': ncss,
     }
 
@@ -417,7 +430,7 @@ def create_xml_tree(results, full_report, cmd, exit_code):
     files_number_tag.addprevious(etree.Comment('Files with found patterns'))
     files_number_tag.text = str(len(
         [x for x in results
-         if (not x.get('error_string') and x.get('results'))]
+         if (not x.get('exception') and x.get('results'))]
     ))
     patterns_number_tag = etree.SubElement(header_tag, 'patterns')
     ncss_tag = etree.SubElement(header_tag, 'ncss')
@@ -439,7 +452,8 @@ def create_xml_tree(results, full_report, cmd, exit_code):
         output_string_tag = etree.SubElement(file, 'summary')
         name.text = filename
         results_item = result_for_file.get('results')
-        errors_string = result_for_file.get('error_string')
+        ex = result_for_file.get('exception')
+        errors_string = str(result_for_file.get('exception')) or type(ex).__name__
         if not results_item and not errors_string:
             output_string = 'Your code is perfect in aibolit\'s opinion'
             output_string_tag.text = output_string
@@ -495,16 +509,16 @@ def get_exit_code(results):
     errors_strings = []
     for result_for_file in results:
         results = result_for_file.get('results')
-        errors_string = result_for_file.get('error_string')
-        if not results and not errors_string:
+        ex = result_for_file.get('exception')
+        if not results and not ex:
             perfect_code_number += 1
-        elif not results and errors_string:
-            if 'javalang.parser.JavaSyntaxError' not in errors_string:
-                errors_strings.append(errors_string)
+        elif not results and ex:
+            if not isinstance(ex, javalang.parser.JavaSyntaxError):
+                errors_strings.append(ex)
                 errors_number += 1
             else:
                 # ignore JavaSyntaxError, it is expected error
-                perfect_code_number +=1
+                perfect_code_number += 1
 
     if len(errors_strings) == files_analyzed:
         # we have errors everywhere
@@ -530,17 +544,17 @@ def create_text(results, full_report, is_long=False):
     for result_for_file in results:
         filename = result_for_file.get('filename')
         results_item = result_for_file.get('results')
-        errors_string = result_for_file.get('error_string')
-        if not results_item and not errors_string:
+        ex = result_for_file.get('exception')
+        if not results_item and not ex:
             # Do nothing, patterns were not found
             pass
-        if not results_item and errors_string:
+        if not results_item and ex:
             output_string = '{}: error when calculating patterns: {}'.format(
                 filename,
-                str(errors_string)
+                str(ex) or type(ex).__name__
             )
             buffer.append(output_string)
-        elif results_item and not errors_string:
+        elif results_item and not ex:
             # get unique patterns score
             patterns_scores = print_total_score_for_file(buffer, filename, importances_for_all_classes, result_for_file)
             patterns_number = len(patterns_scores)
