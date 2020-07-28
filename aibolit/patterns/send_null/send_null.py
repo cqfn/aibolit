@@ -24,8 +24,12 @@ class SendNull:
                     lines.add(argument.line)
 
         for node in tree.get_proxy_nodes(ASTNodeType.TERNARY_EXPRESSION):
-            if (hasattr(node.if_true, 'value') and node.if_true.value == 'null') or \
-                    (hasattr(node.if_false, 'value') and node.if_false.value == 'null'):
+            has_ternary_true_value = hasattr(node.if_true, 'value')
+            is_ternary_true_str = isinstance(node.if_true, str)
+            has_ternary_false_value = hasattr(node.if_false, 'value')
+            is_ternary_false_str = isinstance(node.if_false, str)
+            if (has_ternary_true_value and is_ternary_true_str and node.if_true.value == 'null') or \
+                    (has_ternary_false_value and is_ternary_false_str and node.if_false.value == 'null'):
                 lines.add(node.line)
 
         lst = sorted(lines)
