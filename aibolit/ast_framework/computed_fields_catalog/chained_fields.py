@@ -50,14 +50,16 @@ def chain_field_getter_factory(*steps: Union[str, int]) -> Callable[[ASTNode], A
                 if all(isinstance(item, list) for item in field):  # flattening list
                     field = list(chain.from_iterable(field))
 
-                if len(field) == 1:
-                    field = field[0]
             elif isinstance(field, list) and isinstance(step, int):
                 field = field[step]
             elif isinstance(field, ASTNode) and isinstance(step, str):
                 field = getattr(field, step)
             else:
                 raise RuntimeError(f"Failed to apply step {step} to field {field}.")
+
+        if isinstance(field, list) and len(field) == 1:
+            field = field[0]
+
         return field
 
     return get_chain_field
