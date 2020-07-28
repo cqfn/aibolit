@@ -275,9 +275,7 @@ class AST:
         Replace some attributes with more appropriate values for convince work
         """
 
-        if node_type == ASTNodeType.METHOD_DECLARATION and \
-           "abstract" in attributes["modifiers"] and \
-           attributes["body"] is None:
+        if node_type == ASTNodeType.METHOD_DECLARATION and attributes["body"] is None:
             attributes["body"] = []
 
     @staticmethod
