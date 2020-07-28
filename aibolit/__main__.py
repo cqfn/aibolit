@@ -49,6 +49,7 @@ from aibolit import __version__
 from aibolit.config import Config
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
 from aibolit.utils.ast_builder import build_ast
+from javalang.parser import JavaSyntaxError
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -513,7 +514,7 @@ def get_exit_code(results):
         if not results and not ex:
             perfect_code_number += 1
         elif not results and ex:
-            if not isinstance(ex, javalang.parser.JavaSyntaxError):
+            if not isinstance(ex, JavaSyntaxError):
                 errors_strings.append(ex)
                 errors_number += 1
             else:
