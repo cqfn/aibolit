@@ -104,4 +104,4 @@ class RedundantCatchTest(TestCase):
         """
         pattern = RedundantCatch()
         lines = pattern.value(os.path.dirname(os.path.realpath(__file__)) + '/Cache.java')
-        self.assertEqual(lines, [])
+        self.assertEqual(lines, [393])
