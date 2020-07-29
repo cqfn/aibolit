@@ -31,6 +31,7 @@ class RedundantCatch:
     To check wether the method throws same as it does inside the
     try -> catch structure in this method
     '''
+
     def _is_redundant(self, method_throw_name: List[str], try_node: ASTNode):
         assert try_node.node_type == ASTNodeType.TRY_STATEMENT
         for catch_node in try_node.catches:
@@ -42,13 +43,13 @@ class RedundantCatch:
     def value(self, filename: str) -> List[int]:
         lines: List[int] = []
         ast = AST.build_from_javalang(build_ast(filename))
-        for block_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION,
-                                                     ASTNodeType.CONSTRUCTOR_DECLARATION):
-            block_throw_names = block_declaration.throws
-            for try_node in ast.get_subtree(block_declaration).get_proxy_nodes(ASTNodeType.TRY_STATEMENT):
-                if block_throw_names is not None and \
-                   try_node.catches is not None and \
-                   self._is_redundant(block_throw_names, try_node):
+        for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION,
+                                                      ASTNodeType.CONSTRUCTOR_DECLARATION):
+            method_throw_names = method_declaration.throws
+            for try_node in ast.get_subtree(method_declaration).get_proxy_nodes(ASTNodeType.TRY_STATEMENT):
+                if method_throw_names is not None and \
+                        try_node.catches is not None and \
+                        self._is_redundant(method_throw_names, try_node):
                     lines.append(try_node.line)
 
         return lines
