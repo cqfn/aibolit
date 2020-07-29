@@ -272,7 +272,7 @@ class AST:
     @staticmethod
     def _post_process_javalang_attributes(tree: DiGraph, node_type: ASTNodeType, attributes: Dict[str, Any]) -> None:
         """
-        Replace some attributes with more appropriate values for convince work
+        Replace some attributes with more appropriate values for convenient work
         """
 
         if node_type == ASTNodeType.METHOD_DECLARATION and attributes["body"] is None:
