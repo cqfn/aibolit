@@ -19,12 +19,13 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+from typing import Any, List
 
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.utils.ast_builder import build_ast
 
 
-class ThisFinderFixed:
+class HybridConstructor:
 
     def is_statement_ctor_inv(self, node):
         if node.expression.node_type == ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION:
@@ -63,13 +64,7 @@ class ThisFinderFixed:
             else:
                 other_statements.append(statement)
         elif statement.node_type == ASTNodeType.TRY_STATEMENT:
-            if (statement.resources is not None) or \
-                    (statement.catches is not None and statement.catches[0].block != []) or \
-                    (statement.finally_block is not None):
-                other_statements.append(statement)
-
-            for try_stat in statement.block:
-                self.traverse(try_stat, exp_ctrs_decls, other_statements)
+            self.traverse_in_try(exp_ctrs_decls, other_statements, statement)
         elif statement.node_type in (
                 ASTNodeType.DO_STATEMENT,
                 ASTNodeType.WHILE_STATEMENT):
@@ -86,12 +81,20 @@ class ThisFinderFixed:
         else:
             other_statements.append(statement)
 
+    def traverse_in_try(self, exp_ctrs_decls, other_statements, statement):
+        if (statement.resources is not None) or \
+                (statement.catches is not None and statement.catches[0].block != []) or \
+                (statement.finally_block is not None):
+            other_statements.append(statement)
+        for try_stat in statement.block:
+            self.traverse(try_stat, exp_ctrs_decls, other_statements)
+
     def value(self, filename: str):
         tree = AST.build_from_javalang(build_ast(filename))
         lines = []
         for node in tree.get_proxy_nodes(ASTNodeType.CONSTRUCTOR_DECLARATION):
-            exp_ctrs_decls = []
-            other_statements = []
+            exp_ctrs_decls: List[Any] = []
+            other_statements: List[Any] = []
             for statement in node.body:
                 self.traverse(statement, exp_ctrs_decls, other_statements)
 
