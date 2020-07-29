@@ -31,22 +31,24 @@ class RedundantCatch:
     To check wether the method throws same as it does inside the
     try -> catch structure in this method
     '''
-    def _is_redundant(self, method_throw_name: ASTNode, try_node: ASTNode):
+    def _is_redundant(self, method_throw_name: List[str], try_node: ASTNode):
         assert try_node.node_type == ASTNodeType.TRY_STATEMENT
-        if try_node.catches:
-            for catch_node in try_node.catches:
-                for catch_node_name in catch_node.parameter.types:
-                    if  method_throw_name is not None and catch_node_name in method_throw_name:
-                        return True
+        for catch_node in try_node.catches:
+            for catch_node_name in catch_node.parameter.types:
+                if catch_node_name in method_throw_name:
+                    return True
         return False
 
     def value(self, filename: str) -> List[int]:
         lines: List[int] = []
         ast = AST.build_from_javalang(build_ast(filename))
-        for block_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION, ASTNodeType.CONSTRUCTOR_DECLARATION):
+        for block_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION,
+                                                     ASTNodeType.CONSTRUCTOR_DECLARATION):
             block_throw_names = block_declaration.throws
             for try_node in ast.get_subtree(block_declaration).get_proxy_nodes(ASTNodeType.TRY_STATEMENT):
-                if self._is_redundant(block_throw_names, try_node):
+                if block_throw_names is not None and \
+                   try_node.catches is not None and \
+                   self._is_redundant(block_throw_names, try_node):
                     lines.append(try_node.line)
 
         return lines
