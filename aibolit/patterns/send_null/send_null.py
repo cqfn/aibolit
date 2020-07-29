@@ -9,6 +9,20 @@ class SendNull:
     def __init__(self):
         pass
 
+    def __is_null(self, val):
+        has_ternary_true_value = hasattr(val, 'value')
+        if has_ternary_true_value:
+            is_ternary_true_str = isinstance(val.value, str)
+            if is_ternary_true_str:
+                if val.value == 'null':
+                    return True
+                else:
+                    return False
+            else:
+                return False
+        else:
+            return False
+
     def value(self, filename: str) -> List[int]:
 
         lines = set()
@@ -24,12 +38,7 @@ class SendNull:
                     lines.add(argument.line)
 
         for node in tree.get_proxy_nodes(ASTNodeType.TERNARY_EXPRESSION):
-            has_ternary_true_value = hasattr(node.if_true, 'value')
-            is_ternary_true_str = isinstance(node.if_true, str)
-            has_ternary_false_value = hasattr(node.if_false, 'value')
-            is_ternary_false_str = isinstance(node.if_false, str)
-            if (has_ternary_true_value and is_ternary_true_str and node.if_true.value == 'null') or \
-                    (has_ternary_false_value and is_ternary_false_str and node.if_false.value == 'null'):
+            if self.__is_null(node.if_false) or self.__is_null(node.if_true):
                 lines.add(node.line)
 
         lst = sorted(lines)
