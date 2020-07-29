@@ -40,9 +40,9 @@ class RedundantCatch:
                     return True
         return False
 
-    def _get_lambda_try_nodes(self, ast: AST, lambda_node: ASTNode)  -> List[int]:
+    def _get_lambda_try_nodes(self, ast: AST, lambda_node: ASTNode) -> List[int]:
         assert lambda_node.node_type == ASTNodeType.LAMBDA_EXPRESSION
-        return [try_node.line for try_node in \
+        return [try_node.line for try_node in
                 ast.get_subtree(lambda_node).get_proxy_nodes(ASTNodeType.TRY_STATEMENT)]
 
     def value(self, filename: str) -> List[int]:
