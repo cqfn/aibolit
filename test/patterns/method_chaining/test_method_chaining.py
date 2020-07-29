@@ -40,7 +40,7 @@ class TestMethodChain(TestCase):
 
     def test_chain_with_new_object(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'MethodChainNewObjectMethods.java'))
-        self.assertEqual(lines, [34])
+        self.assertEqual(lines, [23, 34])
 
     def test_method_chain_in_different_methods(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'MethodChainInDifferentMethods.java'))
@@ -68,11 +68,11 @@ class TestMethodChain(TestCase):
 
     def test_nested_chain_with_this(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'NestedChainWIthThis.java'))
-        self.assertEqual(lines, [14])
+        self.assertEqual(lines, [14, 15])
 
     def test_nested_chain_with_simple_method_invocation(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'NestedChainWithSimpleMethodInvocation.java'))
-        self.assertEqual(lines, [15])
+        self.assertEqual(lines, [15, 16])
 
     def test_nested_chain_complicated_structure(self):
         """
@@ -84,7 +84,7 @@ class TestMethodChain(TestCase):
 
     def test_smallest_chain(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'SmallestChain.java'))
-        self.assertEqual(lines, [31])
+        self.assertEqual(lines, [31, 83, 84])
 
     def test_fake_chain(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'FakeChain.java'))

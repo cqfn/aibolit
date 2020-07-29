@@ -11,7 +11,9 @@ class Test {
         );
 
 		obj = new Object();
-		obj.ohhhh().set(this.govno("Zh").zhopa(whaaat).concat(whaaat)).opopo(whaaat);
+		obj.ohhhh().set(
+            this.govno("Zh").zhopa(whaaat).concat(whaaat)
+        ).opopo(whaaat);
 		System.out.println("asdasd" + aaa + "34234" + bbb);
         list = new ArrayList<>();
         for (int i = 0; i < 10; i++)
@@ -19,7 +21,7 @@ class Test {
         list = new ArrayList<>();
         for (int i = 0; i < 10; i++)
             list.add(Boolean.FALSE);
-		
+
     }
 
 
