@@ -22,6 +22,7 @@
 
 import javalang
 
+from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.utils.ast_builder import build_ast
 
 
@@ -116,6 +117,71 @@ class ThisFinder:
             number = node.position.line
             stats = node.children[-1]
             result, _, _ = self.__work_with_stats(stats, 0, 0)
+
             if result == 1:
                 num_str.append(number)
         return sorted(list(set(num_str)))
+
+
+class ThisFinderFixed:
+
+    def traverse(self, node):
+        pass
+
+    def is_statement_ctor_inv(self, node):
+        if node.expression.node_type == ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION:
+            return True
+        else:
+            return False
+
+    def has_try_ctor_inv(self, node):
+        try_exprs = node.block
+        for expr in try_exprs:
+            if expr.node_type == ASTNodeType.STATEMENT_EXPRESSION:
+                is_ctr_inv = self.is_statement_ctor_inv(expr)
+                if is_ctr_inv:
+                    return True
+                else:
+                    return False
+
+    def traverse(self, statement, exp_ctrs_decls, other_statements):
+        if statement.node_type == ASTNodeType.STATEMENT_EXPRESSION:
+            is_ctor_inv = self.is_statement_ctor_inv(statement)
+            if is_ctor_inv:
+                exp_ctrs_decls.append(statement)
+            else:
+                other_statements.append(statement)
+        elif statement.node_type == ASTNodeType.TRY_STATEMENT:
+            if (statement.resources is not None) or \
+                    (statement.catches is not None and statement.catches[0].block != []) or \
+                    (statement.finally_block is not None):
+                other_statements.append(statement)
+
+            for try_stat in statement.block:
+                self.traverse(try_stat, exp_ctrs_decls, other_statements)
+        else:
+            other_statements.append(statement)
+
+    def value(self, filename: str):
+        tree = AST.build_from_javalang(build_ast(filename))
+        lines = []
+        for node in tree.get_proxy_nodes(ASTNodeType.CONSTRUCTOR_DECLARATION):
+            exp_ctrs_decls = []
+            other_statements = []
+            for statement in node.body:
+                self.traverse(statement, exp_ctrs_decls, other_statements)
+                # if statement.node_type == ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION:
+                #     exp_ctrs_decls.append(statement)
+                # else:
+                #     other_statements.append(statement)
+
+            if len(exp_ctrs_decls) > 0:
+                if len(other_statements) > 0:
+                    lines.append(node.line)
+        return lines
+
+
+
+# autocloseable
+print(ThisFinderFixed().value(r'D:\git\aibolit\test\patterns\this_finder\autocloseable.java'))
+print(ThisFinderFixed().value(r'D:\git\aibolit\test\patterns\this_finder\several.java'))

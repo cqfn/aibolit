@@ -22,12 +22,12 @@
 
 import os
 from unittest import TestCase
-from aibolit.patterns.this_finder.this_finder import ThisFinder
+from aibolit.patterns.this_finder.this_finder import ThisFinder, ThisFinderFixed
 
 
 class TestFindThis(TestCase):
     cur_dir = os.path.dirname(os.path.realpath(__file__))
-    pattern = ThisFinder()
+    pattern = ThisFinderFixed()
 
     def test_several(self):
         lines = self.pattern.value(self.cur_dir + '/several.java')
