@@ -20,113 +20,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import javalang
-
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.utils.ast_builder import build_ast
 
 
-class ThisFinder:
-
-    def __expr_stat(self, expr, flag_this, flag_else):
-        '''function to work with StatementExpression block'''
-        if isinstance(expr.expression, javalang.tree.ExplicitConstructorInvocation):
-            if flag_this + flag_else > 0:
-                return 1, flag_this, flag_else
-            flag_this = 1
-        else:
-            if flag_this > 0:
-                return 1, flag_this, flag_else
-        flag_else = 1
-        return 0, flag_this, flag_else
-
-    def __try_stat(self, expr, flag_this, flag_else):
-        '''function to work with TryStatement block'''
-        if (expr.resources is not None) or \
-            (expr.catches is not None and expr.catches[0].block != []) or \
-                (expr.finally_block is not None):
-            flag_else = 1
-        try_exprs = expr.block
-        for expr1 in try_exprs:
-            if isinstance(expr1, javalang.tree.StatementExpression):
-                res, flag_this, flag_else = self.__expr_stat(expr1, flag_this, flag_else)
-                if res > 0:
-                    return 1, flag_this, flag_else
-            else:
-                if flag_this > 0:
-                    return 1, flag_this, flag_else
-                flag_else = 1
-        flag_else = 1
-        return 0, flag_this, flag_else
-
-    def __if_stat(self, expr, flag_this, flag_else):
-        '''function to work with IfStatement block'''
-        if expr.then_statement is not None:
-            if hasattr(expr.then_statement, 'statements'):
-                stmts = expr.then_statement.statements
-            else:
-                stmts = []
-            res, flag_this, flag_else = self.__work_with_stats(stmts, flag_this, flag_else)
-            if res > 0:
-                return 1, flag_this, flag_else
-        if expr.else_statement is not None:
-            if isinstance(expr.else_statement, javalang.tree.IfStatement):
-                res, flag_this, flag_else = self.__if_stat(expr.else_statement, flag_this, flag_else)
-                if res > 0:
-                    return 1, flag_this, flag_else
-                return 0, flag_this, flag_else
-            block = expr.else_statement
-            res, flag_this, flag_else = self.__work_with_stats(block, flag_this, flag_else)
-            if res > 0:
-                return 1, flag_this, flag_else
-        return 0, flag_this, flag_else
-
-    # flake8: noqa
-    def __work_with_stats(self, stats, flag_this, flag_else):
-        '''function to work with objects in constructor'''
-        for expr in stats:
-            res = 0
-            old_else = flag_else
-            flag_else = 1
-            if isinstance(expr, javalang.tree.TryStatement):
-                res, flag_this, flag_else = self.__try_stat(expr, flag_this, old_else)
-            elif isinstance(expr, javalang.tree.StatementExpression):
-                res, flag_this, flag_else = self.__expr_stat(expr, flag_this, old_else)
-            elif isinstance(expr, javalang.tree.IfStatement):
-                res, flag_this, flag_else = self.__if_stat(expr, flag_this, flag_else)
-            elif isinstance(expr, javalang.tree.ForStatement):
-                if hasattr(expr.body, 'statements'):
-                    res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
-            elif isinstance(expr, javalang.tree.WhileStatement):
-                if hasattr(expr.body, 'statements'):
-                    res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
-            elif isinstance(expr, javalang.tree.DoStatement):
-                if hasattr(expr.body, 'statements'):
-                    res, flag_this, flag_else = self.__work_with_stats(expr.body.statements, flag_this, flag_else)
-            else:
-                res = flag_this
-            if res > 0:
-                return 1, flag_this, flag_else
-        return 0, flag_this, flag_else
-
-    def value(self, filename: str):
-        '''main function'''
-        tree = build_ast(filename)
-        num_str = []
-        for _, node in tree.filter(javalang.tree.ConstructorDeclaration):
-            number = node.position.line
-            stats = node.children[-1]
-            result, _, _ = self.__work_with_stats(stats, 0, 0)
-
-            if result == 1:
-                num_str.append(number)
-        return sorted(list(set(num_str)))
-
-
 class ThisFinderFixed:
-
-    def traverse(self, node):
-        pass
 
     def is_statement_ctor_inv(self, node):
         if node.expression.node_type == ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION:
@@ -144,6 +42,19 @@ class ThisFinderFixed:
                 else:
                     return False
 
+    def traverse_in_if(self, val, exp_ctrs_decls, other_statements):
+        if hasattr(val, 'statements'):
+            children = list(val.statements)
+            for i in children:
+                self.traverse(i, exp_ctrs_decls, other_statements)
+
+        if hasattr(val, 'then_statement'):
+            self.traverse_in_if(val.then_statement, exp_ctrs_decls, other_statements)
+            other_statements.append(val.then_statement)
+        if hasattr(val, 'else_statement'):
+            self.traverse_in_if(val.else_statement, exp_ctrs_decls, other_statements)
+            other_statements.append(val.else_statement)
+
     def traverse(self, statement, exp_ctrs_decls, other_statements):
         if statement.node_type == ASTNodeType.STATEMENT_EXPRESSION:
             is_ctor_inv = self.is_statement_ctor_inv(statement)
@@ -159,6 +70,19 @@ class ThisFinderFixed:
 
             for try_stat in statement.block:
                 self.traverse(try_stat, exp_ctrs_decls, other_statements)
+        elif statement.node_type in (
+                ASTNodeType.DO_STATEMENT,
+                ASTNodeType.WHILE_STATEMENT):
+            for i in statement.body.children:
+                self.traverse(i, exp_ctrs_decls, other_statements)
+        elif statement.node_type == ASTNodeType.FOR_STATEMENT:
+            for i in statement.body.children:
+                other_statements.append(statement)
+                self.traverse(i, exp_ctrs_decls, other_statements)
+        elif statement.node_type == ASTNodeType.IF_STATEMENT:
+            other_statements.append(statement)
+            self.traverse_in_if(statement.then_statement, exp_ctrs_decls, other_statements)
+            self.traverse_in_if(statement.else_statement, exp_ctrs_decls, other_statements)
         else:
             other_statements.append(statement)
 
@@ -170,18 +94,9 @@ class ThisFinderFixed:
             other_statements = []
             for statement in node.body:
                 self.traverse(statement, exp_ctrs_decls, other_statements)
-                # if statement.node_type == ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION:
-                #     exp_ctrs_decls.append(statement)
-                # else:
-                #     other_statements.append(statement)
 
             if len(exp_ctrs_decls) > 0:
                 if len(other_statements) > 0:
                     lines.append(node.line)
+
         return lines
-
-
-
-# autocloseable
-print(ThisFinderFixed().value(r'D:\git\aibolit\test\patterns\this_finder\autocloseable.java'))
-print(ThisFinderFixed().value(r'D:\git\aibolit\test\patterns\this_finder\several.java'))
