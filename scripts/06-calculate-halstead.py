@@ -49,6 +49,7 @@ parser.add_argument('--max_count',
 args = parser.parse_args()
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
+target_folder = Path(os.getenv('TARGET_FOLDER'))
 results = {}
 
 path = 'target/06'
@@ -85,6 +86,8 @@ if __name__ == '__main__':
     handled_files = []
     count = 0
     max_count = args.max_count
+    halstead_location = str(Path(dir_path, 'halstead.jar'))
+    print(f'halstead location: {halstead_location}')
     print(max_count)
     with open(args.filename, 'r') as f:
         for i in f.readlines():
@@ -92,7 +95,7 @@ if __name__ == '__main__':
                 java_file = str(Path(dir_path, i)).strip()
                 pool.apply_async(
                     call_proc,
-                    args=(['java', '-jar', 'halstead.jar', java_file], i,),
+                    args=(['java', '-jar', halstead_location, java_file], i,),
                     callback=log_result)
                 count += 1
             else:

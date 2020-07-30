@@ -74,6 +74,14 @@ class Config(metaclass=Singleton):
         return os.environ.get('HOME_DATASET_CSV') or dataset_path
 
     @staticmethod
+    def train_csv():
+        return os.environ.get('HOME_TRAIN_DATASET')
+
+    @staticmethod
+    def test_csv():
+        return os.environ.get('HOME_TEST_DATASET')
+
+    @staticmethod
     def get_patterns_config():
         return {
             "patterns": [

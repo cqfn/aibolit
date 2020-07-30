@@ -36,7 +36,7 @@ class TestMultipleTry(TestCase):
 
     def test_large_file(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'Large.java'))
-        self.assertEqual(lines, [706, 620])
+        self.assertEqual(lines, [620, 706])
 
     def test_try_inside_anonymous(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'TryInsideAnomymous.java'))

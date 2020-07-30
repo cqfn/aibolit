@@ -43,7 +43,14 @@ parser.add_argument(
     required=True)
 
 args = parser.parse_args()
-dir_path = os.path.dirname(os.path.realpath(__file__))
+current_location: str = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__))
+)
+target_folder = os.getenv('TARGET_FOLDER')
+if target_folder:
+    os.chdir(target_folder)
+else:
+    target_folder = os.path.dirname(os.path.realpath(__file__))
 
 
 def log_result(result, file_to_write):
@@ -104,7 +111,7 @@ def execute_python_code_in_parallel_thread(exceptions, file_absolute_path):
 
 # flake8: noqa: C901
 def write_log_error(exceptions):
-    errors_log_path = str(Path(dir_path, 'errors.csv')).strip()
+    errors_log_path = str(Path(target_folder, 'errors.csv')).strip()
     exp_sorter = defaultdict(set)
     exp_number = defaultdict(int)
     if exceptions:
@@ -117,12 +124,12 @@ def write_log_error(exceptions):
                 exp_sorter[ex['pattern_name']].add(ex['exc_type'])
                 exp_number[ex['pattern_name']] += 1
 
-        dir_log_to_create = Path(dir_path, 'log')
+        dir_log_to_create = Path(target_folder, 'log')
         if not dir_log_to_create.exists():
             dir_log_to_create.mkdir(parents=True)
 
-        exceptions_number_path = str(Path(dir_path, 'log/exceptions_number.csv')).strip()
-        exceptions_unique_path = str(Path(dir_path, 'log/exceptions_unique.csv')).strip()
+        exceptions_number_path = str(Path(target_folder, 'log/exceptions_number.csv')).strip()
+        exceptions_unique_path = str(Path(target_folder, 'log/exceptions_unique.csv')).strip()
 
         with open(exceptions_unique_path, 'w', newline='') as myfile:
             writer = csv.writer(myfile)
@@ -135,10 +142,10 @@ def write_log_error(exceptions):
                 writer.writerow([pattern, number])
 
         filenames_w_errs = list(exc_dict.keys())
-        dir_to_create = Path(dir_path, 'log/files')
+        dir_to_create = Path(target_folder, 'log/files')
         if not dir_to_create.exists():
             dir_to_create.mkdir(parents=True)
-        files_with_errors = str(Path(dir_path, 'log/files/files_with_exceptions.txt')).strip()
+        files_with_errors = str(Path(target_folder, 'log/files/files_with_exceptions.txt')).strip()
 
         with open(files_with_errors, 'w') as myfile:
             myfile.writelines(filenames_w_errs)
@@ -155,7 +162,7 @@ def write_log_error(exceptions):
 
         if copied_files:
             try:
-                tar_filename = str(Path(dir_path, 'log/files.tar.gz'))
+                tar_filename = str(Path(target_folder, 'log/files.tar.gz'))
                 cmd = ['tar', '-czvf', tar_filename, str(dir_to_create.absolute())]
                 output = subprocess.check_output(cmd).decode("utf-8").strip()
                 print(output)

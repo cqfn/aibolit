@@ -20,86 +20,45 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import itertools
-from collections import defaultdict
-from collections import namedtuple
-
-import javalang
-
-from aibolit.utils.java_parser import JavalangImproved
-
-ExceptionInfo = namedtuple('ExceptionInfo', 'func_name, catch_list, throws_list, line_number')
+from aibolit.ast_framework import ASTNodeType, AST
+from aibolit.utils.ast_builder import build_ast
+from typing import List
+from aibolit.ast_framework.ast_node import ASTNode
 
 
 class RedundantCatch:
-    """
-    Find pattern when a method in Java class throws an exception,
-    and the exception of the same type is caught inside the method.
+    '''
+    To check wether the method throws same as it does inside the
+    try -> catch structure in this method
+    '''
 
-    E.g.,
-    class Book {
-    void foo() throws IOException {
-        try {
-          Files.readAllBytes();
-        } catch (IOException e)
-          { // here
-          // do something
-          }
-        }
-    }
-    Here, the method foo() throws IOException, but we catch it inside the method
-    """
-    def __init__(self):
-        pass
+    def _is_redundant(self, method_throw_name: List[str], try_node: ASTNode) -> bool:
+        assert try_node.node_type == ASTNodeType.TRY_STATEMENT
+        for catch_node in try_node.catches:
+            for catch_node_name in catch_node.parameter.types:
+                if catch_node_name in method_throw_name:
+                    return True
+        return False
 
-    def value(self, filename):
-        """
-        Find the mentioned-above pattern
-        :param filename: filename of Java file
-        :return: code lines of try statement where it was found
-        """
-        total_code_lines = set()
-        obj = JavalangImproved(filename)
-        items = obj.tree_to_nodes()
-        try_nodes = defaultdict(list)
-        method_nodes = {}
-        for x in items:
-            # Line break occurred before a binary operator (W503)
-            # But this rule goes against the PEP 8 recommended style, so
-            # replace isinstanceof with variable
-            is_instance_meth_decl = isinstance(x.node, javalang.tree.MethodDeclaration)
-            is_instance_try_stat = isinstance(x.node, javalang.tree.TryStatement)
-            is_instance_ctor_decl = isinstance(x.node, javalang.tree.ConstructorDeclaration)
-            is_instance_lambda = isinstance(x.node, javalang.tree.LambdaExpression)
-            if is_instance_try_stat and x.method_line and not is_instance_lambda:
-                # If we do not have a line for method, we ignore this method
-                try_nodes[x.method_line].append(x)
-            elif (is_instance_meth_decl or is_instance_ctor_decl) and x.method_line and not is_instance_lambda:
-                # If we do not have a line for method, we ignore this method
-                method_nodes[x.method_line] = x
+    def _get_lambda_try_nodes(self, ast: AST, lambda_node: ASTNode) -> List[int]:
+        assert lambda_node.node_type == ASTNodeType.LAMBDA_EXPRESSION
+        return [try_node.line for try_node in
+                ast.get_subtree(lambda_node).get_proxy_nodes(ASTNodeType.TRY_STATEMENT)]
 
-        for method_line, iter_nodes in sorted(try_nodes.items(), key=lambda x: x[1][0].line):
-            for try_node in iter_nodes:
-                method_node = method_nodes.get(method_line)
+    def value(self, filename: str) -> List[int]:
+        lines: List[int] = []
+        excluded_nodes: List[int] = []
+        ast = AST.build_from_javalang(build_ast(filename))
 
-                if not method_node or not method_node.node.throws:
-                    continue
+        for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION,
+                                                      ASTNodeType.CONSTRUCTOR_DECLARATION):
+            method_throw_names = method_declaration.throws
+            for try_node in ast.get_subtree(method_declaration).get_proxy_nodes(ASTNodeType.TRY_STATEMENT):
+                if method_throw_names is not None and \
+                        try_node.catches is not None and \
+                        self._is_redundant(method_throw_names, try_node):
+                    lines.append(try_node.line)
 
-                catch_list = []
-                ei = ExceptionInfo(
-                    func_name=method_node.node.name,
-                    catch_list=catch_list,
-                    throws_list=method_node.node.throws,
-                    line_number=method_node.node.position.line
-                )
-                if try_node.node.catches:
-                    catch_classes = [x.parameter.types for x in try_node.node.catches]
-                    classes_exception_list = list(itertools.chain(*catch_classes))
-                    ei.catch_list.extend(classes_exception_list)
-
-                    lines_number = set([
-                        try_node.line for c in ei.catch_list if c in ei.throws_list
-                    ])
-                    total_code_lines.update(lines_number)
-
-        return sorted(total_code_lines)
+            for lambda_node in ast.get_subtree(method_declaration).get_proxy_nodes(ASTNodeType.LAMBDA_EXPRESSION):
+                excluded_nodes.extend(self._get_lambda_try_nodes(ast, lambda_node))
+        return sorted(list(set(lines).difference(set(excluded_nodes))))

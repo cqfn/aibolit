@@ -41,19 +41,19 @@ class TestNCSSMetric(unittest.TestCase):
         file = 'test/metrics/ncss/BasicExample.java'
         metric = NCSSMetric()
         res = metric.value(file)
-        self.assertEqual(res, 12)
+        self.assertEqual(res, 13)
 
     def testSimpleExample(self):
         file = 'test/metrics/ncss/SimpleExample.java'
         metric = NCSSMetric()
         res = metric.value(file)
-        self.assertEqual(res, 17)
+        self.assertEqual(res, 18)
 
     def testSimpleExample2(self):
         file = 'test/metrics/ncss/SimpleExample2.java'
         metric = NCSSMetric()
         res = metric.value(file)
-        self.assertEqual(res, 18)
+        self.assertEqual(res, 19)
 
     def testChainedIfElse(self):
         file = 'test/metrics/ncss/ChainedIfElse.java'
@@ -71,4 +71,4 @@ class TestNCSSMetric(unittest.TestCase):
         file = 'test/metrics/ncss/FinallyBlock.java'
         metric = NCSSMetric()
         res = metric.value(file)
-        self.assertEqual(res, 6)
+        self.assertEqual(res, 7)

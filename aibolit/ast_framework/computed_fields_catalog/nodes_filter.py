@@ -28,6 +28,11 @@ from aibolit.ast_framework import ASTNode, ASTNodeType
 def nodes_filter_factory(
     base_field_name: str, *node_types: ASTNodeType
 ) -> Callable[[ASTNode], Iterator[ASTNode]]:
+    """
+    Create filter, which takes 'body_field_name' field of incoming node,
+    checks if it list of ASTNode, and return it filtered by node_type.
+    """
+
     def filter(base_node: ASTNode) -> Iterator[ASTNode]:
         base_field = getattr(base_node, base_field_name)
         if isinstance(base_field, list) and all(
