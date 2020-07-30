@@ -1,8 +1,9 @@
-\documentclass[10pt]{article}
-\usepackage{natbib}
+\documentclass[12pt]{article}
+\usepackage[natbib=true,style=authoryear]{biblatex}
+  \addbibresource{references.bib}
+  \setlength\bibitemsep{0pt}
 \usepackage{pgf}
-\setcitestyle{citesep={,},aysep={}}
-\usepackage[colorlinks,citecolor=blue,linkcolor=black,bookmarks=false,hypertexnames=true]{hyperref} 
+\usepackage[colorlinks,citecolor=blue,linkcolor=black,bookmarks=false,hypertexnames=true]{hyperref}
 \usepackage{url}
 \usepackage[inline]{enumitem}
 \usepackage{float}
@@ -11,9 +12,9 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{setspace}
+  \setstretch{1.1}
 \usepackage{enumitem}
 \usepackage{caption}
-%\usepackage[margin=1.3in]{geometry}
 \usepackage{xcolor}
 \usepackage[top=1.3in, left=1.4in, includefoot]{geometry}
 \setlist{nosep}
@@ -33,26 +34,25 @@
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 \lstdefinestyle{mystyle}{
-	backgroundcolor=\color{backcolour},   
+	backgroundcolor=\color{backcolour},
 	commentstyle=\color{codegreen},
 	keywordstyle=\color{magenta},
 	numberstyle=\tiny\color{codegray},
 	stringstyle=\color{codepurple},
 	basicstyle=\sffamily\footnotesize,
-	breakatwhitespace=false,         
-	breaklines=true,                 
-	captionpos=b,                    
-	keepspaces=true,                 
-	numbers=left,                    
-	numbersep=5pt,                  
-	showspaces=false,                
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
 	showstringspaces=false,
-	showtabs=false,                  
+	showtabs=false,
 	tabsize=2
 }
 
 \lstset{style=mystyle}
-
 
 \newcommand{\pattern}[3]{
 	{\bf #2. #1} \\
@@ -60,9 +60,6 @@
 }
 
 \newcommand{\todo}{\textcolor{red}{\textbf{TODO}}}
-
-  \setstretch{1.1}
-\setlength{\bibsep}{0.0pt}
 \tolerance=800
 
 \usepackage{pgfplots}
@@ -80,11 +77,8 @@
   \textsc{Aibolit:}\\
   Static Analysis
   Using Machine Learning}
-
 \author{Yegor Bugayenko, Anton Cheshkov, Ekaterina Garmash, Andrey Gusev, Yaroslav Kishchenko, Pavel Lukyanov, Evgeny Maslov, Vitaly Protasov}
-\affil{Huawei Technologies \\
-		System Programming Lab, Russian Research Institute, Moscow}
-
+\affil{Huawei Technologies Co., Ltd. \\ System Programming Lab \\ Russian Research Institute (RRI) \\ Moscow, Russia}
 
 \begin{document}
 
@@ -95,11 +89,10 @@
 \begin{abstract}
 
 Aibolit is a next generation static analyzer powered by machine learning.
-Aibolit gives recommendations to developers to avoid specific software patterns  
-in order to improve quality of the source code. Aibolit can be extended by adding 
-custom patterns and quality metrics of choice. In this paper, we explain 
+Aibolit gives recommendations to developers to avoid specific software patterns
+in order to improve quality of the source code. Aibolit can be extended by adding
+custom patterns and quality metrics of choice. In this paper, we explain
 how Aibolit works and how it differs from other static analyzers.
-
 
 \end{abstract}
 
@@ -127,13 +120,13 @@ how Aibolit works and how it differs from other static analyzers.
 \label{sec:conclusion}
 \input{sections/conclusion}
 
+\AtNextBibliography{\small}
+\setstretch{1.0}
+\raggedright
+\begin{multicols}{2}\printbibliography\end{multicols}
 
-\section{Appendix}
+\section*{Appendix}
 \label{sec:appendix}
 \input{sections/appendix}
-
-\bibliographystyle{apa} 
-\bibliography{references}
-
 
 \end{document}
