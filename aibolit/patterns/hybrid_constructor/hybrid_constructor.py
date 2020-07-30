@@ -21,29 +21,27 @@
 # SOFTWARE.
 from typing import Any, List
 
-from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 from aibolit.utils.ast_builder import build_ast
 
 
 class HybridConstructor:
 
-    def is_statement_ctor_inv(self, node):
+    def is_statement_ctor_inv(self, node: ASTNode) -> bool:
+        """Is statement explicit constructor invocation."""
+
         if node.expression.node_type == ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION:
             return True
         else:
             return False
 
-    def has_try_ctor_inv(self, node):
-        try_exprs = node.block
-        for expr in try_exprs:
-            if expr.node_type == ASTNodeType.STATEMENT_EXPRESSION:
-                is_ctr_inv = self.is_statement_ctor_inv(expr)
-                if is_ctr_inv:
-                    return True
-                else:
-                    return False
-
-    def traverse_in_if(self, val, exp_ctrs_decls, other_statements):
+    def traverse_in_if(
+            self,
+            val: ASTNode,
+            exp_ctrs_decls: List[ASTNode],
+            other_statements: List[ASTNode]) -> None:
+        """Traverse over if condition recursively to find
+        explicit constructor invocation."""
         if hasattr(val, 'statements'):
             children = list(val.statements)
             for i in children:
@@ -56,7 +54,14 @@ class HybridConstructor:
             self.traverse_in_if(val.else_statement, exp_ctrs_decls, other_statements)
             other_statements.append(val.else_statement)
 
-    def traverse(self, statement, exp_ctrs_decls, other_statements):
+    def traverse(
+            self,
+            statement: ASTNode,
+            exp_ctrs_decls: List[ASTNode],
+            other_statements: List[ASTNode]) -> None:
+        """Traverse over AST recursively to find all explicit
+        constructor invocations and other statements."""
+
         if statement.node_type == ASTNodeType.STATEMENT_EXPRESSION:
             is_ctor_inv = self.is_statement_ctor_inv(statement)
             if is_ctor_inv:
@@ -81,7 +86,12 @@ class HybridConstructor:
         else:
             other_statements.append(statement)
 
-    def traverse_in_try(self, exp_ctrs_decls, other_statements, statement):
+    def traverse_in_try(
+            self,
+            exp_ctrs_decls: List[ASTNode],
+            other_statements: List[ASTNode],
+            statement: ASTNode) -> None:
+        """Check try statements and find different statements."""
         if (statement.resources is not None) or \
                 (statement.catches is not None and statement.catches[0].block != []) or \
                 (statement.finally_block is not None):
@@ -89,7 +99,7 @@ class HybridConstructor:
         for try_stat in statement.block:
             self.traverse(try_stat, exp_ctrs_decls, other_statements)
 
-    def value(self, filename: str):
+    def value(self, filename: str) -> List[int]:
         tree = AST.build_from_javalang(build_ast(filename))
         lines = []
         for node in tree.get_proxy_nodes(ASTNodeType.CONSTRUCTOR_DECLARATION):
