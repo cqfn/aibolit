@@ -20,23 +20,31 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from unittest import TestCase, skip
-from pathlib import Path
+from typing import Callable, Iterator
 
-from aibolit.ast_framework.java_class_decomposition import decompose_java_class
-from aibolit.ast_framework.java_package import JavaPackage
+from aibolit.ast_framework import ASTNode, ASTNodeType
 
 
-@skip("Usage of deprecated API breaks test")
-class JavaClassDecompositionTestSuite(TestCase):
-    def test_strong_decomposition(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / 'MethodUseOtherMethodExample.java')
-        java_class = java_package.java_classes['MethodUseOtherMethod']
-        class_components = decompose_java_class(java_class, 'strong')
-        self.assertEqual(len(class_components), 7)
+def nodes_filter_factory(
+    base_field_name: str, *node_types: ASTNodeType
+) -> Callable[[ASTNode], Iterator[ASTNode]]:
+    """
+    Create filter, which takes 'body_field_name' field of incoming node,
+    checks if it list of ASTNode, and return it filtered by node_type.
+    """
 
-    def test_weak_decomposition(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / 'MethodUseOtherMethodExample.java')
-        java_class = java_package.java_classes['MethodUseOtherMethod']
-        class_components = decompose_java_class(java_class, 'weak')
-        self.assertEqual(len(class_components), 5)
+    def filter(base_node: ASTNode) -> Iterator[ASTNode]:
+        base_field = getattr(base_node, base_field_name)
+        if isinstance(base_field, list) and all(
+            isinstance(item, ASTNode) for item in base_field
+        ):
+            for node in base_field:
+                if node.node_type in node_types:
+                    yield node
+        else:
+            raise RuntimeError(
+                f"Failed computing ASTNode field based on {base_field_name} field. "
+                f"Expected list, but got {base_field} of type {type(base_field)}."
+            )
+
+    return filter
