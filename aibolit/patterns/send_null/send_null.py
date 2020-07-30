@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Any
 
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
@@ -9,19 +9,14 @@ class SendNull:
     def __init__(self):
         pass
 
-    def __is_null(self, val):
-        has_ternary_true_value = hasattr(val, 'value')
-        if has_ternary_true_value:
-            is_ternary_true_str = isinstance(val.value, str)
-            if is_ternary_true_str:
-                if val.value == 'null':
-                    return True
-                else:
-                    return False
-            else:
-                return False
-        else:
+    def __is_null(self, val: Any) -> bool:
+        if not hasattr(val, 'value'):
             return False
+        if not isinstance(val.value, str):
+            return False
+        if val.value != 'null':
+            return False
+        return True
 
     def value(self, filename: str) -> List[int]:
 
