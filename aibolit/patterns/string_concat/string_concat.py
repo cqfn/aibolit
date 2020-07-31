@@ -1,54 +1,47 @@
-from typing import Tuple, Dict, List
-from typing import Tuple, Dict, List
-import javalang
-
-from aibolit.types_decl import LineNumber
+# The MIT License (MIT)
+#
+# Copyright (c) 2020 Aibolit
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
-from aibolit.utils.utils import RemoveComments
+from typing import Set, List
+from aibolit.ast_framework.ast_node import ASTNode
 
 
 class StringConcatFinder:
+    '''
+    Any usage string concatenation using '+' operator is considered as a pattern.
+    '''
+    def _check_left_right_operator(self, node: ASTNode) -> bool:
+        assert node.node_type == ASTNodeType.BINARY_OPERATION
+        for operator_side in [node.operandr, node.operandl]:
+            if operator_side.node_type == ASTNodeType.LITERAL and isinstance(operator_side.value, str) and \
+               not operator_side.value.isdigit():
+                return True
+        return False
 
-    def __init__(self):
-        pass
-
-    # flake8: noqa: C901
-    def value(self, filename: str) -> List[LineNumber]:
-
-        lines = set()
-        text = build_ast(filename)
-
-        for _, node in text.filter(javalang.tree.BinaryOperation):
-            if node.operator == '+':
-                is_l_literal = isinstance(node.operandl, javalang.tree.Literal)
-                is_r_literal = isinstance(node.operandr, javalang.tree.Literal)
-                is_r_member = isinstance(node.operandr, javalang.tree.MemberReference)
-                is_l_member = isinstance(node.operandl, javalang.tree.MemberReference)
-                is_l_meth_inv = isinstance(node.operandl, javalang.tree.MethodInvocation)
-                is_r_meth_inv = isinstance(node.operandr, javalang.tree.MethodInvocation)
-                is_l_this = isinstance(node.operandl, javalang.tree.This)
-                is_r_this = isinstance(node.operandr, javalang.tree.This)
-                if is_l_literal and (is_r_member or is_r_meth_inv or is_r_this):
-                    is_string_literal = '"' in node.operandl.value  # type: ignore
-                    if is_string_literal:
-                        if node.operandl.position:
-                            lines.add(node.operandl.position.line)
-                        elif node.operandr.position:
-                            lines.add(node.operandr.position.line)
-                        elif hasattr(node.operandl, '_position'):
-                            lines.add(node.operandl._position.line)
-                        elif hasattr(node.operandr, '_position'):
-                            lines.add(node.operandr._position.line)
-                elif is_r_literal and (is_l_member or is_l_meth_inv or is_l_this):
-                    is_string_literal = '"' in node.operandr.value  # type: ignore
-                    if is_string_literal:
-                        if node.operandl.position:
-                            lines.add(node.operandl.position.line)
-                        elif node.operandr.position:
-                            lines.add(node.operandr.position.line)
-                        elif hasattr(node.operandr, '_position'):
-                            lines.add(node.operandr._position.line)
-                        elif hasattr(node.operandl, '_position'):
-                            lines.add(node.operandl._position.line)
+    def value(self, filename: str) -> List[int]:
+        lines: Set[int] = set()
+        ast = AST.build_from_javalang(build_ast(filename))
+        for node in ast.get_proxy_nodes(ASTNodeType.BINARY_OPERATION):
+            if node.operator == '+' and self._check_left_right_operator(node):
+                lines.add(node.line)
 
         return sorted(lines)

@@ -1,10 +1,12 @@
 import pandas as pd
+import os
 
-df_pmd_metrics = pd.read_csv('./target/03/pmd_metrics.csv', sep=';').set_index('filename')
+current_location: str = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__))
+)
+target_folder = os.getenv('TARGET_FOLDER')
+if target_folder:
+    os.chdir(target_folder)
+
 df_patterns = pd.read_csv('./target/04/04-find-patterns.csv', sep=';').set_index('filename')
-df_halstead = pd.read_csv('./target/06/06_halstead_volume.csv', sep=';').set_index('filename')
-
-first_df = df_pmd_metrics.join(df_patterns, how='inner')
-halstead = first_df.join(df_halstead, how='inner')
-print(halstead.head())
-halstead.to_csv('./target/dataset.csv')
+df_patterns.to_csv('./target/dataset.csv')
