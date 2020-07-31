@@ -1,0 +1,68 @@
+\subsection{Aibolit Index}
+
+In addition to the recommendation functionality, we designed a feature to measure the overall quality of developer's source code, \textit{Aibolit Index}.
+It is is a single number, with following properties: 
+\begin{itemize}
+\item[(i)] the more patterns are suggested to fix, the higher Aibolit Index;
+\item[(ii)] the higher negative impact factor (see Section \ref{sec:recommendation_algorithm}) 
+of detected patterns the higher Aibolit Index.
+\end{itemize}
+Therefore, the lower Abolit Index the better the project's code from the point 
+of view of Aibolit.
+
+Let $P(C)$ be a set of all patterns Aibolit recommends to fix for Java class $C$.
+% As we know from the section ~\ref{sec:recommendation_algorithm}, each 
+% recommended anti-pattern $p \in P(C)$ has an associated impact factor $I_{p}$ and a count $count(p, C)$.
+We define the Aibolit Index $A(C)$ of Java class $C$ as a sum of the products of
+impact factors $I_{p}$ and scaled counts $count(p, C)$ for all of the 
+patterns occurring in the class (Eq.~\ref{eq:aibolit_index}). We use log-scaling for smoothing purposes, because some patterns are a lot more common than others.    
+
+
+\begin{equation}
+    A(C) = \sum_{p \in P(C)} { I_{p}(C) \cdot \ln{(count(p, C) + 1)} } \label{eq:aibolit_index}
+\end{equation}
+
+
+The Aibolit Index of a project is defined as average Aibolit Index
+across all Java classes in the project. In Table~\ref{table:aibolit_index_repos} 
+you can see a calculated Aibolit Index of some GitHub Java repositories with 
+more than 4500 stars. Aibolit Index is supposed to be a convenient instrument
+to get a first estimate of the project code's quality. 
+
+\begin{table}[t]
+\footnotesize
+    \begin{tabular}{|l|l|l|l|l|l|l|}
+    \hline
+    Repository & Aibolit Index & Total files & Total NCSS & GitHub stars \\ 
+    \hline
+    ReactiveX\textbackslash RxJava& 6.66& 1493& 25270 & 42972  \\
+    bumptech\textbackslash glide& 5.81& 465& 5078 & 29364 \\
+    JakeWharton\textbackslash butterknife& 6.31& 74& 935 & 25347  \\
+    greenrobot\textbackslash EventBus& 7.48& 51& 651 & 22637  \\
+    skylot\textbackslash jadx& 6.69& 602& 12658 & 22602 \\
+    alibaba\textbackslash fastjson & 9.97& 144& 20175 & 21891 \\
+    alibaba\textbackslash druid & 6.36& 822& 28852 & 21581 \\ 
+    Netflix\textbackslash Hystrix& 6.74& 292& 2920 & 19888 \\
+    ReactiveX\textbackslash RxAndroid& 5.47& 9& 59 & 19010 \\
+    google\textbackslash gson& 6.87& 160& 2941 & 18084 \\
+    square\textbackslash picasso& 6.21& 26& 687 & 17514 \\
+    libgdx\textbackslash libgdx & 5.02 & 1981 & 46409 & 17105 \\
+    nostra13\textbackslash Android-Universal-Image-Loader& 7.84& 62& 1059 & 16722  \\
+    qiurunze123\textbackslash miaosha& 3.57& 197& 841 & 16224 \\
+    wuyouzhuguli\textbackslash SpringAll& 13.41& 467& 463 & 15221 \\
+    justauth\textbackslash JustAuth& 4.36& 46& 241 & 8916 \\
+    heibaiying\textbackslash BigData-Notes& 11.17& 54& 204 & 7166  \\
+    crossoverJie\textbackslash cim & 6.70& 96& 574 & 5841 \\
+    wildfirechat\textbackslash server& 6.51& 285& 4671  & 5140 \\
+    febsteam\textbackslash FEBS-Shiro & 5.66& 90& 453 & 4777 \\
+    \hline
+    \end{tabular}
+    \centering
+\caption{Aibolit Index of some popular Java repositories. \label{table:aibolit_index_repos}}
+\end{table}
+
+
+
+
+
+

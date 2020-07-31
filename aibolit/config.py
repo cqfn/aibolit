@@ -38,7 +38,7 @@ from aibolit.patterns.return_null.return_null import ReturnNull as P16
 from aibolit.patterns.send_null.send_null import SendNull as P31
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder as P17
 from aibolit.patterns.supermethod.supermethod import SuperMethod as P18
-from aibolit.patterns.this_finder.this_finder import ThisFinder as P19
+from aibolit.patterns.hybrid_constructor.hybrid_constructor import HybridConstructor as P19
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
 from aibolit.patterns.var_middle.var_middle import VarMiddle as P21
 from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
