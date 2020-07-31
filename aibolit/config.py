@@ -27,7 +27,9 @@ from aibolit.patterns.nested_loop.nested_loop import NestedLoop as P32
 from aibolit.patterns.non_final_attribute.non_final_attribute import NonFinalAttribute as P12
 from aibolit.patterns.non_final_class.non_final_class import NonFinalClass as P24
 from aibolit.patterns.null_check.null_check import NullCheck as P13
-from aibolit.patterns.partial_synchronized.partial_synchronized import PartialSync as P14
+from aibolit.patterns.partially_synchronized_methods.partially_synchronized_methods import (
+    PartiallySynchronizedMethods as P14
+)
 from aibolit.patterns.private_static_method.private_static_method import PrivateStaticMethod as P25
 from aibolit.patterns.protected_method.protected_method import ProtectedMethod as P30
 from aibolit.patterns.public_static_method.public_static_method import PublicStaticMethod as P26
