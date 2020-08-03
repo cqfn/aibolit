@@ -256,17 +256,8 @@ class TestRecommendPipeline(TestCase):
             tree = javalang.parse.parse(f.read())
             method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
             start, end = find_start_and_end_lines(method)
-            self.assertEqual(start, 103)
-            self.assertEqual(end, 135)
-
-    def test_find_start_end_line_return_qqe(self):
-        file = Path(self.cur_file_dir, 'start_end/FileStorage.java')
-        with open(file, 'r', encoding='utf-8') as f:
-            tree = javalang.parse.parse(f.read())
-            method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
-            start, end = find_start_and_end_lines(method)
-            self.assertEqual(start, 103)
-            self.assertEqual(end, 135)
+            self.assertEqual(start, 108)
+            self.assertEqual(end, 140)
 
     def test_find_start_end_line_in_function2(self):
         file = Path(self.cur_file_dir, 'start_end/UpDirective.java')
