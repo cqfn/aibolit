@@ -19,48 +19,27 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
-from typing import List, Tuple, Type
-
-from javalang.ast import Node
-from javalang.tree import CompilationUnit, BinaryOperation, Expression, Literal, ConstructorDeclaration
-
-from aibolit.types_decl import LineNumber
+from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
-
-Path = Tuple
-
-
-_OP_EQUAL = "=="
-_OP_NOT_EQUAL = "!="
-_LT_NULL = "null"
+from typing import List
+from aibolit.ast_framework.ast_node import ASTNode
 
 
-class NullCheck(object):
-    def value(self, filename: str) -> List[LineNumber]:
-        tree: CompilationUnit = build_ast(filename)
-
-        return self._traverse_node(tree)
-
-    def _traverse_node(self, tree: CompilationUnit) -> List[LineNumber]:
-        lines: List[LineNumber] = list()
-
-        for path, node in tree.filter(BinaryOperation):
-            if _is_null_check(node) and not _within_constructor(path):
-                lines.append(node.operandr.position.line)
-
+class NullCheck():
+    '''
+    If we check that something equals
+    (or not equals) null (except in constructor)
+    it is considered a pattern.
+    '''
+    def value(self, filename: str) -> List[int]:
+        lines: List[int] = list()
+        ast = AST.build_from_javalang(build_ast(filename))
+        for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
+            for bin_operation in ast.get_subtree(method_declaration).get_proxy_nodes(ASTNodeType.BINARY_OPERATION):
+                if self._check_null(bin_operation):
+                    lines.append(bin_operation.operandr.line)
         return lines
 
-
-def _is_null_check(node: BinaryOperation) -> bool:
-    return node.operator in (_OP_EQUAL, _OP_NOT_EQUAL) and _is_null(node.operandr)
-
-
-def _is_null(node: Expression) -> bool:
-    return isinstance(node, Literal) and node.value == _LT_NULL
-
-
-def _within_constructor(path: Path) -> bool:
-    node_types: List[Type[Node]] = [type(p) for p in path[::2]]
-
-    return ConstructorDeclaration in node_types
+    def _check_null(self, bin_operation: ASTNode) -> bool:
+        return bin_operation.operator in ["==", "!="] and bin_operation.operandr.node_type == ASTNodeType.LITERAL \
+            and bin_operation.operandr.value == "null"

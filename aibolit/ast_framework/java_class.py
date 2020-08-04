@@ -22,6 +22,7 @@
 
 
 from cached_property import cached_property  # type: ignore
+from deprecated import deprecated  # type: ignore
 
 from typing import Dict, Set, TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
@@ -34,6 +35,7 @@ if TYPE_CHECKING:
     from aibolit.ast_framework.java_package import JavaPackage
 
 
+@deprecated("This functionality must be transmitted to ASTNode")
 class JavaClass(AST):
     def __init__(self, tree: DiGraph, root: int, java_package: 'JavaPackage'):
         self.tree = tree
@@ -55,8 +57,8 @@ class JavaClass(AST):
     @cached_property
     def methods(self) -> Dict[str, Set[JavaClassMethod]]:
         methods: Dict[str, Set[JavaClassMethod]] = {}
-        for nodes in self.subtrees_with_root_type(ASTNodeType.METHOD_DECLARATION):
-            method = JavaClassMethod(self.tree.subgraph(nodes), nodes[0], self)
+        for method_ast in self.get_subtrees(ASTNodeType.METHOD_DECLARATION):
+            method = JavaClassMethod(method_ast.tree, method_ast.root, self)
             if method.name in methods:
                 methods[method.name].add(method)
             else:
@@ -66,7 +68,7 @@ class JavaClass(AST):
     @cached_property
     def fields(self) -> Dict[str, JavaClassField]:
         fields: Dict[str, JavaClassField] = {}
-        for nodes in self.subtrees_with_root_type(ASTNodeType.FIELD_DECLARATION):
-            field = JavaClassField(self.tree.subgraph(nodes), nodes[0], self)
+        for field_ast in self.get_subtrees(ASTNodeType.FIELD_DECLARATION):
+            field = JavaClassField(field_ast.tree, field_ast.root, self)
             fields[field.name] = field
         return fields

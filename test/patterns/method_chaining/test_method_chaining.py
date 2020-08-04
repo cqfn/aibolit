@@ -32,47 +32,47 @@ class TestMethodChain(TestCase):
 
     def test_method_chain(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'MethodChain.java'))
-        self.assertEqual(len(lines), 1)
+        self.assertEqual(lines, [21])
 
     def test_empty_method_chain(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'EmptyMethodChain.java'))
-        self.assertEqual(len(lines), 1)
+        self.assertEqual(lines, [21])
 
     def test_chain_with_new_object(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'MethodChainNewObjectMethods.java'))
-        self.assertEqual(len(lines), 1)
+        self.assertEqual(lines, [23, 34])
 
     def test_method_chain_in_different_methods(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'MethodChainInDifferentMethods.java'))
-        self.assertEqual(len(lines), 2)
+        self.assertEqual(lines, [22, 34])
 
     def test_chain_in_nested_class(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'MethodChainNestedClass.java'))
-        self.assertEqual(len(lines), 1)
+        self.assertEqual(lines, [19])
 
     def test_chain_in_anonymous_class(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'MethodChainAnonymousClass.java'))
-        self.assertEqual(len(lines), 1)
+        self.assertEqual(lines, [29])
 
     def test_chain_in_anonymous_class_empty(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'MethodChainAnonymousClassEmpty.java'))
-        self.assertEqual(len(lines), 0)
+        self.assertEqual(lines, [])
 
     def test_several_chains(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'MethodChainSeveral.java'))
-        self.assertEqual(len(lines), 3)
+        self.assertEqual(lines, [13, 34, 48])
 
     def test_chain_without_object_creating(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'WithoutObjectCreating.java'))
-        self.assertEqual(len(lines), 1)
+        self.assertEqual(lines, [14])
 
     def test_nested_chain_with_this(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'NestedChainWIthThis.java'))
-        self.assertEqual(len(lines), 2)
+        self.assertEqual(lines, [14, 15])
 
     def test_nested_chain_with_simple_method_invocation(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'NestedChainWithSimpleMethodInvocation.java'))
-        self.assertEqual(len(lines), 2)
+        self.assertEqual(lines, [15, 16])
 
     def test_nested_chain_complicated_structure(self):
         """
@@ -80,15 +80,15 @@ class TestMethodChain(TestCase):
         with nested anonymous classes
         """
         lines = self.method_chain_finder.value(Path(self.dir_path, 'HolyMolyNestedChain.java'))
-        self.assertEqual(len(lines), 3)
+        self.assertEqual(lines, [60, 67, 77])
 
     def test_smallest_chain(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'SmallestChain.java'))
-        self.assertEqual(len(lines), 1)
+        self.assertEqual(lines, [31, 83, 84])
 
     def test_fake_chain(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'FakeChain.java'))
-        self.assertEqual(len(lines), 0)
+        self.assertEqual(lines, [])
 
     def test_many_chains(self):
         lines = self.method_chain_finder.value(Path(self.dir_path, 'MachineLearningGetResultsIT.java'))

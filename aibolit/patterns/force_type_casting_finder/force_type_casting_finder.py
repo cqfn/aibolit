@@ -27,13 +27,6 @@ from aibolit.ast_framework import AST, ASTNodeType
 
 
 class ForceTypeCastingFinder:
-
     def value(self, filename: str) -> List[int]:
-        tree = AST.build_from_javalang(build_ast(filename))
-        lines: List[int] = []
-
-        nodes = tree.nodes_by_type(ASTNodeType.CAST)
-        for node in nodes:
-            lines.append(tree.get_line_number_from_children(node))
-
-        return lines
+        ast = AST.build_from_javalang(build_ast(filename))
+        return [cast.expression.line for cast in ast.get_proxy_nodes(ASTNodeType.CAST)]

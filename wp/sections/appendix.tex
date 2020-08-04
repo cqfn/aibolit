@@ -1,0 +1,425 @@
+\subsection*{Patterns Dictionary}
+
+\begin{itemize}
+	\item \pattern{Assert in code}{P1}
+	{If there is an assert statement in code block, and name of class doesn't end with Test, it is considered a pattern.}
+	{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+	void foo(String x) {
+	assert x != null; // here
+}
+\end{lstlisting}
+
+	\item \pattern{Setter}{P2}{The method's name starts with set, then goes the name of the attribute. There are attributes assigning in the method. Also, asserts are ignored.}
+	{\it Examples:}
+\begin{lstlisting}[language=Java]
+class Book {
+	private String title;
+	void setTitle(String) {
+		this.title = t;
+	}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Java]
+class Book {
+	private String title;
+	public void setIsDiscrete() {
+		assert !isDiscrete;
+		assert !x; //ignore it
+		this.isDiscrete = isDiscrete;
+	}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Java]
+class Book {
+private String isDiscrete;
+
+	public void setIsDiscrete(String isDiscretem, boolean x) {
+		assert !isDiscrete;
+		assert !x; //ignore it
+		this.isDiscrete = isDiscrete;
+	}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Java]
+class Book {
+	private String title;
+	
+	@Override
+	synchronized public void setConf(Configuration conf) {
+		this.conf = conf;
+		this.randomDevPath = conf.get(
+		HADOOP_SECURITY_SECURE_RANDOM_DEVICE_FILE_PATH_KEY,
+		HADOOP_SECURITY_SECURE_RANDOM_DEVICE_FILE_PATH_DEFAULT);
+		close(); \\ some minor changes also do not affect, it is still Setter pattern
+	}
+}
+\end{lstlisting}
+	
+	\item \pattern{Empty Rethrow}{P3}{We throw the same exception as it was caught.}
+	{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+	void foo() {
+		try {
+			File.readAllBytes();
+		} catch (IOException e) {
+			// maybe something else here
+			throw e; // here!
+		}
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{ErClass}{P4}{ If a class name is one of the following (or ends with this word), it's the pattern:
+		
+		Manager, Controller, Router, Dispatcher, Printer, Writer, Reader, Parser, Generator, Renderer, Listener, Producer, Holder, Interceptor.}
+	
+	\item \pattern{Force type casting}{P5}{The force type casting considered as a pattern.}
+	{\it Example:}
+\begin{lstlisting}[language=Java]
+// casting to int is 
+public int square (int n) {
+	return (int) java.lang.Math.pow(n,2);
+}
+\end{lstlisting}
+
+	\item \pattern{If return if detection}{P6}{If there is a return in if condition, it's a pattern.}
+	{\it Example:}
+	\begin{lstlisting}[language=Java]
+class T1 {
+	public void main(int x) {
+		if (x < 0) {
+			return;
+		} else {
+			System.out.println("X is positive or zero");
+		}
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Implements Multi}{P7}{If a class implements more than 1 interface it's a pattern.}
+	{\it Examples:}
+	\begin{lstlisting}[language=Java]
+public class AnimatableSplitDimensionPathValue implements AnimatableValue<PointF, PointF> {
+	private final AnimatableFloatValue animatableXDimension;
+	private final AnimatableFloatValue animatableYDimension;
+	
+	public AnimatableSplitDimensionPathValue(
+	AnimatableFloatValue animatableXDimension,
+	AnimatableFloatValue animatableYDimension) {
+		this.animatableXDimension = animatableXDimension;
+		this.animatableYDimension = animatableYDimension;
+	}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=Java]
+public class a implements A, B {
+}
+\end{lstlisting}
+
+	\item \pattern{Using \texttt{instanceof} operator}{P8}{ Using of \texttt{instanceof} operator considered as pattern.}
+{\it Examples:}
+	\begin{lstlisting}[language=Java]
+public static void main(String[] args) {
+	Child obj = new Child();
+	if (obj instanceof String)
+		System.out.println("obj is instance of Child");
+}
+\end{lstlisting}
+\begin{lstlisting}[language=Java]
+class Test
+{
+	public static void main(String[] args)
+	{
+		Child cobj = new Child();
+		System.out.println(b.getClass().isInstance(c));
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Many primary ctors}{P9}{If there is more than one primary constructors in a class, it is considered a pattern.}
+	{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+
+	private final int a;
+	Book(int x) { // first primary ctor
+		this.a = x;
+	}
+	Book() { // second
+		this.a = 0;
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Usage of method chaining more than one time}{P10}{If we use more than one method chaining invocation.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+// here we use method chaining 4 times
+public void start() {
+	MyObject.Start()
+	.SpecifySomeParameter()
+	.SpecifySomeOtherParameter()
+	.Execute();
+}
+\end{lstlisting}
+
+	\item \pattern{Multiple Try}{P11}{Once we see more than one try in a single method, it's a pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Foo {
+	void bar() {
+		try {
+			// some code
+		} catch (IOException ex) {
+			// do something
+		}
+			// some other code
+		try {  // here!
+			// some code
+		} catch (IOException ex) {
+			// do something
+		}
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Non final attributes}{P12}{Once we see a mutable attribute (without final modifier), it's considered a pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+	private int id;
+	// something else
+}
+\end{lstlisting}
+
+	\item \pattern{Null checks}{P13}{If we check that something equals (or not equals) null (except in constructor) it is considered a pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Foo {
+	private String z;
+	void x() {
+		if (this.z == null) { // here!
+			throw new RuntimeException("oops");
+		}
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Partial synchronized}{P14}{Here, the synchronized block doesn't include all statements of the method. Something stays out of the block.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+	private int a;
+	void foo() {
+		synchronized (this.a) {
+			this.a = 2;
+		}
+		this.a = 1; // here!
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Redundant catch}{P15}{Here, the method \texttt{foo()} throws IOException, but we catch it inside the method.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+	void foo() throws IOException {
+		try {
+			Files.readAllBytes();
+		} catch (IOException e) { // here
+			// do something
+		}
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Return null}{P16}{When we return null, it's a pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+	String foo() {
+		return null;
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{String concatenation using \texttt{+} operator}{P17}{Any usage string concatenation using \texttt{+} operator is considered as pattern match.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+public void start() {
+	// this line is match the pattern
+	System.out.println("test" + str1 + "34234" + str2);
+	list = new ArrayList<>();
+	for (int i = 0; i < 10; i++)
+		list.add(Boolean.FALSE);
+}
+\end{lstlisting}
+
+	\item \pattern{Override method calls parent method}{P18}{If we call parent method from override class method it is considered as the pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+@Override
+public void method1() {
+	System.out.println("subclass method1");
+	super.method1();
+}
+\end{lstlisting}
+
+	\item \pattern{Class constructor except \texttt{this} contains other code}{P19}{The first constructor has this() and some other statements. This is the ``hybrid constructor'' pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+	private int id;
+	Book() {
+		this(1);
+		int a = 1; // here
+	}
+	Book(int i) {
+		this.id = I;
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Line distance between variable declaration and first usage greater then threshold}{P20\_5, P20\_7, P20\_11}{If line distance between variable declaration and first usage exceeds some threshold we consider it as the pattern. We calculate only non-empty lines. P20\_5 means that distance is 5.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+// variable a declared and used with 2 lines distance
+static void myMethod() { 
+	string path1 = '/tmp/test1';
+	int a = 4;
+	
+	string path2 = '/tmp/test2';
+	string path3 = '/tmp/test3';
+	a = a + 4;
+}
+\end{lstlisting}
+
+	\item \pattern{Variable is declared in the middle of the method body}{P21}{All variable we need have to be declared at the beginning of its scope. If variable declared inside the scope following after logical blocks we consider that this is the pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+// The declaration of variable list is match pattern.
+static void myMethod2() { 
+	int b = 4;
+	b = b + 6;
+	List<Integer> list = new List<Integer>();
+}
+\end{lstlisting}
+
+	\item \pattern{Array as argument}{P22}{If we pass an array as an argument, it's a pattern. It's better to use objects, instead of arrays.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Foo {
+	void bar(int[] x) {
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Joined Validation}{P23}{Once you see a validation (if with a single throw inside) and its condition contains more than one condition joined with OR -- it's a pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+	void print(int x, int y) {
+		if (x == 1 || y == 1) { // here!
+			throw new Exception("Oops");
+		}
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Class declaration must always be \texttt{final}}{P24}{Once you see a non \texttt{final} method, it's a pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+	private static void foo() {
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Private static method}{P25}{Once you see a \texttt{private static} method, it's a pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+	private static void foo() {
+		//something
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Public static method}{P26}{Once you see a \texttt{public static} method, it's a pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+	private static void foo() {
+		//something
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Var siblings}{P27}{Here fileSize and fileDate are ``siblings'' because they both have file as first part of their compound names. It's better to rename them to size and date.\\
+		file and fileSize are NOT siblings.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Foo {
+	void bar() {
+		int fileSize = 10;
+		Date fileDate = new Date();
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Assign null}{P28}{Once we see \texttt{= null}, it's a pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Foo {
+	void bar() {
+		String a = null; // here
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Multiple \texttt{while} pattern}{P29}{Once you see two or more \texttt{while} statements in a method body, it's a pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Book {
+	void foo() {
+		while (true) {
+		}
+		// something
+		while (true) {
+		}
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Protected method}{P30}{Once we find a protected method in a class, it's a pattern.}
+	
+	\item \pattern{Send \texttt{null}}{P31}{Once we see that \texttt{null} is being given as an argument to some method, it's a pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Foo {
+	void bar() {
+		FileUtils.doIt(null); // here
+	}
+}
+\end{lstlisting}
+
+	\item \pattern{Nested loop}{P32}{Once we find a loop (\texttt{for} / \texttt{while}) inside another loop it's a pattern.}
+{\it Example:}
+\begin{lstlisting}[language=Java]
+class Foo {
+	void foo() {
+		white (true) {
+			for (;;) { // here
+			}  
+		}
+	}
+}
+\end{lstlisting}
+
+\end{itemize}

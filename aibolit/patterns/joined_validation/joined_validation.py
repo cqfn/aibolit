@@ -20,47 +20,36 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List, Tuple
+from typing import List
 
 from aibolit.utils.ast_builder import build_ast
-from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
 class JoinedValidation:
-    """
-    Pattern which matches joined validations: validations (if with a single throw inside) which condition
-    contains more than condition joined with OR
-    """
-
-    def __init__(self):
-        pass
-
-    def check_throw(self, node: int, tree: 'AST', lines: List[int]) -> Tuple[List[int], bool]:
-        children_throw = list(tree.children_with_type(node, ASTNodeType.THROW_STATEMENT))
-        if len(children_throw) > 0:
-            lines.append(tree.get_attr(node, 'source_code_line'))
-            return lines, True
-        return lines, False
+    '''
+    Finds all if statements, which "then" branch consist of a single throw statement
+    and logical or "||" used in condition.
+    '''
 
     def value(self, filename: str) -> List[int]:
-        """
-        Returns the line number of joined validations found in file.
-        """
-        tree = AST.build_from_javalang(build_ast(filename))
+        ast = AST.build_from_javalang(build_ast(filename))
         lines: List[int] = []
-        for node in tree.nodes_by_type(ASTNodeType.IF_STATEMENT):
-            flag_or = False
-            for child in tree.all_children_with_type(node, ASTNodeType.BINARY_OPERATION):
-                operation_name = tree.get_binary_operation_name(child)
-                if operation_name == '||':
-                    flag_or = True
-            if not flag_or:
-                continue
-            lines, flag = self.check_throw(node, tree, lines)
-            if flag:
-                continue
-            child_block = list(tree.children_with_type(node, ASTNodeType.BLOCK_STATEMENT))
-            if len(child_block) == 0:
-                continue
-            lines, _ = self.check_throw(child_block[0], tree, lines)
+        for if_statement in ast.get_proxy_nodes(ASTNodeType.IF_STATEMENT):
+            if self._is_logical_or_used_in_expression(if_statement.condition) and \
+               self._is_block_consist_of_single_throw(if_statement.then_statement):
+                lines.append(if_statement.line)
         return lines
+
+    def _is_logical_or_used_in_expression(self, expression: ASTNode) -> bool:
+        if expression.node_type == ASTNodeType.BINARY_OPERATION and expression.operator == '||':
+            return True
+
+        return any(self._is_logical_or_used_in_expression(child) for child in expression.children)
+
+    def _is_block_consist_of_single_throw(self, block: ASTNode) -> bool:
+        if block.node_type == ASTNodeType.THROW_STATEMENT:
+            return True
+
+        children = list(block.children)
+        return len(children) == 1 and children[0].node_type == ASTNodeType.THROW_STATEMENT

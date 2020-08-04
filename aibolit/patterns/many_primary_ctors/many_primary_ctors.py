@@ -19,42 +19,37 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
-from typing import List
-
-import javalang.ast
-import javalang.parse
-import javalang.tree
-
-from aibolit.types_decl import LineNumber
+from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
+from aibolit.ast_framework.ast_node import ASTNode
+from typing import List, Union
 
 
 class ManyPrimaryCtors(object):
-    def value(self, filename: str):
-        tree = build_ast(filename)
-
-        return self.__traverse_node(tree)
-
-    def __traverse_node(self, tree: javalang.ast.Node) -> List[LineNumber]:
-        lines: List[LineNumber] = list()
-
-        for _, class_declaration in tree.filter(javalang.tree.ClassDeclaration):
-            primary_ctors = list(filter(_is_primary, class_declaration.constructors))
-
-            if len(primary_ctors) > 1:
-                lines.extend(ctor.position.line for ctor in primary_ctors)
-
+    '''
+    If there is more than one primary
+    constructors in a class, it is
+    considered a pattern
+    '''
+    def value(self, filename: str) -> List[int]:
+        lines: List[int] = list()
+        ast = AST.build_from_javalang(build_ast(filename))
+        for class_declaration in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
+            primary_lines = self.__find_primary(ast, class_declaration.body)
+            if len(primary_lines) > 1:
+                lines.extend(primary_lines)
         return lines
 
+    def __find_primary(self, ast: AST, class_body: List[ASTNode]) -> List[int]:
+        lines: List[int] = []
+        for node in class_body:
+            if self.__check_primary(ast, node):
+                lines.append(node.line)
+        return lines
 
-def _is_primary(constructor: javalang.tree.ConstructorDeclaration) -> bool:
-    for _, assignment in constructor.filter(javalang.tree.Assignment):
-        if _is_instance_variable_assignment(assignment):
-            return True
-
-    return False
-
-
-def _is_instance_variable_assignment(assignment: javalang.tree.Assignment) -> bool:
-    return isinstance(assignment.expressionl, javalang.tree.This)
+    def __check_primary(self, ast: AST, node: Union[ASTNode, List[ASTNode]]) -> bool:
+        if isinstance(node, ASTNode) and node.node_type == ASTNodeType.CONSTRUCTOR_DECLARATION:
+            for assignment in ast.get_subtree(node).get_proxy_nodes(ASTNodeType.ASSIGNMENT):
+                if assignment.expressionl.node_type == ASTNodeType.THIS:
+                    return True
+        return False

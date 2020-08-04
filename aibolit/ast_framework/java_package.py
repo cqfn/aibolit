@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 from cached_property import cached_property  # type: ignore
+from deprecated import deprecated  # type: ignore
 
 from typing import Dict
 
@@ -29,6 +30,7 @@ from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class import JavaClass
 
 
+@deprecated("This functionality must be transmitted to ASTNode")
 class JavaPackage(AST):
     def __init__(self, filename: str):
         ast = AST.build_from_javalang(build_ast(filename))
@@ -48,7 +50,7 @@ class JavaPackage(AST):
     @cached_property
     def java_classes(self) -> Dict[str, JavaClass]:
         classes: Dict[str, JavaClass] = {}
-        for nodes in self.subtrees_with_root_type(ASTNodeType.CLASS_DECLARATION):
-            java_class = JavaClass(self.tree.subgraph(nodes), nodes[0], self)
+        for class_ast in self.get_subtrees(ASTNodeType.CLASS_DECLARATION):
+            java_class = JavaClass(class_ast.tree, class_ast.root, self)
             classes[java_class.name] = java_class
         return classes

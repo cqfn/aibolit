@@ -27,7 +27,9 @@ from aibolit.patterns.nested_loop.nested_loop import NestedLoop as P32
 from aibolit.patterns.non_final_attribute.non_final_attribute import NonFinalAttribute as P12
 from aibolit.patterns.non_final_class.non_final_class import NonFinalClass as P24
 from aibolit.patterns.null_check.null_check import NullCheck as P13
-from aibolit.patterns.partial_synchronized.partial_synchronized import PartialSync as P14
+from aibolit.patterns.partially_synchronized_methods.partially_synchronized_methods import (
+    PartiallySynchronizedMethods as P14
+)
 from aibolit.patterns.private_static_method.private_static_method import PrivateStaticMethod as P25
 from aibolit.patterns.protected_method.protected_method import ProtectedMethod as P30
 from aibolit.patterns.public_static_method.public_static_method import PublicStaticMethod as P26
@@ -36,7 +38,7 @@ from aibolit.patterns.return_null.return_null import ReturnNull as P16
 from aibolit.patterns.send_null.send_null import SendNull as P31
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder as P17
 from aibolit.patterns.supermethod.supermethod import SuperMethod as P18
-from aibolit.patterns.this_finder.this_finder import ThisFinder as P19
+from aibolit.patterns.hybrid_constructor.hybrid_constructor import HybridConstructor as P19
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
 from aibolit.patterns.var_middle.var_middle import VarMiddle as P21
 from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
@@ -72,6 +74,14 @@ class Config(metaclass=Singleton):
     def dataset_file():
         dataset_path = Path(Config().home_aibolit_folder(), 'scripts', 'target', 'dataset.csv')
         return os.environ.get('HOME_DATASET_CSV') or dataset_path
+
+    @staticmethod
+    def train_csv():
+        return os.environ.get('HOME_TRAIN_DATASET')
+
+    @staticmethod
+    def test_csv():
+        return os.environ.get('HOME_TEST_DATASET')
 
     @staticmethod
     def get_patterns_config():

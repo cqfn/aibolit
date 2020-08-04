@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from unittest import TestCase
+from unittest import TestCase, skip
 from pathlib import Path
 from itertools import zip_longest
 
@@ -32,31 +32,46 @@ from aibolit.ast_framework.ast import MemberReferenceParams, MethodInvocationPar
 class ASTTestSuite(TestCase):
     def test_parsing(self):
         ast = self._build_ast("SimpleClass.java")
-        self.assertEqual(list(ast.node_types),
+        actual_node_types = [node.node_type for node in ast]
+        self.assertEqual(actual_node_types,
                          ASTTestSuite._java_simple_class_preordered)
 
     def test_subtrees_selection(self):
         ast = self._build_ast("SimpleClass.java")
-        subtrees = ast.subtrees_with_root_type(ASTNodeType.BASIC_TYPE)
-        for subtree_nodes, expected_subtree in \
+        subtrees = ast.get_subtrees(ASTNodeType.BASIC_TYPE)
+        for actual_subtree, expected_subtree in \
                 zip_longest(subtrees, ASTTestSuite._java_simple_class_basic_type_subtrees):
             with self.subTest():
-                self.assertEqual(subtree_nodes, expected_subtree)
+                self.assertEqual([node.node_index for node in actual_subtree],
+                                 expected_subtree)
 
+    def test_complex_fields(self):
+        ast = self._build_ast('StaticConstructor.java')
+        class_declaration = next((declaration for declaration in ast.get_root().types if
+                                 declaration.node_type == ASTNodeType.CLASS_DECLARATION), None)
+        assert class_declaration is not None, "Cannot find class declaration"
+
+        static_constructor, method_declaration = class_declaration.body
+        self.assertEqual([node.node_type for node in static_constructor],
+                         [ASTNodeType.STATEMENT_EXPRESSION, ASTNodeType.STATEMENT_EXPRESSION])
+        self.assertEqual(method_declaration.node_type, ASTNodeType.METHOD_DECLARATION)
+
+    @skip('Method "get_member_reference_params" is deprecated')
     def test_member_reference_params(self):
         ast = self._build_ast("MemberReferencesExample.java")
-        for node, expected_params in zip_longest(ast.nodes_by_type(ASTNodeType.MEMBER_REFERENCE),
+        for node, expected_params in zip_longest(ast.get_nodes(ASTNodeType.MEMBER_REFERENCE),
                                                  ASTTestSuite._expected_member_reference_params):
             self.assertEqual(ast.get_member_reference_params(node), expected_params)
 
+    @skip('Method "get_method_invocation_params" is deprecated')
     def test_method_invocation_params(self):
         ast = self._build_ast("MethodInvokeExample.java")
-        for node, expected_params in zip_longest(ast.nodes_by_type(ASTNodeType.METHOD_INVOCATION),
+        for node, expected_params in zip_longest(ast.get_nodes(ASTNodeType.METHOD_INVOCATION),
                                                  ASTTestSuite._expected_method_invocation_params):
             self.assertEqual(ast.get_method_invocation_params(node), expected_params)
 
     def _build_ast(self, filename: str):
-        javalang_ast = build_ast(Path(__file__).parent.absolute() / filename)
+        javalang_ast = build_ast(str(Path(__file__).parent.absolute() / filename))
         return AST.build_from_javalang(javalang_ast)
 
     _java_simple_class_preordered = [

@@ -1,4 +1,4 @@
-target/
+scripts/target
 .idea/
 *.iml
 .DS_Store
@@ -8,11 +8,9 @@ build/
 dist/
 .coverage
 venv/
-aibolit/scripts/output
 html
 sphinx
 .vscode/
-models/
 .ipynb_checkpoints/
 .mypy_cache/
 *.aux
@@ -30,4 +28,4 @@ models/
 *.glo
 *.ist
 wp.pdf
-
+scripts/_tmp

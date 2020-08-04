@@ -23,6 +23,7 @@
 from cached_property import cached_property  # type: ignore
 from typing import Dict, Set, TYPE_CHECKING
 from networkx import DiGraph, dfs_tree  # type: ignore
+from deprecated import deprecated  # type: ignore
 
 from aibolit.utils.cfg_builder import build_cfg
 from aibolit.ast_framework import AST, ASTNodeType
@@ -32,6 +33,7 @@ if TYPE_CHECKING:
     from aibolit.ast_framework.java_class import JavaClass
 
 
+@deprecated("This functionality must be transmitted to ASTNode")
 class JavaClassMethod(AST):
     def __init__(self, tree: DiGraph, root: int, java_class: 'JavaClass'):
         self.tree = tree
@@ -62,7 +64,7 @@ class JavaClassMethod(AST):
 
     @cached_property
     def used_methods(self) -> Dict[str, Set['JavaClassMethod']]:
-        method_invocation_nodes = self.nodes_by_type(ASTNodeType.METHOD_INVOCATION)
+        method_invocation_nodes = self.get_nodes(ASTNodeType.METHOD_INVOCATION)
         used_method_invocation_params = (self.get_method_invocation_params(node) for node
                                          in method_invocation_nodes)
         used_local_method_invocation_params = (params for params in used_method_invocation_params
@@ -75,7 +77,7 @@ class JavaClassMethod(AST):
     @cached_property
     def used_fields(self) -> Dict[str, JavaClassField]:
         used_member_reference_params = (self.get_member_reference_params(node) for node in
-                                        self.nodes_by_type(ASTNodeType.MEMBER_REFERENCE))
+                                        self.get_nodes(ASTNodeType.MEMBER_REFERENCE))
         used_local_member_reference_names = {params.member_name for params in used_member_reference_params
                                              if params.object_name == ''}
         # Local member references may lead to method parameters instead of class fields if they have same names

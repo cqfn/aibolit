@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from networkx import DiGraph, dfs_preorder_nodes, disjoint_union  # type: ignore
+from networkx import DiGraph, disjoint_union  # type: ignore
 from aibolit.ast_framework import AST, ASTNodeType
 from typing import Tuple
 
@@ -35,10 +35,10 @@ def build_cfg(tree: AST) -> DiGraph:
     '''Create Control Flow Graph'''
     g = DiGraph()
     g.add_node(0)
-    for node_idx in dfs_preorder_nodes(tree.tree, tree.root):
-        if tree.tree.nodes[node_idx]['type'] not in NODE_TYPES:
+    for node in tree:
+        if node.node_type not in NODE_TYPES:
             continue
-        _g = _mk_cfg_graph(tree.tree.nodes[node_idx]['type'])
+        _g = _mk_cfg_graph(node.node_type)
         g = _compose_two_graphs(g, _g)
     return g
 

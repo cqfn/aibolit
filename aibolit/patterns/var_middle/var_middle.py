@@ -50,17 +50,17 @@ class VarMiddle:
     @staticmethod
     def _on_entering_node(node: int, ast: DiGraph, scope_status: ScopeStatus,
                           lines_with_error: List[LineNumber]):
-        node_type = ast.nodes[node]['type']
+        node_type = ast.nodes[node]['node_type']
 
         # if the variable is declared mark it and check the scope
         if node_type in VarMiddle._var_declaration_node_types:
             scope_status.add_flag(ScopeStatusFlags.INSIDE_VARIABLE_DECLARATION_SUBTREE)
             if ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS_PRESENT not in scope_status.get_status():
-                lines_with_error.append(ast.nodes[node]['source_code_line'])
+                lines_with_error.append(ast.nodes[node]['line'])
 
         # mark scope for super constructor calling
         elif node_type == ASTNodeType.STATEMENT_EXPRESSION:
-            children_types = {ast.nodes[child]['type'] for child in ast.succ[node]}
+            children_types = {ast.nodes[child]['node_type'] for child in ast.succ[node]}
             if ASTNodeType.SUPER_CONSTRUCTOR_INVOCATION in children_types:
                 scope_status.add_flag(ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE)
 
@@ -80,7 +80,7 @@ class VarMiddle:
 
     @staticmethod
     def _on_leaving_node(node: int, ast: DiGraph, scope_status: ScopeStatus):
-        node_type = ast.nodes[node]['type']
+        node_type = ast.nodes[node]['node_type']
 
         # on the end of variable declaration remove according flag
         if node_type in VarMiddle._var_declaration_node_types:
@@ -88,7 +88,7 @@ class VarMiddle:
 
         # on the end of super constructor call remove according flag
         elif node_type == ASTNodeType.STATEMENT_EXPRESSION:
-            children_types = {ast.nodes[child]['type'] for child in ast.succ[node]}
+            children_types = {ast.nodes[child]['node_type'] for child in ast.succ[node]}
             if ASTNodeType.SUPER_CONSTRUCTOR_INVOCATION in children_types:
                 scope_status.remove_flag(ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE)
 
