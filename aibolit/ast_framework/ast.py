@@ -278,6 +278,10 @@ class AST:
         if node_type == ASTNodeType.METHOD_DECLARATION and attributes["body"] is None:
             attributes["body"] = []
 
+        if node_type in {ASTNodeType.METHOD_INVOCATION, ASTNodeType.MEMBER_REFERENCE} and \
+                attributes["qualifier"] == "":
+            attributes["qualifier"] = None
+
     @staticmethod
     def _add_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:
         node_index = len(tree) + 1
