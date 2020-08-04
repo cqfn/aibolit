@@ -1,5 +1,5 @@
 from decimal import localcontext, ROUND_DOWN, Decimal
-from typing import Dict, Any, Tuple
+from typing import Dict, Any, Tuple, List
 
 import numpy as np
 import pandas as pd
@@ -7,6 +7,7 @@ from catboost import CatBoost
 from sklearn.base import BaseEstimator
 
 from aibolit.config import Config
+from aibolit.dataset_collection.dataset_collection import run_dataset_calculation
 
 
 def get_minimum(
@@ -104,6 +105,16 @@ class PatternRankingModel(BaseEstimator):
 
         self.model = model
         self.model.fit(X, y.ravel(), logging_level='Silent')
+
+    def train_model(self, files: List[str], features: List[str], target: str) -> pd.DataFrame:
+        """Trains model with defined set of features
+
+        :param files: list of files
+        :param features: features to extract (codes of metrics and patterns, defined in config)
+        :param target: feature code, defined in config. It will be used as target
+        """
+
+        return run_dataset_calculation(files, features)
 
     def sigmoid(self, x):
         return 1 / (1 + np.exp(-x))
@@ -205,3 +216,5 @@ class PatternRankingModel(BaseEstimator):
 
         sorted_importances = dict(sorted(importances, key=lambda x: x[1], reverse=True))
         return sorted_importances.keys(), sorted_importances.values()
+
+
