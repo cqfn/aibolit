@@ -57,9 +57,6 @@ def chain_field_getter_factory(*steps: Union[str, int]) -> Callable[[ASTNode], A
             else:
                 raise RuntimeError(f"Failed to apply step {step} to field {field}.")
 
-        if isinstance(field, list) and len(field) == 1:
-            field = field[0]
-
         return field
 
     return get_chain_field
