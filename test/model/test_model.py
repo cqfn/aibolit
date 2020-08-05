@@ -3,7 +3,6 @@ import pickle
 from unittest import TestCase
 from pathlib import Path
 
-from aibolit.config import Config
 from aibolit.patterns.array_as_argument.array_as_argument import ArrayAsArgument
 
 
@@ -18,8 +17,3 @@ class TestArrayAsArgument(TestCase):
 
         results = model.test(files)
         print(results)
-        # self.assertEqual(
-        #     [],
-        #     self.pattern.value(file),
-        #     'Should not match no argument method'
-        # )

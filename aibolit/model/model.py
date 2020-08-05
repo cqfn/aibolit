@@ -174,7 +174,6 @@ class PatternRankingModel(BaseEstimator):
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
     def test(self, files: List[str]) -> Tuple[str, List[str], List[float]]:
-        input_params = {}
         config = Config.get_patterns_config()
         patterns_config = config['patterns']
         metrics_config = config['metrics']
@@ -212,7 +211,6 @@ class PatternRankingModel(BaseEstimator):
             result_array.append([file_for_file['filename'], sorted_result, importances])
 
         return result_array
-
 
     def rank(self, snippet, scale=True):
         """
