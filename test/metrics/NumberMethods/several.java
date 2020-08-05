@@ -29,7 +29,7 @@ class LengthStringComparator implements Comparator<String> {
             System.out.printf("%d ", test); 
   
             // Statement 2 
-            printFun(test - 1); // +1
+            printFun(test - 1);
   
             System.out.printf("%d ", test); 
             return; 
