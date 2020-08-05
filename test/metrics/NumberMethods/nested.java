@@ -6,7 +6,7 @@
 class LengthStringComparator implements Comparator<String> {
     boolean validate() { // +1
    return new Object() {
-     boolean check(Struct struct) { // +1
+     boolean check(Struct struct) {
        if (!struct.valid()) return false;
        for(Struct child : struct.children()) {
          if (!check(child)) return false;

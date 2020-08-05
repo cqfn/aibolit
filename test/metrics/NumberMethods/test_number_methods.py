@@ -37,10 +37,10 @@ class TestCognitive(TestCase):
         metric = NumberMethods().value(Path(self.dir_path, 'simple.java'))
         self.assertEqual(metric, 2)
 
-    def test_several1(self):
-        metric = NumberMethods().value(Path(self.dir_path, 'several1.java'))
-        self.assertEqual(metric, 3)
+    def test_nested(self):
+        metric = NumberMethods().value(Path(self.dir_path, 'nested.java'))
+        self.assertEqual(metric, 2)
 
-    def test_several2(self):
-        metric = NumberMethods().value(Path(self.dir_path, 'several2.java'))
+    def test_several(self):
+        metric = NumberMethods().value(Path(self.dir_path, 'several.java'))
         self.assertEqual(metric, 4)
