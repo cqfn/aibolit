@@ -208,7 +208,7 @@ class PatternRankingModel(BaseEstimator):
         result_array = []
         for file_for_file in results:
             sorted_result, importances = self.predict(file_for_file)
-            result_array.append([file_for_file['filename'], sorted_result, importances])
+            result_array.append([file_for_file['filename'], sorted_result.keys(), importances])
 
         return result_array
 
