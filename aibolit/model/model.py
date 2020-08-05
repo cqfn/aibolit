@@ -204,4 +204,4 @@ class PatternRankingModel(BaseEstimator):
             importances.append((i, diff))
 
         sorted_importances = dict(sorted(importances, key=lambda x: x[1], reverse=True))
-        return sorted_importances.keys(), sorted_importances.values()
+        return list(sorted_importances.keys()), list(sorted_importances.values())
