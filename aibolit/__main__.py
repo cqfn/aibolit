@@ -301,7 +301,7 @@ def inference(
             model_path = Config.folder_model_data()
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
-        sorted_result, importances = model.predict(input_params, args)
+        sorted_result, importances = model.predict(input_params)
         patterns_list = model.features_conf['patterns_only']
         for iter, (key, val) in enumerate(sorted_result.items()):
             if key in patterns_list:

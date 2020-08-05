@@ -13,8 +13,7 @@ class TestArrayAsArgument(TestCase):
 
     def test_test_function(self):
         files = [str(x.absolute()) for x in Path(self.dir_path, 'start_end').glob('*.java')]
-        model_path = Config.folder_model_data()
-        with open(model_path, 'rb') as fid:
+        with open('model.pkl', 'rb') as fid:
             model = pickle.load(fid)
 
         results = model.test(files)

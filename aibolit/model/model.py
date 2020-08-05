@@ -80,12 +80,11 @@ class PatternRankingModel(BaseEstimator):
         self.model = None
         self.features_conf = None
 
-    def predict(self, input_params, args=1.0):
-        features_order = self.model.features_conf['features_order']
+    def predict(self, input_params):
+        features_order = self.features_conf['features_order']
         # add ncss to last column. We will normalize all patterns by that value
         input = [input_params[i] for i in features_order] + [input_params['M2']]
-        th = float(args.threshold)
-        preds, importances = self.model.rank(input, th=th)
+        preds, importances = self.rank(input)
 
         return {features_order[int(x)]: int(x) for x in preds}, list(importances)
 
@@ -176,43 +175,46 @@ class PatternRankingModel(BaseEstimator):
 
     def test(self, files: List[str]) -> Tuple[str, List[str], List[float]]:
         input_params = {}
-        patterns_config = Config.get_patterns_config()
-        patterns_config = patterns_config['patterns']
-        metrics_config = patterns_config['patterns']
+        config = Config.get_patterns_config()
+        patterns_config = config['patterns']
+        metrics_config = config['metrics']
         patterns_codes = [x['code'] for x in patterns_config]
         metrics_codes = [x['code'] for x in metrics_config]
-        features = [x['code'] for x in self.features_conf['features_order']]
+        features = self.features_conf['features_order']
         results = []
         for file in files:
             row = {}
             for feature in features:
+                # we need for test to scale snippet
+                # we will calculate it if we do not have M2 in feature_conf
+                found_feature = [x for x in metrics_config if x['code'] == 'M2']
+                row['filename'] = file
+                ncss_val = found_feature[0]['make']().value(file)
+                row['M2'] = ncss_val
+
                 if feature in patterns_codes:
                     found_feature = [x for x in patterns_config if x['code'] == feature]
                     lines = found_feature[0]['make']().value(file)
-                    if lines:
-                        row[feature] = len(lines)
-                    row['filename'] = file
+                    row[feature] = len(lines)
                     results.append(row)
                 elif feature in metrics_codes:
                     found_feature = [x for x in metrics_config if x['code'] == feature]
                     val = found_feature[0]['make']().value(file)
                     if val:
                         row[feature] = val
-
-                    row['filename'] = file
                     results.append(row)
                 else:
                     continue
 
         result_array = []
         for file_for_file in results:
-            sorted_result, importances = self.predict(input_params)
-            result_array.append(file_for_file['filename'], sorted_result, importances)
+            sorted_result, importances = self.predict(file_for_file)
+            result_array.append([file_for_file['filename'], sorted_result, importances])
 
         return result_array
 
 
-    def rank(self, snippet, scale=True, th=1.0):
+    def rank(self, snippet, scale=True):
         """
         Args:
             snippet: np.array with shape (number of snippets, number of patterns + 1),
