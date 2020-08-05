@@ -29,7 +29,6 @@ class NumberMethods:
         metric = 0
         ast = AST.build_from_javalang(build_ast(filename))
         for class_node in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
-            tree = ast.get_subtree(class_node)
-            for method_node in tree.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
+            for method_node in class_node.methods:
                 metric += 1
         return metric

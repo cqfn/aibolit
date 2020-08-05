@@ -28,28 +28,19 @@ from pathlib import Path
 
 class TestCognitive(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
-    metric_nm = NumberMethods()
 
-    def test1(self):
-        lines = self.metric_nm.value(Path(self.dir_path, '1.java'))
-        self.assertEqual(lines, 1)
+    def test_one(self):
+        metric = NumberMethods().value(Path(self.dir_path, 'one.java'))
+        self.assertEqual(metric, 1)
 
-    def test2(self):
-        lines = self.metric_nm.value(Path(self.dir_path, '2.java'))
-        self.assertEqual(lines, 1)
+    def test_simple(self):
+        metric = NumberMethods().value(Path(self.dir_path, 'simple.java'))
+        self.assertEqual(metric, 2)
 
-    def test3(self):
-        lines = self.metric_nm.value(Path(self.dir_path, '3.java'))
-        self.assertEqual(lines, 1)
+    def test_several1(self):
+        metric = NumberMethods().value(Path(self.dir_path, 'several1.java'))
+        self.assertEqual(metric, 3)
 
-    def test4(self):
-        lines = self.metric_nm.value(Path(self.dir_path, '4.java'))
-        self.assertEqual(lines, 2)
-
-    def test5(self):
-        lines = self.metric_nm.value(Path(self.dir_path, '5.java'))
-        self.assertEqual(lines, 3)
-
-    def test6(self):
-        lines = self.metric_nm.value(Path(self.dir_path, '6.java'))
-        self.assertEqual(lines, 5)
+    def test_several2(self):
+        metric = NumberMethods().value(Path(self.dir_path, 'several2.java'))
+        self.assertEqual(metric, 4)
