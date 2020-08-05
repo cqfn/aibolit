@@ -242,12 +242,20 @@ def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
             for child in node.children:
                 if isinstance(child, list) and (len(child) > 0):
                     for item in child:
-                        traverse(item)
+                        if isinstance(item, list):
+                            for i in item:
+                                traverse(i)
+                        else:
+                            traverse(item)
                 else:
                     if hasattr(child, 'children'):
                         infants = child.children
                         for infant in infants:
-                            traverse(infant)
+                            if isinstance(infant, list):
+                                for j in infant:
+                                    traverse(j)
+                            else:
+                                traverse(infant)
                     else:
                         check_max_position(child)
 
