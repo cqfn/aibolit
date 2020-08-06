@@ -1,5 +1,5 @@
 from decimal import localcontext, ROUND_DOWN, Decimal
-from typing import Dict, Any, Tuple, List
+from typing import Dict, Any, Tuple, List, Union
 
 import numpy as np
 import pandas as pd
@@ -80,7 +80,7 @@ class PatternRankingModel(BaseEstimator):
         self.model = None
         self.features_conf = None
 
-    def predict(self, input_params: Dict[Any]) -> Tuple[Dict[Any, int], List[float]]:
+    def predict(self, input_params: Dict[Any, Any]) -> Tuple[Dict[Any, int], List[float]]:
         features_order = self.features_conf['features_order']
         # add ncss to last column. We will normalize all patterns by that value
         input = [input_params[i] for i in features_order] + [input_params['M2']]
@@ -173,7 +173,7 @@ class PatternRankingModel(BaseEstimator):
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
-    def test(self, files: List[str]) -> List[List[str, List[str], List[float]]]:
+    def test(self, files: List[str]) -> List[List[Union[Union[str, int, list, List[float]], Any]]]:
         """Make predict for list of java files using current model."""
 
         config = Config.get_patterns_config()
@@ -207,7 +207,7 @@ class PatternRankingModel(BaseEstimator):
                 else:
                     continue
 
-        result_array: List[List[str, List[str], List[float]]] = []
+        result_array = []
         for file_for_file in results:
             sorted_result, importances = self.predict(file_for_file)
             result_array.append([file_for_file['filename'], list(sorted_result.keys()), importances])
