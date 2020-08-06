@@ -80,7 +80,7 @@ class PatternRankingModel(BaseEstimator):
         self.model = None
         self.features_conf = None
 
-    def predict(self, input_params):
+    def predict(self, input_params: Dict[Any]):
         features_order = self.features_conf['features_order']
         # add ncss to last column. We will normalize all patterns by that value
         input = [input_params[i] for i in features_order] + [input_params['M2']]
@@ -173,7 +173,9 @@ class PatternRankingModel(BaseEstimator):
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
-    def test(self, files: List[str]):
+    def test(self, files: List[str]) -> List[List[str, List[str], List[float]]]:
+        """Make predict for lust of java files."""
+
         config = Config.get_patterns_config()
         patterns_config = config['patterns']
         metrics_config = config['metrics']
@@ -205,7 +207,7 @@ class PatternRankingModel(BaseEstimator):
                 else:
                     continue
 
-        result_array = []
+        result_array: List[List[str, List[str], List[float]]] = []
         for file_for_file in results:
             sorted_result, importances = self.predict(file_for_file)
             result_array.append([file_for_file['filename'], list(sorted_result.keys()), importances])
