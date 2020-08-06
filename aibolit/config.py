@@ -8,6 +8,7 @@ from aibolit.metrics.lcom4.lcom4 import LCOM4 as M5
 from aibolit.metrics.maxDiameter.max_diam_of_tree import MaxDiamOfTree as M6
 from aibolit.metrics.ncss.ncss import NCSSMetric as M2
 from aibolit.metrics.spaces.SpaceCounter import IndentationCounter as M3
+from aibolit.metrics.NumberMethods.NumberMethods import NumberMethods as M8
 from aibolit.patterns.array_as_argument.array_as_argument import ArrayAsArgument as P22
 from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode as P1
 from aibolit.patterns.assign_null_finder.assign_null_finder import NullAssignment as P28
@@ -160,7 +161,8 @@ class Config(metaclass=Singleton):
                 {"name": "Cognitive Complexity", "code": "M4", "make": lambda: M4()},
                 {"name": "LCOM4", "code": "M5", "make": lambda: M5()},
                 {"name": "Max diameter of AST", "code": "M6", "make": lambda: M6()},
-                {"name": "Number of variables", "code": "M7", "make": lambda: M7()}
+                {"name": "Number of variables", "code": "M7", "make": lambda: M7()},
+                {"name": "Number of methods", "code": "M8", "make": lambda: M8()}
             ],
             "target": {
 
