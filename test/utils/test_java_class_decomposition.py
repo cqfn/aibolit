@@ -20,23 +20,43 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from unittest import TestCase, skip
+from unittest import TestCase
 from pathlib import Path
 
+from aibolit.ast_framework import AST
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
-from aibolit.ast_framework.java_package import JavaPackage
+from aibolit.utils.ast_builder import build_ast
 
 
-@skip("Usage of deprecated API breaks test")
 class JavaClassDecompositionTestSuite(TestCase):
     def test_strong_decomposition(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / 'MethodUseOtherMethodExample.java')
-        java_class = java_package.java_classes['MethodUseOtherMethod']
-        class_components = decompose_java_class(java_class, 'strong')
+        class_ast = self._get_class_ast(
+            "MethodUseOtherMethodExample.java", "MethodUseOtherMethod"
+        )
+        class_components = decompose_java_class(class_ast, "strong")
         self.assertEqual(len(class_components), 7)
 
     def test_weak_decomposition(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / 'MethodUseOtherMethodExample.java')
-        java_class = java_package.java_classes['MethodUseOtherMethod']
-        class_components = decompose_java_class(java_class, 'weak')
+        class_ast = self._get_class_ast(
+            "MethodUseOtherMethodExample.java", "MethodUseOtherMethod"
+        )
+        class_components = decompose_java_class(class_ast, "weak")
         self.assertEqual(len(class_components), 5)
+
+    def _get_class_ast(self, filename: str, class_name: str) -> AST:
+        package_ast = AST.build_from_javalang(
+            build_ast(Path(__file__).parent.absolute() / filename)
+        )
+        package_declaration = package_ast.get_root()
+        try:
+            class_declaration = next(
+                class_declaration
+                for class_declaration in package_declaration.types
+                if class_declaration.name == class_name
+            )
+            return package_ast.get_subtree(class_declaration)
+
+        except StopIteration:
+            raise ValueError(
+                f"File '{filename}' does not have top level class '{class_name}'."
+            )
