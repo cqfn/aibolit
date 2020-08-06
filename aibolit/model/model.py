@@ -174,7 +174,7 @@ class PatternRankingModel(BaseEstimator):
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
     def test(self, files: List[str]) -> List[List[str, List[str], List[float]]]:
-        """Make predict for lust of java files."""
+        """Make predict for list of java files using current model."""
 
         config = Config.get_patterns_config()
         patterns_config = config['patterns']
