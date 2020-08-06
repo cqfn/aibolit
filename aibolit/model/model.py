@@ -80,7 +80,7 @@ class PatternRankingModel(BaseEstimator):
         self.model = None
         self.features_conf = None
 
-    def predict(self, input_params: Dict[Any]):
+    def predict(self, input_params: Dict[Any]) -> Tuple[Dict[Any, int], List[float]]:
         features_order = self.features_conf['features_order']
         # add ncss to last column. We will normalize all patterns by that value
         input = [input_params[i] for i in features_order] + [input_params['M2']]
