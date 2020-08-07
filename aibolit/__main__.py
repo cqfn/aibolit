@@ -302,7 +302,7 @@ def inference(
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
         sorted_result, importances = model.predict(input_params)
-        patterns_list = model.features_conf['patterns_only']
+        patterns_list = model.features_conf['features_order']
         for iter, (key, val) in enumerate(sorted_result.items()):
             if key in patterns_list:
                 pattern_code = key
