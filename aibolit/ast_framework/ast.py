@@ -278,6 +278,9 @@ class AST:
         if node_type == ASTNodeType.METHOD_DECLARATION and attributes["body"] is None:
             attributes["body"] = []
 
+        if node_type == ASTNodeType.LAMBDA_EXPRESSION and isinstance(attributes["body"], Node):
+            attributes["body"] = [attributes["body"]]
+
     @staticmethod
     def _add_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:
         node_index = len(tree) + 1
