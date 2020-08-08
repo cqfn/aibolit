@@ -71,6 +71,13 @@ class ScopeTestCase(TestCase):
     def test_deep_nesting(self) -> None:
         self._test_method("deep_nesting")
 
+    def test_lambda_parameters(self) -> None:
+        scope = Scope.build_from_method_ast(self._get_method_ast("multiline_lambda"))
+        lambda_scope = next(scope.nested_scopes)
+
+        self.assertEqual(lambda_scope.parent_node.node_type, ASTNodeType.LAMBDA_EXPRESSION)
+        self.assertEqual([parameter.name for parameter in lambda_scope.parameters], ["x", "y"])
+
     def _test_method(self, method_name: str) -> None:
         scope = Scope.build_from_method_ast(self._get_method_ast(method_name))
         self.assertScope(scope, self._scope_statements_in_preorder_by_method[method_name])
