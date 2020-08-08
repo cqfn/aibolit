@@ -27,7 +27,7 @@ from networkx import DiGraph  # type: ignore
 from .ast import AST
 from .ast_node import ASTNode
 from .ast_node_type import ASTNodeType
-from .scope_extractors import scope_extractors_by_node_type
+from .scope_extractors import extract_scopes
 
 
 class Scope:
@@ -66,20 +66,30 @@ class Scope:
     def statements(self) -> List[ASTNode]:
         return self._scope_tree.nodes[self._scope_id]["statements"]
 
+    @property
+    def parent_node(self) -> ASTNode:
+        return self._scope_tree.nodes[self._scope_id]["parent_node"]
+
+    @property
+    def parameters(self) -> List[ASTNode]:
+        return self._scope_tree.nodes[self._scope_id]["parameters"]
+
     @staticmethod
     def _create_scopes_from_node(node: ASTNode, method_ast: AST, scope_tree: DiGraph) -> List[int]:
-        try:
-            scope_statements = scope_extractors_by_node_type[node.node_type](node, method_ast)
-        except KeyError:
-            scope_statements = []
+        scopes = extract_scopes(node, method_ast)
 
         new_scopes_ids: List[int] = []
-        for scope_statements in scope_statements:
+        for scope in scopes:
             new_scope_id = len(scope_tree)
             new_scopes_ids.append(new_scope_id)
-            scope_tree.add_node(new_scope_id, statements=scope_statements)
+            scope_tree.add_node(
+                new_scope_id,
+                statements=scope.statements,
+                parent_node=scope.parent_node,
+                parameters=scope.parameters,
+            )
 
-            for statement in scope_statements:
+            for statement in scope.statements:
                 nested_scopes_ids = Scope._create_scopes_from_node(statement, method_ast, scope_tree)
                 for nested_scope_id in nested_scopes_ids:
                     scope_tree.add_edge(new_scope_id, nested_scope_id)
