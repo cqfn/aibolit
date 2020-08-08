@@ -75,7 +75,7 @@ def _register_standard_nodes_filters() -> None:
 def _register_standard_chain_fields() -> None:
     computed_fields_registry.register(
         chain_field_getter_factory("declarators", "name"),
-        "name",
+        "names",
         ASTNodeType.CONSTANT_DECLARATION,
         ASTNodeType.FIELD_DECLARATION,
         ASTNodeType.LOCAL_VARIABLE_DECLARATION,

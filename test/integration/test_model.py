@@ -47,5 +47,25 @@ def test_model_training():
         shutil.rmtree(catboost_folder)
 
 
+def test_train_with_selected_features():
+    cur_file_dir = Path(os.path.realpath(__file__)).parent
+    model = PatternRankingModel()
+    selected_patterns = ['P18', 'P9', 'M2', 'M5']
+    train_df = generate_fake_dataset()
+    print('Features for the whole dataset: {}'.format(list(train_df.columns)))
+    target = train_df.pop('M4')
+    start = time()
+    print('Start training...')
+    model.fit_regressor(train_df, target, selected_patterns)
+    end = time()
+    print('End training. Elapsed time: {:.2f} secs'.format(end - start))
+    # this folder is created by catboost library, impossible to get rid of it
+    catboost_folder = Path(cur_file_dir, 'catboost_info')
+    if catboost_folder.exists():
+        shutil.rmtree(catboost_folder)
+    print('Model features: {}'.format(model.features_conf['features_order']))
+
+
 if __name__ == '__main__':
     test_model_training()
+    test_train_with_selected_features()

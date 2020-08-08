@@ -43,7 +43,8 @@ class ASTNodeTestSuite(TestCase):
         self.assertEqual(java_class.modifiers, set())
         self.assertEqual(java_class.documentation, "/**\n* Some documentation\n*/")
 
-        fields_names = {field.name for field in java_class.fields}
+        # consider each field declaration declares single field
+        fields_names = {field.names[0] for field in java_class.fields}
         self.assertEqual(fields_names, {"connectingField", "redundantField"})
 
         methods_names = {method.name for method in java_class.methods}

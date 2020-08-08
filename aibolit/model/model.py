@@ -1,5 +1,5 @@
 from decimal import localcontext, ROUND_DOWN, Decimal
-from typing import Dict, Any, Tuple
+from typing import Dict, Any, Tuple, List, Union
 
 import numpy as np
 import pandas as pd
@@ -80,20 +80,34 @@ class PatternRankingModel(BaseEstimator):
         self.model = None
         self.features_conf = None
 
-    def fit_regressor(self, X, y, display=False):
+    def predict(self, input_params: Dict[Any, Any]) -> Tuple[Dict[Any, int], List[float]]:
+        features_order = self.features_conf['features_order']
+        # add ncss to last column. We will normalize all patterns by that value
+        input = [input_params[i] for i in features_order] + [input_params['M2']]
+        preds, importances = self.rank(input)
+
+        return {features_order[int(x)]: int(x) for x in preds}, list(importances)
+
+    def fit_regressor(self, X, y, features=None, display=False) -> None:
         """
-        Args:
-            X: np.array with shape (number of snippets, number of patterns) or
+
+        :param X: X np.array with shape (number of snippets, number of patterns) or
                 (number of patterns, ).
-            y: np.array with shape (number of snippets,), array of snippets'
+        :param y: np.array with shape (number of snippets,), array of snippets'
                 complexity metric values
-            display: bool, to output info about training or not
+        :param features: set of features to train
+        :param display: show additional output
+        :return: None
         """
         model = CatBoost()
 
         grid = {'learning_rate': [0.03, 0.1],
                 'depth': [4, 6, 10],
                 'l2_leaf_reg': [1, 3, 5, 7, 9]}
+        if features:
+            X = X[features]
+
+        self.features_conf = {'features_order': X.columns}
 
         model.grid_search(
             grid,
@@ -159,7 +173,48 @@ class PatternRankingModel(BaseEstimator):
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
-    def rank(self, snippet, scale=True, th=1.0):
+    def test(self, files: List[str]) -> List[List[Union[Union[str, int, list, List[float]], Any]]]:
+        """Make predict for list of java files using current model."""
+
+        config = Config.get_patterns_config()
+        patterns_config = config['patterns']
+        metrics_config = config['metrics']
+        patterns_codes = [x['code'] for x in patterns_config]
+        metrics_codes = [x['code'] for x in metrics_config]
+        features = self.features_conf['features_order']
+        results = []
+        for file in files:
+            row = {}
+            for feature in features:
+                # we need for test to scale snippet
+                # we will calculate it if we do not have M2 in feature_conf
+                found_feature = [x for x in metrics_config if x['code'] == 'M2']
+                row['filename'] = file
+                ncss_val = found_feature[0]['make']().value(file)
+                row['M2'] = ncss_val
+
+                if feature in patterns_codes:
+                    found_feature = [x for x in patterns_config if x['code'] == feature]
+                    lines = found_feature[0]['make']().value(file)
+                    row[feature] = len(lines)
+                    results.append(row)
+                elif feature in metrics_codes:
+                    found_feature = [x for x in metrics_config if x['code'] == feature]
+                    val = found_feature[0]['make']().value(file)
+                    if val:
+                        row[feature] = val
+                    results.append(row)
+                else:
+                    continue
+
+        result_array = []
+        for file_for_file in results:
+            sorted_result, importances = self.predict(file_for_file)
+            result_array.append([file_for_file['filename'], list(sorted_result.keys()), importances])
+
+        return result_array
+
+    def rank(self, snippet, scale=True):
         """
         Args:
             snippet: np.array with shape (number of snippets, number of patterns + 1),
