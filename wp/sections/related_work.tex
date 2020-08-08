@@ -1,89 +1,85 @@
-There are many definitions of a defect.  
-\citet{5989519} says that defect is ``a fault, bug, inaccuracy or lack of expected 
-functionality in a project artifact.'' 
-\citet{Assurance} says that it is ``a problem 
-(synonym of fault) which, if not corrected, 
-could cause an application to either fail or to produce incorrect results.''
+\subsection{Quality and quality metrics}
+IEEE Standards define software quality as the array of features of
+a software product that represent its capability to satisfy 
+specific needs \citep{Youness2013ComparativeSO}.
+Software quality  is the extent to which  a  process,  
+component,  or  system fulfills customers' needs  or expectations 
+through product or service features, thus providing customer 
+satisfaction \citep{Iacob_Constantinescu}. 
 
-Defects and software quality are directly related. There are multiple studies 
-of defect types, their impact, complexity, 
-root causse and other characteristics,~\citet[e.g.][]{10.1145/69605.2085, 
-10.5555/256664.256773, 10.1145/390016.808455, Glass1981PersistentSE, 
-10.1145/1353535.1346323, 10.1007/s10664-013-9258-8, catolino2019bugs}.
-There are a few common preventive ways to deal with defects, like 
-static code analyzers, testing software, or peer code review. 
+Functional and  structural qualities are the key  aspects  of  software 
+quality  \citep{Liu2006AnIE}.  \citet{Farhan} describe 
+functional  quality  as  the capability  of  the  software 
+to  properly  perform  its  tasks according  to  user  needs  and  
+intended  objectives.  Structural quality refers to 
+the resilient structure of the code itself and is difficult to test
+compared to functional quality. The main difficulty is that this 
+notion is quite subjective.
 
-Static code analyzer 
-is a tool that helps find defects before a program is executed. 
-Such an analyzer inspects various program representations, for example 
-Abstract Syntax Tree (AST), Control Flow Graphs (CFG), or
-Program Dependency Graph (PDG), 
-and search for handcrafted defect patterns. 
-These tools are popular among developers and are often embedded into
-Integrated Development Environments (IDE) such as IntelliJ IDEA or NetBeans. 
-There are more than 40 static analyzers currently on the market, including
-very famouns open source projects, such as
-PMD, Rubocop, PHPCS, Sparse, CLion, cpplint, FindSecBugs, ESLint, and Checkstyle.
-There are also many commercial tools, like 
-IBM Security AppScan, PVS-Studio, SonarQube, and Parasoft.
-Software companies like Google and Facebook have their own open source
-static analyzers: Error Prone~\citep{10.1109/SCAM.2012.28} and 
-Infer~\citep{10.1007/978-3-319-17524-9_1} respectively. 
-Static code analyzer may vary in supported languages, 
-supported defect types, and their integration workflow.
+In general, structural code quality is a multi-faceted concept, which covers
+different  attributes of software engineering, for example, maintainability  and
+readability \citep{Mohammadi2013AnAO}. To evaluate them, various metrics of
+software structure were proposed. For instance,  McCabe’s software complexity
+metrics \citep{McCabe1976ACM} and cognitive  complexity metric
+\citep{Cognitive}, which are intended to measure readability  aspects of the
+code. Also, for object-oriented systems, a popular  set of metrics is the CK
+suite \citep{Chidamber1994AMS}. Many approaches apply such metrics suite to
+distinguish parts of the source code with good  or bad quality
+\citet{Fil2015ACO}, \citet{Shatnawi2010FindingSM}  or to identify code smells
+(problematic properties and anti-patterns  of code)
+\citet{Ouni2011MaintainabilityDD}. However, in general, the software engineering
+community has not yet reached a consensus as to what exactly structural quality
+or maintainability is \citep{Broy2006DemystifyingM}.
+% (\todo: this is quite an old reference...).
 
-Usually static code analyzers are rule-based. 
-In order to detect a new kind of defect their developers have to
-design a new pattern. To address this extensibility problem 
-there were attempts to learn pattern
-from data, as explained by~\citet{bielik2016learning, wang2019learning}.
 
-Recent empirical study by~\citet{10.1145/3238147.3238213} demonstrates that 
-state-of-the-art code analyzers miss more than 90\% of defects. Most of those missed 
-defects are inconsistencies with the specification or programmer's intent. 
-In order to catch such defects it is necessary to reason about 
-possible behavior depending on the input data, 
-which is difficult or impossible for the rule-based approach. 
-Such defects are known as \emph{semantic} defects. 
-It has been demonstrated by~\citet{10.1007/s10664-013-9258-8} 
-that semantic defects are the dominant root cause for the majoirity of security issues, 
-when attacker may get unauthorized access to some resources.
+\subsection{Software patterns and code smells}
 
-Another issue of most static analyzers is their high 
-percent of ``false-positives,'' when they find a defect, which
-in reality is not a defect. The amount of these false signals grows 
-when the size and complexity of the project increases. 
-This leads to developers loosing trust to the tool and stop
-using it. 
+We understand the term \textit{software patterns} in the most general and
+abstract way, namely, as any observed code subtructures and software solutions.
+Patterns can be of different scale (from variable and method-level to project
+level). The term \textit{designed patterns} refers to patterns that are
+recommended solutions to commonly occurring programming goals and problems
+\citep{gamma1995design}. Despite their popularity, there is much controversy about the
+usefulness and universality of such recommended ways of implementation
+\citep{mcconnell2004code}. The software engineering community
+also identifies patterns that are detrimental to the resulting code. Such
+patterns are often called \textit{code smells}. These are parts of the
+source code that contain violations of  fundamental design principles
+and negatively impacts maintainability in terms of the
+ability of the product to evolve, quality  of end-product, and developer
+productivity \citet{Reeshti2019MeasuringCS}. \citet{Din2012AntipatternsDA}
+identified 22 types of  code smells in object-oriented
+design. \citet{Kessentini2019UnderstandingTC} found strong correlation  between
+several code smells and software bugs.
 
-The efficiency of static analyzers is yet another problem. It was
-empirically shown by~\citet{10.1145/3188720} that 
-a better performance metric for a static analyzer 
-is the amount of fixed, rather than found defects. 
-Static analyzers must provide the right information 
-at the right time doing everything possible to not annoy 
-software developers. 
+For the latter reason, a lot of tools and methods have been designed to avoid
+code smells. \citet{Kreimer2005AdaptiveDO}  proposes a decision tree based
+approach to identify code smells, e.g, long method  and large class.
+\citet{Vaucher2009TrackingDS} apply Bayesian  networks to detect God class.
+\citet{Palomba2015MiningVH} propose  to consider changes of repository history
+as an input to the code smell detector  for computing the list of code
+components affected by the smell. \citet{Liu2019DeepLB} propose a deep learning
+based approach  to detect code smells.
 
-Usually, static code analyzers use fixed in time code versions as their
-input. However, one can also use the history of code changes and 
-the information from the Issue Tracking System (ITS) 
-to enhance the quality of prediction, as done by~\citet{Gupta2018IntelligentCR, kapur2018estimating}.
+Code smell detection has been integrated into code inspection tools. 
+\citet{MurphyHill2010AnIA} integrate software metrics  visualization with a
+source code view.  SonarQube\footnote{https://www.sonarqube.org/} controls and
+manages  the code quality in several ways, such as continuous  inspection and
+issue detection. The platform shows issues  like code smells, bugs, using
+lightweight  visualizations. 
+%It also helps developers to collaborate with a
+%shared vision of code quality.
+Checkstyle\footnote{https://checkstyle.sourceforge.io/} and
+PMD\footnote{https://pmd.github.io/}  work similarly to SonarQube.  
 
-There are studies trying to use ML in order to detect defects. 
-For example, \citet{Dam2018ADT} first trained vector representations of 
-an AST in an unsupervised manner and then used it as a feature vector 
-to train the binary classifier. 
-\citet{kapur2018estimating} 
-combined the information extracted from the code programming style and ITS 
-and built a predictor to estimate the defectiveness of an input source code 
-file. Using an idea that the names of identifiers (variables, classes, functions) 
-convey useful information, which might be used to understand programmer's 
-intent,
-\citet{Pradel2018DeepBugsAL} proposed a method that first learned 
-vector representation of identifiers 
-and obtained a fixed length vector for a code snippet to train a binary classifier 
-with feed-forward neural network. 
-\citet{vasic2019neural} used pointer-network to do joint prediction of 
-both the location and the possible fix for variable misuse bugs. 
-\citet{briem2019using} used attention-based neural network  to model binary 
-classifier to detect off-by-one defects.
+%iPlasma
+%evaluate the quality of  %object-oriented programs. It can be used %to calculate
+%different metrics and to identify the most %critical points that can be improved
+%through code smell %detection.
+
+All in all, there is no uniform agreement about which patterns are good and
+which are bad. We made it our ideology while developing Aibolit: we do not
+decide what is good or useful \textit{a priori} but let it be inferred from
+data. By customizing the dataset, quality metric and pattern set, the end user
+of Aibolit is able infer which patterns are good for his own end goals.

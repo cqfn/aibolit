@@ -1,6 +1,6 @@
-import javalang
-from typing import List
+from typing import List, Any
 
+from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
 
 
@@ -9,59 +9,32 @@ class SendNull:
     def __init__(self):
         pass
 
-    def __find_position_recursively(self, node):
-        if not hasattr(node, 'children'):
-            return
-        else:
-            for i in node.children:
-                if not isinstance(i, list):
-                    if hasattr(i, '_position'):
-                        if i.position:
-                            return i._position.line
-                        else:
-                            for j in i.children:
-                                position = self.__find_position_recursively(j)
-                                if position:
-                                    return position
-                else:
-                    for j in i:
-                        position = self.__find_position_recursively(j)
+    def __is_null(self, val: Any) -> bool:
+        if not hasattr(val, 'value'):
+            return False
+        if not isinstance(val.value, str):
+            return False
+        if val.value != 'null':
+            return False
+        return True
 
-        return position
-
-    # flake8: noqa
-    # after fix addition, errors are shown
     def value(self, filename: str) -> List[int]:
 
-        lst: List[int] = []
-        tree = build_ast(filename)
+        lines = set()
+        tree = AST.build_from_javalang(build_ast(filename))
+        invocatios_types = [
+            ASTNodeType.METHOD_INVOCATION,
+            ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION,
+            ASTNodeType.CLASS_CREATOR
+        ]
+        for node in tree.get_proxy_nodes(*invocatios_types):
+            for argument in node.arguments:
+                if (argument.node_type == ASTNodeType.LITERAL) and (argument.value == "null"):
+                    lines.add(argument.line)
 
-        invocation_tree = tree.filter(javalang.tree.Invocation)
-        arg_list = [x for _, x in invocation_tree]
+        for node in tree.get_proxy_nodes(ASTNodeType.TERNARY_EXPRESSION):
+            if self.__is_null(node.if_false) or self.__is_null(node.if_true):
+                lines.add(node.line)
 
-        for argument in arg_list:
-            ternary_list = argument.filter(javalang.tree.TernaryExpression)
-            for _, expr in ternary_list:
-                if isinstance(expr.if_false, javalang.tree.Literal) and expr.if_false.value == 'null':
-                    if hasattr(argument, '_position'):
-                        lst.append(argument._position.line)
-                    else:
-                        position = self.__find_position_recursively(expr)
-                        lst.append(position)
-                if isinstance(expr.if_true, javalang.tree.Literal) and expr.if_true.value == 'null':
-                    if hasattr(argument, '_position'):
-                        lst.append(argument._position.line)
-                    else:
-                        position = self.__find_position_recursively(expr)
-                        lst.append(position)
-
-        for _, node in tree:
-            try:
-                for argument in node.arguments:
-                    if isinstance(argument, javalang.tree.Literal) and argument.value == "null" and \
-                            argument._position.line not in lst:
-                        lst.append(argument._position.line)
-            except (AttributeError, TypeError):
-                pass
-        lst = sorted(lst)
+        lst = sorted(lines)
         return lst

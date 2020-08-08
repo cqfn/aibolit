@@ -12,7 +12,9 @@ class Test {
 
 		obj = new Object();
 		obj1 = new Object();
-		obj.dummy1().dummy2(obj1.foo1("Zh").foo2(whaaat).foo3(whaaat)).dummy3(whaaat);
+		obj.dummy1().dummy2(
+            obj1.foo1("Zh").foo2(whaaat).foo3(whaaat)
+        ).dummy3(whaaat);
 		System.out.println("asdasd" + aaa + "34234" + bbb);
         list = new ArrayList<>();
         for (int i = 0; i < 10; i++)
@@ -20,7 +22,7 @@ class Test {
         list = new ArrayList<>();
         for (int i = 0; i < 10; i++)
             list.add(Boolean.FALSE);
-		
+
     }
 
 

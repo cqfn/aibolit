@@ -1,68 +1,36 @@
-import javalang
-
-import uuid
-from collections import defaultdict
-
+from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.utils.ast_builder import build_ast
+from typing import List
+from aibolit.ast_framework.ast_node import ASTNode
 
 
 class MethodChainFind:
+    """
+    Finds chained methods, i.e. foo().bar()
+    """
 
-    def __init__(self):
-        pass
+    def value(self, filename: str) -> List[int]:
+        lines: List[int] = []
+        ast = AST.build_from_javalang(build_ast(filename))
+        for node in ast.get_proxy_nodes(ASTNodeType.CLASS_CREATOR,
+                                        ASTNodeType.METHOD_INVOCATION,
+                                        ASTNodeType.THIS):
+            selectors_qty = self._get_selectors_qty(node)
+            if selectors_qty > MethodChainFind._allowed_number_of_selectord[node.node_type]:
+                lines.append(node.line)
 
-    def traverse_node(self, node, dict_with_chains, uuid_method):
-        if not node:
-            return dict_with_chains
+        return lines
 
-        for item in node.children:
-            if item and (isinstance(item, tuple) or isinstance(item, list)):
-                for j in item:
-                    if isinstance(j, javalang.tree.MethodInvocation):
-                        if not j.qualifier and j.qualifier != '':
-                            # it means that there is method chaining
-                            dict_with_chains[uuid_method].append([j.position.line, j.member])
-                            self.traverse_node(j, dict_with_chains, uuid_method)
-                        else:
-                            # it means that we have method invocation without chaining like
-                            # result.add(field.getName(), column.columnName(), field.getType());
-                            new_uuid = uuid.uuid1()
-                            dict_with_chains[new_uuid].append([j.position.line, j.member])
-                            self.traverse_node(j, dict_with_chains, new_uuid)
+    def _get_selectors_qty(self, node: ASTNode) -> int:
+        if not hasattr(node, "selectors") or node.selectors is None:
+            return 0
 
-                    elif isinstance(j, javalang.tree.MethodDeclaration):
-                        self.traverse_node(j, dict_with_chains, str(uuid.uuid1()))
+        return len(node.selectors)
 
-                    elif isinstance(j, javalang.tree.StatementExpression):
-                        self.traverse_node(j, dict_with_chains, uuid_method)
-
-                    elif isinstance(j, javalang.tree.This) or isinstance(j, javalang.tree.ClassCreator):
-                        self.traverse_node(j, dict_with_chains, str(uuid.uuid1()))
-            elif isinstance(item, javalang.tree.ClassCreator):
-                self.traverse_node(item, dict_with_chains, uuid_method)
-
-        return dict_with_chains
-
-
-    # flake8: noqa: C901
-    def value(self, filename: str):
-        """
-        Travers over AST tree finds method chaining. It is searched in a statement
-        :param filename:
-        :return:
-        List of tuples with LineNumber and List of methods names, e.g.
-        [[10, 'func1'], [10, 'fun2']], [[23, 'run'], [23, 'start']]]
-        """
-        tree = build_ast(filename)
-        chain_lst = defaultdict(list)
-        for _, node in tree.filter(javalang.tree.StatementExpression):
-            if isinstance(node.expression, javalang.tree.MethodInvocation):
-                children = node.children
-                if isinstance(children[1], javalang.tree.MethodInvocation):
-                    uuid_first_method = str(uuid.uuid1())
-                    chain_lst[uuid_first_method].append([
-                        children[1].position.line, children[1].member])
-                    self.traverse_node(children[1], chain_lst, uuid_first_method)
-
-        filtered_dict = list(filter(lambda elem: len(elem) > 1, chain_lst.values()))
-        return [item[0][0] for item in filtered_dict]
+    _allowed_number_of_selectord = {
+        # found node already is a method invocation, so no further invocations are allowed
+        ASTNodeType.METHOD_INVOCATION: 0,
+        ASTNodeType.THIS: 1,
+        # code example: new Object().foo().bar()
+        ASTNodeType.CLASS_CREATOR: 1,
+    }

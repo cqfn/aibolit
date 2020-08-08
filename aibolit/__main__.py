@@ -67,17 +67,6 @@ def list_dir(path, files):
     return dir_list
 
 
-def predict(input_params, model, args):
-    features_order = model.features_conf['features_order']
-    # add ncss to last column. We will normalize all patterns by that value
-    # deepcode ignore ExpectsIntDislikesStr: false-positive recommendation of deepcode
-    input = [input_params[i] for i in features_order] + [input_params['M2']]
-    th = float(args.threshold) or 1.0
-    preds, importances = model.rank(input, th=th)
-
-    return {features_order[int(x)]: int(x) for x in preds}, list(importances)
-
-
 def run_parse_args(commands_dict):
     parser = argparse.ArgumentParser(
         description='Find the pattern which has the largest impact on readability',
@@ -242,12 +231,20 @@ def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
             for child in node.children:
                 if isinstance(child, list) and (len(child) > 0):
                     for item in child:
-                        traverse(item)
+                        if isinstance(item, list):
+                            for i in item:
+                                traverse(i)
+                        else:
+                            traverse(item)
                 else:
                     if hasattr(child, 'children'):
                         infants = child.children
                         for infant in infants:
-                            traverse(infant)
+                            if isinstance(infant, list):
+                                for j in infant:
+                                    traverse(j)
+                            else:
+                                traverse(infant)
                     else:
                         check_max_position(child)
 
@@ -304,8 +301,8 @@ def inference(
             model_path = Config.folder_model_data()
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
-        sorted_result, importances = predict(input_params, model, args)
-        patterns_list = model.features_conf['patterns_only']
+        sorted_result, importances = model.predict(input_params)
+        patterns_list = model.features_conf['features_order']
         for iter, (key, val) in enumerate(sorted_result.items()):
             if key in patterns_list:
                 pattern_code = key

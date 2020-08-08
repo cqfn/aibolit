@@ -88,5 +88,5 @@ class RFC:
     ) -> _MethodInvocationParams:
         assert method_invocation.node_type == ASTNodeType.METHOD_INVOCATION
         return _MethodInvocationParams(
-            isLocal=len(method_invocation.qualifier) == 0, name=method_invocation.member
+            isLocal=method_invocation.qualifier is None, name=method_invocation.member
         )

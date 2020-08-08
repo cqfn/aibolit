@@ -80,7 +80,7 @@ class AST:
         for node_index in self.tree.nodes:
             yield ASTNode(self.tree, node_index)
 
-    def get_subtrees(self, root_type: ASTNodeType) -> Iterator['AST']:
+    def get_subtrees(self, *root_type: ASTNodeType) -> Iterator['AST']:
         '''
         Yields subtrees with given type of the root.
         If such subtrees are one including the other, only the larger one is
@@ -93,7 +93,7 @@ class AST:
             if edge_type == 'forward':
                 if is_inside_subtree:
                     subtree.append(destination)
-                elif self.tree.nodes[destination]['node_type'] == root_type:
+                elif self.tree.nodes[destination]['node_type'] in root_type:
                     subtree.append(destination)
                     is_inside_subtree = True
                     current_subtree_root = destination
@@ -264,8 +264,23 @@ class AST:
         attributes['node_type'] = node_type
         attributes['line'] = javalang_node.position.line if javalang_node.position is not None else None
 
+        AST._post_process_javalang_attributes(tree, node_type, attributes)
+
         tree.add_node(node_index, **attributes)
         return node_index, node_type
+
+    @staticmethod
+    def _post_process_javalang_attributes(tree: DiGraph, node_type: ASTNodeType, attributes: Dict[str, Any]) -> None:
+        """
+        Replace some attributes with more appropriate values for convenient work
+        """
+
+        if node_type == ASTNodeType.METHOD_DECLARATION and attributes["body"] is None:
+            attributes["body"] = []
+
+        if node_type in {ASTNodeType.METHOD_INVOCATION, ASTNodeType.MEMBER_REFERENCE} and \
+                attributes["qualifier"] == "":
+            attributes["qualifier"] = None
 
     @staticmethod
     def _add_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:

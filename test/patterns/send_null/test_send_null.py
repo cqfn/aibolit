@@ -14,7 +14,7 @@ class TestSendNull(TestCase):
 
     def test_multi_level_invocation(self):
         lines = self.method_send_null_finder.value(Path(self.dir_path, 'Configuration.java'))
-        self.assertEqual(lines, [379, 442, 549, 638, 656, 830, 866, 1362, 2393, 2988, 3080, 3492, 3855])
+        self.assertEqual(lines, [379, 442, 549, 638, 656, 830, 866, 1362, 2393, 2874, 2988, 3080, 3492, 3758, 3855])
 
     def test_no_null_methods(self):
         lines = self.method_send_null_finder.value(Path(self.dir_path, 'FillContent.java'))
@@ -26,7 +26,7 @@ class TestSendNull(TestCase):
 
     def test_more_method_invocations(self):
         lines = self.method_send_null_finder.value(Path(self.dir_path, 'SequenceFile.java'))
-        self.assertEqual(lines, [1186, 1201, 1217, 3285, 3298, 3367, 3537, 3550])
+        self.assertEqual(lines, [1097, 1186, 1201, 1217, 3285, 3298, 3367, 3537, 3550])
 
     def test_constructor_send_null(self):
         lines = self.method_send_null_finder.value(Path(self.dir_path, 'Constructor.java'))
