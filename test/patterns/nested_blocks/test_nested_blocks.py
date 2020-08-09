@@ -22,14 +22,15 @@
 
 import os
 from unittest import TestCase
-from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks, BlockType
+from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks
+from aibolit.ast_framework import ASTNodeType
 from pathlib import Path
 
 
 class TestNestedBlocks(TestCase):
     depth_level = 2
     cur_file_dir = Path(os.path.realpath(__file__)).parent
-    testClass = NestedBlocks(depth_level)
+    testClass = NestedBlocks(depth_level, ASTNodeType.FOR_STATEMENT)
 
     def test_single_for_loop(self):
         file = str(Path(self.cur_file_dir, 'SingleFor.java'))
@@ -52,11 +53,11 @@ class TestNestedBlocks(TestCase):
         self.assertEqual(self.testClass.value(file), [19])
 
     def test_nested_no_nested_if(self):
-        pattern = NestedBlocks(2, BlockType.IF)
+        pattern = NestedBlocks(2, ASTNodeType.IF_STATEMENT)
         file = str(Path(self.cur_file_dir, 'NestedNoIF.java'))
         self.assertEqual(pattern.value(file), [])
 
     def test_nested_if(self):
-        pattern = NestedBlocks(2, BlockType.IF)
+        pattern = NestedBlocks(2, ASTNodeType.IF_STATEMENT)
         file = str(Path(self.cur_file_dir, 'NestedIF.java'))
         self.assertEqual(pattern.value(file), [21, 42])
