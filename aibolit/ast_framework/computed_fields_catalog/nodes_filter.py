@@ -35,11 +35,9 @@ def nodes_filter_factory(
 
     def filter(base_node: ASTNode) -> Iterator[ASTNode]:
         base_field = getattr(base_node, base_field_name)
-        if isinstance(base_field, list) and all(
-            isinstance(item, ASTNode) for item in base_field
-        ):
+        if isinstance(base_field, list):
             for node in base_field:
-                if node.node_type in node_types:
+                if isinstance(node, ASTNode) and node.node_type in node_types:
                     yield node
         else:
             raise RuntimeError(
