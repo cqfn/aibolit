@@ -676,8 +676,6 @@ def check():
 
     if args.suppress:
         args.suppress = args.suppress.strip().split(',')
-    if args.threshold:
-        print('Threshold for model has been set to {}'.format(args.threshold))
 
     files_to_exclude = handle_exclude_command_line(args)
 
