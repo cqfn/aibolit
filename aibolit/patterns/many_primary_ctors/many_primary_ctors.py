@@ -20,7 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework.ast_node import ASTNode
 from typing import List, Union
 
@@ -31,9 +30,8 @@ class ManyPrimaryCtors(object):
     constructors in a class, it is
     considered a pattern
     '''
-    def value(self, filename: str) -> List[int]:
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = list()
-        ast = AST.build_from_javalang(build_ast(filename))
         for class_declaration in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
             primary_lines = self.__find_primary(ast, class_declaration.body)
             if len(primary_lines) > 1:
