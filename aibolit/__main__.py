@@ -646,12 +646,6 @@ def check():
         in site-packages and is installed with aibolit automatically''',
         default=False
     )
-
-    parser.add_argument(
-        '--threshold',
-        help='threshold for predict',
-        default=False
-    )
     parser.add_argument(
         '--full',
         help='show all recommendations instead of the best one',
@@ -666,13 +660,16 @@ def check():
 
     parser.add_argument(
         '--suppress',
-        default=[]
+        default=[],
+        help='Suppress certain patterns (comma separated value)'
     )
 
     parser.add_argument(
         '--exclude',
         action='append',
-        nargs='+'
+        nargs='+',
+        help='Exclude folder to ignore. The last parameter is the folder to exclude, '
+             'the rest of them are glob patterns.'
     )
 
     args = parser.parse_args(sys.argv[2:])
