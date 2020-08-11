@@ -11,7 +11,7 @@ such patterns may affect the quality of source code.
 
 *Title*: Assert in code
 
-*Code*: **[P1](#anchors-in-markdown)**
+*Code*: **[P1](#P1)**
 
 *Description*: If there is an `assert` statement in code block, and name
 of class doesn't end with `Test`, it is considered a pattern.
@@ -28,7 +28,7 @@ class Book {
 ***
 *Title*: Setter 
 
-*Code*: **P2**
+*Code*: **[P2](#P2)**
 
 Description: The method's name starts with set, then goes the name of the attribute. There are attributes assigning in the method. Also, asserts are ignored.
 
@@ -84,7 +84,7 @@ class Book {
 ***
 *Title*: Empty Rethrow 
 
-*Code*: **P3**
+*Code*: **[P3](#P3)**
 
 Description: We throw the same exception as it was caught
 
@@ -107,7 +107,7 @@ class Book {
 
 *Title*: ErClass 
 
-*Code*: **P4**
+*Code*: **[P4](#P4)**
 
 Description: If a class name is one of the following (or ends with this word), it's the pattern:
 
@@ -119,7 +119,7 @@ Holder, Interceptor
 
 *Title*: Force type casting.
 
-*Code:* **P5**
+*Code:* **[P5](#P5)**
 
 *Description*: The force type casting considered as a pattern.
 
@@ -136,7 +136,7 @@ public int square (int n) {
 
 *Title*: If return if detection
 
-*Code*: **P6**
+*Code*: **[P6](#P6)**
 
 Description: If there is a return in if condition, it's a pattern. 
 
@@ -158,7 +158,7 @@ class T1 {
 
 *Title*: Implements Multi
 
-*Code*: **P7**
+*Code*: **[P7](#P7)**
 
 Description: If a class implements more than 1 interface it's a pattern
 
@@ -187,7 +187,7 @@ public class a implements A, B {
 
 *Title*: Using ```instanceof``` operator.
 
-*Code:* **P8**
+*Code:* **[P8](#P8)**
 
 *Description*: Using of ```instanceof``` operator considered as pattern.
 
@@ -216,7 +216,7 @@ class Test
 
 *Title*: Many primary ctors
 
-*Code*: **P9**
+*Code*: **[P9](#P9)**
 
 *Description*: If there is more than one primary constructors in a class, it is
 considered a pattern.
@@ -240,7 +240,7 @@ class Book {
 
 *Title*: Usage of method chaining more than one time.
 
-*Code*: **P10**
+*Code*: **[P10](#P10)**
 
 *Description*: If we use more than one method chaining invocation.
 
@@ -260,7 +260,7 @@ public void start() {
 
 *Title*: Multiple Try
 
-*Code*: **P11**
+*Code*: **[P11](#P11)**
 
 Description: Once we see more than one try in a single method, it's a pattern.
 
@@ -288,7 +288,7 @@ class Foo {
 
 *Title*: Non final attributes
 
-*Code*: **P12**
+*Code*: **[P12](#P12)**
 
 *Description*: Once we see a mutable attribute (without final modifier), it's considered a pattern.
 
@@ -303,7 +303,7 @@ class Book {
 
 *Title*: Null checks
 
-*Code*: **P13**
+*Code*: **[P13](#P13)**
 
 *Description*: If we check that something equals (or not equals) null (except in constructor)
 it is considered a pattern.
@@ -325,7 +325,7 @@ class Foo {
 
 *Title*: Partial synchronized
 
-*Code*: **P14**
+*Code*: **[P14](#P14)**
 
 *Description*: Here, the synchronized block doesn't include all statements of the method. Something stays out of the block.
 
@@ -347,7 +347,7 @@ class Book {
 
 *Title*: Redundant catch
 
-*Code*: **P15**
+*Code*: **[P15](#P15)**
 
 Description: Here, the method foo() throws IOException, but we catch it inside the method.
 
@@ -369,7 +369,7 @@ class Book {
 
 *Title*: Return null
 
-*Code*: **P16**
+*Code*: **[P16](#P16)**
 
 Description: When we return null, it's a pattern.
 
@@ -388,7 +388,7 @@ class Book {
 
 *Title*: String concatenation using ```+``` operator.
 
-*Code:* **P17**
+*Code:* **[P17](#P17)**
 
 *Description*: Any usage string concatenation using ```+``` operator is considered
 as pattern match. 
@@ -410,7 +410,7 @@ public void start() {
 
 *Title*: Override method calls parent method.
 
-*Code:* **P18**
+*Code:* **[P18](#P18)**
 
 *Description*: If we call parent method from override class method it is considered
 as the pattern.
@@ -429,7 +429,7 @@ public void method1() {
 
 *Title*: Class constructor except ```this``` contains other code.
 
-*Code:* **P19**
+*Code:* **[P19](#P19)**
 
 *Description*: 
 The first constructor has this() and some other statements. This is the "hybrid constructor" pattern.
@@ -453,7 +453,7 @@ class Book {
 
 *Title*: Line distance between variable declaration and first usage greater then threshold.
 
-*Code:* **P20_5, P20_7, P20_11**
+*Code:* **[P20_5](#P20_5), [P20_7](#P20_7), [P20_11](#P20_11)**
 
 *Description*: If line distance between variable declaration and first usage
 exceeds some threshold we consider it as the pattern. We calculate only non-empty
@@ -477,7 +477,7 @@ static void myMethod() {
 
 *Title*: Variable is declared in the middle of the method body.
 
-*Code:* **P21**
+*Code:* **[P21](#P21)**
 
 *Description*: All variable we need  have to be declared at the 
 beginning of its scope. If variable declared inside the scope following 
@@ -498,7 +498,7 @@ static void myMethod2() {
 
 *Title*: Array as argument 
 
-*Code*: **P22**
+*Code*: **[P22](#P22)**
 
 Description: If we pass an `array` as an argument, it's a pattern. It's better to use objects, instead of arrays.
 
@@ -514,7 +514,7 @@ class Foo {
 
 *Title*: Joined Validation
 
-*Code*: **P23**
+*Code*: **[P23](#P23)**
 
 Description: Once you see a validation (if with a single throw inside) and its condition contains more than one condition joined with OR -- it's a pattern.
 
@@ -535,7 +535,7 @@ class Book {
 
 *Title*: Class declaration must always be `final`
 
-*Code*: **P24**
+*Code*: **[P24](#P24)**
 
 *Description*: Once you see a non `final` method, it's a pattern..
 
@@ -551,7 +551,7 @@ class Book {
 ***
 *Title*: Private static method
 
-*Code*: **P25**
+*Code*: **[P25](#P25)**
 
 *Description*: Once you see a `private static` method, it's a pattern.
 
@@ -568,7 +568,7 @@ class Book {
 ***
 *Title*: Public static method
 
-*Code*: **P26**
+*Code*: **[P26](#P26)**
 
 *Description*: Once you see a `public static` method, it's a pattern.
 
@@ -585,7 +585,7 @@ class Book {
 ***
 *Title*: Var siblings
 
-*Code*: **27**
+*Code*: **[27](#P27)**
 
 *Description*: Here fileSize and fileDate are "siblings" because they both have file as first part of their compound names. It's better to rename them to size and date.
 
@@ -605,7 +605,7 @@ class Foo {
 ***
 *Title*: Assign null 
 
-*Code*: **P28**
+*Code*: **[P28](#P28)**
 
 Description: Once we see `= null`, it's a pattern.
 
@@ -623,7 +623,7 @@ class Foo {
 
 *Title*: Multiple ```While``` pattern
 
-*Code:* **P29**
+*Code:* **[P29](#P29)**
 
 *Description*: Once you see two or more ```while``` statements in a method body, it's a pattern.
 
@@ -645,7 +645,7 @@ class Book {
 
 *Title*: Protected method 
 
-*Code*: **P30**
+*Code*: **[P30](#P30)**
 
 Description:  Once we find a protected method in a class, it's a pattern.
 
@@ -654,7 +654,7 @@ Description:  Once we find a protected method in a class, it's a pattern.
 
 *Title*: Send null
 
-*Code*: **P31**
+*Code*: **[P31](#P31)**
 
 Description: Once we see that `null` is being given as an argument to some method, it's a pattern.
 
@@ -672,7 +672,7 @@ class Foo {
 
 *Title*: Nested loop
 
-*Code*: **P32**
+*Code*: **[P32](#P32)**
 
 *Description*: Once we find a loop (`for` / `while`) inside another loop it's a pattern.
 
