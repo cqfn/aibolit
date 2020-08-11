@@ -11,7 +11,7 @@ such patterns may affect the quality of source code.
 
 *Title*: Assert in code
 
-*Code*: **P1**
+*Code*: **[P1](#anchors-in-markdown)**
 
 *Description*: If there is an `assert` statement in code block, and name
 of class doesn't end with `Test`, it is considered a pattern.
