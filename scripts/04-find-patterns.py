@@ -66,10 +66,6 @@ def _calculate_patterns_and_metrics(
     return results
 
 
-def _create_csv_writer(output):
-    return DictWriter(output, delimiter=";", quotechar='"', quoting=QUOTE_MINIMAL, fieldnames=fields)
-
-
 if __name__ == "__main__":
     allowed_cores_qty = len(sched_getaffinity(0))
     system_cores_qty = cpu_count()
@@ -144,10 +140,14 @@ if __name__ == "__main__":
         + ["filename", "component_index"]
     )
 
-    with open(args.file) as java_files_list, open(csv_file, "w") as output, _create_csv_writer(
-        output
-    ) as csv_output, ProcessPoolExecutor(args.jobs, args.timeout) as executor:
+    with open(args.file) as java_files_list, open(csv_file, "w") as output, ProcessPoolExecutor(
+        args.jobs, args.timeout
+    ) as executor:
+        csv_output = DictWriter(
+            output, delimiter=";", quotechar='"', quoting=QUOTE_MINIMAL, fieldnames=fields
+        )
         csv_output.writeheader()
+
         tasks = [
             executor.submit(_calculate_patterns_and_metrics, filename.rstrip(), patterns_info, metrics_info)
             for filename in java_files_list.readlines()
