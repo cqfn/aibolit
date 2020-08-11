@@ -623,7 +623,7 @@ class Foo {
 
 *Title*: Multiple ```While``` pattern
 
-*Code:* **[P29](#p29)**
+*Code:* **[P29](#p-29)**
 
 *Description*: Once you see two or more ```while``` statements in a method body, it's a pattern.
 
