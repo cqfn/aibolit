@@ -20,208 +20,143 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import argparse
-import csv
-import multiprocessing
-import os
-import subprocess
-import sys
-import time
-import traceback
-from collections import defaultdict
-from functools import partial
-from multiprocessing import Manager
+from argparse import ArgumentParser
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from csv import DictWriter, QUOTE_MINIMAL
+from os import cpu_count, getenv, sched_getaffinity
 from pathlib import Path
-from shutil import copyfile, rmtree
+from sys import stderr
+from typing import Any, Dict, List
+
 from aibolit.config import Config
+from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework.java_class_decomposition import decompose_java_class
+from aibolit.utils.ast_builder import build_ast
 
 
-parser = argparse.ArgumentParser(description='Find patterns in Java files')
-parser.add_argument(
-    '--filename',
-    help='path for file with a list of Java files',
-    required=True)
+def _calculate_patterns_and_metrics(
+    file_path: str, patterns_info: List[Any], metrics_info: List[Any]
+) -> List[Dict[str, Any]]:
+    results: List[Dict[str, Any]] = []
 
-args = parser.parse_args()
-current_location: str = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__))
-)
-target_folder = os.getenv('TARGET_FOLDER')
-if target_folder:
-    os.chdir(target_folder)
-else:
-    target_folder = os.path.dirname(os.path.realpath(__file__))
+    ast = AST.build_from_javalang(build_ast(file_path))
+    classes_ast = [
+        ast.get_subtree(node)
+        for node in ast.get_root().types
+        if node.node_type == ASTNodeType.CLASS_DECLARATION
+    ]
+
+    for class_ast in classes_ast:
+        for index, component_ast in enumerate(decompose_java_class(class_ast, "strong")):
+            calculation_result = {"filepath": file_path, "component_index": index}
+
+            for pattern_info in patterns_info:
+                pattern = pattern_info["make"]()
+                pattern_result = pattern.value(component_ast)
+                calculation_result[pattern_info["code"]] = len(pattern_result)
+                calculation_result["lines_" + pattern_info["code"]] = pattern_result
+
+            for metric_info in metrics_info:
+                metric = metric_info["make"]()
+                metric_result = metric.value(component_ast)
+                calculation_result[metric_info["code"]] = metric_result
+
+            results.append(calculation_result)
+
+    return results
 
 
-def log_result(result, file_to_write):
-    """ Save result to csv file. """
-    with open(file_to_write, 'a', newline='\n', encoding='utf-8') as csv_file:
-        writer = csv.DictWriter(
-            csv_file, delimiter=';',
-            quotechar='"',
-            quoting=csv.QUOTE_MINIMAL,
-            fieldnames=list(result.keys()))
-        writer.writerow(result)
+def _create_csv_writer(output):
+    return DictWriter(output, delimiter=";", quotechar='"', quoting=QUOTE_MINIMAL, fieldnames=fields)
 
 
-def execute_python_code_in_parallel_thread(exceptions, file_absolute_path):
-    """ This runs in a separate thread. """
+if __name__ == "__main__":
+    allowed_cores_qty = len(sched_getaffinity(0))
+    system_cores_qty = cpu_count()
 
-    file_absolute_path = file_absolute_path.strip()
-    file_path = Path(file_absolute_path)
-    row = {'filename': file_path.absolute().as_posix()}
+    parser = ArgumentParser(description="Creates dataset")
+    parser.add_argument("file", help="Path for file with a list of Java files.")
+
+    parser.add_argument(
+        "--jobs",
+        "-j",
+        type=int,
+        default=min(allowed_cores_qty, system_cores_qty - 1),
+        help="Number of processes to spawn. "
+        "By default one less than number of cores. "
+        "Be carefull to raise it above, machine may stop responding while creating dataset.",
+    )
+
+    parser.add_argument(
+        "--timeout",
+        "-t",
+        type=float,
+        default=60,
+        help="Maximum time (in seconds) for single file proccessing. Default is 60 seconds. "
+        "If 0, no timout is set.",
+    )
+
+    args = parser.parse_args()
+
+    if args.jobs >= system_cores_qty:
+        print(
+            f"WARNING: You have ordered to spawn {args.jobs} jobs, "
+            f"while system has only {system_cores_qty} cores. "
+            "Machine may badly respond, while calculating dataset.",
+            file=stderr,
+        )
+
+    if args.jobs > allowed_cores_qty:
+        print(
+            f"WARNING: You have ordered to spawn {args.jobs} jobs, "
+            f"while process only allowed to occupy {allowed_cores_qty} cores."
+            "You may have a slowdown due to large number of processes.",
+            file=stderr,
+        )
+
+    if args.timeout == 0:
+        args.timeout = None
+
+    default_dataset_directory = Path(".", "target", "04")
+    dataset_directory = getenv("TARGET_FOLDER", default=default_dataset_directory)
+    csv_file = Path(dataset_directory, "04-find-patterns.csv")
+
     config = Config.get_patterns_config()
-    for pattern in config['patterns']:
-        val = None
-        acronym = pattern['code']
-        if acronym not in config['patterns_exclude']:
+    patterns_info = [
+        pattern_info
+        for pattern_info in config["patterns"]
+        if pattern_info["code"] not in config["patterns_exclude"]
+    ]
+
+    metrics_info = [
+        metric_info
+        for metric_info in config["metrics"]
+        if metric_info["code"] not in config["metrics_exclude"]
+    ]
+
+    patterns_codes = [pattern_info["code"] for pattern_info in patterns_info]
+    metrics_codes = [metric_info["code"] for metric_info in metrics_info]
+
+    fields = (
+        patterns_codes
+        + metrics_codes
+        + ["lines_" + code for code in patterns_codes]
+        + ["filename", "component_index"]
+    )
+
+    with open(args.file) as java_files_list, open(csv_file, "w") as output, _create_csv_writer(
+        output
+    ) as csv_output, ProcessPoolExecutor(args.jobs, args.timeout) as executor:
+        csv_output.writeheader()
+        tasks = [
+            executor.submit(_calculate_patterns_and_metrics, filename.rstrip(), patterns_info, metrics_info)
+            for filename in java_files_list.readlines()
+        ]
+        for task in as_completed(tasks, timeout=args.timeout):
             try:
-                val = pattern['make']().value(str(file_path))
-                row[acronym] = len(val)
-                row['lines_' + acronym] = val
+                result = task.result()
+                for item in result:
+                    csv_output.write(item)
             except Exception:
-                row['lines_' + acronym] = row[acronym] = val
-                exc_type, exc_value, exc_tb = sys.exc_info()
-                row['lines_' + acronym] = row[acronym] = val
-                traceback_str = traceback.format_exc()
-                exceptions[file_absolute_path] = {
-                    'traceback': traceback_str,
-                    'exc_type': str(exc_value),
-                    'pattern_name': pattern['name'],
-                }
-
-    for metric in config['metrics']:
-        val = None
-        acronym = metric['code']
-        if acronym not in config['metrics_exclude']:
-            try:
-                val = metric['make']().value(str(file_path))
-                row[acronym] = val
-            except Exception:
-                exc_type, exc_value, exc_tb = sys.exc_info()
-                row[acronym] = val
-                traceback_str = traceback.format_exc()
-                exceptions[file_absolute_path] = {
-                    'traceback': traceback_str,
-                    'exc_type': str(exc_value),
-                    'pattern_name': metric['name'],
-                }
-    return row
-
-
-# flake8: noqa: C901
-def write_log_error(exceptions):
-    errors_log_path = str(Path(target_folder, 'errors.csv')).strip()
-    exp_sorter = defaultdict(set)
-    exp_number = defaultdict(int)
-    if exceptions:
-        # Write all traceback
-        exc_dict = dict(exceptions)
-        with open(errors_log_path, 'w', newline='') as myfile:
-            writer = csv.writer(myfile)
-            for filename, ex in exc_dict.items():
-                writer.writerow([filename, ex['traceback']])
-                exp_sorter[ex['pattern_name']].add(ex['exc_type'])
-                exp_number[ex['pattern_name']] += 1
-
-        dir_log_to_create = Path(target_folder, 'log')
-        if not dir_log_to_create.exists():
-            dir_log_to_create.mkdir(parents=True)
-
-        exceptions_number_path = str(Path(target_folder, 'log/exceptions_number.csv')).strip()
-        exceptions_unique_path = str(Path(target_folder, 'log/exceptions_unique.csv')).strip()
-
-        with open(exceptions_unique_path, 'w', newline='') as myfile:
-            writer = csv.writer(myfile)
-            for pattern, exceptions in dict(exp_sorter).items():
-                writer.writerow([pattern] + list(exceptions))
-
-        with open(exceptions_number_path, 'w', newline='') as myfile:
-            writer = csv.writer(myfile)
-            for pattern, number in dict(exp_number).items():
-                writer.writerow([pattern, number])
-
-        filenames_w_errs = list(exc_dict.keys())
-        dir_to_create = Path(target_folder, 'log/files')
-        if not dir_to_create.exists():
-            dir_to_create.mkdir(parents=True)
-        files_with_errors = str(Path(target_folder, 'log/files/files_with_exceptions.txt')).strip()
-
-        with open(files_with_errors, 'w') as myfile:
-            myfile.writelines(filenames_w_errs)
-
-        copied_files = []
-        for i in filenames_w_errs:
-            file = i.strip()
-            src_path = Path(file)
-            if src_path.exists():
-                dst_path = str(Path(dir_to_create, src_path.name))
-                copyfile(str(src_path), dst_path)
-                copied_files.append(dst_path)
-                print(src_path, dst_path)
-
-        if copied_files:
-            try:
-                tar_filename = str(Path(target_folder, 'log/files.tar.gz'))
-                cmd = ['tar', '-czvf', tar_filename, str(dir_to_create.absolute())]
-                output = subprocess.check_output(cmd).decode("utf-8").strip()
-                print(output)
-                rmtree(dir_to_create)
-                print('Path {} deleted with all files inside'.format(str(dir_to_create)))
-            except Exception:
-                print(f"E: {traceback.format_exc()}")
-
-
-if __name__ == '__main__':
-    start = time.time()
-
-    path = 'target/04'
-    os.makedirs(path, exist_ok=True)
-    filename = Path(path, '04-find-patterns.csv')
-    config = Config.get_patterns_config()
-    patterns_exclude = config['patterns_exclude']
-    fields = \
-        [x['code'] for x in config['patterns'] if x['code'] not in patterns_exclude] \
-        + [x['code'] for x in config['metrics'] if x['code'] not in config['metrics_exclude']] \
-        + ['lines_' + x['code'] for x in config['patterns'] if x['code'] not in patterns_exclude] \
-        + ['filename']
-
-    with open(filename, 'w', newline='\n', encoding='utf-8') as csv_file:
-        writer = csv.DictWriter(
-            csv_file, delimiter=';',
-            quotechar='"',
-            quoting=csv.QUOTE_MINIMAL,
-            fieldnames=fields)
-        writer.writeheader()
-
-    pool = multiprocessing.Pool(multiprocessing.cpu_count())
-    log_func = partial(log_result, file_to_write=str(filename))
-    manager = Manager()
-    exceptions = manager.dict()
-    func = partial(execute_python_code_in_parallel_thread, exceptions)
-    with open(args.filename, 'r') as f:
-        file_names = [i for i in f.readlines()]
-    with open(filename, 'a', newline='\n', encoding='utf-8') as csv_file:
-        for result in pool.imap(func, file_names):
-            try:
-                if result:
-                    writer = csv.DictWriter(
-                        csv_file, delimiter=';',
-                        quotechar='"',
-                        quoting=csv.QUOTE_MINIMAL,
-                        fieldnames=fields)
-                    writer.writerow(result)
-                    csv_file.flush()
-            except Exception:
-                print('Writing to {} has failed'.format(filename))
-                exc_type, exc_value, exc_traceback = sys.exc_info()
-                traceback.print_tb(exc_traceback, file=sys.stdout)
-                continue
-
-    pool.close()
-    pool.join()
-
-    end = time.time()
-    print('It took {} seconds'.format(str(end - start)))
-
-    write_log_error(exceptions)
+                # TODO handle exception, file wasn't processed, write in a log
+                pass
