@@ -16,7 +16,7 @@ unittest:
 	python3 aibolit --version
 
 integrationtest:
-	python3 -m test.integration.all
+	python3 -m test.integration.test_patterns_and_metrics
 	python3 -m test.integration.test_model
 	./test/integration/test_recommend.sh
 
