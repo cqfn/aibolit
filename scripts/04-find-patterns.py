@@ -62,7 +62,11 @@ def _calculate_patterns_and_metrics(file_path: str) -> List[Dict[str, Any]]:
 
     for class_ast in classes_ast:
         for index, component_ast in enumerate(decompose_java_class(class_ast, "strong")):
-            calculation_result = {"filepath": file_path, "component_index": index}
+            calculation_result = {
+                "filepath": file_path,
+                "class_name": class_ast.get_root().name,
+                "component_index": index
+            }
 
             for pattern_info in patterns_info:
                 pattern = pattern_info["make"]()
@@ -95,7 +99,7 @@ def _create_dataset_writer(file):
         patterns_codes + \
         metrics_codes + \
         ["lines_" + code for code in patterns_codes] + \
-        ["filepath", "component_index"]
+        ["filepath", "class_name", "component_index"]
 
     return DictWriter(file, delimiter=";", quotechar='"', quoting=QUOTE_MINIMAL, fieldnames=fields)
 
