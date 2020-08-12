@@ -1,5 +1,5 @@
 #!/bin/bash
-aibolit check --folder ./test/integration/check/java > /dev/null 2>&1
+aibolit check --folder ./test/integration/check/java
 if [ $? -eq 2 ]
 then
   echo "Failure: aibolit check has failed."
