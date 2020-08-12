@@ -23,8 +23,8 @@ if __name__ == '__main__':
     )
     dir_to_create = 'target/08'
 
-    train_files = list(pd.read_csv(Path(current_location, 'target/02/02-train.csv'))['filepath'])
-    test_files = list(pd.read_csv(Path(current_location, 'target/02/02-test.csv'))['filepath'])
+    train_files = list(pd.read_csv(Path(current_location, 'target/02/02-train.csv'))['filename'])
+    test_files = list(pd.read_csv(Path(current_location, 'target/02/02-test.csv'))['filename'])
     train_size = len(train_files)
     test_size = len(test_files)
     total_elems = train_size + test_size
