@@ -190,7 +190,7 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input, 'code_line')
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), '8c6b91b8600848b66a9e91f2047d2d6d')
+        self.assertEqual(md5_hash.hexdigest(), 'da937a7bae93a77321a62cfc08933808')
 
     def test_find_start_end_line_function(self):
         # Check start and end line for MethodDeclaration,
