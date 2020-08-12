@@ -1,5 +1,5 @@
 #!/bin/bash
-aibolit check --folder ./test/integration/check/java
+python3 -m aibolit check --folder ./test/integration/check/java
 if [ $? -eq 2 ]
 then
   echo "Failure: aibolit check has failed."
