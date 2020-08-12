@@ -7,8 +7,8 @@ import pandas as pd
 def preprocess_file(filename: str):
     print('reading dataset from {}'.format(filename))
     df = pd.read_csv(filename, index_col=0)
-    df = df[~df["filename"].str.lower().str.contains("test")]
-    df = df.dropna().drop_duplicates(subset=df.columns.difference(['filename']))
+    df = df[~df["filepath"].str.lower().str.contains("test")]
+    df = df.dropna().drop_duplicates(subset=df.columns.difference(["filepath", "class_name", "component_index"]))
     df = df[(df.M2 > 20) & (df.M2 < 100)].copy()
     return df
 
@@ -23,17 +23,17 @@ if __name__ == '__main__':
     )
     dir_to_create = 'target/08'
 
-    train_filenames = list(pd.read_csv(Path(current_location, 'target/02/02-train.csv'))['filename'])
-    test_filenames = list(pd.read_csv(Path(current_location, 'target/02/02-test.csv'))['filename'])
-    train_size = len(train_filenames)
-    test_size = len(test_filenames)
+    train_files = list(pd.read_csv(Path(current_location, 'target/02/02-train.csv'))['filepath'])
+    test_files = list(pd.read_csv(Path(current_location, 'target/02/02-test.csv'))['filepath'])
+    train_size = len(train_files)
+    test_size = len(test_files)
     total_elems = train_size + test_size
     print('{} train elems ({}%) and {} test elems test ({}%) of all dataset'.format(
         train_size, train_size / total_elems,
         test_size, test_size / total_elems))
     df = pd.read_csv(str(Path(current_location, './target/dataset.csv')))
-    train = df[df['filename'].isin(train_filenames)]
-    test = df[df['filename'].isin(test_filenames)]
+    train = df[df['filepath'].isin(train_files)]
+    test = df[df['filepath'].isin(test_files)]
     train.to_csv('train_temp.csv')
     test.to_csv('test_temp.csv')
     train_preprocessed = preprocess_file('train_temp.csv')
