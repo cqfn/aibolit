@@ -29,6 +29,7 @@ from sys import stderr
 from typing import Any, Dict, List
 
 from pebble import ProcessPool
+from tqdm import tqdm
 
 from aibolit.config import Config
 from aibolit.ast_framework import AST, ASTNodeType
@@ -159,15 +160,13 @@ if __name__ == "__main__":
         future = executor.map(_calculate_patterns_and_metrics, filenames, timeout=args.timeout)
         dataset_features = future.result()
 
-        while True:
+        for filename in tqdm(filenames):
             try:
-                single_file_features, filename = next(zip(dataset_features, filenames))
+                single_file_features = next(dataset_features)
                 dataset_writer.writerows(single_file_features)
             except TimeoutError:
                 print(
                     f"Processing {filename} is aborted due to timeout in {args.timeout} seconds.", file=stderr
                 )
-            except StopIteration:
-                break
             except Exception as e:
                 print(f"Processing {filename} has end up with error {e}.", file=stderr)
