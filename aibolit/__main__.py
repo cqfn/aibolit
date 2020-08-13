@@ -556,7 +556,7 @@ def create_text(results, full_report, is_long=False):
             buffer.append(output_string)
         elif results_item and not ex:
             # get unique patterns score
-            patterns_scores = print_total_score_for_file(buffer, filename, importances_for_all_classes, result_for_file)
+            patterns_scores = print_total_score_for_file(importances_for_all_classes, result_for_file)
             patterns_number = len(patterns_scores)
             pattern_number = 0
             cur_pattern_name = ''
@@ -605,11 +605,13 @@ def show_summary(buffer, importances_for_all_classes, is_long, results, total_pa
             files_number,
             ncss
         ))
+        url = 'https://github.com/cqfn/aibolit/blob/master/PATTERNS.md'
+        buffer.append('You can find all information about patterns here: {}'.format(
+            url
+        ))
 
 
 def print_total_score_for_file(
-        buffer: List[str],
-        filename: str,
         importances_for_all_classes: List[int],
         result_for_file):
     patterns_scores = {}
@@ -617,7 +619,6 @@ def print_total_score_for_file(
         patterns_scores[x['pattern_name']] = x['importance']
     importances_for_class = sum(patterns_scores.values())
     importances_for_all_classes.append(importances_for_class)
-    buffer.append('{} score: {}'.format(filename, importances_for_class))
     return patterns_scores
 
 
@@ -648,12 +649,6 @@ def check():
         in site-packages and is installed with aibolit automatically''',
         default=False
     )
-
-    parser.add_argument(
-        '--threshold',
-        help='threshold for predict',
-        default=False
-    )
     parser.add_argument(
         '--full',
         help='show all recommendations instead of the best one',
@@ -668,21 +663,22 @@ def check():
 
     parser.add_argument(
         '--suppress',
-        default=[]
+        default=[],
+        help='Suppress certain patterns (comma separated value)'
     )
 
     parser.add_argument(
         '--exclude',
         action='append',
-        nargs='+'
+        nargs='+',
+        help='Exclude folder to ignore. The last parameter is the folder to exclude, '
+             'the rest of them are glob patterns.'
     )
 
     args = parser.parse_args(sys.argv[2:])
 
     if args.suppress:
         args.suppress = args.suppress.strip().split(',')
-    if args.threshold:
-        print('Threshold for model has been set to {}'.format(args.threshold))
 
     files_to_exclude = handle_exclude_command_line(args)
 
