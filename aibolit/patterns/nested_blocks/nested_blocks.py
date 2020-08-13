@@ -20,18 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import javalang
-from javalang.tree import Node
-from typing import List, Callable, Optional, Any
+from typing import List
 
+from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 from aibolit.utils.ast_builder import build_ast
-
-
-class BlockType:
-    FOR = javalang.tree.ForStatement      # FOR Block Statement
-    IF = javalang.tree.IfStatement        # IF Block Statement
-    WHILE = javalang.tree.WhileStatement  # While Block Statement
-    DO = javalang.tree.DoStatement        # DO block Statement
 
 
 class NestedBlocks:
@@ -40,73 +32,59 @@ class NestedBlocks:
     nested blocks statements are located
     '''
 
-    def __init__(self, max_depth: int, block_type=BlockType.FOR):
-        self.max_depth = max_depth
-        self.block_type = block_type if isinstance(block_type, list) else [block_type]
-
-    def __for_node_depth(
-        self,
-        tree: javalang.ast.Node,
-        max_depth: int,
-        for_links: List = [],
-        for_before: int = 0
-    ) -> None:
-        '''
-        Takes AST tree and returns list of "FOR" AST nodes of depth greater
-        or equal than max_depth
-        '''
-        if (type(tree) in self.block_type):
-            for_before += 1
-            if for_before >= max_depth:
-                for_links += [tree]
-
-        for child in tree.children:
-            nodes_arr = child if isinstance(child, list) else [child]
-            for node in nodes_arr:
-                if not hasattr(node, 'children'):
-                    continue
-                self.__for_node_depth(node, max_depth, for_links, for_before)
-
-    def __fold_traverse_tree(
-        self,
-        root: javalang.ast.Node,
-        f: Callable[[javalang.ast.Node], Optional[Any]]
-    ) -> List[Any]:
-        '''
-        Traverse AST tree and apply function to each node
-        Accumulate results in the list and return
-        '''
-        res = []
-        v = f(root)
-        if v is not None:
-            res.append(v)
-        for child in root.children:
-            nodes_arr = child if isinstance(child, list) else [child]
-            for node in nodes_arr:
-                if not hasattr(node, 'children'):
-                    continue
-                res += self.__fold_traverse_tree(node, f)
-        return res
+    def __init__(self, max_depth: int, *block_types: ASTNodeType):
+        self._max_depth = max_depth
+        self._block_types = block_types
 
     def value(self, filename: str) -> List[int]:
-        '''Return line numbers in the file where patterns are found'''
-        tree = build_ast(filename)
-        for_links: List[Node] = []
-        self.__for_node_depth(
-            tree,
-            max_depth=self.max_depth,
-            for_links=for_links
-        )
+        lines: List[int] = []
+        ast = AST.build_from_javalang(build_ast(filename))
+        for block_type in self._block_types:
+            for block_ast in ast.get_subtrees(block_type):
+                for overnested_block in self._find_overnested_blocks(block_ast.get_root()):
+                    lines.append(overnested_block.line)
 
-        def find_line_position(node: Node) -> Optional[int]:
-            if hasattr(node, '_position'):
-                return node._position.line
-            else:
-                return None
-        n_lines: List[List[int]] = [
-            self.__fold_traverse_tree(for_node, find_line_position)
-            for for_node in for_links
-        ]
-        n_lines = [v for v in n_lines if len(v) > 0]
+        return lines
 
-        return list(map(min, n_lines))  # type: ignore
+    def _find_overnested_blocks(self, node: ASTNode, depth: int = 1) -> List[ASTNode]:
+        if depth == self._max_depth:
+            return [node]
+
+        overnested_blocks: List[ASTNode] = []
+        for nested_block in self._get_nested_statements(node):
+            if nested_block.node_type == node.node_type:
+                overnested_blocks.extend(self._find_overnested_blocks(nested_block, depth + 1))
+
+        return overnested_blocks
+
+    def _get_nested_statements(self, node: ASTNode) -> List[ASTNode]:
+        nested_statements: List[ASTNode] = []
+
+        if node.node_type == ASTNodeType.IF_STATEMENT:
+            nested_statements.extend(self._get_block_statements_list(node.then_statement))
+
+            while node.else_statement is not None and node.else_statement.node_type == ASTNodeType.IF_STATEMENT:
+                node = node.else_statement
+                nested_statements.extend(self._get_block_statements_list(node.then_statement))
+
+            if node.else_statement is not None:
+                nested_statements.extend(self._get_block_statements_list(node.else_statement))
+
+        elif node.node_type in {ASTNodeType.DO_STATEMENT,
+                                ASTNodeType.FOR_STATEMENT,
+                                ASTNodeType.WHILE_STATEMENT}:
+            nested_statements.extend(self._get_block_statements_list(node.body))
+
+        return nested_statements
+
+    def _get_block_statements_list(self, node: ASTNode) -> List[ASTNode]:
+        if node.node_type == ASTNodeType.BLOCK_STATEMENT:
+            return node.statements
+
+        # A single statement is treated as a block with this statement
+        # This happens in following situations
+        # ```java
+        # while(True)
+        #     doSmth();
+        # ```
+        return [node]

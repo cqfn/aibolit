@@ -81,10 +81,10 @@ class ASTNode:
 
     def __getattr__(self, attribute_name: str):
         node_type = self._get_type(self._node_index)
-        existing_fields_names = attributes_by_node_type[node_type]
+        javalang_fields = attributes_by_node_type[node_type]
         computed_fields = computed_fields_registry.get_fields(node_type)
         if attribute_name not in common_attributes and \
-           attribute_name not in existing_fields_names and \
+           attribute_name not in javalang_fields and \
            attribute_name not in computed_fields:
             raise AttributeError(
                 "Failed to retrieve property. "
@@ -96,10 +96,14 @@ class ASTNode:
         else:
             attribute = self._graph.nodes[self._node_index][attribute_name]
 
-        if isinstance(attribute, ASTNodeReference):
-            attribute = self._create_node_from_reference(attribute)
-        elif isinstance(attribute, list):
-            attribute = self._replace_references_with_nodes(attribute)
+        # common_attributes and javalang_fields may contain ASTNodeReference
+        # which needs to be replaces with actual ASTNode for convince API
+        # computed_fields are using javalang_fields and there is no ASTNodeReference
+        if attribute_name not in computed_fields:
+            if isinstance(attribute, ASTNodeReference):
+                attribute = self._create_node_from_reference(attribute)
+            elif isinstance(attribute, list):
+                attribute = self._replace_references_with_nodes(attribute)
         return attribute
 
     def __dir__(self) -> List[str]:

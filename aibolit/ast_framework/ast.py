@@ -278,6 +278,9 @@ class AST:
         if node_type == ASTNodeType.METHOD_DECLARATION and attributes["body"] is None:
             attributes["body"] = []
 
+        if node_type == ASTNodeType.LAMBDA_EXPRESSION and isinstance(attributes["body"], Node):
+            attributes["body"] = [attributes["body"]]
+
         if node_type in {ASTNodeType.METHOD_INVOCATION, ASTNodeType.MEMBER_REFERENCE} and \
                 attributes["qualifier"] == "":
             attributes["qualifier"] = None
