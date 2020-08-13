@@ -175,5 +175,5 @@ class Config(metaclass=Singleton):
                 "P20_5", "P20_7", "P20_11",  # wasn't refactored yet
                 "P28", "P9",  # patterns based on text cannot accept arbitrary AST
             ],
-            "metrics_exclude": ["M1", "M3_1", "M3_2", "M3_3", "M3_4", "M4", "M5", "M6", "M7"]
+            "metrics_exclude": ["M1", "M3_1", "M3_2", "M3_3", "M3_4", "M5", "M6", "M7"]
         }
