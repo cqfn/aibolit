@@ -20,29 +20,27 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import Callable, Iterator
+import os
+from unittest import TestCase
+from aibolit.metrics.NumberMethods.NumberMethods import NumberMethods
+from pathlib import Path
 
-from aibolit.ast_framework import ASTNode, ASTNodeType
 
+class TestCognitive(TestCase):
+    dir_path = Path(os.path.realpath(__file__)).parent
 
-def nodes_filter_factory(
-    base_field_name: str, *node_types: ASTNodeType
-) -> Callable[[ASTNode], Iterator[ASTNode]]:
-    """
-    Create filter, which takes 'body_field_name' field of incoming node,
-    checks if it list of ASTNode, and return it filtered by node_type.
-    """
+    def test_one(self):
+        metric = NumberMethods().value(Path(self.dir_path, 'one.java'))
+        self.assertEqual(metric, 1)
 
-    def filter(base_node: ASTNode) -> Iterator[ASTNode]:
-        base_field = getattr(base_node, base_field_name)
-        if isinstance(base_field, list):
-            for node in base_field:
-                if isinstance(node, ASTNode) and node.node_type in node_types:
-                    yield node
-        else:
-            raise RuntimeError(
-                f"Failed computing ASTNode field based on {base_field_name} field. "
-                f"Expected list, but got {base_field} of type {type(base_field)}."
-            )
+    def test_simple(self):
+        metric = NumberMethods().value(Path(self.dir_path, 'simple.java'))
+        self.assertEqual(metric, 2)
 
-    return filter
+    def test_nested(self):
+        metric = NumberMethods().value(Path(self.dir_path, 'nested.java'))
+        self.assertEqual(metric, 2)
+
+    def test_several(self):
+        metric = NumberMethods().value(Path(self.dir_path, 'several.java'))
+        self.assertEqual(metric, 4)

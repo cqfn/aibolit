@@ -20,29 +20,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import Callable, Iterator
+from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.utils.ast_builder import build_ast
 
-from aibolit.ast_framework import ASTNode, ASTNodeType
 
-
-def nodes_filter_factory(
-    base_field_name: str, *node_types: ASTNodeType
-) -> Callable[[ASTNode], Iterator[ASTNode]]:
-    """
-    Create filter, which takes 'body_field_name' field of incoming node,
-    checks if it list of ASTNode, and return it filtered by node_type.
-    """
-
-    def filter(base_node: ASTNode) -> Iterator[ASTNode]:
-        base_field = getattr(base_node, base_field_name)
-        if isinstance(base_field, list):
-            for node in base_field:
-                if isinstance(node, ASTNode) and node.node_type in node_types:
-                    yield node
-        else:
-            raise RuntimeError(
-                f"Failed computing ASTNode field based on {base_field_name} field. "
-                f"Expected list, but got {base_field} of type {type(base_field)}."
-            )
-
-    return filter
+class NumberMethods:
+    def value(self, filename: str) -> int:
+        metric = 0
+        ast = AST.build_from_javalang(build_ast(filename))
+        for class_node in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
+            for method_node in class_node.methods:
+                metric += 1
+        return metric
