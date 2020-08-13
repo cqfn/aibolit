@@ -67,17 +67,6 @@ def list_dir(path, files):
     return dir_list
 
 
-def predict(input_params, model, args):
-    features_order = model.features_conf['features_order']
-    # add ncss to last column. We will normalize all patterns by that value
-    # deepcode ignore ExpectsIntDislikesStr: false-positive recommendation of deepcode
-    input = [input_params[i] for i in features_order] + [input_params['M2']]
-    th = float(args.threshold) or 1.0
-    preds, importances = model.rank(input, th=th)
-
-    return {features_order[int(x)]: int(x) for x in preds}, list(importances)
-
-
 def run_parse_args(commands_dict):
     parser = argparse.ArgumentParser(
         description='Find the pattern which has the largest impact on readability',
@@ -312,8 +301,8 @@ def inference(
             model_path = Config.folder_model_data()
         with open(model_path, 'rb') as fid:
             model = pickle.load(fid)
-        sorted_result, importances = predict(input_params, model, args)
-        patterns_list = model.features_conf['patterns_only']
+        sorted_result, importances = model.predict(input_params)
+        patterns_list = model.features_conf['features_order']
         for iter, (key, val) in enumerate(sorted_result.items()):
             if key in patterns_list:
                 pattern_code = key
