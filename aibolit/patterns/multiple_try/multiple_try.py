@@ -20,7 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.utils.ast_builder import build_ast
 from typing import List
 
 
@@ -28,9 +27,8 @@ class MultipleTry:
     '''
     Check if a method contains more than one Try Statement
     '''
-    def value(self, filename) -> List[int]:
+    def value(self, ast: AST) -> List[int]:
         total_code_lines: List[int] = []
-        ast = AST.build_from_javalang(build_ast(filename))
         for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             try_nodes = list(ast.get_subtree(method_declaration).get_proxy_nodes(ASTNodeType.TRY_STATEMENT))
             if len(try_nodes) > 1:

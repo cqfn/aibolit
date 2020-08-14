@@ -21,13 +21,11 @@
 # SOFTWARE.
 
 from aibolit.ast_framework import AST, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
 
 
 class NumberMethods:
-    def value(self, filename: str) -> int:
+    def value(self, ast: AST) -> int:
         metric = 0
-        ast = AST.build_from_javalang(build_ast(filename))
         for class_node in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
             for method_node in class_node.methods:
                 metric += 1

@@ -22,7 +22,6 @@
 
 from typing import List
 
-from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
@@ -32,8 +31,7 @@ class ReturnNull:
     NOTICE: nested ternary operators are not checked.
     '''
 
-    def value(self, filename: str) -> List[int]:
-        ast = AST.build_from_javalang(build_ast(filename))
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
         for return_statement in ast.get_proxy_nodes(ASTNodeType.RETURN_STATEMENT):
             if self._check_null_return_statement(return_statement):

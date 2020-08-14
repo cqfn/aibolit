@@ -20,7 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.utils.ast_builder import build_ast
 from typing import List
 from aibolit.ast_framework.ast_node import ASTNode
 
@@ -39,9 +38,8 @@ class EmptyRethrow:
                     lines.append(throw_stat.line)
         return lines
 
-    def value(self, filename) -> List[int]:
+    def value(self, ast: AST) -> List[int]:
         total_code_lines: List[int] = []
-        ast = AST.build_from_javalang(build_ast(filename))
         for try_node in ast.get_proxy_nodes(ASTNodeType.TRY_STATEMENT):
             catch_clauses = try_node.catches
             if catch_clauses:
