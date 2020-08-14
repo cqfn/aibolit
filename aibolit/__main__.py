@@ -601,7 +601,7 @@ def get_exit_code(results):
 def create_text(results, full_report, is_long=False):
     importances_for_all_classes = []
     buffer = []
-    total_patterns = 0
+    unique_patterns = set()
     if not full_report:
         buffer.append('Show pattern with the largest contribution to Cognitive Complexity')
     else:
@@ -621,20 +621,23 @@ def create_text(results, full_report, is_long=False):
             buffer.append(output_string)
         elif results_item and not ex:
             # get unique patterns score
-            for component in result_for_file['results']:
+            for i, component in enumerate(results_item):
+                pattern_number = 0
+                patterns_scores = print_total_score_for_file(importances_for_all_classes, component)
+                patterns_number = len(patterns_scores)
+                cur_pattern_name = ''
                 for pattern_item in component:
-                    patterns_scores = print_total_score_for_file(importances_for_all_classes, component)
-                    patterns_number = len(patterns_scores)
-                    pattern_number = 0
-                    cur_pattern_name = ''
                     pattern_score = pattern_item.get('importance')
                     code = pattern_item.get('pattern_code')
                     if code:
+                        unique_patterns.add(code)
                         pattern_name_str = pattern_item.get('pattern_name')
                         if cur_pattern_name != pattern_name_str:
                             pattern_number += 1
-                        buffer.append('{}[{}]: {} ({}: {:.2f} {}/{})'.format(
+                            cur_pattern_name = pattern_name_str
+                        buffer.append('{} {} comp [{}]: {} ({}: {:.2f} {}/{})'.format(
                             filename,
+                            i,
                             pattern_item.get('code_line'),
                             pattern_name_str,
                             code,
@@ -642,8 +645,8 @@ def create_text(results, full_report, is_long=False):
                             pattern_number,
                             patterns_number))
 
-                    total_patterns += pattern_number
     if importances_for_all_classes:
+        total_patterns = len(unique_patterns)
         show_summary(buffer, importances_for_all_classes, is_long, results, total_patterns)
 
     return buffer
