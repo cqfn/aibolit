@@ -43,11 +43,14 @@ class SetterTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ClassicSetter()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [1236, 1240, 3783, 3819])
+        self.assertEqual(lines,
+                         [902, 906, 1236, 1240, 1361, 1539, 1612, 1641, 1670,
+                          1703, 1712, 1723, 1801, 1970, 2020, 2336,
+                          2507, 3783, 3819])
 
     def test_another_setter_patterns(self):
         filepath = self.current_directory / "SequenceFile.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ClassicSetter()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [2849, 2855, 2861, 3127])
+        self.assertEqual(lines, [259, 744, 2849, 2855, 2861, 3127])

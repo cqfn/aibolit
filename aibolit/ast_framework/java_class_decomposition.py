@@ -25,13 +25,45 @@ from typing import List, Dict, Set, Iterator
 from networkx import DiGraph, strongly_connected_components, weakly_connected_components  # type: ignore
 
 from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
 
 
-def decompose_java_class(class_ast: AST, strength: str) -> List[AST]:
+def find_setters(tree: AST) -> Set[str]:
+    """
+    Searches all setters in a component
+    :param tree: ast tree
+    :return: list of method name which are setters
+
+    """
+    setters = set()
+    for method_declaration in tree.get_root().methods:
+        method_ast = tree.get_subtree(method_declaration)
+        if is_ast_setter(method_ast):
+            setters.add(method_declaration.name)
+
+    return setters
+
+
+def is_ast_setter(class_ast: AST) -> bool:
+    """
+    Is ast tree setter
+    :param class_ast: ast tree
+    :return: True if it is setter, otherwise - False
+    """
+    setters_number = len(ClassicSetter().value(class_ast))
+    is_setter = True if (setters_number > 0) else False
+    return is_setter
+
+
+def decompose_java_class(
+        class_ast: AST,
+        strength: str,
+        ignore_setters=False) -> List[AST]:
     """
     Splits java_class fields and methods by their usage and
     construct for each case an AST with only those fields and methods kept.
-    Use "strength" parameter to control splitting criteria. Use "strong" or "weak"
+    :param ignore_setters: should ignore setters
+    :param strength: controls splitting criteria. Use "strong" or "weak"
     for splitting fields and methods by strong and weak connectivity.
     """
 
@@ -49,20 +81,26 @@ def decompose_java_class(class_ast: AST, strength: str) -> List[AST]:
 
     class_parts: List[AST] = []
     for component in components:
+        if ignore_setters:
+            prohibited_function_names = find_setters(class_ast)
+
         field_names = {
             usage_graph.nodes[node]["name"]
             for node in component
             if usage_graph.nodes[node]["type"] == "field"
         }
-
         method_names = {
             usage_graph.nodes[node]["name"]
             for node in component
             if usage_graph.nodes[node]["type"] == "method"
         }
+        if ignore_setters:
+            method_names = method_names.difference(prohibited_function_names)
+
+        filtered = _filter_class_methods_and_fields(class_ast, field_names, method_names)
 
         class_parts.append(
-            _filter_class_methods_and_fields(class_ast, field_names, method_names)
+            filtered
         )
 
     return class_parts
@@ -122,7 +160,7 @@ def _find_local_method_invocations(method_ast: AST) -> Set[str]:
 def _find_fields_usage(method_ast: AST) -> Set[str]:
     local_variables: Set[str] = set()
     for variable_declaration in method_ast.get_proxy_nodes(
-        ASTNodeType.LOCAL_VARIABLE_DECLARATION
+            ASTNodeType.LOCAL_VARIABLE_DECLARATION
     ):
         local_variables.update(variable_declaration.names)
 
@@ -140,9 +178,9 @@ def _find_fields_usage(method_ast: AST) -> Set[str]:
 
 
 def _filter_class_methods_and_fields(
-    class_ast: AST,
-    allowed_fields_names: Set[str],
-    allowed_methods_names: Set[str]
+        class_ast: AST,
+        allowed_fields_names: Set[str],
+        allowed_methods_names: Set[str]
 ) -> AST:
     class_declaration = class_ast.get_root()
     allowed_nodes = {class_declaration.node_index}
@@ -153,6 +191,7 @@ def _filter_class_methods_and_fields(
             allowed_nodes.update(node.node_index for node in field_ast)
 
     for method_declaration in class_declaration.methods:
+        # print(method_declaration.name)
         if method_declaration.name in allowed_methods_names:
             method_ast = class_ast.get_subtree(method_declaration)
             allowed_nodes.update(node.node_index for node in method_ast)
