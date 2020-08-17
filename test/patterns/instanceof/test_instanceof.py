@@ -20,48 +20,76 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
-from unittest import TestCase
-from aibolit.patterns.instanceof.instance_of import InstanceOf
 from pathlib import Path
+from unittest import TestCase
+
+from aibolit.patterns.instanceof.instance_of import InstanceOf
+from aibolit.ast_framework import AST
+from aibolit.utils.ast_builder import build_ast
 
 
-class TestInstanceOf(TestCase):
-    cur_file_dir = Path(os.path.realpath(__file__)).parent
-    testClass = InstanceOf()
+class InstanceOfTestCase(TestCase):
+    current_directory = Path(__file__).absolute().parent
 
     def test_empty(self):
-        file = str(Path(self.cur_file_dir, 'Empty.java'))
-        self.assertEqual(len(self.testClass.value(file)), 0)
+        filepath = self.current_directory / "Empty.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = InstanceOf()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 0)
 
     def test_instance_of(self):
-        file = str(Path(self.cur_file_dir, 'InstanceOfSample.java'))
-        self.assertEqual(len(self.testClass.value(file)), 1)
+        filepath = self.current_directory / "InstanceOfSample.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = InstanceOf()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 1)
 
     def test_instance(self):
-        file = str(Path(self.cur_file_dir, 'InstanceSample.java'))
-        self.assertEqual(len(self.testClass.value(file)), 1)
+        filepath = self.current_directory / "InstanceSample.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = InstanceOf()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 1)
 
     def test_instance_of_different_methods(self):
-        file = str(Path(self.cur_file_dir, 'InstanceOfSampleDifferentMethods.java'))
-        self.assertEqual(len(self.testClass.value(file)), 2)
+        filepath = self.current_directory / "InstanceOfSampleDifferentMethods.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = InstanceOf()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 2)
 
     def test_instance_different_methods(self):
-        file = str(Path(self.cur_file_dir, 'InstanceSampleDifferentMethods.java'))
-        self.assertEqual(len(self.testClass.value(file)), 2)
+        filepath = self.current_directory / "InstanceSampleDifferentMethods.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = InstanceOf()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 2)
 
     def test_instance_of_several(self):
-        file = str(Path(self.cur_file_dir, 'InstanceOfSampleSeveral.java'))
-        self.assertEqual(len(self.testClass.value(file)), 3)
+        filepath = self.current_directory / "InstanceOfSampleSeveral.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = InstanceOf()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 3)
 
     def test_instance_several(self):
-        file = str(Path(self.cur_file_dir, 'InstanceSampleSeveral.java'))
-        self.assertEqual(len(self.testClass.value(file)), 2)
+        filepath = self.current_directory / "InstanceSampleSeveral.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = InstanceOf()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 2)
 
     def test_instance_in_method_chaining(self):
-        file = str(Path(self.cur_file_dir, 'InstanceSampleChain.java'))
-        self.assertEqual(len(self.testClass.value(file)), 2)
+        filepath = self.current_directory / "InstanceSampleChain.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = InstanceOf()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 2)
 
     def test_both(self):
-        file = str(Path(self.cur_file_dir, 'InstanceBoth.java'))
-        self.assertEqual(len(self.testClass.value(file)), 2)
+        filepath = self.current_directory / "InstanceBoth.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = InstanceOf()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 2)

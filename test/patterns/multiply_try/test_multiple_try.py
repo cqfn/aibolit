@@ -20,40 +20,62 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
-from unittest import TestCase
-from aibolit.patterns.multiple_try.multiple_try import MultipleTry
 from pathlib import Path
+from unittest import TestCase
+
+from aibolit.patterns.multiple_try.multiple_try import MultipleTry
+from aibolit.ast_framework import AST
+from aibolit.utils.ast_builder import build_ast
 
 
-class TestMultipleTry(TestCase):
-    dir_path = Path(os.path.realpath(__file__)).parent
-    method_chain_finder = MultipleTry()
+class MultipleTryPatternTestCase(TestCase):
+    current_directory = Path(__file__).absolute().parent
 
     def test_simple(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'Simple.java'))
+        filepath = self.current_directory / "Simple.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = MultipleTry()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [2])
 
     def test_large_file(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'Large.java'))
+        filepath = self.current_directory / "Large.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = MultipleTry()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [620, 706])
 
     def test_try_inside_anonymous(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'TryInsideAnomymous.java'))
+        filepath = self.current_directory / "TryInsideAnomymous.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = MultipleTry()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [5])
 
     def test_try_inside_catch(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'TryInsideCatch.java'))
+        filepath = self.current_directory / "TryInsideCatch.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = MultipleTry()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [2])
 
     def test_try_inside_finally(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'TryInsideFinaly.java'))
+        filepath = self.current_directory / "TryInsideFinaly.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = MultipleTry()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [2])
 
     def test_try_inside_try(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'TryInsideTry.java'))
+        filepath = self.current_directory / "TryInsideTry.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = MultipleTry()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [2])
 
     def test_try_method_overloading(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'TryMethodOverloading.java'))
+        filepath = self.current_directory / "TryMethodOverloading.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = MultipleTry()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])

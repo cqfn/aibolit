@@ -20,17 +20,20 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
 from pathlib import Path
 from unittest import TestCase
 
 from aibolit.patterns.many_primary_ctors.many_primary_ctors import ManyPrimaryCtors
+from aibolit.ast_framework import AST
+from aibolit.utils.ast_builder import build_ast
 
 
-class TestManyPrimaryCtors(TestCase):
-    cur_file_dir = Path(os.path.realpath(__file__)).parent
+class ManyPrimaryCtorsTestCase(TestCase):
+    current_directory = Path(__file__).absolute().parent
 
     def test_many_primary_ctors(self):
-        file = Path(self.cur_file_dir, 'Book.java')
-
-        self.assertEqual(ManyPrimaryCtors().value(file), [4, 8])
+        filepath = self.current_directory / "Book.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = ManyPrimaryCtors()
+        lines = pattern.value(ast)
+        self.assertEqual(lines, [4, 8])

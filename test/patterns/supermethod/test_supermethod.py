@@ -20,42 +20,64 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
-from unittest import TestCase
-from aibolit.patterns.supermethod.supermethod import SuperMethod
 from pathlib import Path
+from unittest import TestCase
+
+from aibolit.patterns.supermethod.supermethod import SuperMethod
+from aibolit.ast_framework import AST
+from aibolit.utils.ast_builder import build_ast
 
 
-class TestSuperMethod(TestCase):
-    cur_file_dir = Path(os.path.realpath(__file__)).parent
-    testClass = SuperMethod()
+class SuperMethodTestCase(TestCase):
+    current_directory = Path(__file__).absolute().parent
 
     def test_empty(self):
-        file = str(Path(self.cur_file_dir, 'Empty.java'))
-        self.assertEqual(len(self.testClass.value(file)), 0)
+        filepath = self.current_directory / "Empty.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = SuperMethod()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 0)
 
     def test_instance_of(self):
         # It has 2 matches in anonymous class!
-        file = str(Path(self.cur_file_dir, 'Anonymous.java'))
-        self.assertEqual(len(self.testClass.value(file)), 1)
+        filepath = self.current_directory / "Anonymous.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = SuperMethod()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 1)
 
     def test_instance(self):
-        file = str(Path(self.cur_file_dir, 'Simple.java'))
-        self.assertEqual(len(self.testClass.value(file)), 1)
+        filepath = self.current_directory / "Simple.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = SuperMethod()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 1)
 
     def test_several(self):
         # It has 2 matches in anonymous class!
-        file = str(Path(self.cur_file_dir, 'Several.java'))
-        self.assertEqual(len(self.testClass.value(file)), 6)
+        filepath = self.current_directory / "Several.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = SuperMethod()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 6)
 
     def test_nested_class(self):
-        file = str(Path(self.cur_file_dir, 'NestedClass.java'))
-        self.assertEqual(len(self.testClass.value(file)), 1)
+        filepath = self.current_directory / "NestedClass.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = SuperMethod()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 1)
 
     def test_constructor(self):
-        file = str(Path(self.cur_file_dir, 'Constructor.java'))
-        self.assertEqual(len(self.testClass.value(file)), 3)
+        filepath = self.current_directory / "Constructor.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = SuperMethod()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 3)
 
     def test_complicated_constructor(self):
-        file = str(Path(self.cur_file_dir, 'ComplicatedChainConstructor.java'))
-        self.assertEqual(len(self.testClass.value(file)), 0)
+        filepath = self.current_directory / "ComplicatedChainConstructor.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = SuperMethod()
+        lines = pattern.value(ast)
+        self.assertEqual(len(lines), 0)

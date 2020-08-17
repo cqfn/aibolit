@@ -22,11 +22,9 @@
 
 from typing import List
 
-from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework import AST, ASTNodeType
 
 
 class ForceTypeCastingFinder:
-    def value(self, filename: str) -> List[int]:
-        ast = AST.build_from_javalang(build_ast(filename))
+    def value(self, ast: AST) -> List[int]:
         return [cast.expression.line for cast in ast.get_proxy_nodes(ASTNodeType.CAST)]

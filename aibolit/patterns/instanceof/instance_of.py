@@ -23,7 +23,6 @@
 from typing import List
 
 from aibolit.ast_framework import AST, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
 
 
 class InstanceOf:
@@ -31,8 +30,7 @@ class InstanceOf:
     Finds instance_of operator and .isInstance() method call.
     """
 
-    def value(self, filename: str):
-        ast = AST.build_from_javalang(build_ast(filename))
+    def value(self, ast: AST):
         lines: List[int] = []
         for binary_operator in ast.get_proxy_nodes(ASTNodeType.BINARY_OPERATION):
             if binary_operator.operator == 'instanceof':
