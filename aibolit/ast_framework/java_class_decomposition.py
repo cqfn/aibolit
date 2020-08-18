@@ -20,26 +20,42 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List, Dict, Set, Iterator
+from typing import List, Dict, Set, Iterator, Any
 
 from networkx import DiGraph, strongly_connected_components, weakly_connected_components  # type: ignore
 
 from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.patterns.classic_getter.classic_getter import ClassicGetter as getter
 
 
-def find_getters(tree: AST) -> Set[str]:
+def find_patterns(tree: AST, patterns: List[Any]) -> Set[str]:
     """
     Searches all setters in a component
+    :param patterns: list of patterns to check
     :param tree: ast tree
     :return: list of method name which are setters
     """
 
-    setters = set()
+    setters: Set[str] = set()
     for method_declaration in tree.get_root().methods:
         method_ast = tree.get_subtree(method_declaration)
-        print(method_ast.method_declaration)
+        for pattern in patterns:
+            if is_ast_pattern(method_ast, pattern):
+                setters.add(method_declaration.name)
 
     return setters
+
+
+def is_ast_pattern(class_ast: AST, Pattern) -> bool:
+    """
+    Checks whether ast is some pattern
+    :param Pattern: pattern class
+    :param class_ast: ast tree
+    :return: True if it is setter, otherwise - False
+    """
+    setters_number = len(Pattern().value(class_ast))
+    is_setter = True if (setters_number > 0) else False
+    return is_setter
 
 
 def decompose_java_class(
@@ -66,13 +82,13 @@ def decompose_java_class(
         )
 
     class_parts: List[AST] = []
-    prohibited_function_names = []
-
+    patterns_to_ignore = []
     if ignore_getters:
-        prohibited_function_names = find_getters(class_ast)
+        patterns_to_ignore.append(lambda: getter())
+
+    prohibited_function_names = find_patterns(class_ast, patterns_to_ignore)
 
     for component in components:
-
         field_names = {
             usage_graph.nodes[node]["name"]
             for node in component
