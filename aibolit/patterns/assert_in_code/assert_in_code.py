@@ -23,7 +23,6 @@
 from typing import List
 
 from aibolit.ast_framework import AST, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
 
 
 class AssertInCode:
@@ -31,8 +30,7 @@ class AssertInCode:
     Finds use of all asserts.
     '''
 
-    def value(self, filename: str) -> List[int]:
-        ast = AST.build_from_javalang(build_ast(filename))
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
         for assert_node in ast.get_proxy_nodes(ASTNodeType.ASSERT_STATEMENT):
             lines.append(assert_node.line)

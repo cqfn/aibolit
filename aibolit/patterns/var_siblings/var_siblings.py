@@ -20,7 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.utils.ast_builder import build_ast
 from typing import List, Dict
 from aibolit.ast_framework.ast_node import ASTNode
 import re
@@ -59,9 +58,8 @@ class VarSiblings:
                     lines.append(vars_info[node_name2])
         return lines
 
-    def value(self, filename: str) -> List[int]:
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        ast = AST.build_from_javalang(build_ast(filename))
         for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             variables_info = self._collect_method_variables_names(ast, method_declaration)
             lines.extend(self._find_sibling_vars(variables_info))

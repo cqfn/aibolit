@@ -1,6 +1,5 @@
 from typing import List
 from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework.ast_node import ASTNode
 
 
@@ -34,9 +33,8 @@ class ClassicSetter:
                 return False
         return True
 
-    def value(self, filename: str) -> List[int]:
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        ast = AST.build_from_javalang(build_ast(filename))
         for node in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             method_name = node.name
             if node.return_type is None and method_name.startswith('set') and \

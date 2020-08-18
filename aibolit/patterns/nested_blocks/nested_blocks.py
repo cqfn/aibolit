@@ -23,7 +23,6 @@
 from typing import List
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
 
 
 class NestedBlocks:
@@ -36,9 +35,8 @@ class NestedBlocks:
         self._max_depth = max_depth
         self._block_types = block_types
 
-    def value(self, filename: str) -> List[int]:
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        ast = AST.build_from_javalang(build_ast(filename))
         for block_type in self._block_types:
             for block_ast in ast.get_subtrees(block_type):
                 for overnested_block in self._find_overnested_blocks(block_ast.get_root()):
