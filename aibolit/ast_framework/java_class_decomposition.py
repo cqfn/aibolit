@@ -80,10 +80,9 @@ def decompose_java_class(
         )
 
     class_parts: List[AST] = []
+    if ignore_setters:
+        prohibited_function_names = find_setters(class_ast)
     for component in components:
-        if ignore_setters:
-            prohibited_function_names = find_setters(class_ast)
-
         field_names = {
             usage_graph.nodes[node]["name"]
             for node in component
