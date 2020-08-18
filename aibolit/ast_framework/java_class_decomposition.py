@@ -27,7 +27,25 @@ from networkx import DiGraph, strongly_connected_components, weakly_connected_co
 from aibolit.ast_framework import AST, ASTNodeType
 
 
-def decompose_java_class(class_ast: AST, strength: str) -> List[AST]:
+def find_getters(tree: AST) -> Set[str]:
+    """
+    Searches all setters in a component
+    :param tree: ast tree
+    :return: list of method name which are setters
+    """
+
+    setters = set()
+    for method_declaration in tree.get_root().methods:
+        method_ast = tree.get_subtree(method_declaration)
+        print(method_ast.method_declaration)
+
+    return setters
+
+
+def decompose_java_class(
+        class_ast: AST,
+        strength: str,
+        ignore_getters=False) -> List[AST]:
     """
     Splits java_class fields and methods by their usage and
     construct for each case an AST with only those fields and methods kept.
@@ -48,7 +66,13 @@ def decompose_java_class(class_ast: AST, strength: str) -> List[AST]:
         )
 
     class_parts: List[AST] = []
+    prohibited_function_names = []
+
+    if ignore_getters:
+        prohibited_function_names = find_getters(class_ast)
+
     for component in components:
+
         field_names = {
             usage_graph.nodes[node]["name"]
             for node in component
@@ -60,6 +84,8 @@ def decompose_java_class(class_ast: AST, strength: str) -> List[AST]:
             for node in component
             if usage_graph.nodes[node]["type"] == "method"
         }
+        if ignore_getters:
+            method_names = method_names.difference(prohibited_function_names)
 
         class_parts.append(
             _filter_class_methods_and_fields(class_ast, field_names, method_names)
