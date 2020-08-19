@@ -665,15 +665,23 @@ def check():
         help='Suppress certain patterns (comma separated value)'
     )
 
-    parser.add_argument(
-        '--exclude',
-        action='append',
+    exclude_group = parser.add_argument_group('exclude options')
+    exclude_group.add_argument(
+        '--exclude_glob',
         nargs='+',
-        help='Exclude folder to ignore. The last parameter is the folder to exclude, '
-             'the rest of them are glob patterns.'
+        default=[],
+        help='Glob folder to ignore. '
     )
-
+    exclude_group.add_argument(
+        '--exclude_folder',
+        default='',
+        help='Glob patterns to ignore. '
+    )
     args = parser.parse_args(sys.argv[2:])
+
+    if bool(args.exclude_glob) ^ bool(args.exclude_folder):
+        print('Error: exclude_folder and exclude_glob params must be given together')
+        sys.exit(2)
 
     if args.suppress:
         args.suppress = args.suppress.strip().split(',')
@@ -714,20 +722,12 @@ def check():
 
 def handle_exclude_command_line(args):
     files_to_exclude = []
-    exc_string = 'Usage: --exclude=<glob pattern> ' \
-                 '--exclude=<glob pattern> ... ' \
-                 '--exclude=folder_to_find_exceptions '
-    if args.exclude:
-        if len(args.exclude) < 2:
-            raise Exception(exc_string)
-        try:
-            folder_to_exclude = args.exclude[-1][0]
-            glob_patterns = [x[0] for x in args.exclude[:-1]]
-            for glob_p in glob_patterns:
-                files_to_exclude.extend([str(x.absolute()) for x in list(Path(folder_to_exclude).glob(glob_p))])
+    folders_to_exclude = args.exclude_folder
+    full_path_to_exclude = Path(os.getcwd(), folders_to_exclude) if folders_to_exclude else None
+    glob_patterns = args.exclude_glob
+    for glob_p in glob_patterns:
+        files_to_exclude.extend([str(x.absolute()) for x in list(Path(full_path_to_exclude).glob(glob_p))])
 
-        except Exception:
-            raise Exception(exc_string)
     return files_to_exclude
 
 
