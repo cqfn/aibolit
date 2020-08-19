@@ -32,7 +32,7 @@ class SetterTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
     def test_no_getters(self):
-        filepath = self.current_directory / "Nogetters.java"
+        filepath = self.current_directory / "NoGetters.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ClassicGetter()
         lines = pattern.value(ast)
