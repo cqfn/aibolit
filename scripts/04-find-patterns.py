@@ -69,15 +69,21 @@ def _calculate_patterns_and_metrics(file_path: str) -> List[Dict[str, Any]]:
             }
 
             for pattern_info in patterns_info:
-                pattern = pattern_info["make"]()
-                pattern_result = pattern.value(component_ast)
-                calculation_result[pattern_info["code"]] = len(pattern_result)
-                calculation_result["lines_" + pattern_info["code"]] = pattern_result
+                try:
+                    pattern = pattern_info["make"]()
+                    pattern_result = pattern.value(component_ast)
+                    calculation_result[pattern_info["code"]] = len(pattern_result)
+                    calculation_result["lines_" + pattern_info["code"]] = pattern_result
+                except Exception as e:
+                    raise RuntimeError(f"Failed to calculate pattern {pattern_info['name']}.") from e
 
             for metric_info in metrics_info:
-                metric = metric_info["make"]()
-                metric_result = metric.value(component_ast)
-                calculation_result[metric_info["code"]] = metric_result
+                try:
+                    metric = metric_info["make"]()
+                    metric_result = metric.value(component_ast)
+                    calculation_result[metric_info["code"]] = metric_result
+                except Exception as e:
+                    raise RuntimeError(f"Failed to calculate metric {metric_info['name']}.") from e
 
             results.append(calculation_result)
 
