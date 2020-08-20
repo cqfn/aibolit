@@ -22,7 +22,6 @@
 from typing import Any, List
 
 from aibolit.ast_framework import AST, ASTNodeType, ASTNode
-from aibolit.utils.ast_builder import build_ast
 
 
 class HybridConstructor:
@@ -99,10 +98,9 @@ class HybridConstructor:
         for try_stat in statement.block:
             self.traverse(try_stat, exp_ctrs_decls, other_statements)
 
-    def value(self, filename: str) -> List[int]:
-        tree = AST.build_from_javalang(build_ast(filename))
+    def value(self, ast: AST) -> List[int]:
         lines = []
-        for node in tree.get_proxy_nodes(ASTNodeType.CONSTRUCTOR_DECLARATION):
+        for node in ast.get_proxy_nodes(ASTNodeType.CONSTRUCTOR_DECLARATION):
             exp_ctrs_decls: List[Any] = []
             other_statements: List[Any] = []
             for statement in node.body:

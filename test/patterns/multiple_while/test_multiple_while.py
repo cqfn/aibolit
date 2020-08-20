@@ -20,25 +20,41 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from unittest import TestCase
-from aibolit.patterns.multiple_while.multiple_while import MultipleWhile
 from pathlib import Path
+from unittest import TestCase
+
+from aibolit.patterns.multiple_while.multiple_while import MultipleWhile
+from aibolit.ast_framework import AST
+from aibolit.utils.ast_builder import build_ast
 
 
-class TestMultipleWhile(TestCase):
+class MultipleWhilePatternTestCase(TestCase):
+    current_directory = Path(__file__).absolute().parent
 
     def test_simple(self):
-        lines = MultipleWhile().value(Path(__file__).parent.absolute() / 'Simple.java')
+        filepath = self.current_directory / "Simple.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = MultipleWhile()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [2])
 
     def test_one_while(self):
-        lines = MultipleWhile().value(Path(__file__).parent.absolute() / 'OneWhile.java')
+        filepath = self.current_directory / "OneWhile.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = MultipleWhile()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_if_while(self):
-        lines = MultipleWhile().value(Path(__file__).parent.absolute() / 'IfWhile.java')
+        filepath = self.current_directory / "IfWhile.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = MultipleWhile()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [2])
 
     def test_multiple_while(self):
-        lines = MultipleWhile().value(Path(__file__).parent.absolute() / 'MultipleWhile.java')
+        filepath = self.current_directory / "MultipleWhile.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = MultipleWhile()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])

@@ -50,7 +50,7 @@ def test_model_training():
 def test_train_with_selected_features():
     cur_file_dir = Path(os.path.realpath(__file__)).parent
     model = PatternRankingModel()
-    selected_patterns = ['P18', 'P9', 'M2', 'M5']
+    selected_patterns = ['P18', 'P10', 'M2', 'M5']
     train_df = generate_fake_dataset()
     print('Features for the whole dataset: {}'.format(list(train_df.columns)))
     target = train_df.pop('M4')

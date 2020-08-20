@@ -23,7 +23,6 @@
 from typing import List
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
 
 
 class CountIfReturn:
@@ -31,8 +30,7 @@ class CountIfReturn:
     Finds "if" statements with else branches and return statement in then branch.
     '''
 
-    def value(self, filename: str) -> List[int]:
-        ast = AST.build_from_javalang(build_ast(filename))
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
         for if_statement in ast.get_proxy_nodes(ASTNodeType.IF_STATEMENT):
             if if_statement.else_statement is not None and \

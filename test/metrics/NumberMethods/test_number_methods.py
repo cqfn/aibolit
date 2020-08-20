@@ -20,27 +20,41 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
-from unittest import TestCase
-from aibolit.metrics.NumberMethods.NumberMethods import NumberMethods
 from pathlib import Path
+from unittest import TestCase
+
+from aibolit.metrics.NumberMethods.NumberMethods import NumberMethods
+from aibolit.ast_framework import AST
+from aibolit.utils.ast_builder import build_ast
 
 
 class TestCognitive(TestCase):
-    dir_path = Path(os.path.realpath(__file__)).parent
+    current_directory = Path(__file__).absolute().parent
 
     def test_one(self):
-        metric = NumberMethods().value(Path(self.dir_path, 'one.java'))
-        self.assertEqual(metric, 1)
+        filepath = self.current_directory / 'one.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = NumberMethods()
+        value = metric.value(ast)
+        self.assertEqual(value, 1)
 
     def test_simple(self):
-        metric = NumberMethods().value(Path(self.dir_path, 'simple.java'))
-        self.assertEqual(metric, 2)
+        filepath = self.current_directory / 'simple.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = NumberMethods()
+        value = metric.value(ast)
+        self.assertEqual(value, 2)
 
     def test_nested(self):
-        metric = NumberMethods().value(Path(self.dir_path, 'nested.java'))
-        self.assertEqual(metric, 2)
+        filepath = self.current_directory / 'nested.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = NumberMethods()
+        value = metric.value(ast)
+        self.assertEqual(value, 2)
 
     def test_several(self):
-        metric = NumberMethods().value(Path(self.dir_path, 'several.java'))
-        self.assertEqual(metric, 4)
+        filepath = self.current_directory / 'several.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = NumberMethods()
+        value = metric.value(ast)
+        self.assertEqual(value, 4)

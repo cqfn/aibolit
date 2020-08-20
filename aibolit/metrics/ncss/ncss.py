@@ -21,7 +21,6 @@
 # SOFTWARE.
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
 
 
 class NCSSMetric:
@@ -33,9 +32,8 @@ class NCSSMetric:
      - local variable declarations and statement expressions
     """
 
-    def value(self, filename: str) -> int:
+    def value(self, ast: AST) -> int:
         metric = 0
-        ast = AST.build_from_javalang(build_ast(filename))
         for node in ast.get_proxy_nodes(
             *NCSSMetric._keyword_node_types,
             *NCSSMetric._declarations_node_types,
