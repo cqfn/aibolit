@@ -19,7 +19,6 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-from typing import List
 from unittest import TestCase
 from pathlib import Path
 
@@ -27,6 +26,7 @@ from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
 from aibolit.utils.ast_builder import build_ast
 from aibolit.metrics.ncss.ncss import NCSSMetric
+
 
 class JavaClassDecompositionTestSuite(TestCase):
     def test_strong_decomposition(self):
@@ -79,4 +79,3 @@ class JavaClassDecompositionTestSuite(TestCase):
 
         ncss_for_class = ncss_metric.value(ast=ast)
         self.assertEqual(ncss_sum, ncss_for_class)
-
