@@ -23,6 +23,7 @@
 from argparse import ArgumentParser
 from concurrent.futures import TimeoutError
 from csv import DictWriter, QUOTE_MINIMAL
+from logging import basicConfig, INFO, warning
 from os import cpu_count, getenv, makedirs, sched_getaffinity
 from pathlib import Path
 from sys import stderr
@@ -136,6 +137,13 @@ if __name__ == "__main__":
         "If 0, no timout is set.",
     )
 
+    parser.add_argument(
+        "--log",
+        "-l",
+        default="pattern_calculation.log",
+        help="Path for log file. pattern_calculation.log is default.",
+    )
+
     args = parser.parse_args()
 
     if args.jobs >= system_cores_qty:
@@ -157,6 +165,8 @@ if __name__ == "__main__":
     if args.timeout == 0:
         args.timeout = None
 
+    basicConfig(filename=args.log, level=INFO)
+
     default_dataset_directory = Path(".", "target", "04").absolute()
     dataset_directory = getenv("TARGET_FOLDER", default=default_dataset_directory)
     makedirs(dataset_directory, exist_ok=True)
@@ -175,8 +185,6 @@ if __name__ == "__main__":
                 single_file_features = next(dataset_features)
                 dataset_writer.writerows(single_file_features)
             except TimeoutError:
-                print(
-                    f"Processing {filename} is aborted due to timeout in {args.timeout} seconds.", file=stderr
-                )
+                warning(f"Processing {filename} is aborted due to timeout in {args.timeout} seconds.")
             except Exception as e:
-                print(f"Processing {filename} has end up with error {e}.", file=stderr)
+                warning(f"Processing {filename} has end up with error {e}.")
