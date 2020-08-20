@@ -28,14 +28,26 @@ from os import cpu_count, getenv, makedirs, sched_getaffinity
 from pathlib import Path
 from sys import stderr
 from typing import Any, Dict, List
+import json
 
 from pebble import ProcessPool
 from tqdm import tqdm
+import pandas as pd
+
 
 from aibolit.config import Config
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
 from aibolit.utils.ast_builder import build_ast
+
+
+class FileProcessingError(RuntimeError):
+    def __init__(self, filepath: str, pattern_name: str, cause: Exception):
+        super().__init__(f"Failed calculating {pattern_name} on file {filepath}.\n" f"Reason: {cause}")
+
+        self.filepath = filepath
+        self.pattern_name = pattern_name
+        self.cause = cause
 
 
 def _calculate_patterns_and_metrics(file_path: str) -> List[Dict[str, Any]]:
@@ -66,7 +78,7 @@ def _calculate_patterns_and_metrics(file_path: str) -> List[Dict[str, Any]]:
             calculation_result = {
                 "filepath": file_path,
                 "class_name": class_ast.get_root().name,
-                "component_index": index
+                "component_index": index,
             }
 
             for pattern_info in patterns_info:
@@ -75,16 +87,16 @@ def _calculate_patterns_and_metrics(file_path: str) -> List[Dict[str, Any]]:
                     pattern_result = pattern.value(component_ast)
                     calculation_result[pattern_info["code"]] = len(pattern_result)
                     calculation_result["lines_" + pattern_info["code"]] = pattern_result
-                except Exception as e:
-                    raise RuntimeError(f"Failed to calculate pattern {pattern_info['name']}.") from e
+                except Exception as cause:
+                    raise FileProcessingError(file_path, pattern_info["name"], cause)
 
             for metric_info in metrics_info:
                 try:
                     metric = metric_info["make"]()
                     metric_result = metric.value(component_ast)
                     calculation_result[metric_info["code"]] = metric_result
-                except Exception as e:
-                    raise RuntimeError(f"Failed to calculate metric {metric_info['name']}.") from e
+                except Exception as cause:
+                    raise FileProcessingError(file_path, metric_info["name"], cause)
 
             results.append(calculation_result)
 
@@ -144,6 +156,13 @@ if __name__ == "__main__":
         help="Path for log file. pattern_calculation.log is default.",
     )
 
+    parser.add_argument(
+        "--errors-log",
+        "-el",
+        default="calculation_errors.json",
+        help="Path for errors log file. All errors grouped by patterns. calculation_errors.log is default.",
+    )
+
     args = parser.parse_args()
 
     if args.jobs >= system_cores_qty:
@@ -172,6 +191,8 @@ if __name__ == "__main__":
     makedirs(dataset_directory, exist_ok=True)
     csv_file = Path(dataset_directory, "04-find-patterns.csv")
 
+    errors = pd.DataFrame(columns=["filepath", "pattern_name", "cause"])
+
     with open(args.file) as input, open(csv_file, "w") as output, ProcessPool(args.jobs) as executor:
         dataset_writer = _create_dataset_writer(output)
         dataset_writer.writeheader()
@@ -180,11 +201,43 @@ if __name__ == "__main__":
         future = executor.map(_calculate_patterns_and_metrics, filenames, timeout=args.timeout)
         dataset_features = future.result()
 
+        timeout_errors_qty = 0
+        parsing_errors_qty = 0
+
         for filename in tqdm(filenames):
             try:
                 single_file_features = next(dataset_features)
                 dataset_writer.writerows(single_file_features)
             except TimeoutError:
                 warning(f"Processing {filename} is aborted due to timeout in {args.timeout} seconds.")
+                timeout_errors_qty += 1
             except Exception as e:
-                warning(f"Processing {filename} has end up with error {e}.")
+                warning(e)
+                parsing_errors_qty += 1
+                errors.append(e, ignore_index=True)
+
+        if timeout_errors_qty or parsing_errors_qty:
+            print(
+                f"WARNING: There was {timeout_errors_qty} timeouts and "
+                f"{parsing_errors_qty} errors during file processing.\n"
+                f"Check {args.log} for detailed information.",
+                file=stderr,
+            )
+
+        if not errors.empty:
+            errors_dict = {}
+            pattern_names = errors.pattern_name.unique()
+            for pattern_name in pattern_names:
+                errors_dict[pattern_name] = {}
+                for filepath, cause in errors[errors.pattern_name == pattern_name][
+                    ["filepath", "cause"]
+                ].itertuples(index=False):
+                    errors_dict[pattern_name][filepath] = str(cause)
+
+            with open(args.errors_log, "w") as errors_log:
+                json.dump(errors_dict, errors_log)
+
+            print(
+                f"WARNING: All errors grouped by pattern/metrec name ind written to {args.errors_log}",
+                file=stderr,
+            )
