@@ -19,14 +19,14 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
+from typing import List
 from unittest import TestCase
 from pathlib import Path
 
-from aibolit.ast_framework import AST
+from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
 from aibolit.utils.ast_builder import build_ast
-
+from aibolit.metrics.ncss.ncss import NCSSMetric
 
 class JavaClassDecompositionTestSuite(TestCase):
     def test_strong_decomposition(self):
@@ -60,3 +60,23 @@ class JavaClassDecompositionTestSuite(TestCase):
             raise ValueError(
                 f"File '{filename}' does not have top level class '{class_name}'."
             )
+
+    def test_ncss(self):
+        filename = Path(__file__).parent.absolute() / 'Configuration.java'
+        ast = AST.build_from_javalang(build_ast(filename))
+        classes_ast = [
+            ast.get_subtree(node)
+            for node in ast.get_root().types
+            if node.node_type == ASTNodeType.CLASS_DECLARATION
+        ]
+        print(len(classes_ast))
+        ncss_sum = 0
+        ncss_metric = NCSSMetric()
+        for class_ast in classes_ast:
+            for component in decompose_java_class(class_ast, 'strong'):
+                ncss = ncss_metric.value(ast=component)
+                ncss_sum += ncss
+
+        ncss_for_class = ncss_metric.value(ast=ast)
+        self.assertEqual(ncss_sum, ncss_for_class)
+
