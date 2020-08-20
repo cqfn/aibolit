@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 from argparse import ArgumentParser
+from collections import defaultdict
 from concurrent.futures import TimeoutError
 from csv import DictWriter, QUOTE_MINIMAL
 from logging import basicConfig, INFO, warning
@@ -32,8 +33,6 @@ import json
 
 from pebble import ProcessPool
 from tqdm import tqdm
-import pandas as pd
-
 
 from aibolit.config import Config
 from aibolit.ast_framework import AST, ASTNodeType
@@ -184,20 +183,20 @@ if __name__ == "__main__":
     if args.timeout == 0:
         args.timeout = None
 
-    basicConfig(filename=args.log, level=INFO)
+    basicConfig(filename=args.log, filemode="w", level=INFO)
 
     default_dataset_directory = Path(".", "target", "04").absolute()
     dataset_directory = getenv("TARGET_FOLDER", default=default_dataset_directory)
     makedirs(dataset_directory, exist_ok=True)
     csv_file = Path(dataset_directory, "04-find-patterns.csv")
 
-    errors = pd.DataFrame(columns=["filepath", "pattern_name", "cause"])
+    errors: List[Exception] = []
 
     with open(args.file) as input, open(csv_file, "w") as output, ProcessPool(args.jobs) as executor:
         dataset_writer = _create_dataset_writer(output)
         dataset_writer.writeheader()
 
-        filenames = [filename.rstrip() for filename in input.readlines()]
+        filenames = [filename.rstrip() for filename in input.readlines()][:10000]
         future = executor.map(_calculate_patterns_and_metrics, filenames, timeout=args.timeout)
         dataset_features = future.result()
 
@@ -214,30 +213,26 @@ if __name__ == "__main__":
             except Exception as e:
                 warning(e)
                 parsing_errors_qty += 1
-                errors.append(e, ignore_index=True)
+                if isinstance(e, FileProcessingError):
+                    errors.append(e)
 
-        if timeout_errors_qty or parsing_errors_qty:
-            print(
-                f"WARNING: There was {timeout_errors_qty} timeouts and "
-                f"{parsing_errors_qty} errors during file processing.\n"
-                f"Check {args.log} for detailed information.",
-                file=stderr,
-            )
+    if timeout_errors_qty or parsing_errors_qty:
+        print(
+            f"WARNING: There was {timeout_errors_qty} timeouts and "
+            f"{parsing_errors_qty} errors during file processing.\n"
+            f"Check {args.log} for detailed information.",
+            file=stderr,
+        )
 
-        if not errors.empty:
-            errors_dict = {}
-            pattern_names = errors.pattern_name.unique()
-            for pattern_name in pattern_names:
-                errors_dict[pattern_name] = {}
-                for filepath, cause in errors[errors.pattern_name == pattern_name][
-                    ["filepath", "cause"]
-                ].itertuples(index=False):
-                    errors_dict[pattern_name][filepath] = str(cause)
+    if len(errors) > 0:
+        errors_by_pattern = defaultdict(dict)
+        for error in errors:
+            errors_by_pattern[error.pattern_name][error.filepath] = str(error.cause)
 
-            with open(args.errors_log, "w") as errors_log:
-                json.dump(errors_dict, errors_log)
+        with open(args.errors_log, "w") as errors_log:
+            json.dump(errors_by_pattern, errors_log)
 
-            print(
-                f"WARNING: All errors grouped by pattern/metrec name ind written to {args.errors_log}",
-                file=stderr,
-            )
+        print(
+            f"WARNING: All errors grouped by pattern/metric name ind written to {args.errors_log}",
+            file=stderr,
+        )
