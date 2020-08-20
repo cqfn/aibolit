@@ -196,7 +196,7 @@ if __name__ == "__main__":
         dataset_writer = _create_dataset_writer(output)
         dataset_writer.writeheader()
 
-        filenames = [filename.rstrip() for filename in input.readlines()][:10000]
+        filenames = [filename.rstrip() for filename in input.readlines()]
         future = executor.map(_calculate_patterns_and_metrics, filenames, timeout=args.timeout)
         dataset_features = future.result()
 
