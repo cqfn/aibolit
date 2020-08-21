@@ -726,7 +726,7 @@ def handle_exclude_command_line(args):
     full_path_to_exclude = Path(os.getcwd(), folders_to_exclude) if folders_to_exclude else None
     glob_patterns = args.exclude_glob
     for glob_p in glob_patterns:
-        files_to_exclude.extend([str(x.absolute()) for x in list(Path(full_path_to_exclude).glob(glob_p))])
+        files_to_exclude.extend([str(x.absolute()) for x in Path(full_path_to_exclude).glob(glob_p)])
 
     return files_to_exclude
 
