@@ -601,7 +601,7 @@ def get_exit_code(results):
 def create_text(results, full_report, is_long=False):
     importances_for_all_classes = []
     buffer = []
-    unique_patterns = set()
+    total_patterns = 0
     if not full_report:
         buffer.append('Show pattern with the largest contribution to Cognitive Complexity')
     else:
@@ -621,32 +621,25 @@ def create_text(results, full_report, is_long=False):
             buffer.append(output_string)
         elif results_item and not ex:
             # get unique patterns score
-            for i, component in enumerate(results_item):
-                pattern_number = 0
-                patterns_scores = print_total_score_for_file(importances_for_all_classes, component)
-                patterns_number = len(patterns_scores)
-                cur_pattern_name = ''
-                for pattern_item in component:
-                    pattern_score = pattern_item.get('importance')
-                    code = pattern_item.get('pattern_code')
-                    if code:
-                        unique_patterns.add(code)
-                        pattern_name_str = pattern_item.get('pattern_name')
-                        if cur_pattern_name != pattern_name_str:
-                            pattern_number += 1
-                            cur_pattern_name = pattern_name_str
-                        buffer.append('{} {} comp [{}]: {} ({}: {:.2f} {}/{})'.format(
-                            filename,
-                            i,
-                            pattern_item.get('code_line'),
-                            pattern_name_str,
-                            code,
-                            pattern_score,
-                            pattern_number,
-                            patterns_number))
+            pattern_number = 0
+            cur_pattern_name = ''
+            for pattern_item in result_for_file['results']:
+                pattern_score = pattern_item.get('importance')
+                code = pattern_item.get('pattern_code')
+                if code:
+                    pattern_name_str = pattern_item.get('pattern_name')
+                    if cur_pattern_name != pattern_name_str:
+                        pattern_number += 1
+                        cur_pattern_name = pattern_name_str
+                    buffer.append('{}[{}]: {} ({}: {:.2f})'.format(
+                        filename,
+                        pattern_item.get('code_line'),
+                        pattern_name_str,
+                        code,
+                        pattern_score))
 
+            total_patterns += pattern_number
     if importances_for_all_classes:
-        total_patterns = len(unique_patterns)
         show_summary(buffer, importances_for_all_classes, is_long, results, total_patterns)
 
     return buffer
@@ -680,13 +673,16 @@ def show_summary(buffer, importances_for_all_classes, is_long, results, total_pa
 
 
 def print_total_score_for_file(
+        buffer: List[str],
+        filename: str,
         importances_for_all_classes: List[int],
         result_for_file):
     patterns_scores = {}
-    for x in result_for_file:
+    for x in result_for_file['results']:
         patterns_scores[x['pattern_name']] = x['importance']
     importances_for_class = sum(patterns_scores.values())
     importances_for_all_classes.append(importances_for_class)
+    buffer.append('{} score: {}'.format(filename, importances_for_class))
     return patterns_scores
 
 
@@ -766,7 +762,6 @@ def check():
             tree = root.getroottree()
             tree.write(stdout.buffer, pretty_print=True)
         else:
-            new_results = []
             if args.format in ['compact', 'short']:
                 new_results = format_converter_for_pattern(results)
             elif args.format == 'long':
@@ -803,17 +798,19 @@ def handle_exclude_command_line(args):
     return files_to_exclude
 
 
+
 def format_converter_for_pattern(results, sorted_by=None):
     """
     Reformat data where data are sorted by patterns importance
     (it is already sorted in the input).
     Then lines are sorted in ascending order.
     """
+    total_patterns_list = []
     for file in results:
         components = file.get('results')
         if components:
-            new_results = []
-            for component in components:
+            all_results = {}
+            for i, component in enumerate(components):
                 new_items = flatten([
                     [{'pattern_code': x['pattern_code'],
                       'pattern_name': x['pattern_name'],
@@ -822,11 +819,26 @@ def format_converter_for_pattern(results, sorted_by=None):
                       } for line in sorted(x['code_lines'])] for x in component
                 ])
                 if not sorted_by:
-                    new_results.append(sorted(new_items, key=lambda e: (-e['importance'], e['pattern_code'], e['code_line'])))
+                    all_results[i] = sorted(new_items, key=lambda e: (-e['importance'], e['pattern_code'], e['code_line']))
                 else:
-                    new_results.append(sorted(new_items, key=operator.itemgetter(sorted_by, 'pattern_code')))
+                    all_results[i] = new_items
 
-            file['results'] = new_results
+        if not sorted_by:
+            # iterate over all components, get 1st importance for 1st component,
+            # then 1st importance for 2nd component, etc.
+            while len(all_results) > 0:
+                for idx in list(all_results):
+                    componet_res = all_results[idx]
+                    top_pattern = componet_res.pop()
+                    total_patterns_list.append(top_pattern)
+                    if not componet_res:
+                        del all_results[idx]
+        else:
+            for _, val in all_results.items():
+                total_patterns_list.extend(val)
+            total_patterns_list = sorted(total_patterns_list, key=operator.itemgetter(sorted_by, 'pattern_code'))
+
+        file['results'] = total_patterns_list
 
     return results
 
