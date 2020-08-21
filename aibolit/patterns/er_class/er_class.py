@@ -20,7 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.utils.ast_builder import build_ast
 from typing import List
 
 
@@ -44,9 +43,8 @@ class ErClass:
         'holder',
         'interceptor')
 
-    def value(self, filename: str) -> List[int]:
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        ast = AST.build_from_javalang(build_ast(filename))
         for node in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
             class_name = node.name.lower()
             if any(forbiden_word in class_name for forbiden_word in self.forbiden_words_in_class_names):

@@ -20,67 +20,111 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
+from pathlib import Path
 from unittest import TestCase
+
 from aibolit.patterns.hybrid_constructor.hybrid_constructor import HybridConstructor
+from aibolit.ast_framework import AST
+from aibolit.utils.ast_builder import build_ast
 
 
-class TestHybridConstructor(TestCase):
-    cur_dir = os.path.dirname(os.path.realpath(__file__))
-    pattern = HybridConstructor()
+class HybridConstructorTestCase(TestCase):
+    cur_dir = Path(__file__).absolute().parent
 
     def test_several(self):
-        lines = self.pattern.value(self.cur_dir + '/several.java')
+        filepath = Path(self.cur_dir, "several.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [4, 10, 20])
 
     def test_simple2(self):
-        lines = self.pattern.value(self.cur_dir + '/init_block.java')
+        filepath = Path(self.cur_dir, "init_block.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_simple22(self):
-        lines = self.pattern.value(self.cur_dir + '/init_static_block.java')
+        filepath = Path(self.cur_dir, "init_static_block.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_simple3(self):
-        lines = self.pattern.value(self.cur_dir + '/autocloseable.java')
+        filepath = Path(self.cur_dir, "autocloseable.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [4, 14, 31])
 
     def test_simple5(self):
-        lines = self.pattern.value(self.cur_dir + '/one_line_usage.java')
+        filepath = Path(self.cur_dir, "one_line_usage.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [12])
 
     def test_simple6(self):
-        lines = self.pattern.value(self.cur_dir + '/super.java')
+        filepath = Path(self.cur_dir, "super.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [12])
 
     def test_simple7(self):
-        lines = self.pattern.value(self.cur_dir + '/holy_moly_constructor.java')
+        filepath = Path(self.cur_dir, "holy_moly_constructor.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [47])
 
     def test_simple9(self):
-        lines = self.pattern.value(self.cur_dir + '/super_this.java')
+        filepath = Path(self.cur_dir, "super_this.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [15, 25, 51, 62, 76, 87, 101])
 
     def test_simple10(self):
-        lines = self.pattern.value(self.cur_dir + '/BookmarkEditCmd.java')
+        filepath = Path(self.cur_dir, "BookmarkEditCmd.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_simple11(self):
-        lines = self.pattern.value(self.cur_dir + '/ChainedBuffer.java')
+        filepath = Path(self.cur_dir, "ChainedBuffer.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_simple12(self):
-        lines = self.pattern.value(self.cur_dir + '/CliMethodExtraSections.java')
+        filepath = Path(self.cur_dir, "CliMethodExtraSections.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_simple13(self):
-        lines = self.pattern.value(self.cur_dir + '/LengthStringOrdinalSet.java')
+        filepath = Path(self.cur_dir, "LengthStringOrdinalSet.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_simple14(self):
-        lines = self.pattern.value(self.cur_dir + '/LoaderInfoHeader.java')
+        filepath = Path(self.cur_dir, "LoaderInfoHeader.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_simple15(self):
-        lines = self.pattern.value(self.cur_dir + '/OmfModuleEnd.java')
+        filepath = Path(self.cur_dir, "OmfModuleEnd.java")
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = HybridConstructor()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])

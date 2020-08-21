@@ -23,7 +23,6 @@
 from typing import List
 
 from aibolit.ast_framework import AST, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
 
 
 class ArrayAsArgument:
@@ -31,9 +30,8 @@ class ArrayAsArgument:
     Finds all methods declarations, which accept arrays as parameters.
     '''
 
-    def value(self, filename: str) -> List[int]:
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        ast = AST.build_from_javalang(build_ast(filename))
         for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION,
                                                       ASTNodeType.CONSTRUCTOR_DECLARATION):
             if any(len(parameter.type.dimensions) > 0 for parameter in method_declaration.parameters):

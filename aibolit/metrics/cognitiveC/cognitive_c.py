@@ -1,6 +1,5 @@
 from itertools import groupby
 from aibolit.ast_framework import AST, ASTNodeType
-from aibolit.ast_framework.java_package import JavaPackage
 from typing import List, Set
 import re
 
@@ -140,13 +139,10 @@ class CognitiveComplexity:
                 return extracted_name
         return ''
 
-    def value(self, filename: str) -> int:
+    def value(self, ast: AST) -> int:
         complexity = 0
-        p = JavaPackage(filename)
-        for class_name in p.java_classes:
-            tree = p.java_classes[class_name]
-            for method_set in tree.methods.values():
-                for method_ast in method_set:
-                    self.__method_name = self._get_node_name(method_ast, method_ast.root)
-                    complexity += self._get_complexity(method_ast, method_ast.root, 0)
+        for method_ast in ast.get_subtrees(ASTNodeType.METHOD_DECLARATION):
+            method_declaration_index = method_ast.get_root().node_index
+            self.__method_name = self._get_node_name(method_ast, method_declaration_index)
+            complexity += self._get_complexity(method_ast, method_declaration_index, 0)
         return complexity

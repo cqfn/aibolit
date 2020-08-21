@@ -21,7 +21,6 @@
 # SOFTWARE.
 
 from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.utils.ast_builder import build_ast
 from typing import List
 from aibolit.ast_framework.ast_node import ASTNode
 
@@ -45,10 +44,9 @@ class RedundantCatch:
         return [try_node.line for try_node in
                 ast.get_subtree(lambda_node).get_proxy_nodes(ASTNodeType.TRY_STATEMENT)]
 
-    def value(self, filename: str) -> List[int]:
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
         excluded_nodes: List[int] = []
-        ast = AST.build_from_javalang(build_ast(filename))
 
         for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION,
                                                       ASTNodeType.CONSTRUCTOR_DECLARATION):

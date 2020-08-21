@@ -20,36 +20,55 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
-from unittest import TestCase
-from aibolit.patterns.return_null.return_null import ReturnNull
 from pathlib import Path
+from unittest import TestCase
+
+from aibolit.patterns.return_null.return_null import ReturnNull
+from aibolit.ast_framework import AST
+from aibolit.utils.ast_builder import build_ast
 
 
-class TestMethodChain(TestCase):
-    dir_path = Path(os.path.realpath(__file__)).parent
-    method_chain_finder = ReturnNull()
+class ReturnNullPatternTestCase(TestCase):
+    current_directory = Path(__file__).absolute().parent
 
     def test_anonymous(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'Anonymous.java'))
+        filepath = self.current_directory / "Anonymous.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = ReturnNull()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [24, 28])
 
     def test_empty(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'Empty.java'))
+        filepath = self.current_directory / "Empty.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = ReturnNull()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_with_ternary1(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'With_Ternary1.java'))
+        filepath = self.current_directory / "With_Ternary1.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = ReturnNull()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [12])
 
     def test_with_ternary2(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'With_Ternary2.java'))
+        filepath = self.current_directory / "With_Ternary2.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = ReturnNull()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [12])
 
     def test_with_ternary_not_return_null(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'With_Ternary_not_return_null.java'))
+        filepath = self.current_directory / "With_Ternary_not_return_null.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = ReturnNull()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_simple(self):
-        lines = self.method_chain_finder.value(Path(self.dir_path, 'Simple.java'))
+        filepath = self.current_directory / "Simple.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = ReturnNull()
+        lines = pattern.value(ast)
         self.assertEqual(lines, [12])

@@ -20,44 +20,62 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
-from unittest import TestCase
-from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks
-from aibolit.ast_framework import ASTNodeType
 from pathlib import Path
+from unittest import TestCase
+
+from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks
+from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.utils.ast_builder import build_ast
 
 
-class TestNestedBlocks(TestCase):
-    depth_level = 2
-    cur_file_dir = Path(os.path.realpath(__file__)).parent
-    testClass = NestedBlocks(depth_level, ASTNodeType.FOR_STATEMENT)
+class NestedBlocksTestCase(TestCase):
+    current_directory = Path(__file__).absolute().parent
 
     def test_single_for_loop(self):
-        file = str(Path(self.cur_file_dir, 'SingleFor.java'))
-        self.assertEqual(self.testClass.value(file), [15, 19])
+        filepath = self.current_directory / "SingleFor.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = NestedBlocks(2, ASTNodeType.FOR_STATEMENT)
+        lines = pattern.value(ast)
+        self.assertEqual(lines, [15, 19])
 
     def test_nested_for_loops(self):
-        file = str(Path(self.cur_file_dir, 'NestedFor.java'))
-        self.assertEqual(self.testClass.value(file), [22])
+        filepath = self.current_directory / "NestedFor.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = NestedBlocks(2, ASTNodeType.FOR_STATEMENT)
+        lines = pattern.value(ast)
+        self.assertEqual(lines, [22])
 
     def test_for_loops_in_different_methods(self):
-        file = str(Path(self.cur_file_dir, 'DifferentMethods.java'))
-        self.assertEqual(self.testClass.value(file), [28])
+        filepath = self.current_directory / "DifferentMethods.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = NestedBlocks(2, ASTNodeType.FOR_STATEMENT)
+        lines = pattern.value(ast)
+        self.assertEqual(lines, [28])
 
     def test_for_loops_in_nested_class(self):
-        file = str(Path(self.cur_file_dir, 'NestedForInNestedClasses.java'))
-        self.assertEqual(self.testClass.value(file), [9])
+        filepath = self.current_directory / "NestedForInNestedClasses.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = NestedBlocks(2, ASTNodeType.FOR_STATEMENT)
+        lines = pattern.value(ast)
+        self.assertEqual(lines, [9])
 
     def test_for_loops_in_anonymous_class(self):
-        file = str(Path(self.cur_file_dir, 'ForInAnonymousFile.java'))
-        self.assertEqual(self.testClass.value(file), [19])
+        filepath = self.current_directory / "ForInAnonymousFile.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = NestedBlocks(2, ASTNodeType.FOR_STATEMENT)
+        lines = pattern.value(ast)
+        self.assertEqual(lines, [19])
 
     def test_nested_no_nested_if(self):
+        filepath = self.current_directory / "NestedNoIF.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NestedBlocks(2, ASTNodeType.IF_STATEMENT)
-        file = str(Path(self.cur_file_dir, 'NestedNoIF.java'))
-        self.assertEqual(pattern.value(file), [])
+        lines = pattern.value(ast)
+        self.assertEqual(lines, [])
 
     def test_nested_if(self):
+        filepath = self.current_directory / "NestedIF.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NestedBlocks(2, ASTNodeType.IF_STATEMENT)
-        file = str(Path(self.cur_file_dir, 'NestedIF.java'))
-        self.assertEqual(pattern.value(file), [21, 42])
+        lines = pattern.value(ast)
+        self.assertEqual(lines, [21, 42])

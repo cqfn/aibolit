@@ -124,7 +124,7 @@ def _find_fields_usage(method_ast: AST) -> Set[str]:
     for variable_declaration in method_ast.get_proxy_nodes(
         ASTNodeType.LOCAL_VARIABLE_DECLARATION
     ):
-        local_variables.update(variable_declaration.name)
+        local_variables.update(variable_declaration.names)
 
     method_declaration = method_ast.get_root()
     for parameter in method_declaration.parameters:

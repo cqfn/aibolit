@@ -20,52 +20,83 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
-from unittest import TestCase
-from aibolit.metrics.cognitiveC.cognitive_c import CognitiveComplexity
 from pathlib import Path
+from unittest import TestCase
+
+from aibolit.metrics.cognitiveC.cognitive_c import CognitiveComplexity
+from aibolit.ast_framework import AST
+from aibolit.utils.ast_builder import build_ast
 
 
-class TestCognitive(TestCase):
-    dir_path = Path(os.path.realpath(__file__)).parent
-    get_cc = CognitiveComplexity()
+class CognitiveComplexityTestCase(TestCase):
+    current_directory = Path(__file__).absolute().parent
 
     def test1(self):
-        lines = self.get_cc.value(Path(self.dir_path, '1.java'))
-        self.assertEqual(lines, 7)
+        filepath = self.current_directory / '1.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = CognitiveComplexity()
+        value = metric.value(ast)
+        self.assertEqual(value, 7)
 
     def test2(self):
-        lines = self.get_cc.value(Path(self.dir_path, '2.java'))
-        self.assertEqual(lines, 9)
+        filepath = self.current_directory / '2.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = CognitiveComplexity()
+        value = metric.value(ast)
+        self.assertEqual(value, 9)
 
     def test3(self):
-        lines = self.get_cc.value(Path(self.dir_path, '3.java'))
-        self.assertEqual(lines, 10)
+        filepath = self.current_directory / '3.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = CognitiveComplexity()
+        value = metric.value(ast)
+        self.assertEqual(value, 10)
 
     def test4(self):
-        lines = self.get_cc.value(Path(self.dir_path, '4.java'))
-        self.assertEqual(lines, 6)
+        filepath = self.current_directory / '4.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = CognitiveComplexity()
+        value = metric.value(ast)
+        self.assertEqual(value, 6)
 
     def test5(self):
-        lines = self.get_cc.value(Path(self.dir_path, '5.java'))
-        self.assertEqual(lines, 3)
+        filepath = self.current_directory / '5.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = CognitiveComplexity()
+        value = metric.value(ast)
+        self.assertEqual(value, 3)
 
     def test6(self):
-        lines = self.get_cc.value(Path(self.dir_path, '6.java'))
-        self.assertEqual(lines, 14)
+        filepath = self.current_directory / '6.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = CognitiveComplexity()
+        value = metric.value(ast)
+        self.assertEqual(value, 14)
 
     def test7(self):
-        lines = self.get_cc.value(Path(self.dir_path, 'recursion.java'))
-        self.assertEqual(lines, 6)
+        filepath = self.current_directory / 'recursion.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = CognitiveComplexity()
+        value = metric.value(ast)
+        self.assertEqual(value, 6)
 
     def test8(self):
-        lines = self.get_cc.value(Path(self.dir_path, 'nested.java'))
-        self.assertEqual(lines, 9)
+        filepath = self.current_directory / 'nested.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = CognitiveComplexity()
+        value = metric.value(ast)
+        self.assertEqual(value, 9)
 
     def test9(self):
-        lines = self.get_cc.value(Path(self.dir_path, '7.java'))
-        self.assertEqual(lines, 17)
+        filepath = self.current_directory / '7.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = CognitiveComplexity()
+        value = metric.value(ast)
+        self.assertEqual(value, 17)
 
     def test10(self):
-        lines = self.get_cc.value(Path(self.dir_path, '8.java'))
-        self.assertEqual(lines, 13)
+        filepath = self.current_directory / '8.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        metric = CognitiveComplexity()
+        value = metric.value(ast)
+        self.assertEqual(value, 13)

@@ -24,7 +24,6 @@ from typing import List
 from networkx import DiGraph, dfs_labeled_edges  # type: ignore
 
 from aibolit.types_decl import LineNumber
-from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.utils.scope_status import ScopeStatus, ScopeStatusFlags
 
@@ -35,8 +34,8 @@ class VarMiddle:
     of the method
     '''
 
-    def value(self, filename):
-        ast = AST.build_from_javalang(build_ast(filename))
+    def value(self, ast: AST):
+
         scope_status = ScopeStatus()
         lines_with_error: List[LineNumber] = []
         for _, destination, edge_type in dfs_labeled_edges(ast.tree, ast.root):

@@ -23,7 +23,6 @@
 from typing import List
 
 from aibolit.ast_framework import AST, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
 
 
 class NonFinalClass:
@@ -31,8 +30,7 @@ class NonFinalClass:
     Find all classes that are neither "final" nor "abstract".
     '''
 
-    def value(self, filename: str) -> List[int]:
-        ast = AST.build_from_javalang(build_ast(filename))
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
         for class_declaration in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
             if len(class_declaration.modifiers & NonFinalClass._allowed_class_modifiers) == 0:
