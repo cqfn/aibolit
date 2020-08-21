@@ -122,7 +122,7 @@ def _create_dataset_writer(file):
     return DictWriter(file, delimiter=";", quotechar='"', quoting=QUOTE_MINIMAL, fieldnames=fields)
 
 
-if __name__ == "__main__":
+def _parse_args():
     allowed_cores_qty = len(sched_getaffinity(0))
     system_cores_qty = cpu_count()
 
@@ -188,20 +188,25 @@ if __name__ == "__main__":
     default_dataset_directory = Path(".", "target", "04").absolute()
     dataset_directory = getenv("TARGET_FOLDER", default=default_dataset_directory)
     makedirs(dataset_directory, exist_ok=True)
-    csv_file = Path(dataset_directory, "04-find-patterns.csv")
+    args.csv_file = Path(dataset_directory, "04-find-patterns.csv")
+
+    return args
+
+
+if __name__ == "__main__":
+    args = _parse_args()
 
     errors: List[Exception] = []
+    timeout_errors_qty = 0
+    parsing_errors_qty = 0
 
-    with open(args.file) as input, open(csv_file, "w") as output, ProcessPool(args.jobs) as executor:
+    with open(args.file) as input, open(args.csv_file, "w") as output, ProcessPool(args.jobs) as executor:
         dataset_writer = _create_dataset_writer(output)
         dataset_writer.writeheader()
 
         filenames = [filename.rstrip() for filename in input.readlines()]
         future = executor.map(_calculate_patterns_and_metrics, filenames, timeout=args.timeout)
         dataset_features = future.result()
-
-        timeout_errors_qty = 0
-        parsing_errors_qty = 0
 
         for filename in tqdm(filenames):
             try:
@@ -228,6 +233,8 @@ if __name__ == "__main__":
         errors_by_pattern = defaultdict(dict)
         for error in errors:
             errors_by_pattern[error.pattern_name][error.filepath] = str(error.cause)
+
+        print(errors_by_pattern)
 
         with open(args.errors_log, "w") as errors_log:
             json.dump(errors_by_pattern, errors_log)
