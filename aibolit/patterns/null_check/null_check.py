@@ -20,7 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.utils.ast_builder import build_ast
 from typing import List
 from aibolit.ast_framework.ast_node import ASTNode
 
@@ -31,9 +30,8 @@ class NullCheck():
     (or not equals) null (except in constructor)
     it is considered a pattern.
     '''
-    def value(self, filename: str) -> List[int]:
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = list()
-        ast = AST.build_from_javalang(build_ast(filename))
         for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             for bin_operation in ast.get_subtree(method_declaration).get_proxy_nodes(ASTNodeType.BINARY_OPERATION):
                 if self._check_null(bin_operation):

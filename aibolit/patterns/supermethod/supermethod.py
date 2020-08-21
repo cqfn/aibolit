@@ -23,12 +23,10 @@
 from typing import List
 
 from aibolit.ast_framework.ast import AST, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
 
 
 class SuperMethod:
-    def value(self, filename: str) -> List[int]:
-        ast = AST.build_from_javalang(build_ast(filename))
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
         for statement in ast.get_proxy_nodes(ASTNodeType.STATEMENT_EXPRESSION):
             if any(child.node_type == ASTNodeType.SUPER_METHOD_INVOCATION
