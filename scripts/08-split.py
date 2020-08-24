@@ -4,24 +4,12 @@ from pathlib import Path
 import pandas as pd
 
 
-def preprocess_file(filename: str, ncss_falls_qty=3):
-    """
-    Reads dataset and filters it.
-    ncss_falls_qty controls maximal allowed item ncss. The large it is, the more items a kept.
-    """
-
+def preprocess_file(filename: str):
     print('reading dataset from {}'.format(filename))
     df = pd.read_csv(filename, index_col=0)
     df = df[~df["filepath"].str.lower().str.contains("test")]
     df = df.dropna().drop_duplicates(subset=df.columns.difference(["filepath", "class_name", "component_index"]))
-
-    ncss_freq = df.M2.value_counts().sort_index()
-    ncss_freq_diff = ncss_freq.diff(-1)  # use -1, because freqs are decreasing
-    max_ncss = 0
-    for _ in range(ncss_falls_qty):
-        max_ncss = ncss_freq_diff[max_ncss:].idxmax()
-
-    return df[df.M2 <= max_ncss]
+    return df
 
 
 if __name__ == '__main__':
