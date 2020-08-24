@@ -42,9 +42,7 @@ def _register_standard_nodes_filters() -> None:
     )
 
     computed_fields_registry.register(
-        nodes_filter_factory(
-            "body", ASTNodeType.CONSTRUCTOR_DECLARATION, ASTNodeType.METHOD_DECLARATION
-        ),
+        nodes_filter_factory("body", ASTNodeType.METHOD_DECLARATION),
         "methods",
         ASTNodeType.CLASS_DECLARATION,
         ASTNodeType.INTERFACE_DECLARATION,

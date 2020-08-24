@@ -57,7 +57,7 @@ public class LottieImageAsset {
   @Nullable public Bitmap getBitmap() {
     return bitmap;
   }
-
+  
   /**
    * TODO
    */

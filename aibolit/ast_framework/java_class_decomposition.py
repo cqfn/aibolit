@@ -20,49 +20,54 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List, Dict, Set, Iterator
+from typing import List, Dict, Set, Iterator, Any
 
 from networkx import DiGraph, strongly_connected_components, weakly_connected_components  # type: ignore
 
 from aibolit.ast_framework import AST, ASTNodeType
-from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
+from aibolit.patterns.classic_setter.classic_setter import ClassicSetter as setter
+from aibolit.patterns.classic_getter.classic_getter import ClassicGetter as getter
 
 
-def find_setters(tree: AST) -> Set[str]:
+def find_patterns(tree: AST, patterns: List[Any]) -> Set[str]:
     """
     Searches all setters in a component
+    :param patterns: list of patterns to check
     :param tree: ast tree
     :return: list of method name which are setters
-
     """
-    setters = set()
+
+    patterns_method_names: Set[str] = set()
     for method_declaration in tree.get_root().methods:
         method_ast = tree.get_subtree(method_declaration)
-        if is_ast_setter(method_ast):
-            setters.add(method_declaration.name)
+        for pattern in patterns:
+            if is_ast_pattern(method_ast, pattern):
+                patterns_method_names.add(method_declaration.name)
 
-    return setters
+    return patterns_method_names
 
 
-def is_ast_setter(class_ast: AST) -> bool:
+def is_ast_pattern(class_ast: AST, Pattern) -> bool:
     """
-    Is ast tree setter
+    Checks whether ast is some pattern
+    :param Pattern: pattern class
     :param class_ast: ast tree
     :return: True if it is setter, otherwise - False
     """
-    setters_number = len(ClassicSetter().value(class_ast))
-    is_setter = True if (setters_number > 0) else False
-    return is_setter
+    return len(Pattern().value(class_ast)) > 0
 
 
 def decompose_java_class(
         class_ast: AST,
         strength: str,
-        ignore_setters=False) -> List[AST]:
+        ignore_setters=False,
+        ignore_getters=False) -> List[AST]:
     """
     Splits java_class fields and methods by their usage and
     construct for each case an AST with only those fields and methods kept.
+    :param class_ast: component
     :param ignore_setters: should ignore setters
+    :param ignore_getters: should ignore getters
     :param strength: controls splitting criteria. Use "strong" or "weak"
     for splitting fields and methods by strong and weak connectivity.
     """
@@ -80,9 +85,17 @@ def decompose_java_class(
         )
 
     class_parts: List[AST] = []
+    patterns_to_ignore = []
+    if ignore_getters:
+        patterns_to_ignore.append(lambda: getter())
+    if ignore_setters:
+        patterns_to_ignore.append(lambda: setter())
+
+    prohibited_function_names = find_patterns(class_ast, patterns_to_ignore)
+
     for component in components:
-        if ignore_setters:
-            prohibited_function_names = find_setters(class_ast)
+        if ignore_setters or ignore_getters:
+            prohibited_function_names = find_patterns(class_ast)
 
         field_names = {
             usage_graph.nodes[node]["name"]
@@ -94,7 +107,7 @@ def decompose_java_class(
             for node in component
             if usage_graph.nodes[node]["type"] == "method"
         }
-        if ignore_setters:
+        if ignore_setters or ignore_getters:
             method_names = method_names.difference(prohibited_function_names)
 
         filtered = _filter_class_methods_and_fields(class_ast, field_names, method_names)
@@ -191,7 +204,6 @@ def _filter_class_methods_and_fields(
             allowed_nodes.update(node.node_index for node in field_ast)
 
     for method_declaration in class_declaration.methods:
-        # print(method_declaration.name)
         if method_declaration.name in allowed_methods_names:
             method_ast = class_ast.get_subtree(method_declaration)
             allowed_nodes.update(node.node_index for node in method_ast)
