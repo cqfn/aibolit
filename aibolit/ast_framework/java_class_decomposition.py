@@ -86,7 +86,7 @@ def decompose_java_class(
         )
 
     class_parts: List[AST] = []
-    patterns_to_ignore = []
+    patterns_to_ignore: List[Any] = []
     if ignore_getters:
         patterns_to_ignore.append(lambda: getter())
     if ignore_setters:
