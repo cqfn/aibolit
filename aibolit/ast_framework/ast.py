@@ -23,10 +23,12 @@
 from collections import namedtuple
 from itertools import islice, repeat, chain
 
-from javalang.tree import Node
-from typing import Union, Any, Set, List, Iterator, Tuple, Dict, cast
-from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
+from cached_property import cached_property
 from deprecated import deprecated  # type: ignore
+from javalang.tree import Node
+from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
+from networkx.algorithms.distance_measures import diameter  # type: ignore
+from typing import Union, Any, Set, List, Iterator, Tuple, Dict, cast
 
 from aibolit.ast_framework.ast_node_type import ASTNodeType
 from aibolit.ast_framework._auxiliary_data import javalang_to_ast_node_type, attributes_by_node_type, ASTNodeReference
@@ -107,6 +109,10 @@ class AST:
         subtree_nodes_indexes = dfs_preorder_nodes(self.tree, node.node_index)
         subtree = self.tree.subgraph(subtree_nodes_indexes)
         return AST(subtree, node.node_index)
+
+    @cached_property
+    def diameter(self) -> int:
+        return diameter(self.tree.to_undirected(as_view=True))
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
