@@ -205,7 +205,6 @@ def _filter_class_methods_and_fields(
             allowed_nodes.update(node.node_index for node in field_ast)
 
     for method_declaration in class_declaration.methods:
-        # print(method_declaration.name)
         if method_declaration.name in allowed_methods_names:
             method_ast = class_ast.get_subtree(method_declaration)
             allowed_nodes.update(node.node_index for node in method_ast)
