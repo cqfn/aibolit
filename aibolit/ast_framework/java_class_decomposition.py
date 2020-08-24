@@ -36,14 +36,14 @@ def find_patterns(tree: AST, patterns: List[Any]) -> Set[str]:
     :return: list of method name which are setters
     """
 
-    setters: Set[str] = set()
+    patterns_method_names: Set[str] = set()
     for method_declaration in tree.get_root().methods:
         method_ast = tree.get_subtree(method_declaration)
         for pattern in patterns:
             if is_ast_pattern(method_ast, pattern):
-                setters.add(method_declaration.name)
+                patterns_method_names.add(method_declaration.name)
 
-    return setters
+    return patterns_method_names
 
 
 def is_ast_pattern(class_ast: AST, Pattern) -> bool:
@@ -53,9 +53,7 @@ def is_ast_pattern(class_ast: AST, Pattern) -> bool:
     :param class_ast: ast tree
     :return: True if it is setter, otherwise - False
     """
-    setters_number = len(Pattern().value(class_ast))
-    is_setter = True if (setters_number > 0) else False
-    return is_setter
+    return len(Pattern().value(class_ast)) > 0
 
 
 def decompose_java_class(
