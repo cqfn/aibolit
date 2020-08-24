@@ -22,13 +22,13 @@
 
 import os
 from unittest import TestCase
-from aibolit.metrics.maxDiameter.max_diam_of_tree import MaxDiamOfTree
+from aibolit.metrics.max_diameter.max_diameter import MaxDiameter
 from pathlib import Path
 
 
-class TestMaxDiamOfTree(TestCase):
+class TestMaxDiameter(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
-    find_max_diam = MaxDiamOfTree()
+    find_max_diam = MaxDiameter()
 
     def test1(self):
         lines = self.find_max_diam.value(Path(self.dir_path, '1.java'))

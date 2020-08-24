@@ -7,7 +7,7 @@ from aibolit.metrics.number_variables.numVariables import NumVars as M7
 from aibolit.metrics.cognitiveC.cognitive_c import CognitiveComplexity as M4
 from aibolit.metrics.entropy.entropy import Entropy as M1
 from aibolit.metrics.lcom4.lcom4 import LCOM4 as M5
-from aibolit.metrics.maxDiameter.max_diam_of_tree import MaxDiamOfTree as M6
+from aibolit.metrics.max_diameter.max_diameter import MaxDiameter as M6
 from aibolit.metrics.ncss.ncss import NCSSMetric as M2
 from aibolit.metrics.spaces.SpaceCounter import IndentationCounter as M3
 from aibolit.metrics.NumberMethods.NumberMethods import NumberMethods as M8

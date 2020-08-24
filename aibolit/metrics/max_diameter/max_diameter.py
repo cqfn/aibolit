@@ -4,7 +4,7 @@ from javalang.tree import MethodDeclaration, ClassDeclaration
 from typing import Type
 
 
-class MaxDiamOfTree:
+class MaxDiameter:
     '''
     Returns max diameter for each method.
     This value is sum of Height of highest two subtree + 1
