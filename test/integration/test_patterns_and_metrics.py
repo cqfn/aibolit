@@ -81,8 +81,8 @@ def _check_metric(metric_info, filepath):
         )
     except Exception as exception:
         raise RuntimeError(
-            f"Error in application of the metric {metric['name']} "
-            f"with code {metric['code']} for file {filename}"
+            f"Error in application of the metric {metric_info['name']} "
+            f"with code {metric_info['code']} for file {filename}"
         ) from exception
 
 
