@@ -5,8 +5,7 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 class ClassicSetter:
     '''
-    The method's name starts with set, then goes
-    the name of the attribute. There are attributes
+    The method's name starts with set. There are attributes
     assigning in the method. Also, asserts are ignored.
     '''
     suitable_nodes: List[ASTNodeType] = [
