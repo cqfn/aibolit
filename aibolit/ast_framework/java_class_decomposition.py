@@ -92,11 +92,10 @@ def decompose_java_class(
     if ignore_setters:
         patterns_to_ignore.append(lambda: setter())
 
-    prohibited_function_names = find_patterns(class_ast, patterns_to_ignore)
+    if ignore_setters or ignore_getters:
+        prohibited_function_names = find_patterns(class_ast, patterns_to_ignore)
 
     for component in components:
-        if ignore_setters or ignore_getters:
-            prohibited_function_names = find_setters(class_ast)
 
         field_names = {
             usage_graph.nodes[node]["name"]

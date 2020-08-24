@@ -82,7 +82,6 @@ class JavaClassDecompositionTestSuite(TestCase):
             for c in components])
         return function_names
 
-
     def test_ignore_setters(self):
         function_names = self.__decompose_with_setter_functionality(ignore_setters=True)
         self.assertTrue('setSomething' not in function_names)
