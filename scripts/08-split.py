@@ -9,6 +9,7 @@ def preprocess_file(filename: str):
     df = pd.read_csv(filename, index_col=0)
     df = df[~df["filepath"].str.lower().str.contains("test")]
     df = df.dropna().drop_duplicates(subset=df.columns.difference(["filepath", "class_name", "component_index"]))
+    df = df[df.M2 < df.M2.quantile(0.99)]
     return df
 
 
