@@ -120,10 +120,24 @@ def train():
         required=False,
         default=False
     )
+    parser.add_argument(
+        "--target-metric",
+        choices=["rfc", "fanout", "diameter", "cognitive"],
+        default="cognitive",
+        help="Select target metric. Available metrics: rfc, fanout, diameter, cognitive. "
+             "Default is cognitive."
+    )
     args = parser.parse_args(sys.argv[2:])
     if not args.skip_collect_dataset:
         collect_dataset(args)
-    train_process()
+
+    metric_name_to_code = {
+        "rfc": "M9",
+        "fanout": "M10",
+        "diameter": "M6",
+        "cognitive": "M4",
+    }
+    train_process(metric_name_to_code[args.target_metric])
 
 
 def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_metric=False):

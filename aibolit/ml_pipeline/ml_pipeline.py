@@ -70,7 +70,7 @@ def collect_dataset(args):
     run_cmd(split_cmd, cur_work_dir)
 
 
-def train_process():
+def train_process(target_metric_code="M4"):
     """
     Define needed columns for dataset and run model training
     """
@@ -101,7 +101,7 @@ def train_process():
     scaled_dataset = scale_dataset(train_dataset, model.features_conf)
     dataset = scaled_dataset[only_patterns]
     print('Training model...')
-    model.fit_regressor(dataset, scaled_dataset['M4'])
+    model.fit_regressor(dataset, scaled_dataset[target_metric_code])
 
     save_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
     print('Saving model to loaded model from file {}:'.format(save_model_file))
