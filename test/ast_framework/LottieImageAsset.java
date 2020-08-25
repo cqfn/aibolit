@@ -35,6 +35,29 @@ public class LottieImageAsset {
     return width;
   }
 
+  public int getHeight() {
+    return height;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public String getFileName() {
+    return fileName;
+  }
+
+  @SuppressWarnings("unused") public String getDirName() {
+    return dirName;
+  }
+
+  /**
+   * Returns the bitmap that has been stored for this image asset if one was explicitly set.
+   */
+  @Nullable public Bitmap getBitmap() {
+    return bitmap;
+  }
+
   /**
    * TODO
    */

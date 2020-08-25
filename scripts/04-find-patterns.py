@@ -254,8 +254,6 @@ if __name__ == "__main__":
         for error in errors:
             errors_by_pattern[error.pattern_name][error.filepath] = str(error.cause)
 
-        print(errors_by_pattern)
-
         with open(args.errors_log, "w") as errors_log:
             json.dump(errors_by_pattern, errors_log)
 

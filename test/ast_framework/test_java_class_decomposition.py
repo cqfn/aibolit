@@ -75,12 +75,22 @@ class JavaClassDecompositionTestSuite(TestCase):
         components = list(decompose_java_class(
             classes_ast[0],
             "strong",
-            ignore_getters=ignore_getters)
-        )
+            ignore_setters=ignore_setters,
+            ignore_getters=ignore_getters))
         function_names = flatten([
             [x.name for x in list(c.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION))]
             for c in components])
         return function_names
+
+    def test_ignore_setters(self):
+        function_names = self.__decompose_with_setter_functionality(ignore_setters=True)
+        self.assertTrue('setSomething' not in function_names)
+        self.assertTrue('setBitmap' not in function_names)
+
+    def test_do_not_ignore_setters(self):
+        function_names = self.__decompose_with_setter_functionality(ignore_setters=False)
+        self.assertTrue('setSomething' in function_names)
+        self.assertTrue('setBitmap' in function_names)
 
     def test_ignore_getters(self):
         function_names = self.__decompose_with_setter_functionality(ignore_getters=True)
