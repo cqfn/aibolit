@@ -49,7 +49,7 @@ class FileProcessingError(RuntimeError):
         self.cause = cause
 
 
-def _calculate_patterns_and_metrics(file_path: str) -> List[Dict[str, Any]]:
+def _calculate_patterns_and_metrics(file_path: str, is_decomposition_requested: bool) -> List[Dict[str, Any]]:
     results: List[Dict[str, Any]] = []
 
     config = Config.get_patterns_config()
@@ -73,7 +73,8 @@ def _calculate_patterns_and_metrics(file_path: str) -> List[Dict[str, Any]]:
     ]
 
     for class_ast in classes_ast:
-        for index, component_ast in enumerate(decompose_java_class(class_ast, "strong")):
+        components = decompose_java_class(class_ast, "strong") if is_decomposition_requested else [class_ast]
+        for index, component_ast in enumerate(decompose_java_class(components, "strong")):
             calculation_result = {
                 "filepath": file_path,
                 "class_name": class_ast.get_root().name,
@@ -190,6 +191,20 @@ def _parse_args():
     makedirs(dataset_directory, exist_ok=True)
     args.csv_file = Path(dataset_directory, "04-find-patterns.csv")
 
+    is_decomposition_requested = getenv("LCOM_DECOMPOSITION", "True")
+    if is_decomposition_requested in {"True", "1"}:
+        args.is_decomposition_requested = True
+    elif is_decomposition_requested in {"False", "0"}:
+        args.is_decomposition_requested = False
+    else:
+        print(
+            f"WARNING: value of 'LCOM_DECOMPOSITION' environment variable {is_decomposition_requested} "
+            "is not recognized. Avaliable options are 'True', 'False', '1', '0'."
+            "Decomposition is applied by default.",
+            file=stderr,
+        )
+        args.is_decomposition_requested = True
+
     return args
 
 
@@ -205,7 +220,12 @@ if __name__ == "__main__":
         dataset_writer.writeheader()
 
         filenames = [filename.rstrip() for filename in input.readlines()]
-        future = executor.map(_calculate_patterns_and_metrics, filenames, timeout=args.timeout)
+        future = executor.map(
+            _calculate_patterns_and_metrics,
+            filenames,
+            is_decomposition_requested=args.is_decomposition_requested,
+            timeout=args.timeout,
+        )
         dataset_features = future.result()
 
         for filename in tqdm(filenames):
