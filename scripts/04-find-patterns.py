@@ -196,7 +196,7 @@ def _parse_args():
 if __name__ == "__main__":
     args = _parse_args()
 
-    errors: List[Exception] = []
+    errors: List[FileProcessingError] = []
     timeout_errors_qty = 0
     parsing_errors_qty = 0
 
