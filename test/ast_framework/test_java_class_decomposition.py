@@ -23,10 +23,7 @@ from concurrent.futures.thread import ThreadPoolExecutor
 from unittest import TestCase
 from pathlib import Path
 
-<<<<<<< HEAD
-=======
 from aibolit.__main__ import flatten
->>>>>>> master
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
 from aibolit.utils.ast_builder import build_ast
