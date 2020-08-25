@@ -23,7 +23,7 @@
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
+from aibolit.patterns.classic_getter.classic_getter import ClassicGetter
 from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast
 
@@ -31,26 +31,30 @@ from aibolit.utils.ast_builder import build_ast
 class SetterTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
-    def test_one_valid_patterns(self):
-        filepath = self.current_directory / "BaseKeyframeAnimation.java"
+    def test_no_getters(self):
+        filepath = self.current_directory / "NoGetters.java"
         ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ClassicSetter()
+        pattern = ClassicGetter()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [40])
+        self.assertEqual(lines, [])
 
-    def test_four_setter_patterns(self):
-        filepath = self.current_directory / "Configuration.java"
+    def test_fake_getter(self):
+        filepath = self.current_directory / "FakeGetter.java"
         ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ClassicSetter()
+        pattern = ClassicGetter()
         lines = pattern.value(ast)
-        self.assertEqual(lines,
-                         [902, 906, 1236, 1240, 1361, 1539, 1612, 1641, 1670,
-                          1703, 1712, 1723, 1801, 1970, 2020, 2336,
-                          2507, 3783, 3819])
+        self.assertEqual(lines, [])
 
-    def test_another_setter_patterns(self):
-        filepath = self.current_directory / "SequenceFile.java"
+    def test_long_fake_getter(self):
+        filepath = self.current_directory / "LongFake.java"
         ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ClassicSetter()
+        pattern = ClassicGetter()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [259, 744, 2849, 2855, 2861, 3127])
+        self.assertEqual(lines, [])
+
+    def test_simple(self):
+        filepath = self.current_directory / "SimpleGetter.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = ClassicGetter()
+        lines = pattern.value(ast)
+        self.assertEqual(lines, [5])
