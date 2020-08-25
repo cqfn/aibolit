@@ -24,6 +24,7 @@ from argparse import ArgumentParser
 from collections import defaultdict
 from concurrent.futures import TimeoutError
 from csv import DictWriter, QUOTE_MINIMAL
+from functools import partial
 from logging import basicConfig, INFO, warning
 from os import cpu_count, getenv, makedirs, sched_getaffinity
 from pathlib import Path
@@ -219,15 +220,16 @@ if __name__ == "__main__":
     timeout_errors_qty = 0
     parsing_errors_qty = 0
 
+    calculate_patterns_and_metrics = partial(_calculate_patterns_and_metrics, is_decomposition_requested=args.is_decomposition_requested)
+
     with open(args.file) as input, open(args.csv_file, "w") as output, ProcessPool(args.jobs) as executor:
         dataset_writer = _create_dataset_writer(output)
         dataset_writer.writeheader()
 
         filenames = [filename.rstrip() for filename in input.readlines()]
         future = executor.map(
-            _calculate_patterns_and_metrics,
+            calculate_patterns_and_metrics,
             filenames,
-            is_decomposition_requested=args.is_decomposition_requested,
             timeout=args.timeout,
         )
         dataset_features = future.result()
