@@ -11,6 +11,8 @@ from aibolit.metrics.max_diameter.max_diameter import MaxDiameter as M6
 from aibolit.metrics.ncss.ncss import NCSSMetric as M2
 from aibolit.metrics.spaces.SpaceCounter import IndentationCounter as M3
 from aibolit.metrics.NumberMethods.NumberMethods import NumberMethods as M8
+from aibolit.metrics.RFC.rfc import RFC as M9
+from aibolit.metrics.fanout.FanOut import FanOut as M10
 from aibolit.patterns.array_as_argument.array_as_argument import ArrayAsArgument as P22
 from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode as P1
 from aibolit.patterns.assign_null_finder.assign_null_finder import NullAssignment as P28
@@ -167,7 +169,9 @@ class Config(metaclass=Singleton):
                 {"name": "LCOM4", "code": "M5", "make": lambda: M5()},
                 {"name": "Max diameter of AST", "code": "M6", "make": lambda: M6()},
                 {"name": "Number of variables", "code": "M7", "make": lambda: M7()},
-                {"name": "Number of methods", "code": "M8", "make": lambda: M8()}
+                {"name": "Number of methods", "code": "M8", "make": lambda: M8()},
+                {"name": "Responce for class", "code": "M9", "make": lambda: M9()},
+                {"name": "Fan out", "code": "M10", "make": lambda: M10()},
             ],
             "target": {
 
