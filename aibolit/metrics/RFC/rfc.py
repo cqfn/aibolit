@@ -55,7 +55,7 @@ class RFC:
         invoked_methods: Set[_MethodInvocationParams] = set()
         local_methods_names: Set[str] = set()
         for class_item in class_declaration.body:
-            if class_item.node_type == ASTNodeType.METHOD_DECLARATION:
+            if isinstance(class_item, ASTNode) and class_item.node_type == ASTNodeType.METHOD_DECLARATION:
                 local_methods_names.add(class_item.name)
                 if "public" in class_item.modifiers:
                     rfc += 1
