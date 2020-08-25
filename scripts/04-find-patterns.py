@@ -73,8 +73,12 @@ def _calculate_patterns_and_metrics(file_path: str, is_decomposition_requested: 
     ]
 
     for class_ast in classes_ast:
-        components = decompose_java_class(class_ast, "strong") if is_decomposition_requested else [class_ast]
-        for index, component_ast in enumerate(decompose_java_class(components, "strong")):
+        components = (
+            decompose_java_class(class_ast, "strong", ignore_getters=True, ignore_setters=True)
+            if is_decomposition_requested
+            else [class_ast]
+        )
+        for index, component_ast in enumerate(components):
             calculation_result = {
                 "filepath": file_path,
                 "class_name": class_ast.get_root().name,
