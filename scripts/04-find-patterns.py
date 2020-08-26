@@ -42,7 +42,7 @@ from aibolit.utils.ast_builder import build_ast
 
 class FileProcessingError(RuntimeError):
     def __init__(self, filepath: str, pattern_name: str, cause: Exception):
-        super().__init__(f"Failed calculating {pattern_name} on file {filepath}.\n" f"Reason: {cause}")
+        super().__init__(f"Failed calculating {pattern_name} on file {filepath}.\nReason: {cause}")
 
         self.filepath = filepath
         self.pattern_name = pattern_name
