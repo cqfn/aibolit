@@ -54,14 +54,12 @@ class RFC:
         rfc = 0
         invoked_methods: Set[_MethodInvocationParams] = set()
         local_methods_names: Set[str] = set()
-        for class_item in class_declaration.body:
-            if isinstance(class_item, ASTNode) and class_item.node_type == ASTNodeType.METHOD_DECLARATION:
-                local_methods_names.add(class_item.name)
-                if "public" in class_item.modifiers:
-                    rfc += 1
-                    invoked_methods |= self._get_all_method_invocation_params(
-                        java_class.get_subtree(class_item)
-                    )
+        for method_ast in java_class.get_subtrees(ASTNodeType.METHOD_DECLARATION):
+            method_declaration = method_ast.get_root()
+            local_methods_names.add(method_declaration.name)
+            if "public" in method_declaration.modifiers:
+                rfc += 1
+                invoked_methods |= self._get_all_method_invocation_params(method_ast)
 
         # filter out inherited methods
         # consider local methods with name not found
@@ -75,17 +73,13 @@ class RFC:
         rfc += len(invoked_methods)
         return rfc
 
-    def _get_all_method_invocation_params(
-        self, ast: AST
-    ) -> Set[_MethodInvocationParams]:
+    def _get_all_method_invocation_params(self, ast: AST) -> Set[_MethodInvocationParams]:
         return {
             self._create_method_invocation_params(method_invocation)
             for method_invocation in ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION)
         }
 
-    def _create_method_invocation_params(
-        self, method_invocation: ASTNode
-    ) -> _MethodInvocationParams:
+    def _create_method_invocation_params(self, method_invocation: ASTNode) -> _MethodInvocationParams:
         assert method_invocation.node_type == ASTNodeType.METHOD_INVOCATION
         return _MethodInvocationParams(
             isLocal=method_invocation.qualifier is None, name=method_invocation.member
