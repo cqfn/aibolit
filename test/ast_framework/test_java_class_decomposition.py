@@ -88,7 +88,7 @@ class JavaClassDecompositionTestSuite(TestCase):
         folder = Path(__file__).parent.absolute() / "ncss"
 
         with ThreadPoolExecutor(max_workers=5) as executor:
-            result = executor.map(count_css, folder.glob("*.java"))
+            executor.map(count_css, folder.glob("*.java"))
 
     def __decompose_with_setter_functionality(self, ignore_getters=False, ignore_setters=False):
         file = str(Path(self.cur_dir, 'LottieImageAsset.java'))
