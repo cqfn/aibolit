@@ -54,7 +54,7 @@ def scale_dataset(
     metrics_codes_set = [x['code'] for x in config['metrics']]
     exclude_features = set(config['patterns_exclude']).union(set(config['metrics_exclude']))
     used_codes = set(features_conf['features_order'])
-    used_codes.add('M4')
+    used_codes.add('M4', 'M6', 'M9', 'M10')
     not_scaled_codes = set(patterns_codes_set).union(set(metrics_codes_set)).difference(used_codes).difference(
         exclude_features)
     features_not_in_config = set(df.columns).difference(not_scaled_codes).difference(used_codes)
