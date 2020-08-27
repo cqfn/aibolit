@@ -289,7 +289,7 @@ def calculate_patterns_and_metrics_with_decomposition(
             for index, component_ast in enumerate(decompose_java_class(class_ast, "strong")):
                 # print(component_ast, '============================================================')
                 result_for_component = {}
-                code_lines_dict = OrderedDict()
+                code_lines_dict: Dict[str, Any] = OrderedDict()
                 input_params = OrderedDict()  # type: ignore
 
                 for pattern_info in patterns_info:
@@ -454,11 +454,12 @@ def run_recommend_for_file(file: str, args):  # flake8: noqa
                 # ncss += input_params['M4']
                 # print('ncss comp', ncss)
                 ranked_results = create_results(
-                        input_params,
-                        code_lines_dict,
-                        args,
-                        classes_with_patterns_ignored,
-                        patterns_ignored)
+                    input_params,
+                    code_lines_dict,
+                    args,
+                    classes_with_patterns_ignored,
+                    patterns_ignored
+                )
                 if ranked_results:
                     results_list.append(ranked_results)
 
@@ -798,7 +799,6 @@ def handle_exclude_command_line(args):
     return files_to_exclude
 
 
-
 def format_converter_for_pattern(results, sorted_by=None):
     """
     Reformat data where data are sorted by patterns importance
@@ -819,7 +819,10 @@ def format_converter_for_pattern(results, sorted_by=None):
                       } for line in sorted(x['code_lines'])] for x in component
                 ])
                 if not sorted_by:
-                    all_results[i] = sorted(new_items, key=lambda e: (-e['importance'], e['pattern_code'], e['code_line']))
+                    all_results[i] = sorted(
+                        new_items,
+                        key=lambda e: (-e['importance'], e['pattern_code'], e['code_line'])
+                    )
                 else:
                     all_results[i] = new_items
 

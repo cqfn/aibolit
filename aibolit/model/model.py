@@ -6,10 +6,7 @@ import pandas as pd
 from catboost import CatBoost
 from sklearn.base import BaseEstimator
 
-from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.ast_framework.java_class_decomposition import decompose_java_class
 from aibolit.config import Config
-from aibolit.utils.ast_builder import build_ast
 
 
 def get_minimum(
@@ -310,4 +307,3 @@ class PatternRankingModel(BaseEstimator):
 
         sorted_importances = dict(sorted(importances, key=lambda x: x[1], reverse=True))
         return sorted_importances.keys(), sorted_importances.values()
-
