@@ -287,9 +287,8 @@ def calculate_patterns_and_metrics_with_decomposition(
         ]
         for class_ast in classes_ast:
             for index, component_ast in enumerate(decompose_java_class(class_ast, "strong")):
-                # print(component_ast, '============================================================')
                 result_for_component = {}
-                code_lines_dict: Dict[str, Any] = OrderedDict()
+                code_lines_dict: Dict[Any, Any] = OrderedDict()
                 input_params = OrderedDict()  # type: ignore
 
                 for pattern_info in patterns_info:
