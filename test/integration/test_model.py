@@ -35,7 +35,7 @@ def test_model_training():
     patterns = [x['code'] for x in config['patterns']]
     train_df = generate_fake_dataset()
     model.features_conf = {'features_order': patterns}
-    scaled_df = scale_dataset(train_df, model.features_conf)
+    scaled_df = scale_dataset(train_df, model.features_conf, "M4")
     start = time()
     print('Start training...')
     model.fit_regressor(scaled_df[patterns], scaled_df['M4'])

@@ -48,13 +48,14 @@ def generate_fake_dataset() -> pd.DataFrame:
 def scale_dataset(
         df: pd.DataFrame,
         features_conf: Dict[Any, Any],
+        target_metric_code: str,
         scale_ncss=True) -> pd.DataFrame:
     config = Config.get_patterns_config()
     patterns_codes_set = set([x['code'] for x in config['patterns']])
     metrics_codes_set = [x['code'] for x in config['metrics']]
     exclude_features = set(config['patterns_exclude']).union(set(config['metrics_exclude']))
     used_codes = set(features_conf['features_order'])
-    used_codes |= {'M4', 'M6', 'M9', 'M10'}
+    used_codes.add(target_metric_code)
     not_scaled_codes = set(patterns_codes_set).union(set(metrics_codes_set)).difference(used_codes).difference(
         exclude_features)
     features_not_in_config = set(df.columns).difference(not_scaled_codes).difference(used_codes)
