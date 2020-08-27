@@ -63,7 +63,7 @@ def test_train_with_selected_features():
     catboost_folder = Path(cur_file_dir, 'catboost_info')
     if catboost_folder.exists():
         shutil.rmtree(catboost_folder)
-    print('Model features: {}'.format(model.features_conf['features_order']))
+    print('Model features: {}'.format(list(model.features_conf['features_order'])))
 
 
 if __name__ == '__main__':

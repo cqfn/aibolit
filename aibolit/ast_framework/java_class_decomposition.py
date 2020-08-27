@@ -20,18 +20,56 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List, Dict, Set, Iterator
+from typing import List, Dict, Set, Iterator, Any
 
 from networkx import DiGraph, strongly_connected_components, weakly_connected_components  # type: ignore
 
 from aibolit.ast_framework import AST, ASTNodeType
 
+from aibolit.patterns.classic_setter.classic_setter import ClassicSetter as setter
+from aibolit.patterns.classic_getter.classic_getter import ClassicGetter as getter
 
-def decompose_java_class(class_ast: AST, strength: str) -> List[AST]:
+
+def find_patterns(tree: AST, patterns: List[Any]) -> Set[str]:
+    """
+    Searches all setters in a component
+    :param patterns: list of patterns to check
+    :param tree: ast tree
+    :return: list of method name which are setters
+    """
+
+    patterns_method_names: Set[str] = set()
+    for method_declaration in tree.get_root().methods:
+        method_ast = tree.get_subtree(method_declaration)
+        for pattern in patterns:
+            if is_ast_pattern(method_ast, pattern):
+                patterns_method_names.add(method_declaration.name)
+
+    return patterns_method_names
+
+
+def is_ast_pattern(class_ast: AST, Pattern) -> bool:
+    """
+    Checks whether ast is some pattern
+    :param Pattern: pattern class
+    :param class_ast: ast tree
+    :return: True if it is setter, otherwise - False
+    """
+    return len(Pattern().value(class_ast)) > 0
+
+
+def decompose_java_class(
+        class_ast: AST,
+        strength: str,
+        ignore_setters=False,
+        ignore_getters=False) -> List[AST]:
     """
     Splits java_class fields and methods by their usage and
     construct for each case an AST with only those fields and methods kept.
-    Use "strength" parameter to control splitting criteria. Use "strong" or "weak"
+    :param class_ast: component
+    :param ignore_getters: should ignore getters
+    :param ignore_setters: should ignore setters
+    :param strength: controls splitting criteria. Use "strong" or "weak"
     for splitting fields and methods by strong and weak connectivity.
     """
 
@@ -48,21 +86,35 @@ def decompose_java_class(class_ast: AST, strength: str) -> List[AST]:
         )
 
     class_parts: List[AST] = []
+    patterns_to_ignore: List[Any] = []
+    if ignore_getters:
+        patterns_to_ignore.append(lambda: getter())
+    if ignore_setters:
+        patterns_to_ignore.append(lambda: setter())
+
+    if ignore_setters or ignore_getters:
+        prohibited_function_names = find_patterns(class_ast, patterns_to_ignore)
+
     for component in components:
+
         field_names = {
             usage_graph.nodes[node]["name"]
             for node in component
             if usage_graph.nodes[node]["type"] == "field"
         }
-
         method_names = {
             usage_graph.nodes[node]["name"]
             for node in component
             if usage_graph.nodes[node]["type"] == "method"
         }
 
+        if ignore_setters or ignore_getters:
+            method_names = method_names.difference(prohibited_function_names)
+
+        filtered = _filter_class_methods_and_fields(class_ast, field_names, method_names)
+
         class_parts.append(
-            _filter_class_methods_and_fields(class_ast, field_names, method_names)
+            filtered
         )
 
     return class_parts
@@ -122,7 +174,7 @@ def _find_local_method_invocations(method_ast: AST) -> Set[str]:
 def _find_fields_usage(method_ast: AST) -> Set[str]:
     local_variables: Set[str] = set()
     for variable_declaration in method_ast.get_proxy_nodes(
-        ASTNodeType.LOCAL_VARIABLE_DECLARATION
+            ASTNodeType.LOCAL_VARIABLE_DECLARATION
     ):
         local_variables.update(variable_declaration.names)
 
@@ -140,9 +192,9 @@ def _find_fields_usage(method_ast: AST) -> Set[str]:
 
 
 def _filter_class_methods_and_fields(
-    class_ast: AST,
-    allowed_fields_names: Set[str],
-    allowed_methods_names: Set[str]
+        class_ast: AST,
+        allowed_fields_names: Set[str],
+        allowed_methods_names: Set[str]
 ) -> AST:
     class_declaration = class_ast.get_root()
     allowed_nodes = {class_declaration.node_index}

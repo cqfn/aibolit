@@ -24,6 +24,7 @@ from argparse import ArgumentParser
 from collections import defaultdict
 from concurrent.futures import TimeoutError
 from csv import DictWriter, QUOTE_MINIMAL
+from functools import partial
 from logging import basicConfig, INFO, warning
 from os import cpu_count, getenv, makedirs, sched_getaffinity
 from pathlib import Path
@@ -49,7 +50,7 @@ class FileProcessingError(RuntimeError):
         self.cause = cause
 
 
-def _calculate_patterns_and_metrics(file_path: str) -> List[Dict[str, Any]]:
+def _calculate_patterns_and_metrics(file_path: str, is_decomposition_requested: bool) -> List[Dict[str, Any]]:
     results: List[Dict[str, Any]] = []
 
     config = Config.get_patterns_config()
@@ -73,7 +74,12 @@ def _calculate_patterns_and_metrics(file_path: str) -> List[Dict[str, Any]]:
     ]
 
     for class_ast in classes_ast:
-        for index, component_ast in enumerate(decompose_java_class(class_ast, "strong")):
+        components = (
+            decompose_java_class(class_ast, "strong", ignore_getters=True, ignore_setters=True)
+            if is_decomposition_requested
+            else [class_ast]
+        )
+        for index, component_ast in enumerate(components):
             calculation_result = {
                 "filepath": file_path,
                 "class_name": class_ast.get_root().name,
@@ -190,22 +196,40 @@ def _parse_args():
     makedirs(dataset_directory, exist_ok=True)
     args.csv_file = Path(dataset_directory, "04-find-patterns.csv")
 
+    is_decomposition_requested = getenv("LCOM_DECOMPOSITION", "True")
+    if is_decomposition_requested in {"True", "1"}:
+        args.is_decomposition_requested = True
+    elif is_decomposition_requested in {"False", "0"}:
+        args.is_decomposition_requested = False
+    else:
+        print(
+            f"WARNING: value of 'LCOM_DECOMPOSITION' environment variable {is_decomposition_requested} "
+            "is not recognized. Avaliable options are 'True', 'False', '1', '0'."
+            "Decomposition is applied by default.",
+            file=stderr,
+        )
+        args.is_decomposition_requested = True
+
     return args
 
 
 if __name__ == "__main__":
     args = _parse_args()
 
-    errors: List[Exception] = []
+    errors: List[FileProcessingError] = []
     timeout_errors_qty = 0
     parsing_errors_qty = 0
+
+    calculate_patterns_and_metrics = partial(
+        _calculate_patterns_and_metrics, is_decomposition_requested=args.is_decomposition_requested
+    )
 
     with open(args.file) as input, open(args.csv_file, "w") as output, ProcessPool(args.jobs) as executor:
         dataset_writer = _create_dataset_writer(output)
         dataset_writer.writeheader()
 
         filenames = [filename.rstrip() for filename in input.readlines()]
-        future = executor.map(_calculate_patterns_and_metrics, filenames, timeout=args.timeout)
+        future = executor.map(calculate_patterns_and_metrics, filenames, timeout=args.timeout,)
         dataset_features = future.result()
 
         for filename in tqdm(filenames):
@@ -233,8 +257,6 @@ if __name__ == "__main__":
         errors_by_pattern = defaultdict(dict)
         for error in errors:
             errors_by_pattern[error.pattern_name][error.filepath] = str(error.cause)
-
-        print(errors_by_pattern)
 
         with open(args.errors_log, "w") as errors_log:
             json.dump(errors_by_pattern, errors_log)

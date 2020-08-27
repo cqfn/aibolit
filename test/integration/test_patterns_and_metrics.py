@@ -42,7 +42,7 @@ PATTERNS_ACCEPT_FILE_PATH = {
     "P20_11",  # P20* wasn't refactored yet
     "P28",  # patterns based on text cannot accept arbitrary AST
 }
-METRICS_ACCEPT_FILE_PATH = {"M1", "M3_1", "M3_2", "M3_3", "M3_4", "M5", "M6", "M7"}
+METRICS_ACCEPT_FILE_PATH = {"M1", "M3_1", "M3_2", "M3_3", "M3_4", "M5", "M7"}
 
 samples_path = Path(__file__).absolute().parent / "samples"
 
@@ -81,8 +81,8 @@ def _check_metric(metric_info, filepath):
         )
     except Exception as exception:
         raise RuntimeError(
-            f"Error in application of the metric {metric['name']} "
-            f"with code {metric['code']} for file {filename}"
+            f"Error in application of the metric {metric_info['name']} "
+            f"with code {metric_info['code']} for file {filename}"
         ) from exception
 
 
