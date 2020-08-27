@@ -23,10 +23,10 @@
 from collections import namedtuple
 from itertools import islice, repeat, chain
 
-from javalang.tree import Node
-from typing import Union, Any, Set, List, Iterator, Tuple, Dict, cast
-from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
 from deprecated import deprecated  # type: ignore
+from javalang.tree import Node
+from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
+from typing import Union, Any, Callable, Set, List, Iterator, Tuple, Dict, cast, Optional
 
 from aibolit.ast_framework.ast_node_type import ASTNodeType
 from aibolit.ast_framework._auxiliary_data import javalang_to_ast_node_type, attributes_by_node_type, ASTNodeReference
@@ -37,6 +37,8 @@ MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'm
 MemberReferenceParams = namedtuple('MemberReferenceParams', ('object_name', 'member_name', 'unary_operator'))
 
 BinaryOperationParams = namedtuple('BinaryOperationParams', ('operation', 'left_side', 'right_side'))
+
+TraverseCallback = Callable[[ASTNode], None]
 
 
 class AST:
@@ -107,6 +109,23 @@ class AST:
         subtree_nodes_indexes = dfs_preorder_nodes(self.tree, node.node_index)
         subtree = self.tree.subgraph(subtree_nodes_indexes)
         return AST(subtree, node.node_index)
+
+    def traverse(
+        self,
+        on_node_entering: TraverseCallback,
+        on_node_leaving: TraverseCallback = lambda node: None,
+        source_node: Optional[ASTNode] = None,
+        undirected=False
+    ):
+        traverse_graph = self.tree.to_undirected(as_view=True) if undirected else self.tree
+        if source_node is None:
+            source_node = self.get_root()
+
+        for _, destination, edge_type in dfs_labeled_edges(traverse_graph, source_node.node_index):
+            if edge_type == "forward":
+                on_node_entering(ASTNode(self.tree, destination))
+            elif edge_type == "reverse":
+                on_node_leaving(ASTNode(self.tree, destination))
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:

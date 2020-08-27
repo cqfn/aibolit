@@ -23,12 +23,15 @@
 from unittest import TestCase
 from pathlib import Path
 
-from aibolit.ast_framework import AST
+from aibolit.__main__ import flatten
+from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
 from aibolit.utils.ast_builder import build_ast
 
 
 class JavaClassDecompositionTestSuite(TestCase):
+    cur_dir = Path(__file__).absolute().parent
+
     def test_strong_decomposition(self):
         class_ast = self._get_class_ast(
             "MethodUseOtherMethodExample.java", "MethodUseOtherMethod"
@@ -60,3 +63,39 @@ class JavaClassDecompositionTestSuite(TestCase):
             raise ValueError(
                 f"File '{filename}' does not have top level class '{class_name}'."
             )
+
+    def __decompose_with_setter_functionality(self, ignore_getters=False, ignore_setters=False):
+        file = str(Path(self.cur_dir, 'LottieImageAsset.java'))
+        ast = AST.build_from_javalang(build_ast(file))
+        classes_ast = [
+            ast.get_subtree(node)
+            for node in ast.get_root().types
+            if node.node_type == ASTNodeType.CLASS_DECLARATION
+        ]
+        components = list(decompose_java_class(
+            classes_ast[0],
+            "strong",
+            ignore_setters=ignore_setters,
+            ignore_getters=ignore_getters))
+        function_names = flatten([
+            [x.name for x in list(c.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION))]
+            for c in components])
+        return function_names
+
+    def test_ignore_setters(self):
+        function_names = self.__decompose_with_setter_functionality(ignore_setters=True)
+        self.assertTrue('setSomething' not in function_names)
+        self.assertTrue('setBitmap' not in function_names)
+
+    def test_do_not_ignore_setters(self):
+        function_names = self.__decompose_with_setter_functionality(ignore_setters=False)
+        self.assertTrue('setSomething' in function_names)
+        self.assertTrue('setBitmap' in function_names)
+
+    def test_ignore_getters(self):
+        function_names = self.__decompose_with_setter_functionality(ignore_getters=True)
+        self.assertTrue('getWidth' not in function_names)
+
+    def test_do_not_ignore_getters(self):
+        function_names = self.__decompose_with_setter_functionality(ignore_getters=False)
+        self.assertTrue('getWidth' in function_names)

@@ -50,7 +50,7 @@ def test_model_training():
 def test_train_with_selected_features():
     cur_file_dir = Path(os.path.realpath(__file__)).parent
     model = PatternRankingModel()
-    selected_patterns = ['P18', 'P9', 'M2', 'M5']
+    selected_patterns = ['P18', 'P10', 'M2', 'M5']
     train_df = generate_fake_dataset()
     print('Features for the whole dataset: {}'.format(list(train_df.columns)))
     target = train_df.pop('M4')
@@ -63,7 +63,7 @@ def test_train_with_selected_features():
     catboost_folder = Path(cur_file_dir, 'catboost_info')
     if catboost_folder.exists():
         shutil.rmtree(catboost_folder)
-    print('Model features: {}'.format(model.features_conf['features_order']))
+    print('Model features: {}'.format(list(model.features_conf['features_order'])))
 
 
 if __name__ == '__main__':

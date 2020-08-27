@@ -1,5 +1,4 @@
 from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.utils.ast_builder import build_ast
 from typing import List
 from aibolit.ast_framework.ast_node import ASTNode
 
@@ -9,9 +8,8 @@ class MethodChainFind:
     Finds chained methods, i.e. foo().bar()
     """
 
-    def value(self, filename: str) -> List[int]:
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        ast = AST.build_from_javalang(build_ast(filename))
         for node in ast.get_proxy_nodes(ASTNodeType.CLASS_CREATOR,
                                         ASTNodeType.METHOD_INVOCATION,
                                         ASTNodeType.THIS):

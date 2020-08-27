@@ -20,7 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.utils.ast_builder import build_ast
 from typing import List
 
 
@@ -28,9 +27,8 @@ class NonFinalAttribute:
     '''
     return lines of non-final attributes
     '''
-    def value(self, filename: str) -> List[int]:
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        ast = AST.build_from_javalang(build_ast(filename))
         for field in ast.get_proxy_nodes(ASTNodeType.FIELD_DECLARATION):
             if 'final' not in field.modifiers:
                 lines.append(field.line)

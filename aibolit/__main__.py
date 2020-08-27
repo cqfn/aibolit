@@ -50,6 +50,7 @@ from aibolit.config import Config
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
 from aibolit.utils.ast_builder import build_ast
 from javalang.parser import JavaSyntaxError
+from aibolit.ast_framework import AST
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -138,7 +139,8 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
     """
     acronym = value_dict['code']
     try:
-        val = value_dict['make']().value(java_file)
+        ast = AST.build_from_javalang(build_ast(java_file))
+        val = value_dict['make']().value(ast)
         if not is_metric:
             input_params[acronym] = len(val)
             code_lines_dict['lines_' + acronym] = val
