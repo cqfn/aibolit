@@ -666,24 +666,14 @@ def check():
         default=[],
         help='Suppress certain patterns (comma separated value)'
     )
-
-    exclude_group = parser.add_argument_group('exclude options')
-    exclude_group.add_argument(
-        '--exclude_glob',
+    parser.add_argument(
+        '--exclude',
+        action='append',
         nargs='+',
         default=[],
-        help='Glob folder to ignore. '
-    )
-    exclude_group.add_argument(
-        '--exclude_folder',
-        default='',
         help='Glob patterns to ignore. '
     )
     args = parser.parse_args(sys.argv[2:])
-
-    if bool(args.exclude_glob) ^ bool(args.exclude_folder):
-        print('Error: exclude_folder and exclude_glob params must be given together')
-        sys.exit(2)
 
     if args.suppress:
         args.suppress = args.suppress.strip().split(',')
@@ -723,13 +713,13 @@ def check():
 
 
 def handle_exclude_command_line(args):
-    files_to_exclude = []
-    folders_to_exclude = args.exclude_folder
-    full_path_to_exclude = Path(os.getcwd(), folders_to_exclude) if folders_to_exclude else None
-    glob_patterns = args.exclude_glob
+    files_to_exclude: List[str] = []
+    full_path_to_exclude = args.folder
+    glob_patterns = args.exclude
     for glob_p in glob_patterns:
-        files_to_exclude.extend([str(x.absolute()) for x in Path(full_path_to_exclude).glob(glob_p)])
-
+        pattern = glob_p[0]
+        files_to_exclude.extend([str(x.absolute()) for x in Path(full_path_to_exclude).glob(pattern)])
+    print("ignore:", files_to_exclude)
     return files_to_exclude
 
 
