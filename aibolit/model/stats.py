@@ -18,7 +18,7 @@ class Stats(object):
                 model = pickle.load(fid)
                 print('Model has been loaded successfully')
 
-        scaled_dataset = scale_dataset(test_csv, model.features_conf)
+        scaled_dataset = scale_dataset(test_csv, model.features_conf, "M4")
         cleaned_dataset = scaled_dataset[model.features_conf['features_order'] + ['M2']]
         ranked, _, acts_complexity, acts = Stats.check_impact(
             cleaned_dataset.values,

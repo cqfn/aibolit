@@ -70,7 +70,7 @@ def collect_dataset(args):
     run_cmd(split_cmd, cur_work_dir)
 
 
-def train_process():
+def train_process(target_metric_code="M4"):
     """
     Define needed columns for dataset and run model training
     """
@@ -98,10 +98,10 @@ def train_process():
     }
     model.features_conf = features_conf
     print('Scaling features...')
-    scaled_dataset = scale_dataset(train_dataset, model.features_conf)
+    scaled_dataset = scale_dataset(train_dataset, model.features_conf, target_metric_code)
     dataset = scaled_dataset[only_patterns]
     print('Training model...')
-    model.fit_regressor(dataset, scaled_dataset['M4'])
+    model.fit_regressor(dataset, scaled_dataset[target_metric_code])
 
     save_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
     print('Saving model to loaded model from file {}:'.format(save_model_file))
@@ -113,7 +113,11 @@ def train_process():
     test_dataset = pd.read_csv(Config.test_csv(), index_col=None)
     with open(load_model_file, 'rb') as fid:
         model_new = pickle.load(fid)
-        scaled_test_dataset = scale_dataset(test_dataset, model_new.features_conf).sample(n=10, random_state=17)
+        scaled_test_dataset = scale_dataset(
+            test_dataset,
+            model_new.features_conf,
+            target_metric_code
+        ).sample(n=10, random_state=17)
         print('Model has been loaded successfully')
         # add ncss, ncss is needed in informative as a  last column
         X_test = scaled_test_dataset[only_patterns + ['M2']]
