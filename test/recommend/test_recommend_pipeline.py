@@ -46,28 +46,38 @@ class TestRecommendPipeline(TestCase):
         item = {
             'filename': '1.java',
             'ncss': 100,
-            'results': [
+            'results': [[
                 {'pattern_code': 'P23',
                  'pattern_name': 'Some patterns name',
                  'code_lines': [1, 2, 4],
                  'importance': 0.10
                  }
-            ]
+            ]]
         }
         another_item = {
             'filename': 'hdd/home/jardani_jovonovich/John_wick.java',
             'ncss': 50,
             'results': [
-                {'pattern_code': 'P2',
-                 'pattern_name': 'Somebody please get this man a gun',
-                 'code_lines': [10, 100, 15000],
-                 'importance': 5.67
-                 },
-                {'pattern_code': 'P4',
-                 'pattern_name': 'New item',
-                 'code_lines': [5, 6],
-                 'importance': 5.67
-                 }
+                [{'pattern_code': 'P2',
+                  'pattern_name': 'Somebody please get this man a gun',
+                  'code_lines': [10, 100, 15000],
+                  'importance': 5.67
+                  },
+                 {'pattern_code': 'P4',
+                  'pattern_name': 'New item',
+                  'code_lines': [5, 6],
+                  'importance': 5.67
+                  }],
+                [{'pattern_code': 'P2',
+                  'pattern_name': 'Somebody please get this man a gun',
+                  'code_lines': [11, 101, 15001],
+                  'importance': 4.36
+                  },
+                 {'pattern_code': 'P4',
+                  'pattern_name': 'New item',
+                  'code_lines': [5, 6],
+                  'importance': 3.24
+                  }]
             ]
         }
         error_file = {
@@ -177,7 +187,7 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input)
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), '755f47990dc6807da14325da8a448463')
+        self.assertEqual(md5_hash.hexdigest(), '0ec2078c516a42f0f58517f58d7fa950')
 
     def test_empty_lines_format(self):
         new_mock = format_converter_for_pattern([])
@@ -190,7 +200,7 @@ class TestRecommendPipeline(TestCase):
         new_mock = format_converter_for_pattern(mock_input, 'code_line')
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), 'da937a7bae93a77321a62cfc08933808')
+        self.assertEqual(md5_hash.hexdigest(), '62c794a9fad74c64eea7eb9a5e42e4c8')
 
     def test_find_start_end_line_function(self):
         # Check start and end line for MethodDeclaration,

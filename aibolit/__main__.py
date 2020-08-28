@@ -33,7 +33,7 @@ import pickle
 import sys
 import time
 import traceback
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 from os import scandir
 from pathlib import Path
 from sys import stdout
@@ -46,11 +46,13 @@ from lxml import etree  # type: ignore
 from pkg_resources import parse_version
 
 from aibolit import __version__
+from aibolit.ast_framework.java_class_decomposition import decompose_java_class
 from aibolit.config import Config
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
 from aibolit.utils.ast_builder import build_ast
 from javalang.parser import JavaSyntaxError
-from aibolit.ast_framework import AST
+from aibolit.metrics.ncss.ncss import NCSSMetric
+from aibolit.ast_framework import AST, ASTNodeType
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -271,6 +273,65 @@ def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
     return node.position.line, max_line
 
 
+def calculate_patterns_and_metrics_with_decomposition(
+        file_path: str,
+        args):
+    error_exc = None
+    patterns_to_suppress = args.suppress
+    results_for_components = []
+
+    try:
+        config = Config.get_patterns_config()
+        patterns_info = [
+            pattern_info
+            for pattern_info in config["patterns"]
+            if pattern_info["code"] not in config["patterns_exclude"]
+        ]
+
+        metrics_info = [
+            metric_info
+            for metric_info in config["metrics"]
+            if metric_info["code"] not in config["metrics_exclude"]
+        ]
+        ast = AST.build_from_javalang(build_ast(file_path))
+        classes_ast = [
+            ast.get_subtree(node)
+            for node in ast.get_root().types
+            if node.node_type == ASTNodeType.CLASS_DECLARATION
+        ]
+        for class_ast in classes_ast:
+            for index, component_ast in enumerate(decompose_java_class(class_ast, "strong")):
+                result_for_component: Dict[Any, Any] = {}
+                code_lines_dict: Dict[Any, Any] = OrderedDict()
+                input_params = OrderedDict()  # type: ignore
+
+                for pattern_info in patterns_info:
+                    if pattern_info['code'] in config['patterns_exclude']:
+                        continue
+                    if pattern_info['code'] in patterns_to_suppress:
+                        input_params[pattern_info["code"]] = 0
+                        code_lines_dict["lines_" + pattern_info["code"]] = []
+                    else:
+                        pattern = pattern_info["make"]()
+                        pattern_result = pattern.value(component_ast)
+                        input_params[pattern_info["code"]] = len(pattern_result)
+                        code_lines_dict["lines_" + pattern_info["code"]] = pattern_result
+
+                for metric_info in metrics_info:
+                    metric = metric_info["make"]()
+                    metric_result = metric.value(component_ast)
+                    input_params[metric_info["code"]] = metric_result
+
+                result_for_component['code_lines_dict'] = code_lines_dict
+                result_for_component['input_params'] = input_params
+                result_for_component['index'] = index
+                results_for_components.append(result_for_component)
+    except Exception as ex:
+        error_exc = ex
+
+    return results_for_components, error_exc
+
+
 def calculate_patterns_and_metrics(file, args):
     code_lines_dict = input_params = {}  # type: ignore
     error_exc = None
@@ -297,7 +358,7 @@ def calculate_patterns_and_metrics(file, args):
 
 
 def inference(
-        input_params: List[int],
+        input_params: Dict[Any, Any],
         code_lines_dict,
         args):
     """
@@ -346,11 +407,12 @@ def inference(
 
 
 def create_results(
-        input_params: List[int],
+        input_params: Dict[Any, Any],
         code_lines_dict: Dict[Any, Any],
         args: argparse.Namespace,
         classes_with_patterns_ignored: List[Any],
         patterns_ignored: Dict[Any, Any]):
+
     results_list = inference(input_params, code_lines_dict, args)
     new_results: List[Any] = []
     for pattern_item in results_list:
@@ -373,6 +435,7 @@ def run_recommend_for_file(file: str, args):  # flake8: noqa
     :return: dict with code lines, filename and pattern name
     """
     java_file = str(Path(os.getcwd(), file))
+    ncss = 0
     try:
         tree = build_ast(file)
         classes_with_annonations = find_annotation_by_node_type(tree, javalang.tree.ClassDeclaration)
@@ -391,31 +454,33 @@ def run_recommend_for_file(file: str, args):  # flake8: noqa
             for p in patterns_list:
                 patterns_ignored[p].append([node.position.line, node.position.line])
 
-        input_params, code_lines_dict, error_exception = calculate_patterns_and_metrics(java_file, args)
+        components, error_exception = calculate_patterns_and_metrics_with_decomposition(java_file, args)
 
-        if not input_params:
-            results_list = []  # type: ignore
-            error_exception = 'Empty java file; ncss = 0'
-        #  deepcode ignore ExpectsIntDislikesStr: False positive
-        elif input_params['M2'] == 0:
+        if not components:
             results_list = []  # type: ignore
             error_exception = 'Empty java file; ncss = 0'
         else:
-            results_list = create_results(
-                input_params,
-                code_lines_dict,
-                args,
-                classes_with_patterns_ignored,
-                patterns_ignored)
+            results_list = []
+            for lcom_component in components:
+                code_lines_dict = lcom_component.get('code_lines_dict')
+                input_params = lcom_component.get('input_params')
+                # ncss += input_params['M4']
+                # print('ncss comp', ncss)
+                ranked_results = create_results(
+                    input_params,
+                    code_lines_dict,
+                    args,
+                    classes_with_patterns_ignored,
+                    patterns_ignored
+                )
+                if ranked_results:
+                    results_list.append(ranked_results)
 
+        ncss = NCSSMetric().value(AST.build_from_javalang(build_ast(file)))
     except Exception as e:
         error_exception = e
-        results_list = []
-
-    if error_exception:
         ncss = 0
-    else:
-        ncss = input_params.get('M4', 0)
+        results_list = []
 
     return {
         'filename': file,
@@ -570,8 +635,6 @@ def create_text(results, full_report, is_long=False):
             buffer.append(output_string)
         elif results_item and not ex:
             # get unique patterns score
-            patterns_scores = print_total_score_for_file(importances_for_all_classes, result_for_file)
-            patterns_number = len(patterns_scores)
             pattern_number = 0
             cur_pattern_name = ''
             for pattern_item in result_for_file['results']:
@@ -582,14 +645,12 @@ def create_text(results, full_report, is_long=False):
                     if cur_pattern_name != pattern_name_str:
                         pattern_number += 1
                         cur_pattern_name = pattern_name_str
-                    buffer.append('{}[{}]: {} ({}: {:.2f} {}/{})'.format(
+                    buffer.append('{}[{}]: {} ({}: {:.2f})'.format(
                         filename,
                         pattern_item.get('code_line'),
                         pattern_name_str,
                         code,
-                        pattern_score,
-                        pattern_number,
-                        patterns_number))
+                        pattern_score))
 
             total_patterns += pattern_number
     if importances_for_all_classes:
@@ -626,6 +687,8 @@ def show_summary(buffer, importances_for_all_classes, is_long, results, total_pa
 
 
 def print_total_score_for_file(
+        buffer: List[str],
+        filename: str,
         importances_for_all_classes: List[int],
         result_for_file):
     patterns_scores = {}
@@ -633,6 +696,7 @@ def print_total_score_for_file(
         patterns_scores[x['pattern_name']] = x['importance']
     importances_for_class = sum(patterns_scores.values())
     importances_for_all_classes.append(importances_for_class)
+    buffer.append('{} score: {}'.format(filename, importances_for_class))
     return patterns_scores
 
 
@@ -716,6 +780,7 @@ def check():
                 new_results = format_converter_for_pattern(results, 'code_line')
             else:
                 raise Exception('Unknown format')
+
             text = create_text(new_results, args.full, True)
 
             if args.format == 'short':
@@ -743,21 +808,43 @@ def format_converter_for_pattern(results, sorted_by=None):
     (it is already sorted in the input).
     Then lines are sorted in ascending order.
     """
-
+    total_patterns_list = []
     for file in results:
-        items = file.get('results')
-        if items:
-            new_items = flatten([
-                [{'pattern_code': x['pattern_code'],
-                  'pattern_name': x['pattern_name'],
-                  'code_line': line,
-                  'importance': x['importance']
-                  } for line in sorted(x['code_lines'])] for x in items
-            ])
-            if not sorted_by:
-                file['results'] = sorted(new_items, key=lambda e: (-e['importance'], e['pattern_code'], e['code_line']))
-            else:
-                file['results'] = sorted(new_items, key=operator.itemgetter(sorted_by, 'pattern_code'))
+        components = file.get('results')
+        if components:
+            all_results = {}
+            for i, component in enumerate(components):
+                new_items = flatten([
+                    [{'pattern_code': x['pattern_code'],
+                      'pattern_name': x['pattern_name'],
+                      'code_line': line,
+                      'importance': x['importance']
+                      } for line in sorted(x['code_lines'])] for x in component
+                ])
+                if not sorted_by:
+                    all_results[i] = sorted(
+                        new_items,
+                        key=lambda e: (-e['importance'], e['pattern_code'], e['code_line'])
+                    )
+                else:
+                    all_results[i] = new_items
+
+        if not sorted_by:
+            # iterate over all components, get 1st importance for 1st component,
+            # then 1st importance for 2nd component, etc.
+            while len(all_results) > 0:
+                for idx in list(all_results):
+                    componet_res = all_results[idx]
+                    top_pattern = componet_res.pop()
+                    total_patterns_list.append(top_pattern)
+                    if not componet_res:
+                        del all_results[idx]
+        else:
+            for _, val in all_results.items():
+                total_patterns_list.extend(val)
+            total_patterns_list = sorted(total_patterns_list, key=operator.itemgetter(sorted_by, 'pattern_code'))
+
+        file['results'] = total_patterns_list
 
     return results
 
