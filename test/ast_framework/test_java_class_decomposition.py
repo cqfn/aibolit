@@ -19,7 +19,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-from concurrent.futures.thread import ThreadPoolExecutor
+
 from unittest import TestCase
 from pathlib import Path
 
@@ -66,29 +66,43 @@ class JavaClassDecompositionTestSuite(TestCase):
             )
 
     def test_ncss(self):
+        test_data_folder = self.cur_dir / "ncss"
+        for filepath in test_data_folder.glob("*.java"):
+            with self.subTest(f"Testing decomposition of {filepath}"):
+                ast = AST.build_from_javalang(build_ast(filepath))
 
-        def count_css(file):
-            ast = AST.build_from_javalang(build_ast(str(file)))
-            classes_ast = [
-                ast.get_subtree(node)
-                for node in ast.get_root().types
-                if node.node_type == ASTNodeType.CLASS_DECLARATION
-            ]
-            ncss_sum = 0
-            ncss_metric = NCSSMetric()
-            for class_ast in classes_ast:
-                for component in decompose_java_class(class_ast, 'strong'):
-                    ncss = ncss_metric.value(ast=component)
-                    ncss_sum += ncss
+                classes_ast = [
+                    ast.get_subtree(node)
+                    for node in ast.get_root().types
+                    if node.node_type == ASTNodeType.CLASS_DECLARATION
+                ]
 
-            ncss_for_class = ncss_metric.value(ast=ast)
-            print(file, ncss_for_class, ncss_sum)
-            # self.assertEqual(ncss_sum, ncss_for_class)
+                ncss_metric = NCSSMetric()
 
-        folder = Path(__file__).parent.absolute() / "ncss"
+                # NCSS of a class may not be equal to sum of ncss of methods and fields
+                # due to presence of nested classes. To bypass it we calculate NCSS only
+                # of methods and fields.
+                methods_ncss = 0
+                fields_ncss = 0
+                components_ncss = 0
+                components_qty = 0
 
-        with ThreadPoolExecutor(max_workers=5) as executor:
-            executor.map(count_css, folder.glob("*.java"))
+                for class_ast in classes_ast:
+                    class_declaration = class_ast.get_root()
+
+                    for method in class_declaration.methods:
+                        methods_ncss += ncss_metric.value(class_ast.get_subtree(method))
+
+                    for field in class_declaration.fields:
+                        fields_ncss += ncss_metric.value(class_ast.get_subtree(field))
+
+                    for component in decompose_java_class(class_ast, "strong"):
+                        components_qty += 1
+                        components_ncss += ncss_metric.value(component)
+
+                # Each component has a CLASS_DECLARATION node. It increase NCSS of each component by 1.
+                # To achieve equality we add number of components to the sum of NCSS of just methods and fields.
+                self.assertEqual(methods_ncss + fields_ncss + components_qty, components_ncss)
 
     def __decompose_with_setter_functionality(self, ignore_getters=False, ignore_setters=False):
         file = str(Path(self.cur_dir, 'LottieImageAsset.java'))
