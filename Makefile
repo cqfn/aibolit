@@ -18,6 +18,7 @@ unittest:
 integrationtest:
 	python3 -m test.integration.test_patterns_and_metrics
 	python3 -m test.integration.test_model
+	python3 -m test.integration.test_semantic_extraction
 	./test/integration/test_recommend.sh
 
 install:
