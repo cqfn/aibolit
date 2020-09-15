@@ -47,17 +47,44 @@ class ExtractStatementSemanticTestCase(TestCase):
         for method_declaration in class_declaration.methods:
             with self.subTest(f"Test {method_declaration.name} method"):
                 method_semantic = extract_method_statements_semantic(ast.get_subtree(method_declaration))
+                print(method_semantic)
                 for actual_statement_semantic, expected_statement_semantic in zip_longest(
                     method_semantic.values(), self.expected_semantic[method_declaration.name]
                 ):
                     self.assertEqual(actual_statement_semantic, expected_statement_semantic)
 
     expected_semantic = {
+        "block": [variables_semantic("x")],
+        "forCycle": [variables_semantic("x", "i"), variables_semantic("x", "i")],
+        "whileCycle": [variables_semantic("x"), variables_semantic("x")],
+        "doWhileCycle": [variables_semantic("x"), variables_semantic("x")],
+        "ifBranching": [
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+        ],
+        "synchronizedBlock": [variables_semantic("x"), variables_semantic("x")],
+        "switchBranching": [
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+        ],
+        "tryBlock": [
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+        ],
         "assertStatement": [variables_semantic("x")],
         "returnStatement": [variables_semantic("x")],
         "expression": [variables_semantic("x")],
         "throwStatement": [variables_semantic("x")],
         "localVariableDeclaration": [StatementSemantic()],
+        "breakStatement": [StatementSemantic()],
+        "continueStatement": [StatementSemantic()],
         "localMethodCall": [StatementSemantic(used_methods={"localMethod"})],
         "objectMethodCall": [StatementSemantic(used_objects={"o"}, used_methods={"method"})],
         "nestedObject": [StatementSemantic(used_objects={"o"}, used_variables={"x"})],
