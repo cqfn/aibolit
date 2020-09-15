@@ -22,7 +22,7 @@
 
 
 from collections import OrderedDict
-from typing import NamedTuple, Set, Dict
+from typing import NamedTuple, Set, Dict, Iterator, Tuple
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
@@ -188,3 +188,70 @@ def extract_semantic_from_ast(statement_ast: AST) -> StatementSemantic:
     return StatementSemantic(
         used_methods=used_methods, used_objects=used_objects, used_variables=used_variables
     )
+
+
+def _print_semantic_as_text(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> None:
+    for method_ast, class_name in methods_ast_and_class_name:
+        print(f"{method_ast.get_root().name} method in {class_name} class:")
+        method_semantic = extract_method_statements_semantic(method_ast)
+        for statement, semantic in method_semantic.items():
+            print(f"\t{statement.node_type} on line {statement.line} uses:")
+
+            if len(semantic.used_variables) != 0:
+                print("\t\tVariables:")
+                for variable_name in semantic.used_variables:
+                    print("\t\t\t- " + variable_name)
+
+            if len(semantic.used_objects) != 0:
+                print("\t\tObjects:")
+                for object_name in semantic.used_objects:
+                    print("\t\t\t- " + object_name)
+
+            if len(semantic.used_methods) != 0:
+                print("\t\tMethods:")
+                for method_name in semantic.used_methods:
+                    print("\t\t\t- " + method_name)
+
+
+if __name__ == "__main__":
+    from argparse import ArgumentParser
+
+    from aibolit.utils.ast_builder import build_ast
+
+    parser = ArgumentParser(description="Extracts semantic from specified methods")
+    parser.add_argument("-f", "--file", required=True,
+                        help="File path to JAVA source code for extracting semantic")
+    parser.add_argument("-c", "--class", default=None, dest="class_name",
+                        help="Class name of method to parse, if omitted all classes are considered")
+    parser.add_argument("-m", "--method", default=None, dest="method_name",
+                        help="Method name to parse, if omitted all method are considered")
+    args = parser.parse_args()
+
+    ast = AST.build_from_javalang(build_ast(args.file))
+    classes_declarations = (
+        node for node in ast.get_root().types
+        if node.node_type == ASTNodeType.CLASS_DECLARATION
+    )
+
+    if args.class_name is not None:
+        classes_declarations = (
+            node for node in classes_declarations if node.name == args.class_name
+        )
+
+    methods_declarations = (
+        method_declaration for class_declaration in classes_declarations
+        for method_declaration in class_declaration.methods
+    )
+
+    if args.method_name is not None:
+        methods_declarations = (
+            method_declaration for method_declaration in methods_declarations
+            if method_declaration.name == args.method_name
+        )
+
+    methods_ast_and_class_name = (
+        (ast.get_subtree(method_declaration), method_declaration.parent.name)
+        for method_declaration in methods_declarations
+    )
+
+    _print_semantic_as_text(methods_ast_and_class_name)
