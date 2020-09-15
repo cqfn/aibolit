@@ -159,7 +159,7 @@ def extract_try_block_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTN
         for inner_statement in catch_clause.block:
             statements_semantic.update(extract_statement_semantic(inner_statement, method_ast))
 
-    for node in statement.finally_block:
+    for node in statement.finally_block or []:
         statements_semantic.update(extract_statement_semantic(node, method_ast))
 
     return statements_semantic
