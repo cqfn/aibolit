@@ -65,10 +65,11 @@ def extract_statement_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTN
     }:
         return extract_plain_statement_semantic(statement, method_ast)
     elif statement.node_type in {
-        ASTNodeType.BREAK_STATEMENT,
-        ASTNodeType.CONTINUE_STATEMENT,
+        ASTNodeType.BREAK_STATEMENT,  # Single keyword statement has no semantic
+        ASTNodeType.CONTINUE_STATEMENT,  # Single keyword statement has no semantic
+        ASTNodeType.CLASS_DECLARATION,  # Inner class declarations are currently not supported
     }:
-        return OrderedDict()  # This statements are only single key word and has no semantic
+        return OrderedDict()
 
     raise NotImplementedError(f"Extracting semantic from {statement.node_type} is not supported")
 
