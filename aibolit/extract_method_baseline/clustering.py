@@ -1,4 +1,4 @@
-from aibolit.extract_method_baseline.clustering_test import example
+from clustering_test import example
 from collections import Counter
 from typing import List
 from collections import OrderedDict
@@ -33,3 +33,6 @@ def SEMI_beta(dict_file: OrderedDict, mathod_len: int = 24) -> str:
         print(f'\nSTEP: {step}', clusters)
 
     return 'Done.'
+
+if __name__ == '__main__':
+    SEMI_beta(example)
