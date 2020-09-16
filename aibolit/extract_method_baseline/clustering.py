@@ -1,4 +1,4 @@
-from clustering_test import example # type: ignore
+from clustering_test import example  # type: ignore
 from collections import Counter
 from typing import List
 from collections import OrderedDict
