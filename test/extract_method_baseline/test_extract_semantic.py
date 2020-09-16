@@ -45,21 +45,90 @@ class ExtractStatementSemanticTestCase(TestCase):
         assert class_declaration.name == "SimpleMethods", "Wrong java test class"
 
         for method_declaration in class_declaration.methods:
-            with self.subTest(f"Test {method_declaration.name} method"):
+            with self.subTest(f"Test {method_declaration.name} method."):
                 method_semantic = extract_method_statements_semantic(ast.get_subtree(method_declaration))
-                for actual_statement_semantic, expected_statement_semantic in zip_longest(
-                    method_semantic.values(), self.expected_semantic[method_declaration.name]
-                ):
-                    self.assertEqual(actual_statement_semantic, expected_statement_semantic)
+                items_for_comparison = enumerate(
+                    zip_longest(
+                        method_semantic.keys(),
+                        method_semantic.values(),
+                        self.expected_semantic[method_declaration.name],
+                    )
+                )
+                for (
+                    comprassion_index,
+                    (statement, actual_statement_semantic, expected_statement_semantic),
+                ) in items_for_comparison:
+                    with self.subTest(
+                        f"Comparing {comprassion_index}th statement {repr(statement)} "
+                        f"on line {statement.line} of method {method_declaration.name}."
+                    ):
+                        self.assertEqual(actual_statement_semantic, expected_statement_semantic)
 
     expected_semantic = {
+        "block": [variables_semantic("x")],
+        "forCycle": [variables_semantic("x", "i"), variables_semantic("x", "i")],
+        "whileCycle": [variables_semantic("x"), variables_semantic("x")],
+        "doWhileCycle": [variables_semantic("x"), variables_semantic("x")],
+        "ifBranching": [
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+        ],
+        "synchronizedBlock": [variables_semantic("x"), variables_semantic("x")],
+        "switchBranching": [
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+        ],
+        "tryBlock": [
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+            variables_semantic("x"),
+        ],
         "assertStatement": [variables_semantic("x")],
         "returnStatement": [variables_semantic("x")],
         "expression": [variables_semantic("x")],
         "throwStatement": [variables_semantic("x")],
         "localVariableDeclaration": [StatementSemantic()],
+        "breakStatement": [StatementSemantic()],
+        "continueStatement": [StatementSemantic()],
         "localMethodCall": [StatementSemantic(used_methods={"localMethod"})],
         "objectMethodCall": [StatementSemantic(used_objects={"o"}, used_methods={"method"})],
         "nestedObject": [StatementSemantic(used_objects={"o"}, used_variables={"x"})],
-        "nestedObjectMethodCall": [StatementSemantic(used_objects={"o.nestedObject"}, used_methods={"method"})],
+        "nestedObjectMethodCall": [
+            StatementSemantic(used_objects={"o.nestedObject"}, used_methods={"method"})
+        ],
+        "severalStatements": [
+            StatementSemantic(),
+            variables_semantic("x"),
+            StatementSemantic(used_objects={"System.out"}, used_methods={"println"}, used_variables={"x"}),
+            variables_semantic("x"),
+        ],
+        "deepNesting": [
+            variables_semantic("i"),
+            variables_semantic("i"),
+            StatementSemantic(used_objects={"System.out"}, used_methods={"println"}, used_variables={"i"}),
+            StatementSemantic(used_objects={"System.out"}, used_methods={"println"}),
+        ],
+        "complexExpressions": [
+            StatementSemantic(),
+            StatementSemantic(),
+            StatementSemantic(
+                used_objects={"o1"}, used_methods={"method", "secondMethod"}, used_variables={"x", "y"}
+            ),
+            StatementSemantic(
+                used_objects={"o1", "o2"},
+                used_methods={"method", "thirdMethod", "fourthMethod", "temporalMethod"},
+                used_variables={"z"},
+            ),
+        ],
+        "multilineStatement": [variables_semantic("x", "y")],
+        "multipleStatementsPerLine": [
+            StatementSemantic(used_methods={"localMethod"}, used_variables={"x"}),
+            StatementSemantic(used_methods={"localMethod"}, used_variables={"y"}),
+        ],
     }

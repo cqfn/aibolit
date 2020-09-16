@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+
 from collections import OrderedDict
 from typing import NamedTuple, Set, Dict
 
@@ -64,44 +65,105 @@ def extract_statement_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTN
     }:
         return extract_plain_statement_semantic(statement, method_ast)
     elif statement.node_type in {
-        ASTNodeType.BREAK_STATEMENT,
-        ASTNodeType.CONTINUE_STATEMENT,
+        ASTNodeType.BREAK_STATEMENT,  # Single keyword statement has no semantic
+        ASTNodeType.CONTINUE_STATEMENT,  # Single keyword statement has no semantic
+        ASTNodeType.CLASS_DECLARATION,  # Inner class declarations are currently not supported
     }:
-        return OrderedDict()  # This statements are only single key word and has no semantic
+        return OrderedDict()
 
     raise NotImplementedError(f"Extracting semantic from {statement.node_type} is not supported")
 
 
 def extract_for_cycle_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
-    return OrderedDict()
+    control_subtree = method_ast.get_subtree(statement.control)
+    statements_semantic: Dict[ASTNode, StatementSemantic] = OrderedDict(
+        [(statement, extract_semantic_from_ast(control_subtree))]
+    )
+
+    statements_semantic.update(extract_statement_semantic(statement.body, method_ast))
+
+    return statements_semantic
 
 
 def extract_block_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
-    return OrderedDict()
+    statements_semantic: Dict[ASTNode, StatementSemantic] = OrderedDict()
+    for node in statement.statements:
+        statements_semantic.update(extract_statement_semantic(node, method_ast))
+
+    return statements_semantic
 
 
 def extract_while_cycle_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
-    return OrderedDict()
+    condition_subtree = method_ast.get_subtree(statement.condition)
+    statements_semantic: Dict[ASTNode, StatementSemantic] = OrderedDict(
+        [(statement, extract_semantic_from_ast(condition_subtree))]
+    )
+
+    statements_semantic.update(extract_statement_semantic(statement.body, method_ast))
+
+    return statements_semantic
 
 
 def extract_if_branching_sematic(statement: ASTNode, method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
-    return OrderedDict()
+    condition_subtree = method_ast.get_subtree(statement.condition)
+    statements_semantic: Dict[ASTNode, StatementSemantic] = OrderedDict(
+        [(statement, extract_semantic_from_ast(condition_subtree))]
+    )
+
+    statements_semantic.update(extract_statement_semantic(statement.then_statement, method_ast))
+
+    if statement.else_statement is not None:
+        statements_semantic.update(extract_statement_semantic(statement.else_statement, method_ast))
+
+    return statements_semantic
 
 
 def extract_synchronized_block_semantic(
     statement: ASTNode, method_ast: AST
 ) -> Dict[ASTNode, StatementSemantic]:
-    return OrderedDict()
+    lock_subtree = method_ast.get_subtree(statement.lock)
+    statements_semantic: Dict[ASTNode, StatementSemantic] = OrderedDict(
+        [(statement, extract_semantic_from_ast(lock_subtree))]
+    )
+
+    for inner_statement in statement.block:
+        statements_semantic.update(extract_statement_semantic(inner_statement, method_ast))
+    return statements_semantic
 
 
 def extract_switch_branching_semantic(
     statement: ASTNode, method_ast: AST
 ) -> Dict[ASTNode, StatementSemantic]:
-    return OrderedDict()
+    expression_subtree = method_ast.get_subtree(statement.expression)
+    statements_semantic: Dict[ASTNode, StatementSemantic] = OrderedDict(
+        [(statement, extract_semantic_from_ast(expression_subtree))]
+    )
+
+    for case in statement.cases:
+        for inner_statement in case.statements:
+            statements_semantic.update(extract_statement_semantic(inner_statement, method_ast))
+
+    return statements_semantic
 
 
 def extract_try_block_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
-    return OrderedDict()
+    statements_semantic: Dict[ASTNode, StatementSemantic] = OrderedDict()
+
+    for resource in statement.resources or []:
+        resource_ast = method_ast.get_subtree(resource)
+        statements_semantic[resource] = extract_semantic_from_ast(resource_ast)
+
+    for node in statement.block:
+        statements_semantic.update(extract_statement_semantic(node, method_ast))
+
+    for catch_clause in statement.catches or []:
+        for inner_statement in catch_clause.block:
+            statements_semantic.update(extract_statement_semantic(inner_statement, method_ast))
+
+    for node in statement.finally_block or []:
+        statements_semantic.update(extract_statement_semantic(node, method_ast))
+
+    return statements_semantic
 
 
 def extract_plain_statement_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
@@ -117,12 +179,11 @@ def extract_semantic_from_ast(statement_ast: AST) -> StatementSemantic:
     for node in statement_ast.get_proxy_nodes(ASTNodeType.MEMBER_REFERENCE, ASTNodeType.METHOD_INVOCATION):
         if node.node_type == ASTNodeType.MEMBER_REFERENCE:
             used_variables.add(node.member)
-            if node.qualifier is not None:
-                used_objects.add(node.qualifier)
         elif node.node_type == ASTNodeType.METHOD_INVOCATION:
             used_methods.add(node.member)
-            if node.qualifier is not None:
-                used_objects.add(node.qualifier)
+
+        if node.qualifier is not None:
+            used_objects.add(node.qualifier)
 
     return StatementSemantic(
         used_methods=used_methods, used_objects=used_objects, used_variables=used_variables
