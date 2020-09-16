@@ -1,5 +1,5 @@
 from collections import OrderedDict
-
+# flake8: noqa
 
 # example was taken from the article 
 # https://www.researchgate.net/publication/311825980_Identifying_Extract_Method_Refactoring_Opportunities_Based_on_Functional_Relevance

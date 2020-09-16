@@ -9,30 +9,31 @@ def check_is_common(dict_file, statement_1: int, statement_2: int) -> bool:
     duplicates = {element: count for element, count in joined_names.items() if count > 1}.keys()
     return len(list(duplicates)) >= 1
 
-def is_in_range(values: List[int], elem) -> bool:
+
+def is_in_range(elem: int, values: List[int]) -> bool:
     return elem >= values[0] and elem <= values[1]
+
 
 def process_statement(dict_file: OrderedDict, list_statements: List[int], step: int) -> List[List[int]]:
     clusters = []
-    for i in list_statements:
-        for j in list_statements[:i + step]:
-            if i < j and check_is_common(dict_file, i, j):
-                if len(clusters) != 0:
-                    if not is_in_range(clusters[-1], i):
-                        clusters.append([i, j])
-                    else:
-                        clusters[-1][1] = j
+    for stat_1 in list_statements:
+        for stat_2 in list_statements[:stat_1 + step]:
+            if stat_1 < stat_2 and check_is_common(dict_file, stat_2, stat_2):
+                if len(clusters) != 0 and is_in_range(stat_1, clusters[-1]):
+                    if not is_in_range(stat_2, clusters[-1]):
+                        clusters[-1][1] = stat_2
                 else:
-                    clusters.append([i, j])
+                    clusters.append([stat_1, stat_2])
     return clusters
 
-def SEMI_beta(dict_file: OrderedDict, mathod_len: int = 24) -> str:
+
+def SEMI_beta(dict_file: OrderedDict, mathod_len: int = 34) -> str:
     statements = list(dict_file.keys())
     for step in range(1, mathod_len + 1):
         clusters = process_statement(dict_file, statements, step)
         print(f'\nSTEP: {step}', clusters)
-
     return 'Done.'
+
 
 if __name__ == '__main__':
     SEMI_beta(example)
