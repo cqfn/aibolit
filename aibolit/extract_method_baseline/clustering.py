@@ -36,4 +36,6 @@ def SEMI_beta(dict_file: OrderedDict, method_len: int) -> str:
 
 
 if __name__ == '__main__':
-    SEMI_beta(example, 34)
+    method_len = 34
+    code_dict = example
+    SEMI_beta(code_dict, method_len)
