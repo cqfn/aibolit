@@ -18,7 +18,7 @@ def process_statement(dict_file: OrderedDict, list_statements: List[int], step: 
     clusters: List[List[int]] = []
     for stat_1 in list_statements:
         for stat_2 in list_statements[:stat_1 + step]:
-            if stat_1 < stat_2 and check_is_common(dict_file, stat_2, stat_2):
+            if stat_1 < stat_2 and check_is_common(dict_file, stat_1, stat_2):
                 if len(clusters) != 0 and is_in_range(stat_1, clusters[-1]):
                     if not is_in_range(stat_2, clusters[-1]):
                         clusters[-1][1] = stat_2
