@@ -41,7 +41,7 @@ def is_in_range(elem: int, values: List[int]) -> bool:
     return elem >= values[0] and elem <= values[1]
 
 
-def process_statement(dict_file: OrderedDict, list_statements: List[int], step: int) -> List[List[int]]:
+def process_statement(dict_file: OrderedDict, list_statements: List[ASTNode], step: int) -> List[List[int]]:
     clusters: List[List[int]] = []
     for stat_1 in list_statements:
         for stat_2 in list_statements[:stat_1.line + step]:
