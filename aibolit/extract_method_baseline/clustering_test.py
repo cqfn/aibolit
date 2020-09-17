@@ -29,7 +29,7 @@ example = OrderedDict([
              (22,[]),
              (23,[]),
              (24,['name', 'name.equalsIgnoreCase', 'equalsIgnoreCase']),
-             (25, ['manifests', 'rec', 'j']),
+             (25, ['manifests', 'rec', 'j', 'i']),
              (26,[]),
              (27,[]),
              (28,[]),
