@@ -55,18 +55,18 @@ class ExtractStatementSemanticTestCase(TestCase):
                     )
                 )
                 for (
-                    comprassion_index,
+                    comparison_index,
                     (statement, actual_statement_semantic, expected_statement_semantic),
                 ) in items_for_comparison:
                     with self.subTest(
-                        f"Comparing {comprassion_index}th statement {repr(statement)} "
+                        f"Comparing {comparison_index}th statement {repr(statement)} "
                         f"on line {statement.line} of method {method_declaration.name}."
                     ):
                         self.assertEqual(actual_statement_semantic, expected_statement_semantic)
 
     expected_semantic = {
         "block": [variables_semantic("x")],
-        "forCycle": [variables_semantic("x", "i"), variables_semantic("x", "i")],
+        "forCycle": [variables_semantic("x", "i"), variables_semantic("x", "i", "result")],
         "whileCycle": [variables_semantic("x"), variables_semantic("x")],
         "doWhileCycle": [variables_semantic("x"), variables_semantic("x")],
         "ifBranching": [
@@ -93,7 +93,7 @@ class ExtractStatementSemanticTestCase(TestCase):
         "returnStatement": [variables_semantic("x")],
         "expression": [variables_semantic("x")],
         "throwStatement": [variables_semantic("x")],
-        "localVariableDeclaration": [StatementSemantic()],
+        "localVariableDeclaration": [variables_semantic("x")],
         "breakStatement": [StatementSemantic()],
         "continueStatement": [StatementSemantic()],
         "localMethodCall": [StatementSemantic(used_methods={"localMethod"})],
@@ -103,7 +103,7 @@ class ExtractStatementSemanticTestCase(TestCase):
             StatementSemantic(used_objects={"o.nestedObject"}, used_methods={"method"})
         ],
         "severalStatements": [
-            StatementSemantic(),
+            variables_semantic("x"),
             variables_semantic("x"),
             StatementSemantic(used_objects={"System.out"}, used_methods={"println"}, used_variables={"x"}),
             variables_semantic("x"),
@@ -115,10 +115,10 @@ class ExtractStatementSemanticTestCase(TestCase):
             StatementSemantic(used_objects={"System.out"}, used_methods={"println"}),
         ],
         "complexExpressions": [
-            StatementSemantic(),
-            StatementSemantic(),
+            variables_semantic("x", "y"),
+            variables_semantic("o1", "o2"),
             StatementSemantic(
-                used_objects={"o1"}, used_methods={"method", "secondMethod"}, used_variables={"x", "y"}
+                used_objects={"o1"}, used_methods={"method", "secondMethod"}, used_variables={"x", "y", "z"}
             ),
             StatementSemantic(
                 used_objects={"o1", "o2"},
@@ -126,7 +126,7 @@ class ExtractStatementSemanticTestCase(TestCase):
                 used_variables={"z"},
             ),
         ],
-        "multilineStatement": [variables_semantic("x", "y")],
+        "multilineStatement": [variables_semantic("x", "y", "o")],
         "multipleStatementsPerLine": [
             StatementSemantic(used_methods={"localMethod"}, used_variables={"x"}),
             StatementSemantic(used_methods={"localMethod"}, used_variables={"y"}),

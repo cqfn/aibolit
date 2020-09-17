@@ -57,12 +57,13 @@ def _extract_statement_semantic(statement: ASTNode, method_ast: AST) -> Dict[AST
         return _extract_switch_branching_semantic(statement, method_ast)
     elif statement.node_type == ASTNodeType.TRY_STATEMENT:
         return _extract_try_block_semantic(statement, method_ast)
+    elif statement.node_type == ASTNodeType.LOCAL_VARIABLE_DECLARATION:
+        return _extract_variable_declaration_semantic(statement, method_ast)
     elif statement.node_type in {
         ASTNodeType.ASSERT_STATEMENT,
         ASTNodeType.RETURN_STATEMENT,
         ASTNodeType.STATEMENT_EXPRESSION,
         ASTNodeType.THROW_STATEMENT,
-        ASTNodeType.LOCAL_VARIABLE_DECLARATION,
     }:
         return _extract_plain_statement_semantic(statement, method_ast)
     elif statement.node_type in {
@@ -169,8 +170,11 @@ def _extract_try_block_semantic(statement: ASTNode, method_ast: AST) -> Dict[AST
 
 def _extract_variable_declaration_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
     statements_semantic = _extract_plain_statement_semantic(statement, method_ast)
-    for declorator in statement.declorators:
-        pass
+
+    for declorator in statement.declarators:
+        statements_semantic[statement].used_variables.add(declorator.name)
+
+    return statements_semantic
 
 
 def _extract_plain_statement_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
