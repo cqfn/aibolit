@@ -27,7 +27,7 @@ from typing import List
 from collections import OrderedDict
 from argparse import ArgumentParser
 from aibolit.utils.ast_builder import build_ast
-from aibolit.extract_method_baseline.extract_semantic import extract_method_statements_semantic
+from aibolit.extract_method_baseline.extract_semantic import extract_method_statements_semantic  # type: ignore
 from aibolit.ast_framework import ASTNode, AST, ASTNodeType
 
 
