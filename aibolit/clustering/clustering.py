@@ -22,12 +22,12 @@
 
 
 from collections import Counter
-from typing import List
+from typing import Iterator, Tuple, List # flake8 --ignore=F401
 from collections import OrderedDict
 from argparse import ArgumentParser
 from aibolit.utils.ast_builder import build_ast
-from aibolit.extract_method_baseline.extract_semantic import *
-from aibolit.ast_framework import ASTNode
+from aibolit.extract_method_baseline.extract_semantic import extract_method_statements_semantic
+from aibolit.ast_framework import ASTNode, AST, ASTNodeType
 
 
 def check_is_common(dict_file, statement_1: ASTNode, statement_2: ASTNode) -> bool:
@@ -53,7 +53,7 @@ def process_statement(dict_file: OrderedDict, list_statements: List[int], step: 
     return clusters
 
 
-def SEMI_beta(dict_file: OrderedDict, method_len: int) -> str:
+def SEMI_beta(dict_file: OrderedDict, method_len: int) -> dict:
     algo_step = {}
     statements = list(dict_file.keys())
     for step in range(1, method_len + 1):
@@ -71,9 +71,9 @@ def _reprocess_dict(method_semantic: OrderedDict) -> OrderedDict:
         new_values += list(method_semantic[statement].used_methods)
         reprocessed_dict.update({statement: new_values})
     return reprocessed_dict
-   
 
-def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> None:
+
+def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List:
     for method_ast, class_name in methods_ast_and_class_name:
         method_clusters = []
         method_name = method_ast.get_root().name
@@ -87,6 +87,7 @@ def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> None
         method_clusters.append((method_name, clusters))
     return method_clusters
 
+
 if __name__ == '__main__':
     parser = ArgumentParser(description="Extracts semantic from specified methods")
     parser.add_argument("-f", "--file", required=True,
@@ -97,7 +98,7 @@ if __name__ == '__main__':
                         help="Method name to parse, if omitted all method are considered")
     parser.add_argument("-v", "--verbose", default=None, dest="verbose_mode",
                         help="Mode to print clusters for each step")
-                        
+
     args = parser.parse_args()
 
     ast = AST.build_from_javalang(build_ast(args.file))

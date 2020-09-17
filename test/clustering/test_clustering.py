@@ -22,6 +22,7 @@
 
 
 from pathlib import Path
+# flake8: noqa
 from unittest import TestCase
 
 from aibolit.ast_framework import AST
