@@ -22,7 +22,8 @@
 
 
 from collections import Counter
-from typing import Iterator, Tuple, List # flake8 --ignore=F401
+from typing import Iterator, Tuple
+from typing import List
 from collections import OrderedDict
 from argparse import ArgumentParser
 from aibolit.utils.ast_builder import build_ast
