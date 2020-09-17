@@ -25,7 +25,6 @@ from collections import OrderedDict
 from typing import NamedTuple, Set, Dict, Iterator, Tuple
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
-from clustering import SEMI_beta  # type: ignore
 
 
 class StatementSemantic(NamedTuple):
