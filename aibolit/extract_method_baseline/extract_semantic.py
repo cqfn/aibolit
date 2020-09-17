@@ -20,17 +20,18 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
+from dataclasses import dataclass, field
 from collections import OrderedDict
-from typing import NamedTuple, Set, Dict, Iterator, Tuple
+from typing import Set, Dict, Iterator, Tuple
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
-class StatementSemantic(NamedTuple):
-    used_variables: Set[str] = set()
-    used_objects: Set[str] = set()
-    used_methods: Set[str] = set()
+@dataclass
+class StatementSemantic:
+    used_variables: Set[str] = field(default_factory=set)
+    used_objects: Set[str] = field(default_factory=set)
+    used_methods: Set[str] = field(default_factory=set)
 
 
 def extract_method_statements_semantic(method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
@@ -166,28 +167,29 @@ def _extract_try_block_semantic(statement: ASTNode, method_ast: AST) -> Dict[AST
     return statements_semantic
 
 
+def _extract_variable_declaration_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
+    statements_semantic = _extract_plain_statement_semantic(statement, method_ast)
+    for declorator in statement.declorators:
+        pass
+
+
 def _extract_plain_statement_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
     statement_ast = method_ast.get_subtree(statement)
     return OrderedDict([(statement, _extract_semantic_from_ast(statement_ast))])
 
 
 def _extract_semantic_from_ast(statement_ast: AST) -> StatementSemantic:
-    used_variables = set()
-    used_objects = set()
-    used_methods = set()
-
+    statement_semantic = StatementSemantic()
     for node in statement_ast.get_proxy_nodes(ASTNodeType.MEMBER_REFERENCE, ASTNodeType.METHOD_INVOCATION):
         if node.node_type == ASTNodeType.MEMBER_REFERENCE:
-            used_variables.add(node.member)
+            statement_semantic.used_variables.add(node.member)
         elif node.node_type == ASTNodeType.METHOD_INVOCATION:
-            used_methods.add(node.member)
+            statement_semantic.used_methods.add(node.member)
 
         if node.qualifier is not None:
-            used_objects.add(node.qualifier)
+            statement_semantic.used_objects.add(node.qualifier)
 
-    return StatementSemantic(
-        used_methods=used_methods, used_objects=used_objects, used_variables=used_variables
-    )
+    return statement_semantic
 
 
 def _print_semantic_as_text(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> None:
