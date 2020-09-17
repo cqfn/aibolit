@@ -24,7 +24,6 @@
 from collections import OrderedDict
 from typing import NamedTuple, Set, Dict, Iterator, Tuple, List
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
-from clustering import SEMI_beta  # type: ignore
 
 
 class StatementSemantic(NamedTuple):
@@ -190,31 +189,6 @@ def _extract_semantic_from_ast(statement_ast: AST) -> StatementSemantic:
     )
 
 
-def _reprocess_dict(method_semantic: OrderedDict) -> OrderedDict[int, List[str]]:
-    reprocessed_dict = OrderedDict([])
-    for statement in method_semantic.keys():
-        new_values = []
-        new_key = statement.line
-        new_values += list(method_semantic[statement].used_variables)
-        new_values += list(method_semantic[statement].used_objects)
-        new_values += list(method_semantic[statement].used_methods)
-        reprocessed_dict.update({new_key: new_values})
-
-    return reprocessed_dict
-
-
-def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> None:
-    for method_ast, class_name in methods_ast_and_class_name:
-        method_name = method_ast.get_root().name
-        method_semantic = extract_method_statements_semantic(method_ast)
-        reporcessed_dict = _reprocess_dict(method_semantic)
-        method_length = list(reporcessed_dict.keys())[-1]
-        print('-' * 50)
-        print('Starting algorithm for method: ', method_name)
-        print('-' * 50)
-        SEMI_beta(reporcessed_dict, method_length)
-
-
 def _print_semantic_as_text(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> None:
     for method_ast, class_name in methods_ast_and_class_name:
         print(f"{method_ast.get_root().name} method in {class_name} class:")
@@ -279,5 +253,4 @@ if __name__ == "__main__":
         for method_declaration in methods_declarations
     )
 
-    # _print_semantic_as_text(methods_ast_and_class_name)
-    _get_clusters(methods_ast_and_class_name)
+    _print_semantic_as_text(methods_ast_and_class_name)
