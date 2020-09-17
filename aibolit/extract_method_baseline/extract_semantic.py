@@ -22,7 +22,7 @@
 
 
 from collections import OrderedDict
-from typing import NamedTuple, Set, Dict, Iterator, Tuple, List, OrderedDict
+from typing import NamedTuple, Set, Dict, Iterator, Tuple, List
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 from clustering import SEMI_beta  # type: ignore
 
