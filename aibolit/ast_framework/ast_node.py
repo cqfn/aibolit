@@ -45,6 +45,14 @@ class ASTNode:
             yield ASTNode(self._graph, child_index)
 
     @property
+    def parent(self) -> Optional["ASTNode"]:
+        try:
+            parent_index = next(self._graph.predecessors(self._node_index))
+            return ASTNode(self._graph, parent_index)
+        except StopIteration:
+            return None
+
+    @property
     def node_index(self) -> int:
         return self._node_index
 
