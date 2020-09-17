@@ -57,13 +57,12 @@ def _extract_statement_semantic(statement: ASTNode, method_ast: AST) -> Dict[AST
         return _extract_switch_branching_semantic(statement, method_ast)
     elif statement.node_type == ASTNodeType.TRY_STATEMENT:
         return _extract_try_block_semantic(statement, method_ast)
-    elif statement.node_type == ASTNodeType.LOCAL_VARIABLE_DECLARATION:
-        return _extract_variable_declaration_semantic(statement, method_ast)
     elif statement.node_type in {
         ASTNodeType.ASSERT_STATEMENT,
         ASTNodeType.RETURN_STATEMENT,
         ASTNodeType.STATEMENT_EXPRESSION,
         ASTNodeType.THROW_STATEMENT,
+        ASTNodeType.LOCAL_VARIABLE_DECLARATION,
     }:
         return _extract_plain_statement_semantic(statement, method_ast)
     elif statement.node_type in {
@@ -168,30 +167,28 @@ def _extract_try_block_semantic(statement: ASTNode, method_ast: AST) -> Dict[AST
     return statements_semantic
 
 
-def _extract_variable_declaration_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
-    statements_semantic = _extract_plain_statement_semantic(statement, method_ast)
-
-    for declorator in statement.declarators:
-        statements_semantic[statement].used_variables.add(declorator.name)
-
-    return statements_semantic
-
-
-def _extract_plain_statement_semantic(statement: ASTNode, method_ast: AST) -> Dict[ASTNode, StatementSemantic]:
+def _extract_plain_statement_semantic(
+    statement: ASTNode, method_ast: AST
+) -> Dict[ASTNode, StatementSemantic]:
     statement_ast = method_ast.get_subtree(statement)
     return OrderedDict([(statement, _extract_semantic_from_ast(statement_ast))])
 
 
 def _extract_semantic_from_ast(statement_ast: AST) -> StatementSemantic:
     statement_semantic = StatementSemantic()
-    for node in statement_ast.get_proxy_nodes(ASTNodeType.MEMBER_REFERENCE, ASTNodeType.METHOD_INVOCATION):
+    for node in statement_ast.get_proxy_nodes(
+        ASTNodeType.MEMBER_REFERENCE, ASTNodeType.METHOD_INVOCATION, ASTNodeType.VARIABLE_DECLARATOR
+    ):
         if node.node_type == ASTNodeType.MEMBER_REFERENCE:
             statement_semantic.used_variables.add(node.member)
+            if node.qualifier is not None:
+                statement_semantic.used_objects.add(node.qualifier)
         elif node.node_type == ASTNodeType.METHOD_INVOCATION:
             statement_semantic.used_methods.add(node.member)
-
-        if node.qualifier is not None:
-            statement_semantic.used_objects.add(node.qualifier)
+            if node.qualifier is not None:
+                statement_semantic.used_objects.add(node.qualifier)
+        elif node.node_type == ASTNodeType.VARIABLE_DECLARATOR:
+            statement_semantic.used_variables.add(node.name)
 
     return statement_semantic
 
@@ -225,33 +222,43 @@ if __name__ == "__main__":
     from aibolit.utils.ast_builder import build_ast
 
     parser = ArgumentParser(description="Extracts semantic from specified methods")
-    parser.add_argument("-f", "--file", required=True,
-                        help="File path to JAVA source code for extracting semantic")
-    parser.add_argument("-c", "--class", default=None, dest="class_name",
-                        help="Class name of method to parse, if omitted all classes are considered")
-    parser.add_argument("-m", "--method", default=None, dest="method_name",
-                        help="Method name to parse, if omitted all method are considered")
+    parser.add_argument(
+        "-f", "--file", required=True, help="File path to JAVA source code for extracting semantic"
+    )
+    parser.add_argument(
+        "-c",
+        "--class",
+        default=None,
+        dest="class_name",
+        help="Class name of method to parse, if omitted all classes are considered",
+    )
+    parser.add_argument(
+        "-m",
+        "--method",
+        default=None,
+        dest="method_name",
+        help="Method name to parse, if omitted all method are considered",
+    )
     args = parser.parse_args()
 
     ast = AST.build_from_javalang(build_ast(args.file))
     classes_declarations = (
-        node for node in ast.get_root().types
-        if node.node_type == ASTNodeType.CLASS_DECLARATION
+        node for node in ast.get_root().types if node.node_type == ASTNodeType.CLASS_DECLARATION
     )
 
     if args.class_name is not None:
-        classes_declarations = (
-            node for node in classes_declarations if node.name == args.class_name
-        )
+        classes_declarations = (node for node in classes_declarations if node.name == args.class_name)
 
     methods_declarations = (
-        method_declaration for class_declaration in classes_declarations
+        method_declaration
+        for class_declaration in classes_declarations
         for method_declaration in class_declaration.methods
     )
 
     if args.method_name is not None:
         methods_declarations = (
-            method_declaration for method_declaration in methods_declarations
+            method_declaration
+            for method_declaration in methods_declarations
             if method_declaration.name == args.method_name
         )
 
