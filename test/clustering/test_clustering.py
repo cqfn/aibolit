@@ -21,50 +21,71 @@
 # SOFTWARE.
 
 
-from pathlib import Path
 # flake8: noqa
 from unittest import TestCase
-
-from aibolit.ast_framework import AST
-from aibolit.utils.ast_builder import build_ast
-from aibolit.extract_method_baseline.extract_semantic import (
-    extract_method_statements_semantic,
-    StatementSemantic,
-)
-from aibolit.clustering.clustering import _reprocess_dict, process_statement
+from collections import OrderedDict
+from aibolit.clustering.clustering import process_statement
 
 
 class ClusteringTestCase(TestCase):
-      current_directory = Path(__file__).absolute().parent
+      example = OrderedDict([
+             (2, []),
+             (3, ['manifests', 'rcs', 'length']), 
+             (4, ['rcs', 'length', 'i']),
+             (5, ['rec']),
+             (6, ['rcs', 'i']),
+             (7, ['rcs', 'i', 'rec', 'grabRes']),
+             # (8, ['rcs', 'i']),
+             (8, []),
+             (9, ['rcs', 'i', 'rec', 'grabNonFileSetRes']),
+             (10, []),
+             (11, ['length', 'rec', 'j']),
+             (12, ['rec', 'j', 'name', 'getName', 'replace']),
+             (13, ['rcs', 'i']),
+             (14, ['rcs', 'i', 'afs']),
+             (15, ['rcs', 'afs', 'equals', 'getFullpath', 'getProj']),
+             (16, ['name', 'afs', 'getFullpath', 'getProj']),
+             (17, ['afs', 'equals', 'getProj', 'getPref']),
+             (18, ['afs', 'getProj', 'getPref', 'pr']),
+             (19, ['pr', 'endsWith']),
+             (20,['pr']),
+             (21,[]),
+             (22,['name', 'pr']),
+             (23,[]),
+             (24,[]),
+             (25,['name', 'equalsIgnoreCase']),
+             (26, ['manifests', 'rec', 'j', 'i']),
+             (27,[]),
+             (28,[]),
+             (29,[]),
+             (30, ['manifests', 'i']),
+             (31, ['manifests', 'i']),
+             (32,[]),
+             (33,[]),
+             (34, ['manifests']),
+            ]
+           )
 
       def test_article(self):
-            ast = AST.build_from_javalang(build_ast(self.current_directory / "Article_example.java"))
-            class_declaration = ast.get_root().types[0]
-            for method_declaration in class_declaration.methods:
-                  method_ast = ast.get_subtree(method_declaration)
-                  method_name = method_ast.get_root().name
-                  method_semantic = extract_method_statements_semantic(method_ast)
-                  reporcessed_dict = _reprocess_dict(method_semantic)
-                  statements = list(reporcessed_dict.keys())
-                  method_length = list(reporcessed_dict.keys())[-1].line
+            statements = list(self.example.keys())
 
-                  self.assertEqual(process_statement(reporcessed_dict, statements, 1), 
-                  [[2, 3], [5, 8], [10, 11], [12, 19], [29, 30]], 'Error on STEP 1')
-                  
-                  self.assertEqual(process_statement(reporcessed_dict, statements, 2), 
-                  [[2, 11], [12, 21], [29, 30]], 'Error on STEP 2')
+            self.assertEqual(process_statement(self.example, statements, 1), 
+            [[3, 12], [13, 22], [30, 31]], 'Error on STEP 1')
+            
+            self.assertEqual(process_statement(self.example, statements, 2), 
+            [[3, 12], [13, 25], [30, 34]], 'Error on STEP 2')
 
-                  self.assertEqual(process_statement(reporcessed_dict, statements, 3), 
-                  [[2, 11], [12, 24], [29, 33]], 'Error on STEP 3')
+            self.assertEqual(process_statement(self.example, statements, 3), 
+            [[3, 25], [26, 34]], 'Error on STEP 3')
 
-                  self.assertEqual(process_statement(reporcessed_dict, statements, 4), 
-                  [[2, 24], [25, 33]], 'Error on STEP 4')
+            self.assertEqual(process_statement(self.example, statements, 4), 
+            [[3, 25], [26, 34]], 'Error on STEP 4')
 
-                  self.assertEqual(process_statement(reporcessed_dict, statements, 5), 
-                  [[2, 24], [25, 33]], 'Error on STEP 5')
-                  
-                  self.assertEqual(process_statement(reporcessed_dict, statements, 6), 
-                  [[2, 24], [25, 33]], 'Error on STEP 6')
+            self.assertEqual(process_statement(self.example, statements, 5), 
+            [[3, 25], [26, 34]], 'Error on STEP 5')
+            
+            self.assertEqual(process_statement(self.example, statements, 11), 
+            [[3, 34]], 'Error on STEP 11')
 
-                  self.assertEqual(process_statement(reporcessed_dict, statements, 6), 
-                  [[2, 33]], 'Error on STEP 7')
+            self.assertEqual(process_statement(self.example, statements, 12), 
+            [[3, 34]], 'Error on STEP 12')

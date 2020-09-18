@@ -22,8 +22,7 @@
 
 
 from collections import Counter
-from typing import Iterator, Tuple
-from typing import List
+from typing import Iterator, Tuple, List, Union
 from collections import OrderedDict
 from argparse import ArgumentParser
 from aibolit.utils.ast_builder import build_ast
@@ -31,7 +30,7 @@ from aibolit.extract_method_baseline.extract_semantic import extract_method_stat
 from aibolit.ast_framework import ASTNode, AST, ASTNodeType
 
 
-def check_is_common(dict_file, statement_1: ASTNode, statement_2: ASTNode) -> bool:
+def check_is_common(dict_file, statement_1: Union[int, ASTNode], statement_2: Union[int, ASTNode]) -> bool:
     joined_names: Counter = Counter(dict_file[statement_1] + dict_file[statement_2])
     duplicates = {element: count for element, count in joined_names.items() if count > 1}.keys()
     return len(list(duplicates)) >= 1
@@ -41,16 +40,18 @@ def is_in_range(elem: int, values: List[int]) -> bool:
     return elem >= values[0] and elem <= values[1]
 
 
-def process_statement(dict_file: OrderedDict, list_statements: List[ASTNode], step: int) -> List[List[int]]:
+def process_statement(dict_file: OrderedDict, list_statements: List[Union[int, ASTNode]], step: int) -> List[List[int]]:
     clusters: List[List[int]] = []
     for stat_1 in list_statements:
-        for stat_2 in list_statements[:stat_1.line + step]:
-            if stat_1.line < stat_2.line and check_is_common(dict_file, stat_1, stat_2):
-                if len(clusters) != 0 and is_in_range(stat_1.line, clusters[-1]):
-                    if not is_in_range(stat_2.line, clusters[-1]):
-                        clusters[-1][1] = stat_2.line
+        stat_1_line = stat_1 if isinstance(stat_1, int) else stat_1.line
+        for stat_2 in list_statements[:stat_1_line + step]:
+            stat_2_line = stat_2 if isinstance(stat_2, int) else stat_2.line
+            if stat_1_line < stat_2_line and check_is_common(dict_file, stat_1, stat_2):
+                if len(clusters) != 0 and is_in_range(stat_1_line, clusters[-1]):
+                    if not is_in_range(stat_2_line, clusters[-1]):
+                        clusters[-1][1] = stat_2_line
                 else:
-                    clusters.append([stat_1.line, stat_2.line])
+                    clusters.append([stat_1_line, stat_2_line])
     return clusters
 
 
@@ -80,7 +81,13 @@ def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List
         method_name = method_ast.get_root().name
         method_semantic = extract_method_statements_semantic(method_ast)
         reporcessed_dict = _reprocess_dict(method_semantic)
-        method_length = list(reporcessed_dict.keys())[-1].line
+
+        first_statement = list(reporcessed_dict.keys())[0]
+        last_statement = list(reporcessed_dict.keys())[-1]
+        first_statement = first_statement if isinstance(first_statement, int) else first_statement.line
+        last_statement = last_statement if isinstance(last_statement, int) else last_statement.line
+        method_length = last_statement - first_statement
+
         print('-' * 50)
         print('Starting algorithm for method: ', method_name)
         print('-' * 50)
