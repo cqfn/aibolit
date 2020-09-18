@@ -31,10 +31,10 @@ from aibolit.ast_framework import ASTNode, AST, ASTNodeType
 
 
 def check_is_common(
-    dict_file: OrderedDict, 
-    statement_1: Union[int, ASTNode], 
+    dict_file: OrderedDict,
+    statement_1: Union[int, ASTNode],
     statement_2: Union[int, ASTNode]
-    ) -> bool:
+) -> bool:
     joined_names: Counter = Counter(dict_file[statement_1] + dict_file[statement_2])
     duplicates = {element: count for element, count in joined_names.items() if count > 1}.keys()
     return len(list(duplicates)) >= 1
@@ -45,10 +45,10 @@ def is_in_range(elem: int, values: List[int]) -> bool:
 
 
 def process_statement(
-    dict_file: OrderedDict, 
-    list_statements: List[Union[int, ASTNode]], 
+    dict_file: OrderedDict,
+    list_statements: List[Union[int, ASTNode]],
     step: int
-    ) -> List[List[int]]:
+) -> List[List[int]]:
     clusters: List[List[int]] = []
     for stat_1 in list_statements:
         stat_1_line = stat_1 if isinstance(stat_1, int) else stat_1.line
