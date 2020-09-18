@@ -83,17 +83,18 @@ def _reprocess_dict(method_semantic: OrderedDict) -> OrderedDict[ASTNode, List[s
     return reprocessed_dict
 
 
-def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List[[List[str, dict]]]:
+def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List[List[str, OrderedDict]]:
     for method_ast, class_name in methods_ast_and_class_name:
         method_clusters = []
         method_name = method_ast.get_root().name
         method_semantic = extract_method_statements_semantic(method_ast)
         reporcessed_dict = _reprocess_dict(method_semantic)
 
-        first_statement = list(reporcessed_dict.keys())[0]
-        last_statement = list(reporcessed_dict.keys())[-1]
-        first_statement = first_statement if isinstance(first_statement, int) else first_statement.line
-        last_statement = last_statement if isinstance(last_statement, int) else last_statement.line
+        first_statement_ = list(reporcessed_dict.keys())[0]
+        last_statement_ = list(reporcessed_dict.keys())[-1]
+        first_statement = first_statement_ if isinstance(first_statement_, int) else first_statement_.line
+        last_statement = last_statement_ if isinstance(last_statement_, int) else last_statement_.line
+        
         method_length = last_statement - first_statement
 
         print('-' * 50)
