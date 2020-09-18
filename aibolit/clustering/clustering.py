@@ -30,7 +30,11 @@ from aibolit.extract_method_baseline.extract_semantic import extract_method_stat
 from aibolit.ast_framework import ASTNode, AST, ASTNodeType
 
 
-def check_is_common(dict_file, statement_1: Union[int, ASTNode], statement_2: Union[int, ASTNode]) -> bool:
+def check_is_common(
+    dict_file: OrderedDict, 
+    statement_1: Union[int, ASTNode], 
+    statement_2: Union[int, ASTNode]
+    ) -> bool:
     joined_names: Counter = Counter(dict_file[statement_1] + dict_file[statement_2])
     duplicates = {element: count for element, count in joined_names.items() if count > 1}.keys()
     return len(list(duplicates)) >= 1
@@ -40,7 +44,11 @@ def is_in_range(elem: int, values: List[int]) -> bool:
     return elem >= values[0] and elem <= values[1]
 
 
-def process_statement(dict_file: OrderedDict, list_statements: List[Union[int, ASTNode]], step: int) -> List[List[int]]:
+def process_statement(
+    dict_file: OrderedDict, 
+    list_statements: List[Union[int, ASTNode]], 
+    step: int
+    ) -> List[List[int]]:
     clusters: List[List[int]] = []
     for stat_1 in list_statements:
         stat_1_line = stat_1 if isinstance(stat_1, int) else stat_1.line
@@ -55,7 +63,7 @@ def process_statement(dict_file: OrderedDict, list_statements: List[Union[int, A
     return clusters
 
 
-def SEMI_beta(dict_file: OrderedDict, method_len: int) -> dict:
+def SEMI_beta(dict_file: OrderedDict, method_len: int) -> dict[int, List[List[int]]]:
     algo_step = {}
     statements = list(dict_file.keys())
     for step in range(1, method_len + 1):
@@ -64,7 +72,7 @@ def SEMI_beta(dict_file: OrderedDict, method_len: int) -> dict:
     return algo_step
 
 
-def _reprocess_dict(method_semantic: OrderedDict) -> OrderedDict:
+def _reprocess_dict(method_semantic: OrderedDict) -> OrderedDict[ASTNode, List[str]]:
     reprocessed_dict = OrderedDict([])
     for statement in method_semantic.keys():
         new_values = []
@@ -75,7 +83,7 @@ def _reprocess_dict(method_semantic: OrderedDict) -> OrderedDict:
     return reprocessed_dict
 
 
-def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List:
+def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List[[List[str, dict]]]:
     for method_ast, class_name in methods_ast_and_class_name:
         method_clusters = []
         method_name = method_ast.get_root().name
@@ -92,7 +100,7 @@ def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List
         print('Starting algorithm for method: ', method_name)
         print('-' * 50)
         clusters = SEMI_beta(reporcessed_dict, method_length)
-        method_clusters.append((method_name, clusters))
+        method_clusters.append([method_name, clusters])
     return method_clusters
 
 
