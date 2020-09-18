@@ -137,7 +137,7 @@ class SimpleMethods {
     }
 
     void complexExpressions() {
-        nt x = 0, y = 0;
+        int x = 0, y = 0;
         Object o1 = new Object(), o2 = new Object();
 
         int z = o1.method(x++) + o1.secondMethod(x - y);
