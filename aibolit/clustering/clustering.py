@@ -94,7 +94,7 @@ def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List
         last_statement_ = list(reporcessed_dict.keys())[-1]
         first_statement = first_statement_ if isinstance(first_statement_, int) else first_statement_.line
         last_statement = last_statement_ if isinstance(last_statement_, int) else last_statement_.line
-        
+
         method_length = last_statement - first_statement
 
         print('-' * 50)
