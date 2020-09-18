@@ -22,7 +22,7 @@
 
 
 from collections import Counter
-from typing import Iterator, Tuple, List, Union, Dict, Set
+from typing import Iterator, Tuple, List, Union, Dict, Tuple
 from collections import OrderedDict
 from argparse import ArgumentParser
 from aibolit.utils.ast_builder import build_ast
@@ -83,7 +83,7 @@ def _reprocess_dict(method_semantic: OrderedDict) -> OrderedDict[ASTNode, List[s
     return reprocessed_dict
 
 
-def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List[Set[str, OrderedDict]]:
+def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List[Tuple[str, OrderedDict]]:
     for method_ast, class_name in methods_ast_and_class_name:
         method_clusters = []
         method_name = method_ast.get_root().name
@@ -101,7 +101,7 @@ def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List
         print('Starting algorithm for method: ', method_name)
         print('-' * 50)
         clusters = SEMI_beta(reporcessed_dict, method_length)
-        method_clusters.append([method_name, clusters])
+        method_clusters.append((method_name, clusters))
     return method_clusters
 
 
