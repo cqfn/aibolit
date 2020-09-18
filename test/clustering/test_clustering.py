@@ -37,7 +37,7 @@ from aibolit.clustering.clustering import _reprocess_dict, process_statement
 class ClusteringTestCase(TestCase):
       current_directory = Path(__file__).absolute().parent
 
-      def article_test(self):
+      def test_article(self):
             ast = AST.build_from_javalang(build_ast(self.current_directory / "Article_example.java"))
             class_declaration = ast.get_root().types[0]
             for method_declaration in class_declaration.methods:
