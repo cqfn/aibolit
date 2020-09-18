@@ -22,7 +22,7 @@
 
 
 from collections import Counter
-from typing import Iterator, Tuple, List, Union, Dict, Tuple
+from typing import Iterator, Tuple, List, Union, Dict
 from collections import OrderedDict
 from argparse import ArgumentParser
 from aibolit.utils.ast_builder import build_ast
