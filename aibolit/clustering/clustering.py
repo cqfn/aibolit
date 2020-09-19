@@ -31,7 +31,7 @@ from aibolit.ast_framework import ASTNode, AST, ASTNodeType
 
 
 def check_is_common(
-    dict_file: OrderedDict,
+    dict_file: Dict,
     statement_1: Union[int, ASTNode],
     statement_2: Union[int, ASTNode]
 ) -> bool:
@@ -45,7 +45,7 @@ def is_in_range(elem: int, values: List[int]) -> bool:
 
 
 def process_statement(
-    dict_file: OrderedDict,
+    dict_file: Dict,
     list_statements: List[Union[int, ASTNode]],
     step: int
 ) -> List[List[int]]:
@@ -63,7 +63,7 @@ def process_statement(
     return clusters
 
 
-def SEMI_beta(dict_file: OrderedDict, method_len: int) -> Dict[int, List[List[int]]]:
+def SEMI_beta(dict_file: Dict, method_len: int) -> Dict[int, List[List[int]]]:
     algo_step = {}
     statements = list(dict_file.keys())
     for step in range(1, method_len + 1):
@@ -72,7 +72,7 @@ def SEMI_beta(dict_file: OrderedDict, method_len: int) -> Dict[int, List[List[in
     return algo_step
 
 
-def _reprocess_dict(method_semantic: OrderedDict) -> Dict[ASTNode, List[str]]:
+def _reprocess_dict(method_semantic: Dict) -> Dict[ASTNode, List[str]]:
     reprocessed_dict = OrderedDict([])
     for statement in method_semantic.keys():
         new_values = []
