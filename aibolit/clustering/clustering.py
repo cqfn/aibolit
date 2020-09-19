@@ -83,7 +83,7 @@ def _reprocess_dict(method_semantic: OrderedDict) -> OrderedDict[ASTNode, List[s
     return reprocessed_dict
 
 
-def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List[Tuple[str, OrderedDict[Any, Any]]]:
+def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List[Tuple[str, Dict[int, List[List[int]]]]]:
     for method_ast, class_name in methods_ast_and_class_name:
         method_clusters = []
         method_name = method_ast.get_root().name
