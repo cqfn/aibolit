@@ -22,7 +22,7 @@
 
 
 from collections import Counter
-from typing import Iterator, Tuple, List, Union, Dict, Any
+from typing import Iterator, Tuple, List, Union, Dict
 from collections import OrderedDict
 from argparse import ArgumentParser
 from aibolit.utils.ast_builder import build_ast
@@ -83,7 +83,10 @@ def _reprocess_dict(method_semantic: OrderedDict) -> OrderedDict[ASTNode, List[s
     return reprocessed_dict
 
 
-def _get_clusters(methods_ast_and_class_name: Iterator[Tuple[AST, str]]) -> List[Tuple[str, Dict[int, List[List[int]]]]]:
+def _get_clusters(
+    methods_ast_and_class_name: Iterator[Tuple[AST, str]]
+) -> List[Tuple[str, Dict[int, List[List[int]]]]]:
+
     for method_ast, class_name in methods_ast_and_class_name:
         method_clusters = []
         method_name = method_ast.get_root().name
