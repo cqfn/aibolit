@@ -72,7 +72,7 @@ def SEMI_beta(dict_file: OrderedDict, method_len: int) -> Dict[int, List[List[in
     return algo_step
 
 
-def _reprocess_dict(method_semantic: OrderedDict) -> OrderedDict[ASTNode, List[str]]:
+def _reprocess_dict(method_semantic: OrderedDict) -> Dict[ASTNode, List[str]]:
     reprocessed_dict = OrderedDict([])
     for statement in method_semantic.keys():
         new_values = []
