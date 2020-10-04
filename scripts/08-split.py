@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from sys import argv
 
 import pandas as pd
 
@@ -15,23 +16,28 @@ def preprocess_file(filename: str):
 
 if __name__ == '__main__':
     target_folder = os.getenv('TARGET_FOLDER')
-    if target_folder:
-        os.chdir(target_folder)
+    #if target_folder:
+    #    os.chdir(target_folder)
+   #
+    #current_location: str = os.path.realpath(
+    #    os.path.join(os.getcwd(), os.path.dirname(__file__))
+    #)
+    #dir_to_create = 'target/08'
 
-    current_location: str = os.path.realpath(
-        os.path.join(os.getcwd(), os.path.dirname(__file__))
-    )
-    dir_to_create = 'target/08'
-
-    train_files = list(pd.read_csv(Path(current_location, 'target/02/02-train.csv'))['filename'])
-    test_files = list(pd.read_csv(Path(current_location, 'target/02/02-test.csv'))['filename'])
+#    train_files = list(pd.read_csv(Path(current_location, 'target/02/02-train.csv'))['filename'])
+#    test_files = list(pd.read_csv(Path(current_location, 'target/02/02-test.csv'))['filename'])
+    train_csv = argv[1]
+    test_csv = argv[2]
+    full_csv = argv[3]
+    train_files = list(pd.read_csv(train_csv)['filename'])
+    test_files = list(pd.read_csv(test_csv)['filename'])
     train_size = len(train_files)
     test_size = len(test_files)
     total_elems = train_size + test_size
     print('{} train elems ({}%) and {} test elems test ({}%) of all dataset'.format(
         train_size, train_size / total_elems,
         test_size, test_size / total_elems))
-    df = pd.read_csv(str(Path(current_location, './target/dataset.csv')))
+    df = pd.read_csv(full_csv, sep=';')# str(Path(current_location, './target/dataset.csv')))
     train = df[df['filepath'].isin(train_files)]
     test = df[df['filepath'].isin(test_files)]
     train.to_csv('train_temp.csv')
