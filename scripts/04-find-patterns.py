@@ -31,6 +31,7 @@ from pathlib import Path
 from sys import stderr
 from typing import Any, Dict, List
 import json
+from multiprocessing import Pool
 
 from pebble import ProcessPool
 from tqdm import tqdm
@@ -62,9 +63,8 @@ def _calculate_patterns_and_metrics(file_path: str,
                                     is_decomposition_requested: bool,
                                     patterns_include: str=None) -> List[Dict[str, Any]]:
     results: List[Dict[str, Any]] = []
-
     config = Config.get_patterns_config()
-    patterns_exlude = config["patterns_exclude"]
+    patterns_exclude = config["patterns_exclude"]
     if patterns_include is not None:
         patterns_exclude += get_unneeded_patterns(config['patterns'], args.patterns)
     patterns_info = [
@@ -85,10 +85,10 @@ def _calculate_patterns_and_metrics(file_path: str,
         for node in ast.get_root().types
         if node.node_type == ASTNodeType.CLASS_DECLARATION
     ]
-
+    
     for class_ast in classes_ast:
         components = (
-            decompose_java_class(class_ast, "strong", ignore_getters=True, ignore_setters=True)
+            decompose_java_class(class_ast, "strong",  ignore_setters=True,  ignore_getters=True)
             if is_decomposition_requested
             else [class_ast]
         )
@@ -98,15 +98,20 @@ def _calculate_patterns_and_metrics(file_path: str,
                 "class_name": class_ast.get_root().name,
                 "component_index": index,
             }
+            results.append(calculation_result)
 
             for pattern_info in patterns_info:
                 try:
                     pattern = pattern_info["make"]()
-                    pattern_result = pattern.value(component_ast)
+                    if pattern_info['code'] == 'P28':
+                        pattern_result = pattern.value(file_path)
+                    else:
+                        pattern_result = pattern.value(component_ast)
                     calculation_result[pattern_info["code"]] = len(pattern_result)
                     calculation_result["lines_" + pattern_info["code"]] = pattern_result
                 except Exception as cause:
-                    raise FileProcessingError(file_path, pattern_info["name"], cause)
+                    print(pattern_info)
+                    raise Exception(pattern_info['code'])# cause# FileProcessingError(file_path, pattern_info["name"], cause)
 
             for metric_info in metrics_info:
                 try:
@@ -114,18 +119,20 @@ def _calculate_patterns_and_metrics(file_path: str,
                     metric_result = metric.value(component_ast)
                     calculation_result[metric_info["code"]] = metric_result
                 except Exception as cause:
-                    raise FileProcessingError(file_path, metric_info["name"], cause)
+                    raise cause #FileProcessingError(file_path, metric_info["name"], cause)
 
             results.append(calculation_result)
 
     return results
 
-
-def _create_dataset_writer(file):
+def _create_dataset_writer(file, patterns_include=None):
     config = Config.get_patterns_config()
-
+    
+    patterns_exclude = config["patterns_exclude"]
+    if patterns_include is not None:
+        patterns_exclude += get_unneeded_patterns(config['patterns'], patterns_include)
     patterns_codes = [
-        pattern["code"] for pattern in config["patterns"] if pattern["code"] not in config["patterns_exclude"]
+        pattern["code"] for pattern in config["patterns"] if pattern["code"] not in patterns_exclude
     ]
 
     metrics_codes = [
@@ -137,7 +144,7 @@ def _create_dataset_writer(file):
         metrics_codes + \
         ["lines_" + code for code in patterns_codes] + \
         ["filepath", "class_name", "component_index"]
-
+    print('FIELDS', fields)
     return DictWriter(file, delimiter=";", quotechar='"', quoting=QUOTE_MINIMAL, fieldnames=fields)
 
 
@@ -162,7 +169,7 @@ def _parse_args():
         "--timeout",
         "-t",
         type=float,
-        default=60,
+        default=3,
         help="Maximum time (in seconds) for single file proccessing. Default is 60 seconds. "
         "If 0, no timout is set.",
     )
@@ -243,9 +250,8 @@ if __name__ == "__main__":
         _calculate_patterns_and_metrics, is_decomposition_requested=args.is_decomposition_requested,
         patterns_include=args.patterns
     )
-
     with open(args.file) as input, open(args.csv_file, "w") as output, ProcessPool(args.jobs) as executor:
-        dataset_writer = _create_dataset_writer(output)
+        dataset_writer = _create_dataset_writer(output, patterns_include=args.patterns)
         dataset_writer.writeheader()
 
         filenames = [filename.rstrip() for filename in input.readlines()]
@@ -255,6 +261,7 @@ if __name__ == "__main__":
         for filename in tqdm(filenames):
             try:
                 single_file_features = next(dataset_features)
+                print(single_file_features)
                 dataset_writer.writerows(single_file_features)
             except TimeoutError:
                 warning(f"Processing {filename} is aborted due to timeout in {args.timeout} seconds.")
