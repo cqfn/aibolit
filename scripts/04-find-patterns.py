@@ -49,15 +49,28 @@ class FileProcessingError(RuntimeError):
         self.pattern_name = pattern_name
         self.cause = cause
 
+def get_unneeded_patterns(patterns_list, patterns_filepath):
+    all_patterns = set([x['code'] for x in patterns_list])
 
-def _calculate_patterns_and_metrics(file_path: str, is_decomposition_requested: bool) -> List[Dict[str, Any]]:
+    with open(patterns_filepath) as f:
+        include_patterns = set([x.strip() for x in f.readlines()])
+        exclude_patterns = all_patterns - include_patterns
+        return exclude_patterns
+
+
+def _calculate_patterns_and_metrics(file_path: str, 
+                                    is_decomposition_requested: bool,
+                                    patterns_include: str=None) -> List[Dict[str, Any]]:
     results: List[Dict[str, Any]] = []
 
     config = Config.get_patterns_config()
+    patterns_exlude = config["patterns_exclude"]
+    if patterns_include is not None:
+        patterns_exclude += get_unneeded_patterns(config['patterns'], args.patterns)
     patterns_info = [
         pattern_info
         for pattern_info in config["patterns"]
-        if pattern_info["code"] not in config["patterns_exclude"]
+        if pattern_info["code"] not in patterns_exclude 
     ]
 
     metrics_info = [
@@ -133,7 +146,7 @@ def _parse_args():
     system_cores_qty = cpu_count()
 
     parser = ArgumentParser(description="Creates dataset")
-    parser.add_argument("file", help="Path for file with a list of Java files.")
+    parser.add_argument("--file", help="Path for file with a list of Java files.")
 
     parser.add_argument(
         "--jobs",
@@ -167,6 +180,12 @@ def _parse_args():
         default="calculation_errors.json",
         help="Path for errors log file. All errors grouped by patterns. calculation_errors.log is default.",
     )
+
+    parser.add_argument(
+        "--patterns",
+        help='path to file with a list of patterns',
+        required=False,
+        default=None)
 
     args = parser.parse_args()
 
@@ -221,7 +240,8 @@ if __name__ == "__main__":
     parsing_errors_qty = 0
 
     calculate_patterns_and_metrics = partial(
-        _calculate_patterns_and_metrics, is_decomposition_requested=args.is_decomposition_requested
+        _calculate_patterns_and_metrics, is_decomposition_requested=args.is_decomposition_requested,
+        patterns_include=args.patterns
     )
 
     with open(args.file) as input, open(args.csv_file, "w") as output, ProcessPool(args.jobs) as executor:
