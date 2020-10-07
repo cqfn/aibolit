@@ -9,7 +9,9 @@ def preprocess_file(filename: str):
     print('reading dataset from {}'.format(filename))
     df = pd.read_csv(filename, index_col=0)
     df = df[~df["filepath"].str.lower().str.contains("test")]
-    df = df.dropna().drop_duplicates(subset=df.columns.difference(["filepath", "class_name", "component_index"]))
+    df = df.dropna().drop_duplicates(subset=df.columns.difference(["filepath", "_name", "component_index"]))
+    pattern_cols = [x for x in df.columns if x[0] == 'P']
+    df = df[(df[pattern_cols] != 0).any(axis=1)]
     df = df[df.M2 < df.M2.quantile(0.99)]
     return df
 

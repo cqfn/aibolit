@@ -115,7 +115,6 @@ def _calculate_patterns_and_metrics(file_path: str,
                     "_name": _ast.get_root().name,
                     "component_index": index,
                 }
-            results.append(calculation_result)
 
             for pattern_info in patterns_info:
                 try:
