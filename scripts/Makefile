@@ -43,7 +43,7 @@ metrics: ./_tmp/pmd-bin/bin/run.sh
 # and attempt to find patterns there. We produce a summary
 # CSV file in target/04-patterns.csv
 patterns:
-	python3 ./04-find-patterns.py target/02/found-java-files.txt
+	python3 ./04-find-patterns.py --file target/02/found-java-files.txt
 
 
 ./_tmp/rsm.jar:

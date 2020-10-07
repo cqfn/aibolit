@@ -51,23 +51,25 @@ def scale_dataset(
         target_metric_code: str,
         scale_ncss=True) -> pd.DataFrame:
     config = Config.get_patterns_config()
-    patterns_codes_set = set([x['code'] for x in config['patterns']])
+    patterns_codes_set = set(features_conf['features_order'])# set([x['code'] for x in config['patterns']])
     metrics_codes_set = [x['code'] for x in config['metrics']]
-    exclude_features = set(config['patterns_exclude']).union(set(config['metrics_exclude']))
-    used_codes = set(features_conf['features_order'])
+    exclude_features = set(config['metrics_exclude'])
+    used_codes = set(features_conf['features_order'])#.union(set(metrics_codes_set))
     used_codes.add(target_metric_code)
-    not_scaled_codes = set(patterns_codes_set).union(set(metrics_codes_set)).difference(used_codes).difference(
-        exclude_features)
-    features_not_in_config = set(df.columns).difference(not_scaled_codes).difference(used_codes)
-    not_scaled_codes = sorted(not_scaled_codes.union(features_not_in_config))
+    used_codes.add('M2')
+    #not_scaled_codes = set(patterns_codes_set).union(set(metrics_codes_set)).difference(used_codes).difference(
+    #    exclude_features)
+    #features_not_in_config = set(df.columns).difference(not_scaled_codes).difference(used_codes)
+    #not_scaled_codes = sorted(not_scaled_codes.union(features_not_in_config))
+    print('USED', used_codes, target_metric_code)
     codes_to_scale = sorted(used_codes)
     if scale_ncss:
         scaled_df = pd.DataFrame(
             df[codes_to_scale].values / df['M2'].values.reshape((-1, 1)),
             columns=codes_to_scale
         )
-        not_scaled_df = df[not_scaled_codes]
-        input = pd.concat([scaled_df, not_scaled_df], axis=1)
+        #not_scaled_df = df[not_scaled_codes]
+        input = scaled_df#pd.concat([scaled_df, not_scaled_df], axis=1)
     else:
         input = df
 
@@ -181,7 +183,6 @@ class PatternRankingModel(BaseEstimator):
         patterns_config = config['patterns']
         metrics_config = config['metrics']
         patterns_codes = [x['code'] for x in patterns_config]
-        metrics_codes = [x['code'] for x in metrics_config]
         features = self.features_conf['features_order']
         results = []
         for file in files:

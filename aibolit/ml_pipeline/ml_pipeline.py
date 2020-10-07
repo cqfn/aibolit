@@ -70,15 +70,21 @@ def collect_dataset(args):
     run_cmd(split_cmd, cur_work_dir)
 
 
-def train_process(target_metric_code="M4"):
+def train_process(target_metric_code="M4", patterns=None):
     """
     Define needed columns for dataset and run model training
     """
     config = Config.get_patterns_config()
-    only_patterns = [
+    if patterns is not None:
+        with open(patterns) as f:
+            patterns_include = [x.strip() for x in f]
+        only_patterns = [x['code'] for x in list(config['patterns'])
+                    if x['code'] in patterns_include]
+    else:
+        only_patterns = [
         x['code'] for x in list(config['patterns'])
         if x['code'] not in config['patterns_exclude']
-    ]
+        ]
     only_metrics = \
         [x['code'] for x in list(config['metrics'])
          if x['code'] not in config['metrics_exclude']] \
@@ -115,7 +121,7 @@ def train_process(target_metric_code="M4"):
         model_new = pickle.load(fid)
         scaled_test_dataset = scale_dataset(
             test_dataset,
-            model_new.features_conf,
+            features_conf,
             target_metric_code
         ).sample(n=10, random_state=17)
         print('Model has been loaded successfully')

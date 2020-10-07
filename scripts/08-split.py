@@ -50,10 +50,10 @@ if __name__ == '__main__':
         test_preprocessed.shape[0], test_preprocessed.shape[0] / total_size))
     Path('train_temp.csv').unlink()
     Path('test_temp.csv').unlink()
-    path_to_create = Path(dir_to_create)
-    if not path_to_create.exists():
-        path_to_create.mkdir(parents=True)
-    train_csv_path = Path(path_to_create, '08-train.csv')
-    test_csv_path = Path(path_to_create, '08-test.csv')
+    #path_to_create = Path(dir_to_create)
+    #if not path_to_create.exists():
+    #    path_to_create.mkdir(parents=True)
+    train_csv_path = 'train_patterns_metrics.csv'#Path(path_to_create, '08-train.csv')
+    test_csv_path = 'test_patterns_metrics.csv'#Path(path_to_create, '08-test.csv')
     train_preprocessed.to_csv(train_csv_path, encoding='utf-8')
     test_preprocessed.to_csv(test_csv_path, encoding='utf-8')

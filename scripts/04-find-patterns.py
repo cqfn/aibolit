@@ -66,7 +66,7 @@ def _calculate_patterns_and_metrics(file_path: str,
     config = Config.get_patterns_config()
     patterns_exclude = config["patterns_exclude"]
     if patterns_include is not None:
-        patterns_exclude += get_unneeded_patterns(config['patterns'], args.patterns)
+        patterns_exclude = get_unneeded_patterns(config['patterns'], args.patterns)
     patterns_info = [
         pattern_info
         for pattern_info in config["patterns"]
@@ -110,7 +110,6 @@ def _calculate_patterns_and_metrics(file_path: str,
                     calculation_result[pattern_info["code"]] = len(pattern_result)
                     calculation_result["lines_" + pattern_info["code"]] = pattern_result
                 except Exception as cause:
-                    print(pattern_info)
                     raise Exception(pattern_info['code'])# cause# FileProcessingError(file_path, pattern_info["name"], cause)
 
             for metric_info in metrics_info:
@@ -130,7 +129,7 @@ def _create_dataset_writer(file, patterns_include=None):
     
     patterns_exclude = config["patterns_exclude"]
     if patterns_include is not None:
-        patterns_exclude += get_unneeded_patterns(config['patterns'], patterns_include)
+        patterns_exclude = get_unneeded_patterns(config['patterns'], patterns_include)
     patterns_codes = [
         pattern["code"] for pattern in config["patterns"] if pattern["code"] not in patterns_exclude
     ]
@@ -144,7 +143,6 @@ def _create_dataset_writer(file, patterns_include=None):
         metrics_codes + \
         ["lines_" + code for code in patterns_codes] + \
         ["filepath", "class_name", "component_index"]
-    print('FIELDS', fields)
     return DictWriter(file, delimiter=";", quotechar='"', quoting=QUOTE_MINIMAL, fieldnames=fields)
 
 
@@ -261,7 +259,6 @@ if __name__ == "__main__":
         for filename in tqdm(filenames):
             try:
                 single_file_features = next(dataset_features)
-                print(single_file_features)
                 dataset_writer.writerows(single_file_features)
             except TimeoutError:
                 warning(f"Processing {filename} is aborted due to timeout in {args.timeout} seconds.")
