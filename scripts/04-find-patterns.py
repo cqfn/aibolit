@@ -106,13 +106,13 @@ def _calculate_patterns_and_metrics(file_path: str,
             if granularity == 'method':
                 calculation_result = {
                     "filepath": file_path,
-                    "method_name": _ast.get_root().name,
+                    "_name": _ast.get_root().name,
                     "component_index": index   
                 }
             else:
                 calculation_result = {
                     "filepath": file_path,
-                    "class_name": _ast.get_root().name,
+                    "_name": _ast.get_root().name,
                     "component_index": index,
                 }
             results.append(calculation_result)
@@ -159,7 +159,7 @@ def _create_dataset_writer(file, patterns_include=None):
         patterns_codes + \
         metrics_codes + \
         ["lines_" + code for code in patterns_codes] + \
-        ["filepath", "class_name", "component_index"]
+        ["filepath", "_name", "component_index"]
     return DictWriter(file, delimiter=";", quotechar='"', quoting=QUOTE_MINIMAL, fieldnames=fields)
 
 
