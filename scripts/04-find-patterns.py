@@ -61,7 +61,8 @@ def get_unneeded_patterns(patterns_list, patterns_filepath):
 
 def _calculate_patterns_and_metrics(file_path: str, 
                                     is_decomposition_requested: bool,
-                                    patterns_include: str=None) -> List[Dict[str, Any]]:
+                                    patterns_include: str=None,
+                                    granularity: str='class') -> List[Dict[str, Any]]:
     results: List[Dict[str, Any]] = []
     config = Config.get_patterns_config()
     patterns_exclude = config["patterns_exclude"]
@@ -85,19 +86,36 @@ def _calculate_patterns_and_metrics(file_path: str,
         for node in ast.get_root().types
         if node.node_type == ASTNodeType.CLASS_DECLARATION
     ]
-    
-    for class_ast in classes_ast:
+
+    ast_list = classes_ast
+    if granularity == 'method':
+        _class_ast = classes_ast[0]
+        methods_ast = [
+            _class_ast.get_subtree(node)
+            for node in _class_ast.get_root().types
+            if node.node_type == ASTNodeType.METHOD_DECLARATION
+        ]
+        ast_list = methods_ast
+
+    for _ast in ast_list:
         components = (
-            decompose_java_class(class_ast, "strong",  ignore_setters=True,  ignore_getters=True)
+            decompose_java_class(_ast, "strong",  ignore_setters=True,  ignore_getters=True)
             if is_decomposition_requested
-            else [class_ast]
+            else [_ast]
         )
         for index, component_ast in enumerate(components):
-            calculation_result = {
-                "filepath": file_path,
-                "class_name": class_ast.get_root().name,
-                "component_index": index,
-            }
+            if granularity == 'method':
+                calculation_result = {
+                    "filepath": file_path,
+                    "method_name": _ast.get_root().name,
+                    "component_index": index   
+                }
+            else:
+                calculation_result = {
+                    "filepath": file_path,
+                    "class_name": _ast.get_root().name,
+                    "component_index": index,
+                }
             results.append(calculation_result)
 
             for pattern_info in patterns_info:
@@ -192,6 +210,12 @@ def _parse_args():
         required=False,
         default=None)
 
+    parser.add_argument(
+        '--granularity',
+        help='Granularity level: class or method',
+        required=False,
+        default='class')
+
     args = parser.parse_args()
 
     if args.jobs >= system_cores_qty:
@@ -246,7 +270,7 @@ if __name__ == "__main__":
 
     calculate_patterns_and_metrics = partial(
         _calculate_patterns_and_metrics, is_decomposition_requested=args.is_decomposition_requested,
-        patterns_include=args.patterns
+        patterns_include=args.patterns, granularity=args.granularity
     )
     with open(args.file) as input, open(args.csv_file, "w") as output, ProcessPool(args.jobs) as executor:
         dataset_writer = _create_dataset_writer(output, patterns_include=args.patterns)
