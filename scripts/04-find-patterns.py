@@ -92,8 +92,7 @@ def _calculate_patterns_and_metrics(file_path: str,
         _class_ast = classes_ast[0]
         methods_ast = [
             _class_ast.get_subtree(node)
-            for node in _class_ast.get_root().types
-            if node.node_type == ASTNodeType.METHOD_DECLARATION
+            for node in _class_ast.get_root().methods
         ]
         ast_list = methods_ast
 
