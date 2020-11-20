@@ -1,7 +1,8 @@
 from typing import Dict, TYPE_CHECKING
-from networkx import DiGraph
+from networkx import DiGraph  # type: ignore
 
-from veniq.ast_framework import AST, ASTNode
+from ..ast import AST
+from ..ast_node import ASTNode
 from .constants import NODE, BLOCK_REASON, ORIGIN_STATEMENT, NodeId
 from ._nodes_factory import NodesFactory
 from ._block_extractors import BlockInfo, extract_blocks_from_statement

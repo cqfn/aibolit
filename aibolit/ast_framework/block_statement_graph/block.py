@@ -1,7 +1,7 @@
-from networkx import DiGraph
+from networkx import DiGraph  # type: ignore
 from typing import Any, Callable, Iterator, Optional, TYPE_CHECKING
 
-from veniq.ast_framework import ASTNode
+from ..ast_node import ASTNode
 from .constants import BLOCK_REASON, ORIGIN_STATEMENT, NODE, BlockReason, NodeId
 
 if TYPE_CHECKING:

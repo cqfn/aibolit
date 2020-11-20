@@ -1,5 +1,5 @@
 from typing import Callable, Union
-from networkx import DiGraph, dfs_labeled_edges
+from networkx import DiGraph, dfs_labeled_edges  # type: ignore
 
 from .statement import Statement
 from .block import Block

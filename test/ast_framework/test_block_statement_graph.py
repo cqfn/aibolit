@@ -2,10 +2,10 @@ from typing import List, Union
 from pathlib import Path
 from unittest import TestCase
 
-from veniq.ast_framework.block_statement_graph import build_block_statement_graph, Block, Statement
-from veniq.ast_framework.block_statement_graph.constants import BlockReason
-from veniq.ast_framework import AST, ASTNodeType
-from veniq.utils.ast_builder import build_ast
+from aibolit.ast_framework.block_statement_graph import build_block_statement_graph, Block, Statement
+from aibolit.ast_framework.block_statement_graph.constants import BlockReason
+from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.utils.ast_builder import build_ast
 
 
 class BlockStatementTestCase(TestCase):

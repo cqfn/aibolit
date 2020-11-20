@@ -1,6 +1,7 @@
 from typing import Callable, Dict, List, Optional, NamedTuple, Union
 
-from veniq.ast_framework import ASTNode, ASTNodeType
+from ..ast_node import ASTNode
+from ..ast_node_type import ASTNodeType
 from .constants import BlockReason
 
 
