@@ -1,7 +1,9 @@
 import javalang
 from aibolit.utils.ast_builder import build_ast
+from aibolit.ast_framework import AST, ASTNodeType
 
-from typing import List, Type, Any
+from typing import Dict, List, Type, Any
+from collections import OrderedDict
 
 
 class CountNumberOfLeaves:
@@ -10,9 +12,6 @@ class CountNumberOfLeaves:
     input: file_path
     output: sum of leaves in class by each method
     '''
-    def __init__(self):
-        pass
-
     def countLeaves(self, root: Type) -> int:
         # forming the same data type for each object
         root_arr = root if isinstance(root, List) else [root]
@@ -43,3 +42,26 @@ class CountNumberOfLeaves:
                     traversed.append(self.countLeaves(each_object.body))
 
         return sum(traversed)
+    
+    
+    def countLeaves_probing(self, node: ASTNodeType) -> int:
+        leaves = 0
+        if not len(list(node.children)):
+            return leaves + 1
+        
+        for each_child in node.children:
+            leaves += self.countLeaves_probing(each_child)
+        return leaves
+
+    def probing_values(self, ast: AST) -> Dict[str, int]:
+        """
+        Number of leaves for each method
+        """
+        values_dict = OrderedDict()
+        for method_ast in ast.get_subtrees(ASTNodeType.METHOD_DECLARATION):
+            method_name = method_ast.get_root().name
+            start_line = method_ast.get_root().line
+            
+            method_value = self.countLeaves_probing(method_ast.get_root())
+            values_dict[f"{method_name}:{start_line}"] = method_value
+        return values_dict

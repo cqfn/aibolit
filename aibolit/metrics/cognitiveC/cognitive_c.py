@@ -1,7 +1,9 @@
 from itertools import groupby
 from aibolit.ast_framework import AST, ASTNodeType
-from typing import List, Set
+from typing import Dict, List, Set
 import re
+from collections import OrderedDict
+
 
 only_increment_for: Set[ASTNodeType] = set([
     ASTNodeType.BREAK_STATEMENT,
@@ -146,3 +148,17 @@ class CognitiveComplexity:
             self.__method_name = self._get_node_name(method_ast, method_declaration_index)
             complexity += self._get_complexity(method_ast, method_declaration_index, 0)
         return complexity
+
+    def probing_values(self, ast: AST) -> Dict[str, int]:
+        """
+        Cognitive complexity of all methods
+        """
+        values_dict = OrderedDict()
+        for method_ast in ast.get_subtrees(ASTNodeType.METHOD_DECLARATION):
+            method_declaration_index = method_ast.get_root().node_index
+            self.__method_name = method_ast.get_root().name
+            start_line = method_ast.get_root().line
+
+            method_value = self._get_complexity(method_ast, method_declaration_index, 0)
+            values_dict[f"{self.__method_name}:{start_line}"] = method_value
+        return values_dict

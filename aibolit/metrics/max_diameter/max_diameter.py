@@ -22,13 +22,42 @@
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
-from typing import List, Tuple
+from typing import Dict, List, Tuple
+from collections import OrderedDict
 
 
 class MaxDiameter:
     """
     Max diameter of class methods.
     """
+
+    def probing_values1(self, ast: AST) -> Dict[str, int]:
+        """
+        Max depth in ast for all method nodes
+        """
+        values_dict = OrderedDict()
+        for method_ast in ast.get_subtrees(ASTNodeType.METHOD_DECLARATION):
+            method_name = method_ast.get_root().name
+            start_line = method_ast.get_root().line
+
+            method_value = self._find_distant_node(method_ast, method_ast.get_root(), False)[1]
+            values_dict[f"{method_name}:{start_line}"] = method_value
+        return values_dict
+
+
+    def probing_values(self, ast: AST) -> Dict[str, int]:
+        """
+        Max diameter in ast for all methods
+        """
+        values_dict = OrderedDict()
+        for method_ast in ast.get_subtrees(ASTNodeType.METHOD_DECLARATION):
+            method_name = method_ast.get_root().name
+            start_line = method_ast.get_root().line
+            
+            method_value = self._calcalute_diameter(method_ast)
+            values_dict[f"{method_name}:{start_line}"] = method_value
+        return values_dict
+
 
     def value(self, ast: AST) -> int:
         method_diameters: List[int] = [
