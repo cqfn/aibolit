@@ -1,25 +1,16 @@
 <img src="/logo.svg" height="92px"/>
 
 [![PyPi version](https://img.shields.io/pypi/v/aibolit.svg)](https://pypi.org/project/aibolit/)
-[![Build Status](https://travis-ci.org/cqfn/aibolit.svg)](https://travis-ci.org/cqfn/aibolit)
-[![Build status](https://ci.appveyor.com/api/projects/status/gr3eqxq5pr87kpwg?svg=true)](https://ci.appveyor.com/project/yegor256/aibolit)
+[![make](https://github.com/cqfn/aibolit/actions/workflows/make.yml/badge.svg)](https://github.com/cqfn/aibolit/actions/workflows/make.yml)
 [![Hits-of-Code](https://hitsofcode.com/github/cqfn/aibolit)](https://hitsofcode.com/view/github/cqfn/aibolit)
 [![Test Coverage](https://img.shields.io/codecov/c/github/cqfn/aibolit.svg)](https://codecov.io/github/cqfn/aibolit?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/fd7e32d8472b4d5e8ecb/maintainability)](https://codeclimate.com/github/cqfn/aibolit/maintainability)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/cqfn/aibolit/blob/master/LICENSE.txt)
 
-
-## How it works?
-
 Learn how Aibolit works in our [White Paper](https://github.com/cqfn/aibolit/releases/download/1.2.5-post.1/aibolit_wp.pdf).
-
-
-
-## How to use ?
 
 First, you install it (you must have [Python 3.7.7](https://www.python.org/downloads/)
 and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
-
 
 
 ```bash
