@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: Copyright (c) 2021-2025 Yegor Bugayenko
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: up
+'on':
+  push:
+    branches:
+      - master
+    tags:
+      - '*'
+concurrency:
+  group: up-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  up:
+    timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: |-
+          git fetch --tags --force && \
+          latest=$(git tag --sort=creatordate | tail -1) && \
+          sed -E -i "s|yegor256/cam:[^ ]+|yegor256/cam:${latest}|g" README.md
+          sed -E -i "s|yegor256/cam:[^ ]+|yegor256/cam:${latest}|g" \
+            .github/workflows/make.yml
+          sed -E -i "s|^version: [^ ]+|version: ${latest}|g" CITATION.cff
+          date=$(git tag --sort=creatordate \
+            --format="%(creatordate:short)" | tail -1)
+          sed -E -i "s|^date-released: [^ ]+|date-released: ${date}|g" \
+            CITATION.cff
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          sign-commits: true
+          branch: version-up
+          commit-message: 'new version in README and CITATION.cff'
+          delete-branch: true
+          title: 'New version in README and CITATION.cff'
+          assignees: yegor256
+          base: master
