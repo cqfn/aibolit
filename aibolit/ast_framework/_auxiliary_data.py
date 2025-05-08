@@ -382,6 +382,7 @@ attributes_by_node_type: Dict[ASTNodeType, Set[str]] = {
     },
     ASTNodeType.TYPE_PARAMETER: {"extends", "name"},
     ASTNodeType.TYPE: {"dimensions", "name"},
+    ASTNodeType.UNKNOWN: set(),  # unknown nodes have no fields
     ASTNodeType.VARIABLE_DECLARATION: {
         "annotations",
         "declarators",

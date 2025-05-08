@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
 # SPDX-License-Identifier: MIT
 
+from inspect import getmembers
 from typing import Any, List, Iterator, Optional
 
 from networkx import DiGraph, dfs_preorder_nodes  # type: ignore
@@ -22,11 +23,17 @@ class ASTNode:
 
     @property
     def children(self) -> Iterator["ASTNode"]:
+        if self.is_fake:
+            return iter(())
+
         for child_index in self._graph.succ[self._node_index]:
             yield ASTNode(self._graph, child_index)
 
     @property
     def parent(self) -> Optional["ASTNode"]:
+        if self.is_fake:
+            return None
+
         try:
             parent_index = next(self._graph.predecessors(self._node_index))
             return ASTNode(self._graph, parent_index)
@@ -37,8 +44,15 @@ class ASTNode:
     def node_index(self) -> int:
         return self._node_index
 
+    @property
+    def is_fake(self) -> bool:
+        return self._node_index < 0
+
     @cached_property
     def line(self) -> int:
+        if self.is_fake:
+            return -1
+
         line = self._get_line(self._node_index)
         if line is not None:
             return line
@@ -69,12 +83,17 @@ class ASTNode:
         )
 
     def __getattr__(self, attribute_name: str):
+        if self.is_fake:
+            return None
+
         node_type = self._get_type(self._node_index)
         javalang_fields = attributes_by_node_type[node_type]
         computed_fields = computed_fields_registry.get_fields(node_type)
-        if attribute_name not in common_attributes and \
-           attribute_name not in javalang_fields and \
-           attribute_name not in computed_fields:
+        if (
+            attribute_name not in common_attributes
+            and attribute_name not in javalang_fields
+            and attribute_name not in computed_fields
+        ):
             raise AttributeError(
                 "Failed to retrieve property. "
                 f"'{node_type}' node does not have '{attribute_name}' attribute."
@@ -96,26 +115,28 @@ class ASTNode:
         return attribute
 
     def __dir__(self) -> List[str]:
+        attribute_names = self._get_public_fixed_interface()
+        if self.is_fake:
+            return attribute_names
+
         node_type = self._get_type(self._node_index)
-        return ASTNode._public_fixed_interface + \
-            list(common_attributes) + \
-            list(attributes_by_node_type[node_type]) + \
-            list(computed_fields_registry.get_fields(node_type).keys())
+        return (
+            attribute_names
+            + list(common_attributes)
+            + list(attributes_by_node_type[node_type])
+            + list(computed_fields_registry.get_fields(node_type).keys())
+        )
 
     def __str__(self) -> str:
         text_representation = f"node index: {self._node_index}"
         node_type = self._get_type(self._node_index)
-        for attribute_name in sorted(
-            common_attributes | attributes_by_node_type[node_type]
-        ):
+        for attribute_name in sorted(common_attributes | attributes_by_node_type[node_type]):
             attribute_value = self.__getattr__(attribute_name)
 
             if isinstance(attribute_value, ASTNode):
                 attribute_representation = repr(attribute_value)
             elif isinstance(attribute_value, str) and "\n" in attribute_value:
-                attribute_representation = "\n\t" + attribute_value.replace(
-                    "\n", "\n\t"
-                )
+                attribute_representation = "\n\t" + attribute_value.replace("\n", "\n\t")
             else:
                 attribute_representation = str(attribute_value)
 
@@ -124,7 +145,7 @@ class ASTNode:
         return text_representation
 
     def __repr__(self) -> str:
-        return f"<ASTNode node_type: {self._get_type(self._node_index)}, node_index: {self._node_index}>"
+        return f"<ASTNode node_type: {self.node_type}, node_index: {self._node_index}>"
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, ASTNode):
@@ -136,9 +157,7 @@ class ASTNode:
     def __hash__(self):
         return hash(self._node_index)
 
-    def _replace_references_with_nodes(
-        self, list_with_references: List[Any]
-    ) -> List[Any]:
+    def _replace_references_with_nodes(self, list_with_references: List[Any]) -> List[Any]:
         list_with_nodes: List[Any] = []
         for item in list_with_references:
             if isinstance(item, ASTNodeReference):
@@ -160,6 +179,9 @@ class ASTNode:
         return ASTNode(self._graph, reference.node_index)
 
     def _get_type(self, node_index: int) -> ASTNodeType:
+        if self.is_fake:
+            return ASTNodeType.UNKNOWN
+
         return self._graph.nodes[node_index]["node_type"]
 
     def _get_line(self, node_index: int) -> Optional[int]:
@@ -169,5 +191,6 @@ class ASTNode:
         # there is maximum one parent in a tree
         return next(self._graph.predecessors(node_index), None)
 
-    # names of methods and properties, which is not generated dynamically
-    _public_fixed_interface = ["children", "node_index", "line"]
+    @classmethod
+    def _get_public_fixed_interface(cls) -> List[str]:
+        return [name for name, _ in getmembers(cls) if not name.startswith("_")]

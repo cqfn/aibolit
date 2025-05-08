@@ -30,7 +30,7 @@ class JavaClassDecompositionTestSuite(TestCase):
 
     def _get_class_ast(self, filename: str, class_name: str) -> AST:
         package_ast = AST.build_from_javalang(
-            build_ast(Path(__file__).parent.absolute() / filename)
+            build_ast(str(Path(__file__).parent.absolute() / filename))
         )
         package_declaration = package_ast.get_root()
         try:

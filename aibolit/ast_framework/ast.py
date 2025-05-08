@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
 # SPDX-License-Identifier: MIT
 
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 from itertools import islice, repeat, chain
 
 from deprecated import deprecated  # type: ignore
@@ -107,6 +107,12 @@ class AST:
                 on_node_entering(ASTNode(self.tree, destination))
             elif edge_type == "reverse":
                 on_node_leaving(ASTNode(self.tree, destination))
+
+    def create_fake_node(self) -> ASTNode:
+        fake_nodes_qty = self._fake_nodes_qty_per_graph[self.tree]
+        self._fake_nodes_qty_per_graph[self.tree] += 1
+        new_fake_node_id = -(fake_nodes_qty + 1)
+        return ASTNode(self.tree, new_fake_node_id)
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
@@ -360,3 +366,5 @@ class AST:
         return ASTNodeReference(javalang_node_to_index_map[javalang_node])
 
     _UNKNOWN_NODE_TYPE = -1
+
+    _fake_nodes_qty_per_graph: Dict[DiGraph, int] = defaultdict(lambda: 0)

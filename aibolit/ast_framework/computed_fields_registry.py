@@ -11,8 +11,7 @@ if TYPE_CHECKING:
 
 class _ComputedFieldsRegistry:
     def __init__(self) -> None:
-        RegistryType = Dict["ASTNodeType", Dict[str, Callable[["ASTNode"], Any]]]
-        self._registry: RegistryType = defaultdict(dict)
+        self._registry: Dict["ASTNodeType", Dict[str, Callable[["ASTNode"], Any]]] = defaultdict(dict)
 
     def register(
         self,
