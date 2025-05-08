@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: reuse
+name: make
 'on':
   push:
     branches:
@@ -11,7 +11,7 @@ name: reuse
     branches:
       - master
 jobs:
-  reuse:
+  make:
     timeout-minutes: 15
     runs-on: ubuntu-24.04
     steps:
