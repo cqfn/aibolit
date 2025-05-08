@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 class Test {
     public void start() {
 final JndiService jndiService = serviceRegistry
@@ -19,7 +22,7 @@ final ConnectionFactory jmsConnectionFactory = jndiService
 				list.add(Boolean.FALSE);
 		list = new ArrayList<>();
 		this.jmsConnection = jmsConnectionFactory.createConnection(jmsConnectionFactory,jmsConnectionFactory, jmsConnectionFactory, jmsConnectionFactory)
-		
+
 		for (int i = 0; i < 10; i++)
 			list.add(Boolean.FALSE);
 
@@ -33,6 +36,6 @@ final ConnectionFactory jmsConnectionFactory = jndiService
 		int a = 0;
 					this.publisher = jmsSession.createProducer(destination);
 	this.jmsConnection = jmsConnectionFactory.createConnection(jmsConnectionFactory,jmsConnectionFactory, jmsConnectionFactory, jmsConnectionFactory, jmsConnectionFactory)
-		
+
     }
 }

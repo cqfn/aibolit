@@ -66,7 +66,7 @@ import org.w3c.dom.NodeList;
  * @author Dusan Balek
  */
 public final class ModuleRoots extends SourceRoots {
-    
+
     /**
      * Default label for sources node used in {@link org.netbeans.spi.project.ui.LogicalViewProvider}.
      */
@@ -92,7 +92,7 @@ public final class ModuleRoots extends SourceRoots {
         return new ModuleRoots(helper, evaluator, refHelper, projectConfigurationNamespace, elementName,
                 JavaProjectConstants.SOURCES_TYPE_MODULES, isTest, newRootNameTemplate);
     }
-    
+
     private ModuleRoots(UpdateHelper helper, PropertyEvaluator evaluator, ReferenceHelper refHelper, String projectConfigurationNamespace, String elementName, String type, boolean isTest, String newRootNameTemplate) {
         super(helper, evaluator, refHelper, projectConfigurationNamespace, elementName, type, isTest, newRootNameTemplate);
     }
@@ -252,7 +252,7 @@ public final class ModuleRoots extends SourceRoots {
             helper.putPrimaryConfigurationData(cfgEl, true);
         });
     }
-    
+
     @Override
     public String getRootDisplayName(String rootName, String propName) {
         if (rootName == null || rootName.length() == 0) {
@@ -303,7 +303,7 @@ public final class ModuleRoots extends SourceRoots {
         }
         return ""; //NOI18N
     }
-    
+
     /**
      * Creates initial path of module root.
      * @return the path.

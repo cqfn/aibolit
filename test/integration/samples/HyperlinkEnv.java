@@ -75,12 +75,12 @@ public final class HyperlinkEnv {
     };
 
     private Type type = Type.NONE;
-                  
+
     public HyperlinkEnv(Document document, int offset) {
         this.baseDocument = (BaseDocument) document;
         this.fileObject = NbEditorUtilities.getFileObject(baseDocument);
         this.offset = offset;
-        
+
         baseDocument.readLock();
         try {
             initialize();
@@ -95,18 +95,18 @@ public final class HyperlinkEnv {
         if (documentContext == null) {
             return;
         }
-        
+
         declaredNamespaces = documentContext.getDeclaredNamespacesMap();
 
         Token<XMLTokenId> token = documentContext.getCurrentToken();
         if (token == null) {
             return;
         }
-        
+
         tokenStartOffset = documentContext.getCurrentTokenOffset();
         tokenEndOffset = tokenStartOffset + token.length();
         tokenImage = token.text().toString();
-        
+
         if (ContextUtilities.isValueToken(token)
                 || ContextUtilities.isAttributeToken(documentContext.getCurrentToken())) {
             SyntaxElement element = documentContext.getCurrentElement();
@@ -122,7 +122,7 @@ public final class HyperlinkEnv {
             }
             tagName = currentTag.getNode().getNodeName();
         }
-        
+
         if (ContextUtilities.isValueToken(token)) {
             type = Type.ATTRIB_VALUE;
             attribName = ContextUtilities.getAttributeTokenImage(documentContext);
@@ -133,7 +133,7 @@ public final class HyperlinkEnv {
             attribName = token.text().toString();
         }
     }
-    
+
     private Map<String, String> collectAttributes(Node currentTag) {
         Map<String, String> attribsMap = new HashMap<String, String>();
         NamedNodeMap attribsNodeMap = currentTag.getAttributes();
@@ -141,10 +141,10 @@ public final class HyperlinkEnv {
             Node n = attribsNodeMap.item(i);
             attribsMap.put(n.getNodeName(), n.getNodeValue());
         }
-        
+
         return Collections.unmodifiableMap(attribsMap);
      }
-    
+
     public String getAttribName() {
         return attribName;
     }
@@ -164,7 +164,7 @@ public final class HyperlinkEnv {
     public int getOffset() {
         return offset;
     }
-    
+
     public FileObject getFileObject() {
         return fileObject;
     }
@@ -188,7 +188,7 @@ public final class HyperlinkEnv {
     public int getBeanTagOffset() {
         return beanTagOffset;
     }
-    
+
     public String lookupNamespacePrefix(String prefix) {
         return declaredNamespaces.get(prefix);
     }

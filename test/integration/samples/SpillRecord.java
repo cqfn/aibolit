@@ -84,7 +84,7 @@ public class SpillRecord {
         crc.reset();
         CheckedInputStream chk = new CheckedInputStream(in, crc);
         IOUtils.readFully(chk, buf.array(), 0, size);
-        
+
         if (chk.getChecksum().getValue() != in.readLong()) {
           throw new ChecksumException("Checksum error reading spill index: " +
                                 indexFileName, -1);

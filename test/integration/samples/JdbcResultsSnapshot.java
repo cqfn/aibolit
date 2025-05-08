@@ -74,7 +74,7 @@ public class JdbcResultsSnapshot extends ResultsSnapshot {
     <::: load node
     <===
     ***************************************************************************/
-    
+
     private JMethodIdTable table;
     /** [0-nProfiledSelects] select names */
     String[] selectNames;
@@ -103,7 +103,7 @@ public class JdbcResultsSnapshot extends ResultsSnapshot {
     //~ Constructors -------------------------------------------------------------------------------------------------------------
 
     public JdbcResultsSnapshot() { // No-arg constructor needed for above serialization methods to work
-    } 
+    }
 
     public JdbcResultsSnapshot(long beginTime, long timeTaken, JdbcCCTProvider provider, ProfilerClient client)
                           throws ClientUtils.TargetAppOrVMTerminated {
@@ -112,7 +112,7 @@ public class JdbcResultsSnapshot extends ResultsSnapshot {
         provider.beginTrans(false);
 
         try {
-            performInit(client, provider);           
+            performInit(client, provider);
         } finally {
             provider.endTrans();
 
@@ -163,7 +163,7 @@ public class JdbcResultsSnapshot extends ResultsSnapshot {
     public boolean containsStacks() {
         return stacksForSelects != null;
     }
-        
+
     public void filterReverse(String filter, int filterType, int sortBy, boolean sortOrder, PresoObjAllocCCTNode root, int selectId, boolean dontShowZeroLiveObjAllocPaths) {
         PresoObjAllocCCTNode rev =
                 (PresoObjAllocCCTNode)createPresentationCCT(selectId, dontShowZeroLiveObjAllocPaths);
@@ -181,7 +181,7 @@ public class JdbcResultsSnapshot extends ResultsSnapshot {
 //            root.resetFilteredNode();
         }
     }
-    
+
     private void filter(String filter, int filterType, PresoObjAllocCCTNode node) {
         if (node.children != null) {
             PresoObjAllocCCTNode filtered = null;
@@ -203,7 +203,7 @@ public class JdbcResultsSnapshot extends ResultsSnapshot {
                     }
                 }
             }
-            
+
             if (ch.isEmpty()) {
                 node.children = null;
             } else {
@@ -216,13 +216,13 @@ public class JdbcResultsSnapshot extends ResultsSnapshot {
                     node.children = ch.toArray(new PresoObjAllocCCTNode[0]);
                 }
             }
-            
+
             if (node.children != null)
                 for (PresoObjAllocCCTNode n : node.children)
                     filter(filter, filterType, (PresoObjAllocCCTNode)n);
         }
     }
-    
+
 
     /**
      * Creates a presentation-time allocation stack traces CCT for given selectId.
@@ -252,7 +252,7 @@ public class JdbcResultsSnapshot extends ResultsSnapshot {
 
     public void readFromStream(DataInputStream in) throws IOException {
         super.readFromStream(in);
-        
+
         StringCache strings = new StringCache();
         nProfiledSelects = in.readInt();
         selectNames = new String[nProfiledSelects];
@@ -432,7 +432,7 @@ public class JdbcResultsSnapshot extends ResultsSnapshot {
 
     private void updateTime(RuntimeMemoryCCTNode stacksForSelect, long l) {
         Stack nodes = new Stack();
-        
+
         nodes.add(stacksForSelect);
         while (!nodes.empty()) {
             RuntimeMemoryCCTNode n = (RuntimeMemoryCCTNode) nodes.pop();

@@ -34,7 +34,7 @@ class InterpProtoANSI extends InterpDumb {
         public static final char CTRL_N = 14;   // ASCII SO/ShiftOut
         public static final char CTRL_O = 15;   // ASCII SI/ShiftIn
     }
-    
+
     protected static class InterpTypeProtoANSI extends InterpTypeDumb {
 	protected final Actor act_reset_number = new ACT_RESET_NUMBER();
 	protected final Actor act_remember_digit = new ACT_REMEMBER_DIGIT();
@@ -165,7 +165,7 @@ class InterpProtoANSI extends InterpDumb {
                 return null;
             }
         }
-        
+
         private static final class ACT_AE implements Actor {
 	    @Override
             public String action(AbstractInterp ai, char c) {
@@ -313,7 +313,7 @@ class InterpProtoANSI extends InterpDumb {
 		    ai.ops.op_ho();
 		} else {
 		    ai.ops.op_cm(ai.numberAt(0), ai.numberAt(1));// row, col
-		} 
+		}
 		return null;
 	    }
 	}
@@ -334,7 +334,7 @@ class InterpProtoANSI extends InterpDumb {
                         default:
                             return "ACT J: count of > 2 not supported";	// NOI18N
                     }
-		} 
+		}
 		return null;
 	    }
 	}
@@ -355,7 +355,7 @@ class InterpProtoANSI extends InterpDumb {
                         default:
                             return "ACT K: count of > 2 not supported";	// NOI18N
                     }
-		} 
+		}
 		return null;
 	    }
 	}
@@ -367,7 +367,7 @@ class InterpProtoANSI extends InterpDumb {
 		    ai.ops.op_al(1);
 		} else {
 		    ai.ops.op_al(ai.numberAt(0));
-		} 
+		}
 		return null;
 	    }
 	}
@@ -379,7 +379,7 @@ class InterpProtoANSI extends InterpDumb {
 		    ai.ops.op_dl(1);
 		} else {
 		    ai.ops.op_dl(ai.numberAt(0));
-		} 
+		}
 		return null;
 	    }
 	}
@@ -435,7 +435,7 @@ class InterpProtoANSI extends InterpDumb {
 			case 11:
 			    ai.ops.op_time(false);
 			    break;
-		    } 
+		    }
 		}
 		return null;
 	    }
@@ -506,18 +506,18 @@ class InterpProtoANSI extends InterpDumb {
 	super(ops, type_singleton);
 	this.type = type_singleton;
 	setup();
-    } 
+    }
 
     protected InterpProtoANSI(Ops ops, InterpTypeProtoANSI type) {
 	super(ops, type);
 	this.type = type;
 	setup();
-    } 
+    }
 
     @Override
     public String name() {
 	return "proto-ansi";	// NOI18N
-    } 
+    }
 
     @Override
     public void reset() {

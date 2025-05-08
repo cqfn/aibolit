@@ -68,7 +68,7 @@ import org.openide.util.RequestProcessor.Task;
 public class TrieDictionary implements Dictionary {
 
     private static final Logger LOG = Logger.getLogger(TrieDictionary.class.getName());
-    
+
     private final byte[] array;
     private final ByteBuffer buffer;
 
@@ -82,7 +82,7 @@ public class TrieDictionary implements Dictionary {
 
         FileInputStream ins = new FileInputStream(data);
         FileChannel channel = ins.getChannel();
-        
+
         try {
             this.buffer = channel.map(MapMode.READ_ONLY, 0, channel.size());
         } finally {
@@ -126,72 +126,72 @@ public class TrieDictionary implements Dictionary {
     public List<String> findValidWordsForPrefix(CharSequence word) {
         List<String> result = new ArrayList<String>();
         int node = findNode(word, 0, 4);
-        
+
         if (node == (-1))
             return Collections.emptyList();
-        
+
         return findValidWordsForPrefix(new StringBuffer(word), node, result);
     }
 
     public List<String> findProposals(CharSequence pattern) {
         ListProposalAcceptor result = new ListProposalAcceptor();
-        
+
         findProposals(pattern, 2, 4, new StringBuffer(), result);
-        
+
         return result;
     }
-    
+
     private void findProposals(CharSequence pattern, int maxDistance, int node, StringBuffer word, ProposalAcceptor result) {
         int entries = readInt(node + 1);
-        
+
         for (int currentEntry = 0; currentEntry < entries; currentEntry++) {
             char ac = readChar(node + 5 + currentEntry * 6);
-            
+
             word.append(ac);
-            
+
             int distance = distance(pattern, word);
             int targetNode = node + readInt(node + 5 + currentEntry * 6 + 2);
-            
+
             if (distance < maxDistance) {
                 if (readByte(targetNode) == 0x01) {
                     result.add(word.toString());
                 }
             }
-                
+
             if ((distance - (pattern.length() - word.length())) < maxDistance) {
                 findProposals(pattern, maxDistance, targetNode, word, result);
             }
-            
+
             word.deleteCharAt(word.length() - 1);
         }
     }
-    
+
     private void verifyDictionary() {
-        findProposals("", Integer.MAX_VALUE, 4, new StringBuffer(), NULL_ACCEPTOR);    
+        findProposals("", Integer.MAX_VALUE, 4, new StringBuffer(), NULL_ACCEPTOR);
     }
 
     private List<String> findValidWordsForPrefix(StringBuffer foundSoFar, int node, List<String> result) {
         int entries = readInt(node + 1);
-        
+
         for (int currentEntry = 0; currentEntry < entries; currentEntry++) {
             char ac = readChar(node + 5 + currentEntry * 6);
-            
+
             foundSoFar.append(ac);
-            
+
             int targetNode = node + readInt(node + 5 + currentEntry * 6 + 2);
-            
+
             if (readByte(targetNode) == 0x01) {
                 result.add(foundSoFar.toString());
             }
-                
+
             findValidWordsForPrefix(foundSoFar, targetNode, result);
-            
+
             foundSoFar.deleteCharAt(foundSoFar.length() - 1);
         }
-        
+
         return result;
     }
-    
+
     private int findNode(CharSequence word, int currentCharOffset, int currentNode) {
         if (word.length() <= currentCharOffset)
             return currentNode;
@@ -218,7 +218,7 @@ public class TrieDictionary implements Dictionary {
 
     public static Dictionary getDictionary(String suffix, List<URL> sources) throws IOException {
         File trie = Places.getCacheSubfile("dict/dictionary" + suffix + ".trie" + CURRENT_TRIE_DICTIONARY_VERSION);
-        
+
         return getDictionary(trie, sources);
     }
 
@@ -253,28 +253,28 @@ public class TrieDictionary implements Dictionary {
     private static boolean compareChars(char c1, char c2) {
         return c1 == c2 || Character.toLowerCase(c1) == Character.toLowerCase(c2);
     }
-    
+
     private static int distance(CharSequence pattern, CharSequence word) {
         int[] old = new int[pattern.length() + 1];
         int[] current = new int[pattern.length() + 1];
         int[] oldLength = new int[pattern.length() + 1];
         int[] length = new int[pattern.length() + 1];
-        
+
         for (int cntr = 0; cntr < old.length; cntr++) {
             old[cntr] = pattern.length() + 1;//cntr;
             oldLength[cntr] = (-1);
         }
-        
+
         current[0] = old[0] = oldLength[0] = length[0] = 0;
-        
+
         int currentIndex = 0;
-        
+
         while (currentIndex < word.length()) {
             for (int cntr = 0; cntr < pattern.length(); cntr++) {
                 int insert = old[cntr + 1] + 1;
                 int delete = current[cntr] + 1;
                 int replace = old[cntr] + (compareChars(pattern.charAt(cntr), word.charAt(currentIndex)) ? 0 : 1);
-                
+
                 if (insert < delete) {
                     if (insert < replace) {
                         current[cntr + 1] = insert;
@@ -293,23 +293,23 @@ public class TrieDictionary implements Dictionary {
                     }
                 }
             }
-            
+
             currentIndex++;
-            
+
             int[] temp = old;
-            
+
             old = current;
             current = temp;
-            
+
             temp = oldLength;
-            
+
             oldLength = length;
             length = temp;
         }
-        
+
         return old[pattern.length()];
     }
-    
+
     private static void constructTrie(ByteArray array, List<URL> sources) throws IOException {
         SortedSet<CharSequence> data = new TreeSet<CharSequence>();
 
@@ -317,10 +317,10 @@ public class TrieDictionary implements Dictionary {
             FileObject f = URLMapper.findFileObject(u);
             u = f != null ? URLMapper.findURL(f, URLMapper.EXTERNAL) : u;
             BufferedReader in = new BufferedReader(new InputStreamReader(u.openStream(), "UTF-8"));
-            
+
             try {
                 String line;
-                
+
                 while ((line = in.readLine()) != null) {
                     data.add(CharSequences.create(line));
                 }
@@ -329,10 +329,10 @@ public class TrieDictionary implements Dictionary {
                 in.close();
             }
         }
-        
+
         constructTrieData(array, data);
     }
-    
+
     private static void constructTrieData(ByteArray array, SortedSet<? extends CharSequence> data) throws IOException {
         array.put(0, CURRENT_TRIE_DICTIONARY_VERSION);
         encodeOneLayer(array, 4, 0, data);
@@ -399,7 +399,7 @@ public class TrieDictionary implements Dictionary {
             this.sources = sources;
             workingTask.set(WORKER.post(this));
         }
-        
+
         public ValidityType validateWord(CharSequence word) {
             waitDictionaryConstructed();
 
@@ -470,7 +470,7 @@ public class TrieDictionary implements Dictionary {
 
         public void run() {
             trie.getParentFile().mkdirs();
-            
+
             if (trie.canRead()) {
                 //validate the dictionary:
                 try {
@@ -486,11 +486,11 @@ public class TrieDictionary implements Dictionary {
             }
 
             trie.delete();
-            
+
             File temp = new File(trie.getParentFile(), "dict.temp");
-            
+
             temp.delete();
-            
+
             ProgressHandle handle = ProgressHandle.createHandle(NbBundle.getMessage(TrieDictionary.class, "BuildingDictionary"));
             try {
                 handle.start();
@@ -502,7 +502,7 @@ public class TrieDictionary implements Dictionary {
                 temp.renameTo(trie);
                 if (trie.canRead()) {
                     TrieDictionary d = new TrieDictionary(trie);
-                    
+
                     delegate.set(d);
 
                     try {
@@ -524,19 +524,19 @@ public class TrieDictionary implements Dictionary {
             }
         }
     }
-    
+
     private static interface ProposalAcceptor {
         public boolean add(String proposal);
     }
-    
+
     private static class ListProposalAcceptor extends ArrayList<String> implements ProposalAcceptor {}
-    
+
     private static class NullProposalAcceptor implements ProposalAcceptor {
         @Override public boolean add(String proposal) {
             return true;
         }
     }
-    
+
     private static final NullProposalAcceptor NULL_ACCEPTOR = new NullProposalAcceptor();
 
     private static class ByteArray {
@@ -566,7 +566,7 @@ public class TrieDictionary implements Dictionary {
             out.close();
         }
     }
-    
+
     @OnStop
     public static final class RunOnStop implements Runnable {
         @Override public void run() {

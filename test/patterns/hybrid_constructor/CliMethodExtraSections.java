@@ -4,9 +4,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -25,28 +25,28 @@ import ghidra.program.model.data.*;
 import ghidra.util.exception.DuplicateNameException;
 
 public class CliMethodExtraSections implements StructConverter {
-	
+
 	public static final String PATH = "/PE/CLI/Methods/ExtraSections";
-	
+
 	private List<ExtraSection> extraSections = new ArrayList<ExtraSection>();
-	
+
 	private class ExtraSection {
 		public boolean isEHTable;
 		public boolean isFat;
 		public boolean hasMoreSections;
 		public int dataSize;
 		public boolean isFilterBasedException;
-		
+
 		public static final int CorILMethod_Sect_EHTable = 0x1;
 		public static final int CorILMethod_Sect_OptIL = 0x2;
 		public static final int CorILMethod_Sect_FatFormat = 0x40;
 		public static final int CorILMethod_Sect_MoreSects = 0x80;
-		
+
 		public static final short COR_ILEXCEPTION_CLAUSE_EXCEPTION = 0x0000;
-		public static final short COR_ILEXCEPTION_CLAUSE_FILTER = 0x0001; 
+		public static final short COR_ILEXCEPTION_CLAUSE_FILTER = 0x0001;
 		public static final short COR_ILEXCEPTION_CLAUSE_FINALLY = 0x0002;
 		public static final short COR_ILEXCEPTION_CLAUSE_FAULT = 0x0004;
-		
+
 		public ExtraSection(BinaryReader reader) throws IOException {
 			byte one = reader.readNextByte();
 			if ((one & CorILMethod_Sect_EHTable) == CorILMethod_Sect_EHTable)
@@ -55,7 +55,7 @@ public class CliMethodExtraSections implements StructConverter {
 				isFat = true;
 			if ((one & CorILMethod_Sect_MoreSects) == CorILMethod_Sect_MoreSects)
 				hasMoreSections = true;
-			
+
 			// Read size
 			if (isFat) {
 				byte sizeOne = reader.readNextByte();
@@ -64,7 +64,7 @@ public class CliMethodExtraSections implements StructConverter {
 			}
 			else
 				dataSize = reader.readNextByte();
-			
+
 			// Read Flags for exception handlers
 			if (isFat) {
 				int flags = reader.readNextInt();
@@ -75,7 +75,7 @@ public class CliMethodExtraSections implements StructConverter {
 				isFilterBasedException = ((flags & COR_ILEXCEPTION_CLAUSE_FILTER) == COR_ILEXCEPTION_CLAUSE_FILTER);
 			}
 		}
-		
+
 		public StructureDataType getSmallExceptionClauseDataType() {
 			StructureDataType struct = new StructureDataType(new CategoryPath(PATH), "SmallExceptionHandlerClause", 0);
 			struct.add(WORD, "Flags", "COR_ILEXCEPTION_CLAUSE_*"); //  TODO: explain flags
@@ -103,10 +103,10 @@ public class CliMethodExtraSections implements StructConverter {
 				struct.add(DWORD, "ClassToken", "Metadata token for type-based exception handler");
 			return struct;
 		}
-		
+
 		public DataType toDataType() {
 			int clauseSize = (isFat ? 24 : 12);
-			int numberClauses = (dataSize - 4) / clauseSize; 
+			int numberClauses = (dataSize - 4) / clauseSize;
 			StructureDataType struct = new StructureDataType(new CategoryPath(PATH), "ExtraSection", 0);
 			struct.add(BYTE, "Kind", "flags: EH, OptIL, FatFormat, MoreSects"); // TODO: explain flags
 			if (isFat) {
@@ -122,7 +122,7 @@ public class CliMethodExtraSections implements StructConverter {
 			return struct;
 		}
 	}
-	
+
 	public CliMethodExtraSections(BinaryReader reader) throws IOException {
 		while (true) {
 			ExtraSection section = new ExtraSection(reader);

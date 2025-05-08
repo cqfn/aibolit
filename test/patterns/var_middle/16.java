@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 import java.util.function.Function;
 import java.util.Optional;
 
@@ -22,4 +25,3 @@ public class Test {
         return array.map(filter);
     }
 }
-

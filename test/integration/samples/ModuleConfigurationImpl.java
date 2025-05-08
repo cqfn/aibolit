@@ -59,12 +59,12 @@ public class ModuleConfigurationImpl implements
         MessageDestinationConfiguration,
         EjbResourceConfiguration
 {
-    
+
     private Hk2Configuration config;
     private J2eeModule module;
     private Lookup lookup;
-    
-    private static final Map<J2eeModule,ModuleConfigurationImpl> configs = 
+
+    private static final Map<J2eeModule,ModuleConfigurationImpl> configs =
             new HashMap<J2eeModule,ModuleConfigurationImpl>();
 
     @SuppressWarnings("LeakingThisInConstructor")
@@ -76,7 +76,7 @@ public class ModuleConfigurationImpl implements
             configs.put(module, this);
         }
     }
-    
+
     static public ModuleConfigurationImpl get(J2eeModule j2eemodule) {
         synchronized (configs) {
             return configs.get(j2eemodule);
@@ -221,4 +221,3 @@ public class ModuleConfigurationImpl implements
     }
 
  }
-

@@ -44,7 +44,7 @@ import org.openide.util.NbBundle;
  * @author   Jan Jancura
  */
 public class WatchesTreeModel implements ReorderableTreeModel {
-    
+
     private static final String PROP_SHOW_PINNED_WATCHES = "showPinnedWatches"; // NOI18N
     private static final Properties PROPERTIES = Properties.getDefault().getProperties("debugger").getProperties("watchesProps");    // NOI18N
 
@@ -52,20 +52,20 @@ public class WatchesTreeModel implements ReorderableTreeModel {
     private Vector listeners = new Vector ();
     private final EmptyWatch EMPTY_WATCH = new EmptyWatch();
     static final ShowPinnedWatches showPinnedWatches = new ShowPinnedWatches();
-    
-    /** 
+
+    /**
      *
      * @return threads contained in this group of threads
      */
     public Object getRoot () {
         return ROOT;
     }
-    
-    /** 
+
+    /**
      *
      * @return threads contained in this group of threads
      */
-    public Object[] getChildren (Object parent, int from, int to) 
+    public Object[] getChildren (Object parent, int from, int to)
     throws UnknownTypeException {
         if (parent == ROOT) {
             Watch[] wsTemp = DebuggerManager.getDebuggerManager ().
@@ -105,10 +105,10 @@ public class WatchesTreeModel implements ReorderableTreeModel {
         } else
         throw new UnknownTypeException (parent);
     }
-    
+
     /**
      * Returns number of children for given node.
-     * 
+     *
      * @param   node the parent node
      * @throws  UnknownTypeException if this TreeModel implementation is not
      *          able to resolve children for given node type
@@ -125,7 +125,7 @@ public class WatchesTreeModel implements ReorderableTreeModel {
         } else
         throw new UnknownTypeException (node);
     }
-    
+
     public boolean isLeaf (Object node) throws UnknownTypeException {
         if (node == ROOT) return false;
         if (node instanceof Watch) return true;
@@ -175,7 +175,7 @@ public class WatchesTreeModel implements ReorderableTreeModel {
     public void removeModelListener (ModelListener l) {
         listeners.remove (l);
     }
-    
+
     private void fireTreeChanged () {
         Vector v = (Vector) listeners.clone ();
         int i, k = v.size ();
@@ -184,7 +184,7 @@ public class WatchesTreeModel implements ReorderableTreeModel {
                 new ModelEvent.NodeChanged(this, ROOT, ModelEvent.NodeChanged.CHILDREN_MASK)
             );
     }
-    
+
     void fireWatchPropertyChanged (Watch b, String propertyName) {
         Vector v = (Vector) listeners.clone ();
         int i, k = v.size ();
@@ -195,14 +195,14 @@ public class WatchesTreeModel implements ReorderableTreeModel {
             );
     }
 
-    
+
     // innerclasses ............................................................
-    
-    private static class Listener extends DebuggerManagerAdapter implements 
+
+    private static class Listener extends DebuggerManagerAdapter implements
     PropertyChangeListener {
-        
+
         private WeakReference model;
-        
+
         public Listener (
             WatchesTreeModel tm
         ) {
@@ -218,7 +218,7 @@ public class WatchesTreeModel implements ReorderableTreeModel {
                 ws [i].addPropertyChangeListener (this);
             PROPERTIES.addPropertyChangeListener(this);
         }
-        
+
         private WatchesTreeModel getModel () {
             WatchesTreeModel m = (WatchesTreeModel) model.get ();
             if (m == null) {
@@ -234,21 +234,21 @@ public class WatchesTreeModel implements ReorderableTreeModel {
             }
             return m;
         }
-        
+
         public void watchAdded (Watch watch) {
             WatchesTreeModel m = getModel ();
             if (m == null) return;
             watch.addPropertyChangeListener (this);
             m.fireTreeChanged ();
         }
-        
+
         public void watchRemoved (Watch watch) {
             WatchesTreeModel m = getModel ();
             if (m == null) return;
             watch.removePropertyChangeListener (this);
             m.fireTreeChanged ();
         }
-    
+
         public void propertyChange (PropertyChangeEvent evt) {
             WatchesTreeModel m = getModel ();
             if (m == null) return;
@@ -297,7 +297,7 @@ public class WatchesTreeModel implements ReorderableTreeModel {
                 ((ModelListener) v.get (i)).modelChanged (
                     new ModelEvent.NodeChanged (WatchesTreeModel.this, EmptyWatch.this)
                 );
-            
+
             DebuggerManager.getDebuggerManager().createWatch(expr);
         }
 

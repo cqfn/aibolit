@@ -51,7 +51,7 @@ public class DeepAnalysis {
         while (!c.equals(Object.class)) {
             for (Method method : c.getMethods()) {
 				for (Method method : c.getMethods()) {}
-				
+
                 Entrance annotation = method.getAnnotation(Entrance.class);
                 if (annotation != null) {
                     entranceMethod = method;

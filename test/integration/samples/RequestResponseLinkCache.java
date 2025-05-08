@@ -3,8 +3,8 @@
 // purposes. The code is never compiled or executed.
 
 
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
+// SPDX-FileCopyrightText: Copyright (c) Microsoft Corporation. All rights reserved.
+// SPDX-License-Identifier: MIT
 
 package com.microsoft.azure.servicebus.primitives;
 
@@ -147,7 +147,7 @@ class RequestResponseLinkCache {
                         return null;
                     }, MessagingFactory.INTERNAL_THREAD_POOL);
         }
-        
+
         private void completeWaiters(Throwable exception) {
             for (CompletableFuture<RequestResponseLink> waiter : this.waiters) {
                 if (exception == null) {
@@ -190,7 +190,7 @@ class RequestResponseLinkCache {
             if (this.waiters.size() > 0) {
                 this.completeWaiters(new ServiceBusException(false, "MessagingFactory closed."));
             }
-            
+
             if (this.requestResponseLink != null) {
                 return this.requestResponseLink.closeAsync();
             } else {

@@ -1,4 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+ * SPDX-License-Identifier: MIT
+-->
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset xmlns="http://pmd.sourceforge.net/ruleset/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="quickstart" xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
   <description>Quickstart configuration of PMD. Includes the rules that are most likely to apply everywhere.</description>
   <rule ref="category/java/design.xml/CyclomaticComplexity">

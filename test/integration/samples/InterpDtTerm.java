@@ -27,7 +27,7 @@
  * InterpDtTerm.java 1.2 01/07/23
  * Input stream interpreter
  * Decodes incoming characters into cursor motion etc.
- * 
+ *
  * See
  * http://h30097.www3.hp.com/docs/base_doc/DOCUMENTATION/V51_HTML/MAN/MAN5/0200____.HTM
  */
@@ -68,8 +68,8 @@ class InterpDtTerm extends InterpProtoANSIX {
 			ai.ops.op_glyph(p2, p3);
 		    } else {
 			return "ACT GLYPH: op othger than 22 not supported";	// NOI18N
-		    } 
-		} 
+		    }
+		}
 		return null;
 	    }
 	}
@@ -107,18 +107,18 @@ class InterpDtTerm extends InterpProtoANSIX {
 	super(ops, type_singleton);
 	this.type = type_singleton;
 	setup();
-    } 
+    }
 
     protected InterpDtTerm(Ops ops, InterpTypeDtTerm type) {
 	super(ops, type);
 	this.type = type;
 	setup();
-    } 
+    }
 
     @Override
     public String name() {
 	return "dtterm";	// NOI18N
-    } 
+    }
 
     @Override
     public void reset() {

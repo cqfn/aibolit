@@ -10,9 +10,9 @@
  * licenses this file to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -91,7 +91,7 @@ final class BCFile {
     private static interface BlockRegister {
       /**
        * Register a block that is fully closed.
-       * 
+       *
        * @param raw
        *          The size of block in terms of uncompressed bytes.
        * @param offsetStart
@@ -145,7 +145,7 @@ final class BCFile {
 
       /**
        * Get the output stream for BlockAppender's consumption.
-       * 
+       *
        * @return the output stream suitable for writing block data.
        */
       OutputStream getOutputStream() {
@@ -154,7 +154,7 @@ final class BCFile {
 
       /**
        * Get the current position in file.
-       * 
+       *
        * @return The current byte offset in underlying file.
        * @throws IOException
        */
@@ -168,7 +168,7 @@ final class BCFile {
 
       /**
        * Current size of compressed data.
-       * 
+       *
        * @return
        * @throws IOException
        */
@@ -195,7 +195,7 @@ final class BCFile {
 
     /**
      * Access point to stuff data into a block.
-     * 
+     *
      * TODO: Change DataOutputStream to something else that tracks the size as
      * long instead of int. Currently, we will wrap around if the row block size
      * is greater than 4GB.
@@ -208,7 +208,7 @@ final class BCFile {
 
       /**
        * Constructor
-       * 
+       *
        * @param register
        *          the block register, which is called when the block is closed.
        * @param wbs
@@ -222,7 +222,7 @@ final class BCFile {
 
       /**
        * Get the raw size of the block.
-       * 
+       *
        * @return the number of uncompressed bytes written through the
        *         BlockAppender so far.
        * @throws IOException
@@ -237,7 +237,7 @@ final class BCFile {
 
       /**
        * Get the compressed size of the block in progress.
-       * 
+       *
        * @return the number of compressed bytes written to the underlying FS
        *         file. The size may be smaller than actual need to compress the
        *         all data written due to internal buffering inside the
@@ -278,7 +278,7 @@ final class BCFile {
 
     /**
      * Constructor
-     * 
+     *
      * @param fout
      *          FS output stream.
      * @param compressionName
@@ -372,7 +372,7 @@ final class BCFile {
      * block. There can only be one BlockAppender stream active at any time.
      * Regular Blocks may not be created after the first Meta Blocks. The caller
      * must call BlockAppender.close() to conclude the block creation.
-     * 
+     *
      * @param name
      *          The name of the Meta Block. The name must not conflict with
      *          existing Meta Blocks.
@@ -396,7 +396,7 @@ final class BCFile {
      * active at any time. Regular Blocks may not be created after the first
      * Meta Blocks. The caller must call BlockAppender.close() to conclude the
      * block creation.
-     * 
+     *
      * @param name
      *          The name of the Meta Block. The name must not conflict with
      *          existing Meta Blocks.
@@ -415,7 +415,7 @@ final class BCFile {
      * block. There can only be one BlockAppender stream active at any time.
      * Data Blocks may not be created after the first Meta Blocks. The caller
      * must call BlockAppender.close() to conclude the block creation.
-     * 
+     *
      * @return The BlockAppender stream
      * @throws IOException
      */
@@ -463,7 +463,7 @@ final class BCFile {
     /**
      * Callback to make sure a data block is added to the internal list when
      * it's being closed.
-     * 
+     *
      */
     private class DataBlockRegister implements BlockRegister {
       DataBlockRegister() {
@@ -519,7 +519,7 @@ final class BCFile {
 
       /**
        * Get the output stream for BlockAppender's consumption.
-       * 
+       *
        * @return the output stream suitable for writing block data.
        */
       public InputStream getInputStream() {
@@ -575,7 +575,7 @@ final class BCFile {
 
       /**
        * Get the name of the compression algorithm used to compress the block.
-       * 
+       *
        * @return name of the compression algorithm.
        */
       public String getCompressionName() {
@@ -584,7 +584,7 @@ final class BCFile {
 
       /**
        * Get the uncompressed size of the block.
-       * 
+       *
        * @return uncompressed size of the block.
        */
       public long getRawSize() {
@@ -593,7 +593,7 @@ final class BCFile {
 
       /**
        * Get the compressed size of the block.
-       * 
+       *
        * @return compressed size of the block.
        */
       public long getCompressedSize() {
@@ -602,7 +602,7 @@ final class BCFile {
 
       /**
        * Get the starting position of the block in the file.
-       * 
+       *
        * @return the starting position of the block in the file.
        */
       public long getStartPos() {
@@ -612,7 +612,7 @@ final class BCFile {
 
     /**
      * Constructor
-     * 
+     *
      * @param fin
      *          FS input stream.
      * @param fileLength
@@ -651,7 +651,7 @@ final class BCFile {
 
     /**
      * Get the name of the default compression algorithm.
-     * 
+     *
      * @return the name of the default compression algorithm.
      */
     public String getDefaultCompressionName() {
@@ -660,7 +660,7 @@ final class BCFile {
 
     /**
      * Get version of BCFile file being read.
-     * 
+     *
      * @return version of BCFile file being read.
      */
     public Version getBCFileVersion() {
@@ -669,7 +669,7 @@ final class BCFile {
 
     /**
      * Get version of BCFile API.
-     * 
+     *
      * @return version of BCFile API.
      */
     public Version getAPIVersion() {
@@ -686,7 +686,7 @@ final class BCFile {
 
     /**
      * Get the number of data blocks.
-     * 
+     *
      * @return the number of data blocks.
      */
     public int getBlockCount() {
@@ -695,7 +695,7 @@ final class BCFile {
 
     /**
      * Stream access to a Meta Block.
-     * 
+     *
      * @param name
      *          meta block name
      * @return BlockReader input stream for reading the meta block.
@@ -716,7 +716,7 @@ final class BCFile {
 
     /**
      * Stream access to a Data Block.
-     * 
+     *
      * @param blockIndex
      *          0-based data block index.
      * @return BlockReader input stream for reading the data block.
@@ -741,7 +741,7 @@ final class BCFile {
     /**
      * Find the smallest Block index whose starting offset is greater than or
      * equal to the specified offset.
-     * 
+     *
      * @param offset
      *          User-specific offset.
      * @return the index to the data Block if such block exists; or -1

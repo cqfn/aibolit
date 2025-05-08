@@ -54,7 +54,7 @@ class CleanupQueue {
       }
     }
   }
-  
+
   /**
    * Contains info related to the path of the file/dir to be deleted
    */
@@ -66,7 +66,7 @@ class CleanupQueue {
       this.fs = fs;
       this.fullPath = fullPath;
     }
-    
+
     protected String getPathForCleanup() {
       return fullPath;
     }
@@ -150,7 +150,7 @@ class CleanupQueue {
           return;
         } catch (Exception e) {
           LOG.warn("Error deleting path " + context.fullPath + ": " + e);
-        } 
+        }
       }
     }
   }

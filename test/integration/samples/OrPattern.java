@@ -10,9 +10,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -32,28 +32,28 @@ import ghidra.xml.*;
 import java.util.*;
 
 /**
- * 
+ *
  *
  * A pattern that can be matched by matching any of a list of subpatterns
  */
 public class OrPattern extends Pattern {
 
 	private DisjointPattern[] orlist;
-	
+
 	public OrPattern() { orlist = null; }		// For use with restoreXml
-	
+
 	public OrPattern(DisjointPattern a,DisjointPattern b) {
 		orlist = new DisjointPattern[2];
 		orlist[0] = a;
 		orlist[1] = b;
 	}
-	
+
 	public OrPattern(ArrayList<?> list) {
 		orlist = new DisjointPattern[list.size()];
 		for(int i=0;i<list.size();++i)
 			orlist[i] = (DisjointPattern)list.get(i);
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see ghidra.app.plugin.processors.sleigh.Pattern#simplifyClone()
 	 */
@@ -63,7 +63,7 @@ public class OrPattern extends Pattern {
 			if (orlist[i].alwaysTrue())
 				return new InstructionPattern(true);
 		}
-		
+
 		ArrayList<Object> newlist = new ArrayList<Object>();
 		for(int i=0;i<orlist.length;++i) {
 			if (!orlist[i].alwaysFalse())
@@ -91,14 +91,14 @@ public class OrPattern extends Pattern {
 	@Override
     public Pattern doOr(Pattern b, int sa) {
 		ArrayList<Object> newlist = new ArrayList<Object>();
-		
+
 		for(int i=0;i<orlist.length;++i)
 			newlist.add(orlist[i].simplifyClone());
 		if (sa < 0) {
 			for(int i=0;i<orlist.length;++i)
 				orlist[i].shiftInstruction(-sa);
 		}
-		
+
 		if (b instanceof OrPattern) {
 			OrPattern b2 = (OrPattern)b;
 			for(int i=0;i<b2.orlist.length;++i)
@@ -153,9 +153,9 @@ public class OrPattern extends Pattern {
 			}
 		}
 		debugDone(debug, match);
-		return match;	
+		return match;
 	}
-	
+
 	private void debugDone(SleighDebugLogger debug, boolean match) {
 		if (debug != null) {
 			debug.endPatternGroup(match);

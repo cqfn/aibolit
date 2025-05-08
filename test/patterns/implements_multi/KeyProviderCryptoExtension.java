@@ -39,7 +39,7 @@ import org.apache.hadoop.crypto.Encryptor;
 /**
  * A KeyProvider with Cryptographic Extensions specifically for generating
  * and decrypting encrypted encryption keys.
- * 
+ *
  */
 @InterfaceAudience.Private
 public class KeyProviderCryptoExtension extends
@@ -197,7 +197,7 @@ public class KeyProviderCryptoExtension extends
      * of the key and is encrypted using the same cipher.
      * <p>
      * NOTE: The generated key is not stored by the <code>KeyProvider</code>
-     * 
+     *
      * @param encryptionKeyName
      *          The latest KeyVersion of this key's material will be encrypted.
      * @return EncryptedKeyVersion with the generated key material, the version
@@ -215,7 +215,7 @@ public class KeyProviderCryptoExtension extends
     /**
      * Decrypts an encrypted byte[] key material using the given key version
      * name and initialization vector.
-     * 
+     *
      * @param encryptedKeyVersion
      *          contains keyVersionName and IV to decrypt the encrypted key
      *          material
@@ -274,7 +274,7 @@ public class KeyProviderCryptoExtension extends
   private static class DefaultCryptoExtension implements CryptoExtension {
 
     private final KeyProvider keyProvider;
-    private static final ThreadLocal<SecureRandom> RANDOM = 
+    private static final ThreadLocal<SecureRandom> RANDOM =
         new ThreadLocal<SecureRandom>() {
       @Override
       protected SecureRandom initialValue() {
@@ -506,7 +506,7 @@ public class KeyProviderCryptoExtension extends
    * @return EncryptedKeyVersion with the generated key material, the version
    * name is 'EEK' (for Encrypted Encryption Key)
    * @throws IOException thrown if the key material could not be generated
-   * @throws GeneralSecurityException thrown if the key material could not be 
+   * @throws GeneralSecurityException thrown if the key material could not be
    * encrypted because of a cryptographic issue.
    */
   public EncryptedKeyVersion generateEncryptedKey(String encryptionKeyName)
@@ -519,15 +519,15 @@ public class KeyProviderCryptoExtension extends
    * Decrypts an encrypted byte[] key material using the given a key version
    * name and initialization vector.
    *
-   * @param encryptedKey contains keyVersionName and IV to decrypt the encrypted 
+   * @param encryptedKey contains keyVersionName and IV to decrypt the encrypted
    * key material
    * @return a KeyVersion with the decrypted key material, the version name is
    * 'EK' (For Encryption Key)
    * @throws IOException thrown if the key material could not be decrypted
-   * @throws GeneralSecurityException thrown if the key material could not be 
+   * @throws GeneralSecurityException thrown if the key material could not be
    * decrypted because of a cryptographic issue.
    */
-  public KeyVersion decryptEncryptedKey(EncryptedKeyVersion encryptedKey) 
+  public KeyVersion decryptEncryptedKey(EncryptedKeyVersion encryptedKey)
       throws IOException, GeneralSecurityException {
     return getExtension().decryptEncryptedKey(encryptedKey);
   }

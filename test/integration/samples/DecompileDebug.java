@@ -9,9 +9,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -50,7 +50,7 @@ public class DecompileDebug {
 	private ArrayList<DataType> dtypes;
 	private ArrayList<String> symbol;
 	private ArrayList<String> context;
-	private ArrayList<String> cpool; 
+	private ArrayList<String> cpool;
 	private ArrayList<String> flowoverride;
 	private ArrayList<String> inject;
 	private TreeSet<ByteChunk> byteset;
@@ -422,8 +422,8 @@ public class DecompileDebug {
 		debugStream.write("<flowoverridelist>\n".getBytes());
 		for(int i=0;i<flowoverride.size();++i)
 			debugStream.write(flowoverride.get(i).getBytes());
-		
-		debugStream.write("</flowoverridelist>\n".getBytes());		
+
+		debugStream.write("</flowoverridelist>\n".getBytes());
 	}
 
 	private void dumpInject(OutputStream debugStream) throws IOException {

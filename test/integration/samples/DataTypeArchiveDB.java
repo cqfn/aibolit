@@ -9,9 +9,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -40,7 +40,7 @@ import ghidra.util.task.TaskMonitor;
 import ghidra.util.task.TaskMonitorAdapter;
 
 /**
- * Database implementation for Data Type Archive. 
+ * Database implementation for Data Type Archive.
  */
 public class DataTypeArchiveDB extends DomainObjectAdapterDB
 		implements DataTypeArchive, DataTypeArchiveChangeManager {
@@ -56,8 +56,8 @@ public class DataTypeArchiveDB extends DomainObjectAdapterDB
 	/**
 	 * UPGRADE_REQUIRED_BEFORE_VERSION should be changed to DB_VERSION any time the
 	 * latest version requires a forced upgrade (i.e., Read-only mode not supported
-	 * until upgrade is performed).  It is assumed that read-only mode is supported 
-	 * if the data's version is &gt;= UPGRADE_REQUIRED_BEFORE_VERSION and &lt;= DB_VERSION. 
+	 * until upgrade is performed).  It is assumed that read-only mode is supported
+	 * if the data's version is &gt;= UPGRADE_REQUIRED_BEFORE_VERSION and &lt;= DB_VERSION.
 	 */
 	private static final int UPGRADE_REQUIRED_BEFORE_VERSION = 1;
 
@@ -98,8 +98,8 @@ public class DataTypeArchiveDB extends DomainObjectAdapterDB
 	 * @param name the name of the data type archive
 	 * @param consumer the object that is using this data type archive.
 	 * @throws IOException if there is an error accessing the database.
-	 * @throws InvalidNameException 
-	 * @throws DuplicateNameException 
+	 * @throws InvalidNameException
+	 * @throws DuplicateNameException
 	 */
 	public DataTypeArchiveDB(DomainFolder folder, String name, Object consumer)
 			throws IOException, DuplicateNameException, InvalidNameException {
@@ -456,7 +456,7 @@ public class DataTypeArchiveDB extends DomainObjectAdapterDB
 //			}
 //			if (openMode != UPGRADE) {
 //				throw new VersionException(true);
-//			}	
+//			}
 //			options pl = getPropertyList(ARCHIVE_INFO);
 //			String value = record.getString(0);
 //			pl.setValue(EXECUTABLE_PATH, value);

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 import java.util.ArrayList;
 
 class HolyMoly {
@@ -43,7 +46,7 @@ class HolyMoly {
             new MyObject();
         }
     }
-	
+
 	public HolyMoly(int z) {
         super(new Thread() {
             public void run() {
@@ -92,4 +95,4 @@ class HolyMoly {
             for (int j = 0; j < 10; j++)
                 list.add(Boolean.FALSE);
     }
-} 
+}

@@ -1,15 +1,17 @@
+% SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+% SPDX-License-Identifier: MIT
 
-Insufficient software quality may result in increased development costs and 
-negatively affect customer satisfaction ~\citep{The_Economics_of_Software_Quality}. 
-\textit{Static code analysis} develops techniques to help detect software quality 
-issues prior to program execution. It has its practical application in various developer's tools. There are both open source\footnote{PMD: \url{http://pmd.sourceforge.net/}, Rubocop: \url{https://github.com/rubocop-hq/rubocop}, 
-PHPCS: \url{https://github.com/squizlabs/PHP_CodeSniffer} 
-FindSecBugs: \url{https://find-sec-bugs.github.io/}, ESLint: \url{https://eslint.org/}, Checkstyle: \url{https://checkstyle.sourceforge.io/}.} 
-(PMD, Rubocop, PHPCS, FindSecBugs, ESLint, Checkstyle, to name a few) and commercial\footnote{IBM Security AppScan: \url{https://www.hcltechsw.com/wps/portal/products/appscan}, 
-PVS-Studio: \url{https://www.viva64.com/en/pvs-studio/}, 
-SonarQube: \url{https://www.sonarqube.org/}, 
-Parasoft: \url{https://www.parasoft.com/}} 
-(IBM Security AppScan, PVS-Studio, SonarQube, Parasoft) static analyzers 
+Insufficient software quality may result in increased development costs and
+negatively affect customer satisfaction ~\citep{The_Economics_of_Software_Quality}.
+\textit{Static code analysis} develops techniques to help detect software quality
+issues prior to program execution. It has its practical application in various developer's tools. There are both open source\footnote{PMD: \url{http://pmd.sourceforge.net/}, Rubocop: \url{https://github.com/rubocop-hq/rubocop},
+PHPCS: \url{https://github.com/squizlabs/PHP_CodeSniffer}
+FindSecBugs: \url{https://find-sec-bugs.github.io/}, ESLint: \url{https://eslint.org/}, Checkstyle: \url{https://checkstyle.sourceforge.io/}.}
+(PMD, Rubocop, PHPCS, FindSecBugs, ESLint, Checkstyle, to name a few) and commercial\footnote{IBM Security AppScan: \url{https://www.hcltechsw.com/wps/portal/products/appscan},
+PVS-Studio: \url{https://www.viva64.com/en/pvs-studio/},
+SonarQube: \url{https://www.sonarqube.org/},
+Parasoft: \url{https://www.parasoft.com/}}
+(IBM Security AppScan, PVS-Studio, SonarQube, Parasoft) static analyzers
 on the market.
 
 Static code analysis can be applied to improve an \textit{internal} and an
@@ -23,15 +25,15 @@ analyze, modify and adapt given software \citep{Mohammadi2013AnAO}.
 
 Functional quality aspects are typically quite susceptible to formal definition
 and quantification.
-% (\todo: examples!!). 
+% (\todo: examples!!).
 Functional quality is also an essential
 requirement in any domain of software development. On the other hand,
 maintainability is a lot less straightforward to formally specify or quantify.
-%\todo: refs. 
+%\todo: refs.
 Also, in certain applications it appears less important than
 functional correctness, although in business domain it is recognized as an
 essential property.
-% (\todo: ref). 
+% (\todo: ref).
 As a result, there are currently a lot more
 research and practical tools addressing functional quality aspects of code than
 maintainability \citep{Overview_Static_Code_Analysis_in_Software_Development}.
@@ -47,19 +49,19 @@ prediction mechanism. From the perspective of ML, our product is a recommender
 system. For a given class file, it gives suggestions to the developer to alter
 their code. The recommendations come in the form of \textit{code patterns} that
 are detected in the code and advised to be removed.
-  
+
 Our choice to design Aibolit as a ML-based system alleviates some important
 shortcomings of rule-based static analyzers. By design, ML algorithms capture
 statistical relations in the external world (data). Therefore, they can be a
 good way to model imprecisely and subjectively defined properties of code, such
 as its maintainability. Moreover, rule-based system are known to not scale well
 to the diversity of empirically observed cases, and they tend to get very hard
-to extend and maintain \citep{LenatFeigenbaum1987}. The ML 
+to extend and maintain \citep{LenatFeigenbaum1987}. The ML
 approach does not require
 manual system adaptation as new observations or new features (patterns) come
 along. In fact, Aibolit provides an easy way for developers to integrate a code
 pattern of their liking into the recommender system and to analyze the pattern`s
-impact on code quality. 
+impact on code quality.
 
 
 
@@ -67,8 +69,7 @@ impact on code quality.
 
 
 % This document explains how Aibolit works  and what makes it novel and
-% different from other static analyzers (Section~\ref{sec:method}). 
+% different from other static analyzers (Section~\ref{sec:method}).
 % We further show how Aibolit can be extended
-% with custom patterns and metrics. We discuss the current shortcomings and the way 
+% with custom patterns and metrics. We discuss the current shortcomings and the way
 % they can be addressed in future work (Section~\ref{sec:conclusion}).
-

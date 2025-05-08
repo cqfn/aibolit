@@ -1,8 +1,11 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 class Foo
-{ 
+{
 
     private int i;
-    
+
     Foo() {
         int j = 7;
         do{
@@ -11,7 +14,7 @@ class Foo
         }
         while (j > 0);
     }
-    
+
     Foo(int x)
     {
 		int j = 7;
@@ -20,23 +23,23 @@ class Foo
             j--;
         }
         while (j > 0);
-    } 
+    }
 
 	Foo(double x, int y, int z)
     {
-		
+
 		while (x + y < 10) {
             x = x + 1;
 			while (z < 3) {
 				this(1);
-			}			
+			}
             while (y < 10) {
                 y = y + 1;
                 this(x + y);
             }
 		}
     }
-    
+
     Foo(int x, int y, int z)
     {
 		if (x + y < 10) {
@@ -44,10 +47,10 @@ class Foo
 				if (y < 6) {
 					this.i = x;
 				}
-			}			
+			}
 		}
     }
-    
+
     Foo(int x, int y)
     {
 		if (y < 6) {
@@ -58,21 +61,21 @@ class Foo
             this.i = 2;
         }
     }
-    
+
     Foo(int x, double y, double z)
     {
 		for(int i=0; i < 10; i++){
             this(i + x + y + z);
         }
     }
-    
+
     Foo(int x, double y, int z)
     {
 		for(int j=0; j < 10; j++){
             this.i = i + x + y + z;
         }
     }
-    
+
     Foo(int x, double y)
     {
 		if (x + y < 10) {
@@ -80,10 +83,10 @@ class Foo
 				if (y < 6) {
 					this(1);
 				}
-			}			
+			}
 		}
     }
-	
+
 	Foo(double x, double y)
     {
 		if (x + y < 10) {
@@ -94,10 +97,10 @@ class Foo
 			}
 			else {
 				this.i = 34;
-			}			
+			}
 		}
     }
-    
+
     Foo(int x, int y)
     {
 		if (y < 6) {
@@ -111,4 +114,4 @@ class Foo
         }
     }
 
-} 
+}

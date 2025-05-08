@@ -1,5 +1,8 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 class Temp extends Base
-{ 
+{
 
     private int i;
 
@@ -7,22 +10,22 @@ class Temp extends Base
     {
 		this.i = null ;
     }
- 
-    // constructor with one arguemnt. 
-    Temp(int x, int y) 
-    { 
+
+    // constructor with one arguemnt.
+    Temp(int x, int y)
+    {
         super(x);
 		this(y);
-    } 
+    }
     Temp(double x)
     {
         super(x);
 		this.i = x;
     }
-    public static void main(String[] args) 
-    { 
-        // Object creation by calling no-argument  
-        // constructor. 
+    public static void main(String[] args)
+    {
+        // Object creation by calling no-argument
+        // constructor.
         new Temp(5,6);
-    } 
-} 
+    }
+}

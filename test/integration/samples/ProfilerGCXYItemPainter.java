@@ -48,7 +48,7 @@ public class ProfilerGCXYItemPainter extends SynchronousXYItemPainter {
     // --- Constructor ---------------------------------------------------------
 
     public static ProfilerGCXYItemPainter painter(Color fillColor) {
-        
+
         return new ProfilerGCXYItemPainter(fillColor);
     }
 
@@ -75,16 +75,16 @@ public class ProfilerGCXYItemPainter extends SynchronousXYItemPainter {
     public LongRect getDirtyBounds(ChartItemChange itemChange, ChartContext context) {
 //        if (!(itemChange instanceof XYItemChange))
 //            throw new UnsupportedOperationException("Unsupported itemChange: " + itemChange);
-        
+
         XYItemChange change = (XYItemChange)itemChange;
         ProfilerGCXYItem item = (ProfilerGCXYItem)change.getItem();
-        
+
         int[] indexes = change.getValuesIndexes();
 
         if (indexes.length == 1 && indexes[0] == -1) {
             // Data reset
             LongRect dirtyBounds = change.getDirtyValuesBounds();
-            
+
             long x = (long)context.getViewX(dirtyBounds.x);
             long y = (long)context.getViewY(context.getDataOffsetY() +
                                             context.getDataHeight());
@@ -143,7 +143,7 @@ public class ProfilerGCXYItemPainter extends SynchronousXYItemPainter {
 
     // --- Private implementation ----------------------------------------------
 
-    
+
     protected void paint(XYItem item, List<ItemSelection> highlighted,
                        List<ItemSelection> selected, Graphics2D g,
                        Rectangle dirtyArea, SynchronousXYChartContext context) {
@@ -206,10 +206,10 @@ public class ProfilerGCXYItemPainter extends SynchronousXYItemPainter {
                     g.fillRect(itemStart, startY, Math.max(itemLength, 1), height);
                 }
             }
-            
+
             index = Math.min(index + itemsStep, lastIndex);
         }
-        
+
     }
 
 }

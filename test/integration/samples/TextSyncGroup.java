@@ -38,11 +38,11 @@ import java.util.List;
  * @author Miloslav Metelka
  */
 public final class TextSyncGroup<I> {
-    
+
     private TextRegionManager manager;
-    
+
     private List<TextSync> textSyncs;
-    
+
     private int activeTextSyncIndex = -1;
 
     /**
@@ -55,7 +55,7 @@ public final class TextSyncGroup<I> {
         for (TextSync textSync : textSyncs)
             addTextSync(textSync);
     }
-    
+
     public TextSyncGroup() {
         initTextSyncs(4);
     }
@@ -63,7 +63,7 @@ public final class TextSyncGroup<I> {
     private void initTextSyncs(int size) {
         this.textSyncs = new ArrayList<TextSync>(size);
     }
-    
+
     /**
      * Get list of all text syncs managed by this group.
      *
@@ -72,7 +72,7 @@ public final class TextSyncGroup<I> {
     public List<TextSync> textSyncs() {
         return Collections.unmodifiableList(textSyncs);
     }
-    
+
     public void addTextSync(TextSync textSync) {
         if (textSync == null)
             throw new IllegalArgumentException("textSync cannot be null");
@@ -81,7 +81,7 @@ public final class TextSyncGroup<I> {
                     " already assigned to group " + textSync.group()); // NOI18N
         textSyncs.add(textSync);
         textSync.setGroup(this);
-        
+
     }
 
     public void removeTextSync(TextSync textSync) {
@@ -97,7 +97,7 @@ public final class TextSyncGroup<I> {
     public TextRegionManager textRegionManager() {
         return manager;
     }
-    
+
     void setTextRegionManager(TextRegionManager manager) {
         this.manager = manager;
     }

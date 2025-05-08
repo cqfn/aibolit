@@ -57,7 +57,7 @@ public class WorkspaceDocumentManagerImpl implements WorkspaceDocumentManager {
 
     protected WorkspaceDocumentManagerImpl() {
     }
-    
+
     public static WorkspaceDocumentManagerImpl getInstance() {
         return INSTANCE;
     }

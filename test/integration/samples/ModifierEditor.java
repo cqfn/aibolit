@@ -48,18 +48,18 @@ public class ModifierEditor extends JPanel implements ExPropertyEditor {
      * attribute name for the feature descriptor of the property environment
      * @see #ACCESS_MODIFIERS_CUSTOM_EDITOR
      * @see #OTHERS_MODIFIERS_CUSTOM_EDITOR
-     */ 
+     */
     public static final String CUSTOM_EDITOR_TYPE = "customEditorType"; // NOI18N
-    /** if it is set as feature descriptor's attribute value in the environment then the getCustomComponent returns 
+    /** if it is set as feature descriptor's attribute value in the environment then the getCustomComponent returns
      * the combo box for access modifiers
      */
     public static final Integer ACCESS_MODIFIERS_CUSTOM_EDITOR = new Integer(0);
     /** if it is set as feature descriptor's attribute value in the environment then the getCustomComponent returns
-     * the panel containing other modifiers than the access modifiers. 
+     * the panel containing other modifiers than the access modifiers.
      */
     public static final Integer OTHERS_MODIFIERS_CUSTOM_EDITOR = new Integer(1);
     /** if it is set as feature descriptor's attribute value in the environment then the getCustomComponent returns
-     * the panel containing full range of modifiers 
+     * the panel containing full range of modifiers
      */
     public static final Integer FULL_CUSTOM_EDITOR = new Integer(2);
 
@@ -71,14 +71,14 @@ public class ModifierEditor extends JPanel implements ExPropertyEditor {
 
     /** Current value */
     private int modifier;
-    
+
     private PropertyEnv env;
-    
+
     /**
      * @see #getType
-     */ 
+     */
     private Object type;
-    
+
     /** Creates new modifiers editor with full mask.
     */
     public ModifierEditor() {
@@ -95,7 +95,7 @@ public class ModifierEditor extends JPanel implements ExPropertyEditor {
     }
 
     private Component customComponent;
-    
+
     @Override
     public void addNotify() {
         setLayout(new BorderLayout());
@@ -109,7 +109,7 @@ public class ModifierEditor extends JPanel implements ExPropertyEditor {
             customComponent = panel.getCompactComponent();
         }
         add(customComponent, BorderLayout.CENTER);
-        
+
         super.addNotify();
     }
 
@@ -121,7 +121,7 @@ public class ModifierEditor extends JPanel implements ExPropertyEditor {
             panel = null;
         }
     }
-    
+
     /** Getter for property mask.
      *@return Value of property mask.
      */
@@ -140,7 +140,7 @@ public class ModifierEditor extends JPanel implements ExPropertyEditor {
             setModifier(modifier & mask);
         }
     }
-    
+
     /** Getter for property modifier.
      *@return Value of property modifier.
      */
@@ -161,13 +161,13 @@ public class ModifierEditor extends JPanel implements ExPropertyEditor {
             firePropertyChange(PROP_MODIFIERS, new Integer (oldModifier), new Integer (modifier));
         }
     }
-    
+
     /**
      * @return type of the editor
      * @see #ACCESS_MODIFIERS_CUSTOM_EDITOR
      * @see #OTHERS_MODIFIERS_CUSTOM_EDITOR
      * @see #FULL_CUSTOM_EDITOR
-     */ 
+     */
     Object getType() {
         return type;
     }
@@ -280,7 +280,7 @@ public class ModifierEditor extends JPanel implements ExPropertyEditor {
     public Component getCustomEditor() {
         return this;
     }
-    
+
     /** @return <CODE>true</CODE> */
     @Override
     public boolean supportsCustomEditor() {
@@ -313,9 +313,9 @@ public class ModifierEditor extends JPanel implements ExPropertyEditor {
         } else {
             type = FULL_CUSTOM_EDITOR;
         }
-        
+
     }
-     
+
     private static String getString(String key) {
         return NbBundle.getMessage(ModifierEditor.class, key);
     }

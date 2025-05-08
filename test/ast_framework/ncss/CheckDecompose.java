@@ -1,7 +1,10 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 class Test extends TestI {
-	
+
 	private int i;
-	
+
 	private int rit() {
 		String g = new Chain().getFloat().fake();
 		if (u == null) {
@@ -9,7 +12,7 @@ class Test extends TestI {
 		}
 		else {return 3;}
 	}
-	
+
 	private int rij() {
 		try {
 			Strint a = "a" + i;
@@ -19,7 +22,7 @@ class Test extends TestI {
 		}
 		return a;
 	}
-	
+
 	private int rik() {
 		while(1) {
 			super.method();

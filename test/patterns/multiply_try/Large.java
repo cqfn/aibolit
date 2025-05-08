@@ -701,7 +701,7 @@ class CosNativeFileSystemStore implements NativeFileSystemStore {
       this.cosClient.shutdown();
     }
   }
-  
+
     @Override
   public void opa() {
 	  try {

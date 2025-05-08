@@ -58,7 +58,7 @@ public final class SpecificationVersion implements Comparable {
 
     private static int[] parse(String version) throws NumberFormatException {
         StringTokenizer tok = new StringTokenizer(version, ".", true); // NOI18N
-        
+
         int len = tok.countTokens();
         if ((len % 2) == 0) {
             throw new NumberFormatException("Even number of pieces in a spec version: `" + version + "'"); // NOI18N

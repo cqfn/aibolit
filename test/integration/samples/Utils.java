@@ -53,7 +53,7 @@ import org.openide.util.RequestProcessor;
  * @author Petr Pisl
  */
 public class Utils {
-    
+
     public static final List<JsTokenId> LOOK_FOR_IMPORT_EXPORT_TOKENS = Collections.unmodifiableList(Arrays.asList(JsTokenId.KEYWORD_IMPORT, JsTokenId.KEYWORD_EXPORT, JsTokenId.OPERATOR_SEMICOLON));
 
     private static final Logger LOG = Logger.getLogger(Utils.class.getName());
@@ -90,7 +90,7 @@ public class Utils {
     /**
      * Converts the types names to the display names. It can return empty collection
      * if the all types in input refers anonymous objects or functions.
-     * @param types collection of types 
+     * @param types collection of types
      * @return collection of display names
      */
     public static Collection<String> getDisplayNames(Collection<? extends Type> types) {
@@ -104,7 +104,7 @@ public class Utils {
         Collections.sort(displayNames);
         return displayNames;
     }
-    
+
     /**
      * Converts the fully qualified names to the display names. It can return empty collection
      * if the all types in input refers anonymous objects or functions.

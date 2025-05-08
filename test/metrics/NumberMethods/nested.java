@@ -17,9 +17,9 @@ class LengthStringComparator implements Comparator<String> {
 }
 
 	public static void main(String[] args) // +1
-    { 
-        int test = 3; 
-        main(test); 
-    } 
-	
+    {
+        int test = 3;
+        main(test);
+    }
+
 }

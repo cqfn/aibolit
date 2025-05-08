@@ -131,7 +131,7 @@ public class LSPBindings {
                                                    }
                                                }
                                            };
-                                           
+
                                            for (LanguageServerProvider provider : MimeLookup.getLookup(mimeType).lookupAll(LanguageServerProvider.class)) {
                                                LanguageServerDescription desc = provider.startServer(Lookups.fixed(prj, mimeTypeInfo, restarter));
 

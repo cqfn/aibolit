@@ -461,7 +461,7 @@ public class TableModelEditor implements PropertyEditor, XMLPropertyEditor,
 
     static String getAsString (Object o) {
         if (o == null) return "null"; // NOI18N
-        
+
         if (o instanceof String)
             return "\"" + ((String)o).replace("\"", "\\\"") + "\""; // NOI18N
 
@@ -474,7 +474,7 @@ public class TableModelEditor implements PropertyEditor, XMLPropertyEditor,
             cast = "(byte) ";   // NOI18N
         else if (o instanceof Short)
             cast = "(short) ";  // NOI18N
-        
+
         if(s.equals("Double") || s.equals("Float")) { // NOI18N
             String os = o.toString();
             if(os.equals("Infinity")) { // NOI18N
@@ -485,14 +485,14 @@ public class TableModelEditor implements PropertyEditor, XMLPropertyEditor,
                 o = s + ".NaN"; // NOI18N
             }
         }
-        
+
         return " new " + s + "(" + cast + o + ")"; // NOI18N
     }
 
     static Object getDefaultValue (Class c) {
         return null;
     }
-    
+
     // NamedPropertyEditor implementation
     @Override
     public String getDisplayName() {
@@ -715,7 +715,7 @@ public class TableModelEditor implements PropertyEditor, XMLPropertyEditor,
                 for (int cn=colCount-newColumnCount; cn > 0; cn--)
                     columns.remove(newColumnCount + cn - 1);
             }
-            
+
             fireTableStructureChanged();
         }
 

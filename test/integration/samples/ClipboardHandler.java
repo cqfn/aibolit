@@ -124,7 +124,7 @@ public class ClipboardHandler {
 
     private static final Logger LOG = Logger.getLogger(ClipboardHandler.class.getName());
     private static final RequestProcessor WORKER = new RequestProcessor(ClipboardHandler.class.getName(), 3, false, false);
-    
+
     private static void doImport(JavaSource js, final Document doc, final int caret, final Map<String, String> simple2ImportFQN, final List<Position[]> inSpans, AtomicBoolean cancel) {
         final Map<Position[], String> putFQNs = new HashMap<Position[], String>();
 
@@ -175,7 +175,7 @@ public class ClipboardHandler {
             });
 
             if (cancel.get()) return ;
-            
+
             NbDocument.runAtomicAsUser((StyledDocument) doc, new Runnable() {
                 @Override public void run() {
                     try {
@@ -288,7 +288,7 @@ public class ClipboardHandler {
             return null;
         }
     }
-    
+
     private static Element fqn2element(final Elements elements, final String fqn) {
         if (fqn == null) {
             return null;
@@ -494,9 +494,9 @@ public class ClipboardHandler {
                                         return super.visitVariable(node, p);
                                     }
                                 }
-                                
+
                                 boolean ignoreSynthetic;
-                                
+
                                 @Override public Void scan(Tree tree, Void p) {
                                     if (tree == null) {
                                         return null;
@@ -542,7 +542,7 @@ public class ClipboardHandler {
                     }
                 }
             }
-            
+
             delegate.exportToClipboard(comp, clip, action);
             if (iw != null || copiedFromString) {
                 clip.setContents(new WrappedTransferable(clip.getContents(null), iw, copiedFromString), null);
@@ -602,7 +602,7 @@ public class ClipboardHandler {
                                 }
 
                                 final Collection<String> toShow = new HashSet<String>(imports.simple2ImportFQN.values());
-                                
+
                                 toShow.retainAll(unavailable);
 
                                 if (!unavailable.isEmpty()) {
@@ -624,7 +624,7 @@ public class ClipboardHandler {
 
             return delegatedImportData(support);
         }
-        
+
         private boolean delegatedImportData(final TransferSupport support) {
             JComponent comp = (JComponent) support.getComponent();
             if (comp instanceof JTextComponent && !support.isDataFlavorSupported(COPY_FROM_STRING_FLAVOR) ) {
@@ -726,11 +726,11 @@ public class ClipboardHandler {
             }
             return delegate.importData(support);
         }
-        
+
         private boolean insideToken(final JTextComponent jtc, final JavaTokenId first, final JavaTokenId... rest) {
             final Document doc = jtc.getDocument();
             final boolean[] result = new boolean[1];
-            
+
             doc.render(new Runnable() {
                 @Override public void run() {
                     int offset = jtc.getSelectionStart();
@@ -743,7 +743,7 @@ public class ClipboardHandler {
                     }
                 }
             });
-            
+
             return result[0];
         }
     }

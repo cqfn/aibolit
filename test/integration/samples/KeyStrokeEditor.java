@@ -40,7 +40,7 @@ import org.openide.util.NbBundle;
 
 /**
  * Property editor for KeyStroke.
- * 
+ *
  * @author Jan Stola
  */
 public class KeyStrokeEditor extends PropertyEditorSupport
@@ -246,7 +246,7 @@ public class KeyStrokeEditor extends PropertyEditorSupport
     public java.awt.Component getCustomEditor() {
         return new CustomEditor();
     }
-    
+
     // NamedPropertyEditor implementation
     @Override
     public String getDisplayName() {
@@ -263,7 +263,7 @@ public class KeyStrokeEditor extends PropertyEditorSupport
 
         CustomEditor() {
             setLayout(new GridBagLayout());
-            
+
             ResourceBundle bundle =
                 org.openide.util.NbBundle.getBundle(KeyStrokeEditor.class);
 
@@ -315,7 +315,7 @@ public class KeyStrokeEditor extends PropertyEditorSupport
                 bundle.getString("ACSD_MetaKey")); // NOI18N
             panel.add(_meta);
             virtualKeyLabel.setLabelFor(_virtualKey);
-            
+
             gbc = new GridBagConstraints();
             gbc.gridx = 2;
             gbc.gridy = 0;
@@ -325,7 +325,7 @@ public class KeyStrokeEditor extends PropertyEditorSupport
             gbc.weighty = 0;
             gbc.insets = new Insets(12, 0, 5, 12);
             add(panel, gbc);
-            
+
             JLabel keyStrokeLabel = new JLabel();
             Mnemonics.setLocalizedText(keyStrokeLabel, bundle.getString("CTL_KeyStroke")); // NOI18N
 
@@ -359,7 +359,7 @@ public class KeyStrokeEditor extends PropertyEditorSupport
                     setAsText(_keyGrabber.getText());
                 }
             });
-            
+
             getAccessibleContext().setAccessibleDescription(
                 bundle.getString("ACSD_KeyStrokeCustomEditor")); // NOI18N
 
@@ -482,7 +482,7 @@ public class KeyStrokeEditor extends PropertyEditorSupport
     // JDK-specific translation of KeyEvent to KeyStroke, method is only available
     // in JDK 1.7+
     private static final Method keyEvent_getExtendedKeyCode;
-    
+
     static {
         Class eventClass = KeyEvent.class;
         Method m = null;
@@ -495,7 +495,7 @@ public class KeyStrokeEditor extends PropertyEditorSupport
         }
         keyEvent_getExtendedKeyCode = m;
     }
-    
+
     static KeyStroke createKeyStroke(KeyEvent e) {
         int code = e.getKeyCode();
         if (keyEvent_getExtendedKeyCode != null) {
@@ -515,5 +515,5 @@ public class KeyStrokeEditor extends PropertyEditorSupport
         return KeyStroke.getKeyStroke(code, e.getModifiers());
     }
     // --- end defect #217279
-    
+
 }

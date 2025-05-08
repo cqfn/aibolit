@@ -51,13 +51,13 @@ import org.openide.util.NbBundle;
  * @author Petr Hrebejk, Jesse Glick
  */
 public class ModuleTargetChooserPanelGUI extends javax.swing.JPanel implements ActionListener, DocumentListener {
-  
-    private static final String NEW_MODULE_PREFIX = 
+
+    private static final String NEW_MODULE_PREFIX =
         NbBundle.getMessage(ModuleTargetChooserPanelGUI.class, "LBL_ModuleTargetChooserPanelGUI_NewModulePrefix" ); // NOI18N
-    
+
     /** preferred dimension of the panel */
     private static final Dimension PREF_DIM = new Dimension(500, 340);
-    
+
     private final Project project;
     private final SourceGroup groups[];
     private final List<ChangeListener> listeners = new ArrayList<>();
@@ -71,27 +71,27 @@ public class ModuleTargetChooserPanelGUI extends javax.swing.JPanel implements A
         for (SourceGroup sourceGroup : groups)
             if (sourceGroup == null)
                 throw new NullPointerException ();
-        
-        initComponents();        
-                
+
+        initComponents();
+
         documentNameTextField.getDocument().addDocumentListener(this);
 
         if (bottomPanel != null) {
             bottomPanelContainer.add( bottomPanel, java.awt.BorderLayout.CENTER );
         }
-                
-        rootComboBox.setRenderer(new GroupListCellRenderer());        
+
+        rootComboBox.setRenderer(new GroupListCellRenderer());
         rootComboBox.addActionListener(this);
-        
+
         setPreferredSize(PREF_DIM);
         setName(NbBundle.getBundle (ModuleTargetChooserPanelGUI.class).getString ("LBL_ModuleTargetChooserPanelGUI_Name") ); // NOI18N
     }
-            
+
     @Override
     public void addNotify () {
         Dimension panel2Size = this.jPanel2.getPreferredSize();
         Dimension bottomPanelSize = this.bottomPanelContainer.getPreferredSize ();
-        Dimension splitterSize = this.targetSeparator.getPreferredSize();        
+        Dimension splitterSize = this.targetSeparator.getPreferredSize();
         int vmax = panel2Size.height + bottomPanelSize.height + splitterSize.height + 12;   //Insets=12
         //Update only height, keep the wizard width
         if (vmax > PREF_DIM.height) {
@@ -99,13 +99,13 @@ public class ModuleTargetChooserPanelGUI extends javax.swing.JPanel implements A
         }
         super.addNotify();
     }
-    
+
     public void initValues( FileObject template, FileObject preselectedFolder ) {
         assert project != null : "Project must be specified."; // NOI18N
         // Show name of the project
         projectTextField.setText( ProjectUtils.getInformation(project).getDisplayName() );
         assert template != null;
-        
+
         String displayName;
         try {
             DataObject templateDo = DataObject.find(template);
@@ -113,17 +113,17 @@ public class ModuleTargetChooserPanelGUI extends javax.swing.JPanel implements A
         } catch (DataObjectNotFoundException ex) {
             displayName = template.getName();
         }
-        putClientProperty ("NewFileWizard_Title", displayName);// NOI18N        
+        putClientProperty ("NewFileWizard_Title", displayName);// NOI18N
 
-        // Setup comboboxes 
+        // Setup comboboxes
         rootComboBox.setModel(new DefaultComboBoxModel(groups));
         SourceGroup preselectedGroup = getPreselectedGroup(preselectedFolder);
-        rootComboBox.setSelectedItem(preselectedGroup);                       
+        rootComboBox.setSelectedItem(preselectedGroup);
         if (documentNameTextField.getText().trim().length() == 0)  { // To preserve the module name on back in the wiazard
             final String baseName = NEW_MODULE_PREFIX + displayName.toLowerCase();
             String activeName = baseName;
             if (preselectedFolder != null) {
-                int index = 0;                            
+                int index = 0;
                 while (true) {
                     FileObject _tmp = preselectedFolder.getFileObject(activeName, null);
                     if (_tmp == null) {
@@ -138,32 +138,32 @@ public class ModuleTargetChooserPanelGUI extends javax.swing.JPanel implements A
 
         updateText();
     }
-        
+
     public FileObject getRootFolder() {
         final Object selectedItem  = rootComboBox.getSelectedItem();
         return (selectedItem instanceof SourceGroup) ? ((SourceGroup)selectedItem).getRootFolder() : null;
     }
-    
+
     public String getTargetName() {
         final String text = documentNameTextField.getText().trim();
         return text.length() == 0 ? null : text;
     }
-    
+
     public void addChangeListener(ChangeListener l) {
         listeners.add(l);
     }
-    
+
     public void removeChangeListener(ChangeListener l) {
         listeners.remove(l);
     }
-    
+
     private void fireChange() {
         ChangeEvent e = new ChangeEvent(this);
         for (ChangeListener l : listeners) {
             l.stateChanged(e);
         }
     }
-        
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -290,8 +290,8 @@ public class ModuleTargetChooserPanelGUI extends javax.swing.JPanel implements A
         getAccessibleContext().setAccessibleDescription(bundle.getString("AD_ModuleTargetChooserPanelGUI")); // NOI18N
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanelContainer;
     private javax.swing.JLabel documentNameLabel;
@@ -308,38 +308,38 @@ public class ModuleTargetChooserPanelGUI extends javax.swing.JPanel implements A
     // End of variables declaration//GEN-END:variables
 
     // ActionListener implementation -------------------------------------------
-        
+
     @Override
     public void actionPerformed(java.awt.event.ActionEvent e) {
         if (ignoreChange.get() == Boolean.TRUE) {
             return;
         }
-        if (rootComboBox == e.getSource()) {            
+        if (rootComboBox == e.getSource()) {
             updateText();
             fireChange();
         }
-    }    
-    
+    }
+
     // DocumentListener implementation -----------------------------------------
-    
+
     @Override
     public void changedUpdate(javax.swing.event.DocumentEvent e) {
         updateText();
-        fireChange();        
-    }    
-    
+        fireChange();
+    }
+
     @Override
     public void insertUpdate(javax.swing.event.DocumentEvent e) {
         changedUpdate( e );
     }
-    
+
     @Override
     public void removeUpdate(javax.swing.event.DocumentEvent e) {
         changedUpdate( e );
     }
-    
+
     // Private methods ---------------------------------------------------------
-        
+
     private void updateText() {
         final Object selectedItem =  rootComboBox.getSelectedItem();
         String createdFileName;
@@ -354,7 +354,7 @@ public class ModuleTargetChooserPanelGUI extends javax.swing.JPanel implements A
         }
         fileTextField.setText(createdFileName.replace('/', File.separatorChar)); // NOI18N
     }
-    
+
     private SourceGroup getPreselectedGroup(FileObject folder) {
         for(int i = 0; folder != null && i < groups.length; i++) {
             FileObject root = groups[i].getRootFolder();
@@ -364,16 +364,16 @@ public class ModuleTargetChooserPanelGUI extends javax.swing.JPanel implements A
         }
         return groups[0];
     }
-    
+
     // Private innerclasses ----------------------------------------------------
 
     /**
      * Displays a {@link SourceGroup} in {@link #rootComboBox}.
      */
     private static final class GroupListCellRenderer extends DefaultListCellRenderer/*<SourceGroup>*/ {
-        
+
         public GroupListCellRenderer() {}
-        
+
         @Override
         public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             String name;
@@ -391,6 +391,6 @@ public class ModuleTargetChooserPanelGUI extends javax.swing.JPanel implements A
             super.getListCellRendererComponent(list, name, index, isSelected, cellHasFocus);
             setIcon(icon);
             return this;
-        }        
-    }    
+        }
+    }
 }

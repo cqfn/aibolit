@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 public class Complicated {
   public void example() { // This method has a cyclomatic complexity of 12
     int x = 0, y = 1, z = 2, t = 2;

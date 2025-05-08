@@ -1,7 +1,7 @@
 /** An abstract IPC service.  IPC calls take a single {@link Writable} as a
  * parameter, and return a {@link Writable} as their value.  A service runs on
  * a port and is defined by a parameter class and a value class.
- * 
+ *
  * @see Client
  */
 @Public
@@ -18,7 +18,7 @@ public abstract class Server {
    */
 
     private void doublthis(RpcCall call, long now) {
-	  
+
 		synchronized (this) {
 			Iterator<RpcCall> iter = responseQueue.listIterator(0);
 			synchronized (this) {
@@ -34,6 +34,6 @@ public abstract class Server {
 	  while (1) {
 		  func();
 	  }
-  
+
     }
 }

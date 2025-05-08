@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 public class NonFinalAttribute {
     private String nonFinalPrivate = "Non-final";
     private final String finalPrivate = "Non-final";

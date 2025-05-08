@@ -143,25 +143,25 @@ public class BaseKit extends DefaultEditorKit {
 
     // -J-Dorg.netbeans.editor.BaseKit.level=FINEST
     private static final Logger LOG = Logger.getLogger(BaseKit.class.getName());
-    
+
     /** split the current line at cursor position */
     public static final String splitLineAction = "split-line"; // NOI18N
 
     /** Cycle through annotations on the current line */
     public static final String annotationsCyclingAction = "annotations-cycling"; // NOI18N
-    
+
     /** Collapse a fold. Depends on the current caret position. */
     public static final String collapseFoldAction = "collapse-fold"; //NOI18N
-    
+
     /** Expand a fold. Depends on the current caret position. */
     public static final String expandFoldAction = "expand-fold"; //NOI18N
-    
+
     /** Collapse all existing folds in the document. */
     public static final String collapseAllFoldsAction = "collapse-all-folds"; //NOI18N
-    
+
     /** Expand all existing folds in the document. */
     public static final String expandAllFoldsAction = "expand-all-folds"; //NOI18N
-    
+
     /** Move one page up and make or extend selection */
     public static final String selectionPageUpAction = "selection-page-up"; // NOI18N
 
@@ -180,26 +180,26 @@ public class BaseKit extends DefaultEditorKit {
     /** Reset the abbreviation accounting string */
     public static final String abbrevResetAction = "abbrev-reset"; // NOI18N
 
-    /** Remove characters to the begining of the word or 
+    /** Remove characters to the begining of the word or
      *  the previous word if caret is not directly at word */
     public static final String removePreviousWordAction = "remove-word-previous"; // NOI18N
 
-    /** Remove characters to the end of the word or 
+    /** Remove characters to the end of the word or
      *  the next word if caret is not directly at word */
     public static final String removeNextWordAction = "remove-word-next"; // NOI18N
-    
+
     /** Remove to the begining of the line */
     public static final String removeLineBeginAction = "remove-line-begin"; // NOI18N
 
     /** Remove line */
     public static final String removeLineAction = "remove-line"; // NOI18N
-    
+
     public static final String moveSelectionElseLineUpAction = "move-selection-else-line-up"; // NOI18N
-    
+
     public static final String moveSelectionElseLineDownAction = "move-selection-else-line-down"; // NOI18N
-    
+
     public static final String copySelectionElseLineUpAction = "copy-selection-else-line-up"; // NOI18N
-    
+
     public static final String copySelectionElseLineDownAction = "copy-selection-else-line-down"; // NOI18N
 
     /** Toggle the typing mode to overwrite mode or back to insert mode */
@@ -312,10 +312,10 @@ public class BaseKit extends DefaultEditorKit {
 
     /** Prefix of all macro-based actions */
     public static final String macroActionPrefix = "macro-"; // NOI18N
-    
+
     /** Start recording of macro. Only one macro recording can be active at the time */
     public static final String startMacroRecordingAction = "start-macro-recording"; //NOI18N
-    
+
     /** Stop the active recording */
     public static final String stopMacroRecordingAction = "stop-macro-recording"; //NOI18N
 
@@ -324,8 +324,8 @@ public class BaseKit extends DefaultEditorKit {
 
     /** Insert the current Date and Time  */
     public static final String insertDateTimeAction = "insert-date-time"; // NOI18N
-    
-    /** Name of the action moving caret to the first 
+
+    /** Name of the action moving caret to the first
      * column on the line and extending the selection
      */
     public static final String selectionLineFirstColumnAction = "selection-line-first-column"; // NOI18N
@@ -340,19 +340,19 @@ public class BaseKit extends DefaultEditorKit {
     public static final String pasteFormatedAction = "paste-formated"; // NOI18N
 
     /** Starts a new line in code */
-    public static final String startNewLineAction = "start-new-line"; // NOI18N    
-    
+    public static final String startNewLineAction = "start-new-line"; // NOI18N
+
     /** Cut text from caret position to line begining action. */
-    public static final String cutToLineBeginAction = "cut-to-line-begin"; // NOI18N    
-    
+    public static final String cutToLineBeginAction = "cut-to-line-begin"; // NOI18N
+
     /** Cut text from caret position to line end action. */
     public static final String cutToLineEndAction = "cut-to-line-end"; // NOI18N
-    
+
     /** Remove all trailing spaces in the document. */
     public static final String removeTrailingSpacesAction = "remove-trailing-spaces"; //NOI18N
-    
+
     public static final String DOC_REPLACE_SELECTION_PROPERTY = "doc-replace-selection-property"; //NOI18N
-    
+
     private static final int KIT_CNT_PREALLOC = 7;
 
     static final long serialVersionUID = -8570495408376659348L;
@@ -364,7 +364,7 @@ public class BaseKit extends DefaultEditorKit {
     private static final Map<MimePath, MultiKeymap> kitKeymaps = new WeakHashMap<MimePath, MultiKeymap>(KIT_CNT_PREALLOC);
     private static final Map<MimePath, Action[]> kitActions = new WeakHashMap<MimePath, Action[]>(KIT_CNT_PREALLOC);
     private static final Map<MimePath, Map<String, Action>> kitActionMaps = new WeakHashMap<MimePath, Map<String, Action>>(KIT_CNT_PREALLOC);
-    
+
     private static CopyAction copyActionDef = new CopyAction();
     private static CutAction cutActionDef = new CutAction();
     private static PasteAction pasteActionDef = new PasteAction(false);
@@ -377,11 +377,11 @@ public class BaseKit extends DefaultEditorKit {
 
     private static ActionFactory.UndoAction undoActionDef = new ActionFactory.UndoAction();
     private static ActionFactory.RedoAction redoActionDef = new ActionFactory.RedoAction();
-    
+
     public static final int MAGIC_POSITION_MAX = Integer.MAX_VALUE - 1;
 
     private final SearchableKit searchableKit;
-    
+
     private boolean keyBindingsUpdaterInited;
 
     /**
@@ -390,26 +390,26 @@ public class BaseKit extends DefaultEditorKit {
      * The property must contain {@link PositionRegion} instance
      */
     private static final String PROP_NAVIGATE_BOUNDARIES = "NetBeansEditor.navigateBoundaries"; // NOI18N
-    
+
     /**
      * Gets an editor kit from its implemetation class.
-     * 
+     *
      * <p>Please be careful when using this method and make sure that you understand
      * how it works and what the deference is from using <code>MimeLookup</code>.
      * This method simply creates an instance of <code>BaseKit</code> from
      * its implementation class passed in as a parameter. It completely ignores
      * the registry of editor kits in <code>MimeLookup</code>, which has severe
      * consequences.
-     * 
+     *
      * <div class="nonnormative">
      * <p>The usuall pattern for using editor kits is to start with a mime type
      * of a document (ie. file) that you want to edit, then use some registry
      * for editor kits to look up the kit for your mime type and finally set the
      * kit in a <code>JTextComponent</code>, let it create a <code>Document</code>
      * and load it with data. The registry can generally be anything, but in Netbeans
-     * we use <code>MimeLookup</code> (JDK for example uses 
+     * we use <code>MimeLookup</code> (JDK for example uses
      * <code>JEditorPane.createEditorKitForContentType</code>).
-     * 
+     *
      * <p>The editor kits are registered in <code>MimeLookup</code> for each
      * particular mime type and the registry itself does not impose any rules on
      * the editor kit implementations other than extending the <code>EditorKit</code>
@@ -417,7 +417,7 @@ public class BaseKit extends DefaultEditorKit {
      * can be used for multiple mime types. This is exactly how XML editor kit
      * is reused for various flavors of XML documents (e.g. ant build scripts,
      * web app descriptors, etc).
-     * 
+     *
      * <p>Netbeans did not always have <code>MimeLookup</code>
      * and it also used a different approach for registering and retrieving
      * editor kits. This old approach was based on implemetation classes rather than on mime
@@ -425,30 +425,30 @@ public class BaseKit extends DefaultEditorKit {
      * implementations, it is fundamentally broken and should not be used any more.
      * The code below demonstrates probably the biggest mistake when thinking
      * in the old ways.
-     * 
+     *
      * <pre>
      * // WARNING: The code below is a demonstration of a common mistake that
      * // people do when using <code>BaseKit.getKit</code>.
-     * 
+     *
      * JTextComponent component = ...; // Let's say we have a component
      * Class kitClass = Utilities.getKitClass(component);
      * String mimeType = BaseKit.getKit(kitClass).getContentType();
      * </pre>
-     * 
+     *
      * <p>The problem with the above code is that it blindely assumes that each
      * kit class can be uniquely mapped to a mime type. This is not true! The
      * same can be achieved in much easier way, which always works.
-     * 
+     *
      * <pre>
      * JTextComponent component = ...; // Let's say we have a component
      * String mimeType = component.getUI().getEditorKit(component).getContentType();
      * </pre>
      * </div>
-     * 
+     *
      * @param kitClass An implementation class of the editor kit that should
      * be returned. If the <code>kitClass</code> is not <code>BaseKit</code> or
      * its subclass the instance of bare <code>BaseKit</code> will be returned.
-     * 
+     *
      * @return An instance of the <code>kitClass</code> or <code>BaseKit</code>.
      * @deprecated Use <code>CloneableEditorSupport.getEditorKit</code> or
      * <code>MimeLookup</code> instead to find <code>EditorKit</code> for a mime
@@ -466,7 +466,7 @@ public class BaseKit extends DefaultEditorKit {
         } else {
             kitClass = BaseKit.class;
         }
-        
+
         synchronized (kits) {
             Class classToTry = kitClass;
             for(;;) {
@@ -481,7 +481,7 @@ public class BaseKit extends DefaultEditorKit {
                     } catch (InstantiationException e) {
                         LOG.log(Level.WARNING, "Can't instantiate editor kit from: " + classToTry, e); //NOI18N
                     }
-                    
+
                     if (classToTry != BaseKit.class) {
                         classToTry = BaseKit.class;
                     } else {
@@ -496,13 +496,13 @@ public class BaseKit extends DefaultEditorKit {
 
     /**
      * Creates a new instance of <code>BaseKit</code>.
-     * 
+     *
      * <div class="nonnormative">
      * <p>You should not need to instantiate editor kits
      * directly under normal circumstances. There is a few ways how you can get
      * instance of <code>EditorKit</code> depending on what you already have
      * available:
-     * 
+     *
      * <ul>
      * <li><b>mime type</b> - Use <code>CloneableEditorSupport.getEditorKit(yourMimeType)</code>
      * to get the <code>EditorKit</code> registered for your mime type or use
@@ -553,11 +553,11 @@ public class BaseKit extends DefaultEditorKit {
         return new BaseDocument(this.getClass(), true);
     }
 
-    /** 
+    /**
      * Create new instance of syntax coloring scanner
      * @param doc document to operate on. It can be null in the cases the syntax
      *   creation is not related to the particular document
-     * 
+     *
      * @deprecated Please use Lexer instead, for details see
      *   <a href="@org-netbeans-modules-lexer@/overview-summary.html">Lexer</a>.
      */
@@ -565,9 +565,9 @@ public class BaseKit extends DefaultEditorKit {
         return new DefaultSyntax();
     }
 
-    /** 
+    /**
      * Create the syntax used for formatting.
-     * 
+     *
      * @deprecated Please use Editor Indentation API instead, for details see
      *   <a href="@org-netbeans-modules-editor-indent@/overview-summary.html">Editor Indentation</a>.
      */
@@ -575,9 +575,9 @@ public class BaseKit extends DefaultEditorKit {
         return createSyntax(doc);
     }
 
-    /** 
+    /**
      * Create syntax support
-     * 
+     *
      * @deprecated Please use Lexer instead, for details see
      *   <a href="@org-netbeans-modules-lexer@/overview-summary.html">Lexer</a>.
      */
@@ -614,7 +614,7 @@ public class BaseKit extends DefaultEditorKit {
     protected EditorUI createPrintEditorUI(BaseDocument doc) {
         return new EditorUI(doc);
     }
-    
+
     /**
      * Create extended UI for printing a document.
      *
@@ -627,7 +627,7 @@ public class BaseKit extends DefaultEditorKit {
      */
     protected EditorUI createPrintEditorUI(BaseDocument doc,
     boolean usePrintColoringMap, boolean lineNumberEnabled) {
-        
+
         return new EditorUI(doc, usePrintColoringMap, lineNumberEnabled);
     }
 
@@ -635,29 +635,29 @@ public class BaseKit extends DefaultEditorKit {
         synchronized (KEYMAPS_AND_ACTIONS_LOCK) {
             MimePath mimePath = MimePath.parse(getContentType());
             MultiKeymap km = (MultiKeymap)kitKeymaps.get(mimePath);
-            
+
             if (km == null) { // keymap not yet constructed
                 // construct new keymap
                 km = new MultiKeymap("Keymap for " + mimePath.getPath()); // NOI18N
-                
+
                 // retrieve key bindings for this kit and super kits
                 KeyBindingSettings kbs = MimeLookup.getLookup(mimePath).lookup(KeyBindingSettings.class);
                 List<org.netbeans.api.editor.settings.MultiKeyBinding> mkbList = kbs.getKeyBindings();
                 List<JTextComponent.KeyBinding> editorMkbList = new  ArrayList<JTextComponent.KeyBinding>();
-                
+
                 for(org.netbeans.api.editor.settings.MultiKeyBinding mkb : mkbList) {
                     List<KeyStroke> keyStrokes = mkb.getKeyStrokeList();
                     MultiKeyBinding editorMkb = new MultiKeyBinding(keyStrokes.toArray(new KeyStroke[keyStrokes.size()]), mkb.getActionName());
                     editorMkbList.add(editorMkb);
                 }
-                
+
                 // go through all levels and collect key bindings
                 km.load(editorMkbList.toArray(new JTextComponent.KeyBinding[editorMkbList.size()]), getActionMap());
                 km.setDefaultAction(getActionMap().get(defaultKeyTypedAction));
 
                 kitKeymaps.put(mimePath, km);
             }
-            
+
             return km;
         }
     }
@@ -727,7 +727,7 @@ public class BaseKit extends DefaultEditorKit {
 
     /** Called after the kit is installed into JEditorPane */
     public @Override void install(JEditorPane c) {
-        
+
         assert (SwingUtilities.isEventDispatchThread()) // expected in AWT only
             : "BaseKit.install() incorrectly called from non-AWT thread."; // NOI18N
 
@@ -746,18 +746,18 @@ public class BaseKit extends DefaultEditorKit {
         }
 
         c.enableInputMethods(enableIM);
-        
+
         org.netbeans.lib.editor.hyperlink.HyperlinkOperation.ensureRegistered(c, getContentType());
 
         // Mark that the editor's multi keymap adheres to context API in status displayer
         c.putClientProperty("context-api-aware", Boolean.TRUE); // NOI18N
-        
+
         // Add default help IDs derived from the kit's mime type, #61618.
         // If the kit itself is HelpCtx.Provider it will be called from CloneableEditor.getHelpCtx()
         if (!(this instanceof HelpCtx.Provider)) {
             HelpCtx.setHelpIDString(c, getContentType().replace('/', '.').replace('+', '.')); //NOI18N
         }
-        
+
         // setup the keymap tracker and initialize the keymap
         MultiKeymap keymap;
         synchronized (KEYMAPS_AND_ACTIONS_LOCK) {
@@ -770,9 +770,9 @@ public class BaseKit extends DefaultEditorKit {
             tracker.addComponent(c);
             keymap = getKeymap();
         }
-        
+
         c.setKeymap(keymap);
-        
+
         c.addAncestorListener(new AncestorListener() {
             private JScrollPane scrollPane;
             private InputMap origMap;
@@ -804,7 +804,7 @@ public class BaseKit extends DefaultEditorKit {
             public void ancestorMoved(AncestorEvent event) {
             }
         });
-        
+
         executeInstallActions(c);
     }
 
@@ -815,7 +815,7 @@ public class BaseKit extends DefaultEditorKit {
         @SuppressWarnings("unchecked")
         List<String> actionNamesList = (List<String>) SettingsConversions.callFactory(
                 prefs, mimePath, EditorPreferencesKeys.KIT_INSTALL_ACTION_NAME_LIST, null); //NOI18N
-        
+
         List<Action> actionsList = translateActionNameList(actionNamesList); // translate names to actions
         for (Action a : actionsList) {
             a.actionPerformed(new ActionEvent(c, ActionEvent.ACTION_PERFORMED, "")); // NOI18N
@@ -827,7 +827,7 @@ public class BaseKit extends DefaultEditorKit {
             : "BaseKit.deinstall() incorrectly called from non-AWT thread."; // NOI18N
 
         executeDeinstallActions(c);
-        
+
         // reset the keymap and remove the component from the tracker
         c.setKeymap(null);
         synchronized (KEYMAPS_AND_ACTIONS_LOCK) {
@@ -837,9 +837,9 @@ public class BaseKit extends DefaultEditorKit {
                 tracker.removeComponent(c);
             }
         }
-        
+
         BaseTextUI.uninstallUIWatcher(c);
-        
+
         // #41209: reset ancestor override flag if previously set
         if (c.getClientProperty("ancestorOverride") != null) { // NOI18N
             c.putClientProperty("ancestorOverride", Boolean.FALSE); // NOI18N
@@ -849,11 +849,11 @@ public class BaseKit extends DefaultEditorKit {
     protected void executeDeinstallActions(JEditorPane c) {
         MimePath mimePath = MimePath.parse(getContentType());
         Preferences prefs = MimeLookup.getLookup(mimePath).lookup(Preferences.class);
-        
+
         @SuppressWarnings("unchecked")
         List<String> actionNamesList = (List<String>) SettingsConversions.callFactory(
                 prefs, mimePath, EditorPreferencesKeys.KIT_DEINSTALL_ACTION_NAME_LIST, null); //NOI18N
-        
+
         List<Action> actionsList = translateActionNameList(actionNamesList); // translate names to actions
         for (Action a : actionsList) {
             a.actionPerformed(new ActionEvent(c, ActionEvent.ACTION_PERFORMED, "")); // NOI18N
@@ -898,11 +898,11 @@ public class BaseKit extends DefaultEditorKit {
     protected Action[] getCustomActions() {
         MimePath mimePath = MimePath.parse(getContentType());
         Preferences prefs = MimeLookup.getLookup(mimePath).lookup(Preferences.class);
-        
+
         @SuppressWarnings("unchecked")
         List<? extends Action> customActions = (List<? extends Action>) SettingsConversions.callFactory(
                 prefs, mimePath, EditorPreferencesKeys.CUSTOM_ACTION_LIST, null); //NOI18N
-        
+
         if (LOG.isLoggable(Level.FINE)) {
             LOG.fine(EditorPreferencesKeys.CUSTOM_ACTION_LIST + " for '" + getContentType() + "' {"); //NOI18N
             if (customActions != null) {
@@ -912,16 +912,16 @@ public class BaseKit extends DefaultEditorKit {
             }
             LOG.fine("} End of " + EditorPreferencesKeys.CUSTOM_ACTION_LIST + " for '" + getContentType() + "'"); //NOI18N
         }
-        
+
         return customActions == null ? null : customActions.toArray(new Action[customActions.size()]);
     }
-    
+
     /**
-     * @deprecated Without any replacement. 
+     * @deprecated Without any replacement.
      */
     protected Action[] getMacroActions() {
         return new Action[0];
-    }                               
+    }
 
     /** Get actions associated with this kit. createActions() is called
     * to get basic list and then customActions are added.
@@ -933,7 +933,7 @@ public class BaseKit extends DefaultEditorKit {
             keyBindingsUpdaterInited = true;
             KeyBindingsUpdater.get(getContentType()).addKit(this); // Update key bindings in actions
         }
-        
+
         return actions;
     }
 
@@ -946,7 +946,7 @@ public class BaseKit extends DefaultEditorKit {
             MimePath mimePath = MimePath.parse(getContentType());
             Action[] actions = kitActions.get(mimePath);
             Map<String, Action> actionMap = kitActionMaps.get(mimePath);
-            
+
             if (actions == null || actionMap == null) {
                 // Initialize actions - use the following actions:
                 // 1. Declared "global" actions (declared in the xml layer under "Editors/Actions")
@@ -962,7 +962,7 @@ public class BaseKit extends DefaultEditorKit {
                 if (createActionsMethodResult != null) {
                     addActionsToMap(actionMap, createActionsMethodResult, "Actions from createActions()"); // NOI18N
                 }
-                
+
                 // add custom actions
                 Action[] customActions = getCustomActions();
                 if (customActions != null) {
@@ -978,7 +978,7 @@ public class BaseKit extends DefaultEditorKit {
                 // The actions will be updated now if necessary
                 updateActions();
             }
-            
+
             return new Object [] { actions, actionMap };
         }
     }
@@ -992,7 +992,7 @@ public class BaseKit extends DefaultEditorKit {
     protected Action[] getDeclaredActions() {
         return new Action[0];
     }
-    
+
     /** Update the actions right after their creation was finished.
      * The <code>getActions()</code> and <code>getActionByName()</code>
      * can be used safely in this method.
@@ -1021,11 +1021,11 @@ public class BaseKit extends DefaultEditorKit {
     }
 
     /**
-     * Checks that the action will result in an insertion into document. 
+     * Checks that the action will result in an insertion into document.
      * Returns true for readonly docs as well.
-     * 
+     *
      * @param evt action event
-     * @return true, if the action event will result in insertion; readonly doc status is not 
+     * @return true, if the action event will result in insertion; readonly doc status is not
      * checked.
      */
     static boolean isValidDefaultTypedAction(ActionEvent evt) {
@@ -1036,18 +1036,18 @@ public class BaseKit extends DefaultEditorKit {
             ((mod & ActionEvent.ALT_MASK) != 0);
         return !(alt || ctrl);
     }
-    
+
     /**
-     * 
+     *
      * @param evt
-     * @return 
+     * @return
      */
     static boolean isValidDefaultTypedCommand(ActionEvent evt) {
         final String cmd = evt.getActionCommand();
         return (cmd != null && cmd.length() == 1 && cmd.charAt(0) >= 0x20 && cmd.charAt(0) != 0x7F);
     }
 
-    /** 
+    /**
      * Default typed action
      *
      * @deprecated Please do not subclass this class. Use Typing Hooks instead, for details see
@@ -1071,7 +1071,7 @@ public class BaseKit extends DefaultEditorKit {
                 if (!isValidDefaultTypedAction(evt)) {
                     return;
                 }
-                
+
                 // Check whether the target is enabled and editable
                 if (!target.isEditable() || !target.isEnabled()) {
                     target.getToolkit().beep();
@@ -1082,7 +1082,7 @@ public class BaseKit extends DefaultEditorKit {
                 if (target.getCaret() != null) {
                     target.getCaret().setMagicCaretPosition(null);
                 }
-                
+
                 // determine if typed char is valid
                 final String cmd = evt.getActionCommand();
                 if (isValidDefaultTypedCommand(evt)) {
@@ -1130,7 +1130,7 @@ public class BaseKit extends DefaultEditorKit {
 //                    }
 //                    final TypedTextInterceptorsManager.Transaction transaction = TypedTextInterceptorsManager.getInstance().openTransaction(
 //                            target, insertionOffset, cmd, replacedText);
-//                    
+//
 //                    try {
 //                        if (!transaction.beforeInsertion()) {
 //                            final Object [] result = new Object [] { Boolean.FALSE, "" }; //NOI18N
@@ -1142,7 +1142,7 @@ public class BaseKit extends DefaultEditorKit {
 //                                        Boolean overwriteMode = (Boolean) editorUI.getProperty(EditorUI.OVERWRITE_MODE_PROPERTY);
 //                                        boolean ovr = (overwriteMode != null && overwriteMode.booleanValue());
                         final Caret caret = target.getCaret();
-                        
+
                         if(caret instanceof EditorCaret) {
                             EditorCaret editorCaret = (EditorCaret) caret;
                             final List<CaretInfo> carets = editorCaret.getCarets();
@@ -1187,11 +1187,11 @@ public class BaseKit extends DefaultEditorKit {
 //                                                } catch (BadLocationException e) {
 //                                                    LOG.log(Level.WARNING, "Can't add position to the history of edits.", e); //NOI18N
 //                                                }
-                                                
+
                                                 final BaseDocument doc = (BaseDocument) target.getDocument();
                                                 EditorUI editorUI = Utilities.getEditorUI(target);
                                                 editorUI.getWordMatch().clear(); // reset word matching
-                                                
+
                                                 int insertionOffset = c.getDot();
                                                 Boolean overwriteMode = (Boolean) editorUI.getProperty(EditorUI.OVERWRITE_MODE_PROPERTY);
                                                 boolean ovr = (overwriteMode != null && overwriteMode.booleanValue());
@@ -1219,7 +1219,7 @@ public class BaseKit extends DefaultEditorKit {
                                 return;
                             }
                         }
-                        
+
                         final Position insertionOffset = doc.createPosition(computeInsertionOffset(caret), Position.Bias.Backward);
                         String replacedText = "";
                         if (target.getCaret().isSelectionVisible() && caret.getDot() != caret.getMark()) {
@@ -1298,7 +1298,7 @@ public class BaseKit extends DefaultEditorKit {
                             }
                         }
                         LOG.log(Level.FINE, "Invalid command: {0}", sb); //NOI18N
-                    }                    
+                    }
                 }
             }
         }
@@ -1317,15 +1317,15 @@ public class BaseKit extends DefaultEditorKit {
          *   <a href="@org-netbeans-modules-editor-lib2@/overview-summary.html">Editor Library 2</a>.
          */
         protected void insertString(BaseDocument doc,
-				  int dotPos, 
+				  int dotPos,
 				  Caret caret,
-				  String str, 
-				  boolean overwrite) throws BadLocationException 
+				  String str,
+				  boolean overwrite) throws BadLocationException
         {
             if (overwrite) {
                 doc.remove(dotPos, 1);
             }
-            
+
             doc.insertString(dotPos, str, null);
         }
 
@@ -1365,7 +1365,7 @@ public class BaseKit extends DefaultEditorKit {
 
         private void performTextInsertion(JTextComponent target, int insertionOffset, String insertionText, int caretPosition, boolean formatNewLines) throws BadLocationException {
             final BaseDocument doc = (BaseDocument)target.getDocument();
-            
+
             try {
                 NavigationHistory.getEdits().markWaypoint(target, insertionOffset, false, true);
             } catch (BadLocationException e) {
@@ -1437,7 +1437,7 @@ public class BaseKit extends DefaultEditorKit {
         }
     } // End of DefaultKeyTypedAction class
 
-    /** 
+    /**
      * @deprecated Please do not subclass this class. Use Typing Hooks instead, for details see
      *   <a href="@org-netbeans-modules-editor-lib2@/overview-summary.html">Editor Library 2</a>.
      */
@@ -1510,12 +1510,12 @@ public class BaseKit extends DefaultEditorKit {
                     } finally {
                         indenter.unlock();
                     }
-                        
+
                 } else {
                 final int insertionOffset = computeInsertionOffset(caret);
                 final TypedBreakInterceptorsManager.Transaction transaction = TypedBreakInterceptorsManager.getInstance().openTransaction(
                         target, insertionOffset, insertionOffset);
-                
+
                 try {
                     if (!transaction.beforeInsertion()) {
                         final Boolean [] result = new Boolean [] { Boolean.FALSE }; //NOI18N
@@ -1542,16 +1542,16 @@ public class BaseKit extends DefaultEditorKit {
                         } finally {
                             indenter.unlock();
                         }
-                        
+
                         if (result[0].booleanValue()) {
                             transaction.afterInsertion();
                         } // else line-break insertion failed
-                        
+
                     }
                 } finally {
                     transaction.close();
                 }
-                }                
+                }
             }
         }
 
@@ -1562,7 +1562,7 @@ public class BaseKit extends DefaultEditorKit {
         /**
          * Hook called before any changes to the document. The value
          * returned is passed intact to the other hook.
-         * 
+         *
          * @deprecated Please use Typing Hooks instead, for details see
          *   <a href="@org-netbeans-modules-editor-lib2@/overview-summary.html">Editor Library 2</a>.
          */
@@ -1574,26 +1574,26 @@ public class BaseKit extends DefaultEditorKit {
          * Hook called after the enter was inserted and cursor
          * repositioned.
          *
-         * @param data the object returned from previously called 
+         * @param data the object returned from previously called
          * {@link #beforeBreak(javax.swing.text.JTextComponent, org.netbeans.editor.BaseDocument, javax.swing.text.Caret)} hook.
          * By default <code>null</code>.
-         * 
+         *
          * @deprecated Please use Typing Hooks instead, for details see
          *   <a href="@org-netbeans-modules-editor-lib2@/overview-summary.html">Editor Library 2</a>.
          */
         protected void afterBreak(JTextComponent target, BaseDocument doc, Caret caret, Object data) {
         }
-        
+
         // --------------------------------------------------------------------
         // Private implementation
         // --------------------------------------------------------------------
 
         private void performLineBreakInsertion(
-                JTextComponent target, 
-                int insertionOffset, 
-                String insertionText, 
-                int breakInsertPosition, 
-                int caretPosition, 
+                JTextComponent target,
+                int insertionOffset,
+                String insertionText,
+                int breakInsertPosition,
+                int caretPosition,
                 int [] reindentBlocks,
                 Indent indenter) throws BadLocationException
         {
@@ -1637,27 +1637,27 @@ public class BaseKit extends DefaultEditorKit {
                 DocumentUtilities.setTypingModification(doc, false);
             }
         }
-        
+
         private int computeInsertionOffset(Caret caret) {
             return computeInsertionOffset(caret.getMark(), caret.getDot());
         }
-     
+
         private int computeInsertionOffset(int dot, int mark) {
             // If selection is present return begining of selection
             return Math.min(mark, dot);
         }
-        
+
         private int computeInsertionLength(Caret caret) {
             return computeInsertionLength(caret.getDot(), caret.getMark());
         }
-        
+
         private int computeInsertionLength(int dot, int mark) {
             return Math.max(mark, dot) -
                    Math.min(mark, dot);
         }
     } // End of InsertBreakAction class
 
-    @EditorActionRegistration(name = splitLineAction)    
+    @EditorActionRegistration(name = splitLineAction)
     public static class SplitLineAction extends LocalBaseAction {
 
         static final long serialVersionUID =7966576342334158659L;
@@ -1841,9 +1841,9 @@ public class BaseKit extends DefaultEditorKit {
                                             // find caret column
                                             int caretCol = Utilities.getVisualColumn(doc, dotPos);
                                             // find next tab column
-                                            int nextTabCol = Utilities.getNextTabColumn(doc, dotPos);                                        
+                                            int nextTabCol = Utilities.getNextTabColumn(doc, dotPos);
 
-                                            indenter.reindent(dotPos);                                        
+                                            indenter.reindent(dotPos);
 
                                             dotPos = caret.getDot();
                                             int newCaretCol = Utilities.getVisualColumn(doc, dotPos);
@@ -2020,7 +2020,7 @@ public class BaseKit extends DefaultEditorKit {
         }
     }
 
-    /** 
+    /**
      * @deprecated Please do not subclass this class. Use Typing Hooks instead, for details see
      *   <a href="@org-netbeans-modules-editor-lib2@/overview-summary.html">Editor Library 2</a>.
      */
@@ -2029,7 +2029,7 @@ public class BaseKit extends DefaultEditorKit {
         protected boolean nextChar;
 
         static final long serialVersionUID =-4321971925753148556L;
-        
+
         /**
          * This may be used to overcome a JDK bug on Mac OS X (NB issue #219853).
          */
@@ -2127,11 +2127,11 @@ public class BaseKit extends DefaultEditorKit {
                         return;
                     }
                 }
-                    
+
                 // Non-multicaret case
 		final int dot = caret.getDot();
 		final int mark = caret.getMark();
-                
+
                 if (dot != mark) {
                     // remove selection
                     doc.runAtomicAsUser (new Runnable () {
@@ -2162,15 +2162,15 @@ public class BaseKit extends DefaultEditorKit {
                     });
                 } else {
                     char [] removedChar = null;
-                    
+
                     try {
-                        removedChar = nextChar ? 
-                        dot < doc.getLength() ? doc.getChars(dot, 1) : null : 
+                        removedChar = nextChar ?
+                        dot < doc.getLength() ? doc.getChars(dot, 1) : null :
                         dot > 0 ? doc.getChars(dot - 1, 1) : null;
                     } catch (BadLocationException ble) {
                         target.getToolkit().beep();
                     }
-                    
+
                     if (removedChar != null) {
                         final String removedText = String.valueOf(removedChar);
                         final DeletedTextInterceptorsManager.Transaction t = DeletedTextInterceptorsManager.getInstance().openTransaction(target, dot, removedText, !nextChar);
@@ -2295,7 +2295,7 @@ public class BaseKit extends DefaultEditorKit {
                 } catch (BadLocationException e) {
                     LOG.log(Level.WARNING, "Can't add position to the history of edits.", e); //NOI18N
                 }
-                
+
                 final BaseDocument doc = (BaseDocument)target.getDocument();
                 doc.runAtomicAsUser (new Runnable () {
                     @Override
@@ -2414,7 +2414,7 @@ public class BaseKit extends DefaultEditorKit {
                     }
                     LOG.log(Level.FINER, sb.toString());
                 }
-                
+
                 final BaseDocument doc = Utilities.getDocument(target);
                 if (doc==null) return;
 
@@ -2587,7 +2587,7 @@ public class BaseKit extends DefaultEditorKit {
                                             }
                                             try {
                                                 dot = target.getUI().getNextVisualPositionFrom(target, dot, caretInfo.getDotBias(), SwingConstants.NORTH, biasRet);
-                                                if (magicPos != null) { 
+                                                if (magicPos != null) {
                                                     Rectangle dotRect = target.modelToView(dot);
                                                     if (dotRect != null) {
                                                         dot = target.viewToModel(new Point(magicPos.x, dotRect.y)); // Combine magic pos x and y from dotRect
@@ -2693,7 +2693,7 @@ public class BaseKit extends DefaultEditorKit {
                                             }
                                             try {
                                                 dot = target.getUI().getNextVisualPositionFrom(target, dot, caretInfo.getDotBias(), SwingConstants.SOUTH, biasRet);
-                                                if (magicPos != null) { 
+                                                if (magicPos != null) {
                                                     Rectangle dotRect = target.modelToView(dot);
                                                     if (dotRect != null) {
                                                         dot = target.viewToModel(new Point(magicPos.x, dotRect.y)); // Combine magic pos x and y from dotRect
@@ -3029,7 +3029,7 @@ public class BaseKit extends DefaultEditorKit {
                     int pos;
                     if (!select && Utilities.isSelectionShowing(caret))
                     {
-                        pos = target.getSelectionEnd(); 
+                        pos = target.getSelectionEnd();
                         if (pos != caret.getDot()) {
                             pos--;
                         } else {
@@ -3722,7 +3722,7 @@ public class BaseKit extends DefaultEditorKit {
             super(name, MAGIC_POSITION_RESET | ABBREV_RESET | UNDO_MERGE_RESET
                   | WORD_MATCH_RESET | CLEAR_STATUS_TEXT);
         }
-        
+
         protected int getNextWordOffset(JTextComponent target) throws BadLocationException {
             return Utilities.getNextWord(target, target.getCaretPosition());
         }
@@ -3921,14 +3921,14 @@ public class BaseKit extends DefaultEditorKit {
 
     @EditorActionRegistration(name = removeTrailingSpacesAction)
     public static class RemoveTrailingSpacesAction extends LocalBaseAction {
-        
+
         public RemoveTrailingSpacesAction() {
         }
 
         protected boolean asynchonous() {
             return true;
         }
-        
+
         public void actionPerformed(ActionEvent evt, final JTextComponent target) {
             if (target != null) {
                 final BaseDocument doc = (BaseDocument)target.getDocument();
@@ -4047,20 +4047,20 @@ public class BaseKit extends DefaultEditorKit {
     } // End of DefaultSyntaxTokenContext class
 
     private class KeybindingsAndPreferencesTracker implements LookupListener, PreferenceChangeListener {
-        
+
         private final String mimeType;
         private final Lookup.Result<KeyBindingSettings> lookupResult;
         private final Preferences prefs;
         private final Set<JTextComponent> components = new WeakSet<JTextComponent>();
-        
+
         public KeybindingsAndPreferencesTracker(String mimeType) {
             this.mimeType = mimeType;
             Lookup lookup = MimeLookup.getLookup(mimeType);
-            
+
             this.lookupResult = lookup.lookupResult(KeyBindingSettings.class);
             this.lookupResult.addLookupListener(WeakListeners.create(LookupListener.class, this, this.lookupResult));
             this.lookupResult.allInstances();
-            
+
             this.prefs = lookup.lookup(Preferences.class);
             this.prefs.addPreferenceChangeListener(WeakListeners.create(PreferenceChangeListener.class, this, this.prefs));
         }
@@ -4069,46 +4069,46 @@ public class BaseKit extends DefaultEditorKit {
             synchronized (KEYMAPS_AND_ACTIONS_LOCK) {
                 assert c != null;
                 components.add(c);
-            }            
+            }
         }
-        
+
         public void removeComponent(JTextComponent c) {
             synchronized (KEYMAPS_AND_ACTIONS_LOCK) {
                 components.remove(c);
-            }            
+            }
         }
-        
+
         // -------------------------------------------------------------------
         // LookupListener implementation
         // -------------------------------------------------------------------
-        
+
         public void resultChanged(LookupEvent ev) {
             refreshShortcutsAndActions(false);
         }
-        
+
         // -------------------------------------------------------------------
         // PreferenceChangeListener implementation
         // -------------------------------------------------------------------
-        
+
         public void preferenceChange(PreferenceChangeEvent evt) {
             String settingName = evt == null ? null : evt.getKey();
             if (settingName == null || EditorPreferencesKeys.CUSTOM_ACTION_LIST.equals(settingName)) {
                 refreshShortcutsAndActions(true);
             }
         }
-        
+
         // -------------------------------------------------------------------
         // private implementation
         // -------------------------------------------------------------------
-        
+
         private void refreshShortcutsAndActions(boolean refreshActions) {
             if (LOG.isLoggable(Level.FINE)) {
                 LOG.fine("BaseKit.KeymapTracker('" + mimeType + "') refreshing keymap " + (refreshActions ? "and actions" : "")); //NOI18N
             }
-            
+
             final MultiKeymap keymap;
             final JTextComponent [] arr;
-            
+
             synchronized (KEYMAPS_AND_ACTIONS_LOCK) {
                 MimePath mimePath = MimePath.parse(mimeType);
 
@@ -4117,21 +4117,21 @@ public class BaseKit extends DefaultEditorKit {
                     kitActions.remove(mimePath);
                     kitActionMaps.remove(mimePath);
                 }
-                
+
                 // reset the keymap
                 kitKeymaps.remove(mimePath);
-                
+
                 keymap = getKeymap();
                 arr = components.toArray(new JTextComponent[components.size()]);
             }
-            
+
             Runnable pushKeymapChange = () -> {
                 for(JTextComponent c : arr) {
                     if (c != null) {
                         c.setKeymap(keymap);
                     }
                 }
-                
+
                 searchableKit.fireActionsChange();
             };
             if(SwingUtilities.isEventDispatchThread()) {
@@ -4140,7 +4140,7 @@ public class BaseKit extends DefaultEditorKit {
                 SwingUtilities.invokeLater(pushKeymapChange);
             }
         }
-        
+
     } // End of KeymapTracker class
 
     private static final class SearchableKit implements org.netbeans.modules.editor.lib2.actions.SearchableEditorKit {
@@ -4280,7 +4280,7 @@ public class BaseKit extends DefaultEditorKit {
     * is atomically locked during the operation.
     * <br/>
     * If indent is in between multiplies of shiftwidth it jumps to multiplies of shiftwidth.
-    * 
+    *
     * @param doc document to operate on
     * @param startPos starting line position
     * @param endPos ending line position
@@ -4322,7 +4322,7 @@ public class BaseKit extends DefaultEditorKit {
                                         / shiftWidth * shiftWidth) - indent;
                         }
                         int newIndent = (indent < 0) ? 0 : // Zero indent if row is white
-                                indent + delta;                               
+                                indent + delta;
                         changeRowIndent(doc, lineStartOffset, Math.max(newIndent, 0));
                         lineStartOffset = Utilities.getRowStart(doc, lineStartOffset, +1);
                     }
@@ -4350,7 +4350,7 @@ public class BaseKit extends DefaultEditorKit {
         ind = Math.max(ind, 0);
         changeRowIndent(doc, dotPos, ind);
     }
-    
+
     /** Shift block either left or right */
     static void shiftBlock (final BaseDocument doc, final int startPos, final int endPos,
                                   final boolean right) throws BadLocationException {
@@ -4383,7 +4383,7 @@ public class BaseKit extends DefaultEditorKit {
                         int indent = Utilities.getRowIndent(doc, lineStartOffset);
                         int newIndent = (indent == -1) ? 0 : // Zero indent if row is white
                                 indent + indentDelta;
-                                
+
                         changeRowIndent(doc, lineStartOffset, Math.max(newIndent, 0));
                         lineStartOffset = Utilities.getRowStart(doc, lineStartOffset, +1);
                     }
@@ -4400,7 +4400,7 @@ public class BaseKit extends DefaultEditorKit {
      * Set null TextUI to an editor pane upon setting a null editor kit.
      */
     private static final class ClearUIForNullKitListener implements PropertyChangeListener {
-        
+
         static ClearUIForNullKitListener INSTANCE = new ClearUIForNullKitListener();
 
         @Override
@@ -4419,9 +4419,9 @@ public class BaseKit extends DefaultEditorKit {
                 }
             }
         }
-        
+
     }
-    
+
     private static final class NullTextUI extends TextUI {
 
         @Override
@@ -4471,7 +4471,7 @@ public class BaseKit extends DefaultEditorKit {
         public Dimension getPreferredSize (JComponent c) {
             return new Dimension(0, 0);
         }
-        
+
     }
 
 }

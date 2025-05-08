@@ -1,28 +1,28 @@
-Aibolit is a recommender system that helps improve the quality of Java classes. 
+% SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+% SPDX-License-Identifier: MIT
+
+Aibolit is a recommender system that helps improve the quality of Java classes.
 The recommendations are learned from OSS Java projects using ML methods.
-Aibolit provides ranked recommendations for each specific Java class, 
+Aibolit provides ranked recommendations for each specific Java class,
 which differs Aibolit from others style checkers and makes it unique.
 
-Aibolit is an extendable system, allowing anyone to add new patterns and to 
-increase the training dataset and thus improve the precision and usefulness 
-of recommendations. Aibolit can also be used as a framework for analysis of 
+Aibolit is an extendable system, allowing anyone to add new patterns and to
+increase the training dataset and thus improve the precision and usefulness
+of recommendations. Aibolit can also be used as a framework for analysis of
 patterns and to decide whether any pattern, however subjective it is, is an anti- or a pro-pattern
-with respect to a particular quality metric. As a complementary result, 
+with respect to a particular quality metric. As a complementary result,
 we contribute a 100K+ dataset of patterns and metrics calculated for Java classes.
 
 The first version of Aibolit is relatively simple and there is room
-for improvement. If the anti-pattern has found, we recommend to fix all instances 
-of the pattern in the code. Instead, we may consider each specific occurrence of the pattern. 
-We may exploit its relative position in the structure of the code, rather than just count 
-the frequency. Moreover, Aibolit inspects each Java class independently. But 
-we might consider the relations between classes in the future. Furthermore, 
-Aibolit's prediction model relies on patterns only. In order to improve the model, 
-we have to think about additional features, for example, information about 
+for improvement. If the anti-pattern has found, we recommend to fix all instances
+of the pattern in the code. Instead, we may consider each specific occurrence of the pattern.
+We may exploit its relative position in the structure of the code, rather than just count
+the frequency. Moreover, Aibolit inspects each Java class independently. But
+we might consider the relations between classes in the future. Furthermore,
+Aibolit's prediction model relies on patterns only. In order to improve the model,
+we have to think about additional features, for example, information about
 project domain or used frameworks.
 
 Aibolit is a firm step toward the next generation of tools to control
-and improve software quality. It is a complementary tool for 
+and improve software quality. It is a complementary tool for
 product owners who already use tools to manage software quality.
-
-
-

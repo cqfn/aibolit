@@ -4,7 +4,7 @@ If your pattern is not located there, it means that it has been recently impleme
 
 ---
 
-The code pattern is a rule of writing code. One proposes a hypothesis that using 
+The code pattern is a rule of writing code. One proposes a hypothesis that using
 such patterns may affect the quality of source code.
 
 ***
@@ -26,7 +26,7 @@ class Book {
 ```
 
 ***
-*Title*: Setter 
+*Title*: Setter
 
 *Code*: **P2**
 
@@ -57,7 +57,7 @@ class Book {
 ```java
 class Book {
   private String isDiscrete;
-  
+
   public void setIsDiscrete(String isDiscretem, boolean x) {
     assert !isDiscrete;
     assert !x; //ignore it
@@ -69,7 +69,7 @@ class Book {
 ```java
 class Book {
   private String title;
-  
+
    @Override
   synchronized public void setConf(Configuration conf) {
     this.conf = conf;
@@ -82,7 +82,7 @@ class Book {
 ```
 
 ***
-*Title*: Empty Rethrow 
+*Title*: Empty Rethrow
 
 *Code*: **P3**
 
@@ -105,7 +105,7 @@ class Book {
 
 ***
 
-*Title*: ErClass 
+*Title*: ErClass
 
 *Code*: **P4**
 
@@ -126,7 +126,7 @@ Holder, Interceptor
 *Examples*:
 
 ```java
-// casting to int is 
+// casting to int is
 public int square (int n) {
     return (int) java.lang.Math.pow(n,2);
 }
@@ -138,7 +138,7 @@ public int square (int n) {
 
 *Code*: **P6**
 
-Description: If there is a return in if condition, it's a pattern. 
+Description: If there is a return in if condition, it's a pattern.
 
 *Example*:
 
@@ -191,7 +191,7 @@ public class a implements A, B {
 
 *Description*: Using of ```instanceof``` operator considered as pattern.
 
-*Examples*: 
+*Examples*:
 
 ```java
 public static void main(String[] args) {
@@ -391,7 +391,7 @@ class Book {
 *Code:* **P17**
 
 *Description*: Any usage string concatenation using ```+``` operator is considered
-as pattern match. 
+as pattern match.
 
 *Examples*:
 
@@ -431,7 +431,7 @@ public void method1() {
 
 *Code:* **P19**
 
-*Description*: 
+*Description*:
 The first constructor has this() and some other statements. This is the "hybrid constructor" pattern.
 
 *Examples*:
@@ -463,7 +463,7 @@ lines. P20_5 means that distance is 5
 
 ```java
 // variable a declared and used with 2 lines distance
-static void myMethod() { 
+static void myMethod() {
     string path1 = '/tmp/test1';
     int a = 4;
 
@@ -479,15 +479,15 @@ static void myMethod() {
 
 *Code:* **P21**
 
-*Description*: All variable we need  have to be declared at the 
-beginning of its scope. If variable declared inside the scope following 
+*Description*: All variable we need  have to be declared at the
+beginning of its scope. If variable declared inside the scope following
 after logical blocks we consider that this is the pattern.
 
-*Examples*: 
+*Examples*:
 
 ```java
 // The declaration of variable list is match pattern.
-static void myMethod2() { 
+static void myMethod2() {
     int b = 4;
     b = b + 6;
     List<Integer> list = new List<Integer>();
@@ -496,7 +496,7 @@ static void myMethod2() {
 
 ***
 
-*Title*: Array as argument 
+*Title*: Array as argument
 
 *Code*: **P22**
 
@@ -603,7 +603,7 @@ class Foo {
 ```
 
 ***
-*Title*: Assign null 
+*Title*: Assign null
 
 *Code*: **P28**
 
@@ -627,7 +627,7 @@ class Foo {
 
 *Description*: Once you see two or more ```while``` statements in a method body, it's a pattern.
 
-*Examples*: 
+*Examples*:
 
 ```java
 class Book {
@@ -643,7 +643,7 @@ class Book {
 
 ***
 
-*Title*: Protected method 
+*Title*: Protected method
 
 *Code*: **P30**
 
@@ -683,7 +683,7 @@ class Foo {
   void foo() {
     white (true) {
       for (;;) { // here
-      }  
+      }
     }
   }
 }

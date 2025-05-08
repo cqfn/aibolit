@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 package org.takes.http;
 
 public final class BkBasic implements Back {
@@ -7,7 +10,7 @@ public final class BkBasic implements Back {
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
         String a = "sdfsdf";
-        
+
         try (PrintStream stream = new Utf8PrintStream(baos, false)) {
             err.printStackTrace(stream);
         }

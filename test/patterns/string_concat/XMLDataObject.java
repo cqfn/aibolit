@@ -55,7 +55,7 @@ import org.openide.windows.TopComponent;
 )
 public final class XMLDataObject extends org.openide.loaders.XMLDataObject
         implements XMLDataObjectLook, PropertyChangeListener {
-    
+
     @MIMEResolver.Registration(
         displayName="org.netbeans.modules.xml.resources.Bundle#XMLFirstResolver",
         position=60001,
@@ -66,7 +66,7 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
      * Special MIME type so that other XML data objects do not inherit our editor
      */
     public static final String MIME_PLAIN_XML = "text/plain+xml";
-    
+
     @MIMEResolver.Registration(
         displayName = "org.netbeans.modules.xml.resources.Bundle#XMLFirstResolver",
     position = 60004,
@@ -78,13 +78,13 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
 
     /** Serial Version UID */
     private static final long serialVersionUID = 9153823984913876866L;
-    
+
     /** Synchronization implementation delegate. */
     private Reference<XMLSyncSupport> refSync;
-    
+
     /** Cookie Manager */
     private final DataObjectCookieManager cookieManager;
-    
+
     /**
      * Factory for editor
      */
@@ -97,12 +97,12 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
      */
     public XMLDataObject (final FileObject fo, MultiFileLoader loader) throws DataObjectExistsException {
         super (fo, loader, false);
-        
+
         CookieSet set = getCookieSet();
         set.add (cookieManager = new DataObjectCookieManager (this, set));
         editorSupportFactory =
             TextEditorSupport.findEditorSupportFactory (this, null);
-        
+
         editorSupportFactory.registerCookies (set);
         CookieSet.Factory viewCookieFactory = new ViewCookieFactory();
         set.add (ViewCookie.class, viewCookieFactory);
@@ -113,17 +113,17 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
                 editorSupportFactory.createEditor().saveAs( folder, fileName );
             }
         });
-        
+
         // add check and validate cookies
         set.add (new CheckXMLSupport (is));
-        set.add (new ValidateXMLSupport (is));        
+        set.add (new ValidateXMLSupport (is));
         // add TransformableCookie
         Source source = DataObjectAdapters.source (this);
         set.add (new TransformableSupport (source));
         new CookieManager (this, set, XMLCookieFactoryCreator.class);
         this.addPropertyChangeListener (this);  //??? - strange be aware of firing cycles
     }
-    
+
     @MultiViewElement.Registration(
         displayName="org.netbeans.modules.xml.Bundle#CTL_SourceTabCaption",
         iconBase="org/netbeans/modules/xml/resources/xmlObject.gif",
@@ -135,7 +135,7 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
     public static MultiViewEditorElement createMultiViewEditorElement(Lookup context) {
         return new MultiViewEditorElement(context);
     }
-        
+
     @MultiViewElement.Registration(
         displayName="org.netbeans.modules.xml.Bundle#CTL_SourceTabCaption",
         iconBase="org/netbeans/modules/xml/resources/xmlObject.gif",
@@ -197,7 +197,7 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
 
     /** Delegate to super with possible debug messages. */
     @Override
-    public org.openide.nodes.Node.Cookie getCookie(Class klass) {                       
+    public org.openide.nodes.Node.Cookie getCookie(Class klass) {
         Node.Cookie cake = null;
 
         if (SaveCookie.class.equals (klass) ) {
@@ -214,19 +214,19 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
                 cake = super.getCookie (OpenCookie.class);
             }
         }
-        
+
         if ( Util.THIS.isLoggable() ) /* then */ Util.THIS.debug ("XMLDataOObject::getCookie: class = " + klass + " => " + cake); // NOI18N
-        
+
         return cake;
     }
-        
-        
+
+
     public DataObjectCookieManager getCookieManager() {
         return cookieManager;
     }
-    
+
     /** TREE -> TEXT
-     * Updates document by content of parsed tree based on the 
+     * Updates document by content of parsed tree based on the
      * last document version.
      * Note: the tree is always maximum valid part of document.
      * It takes parsed tree as primary data model. IT MUST CHANGE
@@ -238,15 +238,15 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
         Thread.dumpStack();
 //        sync.representationChanged(TreeDocument.class); //!!!
 
-    }            
-    
+    }
+
     private synchronized Synchronizator getSyncIfAvailable() {
         if (refSync == null) {
             return null;
         }
         return refSync.get();
     }
-    
+
     public synchronized Synchronizator getSyncInterface() {
         Synchronizator sync = null;
         if (refSync != null) {
@@ -261,7 +261,7 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
     }
 
 
-    
+
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -271,13 +271,13 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-    /** 
-     * File was externaly modified, detected by OpenIDE DataObject. 
+    /**
+     * File was externaly modified, detected by OpenIDE DataObject.
      */
     public void propertyChange (PropertyChangeEvent e) {
 
         if ( Util.THIS.isLoggable() ) /* then */ Util.THIS.debug ("event " + e.getPropertyName()); // NOI18N
-        
+
         if (org.openide.loaders.XMLDataObject.PROP_DOCUMENT.equals (e.getPropertyName())) {
 
             // filter out uninteresting events
@@ -296,7 +296,7 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
         //return new HelpCtx(XMLDataObject.class);
         return HelpCtx.DEFAULT_HELP;
     }
-    
+
     //
     // class XMLDataNode
     //
@@ -333,9 +333,9 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
                 return null;
             }
         }
-        
+
     } // end of class ViewCookieFactory
-    
+
 
     //
     // class ViewSupport
@@ -348,12 +348,12 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
 
         /** entry */
         private MultiDataObject.Entry primary;
-        
+
         /** Constructs new ViewSupport */
         public ViewSupport (MultiDataObject.Entry primary) {
             this.primary = primary;
         }
-        
+
         /**
          */
         public void view () {
@@ -364,7 +364,7 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
         }
 
     } // end of class ViewSupport
-    
+
 
 
     //
@@ -382,7 +382,7 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
 
     } // end of interface DataNodeCreator
 
-    
+
 
     //
     // interface XMLCookieFactoryCreator
@@ -392,7 +392,7 @@ public final class XMLDataObject extends org.openide.loaders.XMLDataObject
      *
      */
     public static interface XMLCookieFactoryCreator extends CookieFactoryCreator {
-        
+
     } // end: interface XMLCookieFactoryCreator
 
 }

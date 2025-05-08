@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 package com.huawei.codecheck.customchecks;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;

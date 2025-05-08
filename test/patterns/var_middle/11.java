@@ -1,7 +1,10 @@
-package javalang.brewtab.com; 
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
 
-class Test { 
-    
+package javalang.brewtab.com;
+
+class Test {
+
     public PartETag uploadPart(File file, String key, String uploadId,
       int partNum) throws IOException {
       InputStream inputStream = new FileInputStream(file);

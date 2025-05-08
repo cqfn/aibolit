@@ -48,47 +48,47 @@ public class AttrProp implements BaseAttribute {
     static public final int ENTITY 		= 0x0007;
     static public final int ENTITIES 		= 0x0008;
     static public final int NOTATION 		= 0x0009;
-    
+
     static final String[] kinds =
 	new String[] {"CDATA", "ENUM", "NMTOKEN", "ID", "IDREF",	// NOI18N
 		      "IDREFS", "ENTITY", "ENTITIES", "NOTATION"};	// NOI18N
-    
+
     static final int[] kindValues =
 	new int[] {CDATA, ENUM, NMTOKEN, ID, IDREF,
 		   IDREFS, ENTITY, ENTITIES, NOTATION};
-    
+
     static public final int MASK_OPTION 	= 0x0F00;
     static public final int REQUIRED 		= 0x0100;
     static public final int IMPLIED 		= 0x0200;
     static public final int FIXED 		= 0x0300;
-    
+
     static public final int TRANSIENT		= 0x1000;
-    
+
     static final String[] options =
         new String[] {"#REQUIRED", "#IMPLIED", "#FIXED"};	// NOI18N
-    
+
     static final int[] optionValues = new int[] {REQUIRED, IMPLIED, FIXED};
-    
+
     //	Property this attribure belongs to
     String		propertyName;
-    
+
     //	Name of the attribute
     String 		name;
-    
+
     //	Name of the attribute
     String 		dtdName;
 
     String 		namespace;
-    
+
     //	Its type (CDATA, ID, ...)
     int			type;
 
     // Proposed java class for it.
     String javaType;
-    
+
     //	Enum values if any (null if none)
     ArrayList		values;
-    
+
     //	The default value of the attribute
     String		defaultValue;
 
@@ -98,12 +98,12 @@ public class AttrProp implements BaseAttribute {
     //	is used to know which value is being added.
     //
     private int		state;
-    
+
     private int 	enumMode;
 
     private List extraData;
     //private GraphNode sourceGraphNode;
-    
+
     //	The state values when the attribute is populated
     private static final int NEED_NAME 		= 0;
     private static final int NEED_TYPE		= 1;
@@ -112,32 +112,32 @@ public class AttrProp implements BaseAttribute {
     private static final int NEED_DEFVAL	= 4;
     private static final int NEED_VALUE		= 5;
     private static final int DONE		= 6;
-    
+
     public AttrProp() {
         this.values = null;
         this.state = NEED_NAME;
         this.type = 0;
         this.enumMode = 0;
     }
-    
+
     public AttrProp(String propName) {
         this();
         this.propertyName = propName;
     }
-    
+
     public AttrProp(String propName, String dtdName, String name, int type,
                     String[] values, String defValue) {
-			
+
         this.dtdName = dtdName;
         this.name = name;
         this.propertyName = propName;
-	
+
         if (values != null && values.length > 0) {
             this.values = new ArrayList();
             for (int i=0; i<values.length; i++)
                 this.values.add(values[i]);
         }
-	
+
         this.defaultValue = defValue;
         this.state = DONE;
         this.type = type;
@@ -157,7 +157,7 @@ public class AttrProp implements BaseAttribute {
         // optional
         return Common.TYPE_0_1;
     }
-    
+
     public void setEnum(boolean enume) {
         enumMode += (enume?1:-1);
         if (enumMode == 1) {
@@ -173,11 +173,11 @@ public class AttrProp implements BaseAttribute {
             else
                 this.failed(Common.getMessage("WrongEnumDecl_msg"));
     }
-    
+
     public void addValue(String value) {
         addValue(value, null);
     }
-    
+
     public void addValue(String value, String namespace) {
         //
         //	Get rid of both heading and trailing " character
@@ -193,7 +193,7 @@ public class AttrProp implements BaseAttribute {
                 failed(Common.getMessage("TooLittleDeclaration_msg", value));
             value = value.substring(1, value.length()-1);
         }
-	
+
 	//	Name Type_OR_Enums DefValue_OR_#Opt [Val for #FIXED]
         switch(this.state) {
 	    case NEED_NAME:
@@ -232,7 +232,7 @@ public class AttrProp implements BaseAttribute {
             this.failed(Common.getMessage("TooMuchDeclaration_msg"));
         }
     }
-    
+
     //
     //	The attribute is transient if it has been added on the fly
     //	when reading the XML document (was not defined in the DTD)
@@ -240,13 +240,13 @@ public class AttrProp implements BaseAttribute {
     public boolean isTransient() {
         return ((this.type & TRANSIENT) == TRANSIENT);
     }
-    
+
     //	Return true if this instance of attrProp is properly and completly
     //	built from the DTD declaration.
     public boolean isComplete() {
         return (this.state == DONE);
     }
-    
+
     //	true if the name is either the mangled name or the dtd name
     public boolean hasName(String name) {
         if (name.equals(this.name) || name.equals(this.dtdName))
@@ -254,19 +254,19 @@ public class AttrProp implements BaseAttribute {
         else
             return false;
     }
-    
+
     //
     //	Return the list of possible values (enum)
     //	If there is no value defined, the array is empty
     //
     public String[] getValues() {
         int size = 0;
-	
+
         if (this.values != null)
             size = this.values.size();
-	
+
         String[] ret = new String[size];
-	
+
         if (size > 0)
             return (String[])this.values.toArray(ret);
         else
@@ -276,15 +276,15 @@ public class AttrProp implements BaseAttribute {
     public void setDefaultValue(String d) {
         defaultValue = d;
     }
-    
+
     public String getDefaultValue() {
         return this.defaultValue;
     }
-    
+
     public String getPropertyName() {
 	return this.propertyName;
     }
-    
+
     public String getName() {
         return this.name;
     }
@@ -301,7 +301,7 @@ public class AttrProp implements BaseAttribute {
         return sourceGraphNode;
     }
     */
-    
+
     public String getDtdName() {
         return this.dtdName;
     }
@@ -309,20 +309,20 @@ public class AttrProp implements BaseAttribute {
     public String getNamespace() {
         return this.namespace;
     }
-    
+
     public String typeAsString() {
         String str = "AttrProp." +		// NOI18N
             intToString(this.type & MASK_KIND, kinds, kindValues);
-	
+
         int opt = this.type & MASK_OPTION;
         if (opt != 0) {
             str += " | " + "AttrProp." +	// NOI18N
                 intToString(opt, options, optionValues).substring(1);
         }
-	
+
         return str;
     }
-    
+
     String enumsToString() {
         String[] e = this.getValues();
         StringBuffer ret = new StringBuffer();
@@ -332,35 +332,35 @@ public class AttrProp implements BaseAttribute {
         }
         return ret.toString();
     }
-    
+
     public void validate() {
         //	Called at the end of the element parsing
         if (this.state != DONE)
             this.failed(Common.getMessage("BadAttributeDecl_msg"));
     }
-    
+
     public void checkEnum() {
         //	Called when a | is found
         if (this.enumMode == 0)
             this.failed(Common.getMessage("UseCharORWithEnum_msg"));
     }
-    
+
     public boolean isEnum() {
         return ((this.type & MASK_KIND) == ENUM);
     }
-    
+
     public boolean isFixed() {
         return ((this.type & MASK_OPTION) == FIXED);
     }
-    
+
     public int getType() {
         return (this.type & MASK_KIND);
     }
-    
+
     public int getOption() {
         return (this.type & MASK_OPTION);
     }
-    
+
     public String getJavaType() {
         return javaType;
     }
@@ -376,7 +376,7 @@ public class AttrProp implements BaseAttribute {
         }
         return -1;
     }
-    
+
     String intToString(int id, String[] map, int[] val) {
         for(int i=0; i<val.length; i++) {
             if (id == val[i])
@@ -384,7 +384,7 @@ public class AttrProp implements BaseAttribute {
         }
         return "?";	// NOI18N
     }
-    
+
     private void failed(String err) {
         throw new RuntimeException(Common.getMessage("ATTLISTParseError_msg", this.name, err));
     }
@@ -400,15 +400,15 @@ public class AttrProp implements BaseAttribute {
             return Collections.EMPTY_LIST;
         return extraData;
     }
-    
+
     public String toString() {
         String str = this.dtdName + " " +					// NOI18N
             intToString(this.type & MASK_KIND, kinds, kindValues) + " ";	// NOI18N
-	
+
         int opt = this.type & MASK_OPTION;
         if (opt != 0)
             str += intToString(opt, options, optionValues) + " ";	// NOI18N
-	
+
         if (this.values != null) {
             int size = this.values.size();
             str += "( ";	// NOI18N
@@ -419,7 +419,7 @@ public class AttrProp implements BaseAttribute {
         }
         if (this.defaultValue != null)
             str += this.defaultValue;
-	
+
         if (this.isTransient())
             str += " (transient)";	// NOI18N
         if (javaType != null)
@@ -427,4 +427,3 @@ public class AttrProp implements BaseAttribute {
         return str;
     }
 }
-

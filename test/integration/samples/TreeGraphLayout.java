@@ -183,7 +183,7 @@ public class TreeGraphLayout<N, E> extends GraphLayout {
                 child.upload (result);
         }
     }
-    
+
     @Override
     protected void performGraphLayout(UniversalGraph graph) {
         Collection<N> allNodes = scene.getNodes ();
@@ -194,7 +194,7 @@ public class TreeGraphLayout<N, E> extends GraphLayout {
                 rootNodes.add(node);
             }
         }
-        
+
         for (N rootNode: rootNodes) {
             this.layout(rootNode);
         }

@@ -228,7 +228,7 @@ You can get full report with `--full` command, then all patterns will be include
 $ aibolit recommend --folder src/java --full
 ```
 
-You can exclude files with `--exclude` command. 
+You can exclude files with `--exclude` command.
 You to set glob patterns to ignore:
 
 ```bash
@@ -255,14 +255,14 @@ $ aibolit recommend --help
  3. Run `pip install .`
  4. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for Linux).
  5. Set env variable `TARGET_FOLDER` if you need to save all dataset files to another directory.
- 6. You have to specify train and test dataset: set the `HOME_TRAIN_DATASET` environment variable 
+ 6. You have to specify train and test dataset: set the `HOME_TRAIN_DATASET` environment variable
  for train dataset and the `HOME_TEST_DATASET` environment variable for test dataset.
  Usually, these files are in `scripts/target/08` directory after dataset collection (if you have not skipped it).
- But you can use your own datasets. 
- 
-    Please notice, that if you set `TARGET_FOLDER`, your dataset files will be in `TARGET_FOLDER/target`. 
- That is why it is necessary to 
- set HOME_TRAIN_DATASET=`TARGET_FOLDER`\target\08\08-train.csv, 
+ But you can use your own datasets.
+
+    Please notice, that if you set `TARGET_FOLDER`, your dataset files will be in `TARGET_FOLDER/target`.
+ That is why it is necessary to
+ set HOME_TRAIN_DATASET=`TARGET_FOLDER`\target\08\08-train.csv,
  HOME_TEST_DATASET =`TARGET_FOLDER`\target\08\08-test.csv
  7. If you need to set up own directory where model will be saved, set up also `SAVE_MODEL_FOLDER` environment variable.
  Otherwise model will be saved into `cloned_aibolit_path/aibolit/binary_files/model.pkl`

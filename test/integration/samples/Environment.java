@@ -35,7 +35,7 @@ import org.apache.hadoop.util.StringUtils;
 /**
  * This is a class used to get the current environment
  * on the host machines running the map/reduce. This class
- * assumes that setting the environment in streaming is 
+ * assumes that setting the environment in streaming is
  * allowed on windows/ix/linuz/freebsd/sunos/solaris/hp-ux
  */
 @InterfaceAudience.Private
@@ -88,7 +88,7 @@ public class Environment extends Properties {
     } finally {
       IOUtils.closeStream(in);
     }
-   
+
     try {
       pid.waitFor();
     } catch (InterruptedException e) {
@@ -96,7 +96,7 @@ public class Environment extends Properties {
     }
   }
 
-  // to be used with Runtime.exec(String[] cmdarray, String[] envp) 
+  // to be used with Runtime.exec(String[] cmdarray, String[] envp)
   String[] toArray() {
     String[] arr = new String[super.size()];
     Enumeration<Object> it = super.keys();
@@ -120,7 +120,7 @@ public class Environment extends Properties {
     }
     return map;
   }
-  
+
   public String getHost() {
     String host = getProperty("HOST");
     if (host == null) {

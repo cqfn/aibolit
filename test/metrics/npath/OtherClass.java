@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 class OtherClass {
   public static void main(String[] args) {
     MyClass myObj = new MyClass();

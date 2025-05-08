@@ -60,11 +60,11 @@ public class DDParser implements Iterator {
 	String  	name;
 	int		index;
 	int 		type;
-	
+
 	public DDLocation(BaseBean r) {
 	    this(r, null, -1, 0);
 	}
-	
+
 	public DDLocation(BaseBean r, String n, int i, int type) {
 	    this.root = r;
 	    this.name = n;
@@ -74,10 +74,10 @@ public class DDParser implements Iterator {
 		this.index = r.indexToId(n, i);
 	    } else
 		this.index = i;
-	    
+
 	    this.type = type;
 	}
-	
+
 	public void removeValue() {
 	    if (this.index != -1) {
 		this.root.removeValue(this.name,
@@ -87,19 +87,19 @@ public class DDParser implements Iterator {
 	    else
 		this.root.setValue(this.name, null);
 	}
-	
+
 	public void setValue(String value) {
 	    Object v = value;
-	    
+
 	    if (Common.isBoolean(this.type))
 		v = Boolean.valueOf(value);
-	    
+
 	    if (this.index != -1)
 		this.root.setValueById(this.name, this.index, v);
 	    else
 		this.root.setValue(this.name, v);
 	}
-	
+
 	public Object getValue() {
 	    if (this.root == null || this.name == null)
 		return null;
@@ -109,25 +109,25 @@ public class DDParser implements Iterator {
 	    else
 		return this.root.getValue(this.name);
 	}
-	
+
 	public BaseBean getRoot() {
 	    return this.root;
 	}
-	
+
 	public String getName() {
 	    return this.name;
 	}
-	
+
 	public int getIndex() {
 	    if (this.name != null)
 		return this.root.idToIndex(this.name, this.index);
 	    return this.index;
 	}
-	
+
 	public boolean isNode() {
 	    return Common.isBean(this.type);
 	}
-	
+
 	public String toString() {	// BEGIN_NOI18N
 	    if (this.root != null) {
 		return "BaseBean(" + this.root.name() + "." +
@@ -142,7 +142,7 @@ public class DDParser implements Iterator {
 	    }
 	}				// END_NOI18N
     }
-    
+
     /**
      *	There is one such class per property specified in the parsing string.
      *	For example, if the parsing string is /Book/Chapters/Title,
@@ -172,8 +172,8 @@ public class DDParser implements Iterator {
 	String		keyName;
 	String		keyValue;
 	boolean		autoCreate;
-	
-	
+
+
 	PropParser(String n, boolean autoCreate) {
 	    int i = n.indexOf('=');
 	    if (i != -1) {
@@ -192,20 +192,20 @@ public class DDParser implements Iterator {
 		    throw new IllegalStateException(Common.getMessage(
 		    "DDParserCannotUseKeyWithOutValue_msg", n));
 		}
-		
+
 		this.name = n;
 		this.keyName = null;
 		this.keyValue = null;
 	    }
-	    
+
 	    if (this.keyValue != null && (this.keyValue.length() > 0) &&
 	    (this.keyValue.charAt(0) == '\'' ||
 	    this.keyValue.charAt(0) == '"')) {	// NOI18N
-		
+
 		this.keyValue =
 		this.keyValue.substring(1, this.keyValue.length()-1);
 	    }
-	    
+
 	    this.autoCreate = autoCreate;
 	    this.parent = null;
 	    this.pos = 0;
@@ -215,20 +215,20 @@ public class DDParser implements Iterator {
 	    this.hasCache = false;
 	    this.curParent = null;
 	}
-	
+
 	DDLocation getLocation() {
 	    return new DDParser.DDLocation(this.curParent, this.name,
 					   ((this.baseProp.isIndexed())?
 					    this.pos-1:-1),
 					  ((BeanProp)this.baseProp).getType());
 	}
-	
+
 	void setBaseProperty(BaseProperty bp) {
 	    this.baseProp = bp;
 	}
-	
+
 	BaseBean getCurBaseBean(boolean lastProp) {
-	    
+
 	    while(true) {
 		int p = this.seekNext();
 		if (p != -1) {
@@ -244,10 +244,10 @@ public class DDParser implements Iterator {
 		    break;
 		}
 	    }
-	    
+
 	    return null;
 	}
-	
+
         int seekNext() {
             //	Seek doesn't move the pos - next() does
             if (this.baseProp.isBean()) {
@@ -260,10 +260,10 @@ public class DDParser implements Iterator {
                 return -1;
             return this.pos;
         }
-	
+
 	static final char WILD_CHAR = '*';
 	private boolean checkValueMatch(Object o1, Object o2) {
-	    
+
 	    if (o1 == null || o2 == null) {
 		return false;
 	    } else {
@@ -279,7 +279,7 @@ public class DDParser implements Iterator {
 		    }
 	    }
 	}
-	
+
         //  BaseBean is the parent - get our values from it
         void setValues(BaseBean b) {
             this.curParent = b;
@@ -289,11 +289,11 @@ public class DDParser implements Iterator {
                 this.values = new Object[1];
                 this.values[0] = b.getValue(this.name);
             }
-	    
+
             //  If any keyName/keyValue is used, apply it to the values
             if (this.baseProp.isBean()) {
                 if (this.keyName != null && this.keyValue != null) {
-		    
+
                     ArrayList arr = new ArrayList();
                     Object o1 =	Common.getComparableObject(this.keyValue);
                     for (int i=0; i<this.values.length; i++) {
@@ -301,7 +301,7 @@ public class DDParser implements Iterator {
                         if (bb != null) {
                             Object o2 = Common.
                                 getComparableObject(bb.getValue(this.keyName));
-			    
+
                             if (this.checkValueMatch(o1, o2)) {
                                 arr.add(values[i]);
                             }
@@ -317,7 +317,7 @@ public class DDParser implements Iterator {
                         if (this.values[i] != null) {
                             Object o2 =
                                 Common.getComparableObject(this.values[i]);
-			    
+
                             if (this.checkValueMatch(o1, o2)) {
                                 arr.add(values[i]);
                             }
@@ -326,7 +326,7 @@ public class DDParser implements Iterator {
                     this.values = arr.toArray();
                 }
             }
-	    
+
             //	Find out if there is something left
             boolean empty = true;
             for (int i=0; i<this.values.length; i++)
@@ -334,7 +334,7 @@ public class DDParser implements Iterator {
                     empty = false;
                     break;
                 }
-	    
+
             if (empty) {
                 if (this.autoCreate) {
                     if (this.baseProp.isBean()) {
@@ -345,7 +345,7 @@ public class DDParser implements Iterator {
                             b.addValue(this.name, bb);
                         else
                             b.setValue(this.name, bb);
-		    
+
                         this.values = new Object[] {bb};
                     } else
                         if (this.keyValue != null) {
@@ -360,10 +360,10 @@ public class DDParser implements Iterator {
                     values = new Object[0];
                 }
             }
-	    
+
             this.pos = 0;
         }
-	
+
         //  We already returned everything we have - try to get new ones
         boolean updateValues() {
             if (this.parent != null) {
@@ -378,7 +378,7 @@ public class DDParser implements Iterator {
             }
             return false;
         }
-	
+
         //  If we can populate our cache with a new one, we have 1 more
         boolean hasNext() {
             if (!this.hasCache) {
@@ -391,7 +391,7 @@ public class DDParser implements Iterator {
             }
             return true;
         }
-	
+
         //  Return the next one available
         Object next() {
             if (this.hasCache) {
@@ -411,7 +411,7 @@ public class DDParser implements Iterator {
             }
         }
     }
-    
+
     //
     //	This references the last PropParser of the structure described by
     //	the parsing string.
@@ -421,56 +421,56 @@ public class DDParser implements Iterator {
     private Object		current;
     private boolean		singleRoot;
     private boolean		empty;
-    
+
     /**
      *	Build the PropParser from the parsing String. The PropParser
      *	class does all the work.
      */
     public DDParser(BaseBean root, String parse) {
         //System.out.println("DDParser: parse="+parse+" root="+root);
-	
+
 	boolean autoCreate = false; // Force the creation of the path
-	
+
 	//
 	//  Extract the property names from the parsing string
 	//  and allocate the PropParser instances
-	//	
+	//
 	parse = parse.trim();
-	
+
 	if (parse.endsWith("!")) {	// NOI18N
 	    autoCreate = true;
 	    parse = parse.substring(0, parse.length()-1);
 	}
-	
+
 	while (parse != null &&
            (parse.startsWith("/") || parse.startsWith(".")))	// NOI18N
 	    parse = parse.substring(1);
 	while (parse != null && parse.endsWith("/"))	// NOI18N
 	    parse = parse.substring(0, parse.length()-1);
-	
+
 	if (parse.equals("")) {		// NOI18N
 	    this.singleRoot = true;
 	    this.root = root;
 	    return;
 	}
-	
-	
+
+
 	PropParser 	prev = null;
 	PropParser	cur = null;
 	String 		n;
-	
+
 	int 		pos = 0;
 	boolean 	skip = false;
-	
+
 	for (int i=0; i<parse.length(); i++) {
 	    char c = parse.charAt(i);
-	    
+
 	    if (c == '"' || c == '\'')	// NOI18N
             skip = !skip;
-	    
+
 	    if (skip)
             continue;
-	    
+
 	    boolean last = (i==(parse.length()-1));
 	    if (c == '/' || last) {
             if (last)
@@ -495,14 +495,14 @@ public class DDParser implements Iterator {
             }
 	    }
 	}
-	
+
 	this.parser = cur;
-	
+
 	if (cur != null) {
 	    while (cur.parent != null)
             cur = cur.parent;
 	}
-	
+
 	//
 	//  Initialize the PropParser instances
 	//
@@ -511,16 +511,16 @@ public class DDParser implements Iterator {
 	    BaseProperty[] p = bean.listProperties();
 	    String name = cur.name;
 	    boolean found = false;
-	    
+
 	    for (int j=0; (j<p.length) && !found; j++) {
             if (p[j].hasName(name)) {
                 //System.out.println("Found name="+name);
-		    
+
                 // Structure description of the property
                 cur.setBaseProperty(p[j]);
                 // Set the values
                 cur.setValues(bean);
-		    
+
                 if (p[j].isBean())
                     bean = cur.getCurBaseBean(cur.child==null);
                 else {
@@ -539,7 +539,7 @@ public class DDParser implements Iterator {
 	    }
 	    cur = cur.child;
 	} while (cur != null && bean != null);
-	
+
 	if (bean == null) {
 	    //
 	    // It might happen that one of the element in the parsing path
@@ -551,7 +551,7 @@ public class DDParser implements Iterator {
 	else
 	    this.empty = false;
     }
-    
+
     public boolean hasNext() {
         if (!this.empty) {
             boolean more;
@@ -565,7 +565,7 @@ public class DDParser implements Iterator {
         }
         return false;
     }
-    
+
     public Object next() {
         if (!this.empty) {
             if (this.singleRoot) {
@@ -581,15 +581,15 @@ public class DDParser implements Iterator {
         }
         throw new NoSuchElementException();
     }
-    
+
     public Object current() {
 	return this.current;
     }
-    
+
     public void remove() {
 	throw new UnsupportedOperationException();
     }
-    
+
     /**
      *	Return the current position of the parser. The position is made of
      *	a baseBean (parent of the property), the property name, and its index
@@ -605,5 +605,3 @@ public class DDParser implements Iterator {
 	return null;
     }
 }
-
-

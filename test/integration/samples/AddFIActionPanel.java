@@ -73,7 +73,7 @@ public class AddFIActionPanel extends javax.swing.JPanel implements ValidatingPa
     public javax.swing.text.JTextComponent[] getDocumentChangeComponents() {
         return new javax.swing.text.JTextComponent[]{jTextFieldPath, tResourceFile};
     }
-    
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -260,8 +260,8 @@ public class AddFIActionPanel extends javax.swing.JPanel implements ValidatingPa
         bBrowse.setEnabled(false);
         cbAction.setEnabled(true);
     }//GEN-LAST:event_rbActionItemStateChanged
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bBrowse;
     private javax.swing.ButtonGroup bgActionType;
@@ -278,16 +278,16 @@ public class AddFIActionPanel extends javax.swing.JPanel implements ValidatingPa
     private javax.swing.JRadioButton rbResourceFile;
     private javax.swing.JTextField tResourceFile;
     // End of variables declaration//GEN-END:variables
-    
+
     public String getActionPath() {
         String path = jTextFieldPath.getText().trim();
         return path.length()==0?null:path;
     }
-    
+
     public boolean isForward() {
         return rbForwardAction.isSelected();
     }
-    
+
     public String getResource() {
         if (rbResourceFile.isSelected()) {
             String resource=tResourceFile.getText().trim();
@@ -298,7 +298,7 @@ public class AddFIActionPanel extends javax.swing.JPanel implements ValidatingPa
                     (String)cbAction.getSelectedItem());
         }
     }
-    
+
     private boolean containsActionPath(String path) {
         DefaultComboBoxModel model = (DefaultComboBoxModel)cbAction.getModel();
         for (int i=0; i<model.getSize(); i++) {

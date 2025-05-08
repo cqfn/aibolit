@@ -54,22 +54,22 @@ import org.openide.util.Utilities;
  * @author Martin Krauskopf
  */
 public final class LocalizedBundleInfo {
-    
+
     public static final String NAME = "OpenIDE-Module-Name"; // NOI18N
     public static final String DISPLAY_CATEGORY = "OpenIDE-Module-Display-Category"; // NOI18N
     public static final String SHORT_DESCRIPTION = "OpenIDE-Module-Short-Description"; // NOI18N
     public static final String LONG_DESCRIPTION = "OpenIDE-Module-Long-Description"; // NOI18N
-    
+
     static final LocalizedBundleInfo EMPTY = new LocalizedBundleInfo(new EditableProperties[] {new EditableProperties(true)});
-    
+
     private final EditableProperties[] props;
     private final File[] paths;
-    
+
     private final PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     /** Whether this instance was modified since it was loaded or saved. */
     private boolean modified;
-    
+
     /**
      * Returns instances initialized by data in the given {@link FileObject}.
      * Note that instances created by this factory method are automatically
@@ -83,7 +83,7 @@ public final class LocalizedBundleInfo {
     public static LocalizedBundleInfo load(FileObject[] bundleFOs) throws IOException {
         return new LocalizedBundleInfo(bundleFOs);
     }
-    
+
     /**
      * Returns instances initialized by data in the given {@link FileObject}.
      * Instances created by this factory method are not storable (i.e. {@link
@@ -101,13 +101,13 @@ public final class LocalizedBundleInfo {
         }
         return new LocalizedBundleInfo(props);
     }
-    
+
     /** Use factory method instead. */
     private LocalizedBundleInfo(EditableProperties[] props) {
         this.props = props;
         paths = new File[props.length];
     }
-    
+
     /** Use factory method instead. */
     private LocalizedBundleInfo(FileObject[] bundleFOs) throws IOException {
         if (bundleFOs == null || bundleFOs.length == 0) {
@@ -137,7 +137,7 @@ public final class LocalizedBundleInfo {
             });
         }
     }
-    
+
     /**
      * Reload data of this localizing bundle info from the file represented by
      * previously set path. Note that this instance already listens to the
@@ -158,7 +158,7 @@ public final class LocalizedBundleInfo {
         modified = false;
         firePropertyChange(ProjectInformation.PROP_DISPLAY_NAME, oldDisplayName, getDisplayName());
     }
-    
+
     /**
      * Reload this localizing bundle from the file specified by previously set
      * path.
@@ -176,7 +176,7 @@ public final class LocalizedBundleInfo {
         }
         modified = false;
     }
-    
+
     /**
      * Converts entries this instance represents into {@link
      * EditableProperties}.
@@ -184,7 +184,7 @@ public final class LocalizedBundleInfo {
     public EditableProperties toEditableProperties() {
         return props[0];
     }
-    
+
     private String getProperty(String key) {
         for (int i = props.length - 1; i >= 0; i--) {
             if (props[i].containsKey(key)) {
@@ -193,7 +193,7 @@ public final class LocalizedBundleInfo {
         }
         return null;
     }
-    
+
     /**
      * Tells whether this instance was modified since it was loaded or saved.
      * I.e. if it needs to be saved or not.
@@ -201,45 +201,45 @@ public final class LocalizedBundleInfo {
     public boolean isModified() {
         return modified;
     }
-    
+
     public String getDisplayName() {
         return getProperty(NAME);
     }
-    
+
     public void setDisplayName(String name) {
         String oldDisplayName = getDisplayName();
         this.setProperty(NAME, name, false);
         firePropertyChange(ProjectInformation.PROP_DISPLAY_NAME, oldDisplayName, getDisplayName());
     }
-    
+
     public String getCategory() {
         return getProperty(DISPLAY_CATEGORY);
     }
-    
+
     public void setCategory(String category) {
         this.setProperty(DISPLAY_CATEGORY, category, false);
     }
-    
+
     public String getShortDescription() {
         return getProperty(SHORT_DESCRIPTION);
     }
-    
+
     public void setShortDescription(String shortDescription) {
         this.setProperty(SHORT_DESCRIPTION, shortDescription, false);
     }
-    
+
     public String getLongDescription() {
         return getProperty(LONG_DESCRIPTION);
     }
-    
+
     public void setLongDescription(String longDescription) {
         this.setProperty(LONG_DESCRIPTION, longDescription, true);
     }
-    
+
     public File[] getPaths() {
         return paths;
     }
-    
+
     private void setProperty(String name, String value, boolean split) {
         if (Utilities.compareObjects(value, getProperty(name))) {
             return;
@@ -261,7 +261,7 @@ public final class LocalizedBundleInfo {
         }
         // XXX Bundle-Name added by project template; could add Bundle-Category and/or Bundle-Description if similar properties set here
     }
-    
+
     private static String[] splitBySentence(String text) {
         List<String> sentences = new ArrayList<String>();
         // Use Locale.US since the customizer is setting the default (US) locale text only:
@@ -275,29 +275,29 @@ public final class LocalizedBundleInfo {
         }
         return sentences.toArray(new String[sentences.size()]);
     }
-    
+
     public void addPropertyChangeListener(PropertyChangeListener pchl) {
         changeSupport.addPropertyChangeListener(pchl);
     }
-    
+
     public void removePropertyChangeListener(PropertyChangeListener pchl) {
         changeSupport.removePropertyChangeListener(pchl);
     }
-    
+
     private void firePropertyChange(String propName, Object oldValue, Object newValue) {
         changeSupport.firePropertyChange(propName, oldValue, newValue);
     }
-    
-    
+
+
     public String toString() {
         return "LocalizedBundleInfo[" + getDisplayName() + "; " + // NOI18N
                 getCategory() + "; " + // NOI18N
                 getShortDescription() + "; " + // NOI18N
                 getLongDescription() + "]"; // NOI18N
     }
-    
+
     public static interface Provider {
         @CheckForNull LocalizedBundleInfo getLocalizedBundleInfo();
     }
-    
+
 }

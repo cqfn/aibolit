@@ -80,15 +80,15 @@ import org.openide.util.Exceptions;
  * Access to the backend <code>JPDATruffleAccessor</code> class.
  */
 public class TruffleAccess implements JPDABreakpointListener {
-    
+
     private static final Logger LOG = Logger.getLogger(TruffleAccess.class.getName());
-    
+
     public static final String BASIC_CLASS_NAME = "org.netbeans.modules.debugger.jpda.backend.truffle.JPDATruffleAccessor";    // NOI18N
-    
+
     private static final String METHOD_EXEC_HALTED = "executionHalted";         // NOI18N
     private static final String METHOD_EXEC_STEP_INTO = "executionStepInto";    // NOI18N
     private static final String METHOD_DEBUGGER_ACCESS = "debuggerAccess";      // NOI18N
-    
+
     private static final String VAR_NODE = "astNode";                           // NOI18N
     private static final String VAR_FRAME = "frame";                            // NOI18N
     private static final String VAR_SRC_ID = "id";                              // NOI18N
@@ -101,7 +101,7 @@ public class TruffleAccess implements JPDABreakpointListener {
     private static final String VAR_TOP_FRAME = "topFrame";                     // NOI18N
     private static final String VAR_TOP_VARS = "topVariables";                  // NOI18N
     private static final String VAR_THIS_OBJECT = "thisObject";                 // NOI18N
-    
+
     private static final String METHOD_GET_VARIABLES = "getVariables";          // NOI18N
     private static final String METHOD_GET_VARIABLES_SGN = "(Lcom/oracle/truffle/api/debug/DebugStackFrame;)[Ljava/lang/Object;";  // NOI18N
     private static final String METHOD_GET_SCOPE_VARIABLES = "getScopeVariables";// NOI18N
@@ -110,36 +110,36 @@ public class TruffleAccess implements JPDABreakpointListener {
     private static final String METHOD_SET_UNWIND_SGN = "(I)Z"; // NOI18N
     private static final String METHOD_GET_AST = "getTruffleAST";               // NOI18N
     private static final String METHOD_GET_AST_SGN = "(I)[Ljava/lang/Object;";
-    
+
     private static final Map<JPDAThread, ThreadInfo> currentPCInfos = new WeakHashMap<>();
     private static final PropertyChangeListener threadResumeListener = new ThreadResumeListener();
-    
+
     private static final TruffleAccess DEFAULT = new TruffleAccess();
 
     private final Map<JPDADebugger, JPDABreakpoint> execHaltedBP = new WeakHashMapActive<>();
     private final Map<JPDADebugger, JPDABreakpoint> execStepIntoBP = new WeakHashMapActive<>();
     private final Map<JPDADebugger, JPDABreakpoint> dbgAccessBP = new WeakHashMapActive<>();
-    
+
     private final Object methodCallAccessLock = new Object();//new ReentrantReadWriteLock(true).writeLock();
     private MethodCallsAccess methodCallsRunnable;
     private static final MethodCallsAccess METHOD_CALLS_SUCCESSFUL = new MethodCallsAccess(){@Override public void callMethods(JPDAThread thread) {}};
-    
+
     private TruffleAccess() {}
-    
+
     public static void init() {
         DEFAULT.initBPs();
     }
-    
+
     public static void assureBPSet(JPDADebugger debugger, ClassType accessorClass) {
         DEFAULT.execHaltedBP.put(debugger, DEFAULT.createBP(accessorClass.name(), METHOD_EXEC_HALTED, debugger));
         DEFAULT.execStepIntoBP.put(debugger, DEFAULT.createBP(accessorClass.name(), METHOD_EXEC_STEP_INTO, debugger));
         DEFAULT.dbgAccessBP.put(debugger, DEFAULT.createBP(accessorClass.name(), METHOD_DEBUGGER_ACCESS, debugger));
     }
-    
+
     private void initBPs() {
         // Init debugger session-independent breakpoints
     }
-    
+
     private JPDABreakpoint createBP(String className, String methodName, JPDADebugger debugger) {
         final MethodBreakpoint mb = MethodBreakpoint.create(className, methodName);
         mb.setBreakpointType(MethodBreakpoint.TYPE_METHOD_ENTRY);
@@ -149,7 +149,7 @@ public class TruffleAccess implements JPDABreakpointListener {
         DebuggerManager.getDebuggerManager().addBreakpoint(mb);
         return mb;
     }
-    
+
     public static CurrentPCInfo getCurrentPCInfo(JPDAThread thread) {
         ThreadInfo info;
         synchronized (currentPCInfos) {
@@ -203,7 +203,7 @@ public class TruffleAccess implements JPDABreakpointListener {
             }
         }
     }
-    
+
     private void setCurrentPosition(JPDADebugger debugger, JPDAThread thread) {
         CurrentPCInfo cpci = getCurrentPosition(debugger, thread);
         synchronized (currentPCInfos) {
@@ -225,7 +225,7 @@ public class TruffleAccess implements JPDABreakpointListener {
             //JPDAClassType debugAccessor = TruffleDebugManager.getDebugAccessorJPDAClass(debugger);
             ObjectVariable sourcePositionVar = haltedInfo.sourcePositions;
             SourcePosition sp = getSourcePosition(debugger, sourcePositionVar);
-            
+
             ObjectVariable frameInfoVar = haltedInfo.frameInfo;
             ObjectVariable frame = (ObjectVariable) frameInfoVar.getField(VAR_FRAME);
             ObjectVariable topVars = (ObjectVariable) frameInfoVar.getField(VAR_TOP_VARS);
@@ -308,7 +308,7 @@ public class TruffleAccess implements JPDABreakpointListener {
         }
         return new SourcePosition(debugger, id, src, line);
     }
-    
+
     private static TruffleScope[] createScopes(JPDADebugger debugger, ObjectVariable varsArrVar) {
         Field[] varsArr = varsArrVar.getFields(0, Integer.MAX_VALUE);
         List<TruffleScope> scopes = new LinkedList<>();
@@ -336,7 +336,7 @@ public class TruffleAccess implements JPDABreakpointListener {
         }
         return scopes.toArray(new TruffleScope[scopes.size()]);
     }
-    
+
     private static int fillVars(JPDADebugger debugger, TruffleVariable[] vars, Field[] varsArr, int i) {
         for (int vi = 0; vi < vars.length; vi++) {
             String name = (String) varsArr[i++].createMirrorObject();
@@ -388,7 +388,7 @@ public class TruffleAccess implements JPDABreakpointListener {
                                  (String) sourceDefVar.createMirrorObject(),
                                  (StringReference) codeRefVar.getJDIValue());
     }
-    
+
     private static SourcePosition parseSource(JPDADebugger debugger, String sourceDef, StringReference codeRef) {
         if (sourceDef == null) {
             return null;
@@ -423,7 +423,7 @@ public class TruffleAccess implements JPDABreakpointListener {
         Source src = Source.getSource(debugger, sourceId, sourceName, sourcePath, sourceURI, codeRef);
         return new SourcePosition(debugger, sourceId, src, sourceLine);
     }
-    
+
     public static TruffleScope[] createFrameScopes(final JPDADebugger debugger,
                                                     //final Variable suspendedInfo,
                                                     final Variable frameInstance) {
@@ -439,7 +439,7 @@ public class TruffleAccess implements JPDABreakpointListener {
             return new TruffleScope[] {};
         }
     }
-    
+
     public static boolean unwind(JPDADebugger debugger, JPDAThread thread, int depth) {
         JPDAClassType debugAccessor = TruffleDebugManager.getDebugAccessorJPDAClass(debugger);
         try {
@@ -507,7 +507,7 @@ public class TruffleAccess implements JPDABreakpointListener {
             return success;
         }
     }
-    
+
     private static boolean invokeMethodCalls(JPDAThread thread, MethodCallsAccess methodCalls) {
         assert Thread.holdsLock(DEFAULT.methodCallAccessLock);
         boolean invoking = false;
@@ -534,9 +534,9 @@ public class TruffleAccess implements JPDABreakpointListener {
     }
 
     public static interface MethodCallsAccess {
-        
+
         void callMethods(JPDAThread thread) throws InvocationException;
-        
+
     }
 
     private static final class ThreadInfo {

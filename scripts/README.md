@@ -11,4 +11,3 @@ $ make nrepos=1 max_classes=2
 ```
 
 The resulting `dataset.csv` wil be saved in the `target` directory.
-

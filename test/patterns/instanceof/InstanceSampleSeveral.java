@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 public class InstanceofDemo
 {
   public static void main(String args[])
@@ -9,4 +12,3 @@ public class InstanceofDemo
     System.out.println(b.getClass().isInstance(c));
   }
 }
- 

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 public class Parser implements ParserConstants {
 
 	final public void ntDefinitions() throws ParseException {
@@ -30,5 +33,5 @@ public class Parser implements ParserConstants {
 		ntDefinition();
 	  }
 	}
-	
+
   }

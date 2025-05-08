@@ -50,15 +50,15 @@ public class PrestimeCPUCCTNodeBacked extends PrestimeCPUCCTNode {
     protected int selfCompactDataOfs;
     protected Set<Integer> compactDataOfs;
     protected int nChildren;
-    
+
 //    protected int methodID;
-//    
+//
 //    protected int nCalls;
 //    protected long sleepTime0;
 //    protected long totalTime0;
 //    protected long totalTime1;
 //    protected long waitTime0;
-    
+
     //~ Constructors -------------------------------------------------------------------------------------------------------------
 
     /**
@@ -70,9 +70,9 @@ public class PrestimeCPUCCTNodeBacked extends PrestimeCPUCCTNode {
         this.compactDataOfs = new HashSet();
         this.compactDataOfs.add(selfCompactDataOfs);
         this.container = container;
-        
+
         nChildren = container.getNChildrenForNodeOfs(compactDataOfs);
-        
+
 //        methodId = container.getMethodIdForNodeOfs(compactDataOfs);
         nCalls = container.getNCallsForNodeOfs(compactDataOfs);
         sleepTime0 = container.getSleepTime0ForNodeOfs(compactDataOfs);
@@ -93,17 +93,17 @@ public class PrestimeCPUCCTNodeBacked extends PrestimeCPUCCTNode {
         for (int i = 0; i < nChildren; i++)
             if (children[i] != null) children[i].parent = this;
     }
-    
+
     PrestimeCPUCCTNodeBacked() {}
 
     //~ Methods ------------------------------------------------------------------------------------------------------------------
-    
+
     PrestimeCPUCCTNode createCopy() {
         PrestimeCPUCCTNodeBacked copy = new PrestimeCPUCCTNodeBacked();
         setupCopy(copy);
         return copy;
     }
-    
+
     void setupCopy(PrestimeCPUCCTNodeBacked node) {
         super.setupCopy(node);
         node.selfCompactDataOfs = selfCompactDataOfs;
@@ -112,42 +112,42 @@ public class PrestimeCPUCCTNodeBacked extends PrestimeCPUCCTNode {
 //        node.compactDataOfs.add(node.selfCompactDataOfs);
         node.nChildren = nChildren;
     }
-    
-    
+
+
     public CCTNode createFilteredNode() {
         PrestimeCPUCCTNodeBacked filtered = new PrestimeCPUCCTNodeBacked();
         setupFilteredNode(filtered);
         return filtered;
     }
-    
+
     protected void setupFilteredNode(PrestimeCPUCCTNodeBacked filtered) {
         super.setupFilteredNode(filtered);
         filtered.nChildren = filtered.children.length;
     }
-    
+
     public void merge(CCTNode node) {
         super.merge(node);
         nChildren = children.length;
     }
-    
+
     public PrestimeCPUCCTNodeBacked createRootCopy() {
         PrestimeCPUCCTNodeBacked copy = new PrestimeCPUCCTNodeBacked(container, parent, selfCompactDataOfs);
-        
+
         copy.parent = null;
-        
+
         copy.compactDataOfs.clear();
         copy.compactDataOfs.addAll(compactDataOfs);
-        
+
         copy.children = null;
         copy.nChildren = nChildren;
-        
+
         copy.methodId = methodId;
         copy.nCalls = nCalls;
         copy.sleepTime0 = sleepTime0;
         copy.totalTime0 = totalTime0;
         copy.totalTime1 = totalTime1;
         copy.waitTime0 = waitTime0;
-        
+
         return copy;
     }
 
@@ -160,19 +160,19 @@ public class PrestimeCPUCCTNodeBacked extends PrestimeCPUCCTNode {
             return null;
         }
     }
-    
+
     public CCTNode[] getChildren() {
         if (nChildren == 0) {
             return null;
         } else if (children != null) {
             return children;
         }
-        
+
         List<PrestimeCPUCCTNodeBacked> childrenL = new ArrayList();
 //        PrestimeCPUCCTNodeBacked filtered = null;
-        
+
 //        FilterSortSupport.Configuration config = container.getCPUResSnapshot().getFilterSortInfo(this);
-        
+
         for (int ofs : compactDataOfs) {
             int chcount = container.getNChildrenForNodeOfs(ofs);
             for (int i = 0; i < chcount; i++) {
@@ -200,7 +200,7 @@ public class PrestimeCPUCCTNodeBacked extends PrestimeCPUCCTNode {
             selfTimeChild.setSelfTimeNode();
             childrenL.add(selfTimeChild);
         }
-        
+
 //        if (isFilteredNode() && filtered != null && childrenL.size() == 1) {
 //            // "naive" approach, collapse simple chain of filtered out nodes
 //            children = (PrestimeCPUCCTNode[])filtered.getChildren();
@@ -210,50 +210,50 @@ public class PrestimeCPUCCTNodeBacked extends PrestimeCPUCCTNode {
             nChildren = childrenL.size();
             children = childrenL.toArray(new PrestimeCPUCCTNode[0]);
 //        }
-        
+
 //        // Now that children are created, sort them in the order previously used
 //        sortChildren(config.getSortBy(), config.getSortOrder());
-        
+
         return children;
     }
-    
+
     public boolean isLeaf() {
         if (nChildren == 0) return true;
         else if (children == null) return false;
         else return children.length == 0;
     }
-    
+
     private boolean hasSelfTimeChild() {
         return !isThreadNode() && !isFiltered() && compactDataOfs.size() == 1;
     }
-    
+
     protected void merge(PrestimeCPUCCTNodeBacked node) {
 //        children = null;
 //        nChildren += node.nChildren;
-//        
+//
 //        nCalls += node.nCalls;
 //        sleepTime0 += node.sleepTime0;
 //        totalTime0 += node.totalTime0;
 //        totalTime1 += node.totalTime1;
 //        waitTime0 += node.waitTime0;
     }
-    
+
     protected void resetChildren() {
 //        if (compactDataOfs != null) {
 //            compactDataOfs.clear();
 //            compactDataOfs.add(selfCompactDataOfs);
 //            nChildren = container.getNChildrenForNodeOfs(selfCompactDataOfs);
 //        }
-//        
+//
 //        if (children == null) return;
-//        
+//
 //        if (!isThreadNode() || parent != null) { // thread nodes
 //            children = null;
 //        } else {
 //            super.resetChildren();
 //        }
     }
-    
+
     public void setSelfTimeNode() {
         super.setSelfTimeNode();
         nChildren = 0;
@@ -312,7 +312,7 @@ public class PrestimeCPUCCTNodeBacked extends PrestimeCPUCCTNode {
 //
 //        // TODO: [wait] self time node?
 //    }
-    
+
     public void exportXMLData(ExportDataDumper eDD,String indent) {
         String newline = System.getProperty("line.separator"); // NOI18N
         StringBuffer result = new StringBuffer(indent+"<node>"+newline); //NOI18N

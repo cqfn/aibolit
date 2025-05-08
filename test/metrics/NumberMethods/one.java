@@ -13,9 +13,9 @@ public class Hospital {
 		Scanner scanner = null;
 		try {
 			scanner = new Scanner(new File(file));
-			while(scanner.hasNextLine()) { 
+			while(scanner.hasNextLine()) {
 				String line = scanner.nextLine();
-				if (line.startsWith("#")) { 
+				if (line.startsWith("#")) {
 					continue; // +1
 				}
 				String[] columns = line.split("\\s+");
@@ -23,7 +23,7 @@ public class Hospital {
 				// skip first column and last column is the label
 				int i = 1;
 				int[] data = new int[columns.length-2];
-				for (i=1; i<columns.length-1; i++) { 
+				for (i=1; i<columns.length-1; i++) {
 					data[i-1] = Integer.parseInt(columns[i]);
 				}
 				int label = Integer.parseInt(columns[i]);
@@ -35,5 +35,5 @@ public class Hospital {
 				scanner.close();
 		}
 		return dataset;
-	}		
+	}
 }

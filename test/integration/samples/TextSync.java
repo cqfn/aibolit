@@ -37,24 +37,24 @@ import java.util.List;
  * @author Miloslav Metelka
  */
 public final class TextSync {
-    
+
     private static int EDITABLE_FLAG = 1;
     private static int CARET_MARKER_FLAG = 2;
 
     private TextSyncGroup<?> textSyncGroup;
-    
+
     private List<TextRegion<?>> regions;
-    
+
     private int masterRegionIndex;
-    
+
     private int flags;
-    
+
     public TextSync(TextRegion<?>... regions) {
         initRegions(regions.length);
         for (TextRegion<?> region : regions)
             addRegion(region);
     }
-    
+
     public TextSync() {
         initRegions(4);
     }
@@ -62,10 +62,10 @@ public final class TextSync {
     private void initRegions(int size) {
         this.regions = new ArrayList<TextRegion<?>>(size);
     }
-    
+
     /**
      * Get all regions managed by this text sync.
-     * 
+     *
      * @return non-null unmodifiable list of text regions.
      */
     public List<TextRegion<?>> regions() {
@@ -81,7 +81,7 @@ public final class TextSync {
     /**
      * Get region (also contained in {@link #regions()}) that will primarily be edited
      * (its text will be replicated into all other regions).
-     * 
+     *
      * @return non-null text region.
      */
     public <I> TextRegion<I> masterRegion() {
@@ -91,7 +91,7 @@ public final class TextSync {
         TextRegion<I> region = (TextRegion<I>)regions.get(masterRegionIndex);
         return region;
     }
-    
+
     public <I> TextRegion<I> validMasterRegion() {
         TextRegion<I> masterRegion = masterRegion();
         if (masterRegion == null) {
@@ -99,11 +99,11 @@ public final class TextSync {
         }
         return masterRegion;
     }
-    
+
     public int masterRegionIndex() {
         return masterRegionIndex;
     }
-    
+
     public void setMasterRegionIndex(int masterRegionIndex) {
         this.masterRegionIndex = masterRegionIndex;
     }
@@ -111,7 +111,7 @@ public final class TextSync {
     public void syncByMaster() {
         validTextRegionManager().syncByMaster(this);
     }
-    
+
     public void setText(String text) {
         validTextRegionManager().setText(this, text);
     }
@@ -120,24 +120,24 @@ public final class TextSync {
      * Whether this text sync is editable by the user.
      * <br/>
      * Newly created text syncs are not editable by default.
-     * 
+     *
      * @return true if editable false otherwise.
      */
     public boolean isEditable() {
         return (flags & EDITABLE_FLAG) != 0;
     }
-    
+
     public void setEditable(boolean editable) {
         if (editable)
             flags |= EDITABLE_FLAG;
         else
             flags &= ~EDITABLE_FLAG;
     }
-    
+
     public boolean isCaretMarker() {
         return (flags & CARET_MARKER_FLAG) != 0;
     }
-    
+
     public void setCaretMarker(boolean caretMarker) {
         if (caretMarker)
             flags |= CARET_MARKER_FLAG;
@@ -168,17 +168,17 @@ public final class TextSync {
         else if (index < masterRegionIndex)
             masterRegionIndex--;
     }
-    
+
     List<TextRegion<?>> regionsModifiable() {
         return regions;
     }
-    
+
     public <T> TextSyncGroup<T> group() {
         @SuppressWarnings("unchecked")
         TextSyncGroup<T> group = (TextSyncGroup<T>)textSyncGroup;
         return group;
     }
-    
+
     void setGroup(TextSyncGroup<?> textSyncGroup) {
         this.textSyncGroup = textSyncGroup;
     }
@@ -186,7 +186,7 @@ public final class TextSync {
     TextRegionManager textRegionManager() {
         return (textSyncGroup != null) ? textSyncGroup.textRegionManager() : null;
     }
-    
+
     private TextRegionManager validTextRegionManager() {
         TextRegionManager textRegionManager = textRegionManager();
         if (textRegionManager == null)
@@ -206,5 +206,5 @@ public final class TextSync {
         }
         return sb.toString();
     }
-    
+
 }

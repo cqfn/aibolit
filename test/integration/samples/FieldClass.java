@@ -39,9 +39,9 @@ import java.util.Optional;
  * properties and getReconfigurableProperties to get all properties that
  * can be changed at run time.
  */
-public abstract class ReconfigurableBase 
+public abstract class ReconfigurableBase
   extends Configured implements Reconfigurable {
-  
+
   private static final Logger LOG =
       LoggerFactory.getLogger(ReconfigurableBase.class);
   // Use for testing purpose.
@@ -109,7 +109,7 @@ public abstract class ReconfigurableBase
     ReconfigurationThread(ReconfigurableBase base) {
       this.parent = base;
     }
-	
+
 	    public void run() {
       LOG.info("Starting reconfiguration task.");
       final Configuration oldConf = parent.getConf();

@@ -79,11 +79,11 @@ public class SchedulerManager implements AutoCloseable {
     private final Producer<byte[]> producer;
 
     private final ScheduledExecutorService executorService;
-    
+
     private final PulsarAdmin admin;
-    
+
     AtomicBoolean isCompactionNeeded = new AtomicBoolean(false);
-    private static final long DEFAULT_ADMIN_API_BACKOFF_SEC = 60; 
+    private static final long DEFAULT_ADMIN_API_BACKOFF_SEC = 60;
     public static final String HEARTBEAT_TENANT = "pulsar-function";
     public static final String HEARTBEAT_NAMESPACE = "heartbeat";
 
@@ -95,7 +95,7 @@ public class SchedulerManager implements AutoCloseable {
 
         this.producer = createProducer(pulsarClient, workerConfig);
         this.executorService = executor;
-        
+
         scheduleCompaction(executor, workerConfig.getTopicCompactionFrequencySec());
     }
 
@@ -166,10 +166,10 @@ public class SchedulerManager implements AutoCloseable {
             }, scheduleFrequencySec, scheduleFrequencySec, TimeUnit.SECONDS);
         }
     }
-    
+
     @VisibleForTesting
     public void invokeScheduler() {
-        
+
         Set<String> currentMembership = this.membershipManager.getCurrentMembership()
                 .stream().map(workerInfo -> workerInfo.getWorkerId()).collect(Collectors.toSet());
 
@@ -241,7 +241,7 @@ public class SchedulerManager implements AutoCloseable {
         for(Assignment assignment : assignments) {
             publishNewAssignment(assignment, false);
         }
-        
+
     }
 
     public void compactAssignmentTopic() {
@@ -334,7 +334,7 @@ public class SchedulerManager implements AutoCloseable {
             log.warn("Failed to shutdown scheduler manager assignment producer", e);
         }
     }
-    
+
     public static String checkHeartBeatFunction(Instance funInstance) {
         if (funInstance.getFunctionMetaData() != null
                 && funInstance.getFunctionMetaData().getFunctionDetails() != null) {

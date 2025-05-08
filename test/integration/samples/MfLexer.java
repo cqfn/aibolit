@@ -124,5 +124,3 @@ class MfLexer implements Lexer<MfTokenId> {
     public void release () {
     }
 }
-
-

@@ -8,4 +8,3 @@ class Foo {                 // +1
   public void bigMethod() { // +1
   }
 }
-

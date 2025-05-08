@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
     private static class CompressionOption implements Option {
       private final CompressionType value;
       private final CompressionCodec codec;

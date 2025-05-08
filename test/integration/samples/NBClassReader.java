@@ -39,7 +39,7 @@ import com.sun.tools.javac.util.Names;
  * @author lahvac
  */
 public class NBClassReader extends ClassReader {
-    
+
     public static void preRegister(Context context) {
         context.put(classReaderKey, new Context.Factory<ClassReader>() {
             public ClassReader make(Context c) {
@@ -70,13 +70,13 @@ public class NBClassReader extends ClassReader {
         for (NBAttributeReader r: readers)
             attributeReaders.put(r.getName(), r);
     }
-    
+
     private abstract class NBAttributeReader extends AttributeReader {
 
         private NBAttributeReader(Name name, Version version, Set<AttributeKind> kinds) {
             super(name, version, kinds);
         }
-        
+
         private Name getName() {
             return name;
         }

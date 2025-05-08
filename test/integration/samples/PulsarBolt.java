@@ -98,7 +98,7 @@ public class PulsarBolt extends BaseRichBolt implements IMetric {
         this.producerConf.setTopicName(pulsarBoltConf.getTopic());
         this.producerConf.setBatcherBuilder(null);
     }
-    
+
     @SuppressWarnings({ "rawtypes" })
     @Override
     public void prepare(Map conf, TopologyContext context, OutputCollector collector) {

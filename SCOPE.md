@@ -10,12 +10,12 @@ Scope of work April 2020
   - [ ] 50/50 patterns
 
 - [ ] 20 Metrics
-  - [x] Design/Find 18 more metrics of Java classes 
+  - [x] Design/Find 18 more metrics of Java classes
   - [x] 5/20 metrics
   - [ ] 10/20 metrics
   - [ ] 15/20 metrics
   - [ ] 20/20 metrics
-  
+
 - [x] Patterns Ranking Model
   - [x] Baseline
   - [x] Improved Model
@@ -32,7 +32,3 @@ Scope of work April 2020
 
 - [x] Updated White Paper
   - [x] Patterns Ranking Model description
-
-
-
-

@@ -42,7 +42,7 @@ import static org.apache.hadoop.fs.CommonConfigurationKeysPublic.HADOOP_SECURITY
 public class OsSecureRandom extends Random implements Closeable, Configurable {
   public static final Logger LOG =
       LoggerFactory.getLogger(OsSecureRandom.class);
-  
+
   private static final long serialVersionUID = 6391500337172057900L;
 
   private transient Configuration conf;
@@ -73,7 +73,7 @@ public class OsSecureRandom extends Random implements Closeable, Configurable {
 
   public OsSecureRandom() {
   }
-  
+
   @Override
   synchronized public void setConf(Configuration conf) {
     this.conf = conf;

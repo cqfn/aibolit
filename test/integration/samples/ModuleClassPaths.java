@@ -315,7 +315,7 @@ final class ModuleClassPaths {
                     .collect(Collectors.toList());
         }
 
-        
+
 
         private static Collection<? extends URL> filterArtefact(
                 final boolean archive,
@@ -604,7 +604,7 @@ final class ModuleClassPaths {
         private static final String MOD_ALL_UNNAMED = "ALL-UNNAMED";    //NOI18N
         private static final String JAVA_ = "java.";            //NOI18N
         private static final List<PathResourceImplementation> TOMBSTONE = Collections.unmodifiableList(new ArrayList<>());
-        private static final Predicate<ModuleElement> NON_JAVA_PUBEXP = (e) -> 
+        private static final Predicate<ModuleElement> NON_JAVA_PUBEXP = (e) ->
                 !e.getQualifiedName().toString().startsWith(JAVA_) &&
                 e.getDirectives().stream()
                     .filter((d) -> d.getKind() == ModuleElement.DirectiveKind.EXPORTS)
@@ -1018,7 +1018,7 @@ final class ModuleClassPaths {
         public void typesChanged(TypesEvent event) {
             handleModuleChange(event);
         }
-        
+
         private void resetOutsideWriteAccess(FileObject artifact, String... propNames) {
             final boolean hasDocExclusiveLock = Optional.ofNullable(artifact)
                     .map((fo) -> {
@@ -1082,7 +1082,7 @@ final class ModuleClassPaths {
                 }
             }
         }
-        
+
         @CheckForNull
         private CompilerOptionsQuery.Result getCompilerOptions() {
             CompilerOptionsQuery.Result res = compilerOptions.get();
@@ -1102,7 +1102,7 @@ final class ModuleClassPaths {
             }
             return res;
         }
-        
+
         private Set<String> getAddMods() {
             final CompilerOptionsQuery.Result res = getCompilerOptions();
             return res == null ?
@@ -1172,17 +1172,17 @@ final class ModuleClassPaths {
                 .map((urls) -> {
                     return urls.stream()
                             .map(org.netbeans.spi.java.classpath.support.ClassPathSupport::createResource)
-                            .collect(Collectors.toList());                    
+                            .collect(Collectors.toList());
                 })
                 .orElseGet(Collections::emptyList);
         }
-        
+
         private static boolean dependsOnUnnamed(
                 @NonNull final ModuleElement module,
                 final boolean transitive) {
             return dependsOnUnnamed(module, transitive, true, new HashSet<>());
         }
-        
+
         private static boolean dependsOnUnnamed(
                 @NonNull final ModuleElement module,
                 final boolean transitive,
@@ -1287,7 +1287,7 @@ final class ModuleClassPaths {
             }
             return res;
         }
-        
+
         private static boolean supportsModules(
             @NonNull final ClassPath boot,
             @NonNull final ClassPath compile,
@@ -1300,13 +1300,13 @@ final class ModuleClassPaths {
             }
             return src.findResource("java/util/zip/CRC32C.java") != null;   //NOI18N
         }
-        
+
         private static boolean isMandated(@NonNull final ModuleElement.RequiresDirective rd) {
             return Optional.ofNullable(rd.getDependency())
                     .map((me) -> MOD_JAVA_BASE.equals(me.getQualifiedName().toString()))
                     .orElse(Boolean.FALSE);
         }
-        
+
         private static final class ModuleNames implements Predicate<ModuleElement> {
             private final Set<? extends String> moduleNames;
 
@@ -1317,7 +1317,7 @@ final class ModuleClassPaths {
             @Override
             public boolean test(ModuleElement t) {
                 return moduleNames.contains(t.getQualifiedName().toString());
-            }       
+            }
 
             @NonNull
             static Predicate<ModuleElement> create(@NonNull final Set<? extends String> name) {

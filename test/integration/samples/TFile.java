@@ -10,9 +10,9 @@
  * licenses this file to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -129,7 +129,7 @@ import org.slf4j.LoggerFactory;
  * input/output buffering in TFile layer by setting the configuration parameters
  * "tfile.fs.input.buffer.size" and "tfile.fs.output.buffer.size".
  * </ul>
- * 
+ *
  * Some design rationale behind TFile can be found at <a
  * href=https://issues.apache.org/jira/browse/HADOOP-3315>Hadoop-3315</a>.
  */
@@ -173,7 +173,7 @@ public class TFile {
 
   /**
    * Make a raw comparator from a string name.
-   * 
+   *
    * @param name
    *          Comparator name
    * @return A RawComparable comparator.
@@ -190,7 +190,7 @@ public class TFile {
   /**
    * Get names of supported compression algorithms. The names are acceptable by
    * TFile.Writer.
-   * 
+   *
    * @return Array of strings, each represents a supported compression
    *         algorithm. Currently, the following compression algorithms are
    *         supported.
@@ -250,7 +250,7 @@ public class TFile {
 
     /**
      * Constructor
-     * 
+     *
      * @param fsdos
      *          output stream for writing. Must be at position 0.
      * @param minBlockSize
@@ -299,7 +299,7 @@ public class TFile {
     /**
      * Close the Writer. Resources will be released regardless of the exceptions
      * being thrown. Future close calls will have no effect.
-     * 
+     *
      * The underlying FSDataOutputStream is not closed.
      */
     @Override
@@ -350,7 +350,7 @@ public class TFile {
     /**
      * Adding a new key-value pair to the TFile. This is synonymous to
      * append(key, 0, key.length, value, 0, value.length)
-     * 
+     *
      * @param key
      *          Buffer for key.
      * @param value
@@ -363,7 +363,7 @@ public class TFile {
 
     /**
      * Adding a new key-value pair to TFile.
-     * 
+     *
      * @param key
      *          buffer for key.
      * @param koff
@@ -519,7 +519,7 @@ public class TFile {
      * Obtain an output stream for writing a key into TFile. This may only be
      * called when there is no active Key appending stream or value appending
      * stream.
-     * 
+     *
      * @param length
      *          The expected length of the key. If length of the key is not
      *          known, set length = -1. Otherwise, the application must write
@@ -527,7 +527,7 @@ public class TFile {
      *          the returned output stream.
      * @return The key appending output stream.
      * @throws IOException
-     * 
+     *
      */
     public DataOutputStream prepareAppendKey(int length) throws IOException {
       if (state != State.READY) {
@@ -545,7 +545,7 @@ public class TFile {
      * Obtain an output stream for writing a value into TFile. This may only be
      * called right after a key appending operation (the key append stream must
      * be closed).
-     * 
+     *
      * @param length
      *          The expected length of the value. If length of the value is not
      *          known, set length = -1. Otherwise, the application must write
@@ -554,7 +554,7 @@ public class TFile {
      *          guarantees that the value is encoded in one chunk, and avoids
      *          intermediate chunk buffering.
      * @throws IOException
-     * 
+     *
      */
     public DataOutputStream prepareAppendValue(int length) throws IOException {
       if (state != State.END_KEY) {
@@ -584,7 +584,7 @@ public class TFile {
      * be called when there is a key append stream or value append stream
      * active. No more key-value insertion is allowed after a meta data block
      * has been added to TFile.
-     * 
+     *
      * @param name
      *          Name of the meta block.
      * @param compressName
@@ -616,7 +616,7 @@ public class TFile {
      * active. No more key-value insertion is allowed after a meta data block
      * has been added to TFile. Data will be compressed using the default
      * compressor as defined in Writer's constructor.
-     * 
+     *
      * @param name
      *          Name of the meta block.
      * @return A DataOutputStream that can be used to write Meta Block data.
@@ -638,7 +638,7 @@ public class TFile {
 
     /**
      * Check if we need to start a new data block.
-     * 
+     *
      * @throws IOException
      */
     private void initDataBlock() throws IOException {
@@ -650,7 +650,7 @@ public class TFile {
 
     /**
      * Close the current data block if necessary.
-     * 
+     *
      * @param bForceFinish
      *          Force the closure regardless of the block size.
      * @throws IOException
@@ -794,7 +794,7 @@ public class TFile {
 
     /**
      * Constructor
-     * 
+     *
      * @param fsdis
      *          FS input stream of the TFile.
      * @param fileLength
@@ -833,7 +833,7 @@ public class TFile {
 
     /**
      * Get the begin location of the TFile.
-     * 
+     *
      * @return If TFile is not empty, the location of the first key-value pair.
      *         Otherwise, it returns end().
      */
@@ -843,7 +843,7 @@ public class TFile {
 
     /**
      * Get the end location of the TFile.
-     * 
+     *
      * @return The location right after the last key-value pair in TFile.
      */
     Location end() {
@@ -852,7 +852,7 @@ public class TFile {
 
     /**
      * Get the string representation of the comparator.
-     * 
+     *
      * @return If the TFile is not sorted by keys, an empty string will be
      *         returned. Otherwise, the actual comparator string that is
      *         provided during the TFile creation time will be returned.
@@ -863,7 +863,7 @@ public class TFile {
 
     /**
      * Is the TFile sorted?
-     * 
+     *
      * @return true if TFile is sorted.
      */
     public boolean isSorted() {
@@ -872,7 +872,7 @@ public class TFile {
 
     /**
      * Get the number of key-value pair entries in TFile.
-     * 
+     *
      * @return the number of key-value pairs in TFile
      */
     public long getEntryCount() {
@@ -881,7 +881,7 @@ public class TFile {
 
     /**
      * Lazily loading the TFile index.
-     * 
+     *
      * @throws IOException
      */
     synchronized void checkTFileDataIndex() throws IOException {
@@ -899,7 +899,7 @@ public class TFile {
 
     /**
      * Get the first key in the TFile.
-     * 
+     *
      * @return The first key in the TFile.
      * @throws IOException
      */
@@ -910,7 +910,7 @@ public class TFile {
 
     /**
      * Get the last key in the TFile.
-     * 
+     *
      * @return The last key in the TFile.
      * @throws IOException
      */
@@ -924,7 +924,7 @@ public class TFile {
      * stores the entries in a collection (such as PriorityQueue) and perform
      * sorting or comparison among entries based on the keys without copying out
      * the key.
-     * 
+     *
      * @return An Entry Comparator..
      */
     public Comparator<Scanner.Entry> getEntryComparator() {
@@ -951,7 +951,7 @@ public class TFile {
     /**
      * Get an instance of the RawComparator that is constructed based on the
      * string comparator representation.
-     * 
+     *
      * @return a Comparator that can compare RawComparable's.
      */
     public Comparator<RawComparable> getComparator() {
@@ -960,7 +960,7 @@ public class TFile {
 
     /**
      * Stream access to a meta block.``
-     * 
+     *
      * @param name
      *          The name of the meta block.
      * @return The input stream.
@@ -979,7 +979,7 @@ public class TFile {
      * containing the key strictly greater than input key. if greater is false
      * then returns the beginning location of the block greater than equal to
      * the input key
-     * 
+     *
      * @param key
      *          the input key
      * @param greater
@@ -1006,9 +1006,9 @@ public class TFile {
 
     long getRecordNumByLocation(Location location) throws IOException {
       checkTFileDataIndex();
-      return tfileIndex.getRecordNumByLocation(location);      
+      return tfileIndex.getRecordNumByLocation(location);
     }
-    
+
     int compareKeys(byte[] a, int o1, int l1, byte[] b, int o2, int l2) {
       if (!isSorted()) {
         throw new RuntimeException("Cannot compare keys for unsorted TFiles.");
@@ -1027,7 +1027,7 @@ public class TFile {
      * Get the location pointing to the beginning of the first key-value pair in
      * a compressed block whose byte offset in the TFile is greater than or
      * equal to the specified offset.
-     * 
+     *
      * @param offset
      *          the user supplied offset.
      * @return the location to the corresponding entry; or end() if no such
@@ -1043,7 +1043,7 @@ public class TFile {
      * Get the RecordNum for the first key-value pair in a compressed block
      * whose byte offset in the TFile is greater than or equal to the specified
      * offset.
-     * 
+     *
      * @param offset
      *          the user supplied offset.
      * @return the RecordNum to the corresponding entry. If no such entry
@@ -1053,11 +1053,11 @@ public class TFile {
     public long getRecordNumNear(long offset) throws IOException {
       return getRecordNumByLocation(getLocationNear(offset));
     }
-    
+
     /**
      * Get a sample key that is within a block whose starting offset is greater
      * than or equal to the specified offset.
-     * 
+     *
      * @param offset
      *          The file offset.
      * @return the key that fits the requirement; or null if no such key exists
@@ -1074,7 +1074,7 @@ public class TFile {
 
     /**
      * Get a scanner than can scan the whole TFile.
-     * 
+     *
      * @return The scanner object. A valid Scanner is always returned even if
      *         the TFile is empty.
      * @throws IOException
@@ -1085,7 +1085,7 @@ public class TFile {
 
     /**
      * Get a scanner that covers a portion of TFile based on byte offsets.
-     * 
+     *
      * @param offset
      *          The beginning byte offset in the TFile.
      * @param length
@@ -1102,7 +1102,7 @@ public class TFile {
 
     /**
      * Get a scanner that covers a portion of TFile based on keys.
-     * 
+     *
      * @param beginKey
      *          Begin key of the scan (inclusive). If null, scan from the first
      *          key-value entry of the TFile.
@@ -1112,7 +1112,7 @@ public class TFile {
      * @return The actual coverage of the returned scanner will cover all keys
      *         greater than or equal to the beginKey and less than the endKey.
      * @throws IOException
-     * 
+     *
      * @deprecated Use {@link #createScannerByKey(byte[], byte[])} instead.
      */
     @Deprecated
@@ -1120,10 +1120,10 @@ public class TFile {
       throws IOException {
       return createScannerByKey(beginKey, endKey);
     }
-    
+
     /**
      * Get a scanner that covers a portion of TFile based on keys.
-     * 
+     *
      * @param beginKey
      *          Begin key of the scan (inclusive). If null, scan from the first
      *          key-value entry of the TFile.
@@ -1143,7 +1143,7 @@ public class TFile {
 
     /**
      * Get a scanner that covers a specific key range.
-     * 
+     *
      * @param beginKey
      *          Begin key of the scan (inclusive). If null, scan from the first
      *          key-value entry of the TFile.
@@ -1153,7 +1153,7 @@ public class TFile {
      * @return The actual coverage of the returned scanner will cover all keys
      *         greater than or equal to the beginKey and less than the endKey.
      * @throws IOException
-     * 
+     *
      * @deprecated Use {@link #createScannerByKey(RawComparable, RawComparable)}
      *             instead.
      */
@@ -1165,7 +1165,7 @@ public class TFile {
 
     /**
      * Get a scanner that covers a specific key range.
-     * 
+     *
      * @param beginKey
      *          Begin key of the scan (inclusive). If null, scan from the first
      *          key-value entry of the TFile.
@@ -1187,7 +1187,7 @@ public class TFile {
 
     /**
      * Create a scanner that covers a range of records.
-     * 
+     *
      * @param beginRecNum
      *          The RecordNum for the first record (inclusive).
      * @param endRecNum
@@ -1253,7 +1253,7 @@ public class TFile {
 
       /**
        * Constructor
-       * 
+       *
        * @param reader
        *          The TFile reader object.
        * @param offBegin
@@ -1261,7 +1261,7 @@ public class TFile {
        * @param offEnd
        *          End byte-offset of the scan.
        * @throws IOException
-       * 
+       *
        *           The offsets will be rounded to the beginning of a compressed
        *           block whose offset is greater than or equal to the specified
        *           offset.
@@ -1274,7 +1274,7 @@ public class TFile {
 
       /**
        * Constructor
-       * 
+       *
        * @param reader
        *          The TFile reader object.
        * @param begin
@@ -1309,7 +1309,7 @@ public class TFile {
 
       /**
        * Constructor
-       * 
+       *
        * @param reader
        *          The TFile reader object.
        * @param beginKey
@@ -1339,7 +1339,7 @@ public class TFile {
        * Move the cursor to the first entry whose key is greater than or equal
        * to the input key. Synonymous to seekTo(key, 0, key.length). The entry
        * returned by the previous entry() call will be invalid.
-       * 
+       *
        * @param key
        *          The input key
        * @return true if we find an equal key.
@@ -1353,7 +1353,7 @@ public class TFile {
        * Move the cursor to the first entry whose key is greater than or equal
        * to the input key. The entry returned by the previous entry() call will
        * be invalid.
-       * 
+       *
        * @param key
        *          The input key
        * @param keyOffset
@@ -1392,7 +1392,7 @@ public class TFile {
       /**
        * Move the cursor to the new location. The entry returned by the previous
        * entry() call will be invalid.
-       * 
+       *
        * @param l
        *          new cursor location. It must fall between the begin and end
        *          location of the scanner.
@@ -1436,7 +1436,7 @@ public class TFile {
       /**
        * Rewind to the first entry in the scanner. The entry returned by the
        * previous entry() call will be invalid.
-       * 
+       *
        * @throws IOException
        */
       public void rewind() throws IOException {
@@ -1446,7 +1446,7 @@ public class TFile {
       /**
        * Seek to the end of the scanner. The entry returned by the previous
        * entry() call will be invalid.
-       * 
+       *
        * @throws IOException
        */
       public void seekToEnd() throws IOException {
@@ -1457,7 +1457,7 @@ public class TFile {
        * Move the cursor to the first entry whose key is greater than or equal
        * to the input key. Synonymous to lowerBound(key, 0, key.length). The
        * entry returned by the previous entry() call will be invalid.
-       * 
+       *
        * @param key
        *          The input key
        * @throws IOException
@@ -1470,7 +1470,7 @@ public class TFile {
        * Move the cursor to the first entry whose key is greater than or equal
        * to the input key. The entry returned by the previous entry() call will
        * be invalid.
-       * 
+       *
        * @param key
        *          The input key
        * @param keyOffset
@@ -1488,7 +1488,7 @@ public class TFile {
        * Move the cursor to the first entry whose key is strictly greater than
        * the input key. Synonymous to upperBound(key, 0, key.length). The entry
        * returned by the previous entry() call will be invalid.
-       * 
+       *
        * @param key
        *          The input key
        * @throws IOException
@@ -1501,7 +1501,7 @@ public class TFile {
        * Move the cursor to the first entry whose key is strictly greater than
        * the input key. The entry returned by the previous entry() call will be
        * invalid.
-       * 
+       *
        * @param key
        *          The input key
        * @param keyOffset
@@ -1518,7 +1518,7 @@ public class TFile {
       /**
        * Move the cursor to the next key-value pair. The entry returned by the
        * previous entry() call will be invalid.
-       * 
+       *
        * @return true if the cursor successfully moves. False when cursor is
        *         already at the end location and cannot be advanced.
        * @throws IOException
@@ -1547,7 +1547,7 @@ public class TFile {
 
       /**
        * Load a compressed block for reading. Expecting blockIndex is valid.
-       * 
+       *
        * @throws IOException
        */
       private void initBlock(int blockIndex) throws IOException {
@@ -1587,7 +1587,7 @@ public class TFile {
 
       /**
        * Is cursor at the end location?
-       * 
+       *
        * @return true if the cursor is at the end location.
        */
       public boolean atEnd() {
@@ -1617,7 +1617,7 @@ public class TFile {
 
       /**
        * Get an entry to access the key and value.
-       * 
+       *
        * @return The Entry object to access the key and value.
        * @throws IOException
        */
@@ -1634,10 +1634,10 @@ public class TFile {
       public long getRecordNum() throws IOException {
         return reader.getRecordNumByLocation(currentLocation);
       }
-      
+
       /**
        * Internal API. Comparing the key at cursor to user-specified key.
-       * 
+       *
        * @param other
        *          user-specified key.
        * @return negative if key at cursor is smaller than user key; 0 if equal;
@@ -1656,7 +1656,7 @@ public class TFile {
       public class Entry implements Comparable<RawComparable> {
         /**
          * Get the length of the key.
-         * 
+         *
          * @return the length of the key.
          */
         public int getKeyLength() {
@@ -1670,7 +1670,7 @@ public class TFile {
         /**
          * Copy the key and value in one shot into BytesWritables. This is
          * equivalent to getKey(key); getValue(value);
-         * 
+         *
          * @param key
          *          BytesWritable to hold key.
          * @param value
@@ -1686,7 +1686,7 @@ public class TFile {
         /**
          * Copy the key into BytesWritable. The input BytesWritable will be
          * automatically resized to the actual key size.
-         * 
+         *
          * @param key
          *          BytesWritable to hold the key.
          * @throws IOException
@@ -1702,7 +1702,7 @@ public class TFile {
          * automatically resized to the actual value size. The implementation
          * directly uses the buffer inside BytesWritable for storing the value.
          * The call does not require the value length to be known.
-         * 
+         *
          * @param value
          * @throws IOException
          */
@@ -1726,7 +1726,7 @@ public class TFile {
          * Writing the key to the output stream. This method avoids copying key
          * buffer from Scanner into user buffer, then writing to the output
          * stream.
-         * 
+         *
          * @param out
          *          The output stream
          * @return the length of the key.
@@ -1741,7 +1741,7 @@ public class TFile {
          * Writing the value to the output stream. This method avoids copying
          * value data from Scanner into user buffer, then writing to the output
          * stream. It does not require the value length to be known.
-         * 
+         *
          * @param out
          *          The output stream
          * @return the length of the value
@@ -1767,12 +1767,12 @@ public class TFile {
 
         /**
          * Copy the key into user supplied buffer.
-         * 
+         *
          * @param buf
          *          The buffer supplied by user. The length of the buffer must
          *          not be shorter than the key length.
          * @return The length of the key.
-         * 
+         *
          * @throws IOException
          */
         public int getKey(byte[] buf) throws IOException {
@@ -1781,7 +1781,7 @@ public class TFile {
 
         /**
          * Copy the key into user supplied buffer.
-         * 
+         *
          * @param buf
          *          The buffer supplied by user.
          * @param offset
@@ -1803,7 +1803,7 @@ public class TFile {
         /**
          * Streaming access to the key. Useful for desrializing the key into
          * user objects.
-         * 
+         *
          * @return The input stream.
          */
         public DataInputStream getKeyStream() {
@@ -1814,7 +1814,7 @@ public class TFile {
         /**
          * Get the length of the value. isValueLengthKnown() must be tested
          * true.
-         * 
+         *
          * @return the length of the value.
          */
         public int getValueLength() {
@@ -1833,11 +1833,11 @@ public class TFile {
          * without moving the cursor will result in exception:
          * {@link #getValue(byte[])}, {@link #getValue(byte[], int)},
          * {@link #getValueStream}.
-         * 
+         *
          * @return the length of the value. Does not require
          *         isValueLengthKnown() to be true.
          * @throws IOException
-         * 
+         *
          */
         public int getValue(byte[] buf) throws IOException {
           return getValue(buf, 0);
@@ -1851,7 +1851,7 @@ public class TFile {
          * functions more than once without moving the cursor will result in
          * exception: {@link #getValue(byte[])}, {@link #getValue(byte[], int)},
          * {@link #getValueStream}.
-         * 
+         *
          * @return the length of the value. Does not require
          *         isValueLengthKnown() to be true.
          * @throws IOException
@@ -1895,7 +1895,7 @@ public class TFile {
          * Calling any of the following functions more than once without moving
          * the cursor will result in exception: {@link #getValue(byte[])},
          * {@link #getValue(byte[], int)}, {@link #getValueStream}.
-         * 
+         *
          * @return The input stream for reading the value.
          * @throws IOException
          */
@@ -1910,7 +1910,7 @@ public class TFile {
 
         /**
          * Check whether it is safe to call getValueLength().
-         * 
+         *
          * @return true if value length is known before hand. Values less than
          *         the chunk size will always have their lengths known before
          *         hand. Values that are written out as a whole (with advertised
@@ -1924,7 +1924,7 @@ public class TFile {
         /**
          * Compare the entry key to another key. Synonymous to compareTo(key, 0,
          * key.length).
-         * 
+         *
          * @param buf
          *          The key buffer.
          * @return comparison result between the entry key with the input key.
@@ -1936,7 +1936,7 @@ public class TFile {
         /**
          * Compare the entry key to another key. Synonymous to compareTo(new
          * ByteArray(buf, offset, length)
-         * 
+         *
          * @param buf
          *          The key buffer
          * @param offset
@@ -1978,7 +1978,7 @@ public class TFile {
 
       /**
        * Advance cursor by n positions within the block.
-       * 
+       *
        * @param n
        *          Number of key-value pairs to skip in block.
        * @throws IOException
@@ -1997,7 +1997,7 @@ public class TFile {
       /**
        * Advance cursor in block until we find a key that is greater than or
        * equal to the input key.
-       * 
+       *
        * @param key
        *          Key to compare.
        * @param greater
@@ -2136,10 +2136,10 @@ public class TFile {
     private final ArrayList<Long> recordNumIndex;
     private final BytesComparator comparator;
     private long sum = 0;
-    
+
     /**
      * For reading from file.
-     * 
+     *
      * @throws IOException
      */
     public TFileIndex(int entryCount, DataInput in, BytesComparator comparator)
@@ -2234,7 +2234,7 @@ public class TFile {
     public RawComparable getFirstKey() {
       return firstKey;
     }
-    
+
     public Reader.Location getLocationByRecordNum(long recNum) {
       int idx = Utils.upperBound(recordNumIndex, recNum);
       long lastRecNum = (idx == 0)? 0: recordNumIndex.get(idx-1);
@@ -2246,7 +2246,7 @@ public class TFile {
       long lastRecNum = (blkIndex == 0) ? 0: recordNumIndex.get(blkIndex-1);
       return lastRecNum + location.getRecordIndex();
     }
-    
+
     public void setFirstKey(byte[] key, int offset, int length) {
       firstKey = new ByteArray(new byte[length]);
       System.arraycopy(key, offset, firstKey.buffer(), 0, length);
@@ -2341,7 +2341,7 @@ public class TFile {
 
   /**
    * Dumping the TFile information.
-   * 
+   *
    * @param args
    *          A list of TFile paths.
    */

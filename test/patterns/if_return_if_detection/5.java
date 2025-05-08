@@ -1,4 +1,7 @@
-package javalang.brewtab.com; 
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
+package javalang.brewtab.com;
 
 class T1 {
     public static void main(String[] arg) {
@@ -10,7 +13,7 @@ class T1 {
                 if (time < 13) {
                     return a;
                     if (time < 2) {
-                        a = 1;} 
+                        a = 1;}
 						} }	} else if (a) {
 						return a+a;
 					} else if (time != 50){

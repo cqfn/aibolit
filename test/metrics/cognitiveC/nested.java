@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 class LengthStringComparator implements Comparator<String> {
     boolean validate() {
    return new Object() {
@@ -11,10 +14,10 @@ class LengthStringComparator implements Comparator<String> {
    }.check(_struct);
 }
 
-	public static void main(String[] args) 
-    { 
-        int test = 3; 
-        main(test); 
-    } 
-	
+	public static void main(String[] args)
+    {
+        int test = 3;
+        main(test);
+    }
+
 }

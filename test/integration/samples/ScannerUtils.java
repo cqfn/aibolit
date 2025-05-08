@@ -50,7 +50,7 @@ public final class ScannerUtils {
     public static Visitor compoundVisitor(final Visitor[] parts) {
         return new Visitor() {
             private final Visitor[] sub = parts.clone();
-            
+
             public void visitClass(Class cls) {
                 for(int i=0; i<sub.length; i++) sub[i].visitClass(cls);
             }
@@ -64,13 +64,13 @@ public final class ScannerUtils {
             public void visitArrayReference(ObjectMap map, Object from, Object to, int index) {
                 for(int i=0; i<sub.length; i++) sub[i].visitArrayReference(map, from, to, index);
             }
-            
+
             public void visitStaticReference(ObjectMap map, Object to, Field ref) {
                 for(int i=0; i<sub.length; i++) sub[i].visitStaticReference(map, to, ref);
             }
         };
     }
-    
+
     /** Creates a filter that will wrap and delegate to more filters, performing
      * a logical and operation on their results
      *
@@ -89,7 +89,7 @@ public final class ScannerUtils {
             }
         };
     }
-    
+
     /**
      * A Filter factory that creates a Filter ignoring given collection
      * of objects and/or their outgoing references.
@@ -102,7 +102,7 @@ public final class ScannerUtils {
     public static Filter skipObjectsFilter(Collection<Object> except, final boolean include) {
         class Except implements Filter {
             private final IdentityHashMap<Object, Boolean> skip = new IdentityHashMap<Object, Boolean>();
-            
+
             Except(Collection<Object> col) {
                 for (Iterator<Object> it = col.iterator(); it.hasNext(); skip.put(it.next(), Boolean.TRUE));
             }
@@ -113,7 +113,7 @@ public final class ScannerUtils {
         }
         return new Except(except);
     }
-    
+
     /**
      * A Filter factory that creates a Filter ignoring given references
      *
@@ -126,10 +126,10 @@ public final class ScannerUtils {
             public boolean accept(Object o, Object r, Field ref) {
                 return !skip.contains(ref);
             }
-        };       
+        };
     }
-    
-    
+
+
     /**
      * A Filter factory that creates a Filter ignoring weak and soft references.
      *
@@ -146,7 +146,7 @@ public final class ScannerUtils {
             throw err;
         }
     }
-    
+
     public static Filter noFilter() {
         return new Filter() {
             public boolean accept(Object o, Object r, Field ref) {
@@ -154,10 +154,10 @@ public final class ScannerUtils {
             }
         };
     }
-    
+
     /*
      * Computes the amount of heap space used for a single object.
-     * 
+     *
      * @param o the object to be evaluated
      * @return the size of the object, not counting the size
      * of the objects referenced from this object
@@ -165,10 +165,10 @@ public final class ScannerUtils {
     public static int sizeOf(Object o) {
         return ClassInfo.sizeOf(o);
     }
-    
+
     /*
      * Computes the amount of heap space used for a graph of objects.
-     * 
+     *
      * @param roots a Collection of objects to be evaluated.
      * @param f a Filter for excluding objects. null means accept all objects.
      * @return the size of all objects in the filtered transitive closure
@@ -180,11 +180,11 @@ public final class ScannerUtils {
         scan(f, counter, roots, false);
         return counter.getTotalSize();
     }
-    
+
     /**
      * Traverse the graph of objects reachable from roots Collection, notifying
      * the Visitor.
-     * 
+     *
      * @param f a Filter for excluding objects. null means accept all objects.
      * @param v a Visitor to be notified on all found objects and references.
      * @param roots a Collection of objects to be evaluated.
@@ -193,7 +193,7 @@ public final class ScannerUtils {
         new InsaneEngine(f, v, analyzeStaticData).traverse(roots);
     }
 
-    
+
     /**
      * @return a set of objects that may be sufficient to transitively reference
      * near all objects on the java heap.
@@ -204,13 +204,13 @@ public final class ScannerUtils {
             ScannerUtils.class.getClassLoader()
         }));
     }
-    
-    
+
+
     /**
      * Traverse the graph of objects reachable from roots Collection, notifying
      * the Visitor. It performs the scan from inside AWT queue and tries to
      * suspend other threads during the scan.
-     * 
+     *
      * @param f a Filter for excluding objects. null means accept all objects.
      * @param v a Visitor to be notified on all found objects and references.
      * @param roots a Collection of objects to be evaluated.
@@ -226,7 +226,7 @@ public final class ScannerUtils {
                 } catch (Exception e) {
                     ret[0] = e;
                 } finally {
-//                    resumeAllThreads();                    
+//                    resumeAllThreads();
                 }
             }
         };
@@ -237,7 +237,7 @@ public final class ScannerUtils {
         }
         if (ret[0] != null) throw ret[0];
     }
-    
+
     private static Thread[] getAllThreads() {
         ThreadGroup act = Thread.currentThread().getThreadGroup();
         while (act.getParent() != null) act = act.getParent();
@@ -251,7 +251,7 @@ public final class ScannerUtils {
     @SuppressWarnings("deprecation")
     private static void suspendAllThreads(Set except) {
         Thread[] threads = getAllThreads();
-        
+
         for (int i=0; i<threads.length; i++) {
             if (!except.contains(threads[i])) {
                 if ((threads[i].getName().indexOf("VM") == -1) &&
@@ -263,20 +263,20 @@ public final class ScannerUtils {
             }
         }
     }
-    
+
     @SuppressWarnings("deprecation")
     private static void resumeAllThreads() {
         Thread[] threads = getAllThreads();
-        
+
         for (int i=0; i<threads.length; i++) {
             threads[i].resume();
         }
     }
-    
+
     private static class ClassInfo {
         private static Map<Class, ClassInfo> classInfoRegistry = new WeakHashMap<Class, ClassInfo>();
         private int size;
-        
+
         private ClassInfo(Class cls) {
 //            this.cls = cls;
             if (cls.isArray()) {
@@ -296,7 +296,7 @@ public final class ScannerUtils {
                 size = (sum + 8 + 7) & 0xFFFFFFF8; // 8byte align
             }
         }
-        
+
         static int sizeOf(Object o) {
             Class cls = o.getClass();
             ClassInfo info = classInfoRegistry.get(cls);
@@ -305,10 +305,10 @@ public final class ScannerUtils {
                 classInfoRegistry.put(cls, info);
             }
 
-            return (info.size > 0) ? info.size : 
+            return (info.size > 0) ? info.size :
                 (19 - info.size*Array.getLength(o)) & 0xFFFFFFF8;
         }
-        
+
         private static int getSize(Class type, boolean array) {
             if (array) {
                 if (type == Byte.TYPE || type == Boolean.TYPE) {
@@ -332,5 +332,5 @@ public final class ScannerUtils {
         }
     }
 
-   
+
 }

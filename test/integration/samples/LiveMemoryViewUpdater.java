@@ -43,28 +43,28 @@ import org.openide.util.lookup.ServiceProvider;
  * @author Jiri Sedlacek
  */
 public class LiveMemoryViewUpdater {
-    
+
     private static final int MIN_UPDATE_DIFF = 900;
     private static final int MAX_UPDATE_DIFF = 1400;
-    
-    
+
+
     private CCTHandler handler;
-    
+
     private final LiveMemoryView memoryView;
     private final ProfilerClient client;
-    
+
     private volatile boolean paused;
     private volatile boolean forceRefresh;
-    
-    
+
+
     public LiveMemoryViewUpdater(LiveMemoryView memoryView, ProfilerClient client) {
         this.memoryView = memoryView;
         this.client = client;
-        
+
         handler = CCTHandler.registerUpdater(this);
     }
-    
-    
+
+
     public void setPaused(boolean paused) {
         this.paused = paused;
     }
@@ -72,7 +72,7 @@ public class LiveMemoryViewUpdater {
     public void setForceRefresh(boolean forceRefresh) {
         this.forceRefresh = forceRefresh;
     }
-    
+
     public void update() throws ClientUtils.TargetAppOrVMTerminated {
         if (forceRefresh || (!paused && memoryView.getLastUpdate() + MAX_UPDATE_DIFF < System.currentTimeMillis()))
             switch (client.getCurrentInstrType()) {
@@ -89,16 +89,16 @@ public class LiveMemoryViewUpdater {
                     throw new IllegalArgumentException("Invalid profiling instr. type: " + client.getCurrentInstrType()); // NOI18N
             }
     }
-    
+
     public void cleanup() {
         handler.unregisterUpdater(this);
         handler = null;
     }
-    
-    
+
+
     private void updateData() throws ClientUtils.TargetAppOrVMTerminated {
         if (!forceRefresh && (paused || memoryView.getLastUpdate() + MIN_UPDATE_DIFF > System.currentTimeMillis())) return;
-        
+
         MemoryResultsSnapshot snapshot = client.getMemoryProfilingResultsSnapshot(false);
 
         // class names in VM format
@@ -106,34 +106,34 @@ public class LiveMemoryViewUpdater {
 
         // class names in VM format
         GenericFilter filter = client.getSettings().getInstrumentationFilter();
-        
+
         memoryView.setData(snapshot, filter);
-        
+
         forceRefresh = false;
     }
-    
+
     private void resetData() {
         memoryView.resetData();
     }
-    
-    
+
+
     @ServiceProvider(service=MemoryCCTProvider.Listener.class)
     public static final class CCTHandler implements MemoryCCTProvider.Listener {
 
         private final List<LiveMemoryViewUpdater> updaters = new ArrayList();
-        
-        
+
+
         public static CCTHandler registerUpdater(LiveMemoryViewUpdater updater) {
             CCTHandler handler = Lookup.getDefault().lookup(CCTHandler.class);
             handler.updaters.add(updater);
             return handler;
         }
-        
+
         public void unregisterUpdater(LiveMemoryViewUpdater updater) {
             updaters.remove(updater);
         }
-        
-        
+
+
         public void cctEstablished(RuntimeCCTNode appRootNode, boolean empty) {
             if (!empty) {
                 for (LiveMemoryViewUpdater updater : updaters) try {
@@ -149,5 +149,5 @@ public class LiveMemoryViewUpdater {
             for (LiveMemoryViewUpdater updater : updaters) updater.resetData();
         }
     }
-    
+
 }

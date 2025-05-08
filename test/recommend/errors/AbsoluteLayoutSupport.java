@@ -209,7 +209,7 @@ public class AbsoluteLayoutSupport extends AbstractLayoutSupport {
      * @return whether any feedback was painted (true in this case)
      */
     @Override
-    public boolean paintDragFeedback(Container container, 
+    public boolean paintDragFeedback(Container container,
                                      Container containerDelegate,
                                      Component component,
                                      LayoutConstraints newConstraints,
@@ -716,7 +716,7 @@ public class AbsoluteLayoutSupport extends AbstractLayoutSupport {
             else
                 try {
                     setValue(new Integer(Integer.parseInt(str)));
-                } 
+                }
                 catch (NumberFormatException e) {} // ignore
         }
 

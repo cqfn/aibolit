@@ -3,8 +3,8 @@
 // purposes. The code is never compiled or executed.
 
 
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
+// SPDX-FileCopyrightText: Copyright (c) Microsoft Corporation. All rights reserved.
+// SPDX-License-Identifier: MIT
 
 package com.microsoft.azure.eventprocessorhost;
 

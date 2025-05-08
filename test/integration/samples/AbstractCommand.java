@@ -48,7 +48,7 @@ import org.netbeans.lib.ddl.util.CommandFormatter;
 */
 public class AbstractCommand implements Serializable, DDLCommand {
     private static final Logger LOG = Logger.getLogger(AbstractCommand.class.getName());
-    
+
     /** Command owner */
     private DatabaseSpecification spec;
 
@@ -67,7 +67,7 @@ public class AbstractCommand implements Serializable, DDLCommand {
     static final long serialVersionUID =-560515030304320086L;
 
     private String quoteStr;
-    
+
     /** Indicates if the object is being newly created or is an existing object */
     private boolean newObject = false;
 
@@ -129,8 +129,8 @@ public class AbstractCommand implements Serializable, DDLCommand {
     public void setNewObject(boolean newObject) {
         this.newObject = newObject;
     }
-    
-    
+
+
 
     /** Returns general property */
     public Object getProperty(String pname) {
@@ -156,7 +156,7 @@ public class AbstractCommand implements Serializable, DDLCommand {
             args.putAll(addprops);
         String oname = getObjectName();
         if (oname != null)
-            args.put("object.name", 
+            args.put("object.name",
                 newObject ? getObjectName() : quote(getObjectName())); // NOI18N
         else
             throw new DDLException(NbBundle.getBundle("org.netbeans.lib.ddl.resources.Bundle").getString("EXC_Unknown")); // NOI18N
@@ -187,7 +187,7 @@ public class AbstractCommand implements Serializable, DDLCommand {
             return;
         }
 
-        // Output command to log -- log function contain short circuit filters, so 
+        // Output command to log -- log function contain short circuit filters, so
         // the call should be cheap not to need another guard
         LOG.fine(fcmd);
 
@@ -239,7 +239,7 @@ public class AbstractCommand implements Serializable, DDLCommand {
     private String getQuoteString() {
         try {
             quoteStr = getSpecification().getJDBCConnection().getMetaData().getIdentifierQuoteString();
-            
+
             //Firebird patch (commands don't work with quoted names)
             if (getSpecification().getJDBCConnection().getMetaData().getDatabaseProductName().indexOf("Firebird") != -1) //NOI18N
                 quoteStr = "";
@@ -263,7 +263,7 @@ public class AbstractCommand implements Serializable, DDLCommand {
 
         return quoteStr + name + quoteStr;
     }
-    
+
     /** Reads object from stream */
     public void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
         format = (String)in.readObject();

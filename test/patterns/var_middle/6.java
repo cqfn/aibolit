@@ -1,9 +1,12 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 import java.util.ArrayList;
 
 class Test {
 
     class TestInside extends BaseClass {
-		
+
 		@Override
         public void start() {
 			super(9);

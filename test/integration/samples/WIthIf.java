@@ -42,10 +42,10 @@ public enum DefaultMetricsSystem {
 
   private AtomicReference<MetricsSystem> impl =
       new AtomicReference<MetricsSystem>(new MetricsSystemImpl());
-  
+
   @VisibleForTesting
   volatile boolean miniClusterMode = false;
-  
+
   transient final UniqueNames mBeanNames = new UniqueNames();
   transient final UniqueNames sourceNames = new UniqueNames();
 
@@ -90,7 +90,7 @@ public enum DefaultMetricsSystem {
 			}
 		}
 	}
-	  
+
   }
 
   @InterfaceAudience.Private

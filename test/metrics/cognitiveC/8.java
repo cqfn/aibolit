@@ -1,4 +1,7 @@
-package javalang.brewtab.com; 
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
+package javalang.brewtab.com;
 
 class T1 {
     public static void main(String[] arg) {
@@ -18,7 +21,7 @@ class T1 {
 			}
 		} else { // +1
 		  return 5;
-		}	
+		}
     }
     public static void main(String[] arg) {
         int a = 1;

@@ -55,7 +55,7 @@ public class AddActionPanel extends javax.swing.JPanel implements ValidatingPane
         Iterator iter = actions.iterator();
         while (iter.hasNext())
             model.addElement(((Action)iter.next()).getAttributeValue("path")); //NOI18N
-        
+
         List formBeans = StrutsConfigUtilities.getAllFormBeansInModule(dObject);
         model = (DefaultComboBoxModel)CBFormName.getModel();
         iter = formBeans.iterator();
@@ -94,7 +94,7 @@ public class AddActionPanel extends javax.swing.JPanel implements ValidatingPane
     public javax.swing.text.JTextComponent[] getDocumentChangeComponents() {
         return new javax.swing.text.JTextComponent[]{TFActionClass, TFActionPath, TFInputResource};
     }
-    
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -378,7 +378,7 @@ public class AddActionPanel extends javax.swing.JPanel implements ValidatingPane
     private void jButtonBrowseClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseClassActionPerformed
         ClasspathInfo cpInfo = ClasspathInfo.create(config.getPrimaryFile());
         final ElementHandle<TypeElement> handle = TypeElementFinder.find(cpInfo, new TypeElementFinder.Customizer() {
-            public Set<ElementHandle<TypeElement>> query(ClasspathInfo classpathInfo, String textForQuery, NameKind nameKind, Set<SearchScope> searchScopes) {                                            
+            public Set<ElementHandle<TypeElement>> query(ClasspathInfo classpathInfo, String textForQuery, NameKind nameKind, Set<SearchScope> searchScopes) {
                 return classpathInfo.getClassIndex().getDeclaredTypes(textForQuery, nameKind, searchScopes);
             }
 
@@ -389,7 +389,7 @@ public class AddActionPanel extends javax.swing.JPanel implements ValidatingPane
         if (handle != null) {
             TFActionClass.setText(handle.getQualifiedName());
         }
-                
+
     }//GEN-LAST:event_jButtonBrowseClassActionPerformed
 
     private void jButtonBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseActionPerformed
@@ -438,14 +438,14 @@ public class AddActionPanel extends javax.swing.JPanel implements ValidatingPane
             jButtonBrowse.setEnabled(false);
             CBInputAction.setEnabled(false);
         }
-        
+
         RBSession.setEnabled(selected);
         RBRequest.setEnabled(selected);
         TFAttribute.setEditable(selected);
         CHBValidate.setEnabled(selected);
     }//GEN-LAST:event_CHBUseFormBeanItemStateChanged
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox CBFormName;
     private javax.swing.JComboBox CBInputAction;
@@ -472,19 +472,19 @@ public class AddActionPanel extends javax.swing.JPanel implements ValidatingPane
     private javax.swing.JLabel jLabelScope;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-    
+
     public String getActionClass() {
         return TFActionClass.getText().trim();
     }
-    
+
     public String getActionPath() {
         return TFActionPath.getText().trim();
     }
-    
+
     public String getFormName() {
         return (String)CBFormName.getSelectedItem();
     }
-    
+
     public String getInput() {
         if (!CHBUseFormBean.isSelected()) return null;
         if (RBInputResource.isSelected()) {
@@ -494,7 +494,7 @@ public class AddActionPanel extends javax.swing.JPanel implements ValidatingPane
             return (String)CBInputAction.getSelectedItem();
         }
     }
-    
+
     public String getScope() {
         if (!CHBUseFormBean.isSelected()) return null;
         if (RBSession.isSelected()) {
@@ -503,28 +503,28 @@ public class AddActionPanel extends javax.swing.JPanel implements ValidatingPane
             return "request"; //NOI18N
         }
     }
-    
+
     public String getValidate() {
         if (!CHBUseFormBean.isSelected()) return null;
         if (CHBValidate.isSelected()) return null;
         return "false"; //NOI18N
     }
-    
+
     public String getAttribute() {
         if (!CHBUseFormBean.isSelected()) return null;
         String attr=TFAttribute.getText().trim();
         return attr.length()==0?null:attr;
     }
-    
+
     public String getParameter() {
         String param=TFParameter.getText().trim();
         return param.length()==0?null:param;
     }
-    
+
     public boolean isActionFormUsed(){
         return CHBUseFormBean.isSelected();
     }
-    
+
     private boolean containsActionPath(String path) {
         DefaultComboBoxModel model = (DefaultComboBoxModel)CBInputAction.getModel();
         for (int i=0; i<model.getSize(); i++) {

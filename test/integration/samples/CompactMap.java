@@ -61,10 +61,10 @@ import java.util.Set;
  */
 
 public class CompactMap<K,V> implements Map<K,V> {
-    
+
     // Empty array would fail with present impl
     private MapEntry<K,V>[] table;
-    
+
     private int size;
 
     public CompactMap() {
@@ -79,12 +79,12 @@ public class CompactMap<K,V> implements Map<K,V> {
         }
         table = allocateTableArray(capacity);
     }
-    
+
     public V get(Object key) {
         MapEntry<K,V> e = findEntry(key);
         return (e != null) ? e.getValue() : null;
     }
-    
+
     /**
      * Get an entry from a bucket that corresponds to the given hash code.
      * <br/>
@@ -92,7 +92,7 @@ public class CompactMap<K,V> implements Map<K,V> {
      * an actual object being stored in the map. The target object should
      * provide some method for comparing itself to the passed arguments that represent
      * the contained data.
-     * 
+     *
      * @param hashCode computed hash code.
      * @return first entry in the particular bucket or null if there are no entries
      *  for the given hash code. The caller may need to iterate through the linked
@@ -106,7 +106,7 @@ public class CompactMap<K,V> implements Map<K,V> {
         MapEntry<K,V> e = findEntry(key);
         return (e != null);
     }
-    
+
     public boolean containsValue(Object value) {
         for (int i = table.length - 1; i >= 0 ; i--) {
             for (MapEntry<K,V> e = table[i]; e != null; e = e.nextMapEntry()) {
@@ -157,7 +157,7 @@ public class CompactMap<K,V> implements Map<K,V> {
             prevEntry = e;
             e = e.nextMapEntry();
         }
-        
+
         // Not found in present table => add the entry
         addEntry(entry, tableIndex);
         return null; // nothing replaced
@@ -176,7 +176,7 @@ public class CompactMap<K,V> implements Map<K,V> {
             }
             e = e.nextMapEntry();
         }
-        
+
         // Not found in present table => add the entry
         e = new DefaultMapEntry<K,V>(key);
         e.setValue(value);
@@ -195,7 +195,7 @@ public class CompactMap<K,V> implements Map<K,V> {
         MapEntry<K,V> e = removeEntryForKey(key);
         return (e != null) ? e.getValue() : null;
     }
-    
+
     /**
      * Remove the given entry from the map.
      * <br/>
@@ -251,7 +251,7 @@ public class CompactMap<K,V> implements Map<K,V> {
     public Set<Entry<K,V>> entrySet() {
         return new EntrySet();
     }
-    
+
     public Collection<V> values() {
         throw new IllegalStateException("Not yet implemented");
     }
@@ -272,7 +272,7 @@ public class CompactMap<K,V> implements Map<K,V> {
         }
         return null;
     }
-    
+
     private void addEntry(MapEntry<K,V> entry, int tableIndex) {
         entry.setNextMapEntry(table[tableIndex]);
         table[tableIndex] = entry;
@@ -292,7 +292,7 @@ public class CompactMap<K,V> implements Map<K,V> {
             table = newTable;
         }
     }
-    
+
     private MapEntry<K,V> removeEntryForKey(Object key) {
         int hash = key.hashCode();
         int tableIndex = hash & (table.length - 1);
@@ -314,12 +314,12 @@ public class CompactMap<K,V> implements Map<K,V> {
         }
         return null;
     }
-    
+
     @SuppressWarnings("unchecked")
     private MapEntry<K,V>[] allocateTableArray(int capacity) {
         return new MapEntry[capacity];
     }
-    
+
     @Override
     public String toString() {
 	StringBuffer buf = new StringBuffer();
@@ -356,17 +356,17 @@ public class CompactMap<K,V> implements Map<K,V> {
      * data type.
      */
     public static abstract class MapEntry<K,V> implements Map.Entry<K,V> {
-        
+
         private MapEntry<K,V> nextMapEntry; // 12 bytes (8-Object + 4)
-        
+
         private int keyHashCode; // 16 bytes
-        
+
         public abstract K getKey();
-        
+
         public abstract V getValue();
-        
+
         public abstract V setValue(V value);
-        
+
         /**
          * Used by {@link #hashCode()} to return the real hashCode for the value
          * held by this map entry.
@@ -377,7 +377,7 @@ public class CompactMap<K,V> implements Map<K,V> {
          * use that real value for the hash code computation.
          */
         protected abstract int valueHashCode();
-        
+
         /**
          * Used by {@link #equals(Object)} to check whether the value
          * held by this map entry equals to the the given value.
@@ -386,13 +386,13 @@ public class CompactMap<K,V> implements Map<K,V> {
          * <code>getValue()</code> may return <code>this</code> e.g. in case
          * the value is represented by primitive data type. The method should
          * use that real value for the operation of this method.
-         * 
+         *
          * @param value2 value to be compared with value stored in this entry.
          *  The argument may be null.
          */
         protected abstract boolean valueEquals(Object value2);
-        
-        
+
+
         /**
          * Get next map entry linked to this one.
          * <br/>
@@ -401,11 +401,11 @@ public class CompactMap<K,V> implements Map<K,V> {
         public final MapEntry<K,V> nextMapEntry() {
             return nextMapEntry;
         }
-        
+
         final void setNextMapEntry(MapEntry<K,V> next) {
             this.nextMapEntry = next;
         }
-        
+
         /**
          * Get stored hash code of the key contained in this entry.
          * <br/>
@@ -415,11 +415,11 @@ public class CompactMap<K,V> implements Map<K,V> {
         public final int keyHashCode() {
             return keyHashCode;
         }
-        
+
         final void setKeyHashCode(int keyHashCode) {
             this.keyHashCode = keyHashCode;
         }
-    
+
         /**
          * Implementation that adheres to {@link java.util.Map.Entry#hashCode()} contract.
          */
@@ -429,7 +429,7 @@ public class CompactMap<K,V> implements Map<K,V> {
             int keyHash = (keyHashCode != 0) ? keyHashCode : getKey().hashCode();
             return keyHash ^ valueHashCode();
         }
-        
+
         /**
          * Implementation that adheres to {@link java.util.Map.Entry#equals(Object)} contract.
          */
@@ -448,9 +448,9 @@ public class CompactMap<K,V> implements Map<K,V> {
             }
             return false;
         }
-        
+
     }
-    
+
     /**
      * Default implementation of the map entry similar to e.g. the <code>HashMap</code>.
      * <br/>
@@ -458,42 +458,42 @@ public class CompactMap<K,V> implements Map<K,V> {
      * in the map entry.
      */
     public static class DefaultMapEntry<K,V> extends MapEntry<K,V> {
-        
+
         private K key; // 20 bytes
-        
+
         private V value; // 24 bytes
-        
+
         public DefaultMapEntry(K key) {
             this.key = key;
         }
-        
+
         public final K getKey() {
             return key;
         }
-        
+
         public final V getValue() {
             return value;
         }
-        
+
         public final V setValue(V value) {
             V oldValue = this.value;
             this.value = value;
             return oldValue;
         }
-        
+
         protected final int valueHashCode() {
             return (value != null) ? value.hashCode() : 0;
         }
-        
+
         protected final boolean valueEquals(Object value2) {
             return (value == value2 || (value != null && value.equals(value2)));
         }
-        
+
         @Override
         public String toString() {
             return "key=" + getKey() + ", value=" + getValue(); // NOI18N
         }
-        
+
     }
 
     private final class EntrySet extends AbstractSet<Entry<K,V>> {
@@ -527,13 +527,13 @@ public class CompactMap<K,V> implements Map<K,V> {
         }
 
     }
-    
+
     private abstract class HashIterator {
 
         MapEntry<K,V> next;       // next entry to return
         int index;                   // current slot
         MapEntry<K,V> current;    // current entry
-        
+
         HashIterator() {
             MapEntry<K,V>[] t = table;
             int i = t.length;
@@ -545,16 +545,16 @@ public class CompactMap<K,V> implements Map<K,V> {
             next = n;
             index = i;
         }
-        
+
         public boolean hasNext() {
             return next != null;
         }
-        
+
         MapEntry<K,V> nextEntry() {
             MapEntry<K,V> e = next;
             if (e == null)
                 throw new NoSuchElementException();
-            
+
             MapEntry<K,V> n = e.nextMapEntry();
             MapEntry<K,V>[] t = table;
             int i = index;
@@ -564,7 +564,7 @@ public class CompactMap<K,V> implements Map<K,V> {
             next = n;
             return current = e;
         }
-        
+
         public void remove() {
             if (current == null)
                 throw new IllegalStateException();
@@ -572,16 +572,16 @@ public class CompactMap<K,V> implements Map<K,V> {
             current = null;
             removeEntryForKey(k);
         }
-        
+
     }
-    
+
     private final class ValueIterator extends HashIterator implements Iterator<V> {
 
         public V next() {
             return nextEntry().getValue();
         }
     }
-    
+
     private final class KeyIterator extends HashIterator implements Iterator<K> {
 
         public K next() {
@@ -589,7 +589,7 @@ public class CompactMap<K,V> implements Map<K,V> {
         }
 
     }
-    
+
     private final class EntryIterator extends HashIterator implements Iterator<Entry<K,V>> {
 
         public Entry<K,V> next() {

@@ -1,3 +1,6 @@
+% SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+% SPDX-License-Identifier: MIT
+
 \subsection*{Patterns Dictionary}
 
 \begin{itemize}
@@ -48,7 +51,7 @@ private String isDiscrete;
 \begin{lstlisting}[language=Java]
 class Book {
 	private String title;
-	
+
 	@Override
 	synchronized public void setConf(Configuration conf) {
 		this.conf = conf;
@@ -59,7 +62,7 @@ class Book {
 	}
 }
 \end{lstlisting}
-	
+
 	\item \pattern{Empty Rethrow}{P3}{We throw the same exception as it was caught.}
 	{\it Example:}
 \begin{lstlisting}[language=Java]
@@ -76,13 +79,13 @@ class Book {
 \end{lstlisting}
 
 	\item \pattern{ErClass}{P4}{ If a class name is one of the following (or ends with this word), it's the pattern:
-		
+
 		Manager, Controller, Router, Dispatcher, Printer, Writer, Reader, Parser, Generator, Renderer, Listener, Producer, Holder, Interceptor.}
-	
+
 	\item \pattern{Force type casting}{P5}{The force type casting considered as a pattern.}
 	{\it Example:}
 \begin{lstlisting}[language=Java]
-// casting to int is 
+// casting to int is
 public int square (int n) {
 	return (int) java.lang.Math.pow(n,2);
 }
@@ -108,7 +111,7 @@ class T1 {
 public class AnimatableSplitDimensionPathValue implements AnimatableValue<PointF, PointF> {
 	private final AnimatableFloatValue animatableXDimension;
 	private final AnimatableFloatValue animatableYDimension;
-	
+
 	public AnimatableSplitDimensionPathValue(
 	AnimatableFloatValue animatableXDimension,
 	AnimatableFloatValue animatableYDimension) {
@@ -290,10 +293,10 @@ class Book {
 {\it Example:}
 \begin{lstlisting}[language=Java]
 // variable a declared and used with 2 lines distance
-static void myMethod() { 
+static void myMethod() {
 	string path1 = '/tmp/test1';
 	int a = 4;
-	
+
 	string path2 = '/tmp/test2';
 	string path3 = '/tmp/test3';
 	a = a + 4;
@@ -304,7 +307,7 @@ static void myMethod() {
 {\it Example:}
 \begin{lstlisting}[language=Java]
 // The declaration of variable list is match pattern.
-static void myMethod2() { 
+static void myMethod2() {
 	int b = 4;
 	b = b + 6;
 	List<Integer> list = new List<Integer>();
@@ -398,7 +401,7 @@ class Book {
 \end{lstlisting}
 
 	\item \pattern{Protected method}{P30}{Once we find a protected method in a class, it's a pattern.}
-	
+
 	\item \pattern{Send \texttt{null}}{P31}{Once we see that \texttt{null} is being given as an argument to some method, it's a pattern.}
 {\it Example:}
 \begin{lstlisting}[language=Java]
@@ -416,7 +419,7 @@ class Foo {
 	void foo() {
 		white (true) {
 			for (;;) { // here
-			}  
+			}
 		}
 	}
 }

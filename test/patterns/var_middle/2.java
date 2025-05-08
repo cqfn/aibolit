@@ -1,15 +1,18 @@
-package javalang.brewtab.com; 
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
 
-class Test { 
-    
-    static void myMethod() { 
+package javalang.brewtab.com;
+
+class Test {
+
+    static void myMethod() {
         string path1 = '/tmp/test';
         int a = 4;
         a = a + 4;
         string path2 = '/tmp/test';
     }
 
-    static void myMethod2() { 
+    static void myMethod2() {
         int b = 4;
         this.t = 4;
         b = b + 6;

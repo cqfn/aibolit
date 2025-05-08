@@ -1,6 +1,9 @@
-package javalang.brewtab.com; 
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
 
-class Test { 
+package javalang.brewtab.com;
+
+class Test {
 
     public void returnsIteratorWithSupportedRemove() {
         final CollectionEnvelope<String> list = new CollectionEnvelope<String>(

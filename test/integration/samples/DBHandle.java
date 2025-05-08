@@ -9,9 +9,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -113,7 +113,7 @@ public class DBHandle {
 	 * @param recover if true an attempt will be made to recover unsaved data if the file is open for update
 	 * @param monitor recovery monitor
 	 * @throws IOException if IO error occurs
-	 * @throws CancelledException 
+	 * @throws CancelledException
 	 */
 	public DBHandle(BufferFile bufferFile, boolean recover, TaskMonitor monitor)
 			throws IOException, CancelledException {
@@ -165,7 +165,7 @@ public class DBHandle {
 	/**
 	 * Check the consistency of this database.
 	 * @return true if consistency check passed, else false
-	 * @throws CancelledException 
+	 * @throws CancelledException
 	 */
 	public boolean isConsistent(TaskMonitor monitor) throws CancelledException {
 		int consistentCount = 0;
@@ -185,10 +185,10 @@ public class DBHandle {
 
 	/**
 	 * Rebuild database tables to resolve certain consistency problems.  Use of this
-	 * method does not recover lost data which may have occurred during original 
+	 * method does not recover lost data which may have occurred during original
 	 * database corruption.
 	 * @return true if rebuild succeeded, else false
-	 * @throws CancelledException 
+	 * @throws CancelledException
 	 */
 	public boolean rebuild(TaskMonitor monitor) throws CancelledException {
 		for (Table table : getTables()) {
@@ -262,12 +262,12 @@ public class DBHandle {
 
 	/**
 	 * Request a recovery snapshot be taken of any unsaved changes;
-	 * @param changeSet an optional database-backed change set which reflects changes 
+	 * @param changeSet an optional database-backed change set which reflects changes
 	 * made since the last version.
 	 * @param monitor task monitor
 	 * @return true if snapshot successful or not needed, false if an active transaction prevented snapshot
 	 * @throws CancelledException if cancelled by monitor
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public boolean takeRecoverySnapshot(DBChangeSet changeSet, TaskMonitor monitor)
 			throws CancelledException, IOException {
@@ -295,7 +295,7 @@ public class DBHandle {
 
 	/**
 	 * Returns a shared temporary database handle.
-	 * This temporary handle will remain open unitl either this 
+	 * This temporary handle will remain open unitl either this
 	 * handle is closed or closeScratchPad is invoked.
 	 * @throws IOException
 	 */
@@ -413,7 +413,7 @@ public class DBHandle {
 	}
 
 	/**
-	 * Terminate transaction.  If commit is false, Table instances may be added 
+	 * Terminate transaction.  If commit is false, Table instances may be added
 	 * or removed/invalidated.
 	 * @param id transaction ID
 	 * @param commit if true a new checkpoint will be established, if
@@ -469,7 +469,7 @@ public class DBHandle {
 
 	/**
 	 * Undo changes made during the previous transaction checkpoint.
-	 * All upper-levels must clear table-based cached data prior to 
+	 * All upper-levels must clear table-based cached data prior to
 	 * invoking this method.
 	 * @return true if an undo was successful
 	 * @throws IOException
@@ -508,7 +508,7 @@ public class DBHandle {
 	/**
 	 * Redo previously undone transaction checkpoint.
 	 * Moves forward by one checkpoint only.
-	 * All upper-levels must clear table-based cached data prior to 
+	 * All upper-levels must clear table-based cached data prior to
 	 * invoking this method.
 	 * @return boolean
 	 * @throws IOException
@@ -525,7 +525,7 @@ public class DBHandle {
 	/**
 	 * Set the maximum number of undo transaction checkpoints maintained by the
 	 * underlying buffer manager.
-	 * @param maxUndos maximum number of undo checkpoints.  An illegal 
+	 * @param maxUndos maximum number of undo checkpoints.  An illegal
 	 * value restores the default value.
 	 */
 	public synchronized void setMaxUndos(int maxUndos) {
@@ -597,9 +597,9 @@ public class DBHandle {
 
 	/**
 	 * Save this database to a new version.
-	 * @param comment if version history is maintained, this comment will be 
+	 * @param comment if version history is maintained, this comment will be
 	 * associated with the new version.
-	 * @param changeSet an optional database-backed change set which reflects changes 
+	 * @param changeSet an optional database-backed change set which reflects changes
 	 * made since the last version.
 	 * @param monitor progress monitor
 	 * @throws CancelledException if task monitor cancelled operation.
@@ -628,9 +628,9 @@ public class DBHandle {
 	/**
 	 * Save the database to the specified buffer file.
 	 * @param outFile buffer file open for writing
-	 * @param associateWithNewFile if true the outFile will be associated with this DBHandle as the 
+	 * @param associateWithNewFile if true the outFile will be associated with this DBHandle as the
 	 * current source file, if false no change will be made to this DBHandle's state and the outFile
-	 * will be written and set as read-only.  The caller is responsbile for disposing the outFile if 
+	 * will be written and set as read-only.  The caller is responsbile for disposing the outFile if
 	 * this parameter is false.
 	 * @param monitor progress monitor
 	 * @param associateWithNewFile if true this handle will be associated with the new file
@@ -672,7 +672,7 @@ public class DBHandle {
 	 * NOTE: This method is intended for use in transforming one database to
 	 * match another existing database.
 	 * @param outFile buffer file open for writing
-	 * @param newDatabaseId database ID to be forced for new database or null to generate 
+	 * @param newDatabaseId database ID to be forced for new database or null to generate
 	 * new database ID
 	 * @param monitor progress monitor
 	 * @throws IOException if IO error occurs
@@ -705,9 +705,9 @@ public class DBHandle {
 	/**
 	 * Save the database to the specified buffer file.
 	 * @param file buffer file to be created
-	 * @param associateWithNewFile if true the outFile will be associated with this DBHandle as the 
+	 * @param associateWithNewFile if true the outFile will be associated with this DBHandle as the
 	 * current source file, if false no change will be made to this DBHandle's state and the outFile
-	 * will be written and set as read-only.  The caller is responsbile for disposing the outFile if 
+	 * will be written and set as read-only.  The caller is responsbile for disposing the outFile if
 	 * this parameter is false.
 	 * @param monitor progress monitor
 	 * @throws DuplicateFileException if file already exists.
@@ -739,7 +739,7 @@ public class DBHandle {
 
 	/**
 	 * Create a new buffer with the specified length.
-	 * This method may only be invoked while a database transaction 
+	 * This method may only be invoked while a database transaction
 	 * is in progress. A database transaction must also be in progress
 	 * when invoking the various put, delete and setSize methods on the returned buffer.
 	 * @param length the size of the buffer to create
@@ -754,7 +754,7 @@ public class DBHandle {
 	/**
 	 * Create a new buffer that layers on top of another buffer.  This buffer
 	 * will return values from the shadowBuffer unless they have been changed in this buffer.
-	 * This method may only be invoked while a database transaction 
+	 * This method may only be invoked while a database transaction
 	 * is in progress. A database transaction must also be in progress
 	 * when invoking the various put, delete and setSize methods on the returned buffer.
 	 * @param shadowBuffer the source of the byte values to use unless they have been changed.
@@ -768,7 +768,7 @@ public class DBHandle {
 	}
 
 	/**
-	 * Get an existing buffer.  This method should be used with care to avoid 
+	 * Get an existing buffer.  This method should be used with care to avoid
 	 * providing an improper id.  A database transaction must be in progress
 	 * when invoking the various put, delete and setSize methods on the returned buffer.
 	 * @param id the buffer id.
@@ -781,11 +781,11 @@ public class DBHandle {
 
 	/**
 	 * Get an existing buffer that uses a shadowBuffer for byte values if they haven't been
-	 * explicitly changed in this buffer.  This method should be used with care to avoid 
+	 * explicitly changed in this buffer.  This method should be used with care to avoid
 	 * providing an improper id.  A database transaction must be in progress
 	 * when invoking the various put, delete and setSize methods on the returned buffer.
 	 * @param id the buffer id.
-	 * @param shadowBuffer the buffer to use for byte values if they haven't been changed in 
+	 * @param shadowBuffer the buffer to use for byte values if they haven't been changed in
 	 * this buffer.
 	 * @return Buffer the buffer associated with the given id.
 	 * @throws IOException if an I/O error occurs while getting the buffer.
@@ -993,8 +993,8 @@ public class DBHandle {
 
 	/**
 	 * Returns size of buffers utilized within the underlying
-	 * buffer file.  This may be larger than than the requested 
-	 * buffer size.  This value may be used to instatiate a 
+	 * buffer file.  This may be larger than than the requested
+	 * buffer size.  This value may be used to instatiate a
 	 * new BufferFile which is compatible with this database
 	 * when using the saveAs method.
 	 */

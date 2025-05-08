@@ -120,7 +120,7 @@ public class ThreadData {
             return name;
         }
     }
-    
+
     public long getRunningTime(long lastTimestamp) {
         synchronized (dataLock) {
             long time = times[CommonConstants.THREAD_STATUS_RUNNING];
@@ -129,7 +129,7 @@ public class ThreadData {
             return time;
         }
     }
-    
+
     public long getSleepingTime(long lastTimestamp) {
         synchronized (dataLock) {
             long time = times[CommonConstants.THREAD_STATUS_SLEEPING];
@@ -138,7 +138,7 @@ public class ThreadData {
             return time;
         }
     }
-    
+
     public long getWaitTime(long lastTimestamp) {
         synchronized (dataLock) {
             long time = times[CommonConstants.THREAD_STATUS_WAIT];
@@ -147,7 +147,7 @@ public class ThreadData {
             return time;
         }
     }
-    
+
     public long getParkTime(long lastTimestamp) {
         synchronized (dataLock) {
             long time = times[CommonConstants.THREAD_STATUS_PARK];
@@ -156,7 +156,7 @@ public class ThreadData {
             return time;
         }
     }
-    
+
     public long getMonitorTime(long lastTimestamp) {
         synchronized (dataLock) {
             long time = times[CommonConstants.THREAD_STATUS_MONITOR];
@@ -165,7 +165,7 @@ public class ThreadData {
             return time;
         }
     }
-    
+
     public long getTotalTime(long lastTimestamp) {
         return isAliveState(getLastState()) ? lastTimestamp - getFirstTimeStamp() :
                                               getLastTimeStamp() - getFirstTimeStamp();
@@ -197,7 +197,7 @@ public class ThreadData {
                 return CommonConstants.THREAD_STATUS_UNKNOWN_COLOR;
         }
     }
-    
+
     public static boolean isAliveState(int threadState) {
         if (threadState == CommonConstants.THREAD_STATUS_RUNNING) return true;
         if (threadState == CommonConstants.THREAD_STATUS_SLEEPING) return true;
@@ -234,13 +234,13 @@ public class ThreadData {
 
             timeStamps[curSize] = timeStamp;
             threadStates[curSize] = threadState;
-            
+
             if (curSize > 0) {
                 long duration = timeStamp - timeStamps[curSize - 1];
                 times[threadStates[curSize - 1]] += duration;
                 times[0] += duration;
             }
-            
+
             curSize++;
         }
     }
@@ -260,7 +260,7 @@ public class ThreadData {
             return curSize;
         }
     }
-    
+
     public String toString() {
         return getName();
     }

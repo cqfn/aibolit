@@ -103,7 +103,7 @@ public class LocalJobRunner implements ClientProtocol {
   private AtomicInteger map_tasks = new AtomicInteger(0);
   private AtomicInteger reduce_tasks = new AtomicInteger(0);
   final Random rand = new Random();
-  
+
   private LocalJobRunnerMetrics myMetrics = null;
 
   private static final String jobDir =  "localRunner/";
@@ -124,7 +124,7 @@ public class LocalJobRunner implements ClientProtocol {
     // This is analogous to JobTracker's system directory.
     private Path systemJobDir;
     private Path systemJobFile;
-    
+
     // The job directory for the task.  Analagous to a task's job directory.
     private Path localJobDir;
     private Path localJobFile;
@@ -146,13 +146,13 @@ public class LocalJobRunner implements ClientProtocol {
     private JobProfile profile;
     private FileSystem localFs;
     boolean killed = false;
-    
+
     private LocalDistributedCacheManager localDistributedCacheManager;
 
     public long getProtocolVersion(String protocol, long clientVersion) {
       return TaskUmbilicalProtocol.versionID;
     }
-    
+
     @Override
     public ProtocolSignature getProtocolSignature(String protocol,
         long clientVersion, int clientMethodsHash) throws IOException {
@@ -175,7 +175,7 @@ public class LocalJobRunner implements ClientProtocol {
       // this will trigger localFile to be re-written again.
       localDistributedCacheManager = new LocalDistributedCacheManager();
       localDistributedCacheManager.setup(conf, jobid);
-      
+
       // Write out configuration file.  Instead of copying it from
       // systemJobFile, we re-write it, since setup(), above, may have
       // updated it.
@@ -192,11 +192,11 @@ public class LocalJobRunner implements ClientProtocol {
         setContextClassLoader(localDistributedCacheManager.makeClassLoader(
                 getContextClassLoader()));
       }
-      
-      profile = new JobProfile(job.getUser(), id, systemJobFile.toString(), 
+
+      profile = new JobProfile(job.getUser(), id, systemJobFile.toString(),
                                "http://localhost:8080/", job.getJobName());
-      status = new JobStatus(id, 0.0f, 0.0f, JobStatus.RUNNING, 
-          profile.getUser(), profile.getJobName(), profile.getJobFile(), 
+      status = new JobStatus(id, 0.0f, 0.0f, JobStatus.RUNNING,
+          profile.getUser(), profile.getJobName(), profile.getJobFile(),
           profile.getURL().toString());
 
       jobs.put(id, this);
@@ -438,7 +438,7 @@ public class LocalJobRunner implements ClientProtocol {
 
       return executor;
     }
-    
+
     /**
      * Creates the executor service used to run reduce tasks.
      *
@@ -499,7 +499,7 @@ public class LocalJobRunner implements ClientProtocol {
       }
     }
 
-    private org.apache.hadoop.mapreduce.OutputCommitter 
+    private org.apache.hadoop.mapreduce.OutputCommitter
     createOutputCommitter(boolean newApiCommitter, JobID jobId, Configuration conf) throws Exception {
       org.apache.hadoop.mapreduce.OutputCommitter committer = null;
 
@@ -511,7 +511,7 @@ public class LocalJobRunner implements ClientProtocol {
             new org.apache.hadoop.mapreduce.TaskID(jobId, TaskType.MAP, 0);
         org.apache.hadoop.mapreduce.TaskAttemptID taskAttemptID =
             new org.apache.hadoop.mapreduce.TaskAttemptID(taskId, 0);
-        org.apache.hadoop.mapreduce.TaskAttemptContext taskContext = 
+        org.apache.hadoop.mapreduce.TaskAttemptContext taskContext =
             new TaskAttemptContextImpl(conf, taskAttemptID);
         OutputFormat outputFormat =
           ReflectionUtils.newInstance(taskContext.getOutputFormatClass(), conf);
@@ -529,7 +529,7 @@ public class LocalJobRunner implements ClientProtocol {
     public void run() {
       JobID jobId = profile.getJobID();
       JobContext jContext = new JobContextImpl(job, jobId);
-      
+
       org.apache.hadoop.mapreduce.OutputCommitter outputCommitter = null;
       try {
         outputCommitter = createOutputCommitter(conf.getUseNewMapper(), jobId, conf);
@@ -537,9 +537,9 @@ public class LocalJobRunner implements ClientProtocol {
         LOG.info("Failed to createOutputCommitter", e);
         return;
       }
-      
+
       try {
-        TaskSplitMetaInfo[] taskSplitMetaInfos = 
+        TaskSplitMetaInfo[] taskSplitMetaInfos =
           SplitMetaInfoReader.readSplitMetaInfo(jobId, localFs, conf, systemJobDir);
 
         int numReduceTasks = job.getNumReduceTasks();
@@ -548,10 +548,10 @@ public class LocalJobRunner implements ClientProtocol {
 
         Map<TaskAttemptID, MapOutputFile> mapOutputFiles =
             Collections.synchronizedMap(new HashMap<TaskAttemptID, MapOutputFile>());
-        
+
         List<RunnableWithThrowable> mapRunnables = getMapTaskRunnables(
             taskSplitMetaInfos, jobId, mapOutputFiles);
-              
+
         initCounters(mapRunnables.size(), numReduceTasks);
         ExecutorService mapService = createMapExecutor();
         runTasks(mapRunnables, mapService, "map");
@@ -581,7 +581,7 @@ public class LocalJobRunner implements ClientProtocol {
         JobEndNotifier.localRunnerNotification(job, status);
       } catch (Throwable t) {
         try {
-          outputCommitter.abortJob(jContext, 
+          outputCommitter.abortJob(jContext,
             org.apache.hadoop.mapreduce.JobStatus.State.FAILED);
         } catch (IOException ioe) {
           LOG.info("Error cleaning up job:" + id);
@@ -618,7 +618,7 @@ public class LocalJobRunner implements ClientProtocol {
 
     @Override
     public JvmTask getTask(JvmContext context) { return null; }
-    
+
     @Override
     public synchronized AMFeedback statusUpdate(TaskAttemptID taskId,
         TaskStatus taskStatus) throws IOException, InterruptedException {
@@ -635,7 +635,7 @@ public class LocalJobRunner implements ClientProtocol {
       taskStatus = TaskStatus.createTaskStatus(taskStatus.getIsMap());
       taskStatus.readFields(new DataInputStream(
           new ByteArrayInputStream(baos.toByteArray())));
-      
+
       LOG.info(taskStatus.getStateString());
       int mapTaskIndex = mapIds.indexOf(taskId);
       if (mapTaskIndex >= 0) {
@@ -697,7 +697,7 @@ public class LocalJobRunner implements ClientProtocol {
      * and it is waiting for the commit Response
      */
     public void commitPending(TaskAttemptID taskid,
-                              TaskStatus taskStatus) 
+                              TaskStatus taskStatus)
     throws IOException, InterruptedException {
       statusUpdate(taskid, taskStatus);
     }
@@ -706,19 +706,19 @@ public class LocalJobRunner implements ClientProtocol {
     public void reportDiagnosticInfo(TaskAttemptID taskid, String trace) {
       // Ignore for now
     }
-    
+
     @Override
-    public void reportNextRecordRange(TaskAttemptID taskid, 
+    public void reportNextRecordRange(TaskAttemptID taskid,
         SortedRanges.Range range) throws IOException {
       LOG.info("Task " + taskid + " reportedNextRecordRange " + range);
     }
 
     @Override
-    public boolean canCommit(TaskAttemptID taskid) 
+    public boolean canCommit(TaskAttemptID taskid)
     throws IOException {
       return true;
     }
-    
+
     @Override
     public void done(TaskAttemptID taskId) throws IOException {
       int taskIndex = mapIds.indexOf(taskId);
@@ -730,7 +730,7 @@ public class LocalJobRunner implements ClientProtocol {
     }
 
     @Override
-    public synchronized void fsError(TaskAttemptID taskId, String message) 
+    public synchronized void fsError(TaskAttemptID taskId, String message)
     throws IOException {
       LOG.error("FSError: "+ message + "from task: " + taskId);
     }
@@ -739,14 +739,14 @@ public class LocalJobRunner implements ClientProtocol {
     public void shuffleError(TaskAttemptID taskId, String message) throws IOException {
       LOG.error("shuffleError: "+ message + "from task: " + taskId);
     }
-    
+
     public synchronized void fatalError(TaskAttemptID taskId, String msg, boolean fastFail)
     throws IOException {
       LOG.error("Fatal: "+ msg + " from task: " + taskId + " fast fail: " + fastFail);
     }
-    
+
     @Override
-    public MapTaskCompletionEventsUpdate getMapCompletionEvents(JobID jobId, 
+    public MapTaskCompletionEventsUpdate getMapCompletionEvents(JobID jobId,
         int fromEventId, int maxLocs, TaskAttemptID id) throws IOException {
       return new MapTaskCompletionEventsUpdate(
         org.apache.hadoop.mapred.TaskCompletionEvent.EMPTY_ARRAY, false);
@@ -788,7 +788,7 @@ public class LocalJobRunner implements ClientProtocol {
   // used for making sure that local jobs run in different jvms don't
   // collide on staging or job directories
   private int randid;
-  
+
   public synchronized org.apache.hadoop.mapreduce.JobID getNewJobID() {
     return new org.apache.hadoop.mapreduce.JobID("local" + randid, ++jobid);
   }
@@ -812,7 +812,7 @@ public class LocalJobRunner implements ClientProtocol {
     throw new UnsupportedOperationException("Changing job priority " +
                       "in LocalJobRunner is not supported.");
   }
-  
+
   /** Throws {@link UnsupportedOperationException} */
   public boolean killTask(org.apache.hadoop.mapreduce.TaskAttemptID taskId,
       boolean shouldFail) throws IOException {
@@ -830,10 +830,10 @@ public class LocalJobRunner implements ClientProtocol {
     Job job = jobs.get(JobID.downgrade(id));
     if(job != null)
       return job.status;
-    else 
+    else
       return null;
   }
-  
+
   public org.apache.hadoop.mapreduce.Counters getJobCounters(
       org.apache.hadoop.mapreduce.JobID id) {
     Job job = jobs.get(JobID.downgrade(id));
@@ -844,7 +844,7 @@ public class LocalJobRunner implements ClientProtocol {
   public String getFilesystemName() throws IOException {
     return fs.getUri().toString();
   }
-  
+
   public ClusterMetrics getClusterMetrics() {
     int numMapTasks = map_tasks.get();
     int numReduceTasks = reduce_tasks.get();
@@ -860,20 +860,20 @@ public class LocalJobRunner implements ClientProtocol {
     return 0;
   }
 
-  /** 
-   * Get all active trackers in cluster. 
+  /**
+   * Get all active trackers in cluster.
    * @return array of TaskTrackerInfo
    */
-  public TaskTrackerInfo[] getActiveTrackers() 
+  public TaskTrackerInfo[] getActiveTrackers()
       throws IOException, InterruptedException {
     return new TaskTrackerInfo[0];
   }
 
-  /** 
-   * Get all blacklisted trackers in cluster. 
+  /**
+   * Get all blacklisted trackers in cluster.
    * @return array of TaskTrackerInfo
    */
-  public TaskTrackerInfo[] getBlacklistedTrackers() 
+  public TaskTrackerInfo[] getBlacklistedTrackers()
       throws IOException, InterruptedException {
     return new TaskTrackerInfo[0];
   }
@@ -883,10 +883,10 @@ public class LocalJobRunner implements ClientProtocol {
       , int fromEventId, int maxEvents) throws IOException {
     return TaskCompletionEvent.EMPTY_ARRAY;
   }
-  
+
   public org.apache.hadoop.mapreduce.JobStatus[] getAllJobs() {return null;}
 
-  
+
   /**
    * Returns the diagnostic information for a particular task in the given job.
    * To be implemented
@@ -901,7 +901,7 @@ public class LocalJobRunner implements ClientProtocol {
    */
   public String getSystemDir() {
     Path sysDir = new Path(
-      conf.get(JTConfig.JT_SYSTEM_DIR, "/tmp/hadoop/mapred/system"));  
+      conf.get(JTConfig.JT_SYSTEM_DIR, "/tmp/hadoop/mapred/system"));
     return fs.makeQualified(sysDir).toString();
   }
 
@@ -916,7 +916,7 @@ public class LocalJobRunner implements ClientProtocol {
    * @see org.apache.hadoop.mapreduce.protocol.ClientProtocol#getStagingAreaDir()
    */
   public String getStagingAreaDir() throws IOException {
-    Path stagingRootDir = new Path(conf.get(JTConfig.JT_STAGING_AREA_ROOT, 
+    Path stagingRootDir = new Path(conf.get(JTConfig.JT_STAGING_AREA_ROOT,
         "/tmp/hadoop/mapred/staging"));
     UserGroupInformation ugi = UserGroupInformation.getCurrentUser();
     String user;
@@ -928,7 +928,7 @@ public class LocalJobRunner implements ClientProtocol {
     }
     return fs.makeQualified(new Path(stagingRootDir, user+"/.staging")).toString();
   }
-  
+
   public String getJobHistoryDir() {
     return null;
   }
@@ -955,7 +955,7 @@ public class LocalJobRunner implements ClientProtocol {
   }
 
   @Override
-  public org.apache.hadoop.mapreduce.QueueAclsInfo[] 
+  public org.apache.hadoop.mapreduce.QueueAclsInfo[]
       getQueueAclsForCurrentUser() throws IOException{
     return null;
   }
@@ -1008,7 +1008,7 @@ public class LocalJobRunner implements ClientProtocol {
   }
 
   @Override
-  public Token<DelegationTokenIdentifier> 
+  public Token<DelegationTokenIdentifier>
      getDelegationToken(Text renewer) throws IOException, InterruptedException {
     return null;
   }
@@ -1025,7 +1025,7 @@ public class LocalJobRunner implements ClientProtocol {
       throws IOException, InterruptedException {
     throw new UnsupportedOperationException("Not supported");
   }
-  
+
   static void setupChildMapredLocalDirs(Task t, JobConf conf) {
     String[] localDirs = conf.getTrimmedStrings(MRConfig.LOCAL_DIR);
     String jobId = t.getJobID().toString();
@@ -1042,10 +1042,10 @@ public class LocalJobRunner implements ClientProtocol {
     LOG.debug(MRConfig.LOCAL_DIR + " for child : " + childMapredLocalDir);
     conf.set(MRConfig.LOCAL_DIR, childMapredLocalDir.toString());
   }
-  
+
   static final String TASK_CLEANUP_SUFFIX = ".cleanup";
   static final String JOBCACHE = "jobcache";
-  
+
   static String getLocalTaskDir(String user, String jobid, String taskid,
       boolean isCleanupAttempt) {
     String taskDir = jobDir + Path.SEPARATOR + user + Path.SEPARATOR + JOBCACHE
@@ -1055,6 +1055,6 @@ public class LocalJobRunner implements ClientProtocol {
     }
     return taskDir;
   }
-  
-  
+
+
 }

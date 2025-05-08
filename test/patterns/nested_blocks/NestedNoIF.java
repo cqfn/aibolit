@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 class Test {
     public void start() {
         final JndiService jndiService = serviceRegistry
@@ -18,7 +21,7 @@ class Test {
                 for (int k = 0; k < 10; k++)
                     list.add(Boolean.FALSE);
             list = new ArrayList<>();
-            
+
             for (int i = 0; i < 10; i++)
                 list.add(Boolean.FALSE);
 

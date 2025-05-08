@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 package com.airbnb.lottie;
 
 import android.graphics.Bitmap;
@@ -18,12 +21,12 @@ public class LottieImageAsset {
   private final String dirName;
   /** Pre-set a bitmap for this asset */
   @Nullable private Bitmap bitmap;
-  
+
   @SuppressWarnings("aibolit.P23")
   public void set() {
 	  this.dirName = "level";
   }
-  
+
   @RestrictTo(RestrictTo.Scope.LIBRARY)
   public LottieImageAsset(int width, int height, String id, String fileName, String dirName) {
     this.width = width;
@@ -32,7 +35,7 @@ public class LottieImageAsset {
     this.fileName = fileName;
     this.dirName = dirName;
   }
-  
+
    @SuppressWarnings({"aibolit.P23", "aibolit.P22"})
    private XMLStreamReader2 getStreamReader(Resource wrapper, boolean quiet)
       throws XMLStreamException, IOException {

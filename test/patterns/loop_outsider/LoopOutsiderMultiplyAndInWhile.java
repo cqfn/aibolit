@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 public class LoopOutsiderMultiplyAndInWhile {
     public void loopOutsiderMultiplyAndInWhile() {
         int x = 0;

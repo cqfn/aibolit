@@ -62,7 +62,7 @@ import org.openide.util.WeakListeners;
 public final class FoldViewFactory extends EditorViewFactory implements FoldHierarchyListener, LookupListener, PreferenceChangeListener {
 
     /**
-     * Component's client property which can be set to see all folds expanded regardless 
+     * Component's client property which can be set to see all folds expanded regardless
      * of their real state - used for tooltip fold preview pane.
      */
     static final String DISPLAY_ALL_FOLDS_EXPANDED_PROPERTY = "display-all-folds-expanded"; // NOI18N
@@ -91,7 +91,7 @@ public final class FoldViewFactory extends EditorViewFactory implements FoldHier
     private Iterator<Fold> collapsedFoldIterator;
 
     private boolean displayAllFoldsExpanded;
-    
+
     /**
      * Quick optimization to avoid traversing through the fold hierarchy
      * if no collapsed folds were encountered yet for the component.
@@ -100,7 +100,7 @@ public final class FoldViewFactory extends EditorViewFactory implements FoldHier
      * collapsed fold iterator is used.
      */
     private boolean collapsedFoldEncountered;
-    
+
     /**
      * Composite Color settings from MIME lookup
      */
@@ -110,11 +110,11 @@ public final class FoldViewFactory extends EditorViewFactory implements FoldHier
      * Lookup results for color settings, being listened for changes.
      */
     private Lookup.Result       colorSource;
-    
+
     private Preferences         prefs;
-    
+
     private int viewFlags = 0;
-    
+
     private final FoldHierarchyListener weakL;
 
     public FoldViewFactory(View documentView) {
@@ -134,19 +134,19 @@ public final class FoldViewFactory extends EditorViewFactory implements FoldHier
         }
 
         displayAllFoldsExpanded = Boolean.TRUE.equals(textComponent().getClientProperty(DISPLAY_ALL_FOLDS_EXPANDED_PROPERTY));
-        
+
         String mime = DocumentUtilities.getMimeType(document());
-        
+
         Lookup lkp = MimeLookup.getLookup(mime);
         colorSource = lkp.lookupResult(FontColorSettings.class);
         colorSource.addLookupListener(WeakListeners.create(LookupListener.class, this, colorSource));
         colorSettings = (FontColorSettings)colorSource.allInstances().iterator().next();
         prefs = lkp.lookup(Preferences.class);
         prefs.addPreferenceChangeListener(WeakListeners.create(PreferenceChangeListener.class, this, prefs));
-        
+
         initViewFlags();
     }
-    
+
     private void initViewFlags() {
         viewFlags =
                 (prefs.getBoolean(FoldUtilitiesImpl.PREF_CONTENT_PREVIEW, true) ? 1 : 0) |
@@ -239,7 +239,7 @@ public final class FoldViewFactory extends EditorViewFactory implements FoldHier
             return null;
         }
     }
-    
+
     @Override
     public int viewEndOffset(int startOffset, int limitOffset, boolean forcedLimit) {
         int foldEndOffset = fold.getEndOffset();

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-License-Identifier: MIT
+
 class LengthStringComparator implements Comparator<String> {
     public int compare(String firstStr, String secondStr) {
         return Integer.compare(firstStr.length(),secondStr.length());
@@ -6,7 +9,7 @@ class LengthStringComparator implements Comparator<String> {
     System.out.println("Miss me?!");
     recursionFucn(); // +1
 	}
-	
+
     int fact(int n)
 	{
     // wrong base case (it may cause
@@ -17,27 +20,27 @@ class LengthStringComparator implements Comparator<String> {
     else // +1
         return n*fact(n-1); // +1
 	}
-	
-    static void printFun(int test) 
-    { 
+
+    static void printFun(int test)
+    {
         if (test < 1) // +1
-            return; 
-  
+            return;
+
         else {  // +1
-            System.out.printf("%d ", test); 
-  
-            // Statement 2 
+            System.out.printf("%d ", test);
+
+            // Statement 2
             printFun(test - 1); // +1
-  
-            System.out.printf("%d ", test); 
-            return; 
-        } 
-    } 
-  
-    public static void main(String[] args) 
-    { 
-        int test = 3; 
-        printFun(test); 
-    } 
-	
+
+            System.out.printf("%d ", test);
+            return;
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        int test = 3;
+        printFun(test);
+    }
+
 }

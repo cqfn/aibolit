@@ -50,7 +50,7 @@ import org.openide.util.WeakListeners;
  * @author   Jan Jancura
  */
 public class BreakpointsTreeModel implements TreeModel {
-    
+
     private static Logger logger = Logger.getLogger(BreakpointsTreeModel.class.getName());
 
     private Listener listener;
@@ -60,16 +60,16 @@ public class BreakpointsTreeModel implements TreeModel {
     private Reference<Object[]> lastGroupsAndBreakpoints = new SoftReference<Object[]>(null);
     private final Object lastGroupsAndBreakpointsLock = new Object();
     private final Set<Breakpoint> closedProjectsBreakpoints = new IdentityHashSet<>();
-    
-    /** 
+
+    /**
      *
      * @return threads contained in this group of threads
      */
     public Object getRoot () {
         return ROOT;
     }
-    
-    /** 
+
+    /**
      *
      * @return groups and breakpoints contained in this group of breakpoints
      */
@@ -125,10 +125,10 @@ public class BreakpointsTreeModel implements TreeModel {
         } else
         throw new UnknownTypeException (parent);
     }
-    
+
     /**
      * Returns number of children for given node.
-     * 
+     *
      * @param   node the parent node
      * @throws  UnknownTypeException if this TreeModel implementation is not
      *          able to resolve children for given node type
@@ -148,7 +148,7 @@ public class BreakpointsTreeModel implements TreeModel {
         } else
         throw new UnknownTypeException (node);
     }
-    
+
     public boolean isLeaf (Object node) throws UnknownTypeException {
         if (node == ROOT) return false;
         if (node instanceof Breakpoint) return true;
@@ -163,7 +163,7 @@ public class BreakpointsTreeModel implements TreeModel {
     public void removeModelListener (ModelListener l) {
         listeners.remove (l);
     }
-    
+
     private void fireTreeChanged () {
         synchronized (lastGroupsAndBreakpointsLock) {
             lastGroupsAndBreakpoints = new SoftReference<Object[]>(null);
@@ -175,28 +175,28 @@ public class BreakpointsTreeModel implements TreeModel {
                 new ModelEvent.TreeChanged (this)
             );
     }
-    
+
     private void fireTreeChanged (ModelEvent me) {
         Vector v = (Vector) listeners.clone ();
         int i, k = v.size ();
         for (i = 0; i < k; i++)
             ((ModelListener) v.get (i)).modelChanged (me);
     }
-    
+
     private boolean isClosedProjectBreakpoint(Breakpoint b) {
         synchronized (lastGroupsAndBreakpointsLock) {
             return closedProjectsBreakpoints.contains(b);
         }
     }
-    
-    
+
+
     // innerclasses ............................................................
-    
-    private static class Listener extends DebuggerManagerAdapter implements 
+
+    private static class Listener extends DebuggerManagerAdapter implements
     PropertyChangeListener {
-        
+
         private WeakReference model;
-        
+
         public Listener (
             BreakpointsTreeModel tm
         ) {
@@ -215,7 +215,7 @@ public class BreakpointsTreeModel implements TreeModel {
             for (i = 0; i < k; i++)
                 bs [i].addPropertyChangeListener (this);
         }
-        
+
         private BreakpointsTreeModel getModel () {
             BreakpointsTreeModel m = (BreakpointsTreeModel) model.get ();
             if (m == null) {
@@ -243,7 +243,7 @@ public class BreakpointsTreeModel implements TreeModel {
             breakpoint.addPropertyChangeListener (this);
             m.fireTreeChanged ();
         }
-        
+
         @Override
         public void breakpointRemoved (Breakpoint breakpoint) {
             BreakpointsTreeModel m = getModel ();
@@ -251,7 +251,7 @@ public class BreakpointsTreeModel implements TreeModel {
             breakpoint.removePropertyChangeListener (this);
             m.fireTreeChanged ();
         }
-    
+
         @Override
         public void propertyChange (PropertyChangeEvent evt) {
             BreakpointsTreeModel m = getModel ();
@@ -286,5 +286,5 @@ public class BreakpointsTreeModel implements TreeModel {
             }
         }
     }
-    
+
 }
