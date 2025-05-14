@@ -17,7 +17,7 @@ class HybridConstructorTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = HybridConstructor()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [4, 10, 20])
+        self.assertEqual(lines, [7, 13, 23])
 
     def test_simple2(self):
         filepath = Path(self.cur_dir, "init_block.java")
@@ -38,35 +38,35 @@ class HybridConstructorTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = HybridConstructor()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [4, 14, 31])
+        self.assertEqual(lines, [7, 17, 34])
 
     def test_simple5(self):
         filepath = Path(self.cur_dir, "one_line_usage.java")
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = HybridConstructor()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [12])
+        self.assertEqual(lines, [15])
 
     def test_simple6(self):
         filepath = Path(self.cur_dir, "super.java")
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = HybridConstructor()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [12])
+        self.assertEqual(lines, [15])
 
     def test_simple7(self):
         filepath = Path(self.cur_dir, "holy_moly_constructor.java")
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = HybridConstructor()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [47])
+        self.assertEqual(lines, [50])
 
     def test_simple9(self):
         filepath = Path(self.cur_dir, "super_this.java")
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = HybridConstructor()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [15, 25, 51, 62, 76, 87, 101])
+        self.assertEqual(lines, [18, 28, 54, 65, 79, 90, 104])
 
     def test_simple10(self):
         filepath = Path(self.cur_dir, "BookmarkEditCmd.java")
