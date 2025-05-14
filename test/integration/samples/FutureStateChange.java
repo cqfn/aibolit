@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 CQFN.org
+// SPDX-License-Identifier: MIT
 
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");

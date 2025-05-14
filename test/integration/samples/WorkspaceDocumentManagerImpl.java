@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 CQFN.org
+// SPDX-License-Identifier: MIT
 
 /*
 *  Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
