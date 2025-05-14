@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 CQFN.org
 # SPDX-License-Identifier: MIT
 from typing import Any, List
 

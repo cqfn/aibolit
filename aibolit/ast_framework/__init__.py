@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 CQFN.org
+# SPDX-License-Identifier: MIT
+
 from aibolit.ast_framework.ast_node_type import ASTNodeType  # noqa: F401
 from aibolit.ast_framework.ast_node import ASTNode  # noqa: F401
 from aibolit.ast_framework.ast import AST  # noqa: F401
