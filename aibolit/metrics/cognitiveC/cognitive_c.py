@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 from itertools import groupby
-from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 from typing import List, Set
 import re
 
@@ -47,7 +47,8 @@ class CognitiveComplexity:
             complexity += self._get_complexity(ast, all_childs[1], nested_level + 1)
 
         if len(all_childs) == 3:
-            if ast.get_type(all_childs[2]) == ASTNodeType.IF_STATEMENT:
+            node_obj = ASTNode(ast.tree, all_childs[2])
+            if node_obj.node_type == ASTNodeType.IF_STATEMENT:
                 complexity -= nested_level
                 complexity += self._check_if_statement(ast, all_childs[2], nested_level)
             else:
@@ -62,19 +63,27 @@ class CognitiveComplexity:
         return complexity
 
     def _create_logical_operators_sequence(self, ast: AST, binary_operation_node: int) -> List[str]:
-        if ast.get_type(binary_operation_node) != ASTNodeType.BINARY_OPERATION:
+        node_obj = ASTNode(ast.tree, binary_operation_node)
+        if node_obj.node_type != ASTNodeType.BINARY_OPERATION:
             return []
 
-        operator, left_side_node, right_side_node = ast.get_binary_operation_params(binary_operation_node)
+        # Get binary operation params using new API
+        children = list(node_obj.children)
+        if len(children) < 3:
+            return []
+        operation_node, left_side_node, right_side_node = children[0], children[1], children[2]
+        operator = operation_node.string if operation_node.node_type == ASTNodeType.STRING else None
+        
         if operator not in logical_operators:
             return []
 
-        left_sequence = self._create_logical_operators_sequence(ast, left_side_node)
-        right_sequence = self._create_logical_operators_sequence(ast, right_side_node)
+        left_sequence = self._create_logical_operators_sequence(ast, left_side_node.node_index)
+        right_sequence = self._create_logical_operators_sequence(ast, right_side_node.node_index)
         return left_sequence + [operator] + right_sequence
 
     def _is_recursion_call(self, ast, node) -> bool:
-        assert (ast.get_type(node) == ASTNodeType.METHOD_INVOCATION)
+        node_obj = ASTNode(ast.tree, node)
+        assert (node_obj.node_type == ASTNodeType.METHOD_INVOCATION)
         if self.__method_name == self._get_node_name(ast, node):
             return True
         return False
@@ -89,9 +98,12 @@ class CognitiveComplexity:
 
     def _process_not_nested_structure(self, ast: AST, each_block: int, nested_level: int) -> int:
         complexity = 0
-        each_block_type = ast.get_type(each_block)
+        each_block_obj = ASTNode(ast.tree, each_block)
+        each_block_type = each_block_obj.node_type
         if each_block_type == ASTNodeType.BINARY_OPERATION:
-            bin_operator = ast.get_binary_operation_name(each_block)
+            # Get binary operation name using new API
+            string_nodes = [child for child in each_block_obj.children if child.node_type == ASTNodeType.STRING]
+            bin_operator = string_nodes[0].string if string_nodes else None
             if bin_operator in logical_operators:
                 complexity += self._increment_logical_operators(ast, each_block)
 
@@ -107,7 +119,8 @@ class CognitiveComplexity:
 
     def _get_complexity(self, ast: AST, each_block: int, nested_level: int) -> int:
         each_block_name = self._get_node_name(ast, each_block)
-        each_block_type = ast.get_type(each_block)
+        each_block_obj = ASTNode(ast.tree, each_block)
+        each_block_type = each_block_obj.node_type
         complexity = 0
 
         if each_block_type == ASTNodeType.METHOD_DECLARATION and each_block_name != self.__method_name:
@@ -129,9 +142,10 @@ class CognitiveComplexity:
 
     def _get_node_name(self, ast, node) -> str:
         extracted_name = None
-        names = ast.children_with_type(node, ASTNodeType.STRING)
+        node_obj = ASTNode(ast.tree, node)
+        names = [child for child in node_obj.children if child.node_type == ASTNodeType.STRING]
         for each_string in names:
-            method_name = ast.get_attr(each_string, 'string')
+            method_name = each_string.string
             # Checking not to start with '/' is aimed to get
             # rid of comments, which are all childs of node.
             # We check the occurance any letter in name in order

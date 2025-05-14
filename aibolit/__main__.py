@@ -25,7 +25,7 @@ import javalang
 import numpy as np  # type: ignore
 import requests  # type: ignore[import-untyped]
 from lxml import etree  # type: ignore
-from pkg_resources import parse_version
+from packaging.version import parse as parse_version
 
 from aibolit import __version__
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class

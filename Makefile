@@ -3,9 +3,9 @@
 
 -include local.mk
 
-.PHONY: all clean requirements test integrationtest install xcop flake8 doc mypy
+.PHONY: all clean requirements test it install xcop flake8 doc mypy
 
-all: requirements install unittest integrationtest flake8 mypy xcop
+all: requirements install test it flake8 mypy xcop
 
 requirements:
 	python3 -m pip install -r requirements.txt
@@ -14,7 +14,7 @@ test:
 	python3 -m coverage run -m unittest discover
 	python3 aibolit --version
 
-integrationtest:
+it:
 	python3 -m test.integration.test_patterns_and_metrics
 	python3 -m test.integration.test_model
 	python3 -m test.integration.test_semantic_extraction

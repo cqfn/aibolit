@@ -1,34 +1,37 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-
+from typing import TYPE_CHECKING, Dict, Set
 
 from cached_property import cached_property  # type: ignore
 from deprecated import deprecated  # type: ignore
-
-from typing import Dict, Set, TYPE_CHECKING
 from networkx import DiGraph  # type: ignore
 
-from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 from aibolit.ast_framework.java_class_method import JavaClassMethod
 from aibolit.ast_framework.java_class_field import JavaClassField
 
 if TYPE_CHECKING:
-    from aibolit.ast_framework.java_package import JavaPackage
+    from aibolit.ast_framework.java_package import JavaPackage  # type: ignore
 
 
-@deprecated("This functionality must be transmitted to ASTNode")
+@deprecated(reason='This functionality must be transmitted to ASTNode')
 class JavaClass(AST):
     def __init__(self, tree: DiGraph, root: int, java_package: 'JavaPackage'):
-        self.tree = tree
-        self.root = root
+        super().__init__(tree, root)
         self._java_package = java_package
+
+    def __str__(self):
+        return f'Java class "{self.name}"'
 
     @cached_property
     def name(self) -> str:
         try:
-            class_name = next(self.children_with_type(self.root, ASTNodeType.STRING))
-            return self.tree.nodes[class_name]['string']
-        except StopIteration:
+            root_node = ASTNode(self.tree, self.root)
+            class_name_nodes = [child for child in root_node.children if child.node_type == ASTNodeType.STRING]
+            if not class_name_nodes:
+                raise ValueError("Provided AST does not has 'STRING' node type right under the root")
+            return class_name_nodes[0].string
+        except ValueError:
             raise ValueError("Provided AST does not has 'STRING' node type right under the root")
 
     @property
