@@ -13,7 +13,7 @@ matplotlib==3.10.3
 mypy>=1.0.0  # Update to a version compatible with Python 3.12
 networkx==3.2  # Updated to be compatible with NumPy 2.0+
 numpy==2.2.5
-packaging==21.3  # For version parsing
+packaging>=23.0  # For version parsing, updated for sphinx compatibility
 pandas==2.2.3
 pebble==4.5.3
 scikit-learn==1.6.1
