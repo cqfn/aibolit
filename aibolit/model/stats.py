@@ -99,12 +99,12 @@ class Stats(object):
             p_minus_c_euq = int(acts_complexity[i, 2])
             p_plus_c_euq = int(acts_complexity[i, 5])
             pattern = replace_dict.get(features_conf[i])
-            df = df.append({
+            df = pd.concat([df, pd.DataFrame([{
                 'pattern': pattern, ' -1(top1)': top_minus, '+1(top1)': top_plus,
                 'p-c-': p_minus_c_minus, 'p+c+': p_plus_c_plus, 'p-c+': p_minus_c_plus,
                 'p+c-': p_plus_c_minus, 'p-c=': p_minus_c_euq,
                 'p+c=': p_plus_c_euq
-            }, ignore_index=True)
+            }])], ignore_index=True)
 
         return df
 

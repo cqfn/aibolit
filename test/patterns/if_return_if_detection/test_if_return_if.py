@@ -18,7 +18,7 @@ class CountIfReturnTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = CountIfReturn()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [6, 10])
+        self.assertEqual(lines, [9, 13])
 
     def test_no_return_inside(self):
         filepath = Path(self.dir_path, "2.java")
@@ -39,18 +39,18 @@ class CountIfReturnTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = CountIfReturn()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [6])
+        self.assertEqual(lines, [9])
 
     def test_withandwithout_returns(self):
         filepath = Path(self.dir_path, "5.java")
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = CountIfReturn()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [6, 14, 16, 18])
+        self.assertEqual(lines, [9, 17, 19, 21])
 
     def test_nomoreReturn_and_nested(self):
         filepath = Path(self.dir_path, "6.java")
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = CountIfReturn()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [10])
+        self.assertEqual(lines, [13])

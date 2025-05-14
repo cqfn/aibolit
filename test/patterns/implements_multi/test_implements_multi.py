@@ -24,7 +24,7 @@ class ImplementsMultiTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ImplementsMultiFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [12])
+        self.assertEqual(lines, [15])
 
     def test_implements_in_string(self):
         filepath = self.current_directory / "AuditEventModelProcessor.java"
@@ -45,21 +45,21 @@ class ImplementsMultiTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ImplementsMultiFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [225])
+        self.assertEqual(lines, [228])
 
     def test_implements_multi_classes(self):
         filepath = self.current_directory / "FillContent.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ImplementsMultiFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [29])
+        self.assertEqual(lines, [32])
 
     def test_implements_with_parantheses_multi(self):
         filepath = self.current_directory / "FJIterateTest.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ImplementsMultiFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [601])
+        self.assertEqual(lines, [604])
 
     def test_implements_with_parantheses_before(self):
         filepath = self.current_directory / "FJListProcedureRunner.java"
@@ -80,18 +80,18 @@ class ImplementsMultiTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ImplementsMultiFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [42])
+        self.assertEqual(lines, [45])
 
     def test_implements_three(self):
         filepath = self.current_directory / "RectangleContent.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ImplementsMultiFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [22])
+        self.assertEqual(lines, [25])
 
     def test_implements_many(self):
         filepath = self.current_directory / "SequenceFile.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ImplementsMultiFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [837])
+        self.assertEqual(lines, [840])

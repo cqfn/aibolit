@@ -38,4 +38,4 @@ class SetterTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ClassicGetter()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [5])
+        self.assertEqual(lines, [8])

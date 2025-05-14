@@ -42,7 +42,7 @@ def generate_fake_dataset() -> pd.DataFrame:
         p = {p: (x + i) for i, p in enumerate(patterns)}
         m = {p: (x + i) for i, p in enumerate(metrics)}
         row = {**p, **m}
-        train_df = train_df.append(row, ignore_index=True)
+        train_df = pd.concat([train_df, pd.DataFrame([row])], ignore_index=True)
 
     train_df = train_df.astype(float)
     return train_df
