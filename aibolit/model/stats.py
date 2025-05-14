@@ -155,7 +155,8 @@ class Stats(object):
     @staticmethod
     def check_impact(
             X: NDArray[np.float64],
-            model_input: Any) -> Tuple[NDArray[np.int64], NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]:
+            model_input: Any) -> Tuple[NDArray[np.int64], NDArray[np.float64],
+                                       NDArray[np.float64], NDArray[np.float64]]:
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or

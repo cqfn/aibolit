@@ -3,7 +3,7 @@
 
 from enum import Enum, auto
 
-from typing import List, Set, Optional
+from typing import List, Set
 
 
 class ScopeStatusFlags(Enum):
