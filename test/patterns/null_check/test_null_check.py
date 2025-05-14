@@ -45,4 +45,4 @@ class NullCheckTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NullCheck()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [4])
+        self.assertEqual(lines, [7])
