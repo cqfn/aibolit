@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 /*
  * Copyright 2013-2018 the original author or authors.
  *

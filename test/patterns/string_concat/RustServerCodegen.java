@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 /*
  * Copyright 2018 OpenAPI-Generator Contributors (https://openapi-generator.tech)
  * Copyright 2018 SmartBear Software

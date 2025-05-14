@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 import javalang
 from aibolit.utils.ast_builder import build_ast
 

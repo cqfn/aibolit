@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 /*
  * Copyright 1999-2018 Alibaba Group Holding Ltd.
  *

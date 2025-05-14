@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 /*
 * Copyright 2013 The Android Open Source Project
 *

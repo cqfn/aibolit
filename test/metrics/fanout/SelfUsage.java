@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 // Total FanOut = 0
 
 public class FirstClass{

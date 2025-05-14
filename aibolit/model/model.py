@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 from decimal import localcontext, ROUND_DOWN, Decimal
 from typing import Dict, Any, Tuple, List, Union
 

@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 from typing import List, Tuple, Any, Union, TypeVar, Type
 from javalang.tree import ClassDeclaration, InterfaceDeclaration, MethodDeclaration, \
     MemberReference, FieldDeclaration, MethodInvocation, This, Node, LocalVariableDeclaration

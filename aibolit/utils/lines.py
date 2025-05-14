@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 from javalang.ast import Node
 from javalang.tree import CompilationUnit
 from typing import List, Tuple

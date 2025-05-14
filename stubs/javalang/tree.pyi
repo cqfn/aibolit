@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 from .ast import Node as Node
 from typing import Any, Set, List, Union
 

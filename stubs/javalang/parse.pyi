@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 from .parser import Parser as Parser
 from .tokenizer import tokenize as tokenize
 from typing import Any
