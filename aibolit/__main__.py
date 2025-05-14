@@ -23,7 +23,7 @@ from typing import List, Any, Dict, Tuple
 
 import javalang
 import numpy as np  # type: ignore
-import requests
+import requests  # type: ignore[import-untyped]
 from lxml import etree  # type: ignore
 from pkg_resources import parse_version
 
@@ -772,7 +772,7 @@ def check():
     return exit_code
 
 
-def handle_exclude_command_line(args):
+def handle_exclude_command_line(args: Any) -> List[str]:
     files_to_exclude: List[str] = []
     full_path_to_exclude = args.folder
     glob_patterns = args.exclude

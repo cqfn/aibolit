@@ -3,14 +3,14 @@
 
 -include local.mk
 
-.PHONY: all clean requirements unittest integrationtest install xcop flake8doc typecheck
+.PHONY: all clean requirements test integrationtest install xcop flake8doc typecheck
 
-all: requirements install flake8 typecheck unittest xcop integrationtest
+all: requirements install unittest integrationtest flake8 typecheck xcop
 
 requirements:
 	python3 -m pip install -r requirements.txt
 
-unittest:
+test:
 	python3 -m coverage run -m unittest discover
 	python3 aibolit --version
 
