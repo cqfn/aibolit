@@ -1,4 +1,4 @@
-// Copyright (c) 2024-2025 Yegor Bugayenko
+// Copyright (c) 2019-2025 CQFN.org
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the 'Software'), to deal
