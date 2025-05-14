@@ -51,7 +51,7 @@ class JavaClassMethod(AST):
     @cached_property
     def body(self) -> AST:
         return self.get_subtree(self.get_root())
-    
+
     @cached_property
     def cfg(self) -> DiGraph:
         return build_cfg(self.body)

@@ -73,7 +73,7 @@ class CognitiveComplexity:
             return []
         operation_node, left_side_node, right_side_node = children[0], children[1], children[2]
         operator = operation_node.string if operation_node.node_type == ASTNodeType.STRING else None
-        
+
         if operator not in logical_operators:
             return []
 
