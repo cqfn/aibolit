@@ -1,4 +1,4 @@
-from cchardet import detect  # type: ignore
+from chardet import detect  # type: ignore
 
 
 def detect_encoding_of_file(filename: str):

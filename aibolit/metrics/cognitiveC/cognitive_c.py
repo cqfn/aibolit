@@ -72,7 +72,7 @@ class CognitiveComplexity:
         return left_sequence + [operator] + right_sequence
 
     def _is_recursion_call(self, ast, node) -> bool:
-        assert(ast.get_type(node) == ASTNodeType.METHOD_INVOCATION)
+        assert (ast.get_type(node) == ASTNodeType.METHOD_INVOCATION)
         if self.__method_name == self._get_node_name(ast, node):
             return True
         return False

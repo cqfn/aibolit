@@ -151,8 +151,8 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
         )
 
 
-def flatten(l):
-    return [item for sublist in l for item in sublist]
+def flatten(lst):
+    return [item for sublist in lst for item in sublist]
 
 
 def add_pattern_if_ignored(
@@ -223,7 +223,6 @@ def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
                 max_line = node.position.line
 
     def traverse(node):
-        nonlocal max_line
         check_max_position(node)
 
         if hasattr(node, 'children'):

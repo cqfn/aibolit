@@ -13,7 +13,7 @@ from functools import partial
 from multiprocessing import Value, Manager, cpu_count, Lock
 from pathlib import Path
 
-import cchardet as chardet
+import chardet
 import javalang
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -80,13 +80,13 @@ def get_class_type(filename: Path):
                 class_type = ClassType.NESTED_CLASSES
             else:
                 for _, node in tree:
-                    if type(node) == javalang.tree.InterfaceDeclaration:
+                    if isinstance(node, javalang.tree.InterfaceDeclaration):
                         class_type = ClassType.INTERFACE
                         break
-                    elif type(node) == javalang.tree.EnumDeclaration:
+                    elif isinstance(node, javalang.tree.EnumDeclaration):
                         class_type = ClassType.ENUM
                         break
-                    elif type(node) == javalang.tree.ClassDeclaration:
+                    elif isinstance(node, javalang.tree.ClassDeclaration):
                         if 'abstract' in node.modifiers:
                             class_type = ClassType.ABSTRACT_CLASS
                             break

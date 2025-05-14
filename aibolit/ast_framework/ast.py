@@ -146,7 +146,7 @@ class AST:
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def get_binary_operation_name(self, node: int) -> str:
-        assert(self.get_type(node) == ASTNodeType.BINARY_OPERATION)
+        assert (self.get_type(node) == ASTNodeType.BINARY_OPERATION)
         name_node, = islice(self.children_with_type(node, ASTNodeType.STRING), 1)
         return self.get_attr(name_node, 'string')
 
@@ -179,7 +179,7 @@ class AST:
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def get_method_invocation_params(self, invocation_node: int) -> MethodInvocationParams:
-        assert(self.get_type(invocation_node) == ASTNodeType.METHOD_INVOCATION)
+        assert (self.get_type(invocation_node) == ASTNodeType.METHOD_INVOCATION)
         # first two STRING nodes represent object and method names
         children = list(self.children_with_type(invocation_node, ASTNodeType.STRING))
         if len(children) == 1:
@@ -190,7 +190,7 @@ class AST:
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def get_member_reference_params(self, member_reference_node: int) -> MemberReferenceParams:
-        assert(self.get_type(member_reference_node) == ASTNodeType.MEMBER_REFERENCE)
+        assert (self.get_type(member_reference_node) == ASTNodeType.MEMBER_REFERENCE)
         params = [self.get_attr(child, 'string') for child in
                   self.children_with_type(member_reference_node, ASTNodeType.STRING)]
 
@@ -211,7 +211,7 @@ class AST:
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def get_binary_operation_params(self, binary_operation_node: int) -> BinaryOperationParams:
-        assert(self.get_type(binary_operation_node) == ASTNodeType.BINARY_OPERATION)
+        assert (self.get_type(binary_operation_node) == ASTNodeType.BINARY_OPERATION)
         operation_node, left_side_node, right_side_node = self.tree.succ[binary_operation_node]
         return BinaryOperationParams(self.get_attr(operation_node, 'string'), left_side_node, right_side_node)
 
@@ -292,7 +292,7 @@ class AST:
         # we expect only strings in collection
         # we add them here as children
         for item in collection_node:
-            if type(item) == str:
+            if isinstance(item, str):
                 string_node_index = AST._add_javalang_string_node(tree, item)
                 tree.add_edge(node_index, string_node_index)
             elif item is not None:
