@@ -1,12 +1,11 @@
+# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-License-Identifier: MIT
+
 -include local.mk
 
-all: requirements install flake8 typecheck unittest xcop integrationtest
+.PHONY: all clean requirements unittest integrationtest install xcop flake8doc typecheck
 
-clean:
-	rm -rf build
-	rm -rf aibolit.egg-info
-	rm -rf dist
-	rm -rf sphinx html
+all: requirements install flake8 typecheck unittest xcop integrationtest
 
 requirements:
 	python3 -m pip install -r requirements.txt
@@ -37,3 +36,9 @@ doc:
 
 typecheck:
 	python3 -m mypy aibolit
+
+clean:
+	rm -rf build
+	rm -rf aibolit.egg-info
+	rm -rf dist
+	rm -rf sphinx html
