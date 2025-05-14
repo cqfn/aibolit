@@ -191,8 +191,8 @@ class TestRecommendPipeline(TestCase):
             tree = javalang.parse.parse(f.read())
             method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
             start, end = find_start_and_end_lines(method)
-            self.assertEqual(start, 32)
-            self.assertEqual(end, 59)
+            self.assertEqual(start, 35)
+            self.assertEqual(end, 62)
 
     def test_find_start_end_line_empty_function(self):
         # Check start and end line for MethodDeclaration,
@@ -202,8 +202,8 @@ class TestRecommendPipeline(TestCase):
             tree = javalang.parse.parse(f.read())
             method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
             start, end = find_start_and_end_lines(method)
-            self.assertEqual(start, 32)
-            self.assertEqual(end, 32)
+            self.assertEqual(start, 35)
+            self.assertEqual(end, 35)
 
     def test_find_start_end_line_empty_function_with_one_line(self):
         file = Path(self.cur_file_dir, 'start_end/OneLineFunction.java')
@@ -211,8 +211,8 @@ class TestRecommendPipeline(TestCase):
             tree = javalang.parse.parse(f.read())
             method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
             start, end = find_start_and_end_lines(method)
-            self.assertEqual(start, 32)
-            self.assertEqual(end, 32)
+            self.assertEqual(start, 35)
+            self.assertEqual(end, 35)
 
     def test_find_start_end_line_empty_function_with_lambda(self):
         file = Path(self.cur_file_dir, 'start_end/Lambda.java')

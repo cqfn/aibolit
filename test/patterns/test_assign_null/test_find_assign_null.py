@@ -11,11 +11,11 @@ class NullAssignmentTestCase(TestCase):
 
     def test_several(self):
         lines = NullAssignment().value(self.cur_dir + "/several.java")
-        self.assertEqual(lines, [5, 6, 11, 15, 21, 22])
+        self.assertEqual(lines, [8, 9, 14, 18, 24, 25])
 
     def test_one(self):
         lines = NullAssignment().value(self.cur_dir + "/one.java")
-        self.assertEqual(lines, [8])
+        self.assertEqual(lines, [11])
 
     def test_not_null(self):
         lines = NullAssignment().value(self.cur_dir + "/not_null.java")

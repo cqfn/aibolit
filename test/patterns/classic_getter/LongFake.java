@@ -7,6 +7,7 @@
 
 /*
  * SPDX-FileCopyrightText: Copyright (c) 2020 artipie.com
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
  * SPDX-License-Identifier: MIT
  */
 package com.artipie.asto.fs;
