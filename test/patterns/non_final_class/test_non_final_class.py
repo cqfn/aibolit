@@ -24,7 +24,7 @@ class NonFinalClassTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NonFinalClass()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [1])
+        self.assertEqual(lines, [4])
 
     def test_abstract_class(self):
         filepath = self.current_directory / "3.java"

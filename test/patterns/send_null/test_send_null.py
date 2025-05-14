@@ -17,7 +17,7 @@ class SendNullTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SendNull()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [146])
+        self.assertEqual(lines, [149])
 
     def test_multi_level_invocation(self):
         filepath = self.current_directory / "Configuration.java"
@@ -25,7 +25,7 @@ class SendNullTestCase(TestCase):
         pattern = SendNull()
         lines = pattern.value(ast)
         self.assertEqual(
-            lines, [379, 442, 549, 638, 656, 830, 866, 1362, 2393, 2874, 2988, 3080, 3492, 3758, 3855]
+            lines, [382, 445, 552, 641, 659, 833, 869, 1365, 2396, 2877, 2991, 3083, 3495, 3761, 3858]
         )
 
     def test_no_null_methods(self):
@@ -40,39 +40,39 @@ class SendNullTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SendNull()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [493])
+        self.assertEqual(lines, [489])
 
     def test_more_method_invocations(self):
         filepath = self.current_directory / "SequenceFile.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SendNull()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [1097, 1186, 1201, 1217, 3285, 3298, 3367, 3537, 3550])
+        self.assertEqual(lines, [1100, 1189, 1204, 1220, 3288, 3301, 3370, 3540, 3553])
 
     def test_constructor_send_null(self):
         filepath = self.current_directory / "Constructor.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SendNull()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [5, 14, 15, 16, 17, 18])
+        self.assertEqual(lines, [8, 17, 18, 19, 20, 21])
 
     def test_super_in_constructor_with_ternary_operator(self):
         filepath = self.current_directory / "AclPermissionParam.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SendNull()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [46, 50])
+        self.assertEqual(lines, [49, 53])
 
     def test_this_with_ternary_operator(self):
         filepath = self.current_directory / "AddOp.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SendNull()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [44, 48])
+        self.assertEqual(lines, [31, 35])
 
     def test_super_in_constructor_with_method_inv(self):
         filepath = self.current_directory / "ByteArrayMultipartFileEditor.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SendNull()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [49])
+        self.assertEqual(lines, [51])

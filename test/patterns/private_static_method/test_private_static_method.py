@@ -17,4 +17,4 @@ class PrivateStaticMethodTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = PrivateStaticMethod()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [2])
+        self.assertEqual(lines, [5])

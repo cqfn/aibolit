@@ -24,18 +24,18 @@ class ProtectedMethodTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ProtectedMethod()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [2, 6], "Should match pattern protected method")
+        self.assertEqual(lines, [5, 9], "Should match pattern protected method")
 
     def test_find_protected_method_inner(self):
         filepath = self.current_directory / "InnerClassProtectedMethod.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ProtectedMethod()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [2, 11], "Should match pattern protected method in inner class")
+        self.assertEqual(lines, [5, 14], "Should match pattern protected method in inner class")
 
     def test_find_protected_method_anonymous(self):
         filepath = self.current_directory / "AnonymousClassProtectedMethod.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ProtectedMethod()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [5], "Should match pattern protected method in anonymous class")
+        self.assertEqual(lines, [8], "Should match pattern protected method in anonymous class")

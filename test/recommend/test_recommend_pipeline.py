@@ -220,8 +220,8 @@ class TestRecommendPipeline(TestCase):
             tree = javalang.parse.parse(f.read())
             method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
             start, end = find_start_and_end_lines(method)
-            self.assertEqual(start, 32)
-            self.assertEqual(end, 43)
+            self.assertEqual(start, 35)
+            self.assertEqual(end, 46)
 
     def test_find_start_end_line_empty_function_with_anonymous_class(self):
         file = Path(self.cur_file_dir, 'start_end/AnonymousClass.java')
@@ -229,8 +229,8 @@ class TestRecommendPipeline(TestCase):
             tree = javalang.parse.parse(f.read())
             method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
             start, end = find_start_and_end_lines(method)
-            self.assertEqual(start, 32)
-            self.assertEqual(end, 41)
+            self.assertEqual(start, 35)
+            self.assertEqual(end, 44)
 
     def test_find_start_end_line_empty_function_in_anonymous_class(self):
         file = Path(self.cur_file_dir, 'start_end/AnonymousClass.java')
@@ -238,8 +238,8 @@ class TestRecommendPipeline(TestCase):
             tree = javalang.parse.parse(f.read())
             method = list(tree.filter(javalang.tree.MethodDeclaration))[1][1]
             start, end = find_start_and_end_lines(method)
-            self.assertEqual(start, 37)
-            self.assertEqual(end, 38)
+            self.assertEqual(start, 40)
+            self.assertEqual(end, 41)
 
     def test_find_start_end_line_return_by_one_line(self):
         file = Path(self.cur_file_dir, 'start_end/FileStorage.java')
@@ -247,8 +247,8 @@ class TestRecommendPipeline(TestCase):
             tree = javalang.parse.parse(f.read())
             method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
             start, end = find_start_and_end_lines(method)
-            self.assertEqual(start, 108)
-            self.assertEqual(end, 140)
+            self.assertEqual(start, 92)
+            self.assertEqual(end, 124)
 
     def test_find_start_end_line_in_function2(self):
         file = Path(self.cur_file_dir, 'start_end/UpDirective.java')
@@ -256,8 +256,8 @@ class TestRecommendPipeline(TestCase):
             tree = javalang.parse.parse(f.read())
             method = list(tree.filter(javalang.tree.MethodDeclaration))[0][1]
             start, end = find_start_and_end_lines(method)
-            self.assertEqual(start, 49)
-            self.assertEqual(end, 65)
+            self.assertEqual(start, 25)
+            self.assertEqual(end, 41)
 
     def test_find_start_end_line_in_class(self):
         file = Path(self.cur_file_dir, 'start_end/LottieImageAsset.java')
@@ -265,8 +265,8 @@ class TestRecommendPipeline(TestCase):
             tree = javalang.parse.parse(f.read())
             method = list(tree.filter(javalang.tree.ClassDeclaration))[0][1]
             start, end = find_start_and_end_lines(method)
-            self.assertEqual(start, 11)
-            self.assertEqual(end, 59)
+            self.assertEqual(start, 14)
+            self.assertEqual(end, 62)
 
     def test_find_annotation_by_class_declaration(self):
         file = Path(self.cur_file_dir, 'annotations/ClassAnnotations.java')

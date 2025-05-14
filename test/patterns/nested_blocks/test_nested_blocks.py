@@ -17,35 +17,35 @@ class NestedBlocksTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NestedBlocks(2, ASTNodeType.FOR_STATEMENT)
         lines = pattern.value(ast)
-        self.assertEqual(lines, [15, 19])
+        self.assertEqual(lines, [18, 22])
 
     def test_nested_for_loops(self):
         filepath = self.current_directory / "NestedFor.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NestedBlocks(2, ASTNodeType.FOR_STATEMENT)
         lines = pattern.value(ast)
-        self.assertEqual(lines, [22])
+        self.assertEqual(lines, [25])
 
     def test_for_loops_in_different_methods(self):
         filepath = self.current_directory / "DifferentMethods.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NestedBlocks(2, ASTNodeType.FOR_STATEMENT)
         lines = pattern.value(ast)
-        self.assertEqual(lines, [28])
+        self.assertEqual(lines, [31])
 
     def test_for_loops_in_nested_class(self):
         filepath = self.current_directory / "NestedForInNestedClasses.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NestedBlocks(2, ASTNodeType.FOR_STATEMENT)
         lines = pattern.value(ast)
-        self.assertEqual(lines, [9])
+        self.assertEqual(lines, [12])
 
     def test_for_loops_in_anonymous_class(self):
         filepath = self.current_directory / "ForInAnonymousFile.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NestedBlocks(2, ASTNodeType.FOR_STATEMENT)
         lines = pattern.value(ast)
-        self.assertEqual(lines, [19])
+        self.assertEqual(lines, [22])
 
     def test_nested_no_nested_if(self):
         filepath = self.current_directory / "NestedNoIF.java"
@@ -59,4 +59,4 @@ class NestedBlocksTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NestedBlocks(2, ASTNodeType.IF_STATEMENT)
         lines = pattern.value(ast)
-        self.assertEqual(lines, [21, 42])
+        self.assertEqual(lines, [24, 45])

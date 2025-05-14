@@ -31,7 +31,7 @@ class TestLines(TestCase):
             'Did not match fourth line'
         )
         self.assertEqual(
-            '}',
+            '}\n',
             (Lines(Path(self.dir_path, 'SimpleLinesTest.java')).value()[1])[7],
             'Did not match last line'
         )

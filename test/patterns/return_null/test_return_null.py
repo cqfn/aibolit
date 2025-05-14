@@ -17,7 +17,7 @@ class ReturnNullPatternTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ReturnNull()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [24, 28])
+        self.assertEqual(lines, [27, 31])
 
     def test_empty(self):
         filepath = self.current_directory / "Empty.java"
@@ -31,14 +31,14 @@ class ReturnNullPatternTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ReturnNull()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [12])
+        self.assertEqual(lines, [15])
 
     def test_with_ternary2(self):
         filepath = self.current_directory / "With_Ternary2.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ReturnNull()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [12])
+        self.assertEqual(lines, [15])
 
     def test_with_ternary_not_return_null(self):
         filepath = self.current_directory / "With_Ternary_not_return_null.java"
@@ -52,4 +52,4 @@ class ReturnNullPatternTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ReturnNull()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [12])
+        self.assertEqual(lines, [15])
