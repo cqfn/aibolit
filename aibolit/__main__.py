@@ -140,7 +140,7 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
         val = value_dict['make']().value(ast)
         if not is_metric:
             input_params[acronym] = len(val)
-            code_lines_dict['lines_' + acronym] = val
+            code_lines_dict["lines_" + acronym] = val
         else:
             input_params[acronym] = val
     except Exception:
@@ -151,7 +151,7 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
         )
 
 
-def flatten(l):
+def flatten(l: List[List[Any]]) -> List[Any]:
     return [item for sublist in l for item in sublist]
 
 
