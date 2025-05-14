@@ -1,5 +1,6 @@
 /*
  * SPDX-FileCopyrightText: Copyright (c) 2013-2025, xembly.org
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
  * SPDX-License-Identifier: MIT
  */
 package org.xembly;
