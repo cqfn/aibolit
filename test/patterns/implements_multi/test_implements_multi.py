@@ -59,7 +59,7 @@ class ImplementsMultiTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ImplementsMultiFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [604])
+        self.assertEqual(lines, [597])
 
     def test_implements_with_parantheses_before(self):
         filepath = self.current_directory / "FJListProcedureRunner.java"

@@ -3,9 +3,9 @@
 
 -include local.mk
 
-.PHONY: all clean requirements test integrationtest install xcop flake8doc typecheck
+.PHONY: all clean requirements test integrationtest install xcop flake8 doc mypy
 
-all: requirements install unittest integrationtest flake8 typecheck xcop
+all: requirements install unittest integrationtest flake8 mypy xcop
 
 requirements:
 	python3 -m pip install -r requirements.txt
@@ -34,7 +34,7 @@ doc:
 	sphinx-apidoc -o sphinx aibolit --full
 	sphinx-build sphinx html
 
-typecheck:
+mypy:
 	python3 -m mypy aibolit
 
 clean:

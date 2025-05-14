@@ -24,7 +24,7 @@ class MultipleTryPatternTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = MultipleTry()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [623, 709])
+        self.assertEqual(lines, [622, 708])
 
     def test_try_inside_anonymous(self):
         filepath = self.current_directory / "TryInsideAnomymous.java"

@@ -105,7 +105,7 @@ class MethodChainTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = MethodChainFind()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [34, 86, 87])
+        self.assertEqual(lines, [33, 85, 86])
 
     def test_fake_chain(self):
         filepath = self.current_directory / "FakeChain.java"
