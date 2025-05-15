@@ -1,10 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-import subprocess
-import pandas as pd
-import os
-from pathlib import Path
 import argparse
+import os
+import subprocess
+from pathlib import Path
+
+import pandas as pd
 
 parser = argparse.ArgumentParser(description='Filter important java files')
 parser.add_argument(
@@ -23,10 +24,10 @@ current_location: str = os.path.realpath(
 csv_files = []
 for dir_local in Path(dir_to_analyze).iterdir():
     if dir_local.is_dir():
-        print('Start metrics calculation for path {}'.format(dir_local.parts[-1]))
-        csv_filename = "./_tmp/{}_pmd_out.csv".format(dir_local.parts[-1])
+        print(f'Start metrics calculation for path {dir_local.parts[-1]}')
+        csv_filename = f"./_tmp/{dir_local.parts[-1]}_pmd_out.csv"
         csv_files.append(csv_filename)
-        f = open(csv_filename, "w")
+        f = open(csv_filename, "w", encoding='utf-8')
         subprocess.call([
             './_tmp/pmd-bin/bin/run.sh', 'pmd',
             '-cache', './_tmp/cache',
@@ -53,7 +54,7 @@ for i in csv_files:
     except Exception:
         pass
 
-print("we have {} folders, {} datasets".format(len(csv_files), len(frames)))
+print(f"we have {len(csv_files)} folders, {len(frames)} datasets")
 df = pd.concat(frames)
 df = df[df.Problem != -555]
 df.set_index("Problem")

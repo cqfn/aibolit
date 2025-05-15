@@ -9,7 +9,8 @@ setup(
     name='aibolit',
     version=aibolit.__version__,
     description=aibolit.__doc__.strip(),
-    long_description='DevTool recommending how to improve the maintenance quality of your Java classes',
+    long_description='DevTool recommending how to improve the maintenance quality of '
+                     'your Java classes',
     url='https://github.com/yegor256/aibolit',
     download_url='https://github.com/yegor256/aibolit',
     author=aibolit.__author__,
@@ -22,8 +23,8 @@ setup(
         ],
     },
     extras_require={},
-    install_requires=open('requirements.txt', 'r').readlines(),
-    tests_require=open('requirements.txt', 'r').readlines(),
+    install_requires=open('requirements.txt', 'r', encoding='utf-8').readlines(),
+    tests_require=open('requirements.txt', 'r', encoding='utf-8').readlines(),
     classifiers=[
         'Programming Language :: Python',
         'Environment :: Console',

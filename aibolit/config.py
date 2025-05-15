@@ -1,5 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+
+"""Configuration module for aibolit.
+
+This module defines configuration factories and providers for patterns and metrics,
+providing a central registry for all available code analysis tools.
+"""
 import os
 from pathlib import Path
 
@@ -21,7 +27,8 @@ from aibolit.patterns.assign_null_finder.assign_null_finder import NullAssignmen
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter as P2
 from aibolit.patterns.empty_rethrow.empty_rethrow import EmptyRethrow as P3
 from aibolit.patterns.er_class.er_class import ErClass as P4
-from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import ForceTypeCastingFinder as P5
+from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import \
+    ForceTypeCastingFinder as P5
 from aibolit.patterns.if_return_if_detection.if_detection import CountIfReturn as P6
 from aibolit.patterns.implements_multi.implements_multi import ImplementsMultiFinder as P7
 from aibolit.patterns.instanceof.instance_of import InstanceOf as P8
@@ -52,67 +59,77 @@ from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
 
 
 class Singleton(type):
+    """Metaclass for implementing the Singleton pattern."""
     _instances = {}  # type: ignore
 
     def __call__(cls, *args, **kwargs):
+        """Create or return the singleton instance."""
         if cls not in cls._instances:
             cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
         return cls._instances[cls]
 
 
 class Config(metaclass=Singleton):
+    """Central configuration for patterns and metrics discovery."""
 
     @staticmethod
     def home_aibolit_folder():
+        """Get the home folder for aibolit."""
         return os.environ.get('HOME_AIBOLIT') or '/home/jovyan/aibolit'
 
     @staticmethod
     def folder_to_save_model_data():
+        """Get the folder path for saving model data."""
         model_folder = Path(Config().home_aibolit_folder(), 'aibolit', 'binary_files')
         return os.environ.get('SAVE_MODEL_FOLDER') or model_folder
 
     @staticmethod
     def folder_model_data():
+        """Get the folder path for model data."""
         dir_path = os.path.dirname(os.path.realpath(__file__))
         model_file = Path(Path(dir_path), 'binary_files', 'model.pkl')
         return os.environ.get('HOME_MODEL_FOLDER') or model_file
 
     @staticmethod
     def dataset_file():
+        """Get the dataset file path."""
         dataset_path = Path(Config().home_aibolit_folder(), 'scripts', 'target', 'dataset.csv')
         return os.environ.get('HOME_DATASET_CSV') or dataset_path
 
     @staticmethod
     def train_csv():
+        """Get the training CSV file path."""
         return os.environ.get('HOME_TRAIN_DATASET')
 
     @staticmethod
     def test_csv():
+        """Get the test CSV file path."""
         return os.environ.get('HOME_TEST_DATASET')
 
     @staticmethod
     def get_patterns_config():
+        """Get the patterns configuration dictionary."""
         return {
             "patterns": [
-                {"name": "Asserts", "code": "P1", "make": lambda: P1()},
-                {"name": "Setters", "code": "P2", "make": lambda: P2()},
-                {"name": "Empty Rethrow", "code": "P3", "make": lambda: P3()},
-                {"name": "Prohibited class name", "code": "P4", "make": lambda: P4()},
-                {"name": "Force Type Casting", "code": "P5", "make": lambda: P5()},
-                {"name": "Count If Return", "code": "P6", "make": lambda: P6()},
-                {"name": "Implements Multi", "code": "P7", "make": lambda: P7()},
-                {"name": "Instance of", "code": "P8", "make": lambda: P8()},
-                {"name": "Many primary constructors", "code": "P9", "make": lambda: P9()},
-                {"name": "Method chain", "code": "P10", "make": lambda: P10()},
-                {"name": "Multiple try", "code": "P11", "make": lambda: P11()},
-                {"name": "Non final attribute", "code": "P12", "make": lambda: P12()},
-                {"name": "Null check", "code": "P13", "make": lambda: P13()},
-                {"name": "Partial synchronized", "code": "P14", "make": lambda: P14()},
-                {"name": "Redundant catch", "code": "P15", "make": lambda: P15()},
-                {"name": "Return null", "code": "P16", "make": lambda: P16()},
-                {"name": "String concat", "code": "P17", "make": lambda: P17()},
-                {"name": "Super Method", "code": "P18", "make": lambda: P18()},
-                {"name": "This in constructor", "code": "P19", "make": lambda: P19()},
+                {"name": "Asserts", "code": "P1", "make": P1},
+                {"name": "Setters", "code": "P2", "make": P2},
+                {"name": "Empty Rethrow", "code": "P3", "make": P3},
+                {"name": "Prohibited class name", "code": "P4", "make": P4},
+                {"name": "Force Type Casting", "code": "P5", "make": P5},
+                {"name": "Count If Return", "code": "P6", "make": P6},
+                {"name": "Implements Multi", "code": "P7", "make": P7},
+                {"name": "Instance of", "code": "P8", "make": P8},
+                {"name": "Many primary constructors", "code": "P9", "make": P9},
+                {"name": "Method chain", "code": "P10", "make": P10},
+                {"name": "Multiple try", "code": "P11", "make": P11},
+                {"name": "Non final attribute", "code": "P12", "make": P12},
+                {"name": "Null check", "code": "P13", "make": P13},
+                {"name": "Partial synchronized", "code": "P14", "make": P14},
+                {"name": "Redundant catch", "code": "P15", "make": P15},
+                {"name": "Return null", "code": "P16", "make": P16},
+                {"name": "String concat", "code": "P17", "make": P17},
+                {"name": "Super Method", "code": "P18", "make": P18},
+                {"name": "This in constructor", "code": "P19", "make": P19},
                 {
                     "name": "Var declaration distance for 5 lines",
                     "code": "P20_5",
@@ -128,25 +145,25 @@ class Config(metaclass=Singleton):
                     "code": "P20_11",
                     "make": lambda: P20(11)
                 },
-                {"name": "Var in the middle", "code": "P21", "make": lambda: P21()},
-                {"name": "Array as function argument", "code": "P22", "make": lambda: P22()},
-                {"name": "Joined validation", "code": "P23", "make": lambda: P23()},
-                {"name": "Non final class", "code": "P24", "make": lambda: P24()},
-                {"name": "Private static method", "code": "P25", "make": lambda: P25()},
-                {"name": "Public static method", "code": "P26", "make": lambda: P26()},
-                {"name": "Var siblings", "code": "P27", "make": lambda: P27()},
-                {"name": "Null Assignment", "code": "P28", "make": lambda: P28()},
-                {"name": "Multiple While", "code": "P29", "make": lambda: P29()},
-                {"name": "Protected Method", "code": "P30", "make": lambda: P30()},
-                {"name": "Send Null", "code": "P31", "make": lambda: P31()},
-                {"name": "Nested Loop", "code": "P32", "make": lambda: P32(2,
-                                                                           ASTNodeType.DO_STATEMENT,
-                                                                           ASTNodeType.FOR_STATEMENT,
-                                                                           ASTNodeType.WHILE_STATEMENT)}
+                {"name": "Var in the middle", "code": "P21", "make": P21},
+                {"name": "Array as function argument", "code": "P22", "make": P22},
+                {"name": "Joined validation", "code": "P23", "make": P23},
+                {"name": "Non final class", "code": "P24", "make": P24},
+                {"name": "Private static method", "code": "P25", "make": P25},
+                {"name": "Public static method", "code": "P26", "make": P26},
+                {"name": "Var siblings", "code": "P27", "make": P27},
+                {"name": "Null Assignment", "code": "P28", "make": P28},
+                {"name": "Multiple While", "code": "P29", "make": P29},
+                {"name": "Protected Method", "code": "P30", "make": P30},
+                {"name": "Send Null", "code": "P31", "make": P31},
+                {"name": "Nested Loop", "code": "P32",
+                 "make": lambda: P32(2, ASTNodeType.DO_STATEMENT,
+                                     ASTNodeType.FOR_STATEMENT,
+                                     ASTNodeType.WHILE_STATEMENT)}
             ],
             "metrics": [
-                {"name": "Entropy", "code": "M1", "make": lambda: M1()},
-                {"name": "NCSS lightweight", "code": "M2", "make": lambda: M2()},
+                {"name": "Entropy", "code": "M1", "make": M1},
+                {"name": "NCSS lightweight", "code": "M2", "make": M2},
                 {
                     "name": "Indentation counter: Right total variance",
                     "code": "M3_1",
@@ -167,13 +184,13 @@ class Config(metaclass=Singleton):
                     "code": "M3_4",
                     "make": lambda: M3(max_left=True)
                 },
-                {"name": "Cognitive Complexity", "code": "M4", "make": lambda: M4()},
-                {"name": "LCOM4", "code": "M5", "make": lambda: M5()},
-                {"name": "Max diameter of AST", "code": "M6", "make": lambda: M6()},
-                {"name": "Number of variables", "code": "M7", "make": lambda: M7()},
-                {"name": "Number of methods", "code": "M8", "make": lambda: M8()},
-                {"name": "Responce for class", "code": "M9", "make": lambda: M9()},
-                {"name": "Fan out", "code": "M10", "make": lambda: M10()},
+                {"name": "Cognitive Complexity", "code": "M4", "make": M4},
+                {"name": "LCOM4", "code": "M5", "make": M5},
+                {"name": "Max diameter of AST", "code": "M6", "make": M6},
+                {"name": "Number of variables", "code": "M7", "make": M7},
+                {"name": "Number of methods", "code": "M8", "make": M8},
+                {"name": "Responce for class", "code": "M9", "make": M9},
+                {"name": "Fan out", "code": "M10", "make": M10},
             ],
             "target": {
 

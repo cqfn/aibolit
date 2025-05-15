@@ -1,12 +1,13 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-import subprocess
 import os
 import shutil
-from bs4 import BeautifulSoup
+import subprocess
 import tempfile
 import uuid
+
+from bs4 import BeautifulSoup
 
 
 class NPathMetric():
@@ -30,20 +31,20 @@ class NPathMetric():
                 shutil.copytree(self.input, os.path.join(dirName, self.input))
             elif os.path.isfile(self.input):
                 pos1 = self.input.rfind('/')
-                os.makedirs('{}{}{}'.format(dirName, '/', self.input[0:pos1]))
+                os.makedirs(f'{dirName}/{self.input[0:pos1]}')
                 shutil.copyfile(self.input, os.path.join(dirName, self.input))
             else:
                 raise Exception(' '.join(['File', self.input, 'does not exist']))
             tmppath = os.path.dirname(os.path.realpath(__file__))
-            shutil.copyfile(os.path.join(tmppath, 'pom.xml'), '{}{}'.format(root, '/pom.xml'))
-            shutil.copyfile(os.path.join(tmppath, 'npath.xml'), '{}{}'.format(root, '/npath.xml'))
+            shutil.copyfile(os.path.join(tmppath, 'pom.xml'), f'{root}/pom.xml')
+            shutil.copyfile(os.path.join(tmppath, 'npath.xml'), f'{root}/npath.xml')
             if showoutput:
-                subprocess.run(['mvn', 'pmd:pmd'], cwd=root)
+                subprocess.run(['mvn', 'pmd:pmd'], cwd=root, check=True)
             else:
-                subprocess.run(['mvn', 'pmd:pmd'], cwd=root,
+                subprocess.run(['mvn', 'pmd:pmd'], cwd=root, check=True,
                                stdout=subprocess.DEVNULL,
                                stderr=subprocess.DEVNULL)
-            if os.path.isfile('{}{}'.format(root, '/target/pmd.xml')):
+            if os.path.isfile(f'{root}/target/pmd.xml'):
                 res = self.__parseFile(root)
                 return res
             raise Exception(' '.join(['File', self.input, 'analyze failed']))
@@ -53,15 +54,15 @@ class NPathMetric():
     def __parseFile(self, root):
         result = {'data': [], 'errors': []}
         content = []
-        with open('{}{}'.format(root, '/target/pmd.xml'), 'r') as file:
+        with open(f'{root}/target/pmd.xml', 'r', encoding='utf-8') as file:
             content = file.read()
             soup = BeautifulSoup(content, 'lxml')
             files = soup.find_all('file')
             for file in files:
                 out = file.violation.string
                 name = file['name']
-                pos1 = name.find('{}{}'.format(root, '/src/main/java/'))
-                pos1 = pos1 + len('{}{}'.format(root, '/src/main/java/'))
+                pos1 = name.find(f'{root}/src/main/java/')
+                pos1 = pos1 + len(f'{root}/src/main/java/')
                 name = name[pos1:]
                 s = 'NPath complexity of '
                 pos1 = out.find(s)
@@ -71,8 +72,8 @@ class NPathMetric():
             errors = soup.find_all('error')
             for error in errors:
                 name = error['filename']
-                pos1 = name.find('{}{}'.format(root, '/src/main/java/'))
-                pos1 = pos1 + len('{}{}'.format(root, '/src/main/java/'))
+                pos1 = name.find(f'{root}/src/main/java/')
+                pos1 = pos1 + len(f'{root}/src/main/java/')
                 name = name[pos1:]
                 raise Exception(error['msg'])
         return result

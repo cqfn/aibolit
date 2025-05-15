@@ -7,9 +7,9 @@
 .SHELLFLAGS := -e -o pipefail -c
 .SECONDARY:
 SHELL := bash
-.PHONY: all clean requirements test it install xcop flake8 sphinx mypy
+.PHONY: all clean requirements test it install xcop flake8 pylint sphinx mypy
 
-all: requirements install test it flake8 mypy xcop sphinx
+all: requirements install test it flake8 pylint mypy xcop sphinx
 
 requirements:
 	python3 -m pip install -r requirements.txt
@@ -31,6 +31,9 @@ xcop:
 
 flake8:
 	python3 -m flake8 aibolit test scripts setup.py --exclude scripts/target/*
+
+pylint:
+	python3 -m pylint aibolit test scripts setup.py --ignore=scripts/target
 
 sphinx:
 	rm -rf sphinx html

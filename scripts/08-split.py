@@ -30,9 +30,8 @@ if __name__ == '__main__':
     train_size = len(train_files)
     test_size = len(test_files)
     total_elems = train_size + test_size
-    print('{} train elems ({}%) and {} test elems test ({}%) of all dataset'.format(
-        train_size, train_size / total_elems,
-        test_size, test_size / total_elems))
+    print(f'{train_size} train elems ({train_size / total_elems}%) and '
+          f'{test_size} test elems test ({test_size / total_elems}%) of all dataset')
     df = pd.read_csv(str(Path(current_location, './target/dataset.csv')))
     train = df[df['filepath'].isin(train_files)]
     test = df[df['filepath'].isin(test_files)]
@@ -40,10 +39,10 @@ if __name__ == '__main__':
     test.to_csv('test_temp.csv')
     train_preprocessed = preprocess_file('train_temp.csv')
     test_preprocessed = preprocess_file('test_temp.csv')
-    total_size = (train_preprocessed.shape[0] + test_preprocessed.shape[0])
-    print('{} train elems ({}%) and {} test elems test ({}%) of processed dataset'.format(
-        train_preprocessed.shape[0], train_preprocessed.shape[0] / total_size,
-        test_preprocessed.shape[0], test_preprocessed.shape[0] / total_size))
+    total_size = train_preprocessed.shape[0] + test_preprocessed.shape[0]
+    print(f'{train_preprocessed.shape[0]} train elems ({train_preprocessed.shape[0] / total_size}%) '
+          f'and {test_preprocessed.shape[0]} test elems test ({test_preprocessed.shape[0] / total_size}%) '
+          f'of processed dataset')
     Path('train_temp.csv').unlink()
     Path('test_temp.csv').unlink()
     path_to_create = Path(dir_to_create)

@@ -1,0 +1,89 @@
+[MASTER]
+# Extension to allow lxml.etree
+extension-pkg-allow-list=lxml.etree
+
+[FORMAT]
+# Maximum number of characters on a single line
+max-line-length=100
+
+[MESSAGES CONTROL]
+# Disable specific messages
+disable=C0114,  # missing-module-docstring (handled)
+        C0115,  # missing-class-docstring (handled)
+        C0116,  # missing-function-docstring (too many to fix now)
+        R0914,  # too-many-locals (refactoring required)
+        R0912,  # too-many-branches (refactoring required)
+        R1702,  # too-many-nested-blocks (refactoring required)
+        R0801,  # duplicate-code (refactoring required)
+        R0401,  # cyclic-import (architectural issue)
+        I1101,  # c-extension-no-member (lxml false positive)
+        W0718,  # broad-exception-caught (refactoring required)
+        W0719,  # broad-exception-raised (refactoring required)
+        C0103,  # invalid-name (too many to fix)
+        R0903,  # too-few-public-methods (design choice)
+        R0913,  # too-many-arguments (design choice)
+        W0707,  # raise-missing-from (Python 3+ feature)
+        R0902,  # too-many-instance-attributes (design choice)
+        W0622,  # redefined-builtin (design choice)
+        R0904,  # too-many-public-methods (design choice)
+        R0901,  # too-many-ancestors (design choice)
+        W0613,  # unused-argument (sometimes needed for interface)
+        W0612,  # unused-variable (handled separately)
+        R1705,  # no-else-return (style preference)
+        R1710,  # inconsistent-return-statements (style)
+        R1714,  # consider-using-in (style)
+        R1715,  # consider-using-get (style)
+        R1718,  # consider-using-set-comprehension (style)
+        R1719,  # simplify-boolean-expression (style)
+        R1720,  # no-else-raise (style)
+        R1721,  # unnecessary-comprehension (style)
+        R1722,  # consider-using-sys-exit (style preference)
+        R1723,  # no-else-break (style)
+        R1724,  # no-else-continue (style)
+        R1725,  # super-with-arguments (Python 2/3 compatibility)
+        R1728,  # consider-using-generator (optimization)
+        R1730,  # consider-using-min-max-builtin (style)
+        R1731,  # consider-using-max-builtin (style)
+        R1732,  # consider-using-with (refactoring required)
+
+[DESIGN]
+# Minimum number of public methods for a class (see R0903).
+min-public-methods=0
+
+# Maximum number of arguments for function / method.
+max-args=15
+
+# Maximum number of attributes for a class (see R0902).
+max-attributes=15
+
+# Maximum number of boolean expressions in an if statement.
+max-bool-expr=5
+
+# Maximum number of branch for function / method body.
+max-branches=20
+
+# Maximum number of locals for function / method body.
+max-locals=25
+
+# Maximum number of parents for a class (see R0901).
+max-parents=7
+
+# Maximum number of public methods for a class (see R0904).
+max-public-methods=20
+
+# Maximum number of return / yield for function / method body.
+max-returns=6
+
+# Maximum number of statements in function / method body.
+max-statements=50
+
+[VARIABLES]
+# Tells whether unused global variables should be treated as a violation.
+allow-global-unused-variables=yes
+
+# List of names allowed to shadow builtins
+allowed-redefined-builtins=id,str,list,map,filter,all,any,min,max,sum,type
+
+[BASIC]
+# Good variable names which should always be accepted, separated by a comma.
+good-names=i,j,k,n,x,y,_,id,e,p,f,s,t,v,df,ax,fig
