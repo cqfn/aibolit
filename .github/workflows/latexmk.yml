@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: latexmk
+'on':
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  latexmk:
+    timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+      - run: sudo apt-get install --yes ghostscript
+      - uses: yegor256/latexmk-action@0.16.1
+        with:
+          path: wp
+          opts: -pdf
+          depends: DEPENDS.txt
+      - run: |
+          mkdir gh-pages
+          cp wp.pdf gh-pages
+      - uses: JamesIves/github-pages-deploy-action@v4.7.3
+        with:
+          branch: gh-pages
+          folder: gh-pages
+          clean: false
+        if: github.ref == 'refs/heads/master'

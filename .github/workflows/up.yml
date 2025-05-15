@@ -21,20 +21,13 @@ jobs:
       - run: |-
           git fetch --tags --force && \
           latest=$(git tag --sort=creatordate | tail -1) && \
-          sed -E -i "s|yegor256/cam:[^ ]+|yegor256/cam:${latest}|g" README.md
-          sed -E -i "s|yegor256/cam:[^ ]+|yegor256/cam:${latest}|g" \
-            .github/workflows/make.yml
-          sed -E -i "s|^version: [^ ]+|version: ${latest}|g" CITATION.cff
-          date=$(git tag --sort=creatordate \
-            --format="%(creatordate:short)" | tail -1)
-          sed -E -i "s|^date-released: [^ ]+|date-released: ${date}|g" \
-            CITATION.cff
+          sed -E -i "s|aibolit=[^ ]+|yegor256/aibolit==${latest}|g" README.md
       - uses: peter-evans/create-pull-request@v7
         with:
           sign-commits: true
           branch: version-up
-          commit-message: 'new version in README and CITATION.cff'
+          commit-message: 'New version in README'
           delete-branch: true
-          title: 'New version in README and CITATION.cff'
+          title: 'New version in README'
           assignees: yegor256
           base: master
