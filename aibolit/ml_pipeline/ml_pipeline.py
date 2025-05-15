@@ -5,9 +5,10 @@ import shutil
 import subprocess
 from pathlib import Path
 import pickle
+import pandas as pd  # type: ignore
+
 from aibolit.model.model import PatternRankingModel, scale_dataset  # type: ignore
 from aibolit.config import Config
-import pandas as pd  # type: ignore
 
 
 def collect_dataset(args):
@@ -17,7 +18,8 @@ def collect_dataset(args):
 
     def make_patterns(args, cur_work_dir):
         print('Compute patterns...')
-        result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE, encoding='utf-8', cwd=cur_work_dir)
+        result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE, 
+                                encoding='utf-8', cwd=cur_work_dir, check=False)
         print(result.returncode)
         if result.returncode != 0:
             print(result.stderr)
@@ -31,10 +33,11 @@ def collect_dataset(args):
                 shutil.copy(Path(Config.dataset_file()), dataset_file_path)
             else:
                 dataset_file_path = Path(Config.dataset_file())
-            print('dataset was saved to {}'.format(str(dataset_file_path.absolute())))
+            print(f'dataset was saved to {str(dataset_file_path.absolute())}')
 
     def run_cmd(metrics_cmd, cur_work_dir):
-        result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE, encoding='utf-8', cwd=cur_work_dir)
+        result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE, 
+                                encoding='utf-8', cwd=cur_work_dir, check=False)
         if result.returncode != 0:
             print(result.stderr)
             exit(1)
@@ -47,7 +50,7 @@ def collect_dataset(args):
     os.chdir(Path(Config.home_aibolit_folder(), 'scripts'))
     if not java_folder:
         java_folder = Path('target/01').absolute()
-        print('Analyzing {} dir:'.format(java_folder))
+        print(f'Analyzing {java_folder} dir:')
     cur_work_dir = Path(os.getcwd())
     print('Current working directory: ', cur_work_dir)
     print('Directory with JAVA classes: ', java_folder)
@@ -106,12 +109,12 @@ def train_process(target_metric_code="M4"):
     model.fit_regressor(dataset, scaled_dataset[target_metric_code])
 
     save_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
-    print('Saving model to loaded model from file {}:'.format(save_model_file))
+    print(f'Saving model to loaded model from file {save_model_file}:')
     with open(save_model_file, 'wb') as fid:
         pickle.dump(model, fid)
 
     load_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
-    print('Test loaded model from file {}:'.format(load_model_file))
+    print(f'Test loaded model from file {load_model_file}:')
     test_dataset = pd.read_csv(Config.test_csv(), index_col=None)
     with open(load_model_file, 'rb') as fid:
         model_new = pickle.load(fid)
@@ -128,6 +131,6 @@ def train_process(target_metric_code="M4"):
             preds, importances = model_new.rank(row.values)
             print(preds)
     path_with_logs = Path(os.getcwd(), 'catboost_info')
-    print('Removing path with catboost logs {}'.format(path_with_logs))
+    print(f'Removing path with catboost logs {path_with_logs}')
     if path_with_logs.exists():
         shutil.rmtree(path_with_logs)

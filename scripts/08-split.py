@@ -8,12 +8,12 @@ import pandas as pd
 
 def preprocess_file(filename: str):
     print(f'reading dataset from {filename}')
-    df = pd.read_csv(filename, index_col=0)
-    df = df[~df["filepath"].str.lower().str.contains("test")]
-    df = df.dropna().drop_duplicates(
-        subset=df.columns.difference(["filepath", "class_name", "component_index"]))
-    df = df[df.M2 < df.M2.quantile(0.99)]
-    return df
+    data = pd.read_csv(filename, index_col=0)
+    data = data[~data["filepath"].str.lower().str.contains("test")]
+    data = data.dropna().drop_duplicates(
+        subset=data.columns.difference(["filepath", "class_name", "component_index"]))
+    data = data[data.M2 < data.M2.quantile(0.99)]
+    return data
 
 
 if __name__ == '__main__':

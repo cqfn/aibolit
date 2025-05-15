@@ -49,8 +49,8 @@ class CohesionGraph:
                 self.filtrate.filter_node_lvl(class_node, MethodDeclaration)
             method_nodes_filtered: List[MthNodes] = \
                 self.filtrate.filter_getters_setters(method_nodes)
-            full_method_exhaust: List[MthExh] = \
-                list(self.filtrate.exhaust_method(method_node) for path, method_node in method_nodes_filtered)
+            full_method_exhaust: List[MthExh] = list(
+                self.filtrate.exhaust_method(method_node) for path, method_node in method_nodes_filtered)
             clear_method_exhaust: List[MthExh] = \
                 self.filtrate.clean_for_repetitions(full_method_exhaust)
 
@@ -73,10 +73,12 @@ class CohesionGraph:
                 local_nodes: List[LocalNodes] = \
                     self.filtrate.filter_node_lvl(method_node, LocalVariableDeclaration)
                 local_exhaust: List[FldExh] = \
-                    list(self.filtrate.exhaust_field(local_node) for path, local_node in local_nodes)
+                    list(self.filtrate.exhaust_field(local_node) 
+                         for path, local_node in local_nodes)
                 method_exhaust: MthExh = self.filtrate.exhaust_method(method_node)
 
-                self.add_references_to_graph(G, reference_nodes, local_exhaust, clear_field_exhaust, method_exhaust)
+                self.add_references_to_graph(
+                    G, reference_nodes, local_exhaust, clear_field_exhaust, method_exhaust)
                 self.add_this_to_graph(G, this_nodes, clear_field_exhaust, method_exhaust)
                 self.add_invocations_to_graph(
                     G, invocation_nodes, clear_method_exhaust, method_exhaust, local_exhaust, clear_field_exhaust)

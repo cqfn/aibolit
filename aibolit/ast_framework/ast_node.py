@@ -44,7 +44,7 @@ class ASTNode:
             return line
 
         children_lines: List[int] = [
-            self._get_line(child_index)  # type: ignore # all Nones filtered out in list comprehension
+            self._get_line(child_index)  # type: ignore
             for child_index in dfs_preorder_nodes(self._graph, self._node_index)
             if self._get_line(child_index) is not None
         ]
@@ -124,13 +124,14 @@ class ASTNode:
         return text_representation
 
     def __repr__(self) -> str:
-        return f"<ASTNode node_type: {self._get_type(self._node_index)}, node_index: {self._node_index}>"
+        node_type = self._get_type(self._node_index)
+        return f"<ASTNode node_type: {node_type}, node_index: {self._node_index}>"
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, ASTNode):
-            raise NotImplementedError(
-                f"ASTNode support comparission only with themselves, but {type(other)} was provided."
-            )
+            msg = f"ASTNode support comparission only with themselves, "
+            msg += f"but {type(other)} was provided."
+            raise NotImplementedError(msg)
         return self._graph == other._graph and self._node_index == other._node_index
 
     def __hash__(self):

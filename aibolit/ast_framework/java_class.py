@@ -27,7 +27,9 @@ class JavaClass(AST):
     def name(self) -> str:
         try:
             root_node = ASTNode(self.tree, self.root)
-            class_name_nodes = [child for child in root_node.children if child.node_type == ASTNodeType.STRING]
+            class_name_nodes = [
+                child for child in root_node.children if child.node_type == ASTNodeType.STRING
+            ]
             if not class_name_nodes:
                 raise ValueError("Provided AST does not has 'STRING' node type right under the root")
             return class_name_nodes[0].string

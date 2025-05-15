@@ -71,7 +71,9 @@ class Scope:
             )
 
             for statement in scope.statements:
-                nested_scopes_ids = Scope._create_scopes_from_node(statement, method_ast, scope_tree)
+                nested_scopes_ids = Scope._create_scopes_from_node(
+                    statement, method_ast, scope_tree
+                )
                 for nested_scope_id in nested_scopes_ids:
                     scope_tree.add_edge(new_scope_id, nested_scope_id)
 

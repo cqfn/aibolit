@@ -48,7 +48,7 @@ def log_result(result):
     csv_file.flush()
 
 
-def call_proc(cmd, java_file):
+def call_proc(cmd, file_path):
     """ This runs in a separate thread. """
     print('Running ', ' '.join(cmd))
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -58,7 +58,7 @@ def call_proc(cmd, java_file):
         score = float(out.decode().rsplit('readability:', maxsplit=1)[-1].strip())
     else:
         print(f'Error when running: {err}')
-    return str(Path(java_file.strip()).absolute()), score
+    return str(Path(file_path.strip()).absolute()), score
 
 
 if __name__ == '__main__':

@@ -159,49 +159,50 @@ def _parse_args():
              "calculation_errors.log is default.",
     )
 
-    args = parser.parse_args()
+    parsed_args = parser.parse_args()
 
-    if args.jobs >= system_cores_qty:
+    if parsed_args.jobs >= system_cores_qty:
         print(
-            f"WARNING: You have ordered to spawn {args.jobs} jobs, "
+            f"WARNING: You have ordered to spawn {parsed_args.jobs} jobs, "
             f"while system has only {system_cores_qty} cores. "
             "Machine may badly respond, while calculating dataset.",
             file=stderr,
         )
 
-    if args.jobs > allowed_cores_qty:
+    if parsed_args.jobs > allowed_cores_qty:
         print(
-            f"WARNING: You have ordered to spawn {args.jobs} jobs, "
+            f"WARNING: You have ordered to spawn {parsed_args.jobs} jobs, "
             f"while process only allowed to occupy {allowed_cores_qty} cores."
             "You may have a slowdown due to large number of processes.",
             file=stderr,
         )
 
-    if args.timeout == 0:
-        args.timeout = None
+    if parsed_args.timeout == 0:
+        parsed_args.timeout = None
 
-    basicConfig(filename=args.log, filemode="w", level=INFO)
+    basicConfig(filename=parsed_args.log, filemode="w", level=INFO)
 
     default_dataset_directory = Path(".", "target", "04").absolute()
     dataset_directory = Path(getenv("TARGET_FOLDER") or default_dataset_directory)
     makedirs(dataset_directory, exist_ok=True)
-    args.csv_file = Path(dataset_directory, "04-find-patterns.csv")
+    parsed_args.csv_file = Path(dataset_directory, "04-find-patterns.csv")
 
     is_decomposition_requested = getenv("LCOM_DECOMPOSITION", "True")
     if is_decomposition_requested in {"True", "1"}:
-        args.is_decomposition_requested = True
+        parsed_args.is_decomposition_requested = True
     elif is_decomposition_requested in {"False", "0"}:
-        args.is_decomposition_requested = False
+        parsed_args.is_decomposition_requested = False
     else:
         print(
-            f"WARNING: value of 'LCOM_DECOMPOSITION' environment variable {is_decomposition_requested} "
-            "is not recognized. Avaliable options are 'True', 'False', '1', '0'."
+            f"WARNING: value of 'LCOM_DECOMPOSITION' environment variable "
+            f"{is_decomposition_requested} is not recognized. "
+            "Available options are 'True', 'False', '1', '0'. "
             "Decomposition is applied by default.",
             file=stderr,
         )
-        args.is_decomposition_requested = True
+        parsed_args.is_decomposition_requested = True
 
-    return args
+    return parsed_args
 
 
 if __name__ == "__main__":
@@ -231,7 +232,8 @@ if __name__ == "__main__":
                     dataset_features)
                 dataset_writer.writerows(single_file_features)
             except TimeoutError:
-                warning(f"Processing {filename} is aborted due to timeout in {args.timeout} seconds.")
+                warning(f"Processing {filename} is aborted due to "
+                        f"timeout in {args.timeout} seconds.")
                 timeout_errors_qty += 1
             except Exception as e:
                 warning(e)
