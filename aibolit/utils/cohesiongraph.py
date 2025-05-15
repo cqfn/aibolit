@@ -206,8 +206,8 @@ class CohesionGraph:
         for this_path, this_node in this_nodes:
             for field in full_field_exhaust:
                 if (
-                    len(this_node.selectors) == 1
-                    and isinstance(this_node.selectors[0], MemberReference)
+                    len(this_node.selectors) == 1 and
+                    isinstance(this_node.selectors[0], MemberReference)
                 ):
                     if this_node.selectors[0].member in field:
                         self.add_vertices_edges(G, 'reference', method_exhaust, field)

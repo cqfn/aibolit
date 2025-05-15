@@ -14,8 +14,8 @@ class StringConcatFinder:
         assert node.node_type == ASTNodeType.BINARY_OPERATION
         for operator_side in [node.operandr, node.operandl]:
             if (operator_side.node_type == ASTNodeType.LITERAL and
-                isinstance(operator_side.value, str) and
-                not operator_side.value.isdigit()):
+                    isinstance(operator_side.value, str) and
+                    not operator_side.value.isdigit()):
                 return True
         return False
 

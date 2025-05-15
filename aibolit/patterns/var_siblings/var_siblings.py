@@ -36,8 +36,8 @@ class VarSiblings:
         for node_name1 in vars_info:
             for node_name2 in vars_info:
                 if (node_name1 != node_name2 and
-                    self._is_names_close(node_name1, node_name2) and
-                    vars_info[node_name2] not in lines):
+                        self._is_names_close(node_name1, node_name2) and
+                        vars_info[node_name2] not in lines):
                     lines.append(vars_info[node_name2])
         return lines
 
