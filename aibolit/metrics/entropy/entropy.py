@@ -1,8 +1,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-import javalang
 from typing import List
+
+import javalang
 import numpy as np  # type: ignore
 from scipy.stats import entropy  # type: ignore
 

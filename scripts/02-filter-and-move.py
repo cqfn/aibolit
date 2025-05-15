@@ -113,14 +113,14 @@ def worker(queue, counter):
         str_filename = str(filename)
         if str_filename.lower().endswith('.java'):
             if str_filename.lower().endswith('test.java') or \
-                    any([x.lower().find('test') > -1 for x in filename.parts]) or \
+                    any(x.lower().find('test') > -1 for x in filename.parts) or \
                     str_filename.lower().find('package-info') > -1:
                 class_type = ClassType.TEST
             else:
                 try:
                     class_type = get_class_type(filename)
                 except Exception:
-                    print("Can't open file {}. Ignoring the file ...".format(str_filename))
+                    print(f"Can't open file {str_filename}. Ignoring the file ...")
                     traceback.print_exc()
                     class_type = ClassType.JAVA_PARSE_ERROR
 
@@ -143,7 +143,7 @@ def scantree(path):
                 yield entry.path
 
 
-class Counter(object):
+class Counter:
     def __init__(self, initval=0):
         self.val = Value('i', initval)
         self.lock = Lock()
@@ -179,7 +179,7 @@ def walk_in_parallel():
     results = []
 
     counter = Counter(1)
-    from concurrent.futures.thread import ThreadPoolExecutor
+    from concurrent.futures import ThreadPoolExecutor
     p = ThreadPoolExecutor(cpu_count())
 
     while not cancel.value and not queue.empty():

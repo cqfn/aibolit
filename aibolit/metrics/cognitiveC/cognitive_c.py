@@ -1,9 +1,10 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from itertools import groupby
-from aibolit.ast_framework import AST, ASTNodeType, ASTNode
-from typing import List, Set
 import re
+from itertools import groupby
+from typing import List, Set
+
+from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 
 only_increment_for: Set[ASTNodeType] = set([
     ASTNodeType.BREAK_STATEMENT,
@@ -58,7 +59,8 @@ class CognitiveComplexity:
 
     def _increment_logical_operators(self, ast: AST, binary_operation_node: int) -> int:
         complexity = 0
-        logical_operators_sequence = self._create_logical_operators_sequence(ast, binary_operation_node)
+        logical_operators_sequence = self._create_logical_operators_sequence(
+            ast, binary_operation_node)
         complexity += len(list(groupby(logical_operators_sequence)))
         return complexity
 
@@ -83,7 +85,7 @@ class CognitiveComplexity:
 
     def _is_recursion_call(self, ast, node) -> bool:
         node_obj = ASTNode(ast.tree, node)
-        assert (node_obj.node_type == ASTNodeType.METHOD_INVOCATION)
+        assert node_obj.node_type == ASTNodeType.METHOD_INVOCATION
         if self.__method_name == self._get_node_name(ast, node):
             return True
         return False
@@ -102,7 +104,8 @@ class CognitiveComplexity:
         each_block_type = each_block_obj.node_type
         if each_block_type == ASTNodeType.BINARY_OPERATION:
             # Get binary operation name using new API
-            string_nodes = [child for child in each_block_obj.children if child.node_type == ASTNodeType.STRING]
+            string_nodes = [child for child in each_block_obj.children 
+                            if child.node_type == ASTNodeType.STRING]
             bin_operator = string_nodes[0].string if string_nodes else None
             if bin_operator in logical_operators:
                 complexity += self._increment_logical_operators(ast, each_block)
@@ -123,7 +126,8 @@ class CognitiveComplexity:
         each_block_type = each_block_obj.node_type
         complexity = 0
 
-        if each_block_type == ASTNodeType.METHOD_DECLARATION and each_block_name != self.__method_name:
+        if (each_block_type == ASTNodeType.METHOD_DECLARATION and 
+            each_block_name != self.__method_name):
             complexity += self._nested_methods(ast, each_block, nested_level)
 
         elif each_block_type == ASTNodeType.IF_STATEMENT:

@@ -1,9 +1,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from aibolit.ast_framework import AST, ASTNode, ASTNodeType
-
 from typing import List, Tuple
+
+from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
 class MaxDiameter:
@@ -22,13 +22,15 @@ class MaxDiameter:
     def _calcalute_diameter(self, ast: AST) -> int:
         distant_node_from_root, _ = self._find_distant_node(ast, ast.get_root(), False)
 
-        # traverse undirected graph, because we need to ba able to traverse from child to parent in general
-        # it is not needed at previous call, because the most distant node of a tree is anyway a child of root
+        # traverse undirected graph, because we need to be able to traverse from child to parent in 
+        # general. It's not needed at previous call, because the most distant node of a tree is anyway 
+        # a child of root
         # and there is no need to traverse from child to parent, which simply safe time
         _, diameter = self._find_distant_node(ast, distant_node_from_root, True)
         return diameter
 
-    def _find_distant_node(self, ast: AST, source_node: ASTNode, undirected: bool) -> Tuple[ASTNode, int]:
+    def _find_distant_node(self, ast: AST, source_node: ASTNode, 
+                           undirected: bool) -> Tuple[ASTNode, int]:
         distance = 0
 
         max_distance = 0

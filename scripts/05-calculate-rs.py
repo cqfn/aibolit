@@ -30,7 +30,7 @@ if target_folder:
 results = {}
 path = 'target/05'
 os.makedirs(path, exist_ok=True)
-csv_file = open('target/05/05_readability.csv', 'w', newline='\n')
+csv_file = open('target/05/05_readability.csv', 'w', newline='\n', encoding='utf-8')
 writer = csv.writer(
     csv_file, delimiter=';',
     quotechar='"', quoting=csv.QUOTE_MINIMAL)
@@ -53,9 +53,9 @@ def call_proc(cmd, java_file):
     out, err = p.communicate()
     score = None
     if not err:
-        score = float(out.decode().split('readability:')[-1].strip())
+        score = float(out.decode().rsplit('readability:', maxsplit=1)[-1].strip())
     else:
-        print('Error when running: {}'.format(err))
+        print(f'Error when running: {err}')
     return java_file.strip(), score
 
 
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     pool = Pool(multiprocessing.cpu_count())
     handled_files = []
 
-    with open(args.filename, 'r') as f:
+    with open(args.filename, 'r', encoding='utf-8') as f:
         for i in f.readlines():
             java_file = str(Path(dir_path, i)).strip()
             pool.apply_async(

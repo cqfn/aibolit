@@ -7,7 +7,12 @@ from concurrent.futures import TimeoutError
 from csv import DictWriter, QUOTE_MINIMAL
 from functools import partial
 from logging import basicConfig, INFO, warning
-from os import cpu_count, getenv, makedirs, sched_getaffinity
+from os import cpu_count, getenv, makedirs
+try:
+    from os import sched_getaffinity
+except ImportError:
+    # sched_getaffinity is not available on macOS
+    sched_getaffinity = None
 from pathlib import Path
 from sys import stderr
 from typing import Any, Dict, List
@@ -31,7 +36,9 @@ class FileProcessingError(RuntimeError):
         self.cause = cause
 
 
-def _calculate_patterns_and_metrics(file_path: str, is_decomposition_requested: bool) -> List[Dict[str, Any]]:
+def _calculate_patterns_and_metrics(
+    file_path: str, is_decomposition_requested: bool
+) -> List[Dict[str, Any]]:
     results: List[Dict[str, Any]] = []
 
     config = Config.get_patterns_config()
@@ -93,11 +100,13 @@ def _create_dataset_writer(file):
     config = Config.get_patterns_config()
 
     patterns_codes = [
-        pattern["code"] for pattern in config["patterns"] if pattern["code"] not in config["patterns_exclude"]
+        pattern["code"] for pattern in config["patterns"] 
+        if pattern["code"] not in config["patterns_exclude"]
     ]
 
     metrics_codes = [
-        metric["code"] for metric in config["metrics"] if metric["code"] not in config["metrics_exclude"]
+        metric["code"] for metric in config["metrics"] 
+        if metric["code"] not in config["metrics_exclude"]
     ]
 
     fields = \
@@ -110,7 +119,7 @@ def _create_dataset_writer(file):
 
 
 def _parse_args():
-    allowed_cores_qty = len(sched_getaffinity(0))
+    allowed_cores_qty = len(sched_getaffinity(0)) if sched_getaffinity else cpu_count()
     system_cores_qty = cpu_count()
 
     parser = ArgumentParser(description="Creates dataset")
@@ -146,7 +155,8 @@ def _parse_args():
         "--errors-log",
         "-el",
         default="calculation_errors.json",
-        help="Path for errors log file. All errors grouped by patterns. calculation_errors.log is default.",
+        help="Path for errors log file. All errors grouped by patterns. "
+             "calculation_errors.log is default.",
     )
 
     args = parser.parse_args()
@@ -173,7 +183,7 @@ def _parse_args():
     basicConfig(filename=args.log, filemode="w", level=INFO)
 
     default_dataset_directory = Path(".", "target", "04").absolute()
-    dataset_directory = getenv("TARGET_FOLDER", default=default_dataset_directory)
+    dataset_directory = Path(getenv("TARGET_FOLDER") or default_dataset_directory)
     makedirs(dataset_directory, exist_ok=True)
     args.csv_file = Path(dataset_directory, "04-find-patterns.csv")
 
@@ -205,7 +215,9 @@ if __name__ == "__main__":
         _calculate_patterns_and_metrics, is_decomposition_requested=args.is_decomposition_requested
     )
 
-    with open(args.file) as input, open(args.csv_file, "w") as output, ProcessPool(args.jobs) as executor:
+    with (open(args.file, encoding='utf-8') as input,
+          open(args.csv_file, "w", encoding='utf-8') as output,
+          ProcessPool(args.jobs) as executor):
         dataset_writer = _create_dataset_writer(output)
         dataset_writer.writeheader()
 
@@ -215,7 +227,8 @@ if __name__ == "__main__":
 
         for filename in tqdm(filenames):
             try:
-                single_file_features = next(dataset_features)
+                single_file_features = next(
+                    dataset_features)
                 dataset_writer.writerows(single_file_features)
             except TimeoutError:
                 warning(f"Processing {filename} is aborted due to timeout in {args.timeout} seconds.")
@@ -239,7 +252,7 @@ if __name__ == "__main__":
         for error in errors:
             errors_by_pattern[error.pattern_name][error.filepath] = str(error.cause)
 
-        with open(args.errors_log, "w") as errors_log:
+        with open(args.errors_log, "w", encoding='utf-8') as errors_log:
             json.dump(errors_by_pattern, errors_log)
 
         print(

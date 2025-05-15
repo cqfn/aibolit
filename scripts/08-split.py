@@ -7,10 +7,11 @@ import pandas as pd
 
 
 def preprocess_file(filename: str):
-    print('reading dataset from {}'.format(filename))
+    print(f'reading dataset from {filename}')
     df = pd.read_csv(filename, index_col=0)
     df = df[~df["filepath"].str.lower().str.contains("test")]
-    df = df.dropna().drop_duplicates(subset=df.columns.difference(["filepath", "class_name", "component_index"]))
+    df = df.dropna().drop_duplicates(
+        subset=df.columns.difference(["filepath", "class_name", "component_index"]))
     df = df[df.M2 < df.M2.quantile(0.99)]
     return df
 
@@ -40,9 +41,10 @@ if __name__ == '__main__':
     train_preprocessed = preprocess_file('train_temp.csv')
     test_preprocessed = preprocess_file('test_temp.csv')
     total_size = train_preprocessed.shape[0] + test_preprocessed.shape[0]
-    print(f'{train_preprocessed.shape[0]} train elems ({train_preprocessed.shape[0] / total_size}%) '
-          f'and {test_preprocessed.shape[0]} test elems test ({test_preprocessed.shape[0] / total_size}%) '
-          f'of processed dataset')
+    print(f'{train_preprocessed.shape[0]} train elems '
+          f'({train_preprocessed.shape[0] / total_size}%) and '
+          f'{test_preprocessed.shape[0]} test elems '
+          f'({test_preprocessed.shape[0] / total_size}%) of processed dataset')
     Path('train_temp.csv').unlink()
     Path('test_temp.csv').unlink()
     path_to_create = Path(dir_to_create)

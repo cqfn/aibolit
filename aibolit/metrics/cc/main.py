@@ -1,12 +1,13 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-import subprocess
 import os
 import shutil
-from bs4 import BeautifulSoup
+import subprocess
 import tempfile
 import uuid
+
+from bs4 import BeautifulSoup
 
 
 class CCMetric():
@@ -38,11 +39,11 @@ class CCMetric():
             shutil.copyfile(os.path.join(tmppath, 'pom.xml'), root + '/pom.xml')
             shutil.copyfile(os.path.join(tmppath, 'cyclical.xml'), root + '/cyclical.xml')
             if showoutput:
-                subprocess.run(['mvn', 'pmd:pmd'], cwd=root)
+                subprocess.run(['mvn', 'pmd:pmd'], cwd=root, check=False)
             else:
                 subprocess.run(['mvn', 'pmd:pmd'], cwd=root,
                                stdout=subprocess.DEVNULL,
-                               stderr=subprocess.DEVNULL)
+                               stderr=subprocess.DEVNULL, check=False)
             if os.path.isfile(root + '/target/pmd.xml'):
                 res = self.__parseFile(root)
                 return res
@@ -53,7 +54,7 @@ class CCMetric():
     def __parseFile(self, root):
         result = {'data': [], 'errors': []}
         content = []
-        with open(root + '/target/pmd.xml', 'r') as file:
+        with open(root + '/target/pmd.xml', 'r', encoding='utf-8') as file:
             content = file.read()
             soup = BeautifulSoup(content, 'lxml')
             files = soup.find_all("file")

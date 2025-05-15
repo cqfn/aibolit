@@ -35,7 +35,7 @@ results = {}
 
 path = 'target/06'
 os.makedirs(path, exist_ok=True)
-csv_file = open(path + '/06_halstead_volume.csv', 'w', newline='\n')
+csv_file = open(path + '/06_halstead_volume.csv', 'w', newline='\n', encoding='utf-8')
 writer = csv.writer(
     csv_file, delimiter=';',
     quotechar='"', quoting=csv.QUOTE_MINIMAL)
@@ -55,9 +55,9 @@ def call_proc(cmd, java_file):
     out, err = p.communicate()
     score = None
     if not err:
-        score = float(out.decode().split('readability:')[-1].strip())
+        score = float(out.decode().rsplit('readability:', maxsplit=1)[-1].strip())
     else:
-        print('Error when running: {}'.format(err))
+        print(f'Error when running: {err}')
     return str(Path(java_file.strip()).absolute()), score
 
 
@@ -70,7 +70,7 @@ if __name__ == '__main__':
     halstead_location = str(Path(dir_path, 'halstead.jar'))
     print(f'halstead location: {halstead_location}')
     print(max_count)
-    with open(args.filename, 'r') as f:
+    with open(args.filename, 'r', encoding='utf-8') as f:
         for i in f.readlines():
             if count < max_count:
                 java_file = str(Path(dir_path, i)).strip()

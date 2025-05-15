@@ -44,8 +44,8 @@ class FanOut:
 
         return type_reference.name
 
-    # exception are used from https://checkstyle.sourceforge.io/config_metrics.html#ClassFanOutComplexity
-    # basic types ('int', 'long', etc.) are not used, because ASTNodeType.REFERENCE_TYPE match only class types
+    # exception are used from checkstyle.sourceforge.io/config_metrics.html#ClassFanOutComplexity
+    # basic types ('int', 'long', etc.) not used, because ASTNodeType.REFERENCE_TYPE match only classes
     _excluded_class_names = {
         "ArrayIndexOutOfBoundsException",
         "ArrayList",

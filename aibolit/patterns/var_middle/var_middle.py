@@ -42,7 +42,8 @@ class VarMiddle:
         elif node_type == ASTNodeType.STATEMENT_EXPRESSION:
             children_types = {ast.nodes[child]['node_type'] for child in ast.succ[node]}
             if ASTNodeType.SUPER_CONSTRUCTOR_INVOCATION in children_types:
-                scope_status.add_flag(ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE)
+                scope_status.add_flag(
+                    ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE)
 
         # mark scope for annotation usage
         elif node_type == ASTNodeType.ANNOTATION:
@@ -70,7 +71,8 @@ class VarMiddle:
         elif node_type == ASTNodeType.STATEMENT_EXPRESSION:
             children_types = {ast.nodes[child]['node_type'] for child in ast.succ[node]}
             if ASTNodeType.SUPER_CONSTRUCTOR_INVOCATION in children_types:
-                scope_status.remove_flag(ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE)
+                scope_status.remove_flag(
+                    ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE)
 
         # on the end of annotation remove according flag
         elif node_type == ASTNodeType.ANNOTATION:
