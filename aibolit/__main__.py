@@ -858,7 +858,7 @@ def run_thread(files, args):
 
 def get_versions(pkg_name):
     url = f'https://pypi.python.org/pypi/{pkg_name}/json'
-    releases = json.loads(requests.get(url, timeout=1).content)['releases']
+    releases = json.loads(requests.get(url, timeout=15).content)['releases']
     return sorted(releases, key=parse_version, reverse=True)
 
 
@@ -870,7 +870,7 @@ def main():
                 max_available_version,
                 __version__
             ))
-    except requests.exceptions.ConnectionError:
+    except (requests.exceptions.ConnectionError, requests.exceptions.Timeout, requests.exceptions.ReadTimeout):
         print('Can\'t check aibolit version. Network is not available')
     try:
         commands = {
