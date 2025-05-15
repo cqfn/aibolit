@@ -81,4 +81,4 @@ class TestStats(TestCase):
         all_elements_compared: pd.DataFrame = table.eq(results_df)
         bool_eq_elems = np.ravel(all_elements_compared.values)
         are_equal_arrays = np.logical_and.reduce(bool_eq_elems, axis=0)
-        self.assertTrue(are_equal_arrays)
+        self.assertTrue(bool(are_equal_arrays))

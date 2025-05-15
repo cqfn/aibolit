@@ -7,7 +7,7 @@
 .SHELLFLAGS := -e -o pipefail -c
 .SECONDARY:
 SHELL := bash
-.PHONY: all clean requirements test it install xcop flake8 pylint sphinx mypy
+.PHONY: all clean requirements test it install xcop flake8 pylint sphinx mypy lint
 
 all: requirements install test it lint xcop sphinx
 
