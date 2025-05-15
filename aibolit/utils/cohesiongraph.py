@@ -81,11 +81,17 @@ class CohesionGraph:
                 method_exhaust: MthExh = self.filtrate.exhaust_method(method_node)
 
                 self.add_references_to_graph(
-                    G, reference_nodes, local_exhaust, clear_field_exhaust, method_exhaust)
+                    G, reference_nodes,
+                    local_exhaust=local_exhaust,
+                    full_field_exhaust=clear_field_exhaust,
+                    method_exhaust=method_exhaust)
                 self.add_this_to_graph(G, this_nodes, clear_field_exhaust, method_exhaust)
                 self.add_invocations_to_graph(
-                    G, invocation_nodes, clear_method_exhaust,
-                    method_exhaust, local_exhaust, clear_field_exhaust
+                    G, invocation_nodes,
+                    full_method_exhaust=clear_method_exhaust,
+                    method_exhaust=method_exhaust,
+                    local_exhaust=local_exhaust,
+                    full_field_exhaust=clear_field_exhaust
                 )
             break  # Stop after first class
         return G
@@ -97,6 +103,7 @@ class CohesionGraph:
         self,
         G: Graph,
         invocation_nodes: List[SelMemNodes],
+        *,
         full_method_exhaust: List[MthExh],
         method_exhaust: MthExh,
         local_exhaust: List[FldExh],
@@ -120,7 +127,10 @@ class CohesionGraph:
                 inv_funcs: List[str] = inv_arguments[0]
                 if len(inv_fields) > 0:
                     self.add_invocation_fields(
-                        G, inv_fields, local_exhaust, full_field_exhaust, method_exhaust
+                        G, inv_fields,
+                        local_exhaust=local_exhaust,
+                        full_field_exhaust=full_field_exhaust,
+                        method_exhaust=method_exhaust
                     )
                 if len(inv_funcs) > 0:
                     self.add_invocation_funcs(G, inv_funcs, full_method_exhaust, method_exhaust)
@@ -129,6 +139,7 @@ class CohesionGraph:
         self,
         G: Graph,
         inv_fields: List[str],
+        *,
         local_exhaust: List[FldExh],
         full_field_exhaust: List[FldExh],
         method_exhaust: MthExh
@@ -170,6 +181,7 @@ class CohesionGraph:
         self,
         G: Graph,
         reference_nodes: List[SelMemNodes],
+        *,
         local_exhaust: List[FldExh],
         full_field_exhaust: List[FldExh],
         method_exhaust: MthExh

@@ -9,7 +9,9 @@
 SHELL := bash
 .PHONY: all clean requirements test it install xcop flake8 pylint sphinx mypy
 
-all: requirements install test it flake8 pylint mypy xcop sphinx
+all: requirements install test it lint xcop sphinx
+
+lint: flake8 pylint mypy
 
 requirements:
 	python3 -m pip install -r requirements.txt

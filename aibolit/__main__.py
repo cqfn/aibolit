@@ -244,9 +244,6 @@ def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
                     else:
                         check_max_position(child)
 
-        else:
-            return
-
     traverse(node)
     return node.position.line, max_line
 
@@ -767,6 +764,7 @@ def check():
 
     files_to_exclude = handle_exclude_command_line(args)
 
+    files = []
     if args.filenames:
         files = [str(Path(x).absolute()) for x in args.filenames if x not in files_to_exclude]
     elif args.folder:
