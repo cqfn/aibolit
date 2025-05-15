@@ -3,9 +3,10 @@
 
 import os
 import unittest
-from aibolit.metrics.local_methods_calls.local_methods_calls import LocalMethodsCalls
 from pathlib import Path
 from unittest import TestCase
+
+from aibolit.metrics.local_methods_calls.local_methods_calls import LocalMethodsCalls
 
 
 class LocalMethodsCallsTest(TestCase):

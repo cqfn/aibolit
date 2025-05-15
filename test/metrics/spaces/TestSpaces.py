@@ -2,9 +2,10 @@
 # SPDX-License-Identifier: MIT
 
 import os
-from unittest import TestCase
-from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
 from pathlib import Path
+from unittest import TestCase
+
+from aibolit.metrics.spaces.SpaceCounter import IndentationCounter
 
 
 class TestSpaces(TestCase):

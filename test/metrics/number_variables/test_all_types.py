@@ -1,10 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from aibolit.metrics.number_variables.numVariables import NumVars
 import os
-from unittest import TestCase
 from pathlib import Path
+from unittest import TestCase
+
+from aibolit.metrics.number_variables.numVariables import NumVars
 
 
 class TestNum_MethodsandVars(TestCase):

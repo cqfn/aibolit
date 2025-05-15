@@ -1,9 +1,10 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-import unittest
-from aibolit.metrics.mda.mda import MDAMetric
-from pathlib import Path
 import os
+import unittest
+from pathlib import Path
+
+from aibolit.metrics.mda.mda import MDAMetric
 
 
 class TestMDAMetric(unittest.TestCase):

@@ -2,9 +2,10 @@
 # SPDX-License-Identifier: MIT
 
 import os
-from unittest import TestCase
-from aibolit.metrics.countLeaves.numberofleaves import CountNumberOfLeaves
 from pathlib import Path
+from unittest import TestCase
+
+from aibolit.metrics.countLeaves.numberofleaves import CountNumberOfLeaves
 
 
 class TestCountLeaves(TestCase):

@@ -25,7 +25,8 @@ class SendNullTestCase(TestCase):
         pattern = SendNull()
         lines = pattern.value(ast)
         self.assertEqual(
-            lines, [382, 445, 552, 641, 659, 833, 869, 1365, 2396, 2877, 2991, 3083, 3495, 3761, 3858]
+            lines,
+            [382, 445, 552, 641, 659, 833, 869, 1365, 2396, 2877, 2991, 3083, 3495, 3761, 3858]
         )
 
     def test_no_null_methods(self):
