@@ -131,7 +131,7 @@ class TestRecommendPipeline(TestCase):
         val = code_lines_dict['P24']
         self.assertNotEqual(val, 0)
 
-    def test_calculate_patterns_and_metrics_wih_suppress(self):
+    def test_calculate_patterns_and_metrics_with_suppress(self):
         args = self.__suppress_argparse_mock()
         args.suppress = 'P2'
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
@@ -150,9 +150,9 @@ class TestRecommendPipeline(TestCase):
         file = Path(self.cur_file_dir, 'folder')
         found_files = []
         list_dir(file, found_files)
-        resuls = {'KeyframeParser.java', 'Metadata.java', 'LottieImageAsset.java'}
+        results = {'KeyframeParser.java', 'Metadata.java', 'LottieImageAsset.java'}
         filenames = set([Path(x).name for x in found_files])
-        self.assertEqual(filenames, resuls)
+        self.assertEqual(filenames, results)
 
     def test_xml_create_full_report(self):
         mock_input = self.__create_input_for_xml()
@@ -278,7 +278,7 @@ class TestRecommendPipeline(TestCase):
             pattern_found = list(classes_with_annonations.values())[0][0]
             self.assertEqual(pattern_found, 'P11')
 
-    def test_find_mutiple_annotations_by_class_declaration(self):
+    def test_find_multiple_annotations_by_class_declaration(self):
         file = Path(self.cur_file_dir, 'annotations/MutipleAnnotations.java')
         with open(file, 'r', encoding='utf-8') as f:
             tree = javalang.parse.parse(f.read())

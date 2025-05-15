@@ -194,7 +194,7 @@ class InterpProtoANSIX extends InterpProtoANSI {
 	private static final class ACT_DEC_PRIVATE implements Actor {
 
             // xterm Sequences to turn mouse reporting on and off are to be
-            // implemeted here.
+            // implemented here.
             // See http://www.xfree86.org/current/ctlseqs.html#Mouse%20Tracking
 
             private static String decPrivateSet(AbstractInterp ai, char c, int n) {

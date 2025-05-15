@@ -630,7 +630,7 @@ public class ResultSetViewer extends Viewer
                         DBWorkbench.getPlatformUI().showError("Presentation activate", "Can't instantiate data view '" + newPresentation.getLabel() + "'", e);
                     }
                 } else {
-                    // No presentation for this resulset
+                    // No presentation for this resultset
                     log.debug("No presentations for result set [" + resultSet.getClass().getSimpleName() + "]");
                     showEmptyPresentation();
                 }
@@ -3532,7 +3532,7 @@ public class ResultSetViewer extends Viewer
                             try {
                                 fireResultSetLoad();
                             } catch (Throwable e) {
-                                log.debug("Error handling resulset load", e);
+                                log.debug("Error handling resultset load", e);
                             }
                         }
                         updateFiltersText(true);

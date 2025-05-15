@@ -182,7 +182,7 @@ public class BaseKit extends DefaultEditorKit {
     /** Reset the abbreviation accounting string */
     public static final String abbrevResetAction = "abbrev-reset"; // NOI18N
 
-    /** Remove characters to the begining of the word or
+    /** Remove characters to the beginning of the word or
      *  the previous word if caret is not directly at word */
     public static final String removePreviousWordAction = "remove-word-previous"; // NOI18N
 
@@ -190,7 +190,7 @@ public class BaseKit extends DefaultEditorKit {
      *  the next word if caret is not directly at word */
     public static final String removeNextWordAction = "remove-word-next"; // NOI18N
 
-    /** Remove to the begining of the line */
+    /** Remove to the beginning of the line */
     public static final String removeLineBeginAction = "remove-line-begin"; // NOI18N
 
     /** Remove line */
@@ -344,7 +344,7 @@ public class BaseKit extends DefaultEditorKit {
     /** Starts a new line in code */
     public static final String startNewLineAction = "start-new-line"; // NOI18N
 
-    /** Cut text from caret position to line begining action. */
+    /** Cut text from caret position to line beginning action. */
     public static final String cutToLineBeginAction = "cut-to-line-begin"; // NOI18N
 
     /** Cut text from caret position to line end action. */
@@ -1645,7 +1645,7 @@ public class BaseKit extends DefaultEditorKit {
         }
 
         private int computeInsertionOffset(int dot, int mark) {
-            // If selection is present return begining of selection
+            // If selection is present return beginning of selection
             return Math.min(mark, dot);
         }
 
@@ -3368,7 +3368,7 @@ public class BaseKit extends DefaultEditorKit {
             return new BeginLineAction(true);
         }
 
-        /** Whether the action should go to the begining of
+        /** Whether the action should go to the beginning of
          * the text on the line or to the first column on the line*/
         boolean homeKeyColumnOne;
 
@@ -3439,7 +3439,7 @@ public class BaseKit extends DefaultEditorKit {
                                             boolean select = selectionBeginLineAction.equals(actionName)
                                                     || selectionLineFirstColumnAction.equals(actionName);
 
-                                            // If possible scroll the view to its begining horizontally
+                                            // If possible scroll the view to its beginning horizontally
                                             // to ease user's orientation in the code.
                                             Rectangle r = target.modelToView(dot);
                                             Rectangle visRect = target.getVisibleRect();
@@ -3509,7 +3509,7 @@ public class BaseKit extends DefaultEditorKit {
                         boolean select = selectionBeginLineAction.equals(actionName)
                                 || selectionLineFirstColumnAction.equals(actionName);
 
-                        // If possible scroll the view to its begining horizontally
+                        // If possible scroll the view to its beginning horizontally
                         // to ease user's orientation in the code.
                         Rectangle r = target.modelToView(dot);
                         Rectangle visRect = target.getVisibleRect();

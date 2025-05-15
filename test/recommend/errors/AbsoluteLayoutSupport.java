@@ -556,7 +556,7 @@ public class AbsoluteLayoutSupport extends AbstractLayoutSupport {
                         return new Integer(-1);
                     }
                     @Override
-                    public PropertyEditor getExpliciteEditor() {
+                    public PropertyEditor getExplicitEditor() {
                         return new SizeEditor();
                     }
                     @Override
@@ -601,7 +601,7 @@ public class AbsoluteLayoutSupport extends AbstractLayoutSupport {
                         return new Integer(-1);
                     }
                     @Override
-                    public PropertyEditor getExpliciteEditor() {
+                    public PropertyEditor getExplicitEditor() {
                         return new SizeEditor();
                     }
                     @Override
