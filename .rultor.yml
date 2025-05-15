@@ -3,26 +3,17 @@
 ---
 # yamllint disable rule:line-length
 docker:
-  image: yegor256/rultor-python
+  image: yegor256/python
 assets:
   twine_token: yegor256/home#assets/aibolit/twine_token
 architect:
   - yegor256
-  - acheshkov
 install: |
   python3 -m pip install twine
 merge:
   script: |
     make
-deploy:
-  script: |
-    echo There is nothing to deploy
-    exit 1
 release:
-  commanders:
-    - lyriccoder
-    - aravij
-    - acheshkov
   script: |-
     sed -i "s/0\.0\.0/${tag}/g" aibolit/__init__.py
     git add aibolit/__init__.py
