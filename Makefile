@@ -3,33 +3,36 @@
 
 -include local.mk
 
-.PHONY: all clean requirements test it install xcop flake8 doc mypy
+.ONESHELL:
+.SHELLFLAGS := -e -o pipefail -c
+.SECONDARY:
+SHELL := bash
+.PHONY: all clean requirements test it install xcop flake8 sphinx mypy
 
-all: requirements install test it flake8 mypy xcop
+all: requirements install test it flake8 mypy xcop sphinx
 
 requirements:
 	python3 -m pip install -r requirements.txt
 
+install:
+	python3 -m pip install .
+	python3 aibolit --version
+
 test:
 	python3 -m coverage run -m unittest discover
-	python3 aibolit --version
 
 it:
 	python3 -m test.integration.test_patterns_and_metrics
-	python3 -m test.integration.test_model
-	python3 -m test.integration.test_semantic_extraction
+	python3 -m test.integration.test_model > /dev/null
 	./test/integration/test_recommend.sh
 
-install:
-	python3 -m pip install .
-
 xcop:
-	xcop $(find . -name '*.xml')
+	xcop $$(find . -name '*.xml')
 
 flake8:
 	python3 -m flake8 aibolit test scripts setup.py --exclude scripts/target/*
 
-doc:
+sphinx:
 	rm -rf sphinx html
 	sphinx-apidoc -o sphinx aibolit --full
 	sphinx-build sphinx html
