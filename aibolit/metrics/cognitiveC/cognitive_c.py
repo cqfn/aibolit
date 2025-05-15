@@ -104,7 +104,7 @@ class CognitiveComplexity:
         each_block_type = each_block_obj.node_type
         if each_block_type == ASTNodeType.BINARY_OPERATION:
             # Get binary operation name using new API
-            string_nodes = [child for child in each_block_obj.children 
+            string_nodes = [child for child in each_block_obj.children
                             if child.node_type == ASTNodeType.STRING]
             bin_operator = string_nodes[0].string if string_nodes else None
             if bin_operator in logical_operators:
@@ -126,7 +126,7 @@ class CognitiveComplexity:
         each_block_type = each_block_obj.node_type
         complexity = 0
 
-        if (each_block_type == ASTNodeType.METHOD_DECLARATION and 
+        if (each_block_type == ASTNodeType.METHOD_DECLARATION and
             each_block_name != self.__method_name):
             complexity += self._nested_methods(ast, each_block, nested_level)
 

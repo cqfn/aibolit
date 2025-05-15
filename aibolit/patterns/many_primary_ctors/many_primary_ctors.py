@@ -1,18 +1,19 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from aibolit.ast_framework import ASTNodeType, AST
-from aibolit.ast_framework.ast_node import ASTNode
 from typing import List, Union
 
+from aibolit.ast_framework import ASTNodeType, AST
+from aibolit.ast_framework.ast_node import ASTNode
 
-class ManyPrimaryCtors(object):
+
+class ManyPrimaryCtors:
     '''
     If there is more than one primary
     constructors in a class, it is
     considered a pattern
     '''
     def value(self, ast: AST) -> List[int]:
-        lines: List[int] = list()
+        lines: List[int] = []
         for class_declaration in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
             primary_lines = self.__find_primary(ast, class_declaration.body)
             if len(primary_lines) > 1:

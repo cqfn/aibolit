@@ -100,12 +100,12 @@ def _create_dataset_writer(file):
     config = Config.get_patterns_config()
 
     patterns_codes = [
-        pattern["code"] for pattern in config["patterns"] 
+        pattern["code"] for pattern in config["patterns"]
         if pattern["code"] not in config["patterns_exclude"]
     ]
 
     metrics_codes = [
-        metric["code"] for metric in config["metrics"] 
+        metric["code"] for metric in config["metrics"]
         if metric["code"] not in config["metrics_exclude"]
     ]
 

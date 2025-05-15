@@ -1,9 +1,10 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from aibolit.ast_framework import ASTNodeType, AST
-from typing import List, Dict
-from aibolit.ast_framework.ast_node import ASTNode
 import re
+from typing import List, Dict
+
+from aibolit.ast_framework import ASTNodeType, AST
+from aibolit.ast_framework.ast_node import ASTNode
 
 
 class VarSiblings:

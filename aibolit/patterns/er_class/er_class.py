@@ -29,7 +29,7 @@ class ErClass:
         lines: List[int] = []
         for node in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
             class_name = node.name.lower()
-            if any(forbiden_word in class_name 
+            if any(forbiden_word in class_name
                    for forbiden_word in self.forbiden_words_in_class_names):
                 lines.append(node.line)
         return lines

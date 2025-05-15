@@ -10,10 +10,7 @@ class HybridConstructor:
     def is_statement_ctor_inv(self, node: ASTNode) -> bool:
         """Is statement explicit constructor invocation."""
 
-        if node.expression.node_type == ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION:
-            return True
-        else:
-            return False
+        return node.expression.node_type == ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION
 
     def traverse_in_if(
             self,

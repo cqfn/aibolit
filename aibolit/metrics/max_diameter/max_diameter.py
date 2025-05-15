@@ -22,14 +22,14 @@ class MaxDiameter:
     def _calcalute_diameter(self, ast: AST) -> int:
         distant_node_from_root, _ = self._find_distant_node(ast, ast.get_root(), False)
 
-        # traverse undirected graph, because we need to be able to traverse from child to parent in 
-        # general. It's not needed at previous call, because the most distant node of a tree is anyway 
+        # traverse undirected graph, because we need to be able to traverse from child to parent in
+        # general. It's not needed at previous call, as the most distant node of a tree is anyway
         # a child of root
         # and there is no need to traverse from child to parent, which simply safe time
         _, diameter = self._find_distant_node(ast, distant_node_from_root, True)
         return diameter
 
-    def _find_distant_node(self, ast: AST, source_node: ASTNode, 
+    def _find_distant_node(self, ast: AST, source_node: ASTNode,
                            undirected: bool) -> Tuple[ASTNode, int]:
         distance = 0
 

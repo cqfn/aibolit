@@ -36,10 +36,9 @@ class VarDeclarationDistance:
         ))
 
         for method in unique_methods:
-            current_method = method  # Avoid cell-var-from-loop
             method_items = map(
                 lambda v: {"line": v[0].line, "name": v[1], "ntype": type(v[0].node)},
-                filter(lambda v: v[0].method_line == current_method, items)
+                filter(lambda v, m=method: v[0].method_line == m, items)
             )
             vars = {}
             var_scopes += [vars]

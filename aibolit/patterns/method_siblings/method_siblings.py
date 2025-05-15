@@ -1,9 +1,10 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+import re
+from typing import List
+
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.ast_framework.ast_node import ASTNode
-from typing import List
-import re
 
 
 class MethodSiblings:
