@@ -127,7 +127,7 @@ class CognitiveComplexity:
         complexity = 0
 
         if (each_block_type == ASTNodeType.METHOD_DECLARATION and
-            each_block_name != self.__method_name):
+                each_block_name != self.__method_name):
             complexity += self._nested_methods(ast, each_block, nested_level)
 
         elif each_block_type == ASTNodeType.IF_STATEMENT:

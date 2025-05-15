@@ -25,7 +25,7 @@ class HVMetric():
                                                   'halsteadvolume'))
             subprocess.run(['mvn', 'clean', 'package'], cwd=hvpath, check=True)
         result = subprocess.run(['java', '-jar', path, self.input],
-                               stdout=subprocess.PIPE, check=True)
+                                stdout=subprocess.PIPE, check=True)
         out = result.stdout.decode('utf-8')
         res = result = {'data': [{'file': self.input, 'halsteadvolume': float(out)}]}
         return res

@@ -667,7 +667,7 @@ def create_text(results, full_report, is_long=False):
                         pattern_number += 1
                         cur_pattern_name = pattern_name_str
                     buffer.append(f'{filename}[{pattern_item.get("code_line")}]: '
-                                f'{pattern_name_str} ({code}: {pattern_score:.2f})')
+                                  f'{pattern_name_str} ({code}: {pattern_score:.2f})')
 
             total_patterns += pattern_number
     if importances_for_all_classes:
@@ -686,11 +686,11 @@ def show_summary(buffer, importances_for_all_classes, is_long, results, total_pa
          if (not x.get('errors_string') and x.get('results'))])
     if not is_long:
         buffer.append(f'Total score: {np.mean(importances_for_all_classes):.2f}, '
-                     f'files seen: {files_number}, patterns found: {total_patterns}, '
-                     f'ncss: {ncss}')
+                      f'files seen: {files_number}, patterns found: {total_patterns}, '
+                      f'ncss: {ncss}')
     else:
         buffer.append(f'Total score: {np.mean(importances_for_all_classes):.2f}, '
-                     f'files seen: {files_number}, ncss {ncss}')
+                      f'files seen: {files_number}, ncss {ncss}')
         url = 'https://github.com/cqfn/aibolit/blob/master/PATTERNS.md'
         buffer.append(f'You can find all information about patterns here: {url}')
 
@@ -853,7 +853,7 @@ def format_converter_for_pattern(results, sorted_by=None):
             for _, val in all_results.items():
                 total_patterns_list.extend(val)
             total_patterns_list = sorted(total_patterns_list,
-                                       key=operator.itemgetter(sorted_by, 'pattern_code'))
+                                         key=operator.itemgetter(sorted_by, 'pattern_code'))
 
         file['results'] = total_patterns_list
 

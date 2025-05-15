@@ -61,7 +61,7 @@ class RFC:
         }
 
     def _create_method_invocation_params(self,
-                                        method_invocation: ASTNode) -> _MethodInvocationParams:
+                                         method_invocation: ASTNode) -> _MethodInvocationParams:
         assert method_invocation.node_type == ASTNodeType.METHOD_INVOCATION
         return _MethodInvocationParams(
             isLocal=method_invocation.qualifier is None, name=method_invocation.member

@@ -74,8 +74,8 @@ def _extract_scopes_from_if_statement(if_node: ASTNode, method_ast: AST) -> List
     )
 
     while (
-        if_node.else_statement is not None
-        and if_node.else_statement.node_type == ASTNodeType.IF_STATEMENT
+        if_node.else_statement is not None and
+        if_node.else_statement.node_type == ASTNodeType.IF_STATEMENT
     ):
         if_node = if_node.else_statement
         condition_ast = method_ast.get_subtree(if_node.condition)
