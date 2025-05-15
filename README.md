@@ -1,4 +1,4 @@
-<img src="/logo.svg" height="92px"/>
+# ML-Based Static Analyzer for Java
 
 [![PyPi version](https://img.shields.io/pypi/v/aibolit.svg)](https://pypi.org/project/aibolit/)
 [![make](https://github.com/cqfn/aibolit/actions/workflows/make.yml/badge.svg)](https://github.com/cqfn/aibolit/actions/workflows/make.yml)
@@ -36,7 +36,7 @@ aibolit recommend --folder src/java
 ```
 
 It will run recommendation function for the model (model is located in
-[aibolit/binary_files/model.pkl](https://github.com/cqfn/aibolit/blob/master/aibolit/binary_files/model.pkl)).
+[aibolit/binary_files/model.pkl][model]).
 The model finds a pattern which contribution is the largest to the
 Cyclomatic Complexity.
 If anything is found, you will see all recommendations for the mentioned
@@ -70,22 +70,22 @@ by a pattern name:
 
 ```text
 Show all patterns
-/mnt/d/src/java/Configuration.java score: 127.67642529949538
-/mnt/d/src/java/Configuration.java[3840]: Var in the middle (P21: 30.95612931128819 1/4)
-/mnt/d/src/java/Configuration.java[3844]: Var in the middle (P21: 30.95612931128819 1/4)
-/mnt/d/src/java/Configuration.java[3848]: Var in the middle (P21: 30.95612931128819 1/4)
-/mnt/d/src/java/Configuration.java[2411]: Null Assignment (P28: 10.76 2/4)
-/mnt/d/src/java/Configuration.java[826]: Many primary constructors (P9: 10.76 3/4)
-/mnt/d/src/java/Configuration.java[840]: Many primary constructors (P9: 10.76 3/4)
-/mnt/d/src/java/Configuration.java[829]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[841]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[865]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[2586]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3230]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3261]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3727]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3956]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/ErrorExample.java: error when calculating patterns: Can't count P1 metric:
+Configuration.java score: 127.67642529949538
+Configuration.java[3840]: Var in the middle (P21: 30.95612931128819 1/4)
+Configuration.java[3844]: Var in the middle (P21: 30.95612931128819 1/4)
+Configuration.java[3848]: Var in the middle (P21: 30.95612931128819 1/4)
+Configuration.java[2411]: Null Assignment (P28: 10.76 2/4)
+Configuration.java[826]: Many primary constructors (P9: 10.76 3/4)
+Configuration.java[840]: Many primary constructors (P9: 10.76 3/4)
+Configuration.java[829]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[841]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[865]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[2586]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3230]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3261]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3727]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3956]: Partial synchronized (P14: 0.228 4/4)
+ErrorExample.java: error when calculating patterns: Can't count P1 metric:
 Total score: 127.67642529949538
 ```
 
@@ -93,8 +93,8 @@ Total score: 127.67642529949538
 
 ```text
 30.95612931128819 is the score of this pattern
-1 is the position of this pattern in the total list of patterns found in the file
-4 is the total number of found patterns
+1 is the position of this pattern in the total list of patterns
+found in the file 4 is the total number of found patterns
 ```
 
 You can use `format=long`. In this case all results will be sorted by a
@@ -102,24 +102,24 @@ line number:
 
 ```text
 Show all patterns
-/mnt/d/src/java/Configuration.java: some issues found
-/mnt/d/src/java/Configuration.java score: 127.67642529949538
-/mnt/d/src/java/Configuration.java[826]: Many primary constructors (P9: 10.76 3/4)
-/mnt/d/src/java/Configuration.java[829]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[840]: Many primary constructors (P9: 10.76 3/4)
-/mnt/d/src/java/Configuration.java[841]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[865]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[2411]: Null Assignment (P28: 10.76 2/4)
-/mnt/d/src/java/Configuration.java[2586]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3230]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3261]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3727]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3840]: Var in the middle (P21: 30.95612931128819 1/4)
-/mnt/d/src/java/Configuration.java[3844]: Var in the middle (P21: 30.95612931128819 1/4)
-/mnt/d/src/java/Configuration.java[3848]: Var in the middle (P21: 30.95612931128819 1/4)
-/mnt/d/src/java/Configuration.java[3956]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/ErrorExample.java: error when calculating patterns: Can't count P1 metric:
-/mnt/d/src/java/MavenSlice.java: your code is perfect in aibolit's opinion
+Configuration.java: some issues found
+Configuration.java score: 127.67642529949538
+Configuration.java[826]: Many primary constructors (P9: 10.76 3/4)
+Configuration.java[829]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[840]: Many primary constructors (P9: 10.76 3/4)
+Configuration.java[841]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[865]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[2411]: Null Assignment (P28: 10.76 2/4)
+Configuration.java[2586]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3230]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3261]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3727]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3840]: Var in the middle (P21: 30.95612931128819 1/4)
+Configuration.java[3844]: Var in the middle (P21: 30.95612931128819 1/4)
+Configuration.java[3848]: Var in the middle (P21: 30.95612931128819 1/4)
+Configuration.java[3956]: Partial synchronized (P14: 0.228 4/4)
+ErrorExample.java: error when calculating patterns: Can't count P1 metric:
+MavenSlice.java: your code is perfect in aibolit's opinion
 Total score: 127.67642529949538
 ```
 
@@ -132,7 +132,7 @@ mode, but xml will be created:
   <!--Show all patterns-->
   <files>
     <file>
-      <path>/mnt/d/src/java/Configuration.java</path>
+      <path>Configuration.java</path>
       <summary>Some issues found</summary>
       <score>127.67642529949538</score>
       <patterns>
@@ -172,11 +172,11 @@ mode, but xml will be created:
       </patterns>
     </file>
     <file>
-      <path>/mnt/d/src/java/ErrorExample.java</path>
-      <summary>Error when calculating patterns: Can't count P1 metric: </summary>
+      <path>ErrorExample.java</path>
+      <summary>Error when calculating patterns: Can't count P1 metric:</summary>
     </file>
     <file>
-      <path>/mnt/d/src/java/MavenSlice.java</path>
+      <path>MavenSlice.java</path>
       <summary>Your code is perfect in aibolit's opinion</summary>
     </file>
   </files>
@@ -190,26 +190,26 @@ E.g., if you have several patterns, first you need to fix the pattern with
 the score 5.45:
 
 ```text
-/mnt/d/src/java/SampleTests.java[43]: Non final attribute (P12: 5.45 1/10)
-/mnt/d/src/java/SampleTests.java[44]: Non final attribute (P12: 5.45 1/10)
-/mnt/d/src/java/SampleTests.java[80]: Var in the middle (P21: 3.71 2/10)
-/mnt/d/src/java/SampleTests.java[121]: Var in the middle (P21: 3.71 2/10)
-/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 5 lines (P20_5: 2.13 3/10)
-/mnt/d/src/java/SampleTests.java[41]: Non final class (P24: 1.95 4/10)
-/mnt/d/src/java/SampleTests.java[59]: Force Type Casting (P5: 1.45 5/10)
-/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 7 lines (P20_7: 1.07 6/10)
-/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 11 lines (P20_11: 0.78 7/10)
-/mnt/d/src/java/SampleTests.java[51]: Protected Method (P30: 0.60 8/10)
-/mnt/d/src/java/SampleTests.java[52]: Super Method (P18: 0.35 9/10)
-/mnt/d/src/java/SampleTests.java[100]: Partial synchronized (P14: 0.08 10/10)
-/mnt/d/src/java/SampleTests.java[106]: Partial synchronized (P14: 0.08 10/10)
-/mnt/d/src/java/SampleTests.java[113]: Partial synchronized (P14: 0.08 10/10)
+SampleTests.java[43]: Non final attribute (P12: 5.45 1/10)
+SampleTests.java[44]: Non final attribute (P12: 5.45 1/10)
+SampleTests.java[80]: Var in the middle (P21: 3.71 2/10)
+SampleTests.java[121]: Var in the middle (P21: 3.71 2/10)
+SampleTests.java[122]: Var declaration distance for 5 lines (P20_5: 2.13 3/10)
+SampleTests.java[41]: Non final class (P24: 1.95 4/10)
+SampleTests.java[59]: Force Type Casting (P5: 1.45 5/10)
+SampleTests.java[122]: Var declaration distance for 7 lines (P20_7: 1.07 6/10)
+SampleTests.java[122]: Var declaration distance for 11 lines (P20_11: 0.78 7/10)
+SampleTests.java[51]: Protected Method (P30: 0.60 8/10)
+SampleTests.java[52]: Super Method (P18: 0.35 9/10)
+SampleTests.java[100]: Partial synchronized (P14: 0.08 10/10)
+SampleTests.java[106]: Partial synchronized (P14: 0.08 10/10)
+SampleTests.java[113]: Partial synchronized (P14: 0.08 10/10)
 ```
 
 The score per class is the sum of all patterns scores.
 
 ```text
-/mnt/d/src/java/SampleTests.java score: 17.54698560768407
+SampleTests.java score: 17.54698560768407
 ```
 
 The total score is an average among all java files in a project (folder
@@ -240,7 +240,8 @@ You can exclude files with `--exclude` command.
 You to set glob patterns to ignore:
 
 ```bash
-aibolit recommend --folder src/java --exclude=**/*Test*.java --exclude=**/*Impl*.java
+aibolit recommend --folder src/java \
+  --exclude=**/*Test*.java --exclude=**/*Impl*.java
 ```
 
 If you need help, run
@@ -353,3 +354,4 @@ docker run --rm -it \
 ```
 
 [White Paper]: https://github.com/cqfn/aibolit/releases/download/1.2.5-post.1/aibolit_wp.pdf
+[model]: https://github.com/cqfn/aibolit/blob/master/aibolit/binary_files/model.pkl
