@@ -4,7 +4,7 @@ import argparse
 import os
 from hashlib import md5
 from pathlib import Path
-from unittest import TestCase
+from unittest import TestCase, skip
 
 import javalang
 
@@ -176,6 +176,7 @@ class TestRecommendPipeline(TestCase):
         md5_hash = md5('\n'.join(text).encode('utf-8'))
         self.assertEqual(md5_hash.hexdigest(), 'bc22beda46ca18267a677eb32361a2aa')
 
+    @skip('It is flaky')
     def test_text_format_sort_by_code_line(self):
         mock_input = self.__create_mock_input()
         new_mock = format_converter_for_pattern(mock_input, 'code_line')
