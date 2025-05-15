@@ -21,7 +21,7 @@ jobs:
       - run: |-
           git fetch --tags --force && \
           latest=$(git tag --sort=creatordate | tail -1) && \
-          sed -E -i "s|aibolit=[^ ]+|yegor256/aibolit==${latest}|g" README.md
+          sed -E -i "s|aibolit=[^ ]+|aibolit==${latest}|g" README.md
       - uses: peter-evans/create-pull-request@v7
         with:
           sign-commits: true
