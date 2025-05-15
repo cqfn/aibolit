@@ -150,7 +150,7 @@ class CohesionGraph:
         After successful comparison calls "add_vertices_edges"
         Adding nodes and edges between.
         """
-        # ToDo: make a func for a return type check
+        # To-Fix: make a func for a return type check
         for inv_argument in inv_funcs:
             for method in full_method_exhaust:
                 if inv_argument == method[0]:

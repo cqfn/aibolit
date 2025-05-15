@@ -198,7 +198,7 @@ final class BCFile {
     /**
      * Access point to stuff data into a block.
      *
-     * TODO: Change DataOutputStream to something else that tracks the size as
+     * TO-FIX: Change DataOutputStream to something else that tracks the size as
      * long instead of int. Currently, we will wrap around if the row block size
      * is greater than 4GB.
      */

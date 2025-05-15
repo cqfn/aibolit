@@ -775,7 +775,7 @@ public final class Metadata {
      *
      * <p>This method is intended for transport use only.
      */
-    // TODO (louiscryan): Migrate to ByteString
+    // TO-FIX (louiscryan): Migrate to ByteString
     @VisibleForTesting
     byte[] asciiName() {
       return nameBytes;

@@ -282,7 +282,7 @@ public class PrestimeCPUCCTNodeBacked extends PrestimeCPUCCTNode {
 //    public long getSleepTime0() {
 //        return sleepTime0;
 //
-//        // TODO: [wait] self time node?
+//        // TO-FIX: [wait] self time node?
 //    }
 
 //    public int getThreadId() {
@@ -312,7 +312,7 @@ public class PrestimeCPUCCTNodeBacked extends PrestimeCPUCCTNode {
 //    public long getWaitTime0() {
 //        return waitTime0;
 //
-//        // TODO: [wait] self time node?
+//        // TO-FIX: [wait] self time node?
 //    }
 
     public void exportXMLData(ExportDataDumper eDD,String indent) {

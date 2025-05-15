@@ -154,7 +154,7 @@ public class WorkspaceDocumentManagerImpl implements WorkspaceDocumentManager {
             } finally {
                 lock.unlock();
             }
-            // TODO: within the workspace document we need to keep the LSDocument
+            // TO-FIX: within the workspace document we need to keep the LSDocument
             LSDocumentIdentifier document = new LSDocumentIdentifierImpl(filePath.toUri().toString());
             if (document.isWithinProject()) {
                 rescanProjectRoot(filePath);

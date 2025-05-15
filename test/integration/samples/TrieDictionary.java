@@ -327,7 +327,7 @@ public class TrieDictionary implements Dictionary {
                     data.add(CharSequences.create(line));
                 }
             } finally {
-                //TODO: wrap in try - catch:
+                //TO-FIX: wrap in try - catch:
                 in.close();
             }
         }

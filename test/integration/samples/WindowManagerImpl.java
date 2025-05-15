@@ -931,7 +931,7 @@ public final class WindowManagerImpl extends WindowManager implements Workspace 
     /** Adds mode. */
     private void addMode(ModeImpl mode, SplitConstraint[] modeConstraints) {
         if (mode.getKind() == Constants.MODE_KIND_SLIDING) {
-            // TODO.. where to get the side..
+            // TO-FIX.. where to get the side..
             central.addSlidingMode(mode, null, Constants.LEFT, null);
         } else {
             central.addMode(mode, modeConstraints);

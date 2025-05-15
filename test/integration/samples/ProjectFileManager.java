@@ -293,7 +293,7 @@ public class ProjectFileManager implements ProjectData {
 			boolean isInWritableProject) {
 
 		String repositoryName = properties.getString(REPOSITORY_NAME, null);
-// TODO: defer connect to project manager for active project
+// TO-FIX: defer connect to project manager for active project
 		RepositoryServerAdapter rsa =
 			ClientUtil.getRepositoryServer(serverName, port, isInWritableProject);
 
@@ -813,7 +813,7 @@ public class ProjectFileManager implements ProjectData {
 				final String newParentPath) {
 			synchronized (fileSystem) {
 
-				// TODO: This could be very inefficient by producing separate remove/add events
+				// TO-FIX: This could be very inefficient by producing separate remove/add events
 				// - a moved folder could require merging of local and shared trees
 
 				GhidraFolderData folderData = rootFolderData.getFolderPathData(parentPath, true);
@@ -844,7 +844,7 @@ public class ProjectFileManager implements ProjectData {
 				GhidraFolderData folderData = rootFolderData.getFolderPathData(parentPath, true);
 				if (folderData != null) {
 
-					// TODO: This could be very inefficient by producing separate remove/add events
+					// TO-FIX: This could be very inefficient by producing separate remove/add events
 
 					try {
 						folderData.folderChanged(oldFolderName);

@@ -701,7 +701,7 @@ public class ServiceScheduler extends CompositeService {
             amRMClient.removeContainerRequest(request);
           }
         } catch(Exception e) {
-          //TODO Due to YARN-7490, exception may be thrown, catch and ignore for
+          // TO-FIX Due to YARN-7490, exception may be thrown, catch and ignore for
           //now.
           LOG.error("Exception when removing the matching requests. ", e);
         }

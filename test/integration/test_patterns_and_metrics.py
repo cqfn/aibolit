@@ -12,11 +12,11 @@ from aibolit.config import Config
 from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast
 
-# TODO: fix all errors in the patterns/metrics and make these lists empty
+# TO-FIX: fix all errors in the patterns/metrics and make these lists empty
 EXCLUDE_PATTERNS: Set[str] = {}
 EXCLUDE_METRICS: Set[str] = {}
 
-# TODO: refactor or delete following patterns and metrics
+# TO-FIX: refactor or delete following patterns and metrics
 PATTERNS_ACCEPT_FILE_PATH = {
     "P20_5",
     "P20_7",

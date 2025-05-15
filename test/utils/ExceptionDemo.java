@@ -4,27 +4,27 @@
 package cn.itcast_02;
 
 /*
- * javaÖÐÎÒÃÇÈçºÎ´¦ÀíÒì³£ÄØ?
- * A:try¡­catch¡­finally
+ * javaä¸­æˆ‘ä»¬å¦‚ä½•å¤„ç†å¼‚å¸¸å‘¢?
+ * A:tryâ€¦catchâ€¦finally
  * B:throws
  *
- * try¡­catch¡­finally¸ñÊ½
+ * tryâ€¦catchâ€¦finallyæ ¼å¼
  * try {
- * 		¿ÉÄÜ³öÏÖÎÊÌâµÄ´úÂë
- * }catch(Òì³£ÀàÃû ±äÁ¿) {
- * 		Õë¶ÔÎÊÌâµÄ´¦Àí
+ * 		å¯èƒ½å‡ºçŽ°é—®é¢˜çš„ä»£ç 
+ * }catch(å¼‚å¸¸ç±»å å˜é‡) {
+ * 		é’ˆå¯¹é—®é¢˜çš„å¤„ç†
  * }finally {
- * 		ÊÍ·Å×ÊÔ´µÄ´úÂë
+ * 		é‡Šæ”¾èµ„æºçš„ä»£ç 
  * }
  *
- * finallyµÈ»áÔÚ½²£¬ËùÒÔ£¬Õâ¸öÊ±ºò£¬ÎÒÃÇÏÈÊ¹ÓÃ¼òµ¥µÄ¸ñÊ½£º
+ * finallyç­‰ä¼šåœ¨è®²ï¼Œæ‰€ä»¥ï¼Œè¿™ä¸ªæ—¶å€™ï¼Œæˆ‘ä»¬å…ˆä½¿ç”¨ç®€å•çš„æ ¼å¼ï¼š
  * try {
- * 		¿ÉÄÜ³öÏÖÎÊÌâµÄ´úÂë
- * }catch(Òì³£ÀàÃû ±äÁ¿) {
- * 		Õë¶ÔÎÊÌâµÄ´¦Àí
+ * 		å¯èƒ½å‡ºçŽ°é—®é¢˜çš„ä»£ç 
+ * }catch(å¼‚å¸¸ç±»å å˜é‡) {
+ * 		é’ˆå¯¹é—®é¢˜çš„å¤„ç†
  * }
  *
- * ¾¡¿ÉÄÜµÄ°Ñ¿ÉÄÜ³öÏÖÎÊÌâµÄ´úÂëÓÃtry°üº¬£¬Èç¹ûÄãÅÐ¶Ï²»ÁËÄÄÐ©ÓÐÎÊÌâ£¬¿ÉÒÔ¶à°üº¬Ò»Ð©¡£
+ * å°½å¯èƒ½çš„æŠŠå¯èƒ½å‡ºçŽ°é—®é¢˜çš„ä»£ç ç”¨tryåŒ…å«ï¼Œå¦‚æžœä½ åˆ¤æ–­ä¸äº†å“ªäº›æœ‰é—®é¢˜ï¼Œå¯ä»¥å¤šåŒ…å«ä¸€äº›ã€‚
  */
 public class ExceptionDemo {
 	public static void main(String[] args) {
@@ -35,8 +35,8 @@ public class ExceptionDemo {
 		try {
 			System.out.println(a / b);
 		} catch (ArithmeticException e) {
-			System.out.println("³ýÊý²»ÄÜÎª0");
-			// Êµ¼Ê¿ª·¢µÄÊ±ºò£¬Ó¦¸Ã¸ø³öµÄÊÇÒ³ÃæÐÎÊ½µÄÌáÊ¾
+			System.out.println("é™¤æ•°ä¸èƒ½ä¸º0");
+			// å®žé™…å¼€å‘çš„æ—¶å€™ï¼Œåº”è¯¥ç»™å‡ºçš„æ˜¯é¡µé¢å½¢å¼çš„æç¤º
 		}
 
 		System.out.println("world");

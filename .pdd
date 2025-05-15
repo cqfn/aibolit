@@ -1,10 +1,8 @@
 --source=.
 --verbose
---exclude test/**/*
---exclude test/**/*
---exclude stubs/**/*
---exclude aibolit/metrics/halsteadvolume/target/**/*
---exclude scripts/target/**/*
---rule min-words:20
+--exclude build/**
+--exclude html/**
+--exclude sphinx/**
+--rule min-words:15
 --rule min-estimate:15
 --rule max-estimate:90

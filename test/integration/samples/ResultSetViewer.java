@@ -125,8 +125,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * ResultSetViewer
  *
- * TODO: not-editable cells (struct owners in record mode)
- * TODO: PROBLEM. Multiple occurrences of the same struct type in a single table.
+ * TO-FIX: not-editable cells (struct owners in record mode)
+ * TO-FIX: PROBLEM. Multiple occurrences of the same struct type in a single table.
  * Need to make wrapper over DBSAttributeBase or something. Or maybe it is not a problem
  * because we search for binding by attribute only in constraints and for unique key columns which are unique?
  * But what PK has struct type?

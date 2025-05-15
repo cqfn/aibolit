@@ -62,7 +62,7 @@ public class AndroidClientCodegen extends DefaultCodegen implements CodegenConfi
     public AndroidClientCodegen() {
         super();
 
-        // TODO: Android client maintainer review.
+        // TO-FIX: Android client maintainer review.
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .excludeWireFormatFeatures(

@@ -128,7 +128,7 @@ class KeyframeParser {
 
     if (hold) {
       endValue = startValue;
-      // TODO: create a HoldInterpolator so progress changes don't invalidate.
+      // TO-FIX: create a HoldInterpolator so progress changes don't invalidate.
       interpolator = LINEAR_INTERPOLATOR;
     } else if (cp1 != null && cp2 != null) {
       cp1.x = MiscUtils.clamp(cp1.x, -scale, scale);

@@ -395,7 +395,7 @@ public class AddActionPanel extends javax.swing.JPanel implements ValidatingPane
     }//GEN-LAST:event_jButtonBrowseClassActionPerformed
 
     private void jButtonBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseActionPerformed
-// TODO add your handling code here:
+// TO-FIX add your handling code here:
         try{
         org.netbeans.api.project.SourceGroup[] groups = StrutsConfigUtilities.getDocBaseGroups(config.getPrimaryFile());
             org.openide.filesystems.FileObject fo = BrowseFolders.showDialog(groups);
@@ -407,7 +407,7 @@ public class AddActionPanel extends javax.swing.JPanel implements ValidatingPane
     }//GEN-LAST:event_jButtonBrowseActionPerformed
 
     private void RBInputActionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_RBInputActionItemStateChanged
-// TODO add your handling code here:
+// TO-FIX add your handling code here:
         boolean selected = RBInputAction.isSelected();
         TFInputResource.setEditable(!selected);
         jButtonBrowse.setEnabled(!selected);
@@ -415,7 +415,7 @@ public class AddActionPanel extends javax.swing.JPanel implements ValidatingPane
     }//GEN-LAST:event_RBInputActionItemStateChanged
 
     private void RBInputResourceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_RBInputResourceItemStateChanged
-// TODO add your handling code here:
+// TO-FIX add your handling code here:
         boolean selected = RBInputResource.isSelected();
         TFInputResource.setEditable(selected);
         jButtonBrowse.setEnabled(selected);
@@ -423,7 +423,7 @@ public class AddActionPanel extends javax.swing.JPanel implements ValidatingPane
     }//GEN-LAST:event_RBInputResourceItemStateChanged
 
     private void CHBUseFormBeanItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CHBUseFormBeanItemStateChanged
-// TODO add your handling code here:
+// TO-FIX add your handling code here:
         boolean selected = CHBUseFormBean.isSelected();
         CBFormName.setEnabled(selected);
         RBInputResource.setEnabled(selected);

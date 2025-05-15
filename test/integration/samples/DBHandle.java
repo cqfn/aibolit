@@ -610,7 +610,7 @@ public class DBHandle {
 	public synchronized void save(String comment, DBChangeSet changeSet, TaskMonitor monitor)
 			throws IOException, CancelledException {
 
-//TODO: Does not throw ReadOnlyException - should it?
+//TO-FIX: Does not throw ReadOnlyException - should it?
 
 		if (txStarted) {
 			throw new AssertException("Can't save during transaction");

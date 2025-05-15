@@ -762,7 +762,7 @@ public class ReferenceCountedOpenSslEngine extends SSLEngine implements Referenc
                     bytesProduced = SSL.bioFlushByteBuffer(networkBIO);
 
                     if (handshakeException != null) {
-                        // TODO(scott): It is possible that when the handshake failed there was not enough room in the
+                        // TO-FIX(scott): It is possible that when the handshake failed there was not enough room in the
                         // non-application buffers to hold the alert. We should get all the data before progressing on.
                         // However I'm not aware of a way to do this with the OpenSSL APIs.
                         // See https://github.com/netty/netty/issues/6385.
@@ -1288,7 +1288,7 @@ public class ReferenceCountedOpenSslEngine extends SSLEngine implements Referenc
             // As we may count multiple handshakes when TLSv1.3 is used we should just ignore this here as
             // renegotiation is not supported in TLSv1.3 as per spec.
             !SslUtils.PROTOCOL_TLS_V1_3.equals(session.getProtocol()) && handshakeState == HandshakeState.FINISHED) {
-            // TODO: In future versions me may also want to send a fatal_alert to the client and so notify it
+            // TO-FIX: In future versions me may also want to send a fatal_alert to the client and so notify it
             // that the renegotiation failed.
             shutdown();
             throw new SSLHandshakeException("remote-initiated renegotiation not allowed");
@@ -1510,7 +1510,7 @@ public class ReferenceCountedOpenSslEngine extends SSLEngine implements Referenc
         }
         synchronized (this) {
             if (!isDestroyed()) {
-                // TODO: Should we also adjust the protocols based on if there are any ciphers left that can be used
+                // TO-FIX: Should we also adjust the protocols based on if there are any ciphers left that can be used
                 //       for TLSv1.3 or for previor SSL/TLS versions ?
                 try {
                     // Set non TLSv1.3 ciphers.

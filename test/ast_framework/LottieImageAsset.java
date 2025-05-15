@@ -61,7 +61,7 @@ public class LottieImageAsset {
   }
 
   /**
-   * TODO
+   * TO-FIX
    */
   public void setBitmap(@Nullable Bitmap bitmap) {
     this.bitmap = bitmap;

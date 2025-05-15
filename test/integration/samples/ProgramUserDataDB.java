@@ -52,7 +52,7 @@ import ghidra.util.task.TaskMonitorAdapter;
  */
 class ProgramUserDataDB extends DomainObjectAdapterDB implements ProgramUserData {
 
-// TODO: WARNING! This implementation does not properly handle undo/redo in terms of cache invalidation
+// TO-FIX: WARNING! This implementation does not properly handle undo/redo in terms of cache invalidation
 
 	/**
 	 * DB_VERSION should be incremented any time a change is made to the overall

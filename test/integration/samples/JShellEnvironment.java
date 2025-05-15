@@ -342,7 +342,7 @@ public class JShellEnvironment {
             ClassPath modClassRaw = projectInfo.getClassPath(ClasspathInfo.PathKind.MODULE_CLASS);
             ClassPath modCompileRaw = projectInfo.getClassPath(ClasspathInfo.PathKind.MODULE_COMPILE);
 
-            // TODO: Possible duplicate entries on CP + ModuleCP in case of modular project. May impact
+            // TO-FIX: Possible duplicate entries on CP + ModuleCP in case of modular project. May impact
             // refactoring or usages.
             ClassPath compile = ClassPathSupport.createProxyClassPath(
                 classesFromProject,

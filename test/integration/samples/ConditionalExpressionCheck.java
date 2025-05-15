@@ -44,7 +44,7 @@ public class ConditionalExpressionCheck extends AbstractCheck {
     public void visitToken(DetailAST ast) {
         if ((ast.getPreviousSibling() != null && ast.getPreviousSibling().getType() == TokenTypes.LPAREN)
                 || (ast.getNextSibling() != null && ast.getNextSibling().getType() == TokenTypes.RPAREN)) {
-            //TODO 还要排除(!a||~b)的情况
+            // TO-FIX 还要排除(!a||~b)的情况
 
         }
 
@@ -53,7 +53,7 @@ public class ConditionalExpressionCheck extends AbstractCheck {
         int ifLineNo = ast.getLineNo();
         DetailAST exprAst = ast.getFirstChild().getNextSibling();
         if(exprAst == null) {
-            return;//TODO ???
+            return;// TO-FIX ???
         }
         int exprLineNo = exprAst.getLineNo();
         String ifExpression = codeLines[ifLineNo - 1].trim();

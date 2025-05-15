@@ -213,7 +213,7 @@ public class PrivateDatabase extends Database {
 		synchronized (syncObject) {
 			if (srcFile != null) {
 				boolean success = false;
-				// TODO: watch-out for multiple updatable BufferFile instances
+				// TO-FIX: watch-out for multiple updatable BufferFile instances
 				LocalManagedBufferFile localBf = new LocalManagedBufferFile(bfMgr, true, -1, -1);
 				try {
 					localBf.updateFrom(srcFile, oldVersion, monitor);  // performs a save

@@ -51,7 +51,7 @@ import java.io.*;
  *  of a final property value, only objects are returned. Scalar types
  *  are wrapped using the appropriate class (int/Integer, ...).
  *
- *  TODO: support for attributes, keys and limited arrays (only first
+ *  TO-FIX: support for attributes, keys and limited arrays (only first
  *  element for example).
  *
  */

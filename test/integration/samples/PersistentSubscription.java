@@ -519,7 +519,7 @@ public class PersistentSubscription implements Subscription {
 
         @Override
         public void markDeleteFailed(ManagedLedgerException exception, Object ctx) {
-            // TODO: cut consumer connection on markDeleteFailed
+            // TO-FIX: cut consumer connection on markDeleteFailed
             if (log.isDebugEnabled()) {
                 log.debug("[{}][{}] Failed to mark delete for position ", topicName, subName, ctx, exception);
             }

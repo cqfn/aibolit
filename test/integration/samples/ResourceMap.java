@@ -67,7 +67,7 @@ public class ResourceMap implements StructConverter {
 	}
 
 	private void parseResourceTypeList(BinaryReader reader, ResourceHeader header) throws IOException {
-		long resourceTypeListStart = _mapStartIndex + resourceTypeListOffset + 2;/*TODO*/
+		long resourceTypeListStart = _mapStartIndex + resourceTypeListOffset + 2;
 		reader.setPointerIndex(resourceTypeListStart);
 		for (int i = 0 ; i < numberOfTypes + 1 ; ++i) {
 			_resourceTypeList.add(new ResourceType(reader, header, this, resourceTypeListStart));

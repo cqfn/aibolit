@@ -176,7 +176,7 @@ def _find_scopes_in_expressions(expression_ast: AST) -> List[ScopeAttributes]:
     """
     Finds top level lambda expressions and returns their bodies.
     Each found nested scope represented by a list of its statements. List of such list is returned.
-    TODO: Add support for others scopes can be found in expressions like anonymous classes.
+    TO-FIX: Add support for others scopes can be found in expressions like anonymous classes.
     """
 
     nested_scopes_statements: List[ScopeAttributes] = []

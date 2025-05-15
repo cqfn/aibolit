@@ -253,7 +253,7 @@ public class NonPersistentSubscription implements Subscription {
     @Override
     public CompletableFuture<Entry> peekNthMessage(int messagePosition) {
         // No-op
-        return CompletableFuture.completedFuture(null);// TODO: throw exception
+        return CompletableFuture.completedFuture(null);// TO-FIX: throw exception
     }
 
     @Override

@@ -66,7 +66,7 @@ public class ProfilerGCXYItemPainter extends SynchronousXYItemPainter {
 //        if (!(item instanceof ProfilerGCXYItem))
 //            throw new UnsupportedOperationException("Unsupported item: " + item); // NOI18N
 
-        // TODO: should return real bounds (== empty bounds for no gc)
+        // TO-FIX: should return real bounds (== empty bounds for no gc)
 
         LongRect viewBounds = super.getItemBounds(item, context);
         viewBounds.y = 0;

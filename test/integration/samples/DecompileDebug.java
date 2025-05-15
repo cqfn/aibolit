@@ -171,7 +171,7 @@ public class DecompileDebug {
 			debugStream.close();
 		}
 		catch (Exception e) {
-			// TODO Auto-generated catch block
+			// TO-FIX Auto-generated catch block
 			Msg.error(this, "Unexpected Exception: " + e.getMessage(), e);
 		}
 	}

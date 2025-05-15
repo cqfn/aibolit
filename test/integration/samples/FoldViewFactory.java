@@ -287,7 +287,7 @@ public final class FoldViewFactory extends EditorViewFactory implements FoldHier
         }
         JTextComponent comp = textComponent();
         if (collapsedFoldEncountered && comp != null) {
-            // [TODO] there could be more detailed inspection done among folds
+            // [TO-FIX] there could be more detailed inspection done among folds
             // of what really changed and what are in fact the same folds as before the change
             // possibly performed even on the Fold API level.
             int startOffset = evt.getAffectedStartOffset();

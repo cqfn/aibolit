@@ -89,7 +89,7 @@ public class TreeGraphLayout<N, E> extends GraphLayout {
 
         for (N node : nodesToResolve) {
             Point position = new Point ();
-            // TODO - resolve others
+            // TO-FIX - resolve others
             resultPosition.put (node, position);
         }
 

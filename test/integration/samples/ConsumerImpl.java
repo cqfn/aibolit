@@ -497,7 +497,7 @@ public class ConsumerImpl<T> extends ConsumerBase<T> implements ConnectionHandle
         return sendAcknowledge(messageId, ackType, properties, txnImpl);
     }
 
-    // TODO: handle transactional acknowledgements.
+    // TO-FIX: handle transactional acknowledgements.
     private CompletableFuture<Void> sendAcknowledge(MessageId messageId, AckType ackType,
                                                     Map<String,Long> properties,
                                                     TransactionImpl txnImpl) {

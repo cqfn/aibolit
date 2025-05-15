@@ -1083,7 +1083,7 @@ public class InternalEngine extends Engine {
      * However, we prefer to fail a request individually (instead of a shard) if we hit a document failure on the primary.
      */
     private boolean treatDocumentFailureAsTragicError(Index index) {
-        // TODO: can we enable this check for all origins except primary on the leader?
+        // TO-FIX: can we enable this check for all origins except primary on the leader?
         return index.origin() == Operation.Origin.REPLICA
             || index.origin() == Operation.Origin.PEER_RECOVERY
             || index.origin() == Operation.Origin.LOCAL_RESET;
@@ -1576,7 +1576,7 @@ public class InternalEngine extends Engine {
         }
         assert refreshed == false || lastRefreshedCheckpoint() >= localCheckpointBeforeRefresh : "refresh checkpoint was not advanced; " +
             "local_checkpoint=" + localCheckpointBeforeRefresh + " refresh_checkpoint=" + lastRefreshedCheckpoint();
-        // TODO: maybe we should just put a scheduled job in threadPool?
+        // TO-FIX: maybe we should just put a scheduled job in threadPool?
         // We check for pruning in each delete request, but we also prune here e.g. in case a delete burst comes in and then no more deletes
         // for a long time:
         maybePruneDeletes();

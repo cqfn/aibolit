@@ -343,7 +343,7 @@ public class CommonRdbmsReader {
                     LOG.debug("read data " + record.toString()
                             + " occur exception:", e);
                 }
-                //TODO 这里识别为脏数据靠谱吗？
+                // TO-FIX 这里识别为脏数据靠谱吗？
                 taskPluginCollector.collectDirtyRecord(record, e);
                 if (e instanceof DataXException) {
                     throw (DataXException) e;

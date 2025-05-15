@@ -1293,7 +1293,7 @@ public class TFile {
         endLocation = end;
 
         valTransferBuffer = new BytesWritable();
-        // TODO: remember the longest key in a TFile, and use it to replace
+        // TO-FIX: remember the longest key in a TFile, and use it to replace
         // MAX_KEY_SIZE.
         keyBuffer = new byte[MAX_KEY_SIZE];
         keyDataInputStream = new DataInputBuffer();
