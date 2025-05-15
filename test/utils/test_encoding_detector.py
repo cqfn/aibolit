@@ -21,4 +21,7 @@ class TestEncodingDetector(TestCase):
                     self.assertEqual(actual_encoding.upper(), excepted_encoding.upper())
                 # For other encodings, use exact match
                 else:
-                    self.assertEqual(actual_encoding, 'GB2312' if excepted_encoding == 'GB18030' else excepted_encoding)
+                    self.assertEqual(
+                        actual_encoding,
+                        'GB2312' if excepted_encoding == 'GB18030' else excepted_encoding
+                    )

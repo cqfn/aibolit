@@ -63,7 +63,9 @@ class ScopeTestCase(TestCase):
         scope = Scope.build_from_method_ast(self._get_method_ast(method_name))
         self.assertScope(scope, self._scope_statements_in_preorder_by_method[method_name])
 
-    def assertScope(self, scope: Scope, statements_by_scope_in_preorder: List[StatementsTypes]) -> None:
+    def assertScope(
+        self, scope: Scope, statements_by_scope_in_preorder: List[StatementsTypes]
+    ) -> None:
         scope_preorder_index = 0
         self.assertStatements(scope, statements_by_scope_in_preorder[scope_preorder_index])
 
@@ -102,7 +104,9 @@ class ScopeTestCase(TestCase):
             raise ValueError(f"There is no method {method_name} in class {class_declaration.name}")
 
     _scope_statements_in_preorder_by_method = {
-        "plain_method": [[ASTNodeType.LOCAL_VARIABLE_DECLARATION, ASTNodeType.LOCAL_VARIABLE_DECLARATION]],
+        "plain_method": [
+            [ASTNodeType.LOCAL_VARIABLE_DECLARATION, ASTNodeType.LOCAL_VARIABLE_DECLARATION]
+        ],
         "lambda_in_assert": [
             [ASTNodeType.LOCAL_VARIABLE_DECLARATION, ASTNodeType.ASSERT_STATEMENT],
             [ASTNodeType.BINARY_OPERATION],
