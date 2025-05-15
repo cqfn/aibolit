@@ -9,9 +9,9 @@
 
 Learn how Aibolit works in our [White Paper].
 
-First, you install it (you must have [Python 3.7.7](https://www.python.org/downloads/)
+First, you install it (you must have
+[Python 3.7.7](https://www.python.org/downloads/)
 and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
-
 
 ```bash
 pip3 install aibolit
@@ -35,28 +35,38 @@ Also, you can set a folder with Java files:
 aibolit recommend --folder src/java
 ```
 
-It will run recommendation function for the model (model is located in [aibolit/binary_files/model.pkl](https://github.com/cqfn/aibolit/blob/master/aibolit/binary_files/model.pkl).
-The model finds a pattern which contribution is the largest to the Cyclomatic Complexity.
-If anything is found, you will see all recommendations for the mentioned patterns.
-You can see the list of all patterns in [Patterns.md](https://github.com/cqfn/aibolit/blob/master/PATTERNS.md).
+It will run recommendation function for the model (model is located in
+[aibolit/binary_files/model.pkl](https://github.com/cqfn/aibolit/blob/master/aibolit/binary_files/model.pkl)).
+The model finds a pattern which contribution is the largest to the
+Cyclomatic Complexity.
+If anything is found, you will see all recommendations for the mentioned
+patterns.
+You can see the list of all patterns in
+[Patterns.md](https://github.com/cqfn/aibolit/blob/master/PATTERNS.md).
 The output of recommendation will be redirected to the stdout.
-If the program has the `0` exit code, it means that all analyzed files do not have any issues.
-If the program has the `1` exit code, it means that at least 1 analyzed file has an issue.
+If the program has the `0` exit code, it means that all analyzed files do
+not have any issues.
+If the program has the `1` exit code, it means that at least 1 analyzed file
+has an issue.
 If the program has the `2` exit code, it means that program crash occurred.
 
-You can suppress certain patterns (comma separated value) and they will be ignored. They won't be included into the report, also their importance will be set to 0.
+You can suppress certain patterns (comma separated value) and they will be
+ignored. They won't be included into the report, also their importance will
+be set to 0.
 
 ```bash
 aibolit recommend --folder src/java --suppress=P12,P13
 ```
 
-You can change the format, using the `--format` parameter. The default value is `--format=compact`.
+You can change the format, using the `--format` parameter. The default value
+is `--format=compact`.
 
 ```bash
 aibolit recommend --folder src/java --format=compact --full
 ```
 
-It will output sorted patterns by importance in descending order and grouped by a pattern name:
+It will output sorted patterns by importance in descending order and grouped
+by a pattern name:
 
 ```text
 Show all patterns
@@ -81,14 +91,14 @@ Total score: 127.67642529949538
 
 `(P21: 30.95612931128819 1/4)` means the following:
 
-
 ```text
 30.95612931128819 is the score of this pattern
 1 is the position of this pattern in the total list of patterns found in the file
 4 is the total number of found patterns
 ```
 
-You can use `format=long`. In this case all results will be sorted by a line number:
+You can use `format=long`. In this case all results will be sorted by a
+line number:
 
 ```text
 Show all patterns
@@ -113,7 +123,8 @@ Show all patterns
 Total score: 127.67642529949538
 ```
 
-You can also choose xml format. It will have the same format as `compact` mode, but xml will be created:
+You can also choose xml format. It will have the same format as `compact`
+mode, but xml will be created:
 
 ```xml
 <report>
@@ -172,9 +183,11 @@ You can also choose xml format. It will have the same format as `compact` mode, 
 </report>
 ```
 
-The score is the relative importance of the pattern (there is no range for it).
+The score is the relative importance of the pattern (there is no range for
+it).
 The larger score is, the most important pattern is.
-E.g., if you have several patterns, first you need to fix the pattern with the score 5.45:
+E.g., if you have several patterns, first you need to fix the pattern with
+the score 5.45:
 
 ```text
 /mnt/d/src/java/SampleTests.java[43]: Non final attribute (P12: 5.45 1/10)
@@ -199,21 +212,25 @@ The score per class is the sum of all patterns scores.
 /mnt/d/src/java/SampleTests.java score: 17.54698560768407
 ```
 
-The total score is an average among all java files in a project (folder you've set to analyze)
+The total score is an average among all java files in a project (folder
+you've set to analyze)
 
 ```text
 Total average score: 4.0801854775508914
 ```
 
-If you have 2 scores of different projects, the worst project is that one which has the highest score.
+If you have 2 scores of different projects, the worst project is that one
+which has the highest score.
 
-Model is automatically installed with *aibolit* package, but you can also try your own model
+Model is automatically installed with *aibolit* package, but you can also
+try your own model
 
 ```bash
 aibolit recommend --folder src/java --model /mnt/d/some_folder/model.pkl
 ```
 
-You can get full report with `--full` command, then all patterns will be included to the output:
+You can get full report with `--full` command, then all patterns will be
+included to the output:
 
 ```bash
 aibolit recommend --folder src/java --full
@@ -245,21 +262,31 @@ Train works only with cloned git repository.
 1. Clone aibolit repository
 2. Go to `cloned_aibolit_path`
 3. Run `pip install .`
-4. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for Linux).
-5. Set env variable `TARGET_FOLDER` if you need to save all dataset files to another directory.
-6. You have to specify train and test dataset: set the `HOME_TRAIN_DATASET` environment variable
-for train dataset and the `HOME_TEST_DATASET` environment variable for test dataset.
+4. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for
+Linux).
+5. Set env variable `TARGET_FOLDER` if you need to save all dataset files to
+another directory.
+6. You have to specify train and test dataset: set the `HOME_TRAIN_DATASET`
+environment variable
+for train dataset and the `HOME_TEST_DATASET` environment variable for test
+dataset.
 
-Usually, these files are in `scripts/target/08` directory after dataset collection (if you have not skipped it).
+Usually, these files are in `scripts/target/08` directory after dataset
+collection (if you have not skipped it).
 But you can use your own datasets.
 
-Please notice, that if you set `TARGET_FOLDER`, your dataset files will be in `TARGET_FOLDER/target`.
+Please notice, that if you set `TARGET_FOLDER`, your dataset files will be
+in `TARGET_FOLDER/target`.
 That is why it is necessary to
 set HOME_TRAIN_DATASET=`TARGET_FOLDER`\target\08\08-train.csv,
 HOME_TEST_DATASET =`TARGET_FOLDER`\target\08\08-test.csv
-7. If you need to set up own directory where model will be saved, set up also `SAVE_MODEL_FOLDER` environment variable.
-Otherwise model will be saved into `cloned_aibolit_path/aibolit/binary_files/model.pkl`
-8. If you need to set up own folder with Java files, use `--java_folder parameter`, the default value will be `scripts/target/01` of aibolit cloned repo
+7. If you need to set up own directory where model will be saved, set up also
+`SAVE_MODEL_FOLDER` environment variable.
+Otherwise model will be saved into
+`cloned_aibolit_path/aibolit/binary_files/model.pkl`
+8. If you need to set up own folder with Java files, use `--java_folder
+parameter`, the default value will be `scripts/target/01` of aibolit cloned
+repo
 
 Or you can use our docker image (link will be soon here)
 
@@ -269,13 +296,15 @@ Run train pipeline:
 aibolit train --java_folder=src/java [--max_classes=100] [--dataset_file]
 ```
 
-If you need to save the dataset with all calculated metrics to a different directory, you need to use `dataset_file` parameter
+If you need to save the dataset with all calculated metrics to a different
+directory, you need to use `dataset_file` parameter
 
 ```bash
 aibolit train --java_folder=src/java --dataset_file /mnt/d/new_dir/dataset.csv
 ```
 
-You can skip dataset collection with `skip_collect_dataset` parameter. In this case
+You can skip dataset collection with `skip_collect_dataset` parameter. In
+this case
 the model will be trained with predefined dataset (see 5 point):
 
 ```bash
@@ -291,7 +320,7 @@ First, you need to install:
 * Ruby 2.6+
 * [Xcop](https://github.com/yegor256/xcop)
 
-Install the following packages if you don't have :
+Install the following packages if you don't have:
 
 ```bash
 apt-get install ruby-dev libz-dev libxml2
@@ -313,7 +342,6 @@ latexmk -c && latexmk -pdf wp.tex
 
 If everything is fine, submit
 a [pull request](https://www.yegor256.com/2014/04/15/github-guidelines.html).
-
 
 Using Docker recommendation pipeline
 
