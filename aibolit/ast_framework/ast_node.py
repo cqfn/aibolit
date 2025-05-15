@@ -129,7 +129,7 @@ class ASTNode:
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, ASTNode):
-            msg = f"ASTNode support comparission only with themselves, "
+            msg = "ASTNode support comparission only with themselves, "
             msg += f"but {type(other)} was provided."
             raise NotImplementedError(msg)
         return self._graph == other._graph and self._node_index == other._node_index

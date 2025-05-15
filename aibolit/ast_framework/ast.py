@@ -210,8 +210,9 @@ class AST:
             member_reference_params = MemberReferenceParams(object_name='', member_name=params[0],
                                                             unary_operator='')
         elif len(params) == 2:
-            member_reference_params = MemberReferenceParams(object_name=params[0], member_name=params[1],
-                                                            unary_operator='')
+            member_reference_params = MemberReferenceParams(
+                object_name=params[0], member_name=params[1], unary_operator=''
+            )
         elif len(params) == 3:
             member_reference_params = MemberReferenceParams(
                 unary_operator=params[0], object_name=params[1], member_name=params[2]
@@ -257,7 +258,9 @@ class AST:
                     tree.add_edge(parent_index, child_index)
 
     @staticmethod
-    def _add_javalang_node(tree: DiGraph, javalang_node: Union[Node, Set[Any], str]) -> Tuple[int, ASTNodeType]:
+    def _add_javalang_node(
+        tree: DiGraph, javalang_node: Union[Node, Set[Any], str]
+    ) -> Tuple[int, ASTNodeType]:
         node_index = AST._UNKNOWN_NODE_TYPE
         node_type = ASTNodeType.UNKNOWN
         if isinstance(javalang_node, Node):
@@ -291,7 +294,9 @@ class AST:
         return node_index, node_type
 
     @staticmethod
-    def _post_process_javalang_attributes(tree: DiGraph, node_type: ASTNodeType, attributes: Dict[str, Any]) -> None:
+    def _post_process_javalang_attributes(
+        tree: DiGraph, node_type: ASTNodeType, attributes: Dict[str, Any]
+    ) -> None:
         """
         Replace some attributes with more appropriate values for convenient work
         """

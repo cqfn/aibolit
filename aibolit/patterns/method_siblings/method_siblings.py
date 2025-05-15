@@ -22,7 +22,7 @@ class MethodSiblings:
 
         for node in method_nodes:
             for new_node in method_nodes:
-                if (node.node_index < new_node.node_index and 
+                if (node.node_index < new_node.node_index and
                     self._is_method_names_close(node, new_node)):
                     numbers.extend([node.line, new_node.line])
         return sorted(list(set(numbers)))

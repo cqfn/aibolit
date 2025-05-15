@@ -31,7 +31,8 @@ class JavaClass(AST):
                 child for child in root_node.children if child.node_type == ASTNodeType.STRING
             ]
             if not class_name_nodes:
-                raise ValueError("Provided AST does not has 'STRING' node type right under the root")
+                msg = "Provided AST does not has 'STRING' node type right under the root"
+                raise ValueError(msg)
             return class_name_nodes[0].string
         except ValueError:
             raise ValueError("Provided AST does not has 'STRING' node type right under the root")

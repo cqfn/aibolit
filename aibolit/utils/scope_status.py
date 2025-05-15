@@ -3,7 +3,7 @@
 
 from enum import Enum, auto
 
-from typing import List, Set
+from typing import List, Set, Optional
 
 
 class ScopeStatusFlags(Enum):
@@ -40,7 +40,11 @@ class ScopeStatus:
         except IndexError:
             raise RuntimeError("No scopes registered.")
 
-    def enter_new_scope(self, new_scope_status: Set[ScopeStatusFlags] = _default_scope_status) -> None:
+    def enter_new_scope(
+        self, new_scope_status: Optional[Set[ScopeStatusFlags]] = None
+    ) -> None:
+        if new_scope_status is None:
+            new_scope_status = ScopeStatus._default_scope_status
         # Copy new_scope_status to prevent its modification
         self._scope_stack.append(new_scope_status.copy())
 

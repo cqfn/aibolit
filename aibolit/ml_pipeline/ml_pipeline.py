@@ -18,7 +18,7 @@ def collect_dataset(args):
 
     def make_patterns(args, cur_work_dir):
         print('Compute patterns...')
-        result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE, 
+        result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE,
                                 encoding='utf-8', cwd=cur_work_dir, check=False)
         print(result.returncode)
         if result.returncode != 0:
@@ -36,7 +36,7 @@ def collect_dataset(args):
             print(f'dataset was saved to {str(dataset_file_path.absolute())}')
 
     def run_cmd(metrics_cmd, cur_work_dir):
-        result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE, 
+        result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE,
                                 encoding='utf-8', cwd=cur_work_dir, check=False)
         if result.returncode != 0:
             print(result.stderr)

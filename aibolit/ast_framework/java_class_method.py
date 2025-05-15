@@ -26,9 +26,12 @@ class JavaClassMethod(AST):
     def name(self) -> str:
         try:
             root_node = ASTNode(self.tree, self.root)
-            method_name_nodes = [child for child in root_node.children if child.node_type == ASTNodeType.STRING]
+            method_name_nodes = [
+                child for child in root_node.children if child.node_type == ASTNodeType.STRING
+            ]
             if not method_name_nodes:
-                raise ValueError("Provided AST does not has 'STRING' node type right under the root")
+                msg = "Provided AST does not has 'STRING' node type right under the root"
+                raise ValueError(msg)
             return method_name_nodes[0].string
         except ValueError:
             raise ValueError("Provided AST does not has 'STRING' node type right under the root")
@@ -42,7 +45,10 @@ class JavaClassMethod(AST):
         parameters: Dict[str, AST] = {}
         for parameter in self.get_subtrees(ASTNodeType.FORMAL_PARAMETER):
             parameter_node = ASTNode(self.tree, parameter.root)
-            string_children = [child for child in parameter_node.children if child.node_type == ASTNodeType.STRING]
+            string_children = [
+                child for child in parameter_node.children
+                if child.node_type == ASTNodeType.STRING
+            ]
             if string_children:
                 parameter_name = string_children[0].string
                 parameters[parameter_name] = parameter
