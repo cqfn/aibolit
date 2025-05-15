@@ -7,7 +7,7 @@
   <description>Quickstart configuration of PMD. Includes the rules that are most likely to apply everywhere.</description>
   <rule ref="category/java/design.xml/NPathComplexity">
     <properties>
-      <property name="reportLevel" value="1" />
+      <property name="reportLevel" value="1"/>
     </properties>
   </rule>
 </ruleset>

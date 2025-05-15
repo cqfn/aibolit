@@ -11,16 +11,16 @@
       <property name="methodReportLevel" value="1"/>
     </properties>
   </rule>
-   <rule ref="category/java/design.xml/NPathComplexity">
+  <rule ref="category/java/design.xml/NPathComplexity">
     <properties>
-      <property name="reportLevel" value="1" />
+      <property name="reportLevel" value="1"/>
     </properties>
   </rule>
   <rule ref="category/java/design.xml/NcssCount">
     <properties>
-        <property name="methodReportLevel" value="1" />
-        <property name="classReportLevel" value="1" />
-        <property name="ncssOptions" value="|" />
+      <property name="methodReportLevel" value="1"/>
+      <property name="classReportLevel" value="1"/>
+      <property name="ncssOptions" value="|"/>
     </properties>
   </rule>
 </ruleset>
