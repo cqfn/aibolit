@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -232,7 +234,7 @@ public class TruffleAccess implements JPDABreakpointListener {
             TruffleScope[] scopes = createScopes(debugger, topVars);
             ObjectVariable stackTrace = (ObjectVariable) frameInfoVar.getField(VAR_STACK_TRACE);
             String topFrameDescription = (String) frameInfoVar.getField(VAR_TOP_FRAME).createMirrorObject();
-            ObjectVariable thisObject = null;// TODO: (ObjectVariable) frameInfoVar.getField("thisObject");
+            ObjectVariable thisObject = null;// TO-FIX: (ObjectVariable) frameInfoVar.getField("thisObject");
             TruffleStackFrame topFrame = new TruffleStackFrame(debugger, thread, 0, frame, topFrameDescription, null/*code*/, scopes, thisObject, true);
             TruffleStackInfo stack = new TruffleStackInfo(debugger, thread, stackTrace);
             return new CurrentPCInfo(haltedInfo.stepCmd, thread, sp, scopes, topFrame, stack, depth -> {

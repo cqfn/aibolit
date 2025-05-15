@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 
@@ -36,9 +36,11 @@ class VarDeclarationDistance:
         ))
 
         for method in unique_methods:
+            # Filter items for current method to avoid cell-var-from-loop issue
+            method_filtered_items = [item for item in items if item[0].method_line == method]
             method_items = map(
                 lambda v: {"line": v[0].line, "name": v[1], "ntype": type(v[0].node)},
-                filter(lambda v: v[0].method_line == method, items)
+                method_filtered_items
             )
             vars = {}
             var_scopes += [vars]
@@ -48,15 +50,15 @@ class VarDeclarationDistance:
                     var_scopes += [vars]
                     continue
 
-                if (item['ntype'] == javalang.tree.VariableDeclarator):
+                if item['ntype'] == javalang.tree.VariableDeclarator:
                     vars[item['name']] = {'decl': item['line'], 'first_usage': None}
                     continue
 
-                if (item['ntype'] == javalang.tree.VariableDeclarator):
+                if item['ntype'] == javalang.tree.VariableDeclarator:
                     vars[item['name']] = {'decl': item['line']}
                     continue
 
-                if item['name'] in vars.keys() and vars[item['name']]['first_usage'] is None:
+                if item['name'] in vars and vars[item['name']]['first_usage'] is None:
                     vars[item['name']]['first_usage'] = item['line']
 
         return var_scopes
@@ -70,7 +72,7 @@ class VarDeclarationDistance:
         return len(lines_range.difference(empty_lines))
 
     def value(self, filename: str) -> List[int]:
-        ''''''
+        '''Find variables declared far from their first usage.'''
         tree = JavalangImproved(filename)
         empty_lines = tree.get_empty_lines()
         items = list(
@@ -79,18 +81,18 @@ class VarDeclarationDistance:
         var_scopes = self.__group_vars_by_method(items)
         violations = []
         for scope in var_scopes:
-            for var in scope:
-                if scope[var]['first_usage'] is None:
+            for var, var_data in scope.items():
+                if var_data['first_usage'] is None:
                     continue
 
                 line_diff = self.__line_diff(
-                    scope[var]['first_usage'],
-                    scope[var]['decl'],
+                    var_data['first_usage'],
+                    var_data['decl'],
                     empty_lines
                 )
                 if line_diff < self.__lines_th:
                     continue
 
-                violations.append(scope[var]['first_usage'])
+                violations.append(var_data['first_usage'])
 
         return violations

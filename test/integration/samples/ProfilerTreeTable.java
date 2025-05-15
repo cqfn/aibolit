@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -157,7 +159,7 @@ public class ProfilerTreeTable extends ProfilerTable {
         return getPreviousPath(path, true);
     }
 
-    TreePath getPreviousPath(TreePath path, boolean down) { // TODO: optimize the algorithm to use 'down'
+    TreePath getPreviousPath(TreePath path, boolean down) { // TO-FIX: optimize the algorithm to use 'down'
         TreeModel _model = model.treeModel;
         TreeNode node = (TreeNode)path.getLastPathComponent();
         TreePath parentPath = path.getParentPath();
@@ -588,7 +590,7 @@ public class ProfilerTreeTable extends ProfilerTable {
                 });
             }
             protected void setSortKeysImpl(List newKeys) {
-                // TODO: Improve to not call createComparator(newKeys) here and from super
+                // TO-FIX: Improve to not call createComparator(newKeys) here and from super
                 willBeSorted(Collections.unmodifiableList(newKeys));
                 super.setSortKeysImpl(newKeys);
             }
@@ -1312,7 +1314,7 @@ public class ProfilerTreeTable extends ProfilerTable {
                 internal = true;
                 if (row != -1) tree.setSelectionRow(row);
                 else tree.clearSelection();
-                repaint(); // TODO: optimize, do not repaint all
+                repaint(); // TO-FIX: optimize, do not repaint all
             } finally {
                 internal = false;
             }
@@ -1445,7 +1447,7 @@ public class ProfilerTreeTable extends ProfilerTable {
 
 
         public void setAnchorSelectionPath(TreePath newPath) {
-            // TODO: should only be disabled for forgetPreviouslyExpanded?
+            // TO-FIX: should only be disabled for forgetPreviouslyExpanded?
         }
 
         void setForgetPreviouslyExpanded(boolean forgetPreviouslyExpanded) {

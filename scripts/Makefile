@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
+
 all: requirements samples filter patterns merge split
 
 # Fetch thousands of Java samples in GitHub and store them

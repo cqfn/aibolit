@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -175,7 +177,7 @@ public class BaseKit extends DefaultEditorKit {
     /** Reset the abbreviation accounting string */
     public static final String abbrevResetAction = "abbrev-reset"; // NOI18N
 
-    /** Remove characters to the begining of the word or
+    /** Remove characters to the beginning of the word or
      *  the previous word if caret is not directly at word */
     public static final String removePreviousWordAction = "remove-word-previous"; // NOI18N
 
@@ -183,7 +185,7 @@ public class BaseKit extends DefaultEditorKit {
      *  the next word if caret is not directly at word */
     public static final String removeNextWordAction = "remove-word-next"; // NOI18N
 
-    /** Remove to the begining of the line */
+    /** Remove to the beginning of the line */
     public static final String removeLineBeginAction = "remove-line-begin"; // NOI18N
 
     /** Remove line */
@@ -337,7 +339,7 @@ public class BaseKit extends DefaultEditorKit {
     /** Starts a new line in code */
     public static final String startNewLineAction = "start-new-line"; // NOI18N
 
-    /** Cut text from caret position to line begining action. */
+    /** Cut text from caret position to line beginning action. */
     public static final String cutToLineBeginAction = "cut-to-line-begin"; // NOI18N
 
     /** Cut text from caret position to line end action. */

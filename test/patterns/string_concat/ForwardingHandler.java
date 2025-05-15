@@ -1,5 +1,6 @@
 /*
  * SPDX-FileCopyrightText: Copyright (c) 2017, 2020 Oracle and/or its affiliates. All rights reserved.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
  * SPDX-License-Identifier: MIT
  */
 

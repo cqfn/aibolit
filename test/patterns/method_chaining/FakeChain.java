@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
+
 /*
  * Copyright 2014 The gRPC Authors
  *
@@ -32,7 +35,7 @@ import javax.annotation.Nullable;
  * using the provided {@link Executor}, and serially such that no two will ever be
  * running at the same time.
  */
-// TODO(madongfly): figure out a way to not expose it or move it to transport package.
+// TO-FIX(madongfly): figure out a way to not expose it or move it to transport package.
 public final class SerializingExecutor implements Executor, Runnable {
   private static final Logger log =
       Logger.getLogger(SerializingExecutor.class.getName());

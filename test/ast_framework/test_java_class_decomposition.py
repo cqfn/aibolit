@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from unittest import TestCase
@@ -81,8 +81,10 @@ class JavaClassDecompositionTestSuite(TestCase):
                         components_qty += 1
                         components_ncss += ncss_metric.value(component)
 
-                # Each component has a CLASS_DECLARATION node. It increase NCSS of each component by 1.
-                # To achieve equality we add number of components to the sum of NCSS of just methods and fields.
+                # Each component has a CLASS_DECLARATION node.
+                # It increase NCSS of each component by 1.
+                # To achieve equality we add number of components
+                # to the sum of NCSS of just methods and fields.
                 self.assertEqual(methods_ncss + fields_ncss + components_qty, components_ncss)
 
     def __decompose_with_setter_functionality(self, ignore_getters=False, ignore_setters=False):

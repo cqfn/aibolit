@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from pathlib import Path
@@ -17,11 +17,11 @@ class MethodSiblingsTestCase(unittest.TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = MethodSiblings()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [2, 5])
+        self.assertEqual(lines, [5, 8])
 
     def test_find_alternate_method_siblings(self):
         filepath = self.current_directory / "AlternateMethodSiblings.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = MethodSiblings()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [2, 8])
+        self.assertEqual(lines, [5, 11])

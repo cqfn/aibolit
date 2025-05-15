@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 
@@ -7,13 +7,14 @@ import os
 import sys
 import time
 import traceback
+from concurrent.futures import ThreadPoolExecutor
 from ctypes import c_bool
 from enum import Enum
 from functools import partial
 from multiprocessing import Value, Manager, cpu_count, Lock
 from pathlib import Path
 
-import cchardet as chardet
+import chardet
 import javalang
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -80,13 +81,13 @@ def get_class_type(filename: Path):
                 class_type = ClassType.NESTED_CLASSES
             else:
                 for _, node in tree:
-                    if type(node) == javalang.tree.InterfaceDeclaration:
+                    if isinstance(node, javalang.tree.InterfaceDeclaration):
                         class_type = ClassType.INTERFACE
                         break
-                    elif type(node) == javalang.tree.EnumDeclaration:
+                    elif isinstance(node, javalang.tree.EnumDeclaration):
                         class_type = ClassType.ENUM
                         break
-                    elif type(node) == javalang.tree.ClassDeclaration:
+                    elif isinstance(node, javalang.tree.ClassDeclaration):
                         if 'abstract' in node.modifiers:
                             class_type = ClassType.ABSTRACT_CLASS
                             break
@@ -107,30 +108,30 @@ def worker(queue, counter):
 
     :return: tuple of java file path and it's type
     """
-    results = []
+    result_item = []
     if not queue.empty():
         filename = queue.get()
         str_filename = str(filename)
         if str_filename.lower().endswith('.java'):
             if str_filename.lower().endswith('test.java') or \
-                    any([x.lower().find('test') > -1 for x in filename.parts]) or \
+                    any(x.lower().find('test') > -1 for x in filename.parts) or \
                     str_filename.lower().find('package-info') > -1:
                 class_type = ClassType.TEST
             else:
                 try:
                     class_type = get_class_type(filename)
                 except Exception:
-                    print("Can't open file {}. Ignoring the file ...".format(str_filename))
+                    print(f"Can't open file {str_filename}. Ignoring the file ...")
                     traceback.print_exc()
                     class_type = ClassType.JAVA_PARSE_ERROR
 
-            results = [filename.as_posix(), class_type.value]
+            result_item = [filename.as_posix(), class_type.value]
 
-        if results:
-            if results[1] == 999:
+        if result_item:
+            if result_item[1] == 999:
                 counter.increment()
 
-    return results
+    return result_item
 
 
 def scantree(path):
@@ -143,7 +144,7 @@ def scantree(path):
                 yield entry.path
 
 
-class Counter(object):
+class Counter:
     def __init__(self, initval=0):
         self.val = Value('i', initval)
         self.lock = Lock()
@@ -176,18 +177,17 @@ def walk_in_parallel():
             except Exception:
                 pass
 
-    results = []
+    collected_results = []
 
     counter = Counter(1)
-    from concurrent.futures.thread import ThreadPoolExecutor
     p = ThreadPoolExecutor(cpu_count())
 
     while not cancel.value and not queue.empty():
         call_back()
         f = partial(worker, queue)
-        results.append(p.submit(f, counter).result())
+        collected_results.append(p.submit(f, counter).result())
 
-    return [v for v in results if len(v) > 0]
+    return [v for v in collected_results if len(v) > 0]
 
 
 if __name__ == '__main__':

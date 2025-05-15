@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -609,7 +611,7 @@ public final class MultiModuleClassPathProvider extends AbstractClassPathProvide
                 if (url != null) {
                     try {
                         final File buildModules = BaseUtilities.toFile(url.toURI());
-                        if (seen.contains(buildModules)) {  //TODO: If contains only module under buildModules add just the module
+                        if (seen.contains(buildModules)) {  //TO-FIX: If contains only module under buildModules add just the module
                             res = Collections.unmodifiableList(delegate.entries().stream()
                                 .map((e) -> org.netbeans.spi.java.classpath.support.ClassPathSupport.createResource(e.getURL()))
                                 .collect(Collectors.toList()));

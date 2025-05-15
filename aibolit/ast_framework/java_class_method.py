@@ -1,32 +1,39 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+from typing import TYPE_CHECKING, Dict
 
 from cached_property import cached_property  # type: ignore
-from typing import Dict, Set, TYPE_CHECKING
-from networkx import DiGraph, dfs_tree  # type: ignore
 from deprecated import deprecated  # type: ignore
+from networkx import DiGraph  # type: ignore
 
+from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 from aibolit.utils.cfg_builder import build_cfg
-from aibolit.ast_framework import AST, ASTNodeType
-from aibolit.ast_framework.java_class_field import JavaClassField
 
 if TYPE_CHECKING:
-    from aibolit.ast_framework.java_class import JavaClass
+    from aibolit.ast_framework.java_class import JavaClass  # type: ignore
 
 
-@deprecated("This functionality must be transmitted to ASTNode")
+@deprecated(reason='This functionality must be transmitted to ASTNode')
 class JavaClassMethod(AST):
     def __init__(self, tree: DiGraph, root: int, java_class: 'JavaClass'):
-        self.tree = tree
-        self.root = root
+        super().__init__(tree, root)
         self._java_class = java_class
+
+    def __str__(self):
+        return f'Method {self.name}'
 
     @cached_property
     def name(self) -> str:
         try:
-            method_name = next(self.children_with_type(self.root, ASTNodeType.STRING))
-            return self.tree.nodes[method_name]['string']
-        except StopIteration:
+            root_node = ASTNode(self.tree, self.root)
+            method_name_nodes = [
+                child for child in root_node.children if child.node_type == ASTNodeType.STRING
+            ]
+            if not method_name_nodes:
+                msg = "Provided AST does not has 'STRING' node type right under the root"
+                raise ValueError(msg)
+            return method_name_nodes[0].string
+        except ValueError:
             raise ValueError("Provided AST does not has 'STRING' node type right under the root")
 
     @property
@@ -36,37 +43,21 @@ class JavaClassMethod(AST):
     @cached_property
     def parameters(self) -> Dict[str, AST]:
         parameters: Dict[str, AST] = {}
-        for parameter_node in self.children_with_type(self.root, ASTNodeType.FORMAL_PARAMETER):
-            parameter_name_node = next(iter(self.children_with_type(parameter_node, ASTNodeType.STRING)))
-            parameter_name = self.get_attr(parameter_name_node, 'string')
-            parameters[parameter_name] = AST(dfs_tree(self.tree, parameter_node), parameter_node)
-
+        for parameter in self.get_subtrees(ASTNodeType.FORMAL_PARAMETER):
+            parameter_node = ASTNode(self.tree, parameter.root)
+            string_children = [
+                child for child in parameter_node.children
+                if child.node_type == ASTNodeType.STRING
+            ]
+            if string_children:
+                parameter_name = string_children[0].string
+                parameters[parameter_name] = parameter
         return parameters
 
     @cached_property
-    def used_methods(self) -> Dict[str, Set['JavaClassMethod']]:
-        method_invocation_nodes = self.get_nodes(ASTNodeType.METHOD_INVOCATION)
-        used_method_invocation_params = (self.get_method_invocation_params(node) for node
-                                         in method_invocation_nodes)
-        used_local_method_invocation_params = (params for params in used_method_invocation_params
-                                               if len(params.object_name) == 0)
-        used_local_method_names = {params.method_name for params in used_local_method_invocation_params}
-
-        return {method_name: self.java_class.methods[method_name] for method_name in self.java_class.methods
-                if method_name in used_local_method_names}
-
-    @cached_property
-    def used_fields(self) -> Dict[str, JavaClassField]:
-        used_member_reference_params = (self.get_member_reference_params(node) for node in
-                                        self.get_nodes(ASTNodeType.MEMBER_REFERENCE))
-        used_local_member_reference_names = {params.member_name for params in used_member_reference_params
-                                             if params.object_name == ''}
-        # Local member references may lead to method parameters instead of class fields if they have same names
-        used_local_member_reference_names -= self.parameters.keys()
-        class_fields = self.java_class.fields
-        return {field_name: class_fields[field_name] for field_name in used_local_member_reference_names}
+    def body(self) -> AST:
+        return self.get_subtree(self.get_root())
 
     @cached_property
     def cfg(self) -> DiGraph:
-        '''Make Control Flow Graph representation of this method'''
-        return build_cfg(self)
+        return build_cfg(self.body)

@@ -1,8 +1,11 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 import pickle
 from typing import Dict, Any, Tuple
+from numpy.typing import NDArray
 
 import numpy as np
-import pandas as pd
+import pandas as pd  # type: ignore[import-untyped]
 from aibolit.config import Config
 from aibolit.model.model import PatternRankingModel, scale_dataset, get_minimum  # noqa: F401 type: ignore
 
@@ -25,13 +28,13 @@ class Stats(object):
             model
         )
 
-        m, p = Stats.count_acts(acts, ranked)
+        m, p = Stats.count_acts(acts.astype(np.int64), ranked.astype(np.int64))
         return Stats.get_table(model.features_conf['features_order'], m, p, acts_complexity)
 
     @staticmethod
     def count_acts(
-            acts: np.array,
-            ranked: np.array) -> Tuple[np.array, np.array]:
+            acts: NDArray[np.int64],
+            ranked: NDArray[np.int64]) -> Tuple[NDArray[np.float64], NDArray[np.float64]]:
         patterns_numbers = ranked[:, 0]
         # number of times when pattern was on first place,
         # if we decrease pattern by 1/ncss
@@ -65,8 +68,8 @@ class Stats(object):
     @staticmethod
     def get_table(
             features_conf: Dict[Any, Any],
-            m: np.array,
-            p: np.array,
+            m: NDArray[np.float64],
+            p: NDArray[np.float64],
             acts_complexity) -> pd.DataFrame:
         """
         Prints results, given with `check_impact`.
@@ -96,19 +99,19 @@ class Stats(object):
             p_minus_c_euq = int(acts_complexity[i, 2])
             p_plus_c_euq = int(acts_complexity[i, 5])
             pattern = replace_dict.get(features_conf[i])
-            df = df.append({
+            df = pd.concat([df, pd.DataFrame([{
                 'pattern': pattern, ' -1(top1)': top_minus, '+1(top1)': top_plus,
                 'p-c-': p_minus_c_minus, 'p+c+': p_plus_c_plus, 'p-c+': p_minus_c_plus,
                 'p+c-': p_plus_c_minus, 'p-c=': p_minus_c_euq,
                 'p+c=': p_plus_c_euq
-            }, ignore_index=True)
+            }])], ignore_index=True)
 
         return df
 
     @staticmethod
     def split_dataset_by_pattern_value(
-            X: np.array,
-            pattern_idx: int) -> Tuple[np.array, np.array]:
+            X: NDArray[np.float64],
+            pattern_idx: int) -> Tuple[NDArray[np.float64], NDArray[np.float64]]:
         """ Divide dataset.
 
         :param X: dataset
@@ -129,10 +132,10 @@ class Stats(object):
 
     @staticmethod
     def change_matrix_by_value(
-            arr: np.array,
-            mask: np.array,
+            arr: NDArray[np.float64],
+            mask: NDArray[np.bool_],
             i: int,
-            incr: np.array):
+            incr: NDArray[np.float64]) -> NDArray[np.float64]:
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns).
@@ -151,8 +154,9 @@ class Stats(object):
 
     @staticmethod
     def check_impact(
-            X: np.array,
-            model_input: Any):
+            X: NDArray[np.float64],
+            model_input: Any) -> Tuple[NDArray[np.int64], NDArray[np.float64],
+                                       NDArray[np.float64], NDArray[np.float64]]:
         """
         Args:
             X: np.array with shape (number of snippets, number of patterns) or
@@ -184,7 +188,7 @@ class Stats(object):
         acts_complexity = np.zeros((X.shape[1], 6))
         for i in range(k):
             nulls, not_nulls = Stats.split_dataset_by_pattern_value(X, i)
-            mask = not_nulls > 0
+            mask: NDArray[np.bool_] = not_nulls > 0
             dec_arr = Stats.change_matrix_by_value(not_nulls, mask, i, -1.0 / ncss[X[:, i] > 0])
             complexity_minus = model_input.model.predict(dec_arr)
             incr_arr = Stats.change_matrix_by_value(not_nulls, mask, i, 1.0 / ncss[X[:, i] > 0])

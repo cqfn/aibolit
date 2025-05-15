@@ -1,10 +1,10 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+
+from typing import Dict
 
 from cached_property import cached_property  # type: ignore
 from deprecated import deprecated  # type: ignore
-
-from typing import Dict
 
 from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework import AST, ASTNodeType
@@ -20,7 +20,9 @@ class JavaPackage(AST):
     @cached_property
     def name(self) -> str:
         try:
-            package_declaration = next(self.children_with_type(self.root, ASTNodeType.PACKAGE_DECLARATION))
+            package_declaration = next(
+                self.children_with_type(self.root, ASTNodeType.PACKAGE_DECLARATION)
+            )
             package_name = next(self.children_with_type(package_declaration, ASTNodeType.STRING))
             return self.tree.nodes[package_name]['string']
         except StopIteration:

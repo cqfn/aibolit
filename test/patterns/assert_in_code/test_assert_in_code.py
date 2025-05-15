@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 import os.path
@@ -16,4 +16,4 @@ class AssertInCodeTestCase(TestCase):
     def test_assert_in_code(self):
         file = Path(self.cur_file_dir, "Book.java")
         ast = AST.build_from_javalang(build_ast(file))
-        self.assertEqual(AssertInCode().value(ast), [3])
+        self.assertEqual(AssertInCode().value(ast), [6])

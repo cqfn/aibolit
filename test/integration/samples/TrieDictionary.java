@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -325,7 +327,7 @@ public class TrieDictionary implements Dictionary {
                     data.add(CharSequences.create(line));
                 }
             } finally {
-                //TODO: wrap in try - catch:
+                //TO-FIX: wrap in try - catch:
                 in.close();
             }
         }

@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /* ###
  * IP: GHIDRA
@@ -133,7 +135,7 @@ public class LocalDataFile extends LocalFolderItem implements DataFileItem {
 	@Override
 	public InputStream getInputStream(int version) throws FileNotFoundException {
 
-// TODO Versions for DataFiles are not supported
+// TO-FIX Versions for DataFiles are not supported
 
 		return new FileInputStream(getDataFile());
 	}

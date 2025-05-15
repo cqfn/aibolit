@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
+
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -2252,7 +2255,7 @@ public abstract class Server {
             return count;
           }
           int version = connectionHeaderBuf.get(0);
-          // TODO we should add handler for service class later
+          // TO-FIX we should add handler for service class later
           this.setServiceClass(connectionHeaderBuf.get(1));
           dataLengthBuffer.flip();
 

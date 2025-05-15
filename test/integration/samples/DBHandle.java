@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /* ###
  * IP: GHIDRA
@@ -608,7 +610,7 @@ public class DBHandle {
 	public synchronized void save(String comment, DBChangeSet changeSet, TaskMonitor monitor)
 			throws IOException, CancelledException {
 
-//TODO: Does not throw ReadOnlyException - should it?
+//TO-FIX: Does not throw ReadOnlyException - should it?
 
 		if (txStarted) {
 			throw new AssertException("Can't save during transaction");

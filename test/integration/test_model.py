@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 import os
 import shutil
@@ -21,7 +21,7 @@ def test_model_training():
     print('Start training...')
     model.fit_regressor(scaled_df[patterns], scaled_df['M4'])
     end = time()
-    print('End training. Elapsed time: {:.2f} secs'.format(end - start))
+    print(f'End training. Elapsed time: {end - start:.2f} secs')
     # this folder is created by catboost library, impossible to get rid of it
     catboost_folder = Path(cur_file_dir, 'catboost_info')
     if catboost_folder.exists():
@@ -33,18 +33,18 @@ def test_train_with_selected_features():
     model = PatternRankingModel()
     selected_patterns = ['P18', 'P10', 'M2', 'M5']
     train_df = generate_fake_dataset()
-    print('Features for the whole dataset: {}'.format(list(train_df.columns)))
+    print(f'Features for the whole dataset: {list(train_df.columns)}')
     target = train_df.pop('M4')
     start = time()
     print('Start training...')
     model.fit_regressor(train_df, target, selected_patterns)
     end = time()
-    print('End training. Elapsed time: {:.2f} secs'.format(end - start))
+    print(f'End training. Elapsed time: {end - start:.2f} secs')
     # this folder is created by catboost library, impossible to get rid of it
     catboost_folder = Path(cur_file_dir, 'catboost_info')
     if catboost_folder.exists():
         shutil.rmtree(catboost_folder)
-    print('Model features: {}'.format(list(model.features_conf['features_order'])))
+    print(f'Model features: {list(model.features_conf["features_order"])}')
 
 
 if __name__ == '__main__':

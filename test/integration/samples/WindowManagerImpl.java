@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -929,7 +931,7 @@ public final class WindowManagerImpl extends WindowManager implements Workspace 
     /** Adds mode. */
     private void addMode(ModeImpl mode, SplitConstraint[] modeConstraints) {
         if (mode.getKind() == Constants.MODE_KIND_SLIDING) {
-            // TODO.. where to get the side..
+            // TO-FIX.. where to get the side..
             central.addSlidingMode(mode, null, Constants.LEFT, null);
         } else {
             central.addMode(mode, modeConstraints);

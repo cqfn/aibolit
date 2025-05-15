@@ -1,9 +1,10 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+import re
+from typing import List
+
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.ast_framework.ast_node import ASTNode
-from typing import List
-import re
 
 
 class MethodSiblings:
@@ -21,6 +22,7 @@ class MethodSiblings:
 
         for node in method_nodes:
             for new_node in method_nodes:
-                if node.node_index < new_node.node_index and self._is_method_names_close(node, new_node):
+                if (node.node_index < new_node.node_index and
+                        self._is_method_names_close(node, new_node)):
                     numbers.extend([node.line, new_node.line])
         return sorted(list(set(numbers)))

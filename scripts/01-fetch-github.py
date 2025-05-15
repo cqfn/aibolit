@@ -1,12 +1,13 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 
-import subprocess
+import argparse
 import os
+import subprocess
+
 import requests as r
 from bs4 import BeautifulSoup
-import argparse
 
 
 def downloadrepos():
@@ -17,7 +18,7 @@ def downloadrepos():
     repos = 'target/01'
     if not os.path.isdir(repos):
         os.makedirs(repos)
-    result = r.get('https://github.com/trending/java?since=daily')
+    result = r.get('https://github.com/trending/java?since=daily', timeout=30)
     soup = BeautifulSoup(result.text)
     for city in soup.find_all('h1', {'class': 'h3 lh-condensed'}):
         if numrepos <= 0:
@@ -28,7 +29,7 @@ def downloadrepos():
             os.makedirs(os.path.join(repos, path[len(path) - 2]))
         if not os.path.isdir(os.path.join(repos, path[len(path) - 2], path[len(path) - 1])):
             subprocess.run(['git', 'clone', 'https://github.com' + city.a['href'] + '.git'],
-                           cwd=os.path.join(repos, path[len(path) - 2]))
+                           cwd=os.path.join(repos, path[len(path) - 2]), check=False)
 
 
 if __name__ == "__main__":

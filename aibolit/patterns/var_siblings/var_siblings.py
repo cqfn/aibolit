@@ -1,9 +1,10 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from aibolit.ast_framework import ASTNodeType, AST
-from typing import List, Dict
-from aibolit.ast_framework.ast_node import ASTNode
 import re
+from typing import List, Dict
+
+from aibolit.ast_framework import ASTNodeType, AST
+from aibolit.ast_framework.ast_node import ASTNode
 
 
 class VarSiblings:
@@ -34,8 +35,9 @@ class VarSiblings:
         lines: List[int] = []
         for node_name1 in vars_info:
             for node_name2 in vars_info:
-                if node_name1 != node_name2 and \
-                   self._is_names_close(node_name1, node_name2) and vars_info[node_name2] not in lines:
+                if (node_name1 != node_name2 and
+                        self._is_names_close(node_name1, node_name2) and
+                        vars_info[node_name2] not in lines):
                     lines.append(vars_info[node_name2])
         return lines
 

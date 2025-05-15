@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from pathlib import Path
@@ -24,7 +24,7 @@ class VarMiddleTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = VarMiddle()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [9, 16])
+        self.assertEqual(lines, [12, 19])
 
     def test_case_with_multiline_method_declaration(self):
         filepath = self.current_directory / "3.java"
@@ -52,14 +52,14 @@ class VarMiddleTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = VarMiddle()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [30, 33])
+        self.assertEqual(lines, [33, 36])
 
     def test_declaration_after_super_class_method_call(self):
         filepath = self.current_directory / "7.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = VarMiddle()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [14])
+        self.assertEqual(lines, [17])
 
     def test_for_scope_good(self):
         filepath = self.current_directory / "8.java"
@@ -73,14 +73,14 @@ class VarMiddleTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = VarMiddle()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [11])
+        self.assertEqual(lines, [14])
 
     def test_variable_declared_after_for(self):
         filepath = self.current_directory / "10.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = VarMiddle()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [11])
+        self.assertEqual(lines, [14])
 
     def test_11(self):
         filepath = self.current_directory / "11.java"
@@ -101,14 +101,14 @@ class VarMiddleTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = VarMiddle()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [38])
+        self.assertEqual(lines, [41])
 
     def test_else_bad(self):
         filepath = self.current_directory / "14.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = VarMiddle()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [88])
+        self.assertEqual(lines, [90])
 
     def test_variable_after_curly_braces(self):
         filepath = self.current_directory / "15.java"
@@ -129,4 +129,4 @@ class VarMiddleTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = VarMiddle()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [22])
+        self.assertEqual(lines, [25])

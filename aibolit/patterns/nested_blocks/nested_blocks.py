@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from typing import List
@@ -42,7 +42,8 @@ class NestedBlocks:
         if node.node_type == ASTNodeType.IF_STATEMENT:
             nested_statements.extend(self._get_block_statements_list(node.then_statement))
 
-            while node.else_statement is not None and node.else_statement.node_type == ASTNodeType.IF_STATEMENT:
+            while (node.else_statement is not None and
+                   node.else_statement.node_type == ASTNodeType.IF_STATEMENT):
                 node = node.else_statement
                 nested_statements.extend(self._get_block_statements_list(node.then_statement))
 

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 /**
  * Use the chinese remainder theorem to solve a set of congruence equations.
  *

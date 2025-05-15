@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from typing import Set, NamedTuple
@@ -60,7 +60,8 @@ class RFC:
             for method_invocation in ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION)
         }
 
-    def _create_method_invocation_params(self, method_invocation: ASTNode) -> _MethodInvocationParams:
+    def _create_method_invocation_params(self,
+                                         method_invocation: ASTNode) -> _MethodInvocationParams:
         assert method_invocation.node_type == ASTNodeType.METHOD_INVOCATION
         return _MethodInvocationParams(
             isLocal=method_invocation.qualifier is None, name=method_invocation.member

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2021-2025 Yegor Bugayenko
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
@@ -19,6 +19,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: 3.11
-      - run: |
-          pip install pylint
-          pylint --load-plugins=custom_checkers -d all -e C0411 .
+      - run: make requirements
+      - run: make pylint

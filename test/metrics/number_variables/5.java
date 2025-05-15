@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 // SPDX-License-Identifier: MIT
 
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @ClassName: Hospital
- * @Description: TODO
+ * @Description: TO-FIX
  * @author: Bruce Young
  * @date: 2020年02月02日 20:58
  */

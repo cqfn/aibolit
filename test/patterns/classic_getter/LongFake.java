@@ -2,9 +2,12 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /*
  * SPDX-FileCopyrightText: Copyright (c) 2020 artipie.com
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
  * SPDX-License-Identifier: MIT
  */
 package com.artipie.asto.fs;

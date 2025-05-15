@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -87,7 +89,7 @@ public class TreeGraphLayout<N, E> extends GraphLayout {
 
         for (N node : nodesToResolve) {
             Point position = new Point ();
-            // TODO - resolve others
+            // TO-FIX - resolve others
             resultPosition.put (node, position);
         }
 

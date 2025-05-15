@@ -1,5 +1,8 @@
-from aibolit.ast_framework import ASTNodeType, AST
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 from typing import List
+
+from aibolit.ast_framework import ASTNodeType, AST
 
 
 class ProtectedMethod:

@@ -1,4 +1,6 @@
-from cchardet import detect  # type: ignore
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
+from chardet import detect  # type: ignore
 
 
 def detect_encoding_of_file(filename: str):

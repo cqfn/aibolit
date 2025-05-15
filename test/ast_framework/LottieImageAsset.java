@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 package com.airbnb.lottie;
 
@@ -59,7 +61,7 @@ public class LottieImageAsset {
   }
 
   /**
-   * TODO
+   * TO-FIX
    */
   public void setBitmap(@Nullable Bitmap bitmap) {
     this.bitmap = bitmap;

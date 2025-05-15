@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -517,7 +519,7 @@ public class PersistentSubscription implements Subscription {
 
         @Override
         public void markDeleteFailed(ManagedLedgerException exception, Object ctx) {
-            // TODO: cut consumer connection on markDeleteFailed
+            // TO-FIX: cut consumer connection on markDeleteFailed
             if (log.isDebugEnabled()) {
                 log.debug("[{}][{}] Failed to mark delete for position ", topicName, subName, ctx, exception);
             }

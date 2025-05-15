@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from typing import Set
@@ -44,8 +44,8 @@ class FanOut:
 
         return type_reference.name
 
-    # exception are used from https://checkstyle.sourceforge.io/config_metrics.html#ClassFanOutComplexity
-    # basic types ('int', 'long', etc.) are not used, because ASTNodeType.REFERENCE_TYPE match only class types
+    # exception are used from checkstyle.sourceforge.io/config_metrics.html#ClassFanOutComplexity
+    # basic types ('int', 'long', etc) not used - ASTNodeType.REFERENCE_TYPE match only classes
     _excluded_class_names = {
         "ArrayIndexOutOfBoundsException",
         "ArrayList",

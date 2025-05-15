@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 import os
 from pathlib import Path
 
@@ -5,12 +7,13 @@ import pandas as pd
 
 
 def preprocess_file(filename: str):
-    print('reading dataset from {}'.format(filename))
-    df = pd.read_csv(filename, index_col=0)
-    df = df[~df["filepath"].str.lower().str.contains("test")]
-    df = df.dropna().drop_duplicates(subset=df.columns.difference(["filepath", "class_name", "component_index"]))
-    df = df[df.M2 < df.M2.quantile(0.99)]
-    return df
+    print(f'reading dataset from {filename}')
+    data = pd.read_csv(filename, index_col=0)
+    data = data[~data["filepath"].str.lower().str.contains("test")]
+    data = data.dropna().drop_duplicates(
+        subset=data.columns.difference(["filepath", "class_name", "component_index"]))
+    data = data[data.M2 < data.M2.quantile(0.99)]
+    return data
 
 
 if __name__ == '__main__':
@@ -28,9 +31,8 @@ if __name__ == '__main__':
     train_size = len(train_files)
     test_size = len(test_files)
     total_elems = train_size + test_size
-    print('{} train elems ({}%) and {} test elems test ({}%) of all dataset'.format(
-        train_size, train_size / total_elems,
-        test_size, test_size / total_elems))
+    print(f'{train_size} train elems ({train_size / total_elems}%) and '
+          f'{test_size} test elems test ({test_size / total_elems}%) of all dataset')
     df = pd.read_csv(str(Path(current_location, './target/dataset.csv')))
     train = df[df['filepath'].isin(train_files)]
     test = df[df['filepath'].isin(test_files)]
@@ -38,10 +40,11 @@ if __name__ == '__main__':
     test.to_csv('test_temp.csv')
     train_preprocessed = preprocess_file('train_temp.csv')
     test_preprocessed = preprocess_file('test_temp.csv')
-    total_size = (train_preprocessed.shape[0] + test_preprocessed.shape[0])
-    print('{} train elems ({}%) and {} test elems test ({}%) of processed dataset'.format(
-        train_preprocessed.shape[0], train_preprocessed.shape[0] / total_size,
-        test_preprocessed.shape[0], test_preprocessed.shape[0] / total_size))
+    total_size = train_preprocessed.shape[0] + test_preprocessed.shape[0]
+    print(f'{train_preprocessed.shape[0]} train elems '
+          f'({train_preprocessed.shape[0] / total_size}%) and '
+          f'{test_preprocessed.shape[0]} test elems '
+          f'({test_preprocessed.shape[0] / total_size}%) of processed dataset')
     Path('train_temp.csv').unlink()
     Path('test_temp.csv').unlink()
     path_to_create = Path(dir_to_create)

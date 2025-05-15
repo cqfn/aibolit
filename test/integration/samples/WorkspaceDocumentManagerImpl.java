@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /*
 *  Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
@@ -152,7 +154,7 @@ public class WorkspaceDocumentManagerImpl implements WorkspaceDocumentManager {
             } finally {
                 lock.unlock();
             }
-            // TODO: within the workspace document we need to keep the LSDocument
+            // TO-FIX: within the workspace document we need to keep the LSDocument
             LSDocumentIdentifier document = new LSDocumentIdentifierImpl(filePath.toUri().toString());
             if (document.isWithinProject()) {
                 rescanProjectRoot(filePath);

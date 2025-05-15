@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /* ###
  * IP: GHIDRA
@@ -447,7 +449,7 @@ public class IndexedLocalFileSystem extends LocalFileSystem {
 
 	private void readIndex() throws IndexReadException {
 
-		// TODO: current implementation does not attempt to avoid concurrent read/write
+		// TO-FIX: current implementation does not attempt to avoid concurrent read/write
 		// access to index/journal files
 
 		MessageDigest messageDigest = null;
@@ -1119,7 +1121,7 @@ public class IndexedLocalFileSystem extends LocalFileSystem {
 		try {
 			folder = getFolder(folderPath, GetFolderOption.READ_ONLY);
 
-			// TODO Must scan for items in use !!!
+			// TO-FIX Must scan for items in use !!!
 
 			String newFolderPath = getPath(newParentPath, folderName);
 			Folder newParentFolder = getFolder(newParentPath, GetFolderOption.CREATE_ALL_NOTIFY);

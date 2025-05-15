@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 from typing import List, Tuple, Any, Union, TypeVar, Type
 from javalang.tree import ClassDeclaration, InterfaceDeclaration, MethodDeclaration, \
     MemberReference, FieldDeclaration, MethodInvocation, This, Node, LocalVariableDeclaration
@@ -41,7 +43,7 @@ class Filters:
         Returns a generator with (path, node) inside.
         """
 
-        # ToDo: implement get/set detection with .body
+        # To-Fix: implement get/set detection with .body
         temp_list = []
         for path, node in method_node_list:
             if node.name.startswith(('get', 'set')):
@@ -86,7 +88,7 @@ class Filters:
         Returns a tuple containing name and type of field.
         """
 
-        # ToDo: get rid of'type' in parameter_tuple
+        # To-Fix: get rid of'type' in parameter_tuple
         name = field_node.declarators[0].name
         try:
             parameter_tuple: Tuple[str, str] = ('type', field_node.type.name)

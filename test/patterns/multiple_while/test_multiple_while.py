@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from pathlib import Path
@@ -17,7 +17,7 @@ class MultipleWhilePatternTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = MultipleWhile()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [2])
+        self.assertEqual(lines, [5])
 
     def test_one_while(self):
         filepath = self.current_directory / "OneWhile.java"
@@ -31,7 +31,7 @@ class MultipleWhilePatternTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = MultipleWhile()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [2])
+        self.assertEqual(lines, [5])
 
     def test_multiple_while(self):
         filepath = self.current_directory / "MultipleWhile.java"

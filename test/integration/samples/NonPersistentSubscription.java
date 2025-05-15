@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -251,7 +253,7 @@ public class NonPersistentSubscription implements Subscription {
     @Override
     public CompletableFuture<Entry> peekNthMessage(int messagePosition) {
         // No-op
-        return CompletableFuture.completedFuture(null);// TODO: throw exception
+        return CompletableFuture.completedFuture(null);// TO-FIX: throw exception
     }
 
     @Override

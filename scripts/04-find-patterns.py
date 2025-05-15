@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from argparse import ArgumentParser
@@ -7,7 +7,12 @@ from concurrent.futures import TimeoutError
 from csv import DictWriter, QUOTE_MINIMAL
 from functools import partial
 from logging import basicConfig, INFO, warning
-from os import cpu_count, getenv, makedirs, sched_getaffinity
+from os import cpu_count, getenv, makedirs
+try:
+    from os import sched_getaffinity
+except ImportError:
+    # sched_getaffinity is not available on macOS
+    sched_getaffinity = None
 from pathlib import Path
 from sys import stderr
 from typing import Any, Dict, List
@@ -31,7 +36,9 @@ class FileProcessingError(RuntimeError):
         self.cause = cause
 
 
-def _calculate_patterns_and_metrics(file_path: str, is_decomposition_requested: bool) -> List[Dict[str, Any]]:
+def _calculate_patterns_and_metrics(
+    file_path: str, is_decomposition_requested: bool
+) -> List[Dict[str, Any]]:
     results: List[Dict[str, Any]] = []
 
     config = Config.get_patterns_config()
@@ -93,11 +100,13 @@ def _create_dataset_writer(file):
     config = Config.get_patterns_config()
 
     patterns_codes = [
-        pattern["code"] for pattern in config["patterns"] if pattern["code"] not in config["patterns_exclude"]
+        pattern["code"] for pattern in config["patterns"]
+        if pattern["code"] not in config["patterns_exclude"]
     ]
 
     metrics_codes = [
-        metric["code"] for metric in config["metrics"] if metric["code"] not in config["metrics_exclude"]
+        metric["code"] for metric in config["metrics"]
+        if metric["code"] not in config["metrics_exclude"]
     ]
 
     fields = \
@@ -110,7 +119,7 @@ def _create_dataset_writer(file):
 
 
 def _parse_args():
-    allowed_cores_qty = len(sched_getaffinity(0))
+    allowed_cores_qty = len(sched_getaffinity(0)) if sched_getaffinity else cpu_count()
     system_cores_qty = cpu_count()
 
     parser = ArgumentParser(description="Creates dataset")
@@ -146,52 +155,54 @@ def _parse_args():
         "--errors-log",
         "-el",
         default="calculation_errors.json",
-        help="Path for errors log file. All errors grouped by patterns. calculation_errors.log is default.",
+        help="Path for errors log file. All errors grouped by patterns. "
+             "calculation_errors.log is default.",
     )
 
-    args = parser.parse_args()
+    parsed_args = parser.parse_args()
 
-    if args.jobs >= system_cores_qty:
+    if parsed_args.jobs >= system_cores_qty:
         print(
-            f"WARNING: You have ordered to spawn {args.jobs} jobs, "
+            f"WARNING: You have ordered to spawn {parsed_args.jobs} jobs, "
             f"while system has only {system_cores_qty} cores. "
             "Machine may badly respond, while calculating dataset.",
             file=stderr,
         )
 
-    if args.jobs > allowed_cores_qty:
+    if parsed_args.jobs > allowed_cores_qty:
         print(
-            f"WARNING: You have ordered to spawn {args.jobs} jobs, "
+            f"WARNING: You have ordered to spawn {parsed_args.jobs} jobs, "
             f"while process only allowed to occupy {allowed_cores_qty} cores."
             "You may have a slowdown due to large number of processes.",
             file=stderr,
         )
 
-    if args.timeout == 0:
-        args.timeout = None
+    if parsed_args.timeout == 0:
+        parsed_args.timeout = None
 
-    basicConfig(filename=args.log, filemode="w", level=INFO)
+    basicConfig(filename=parsed_args.log, filemode="w", level=INFO)
 
     default_dataset_directory = Path(".", "target", "04").absolute()
-    dataset_directory = getenv("TARGET_FOLDER", default=default_dataset_directory)
+    dataset_directory = Path(getenv("TARGET_FOLDER") or default_dataset_directory)
     makedirs(dataset_directory, exist_ok=True)
-    args.csv_file = Path(dataset_directory, "04-find-patterns.csv")
+    parsed_args.csv_file = Path(dataset_directory, "04-find-patterns.csv")
 
     is_decomposition_requested = getenv("LCOM_DECOMPOSITION", "True")
     if is_decomposition_requested in {"True", "1"}:
-        args.is_decomposition_requested = True
+        parsed_args.is_decomposition_requested = True
     elif is_decomposition_requested in {"False", "0"}:
-        args.is_decomposition_requested = False
+        parsed_args.is_decomposition_requested = False
     else:
         print(
-            f"WARNING: value of 'LCOM_DECOMPOSITION' environment variable {is_decomposition_requested} "
-            "is not recognized. Avaliable options are 'True', 'False', '1', '0'."
+            f"WARNING: value of 'LCOM_DECOMPOSITION' environment variable "
+            f"{is_decomposition_requested} is not recognized. "
+            "Available options are 'True', 'False', '1', '0'. "
             "Decomposition is applied by default.",
             file=stderr,
         )
-        args.is_decomposition_requested = True
+        parsed_args.is_decomposition_requested = True
 
-    return args
+    return parsed_args
 
 
 if __name__ == "__main__":
@@ -205,7 +216,9 @@ if __name__ == "__main__":
         _calculate_patterns_and_metrics, is_decomposition_requested=args.is_decomposition_requested
     )
 
-    with open(args.file) as input, open(args.csv_file, "w") as output, ProcessPool(args.jobs) as executor:
+    with (open(args.file, encoding='utf-8') as input,
+          open(args.csv_file, "w", encoding='utf-8') as output,
+          ProcessPool(args.jobs) as executor):
         dataset_writer = _create_dataset_writer(output)
         dataset_writer.writeheader()
 
@@ -215,10 +228,12 @@ if __name__ == "__main__":
 
         for filename in tqdm(filenames):
             try:
-                single_file_features = next(dataset_features)
+                single_file_features = next(
+                    dataset_features)
                 dataset_writer.writerows(single_file_features)
             except TimeoutError:
-                warning(f"Processing {filename} is aborted due to timeout in {args.timeout} seconds.")
+                warning(f"Processing {filename} is aborted due to "
+                        f"timeout in {args.timeout} seconds.")
                 timeout_errors_qty += 1
             except Exception as e:
                 warning(e)
@@ -239,7 +254,7 @@ if __name__ == "__main__":
         for error in errors:
             errors_by_pattern[error.pattern_name][error.filepath] = str(error.cause)
 
-        with open(args.errors_log, "w") as errors_log:
+        with open(args.errors_log, "w", encoding='utf-8') as errors_log:
             json.dump(errors_by_pattern, errors_log)
 
         print(

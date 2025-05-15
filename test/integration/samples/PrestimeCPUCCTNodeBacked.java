@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -280,7 +282,7 @@ public class PrestimeCPUCCTNodeBacked extends PrestimeCPUCCTNode {
 //    public long getSleepTime0() {
 //        return sleepTime0;
 //
-//        // TODO: [wait] self time node?
+//        // TO-FIX: [wait] self time node?
 //    }
 
 //    public int getThreadId() {
@@ -310,7 +312,7 @@ public class PrestimeCPUCCTNodeBacked extends PrestimeCPUCCTNode {
 //    public long getWaitTime0() {
 //        return waitTime0;
 //
-//        // TODO: [wait] self time node?
+//        // TO-FIX: [wait] self time node?
 //    }
 
     public void exportXMLData(ExportDataDumper eDD,String indent) {

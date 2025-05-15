@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /**
  * An implementation of the k Longest Common Substring problem.
@@ -318,7 +320,7 @@ public class LongestCommonSubstring {
 
     private static final boolean DEBUG_MODE = false;
 
-    // TODO(williamfiset): support LCS with strings as int arrays for larger alphabet sizes.
+    // TO-FIX(williamfiset): support LCS with strings as int arrays for larger alphabet sizes.
     public LcsSolver(String[] strings) {
       if (strings == null || strings.length <= 1)
         throw new IllegalArgumentException("Invalid strings array provided.");
@@ -409,12 +411,12 @@ public class LongestCommonSubstring {
     // Counts the number of suffixes of different colors between [lo, hi] and determines
     // if there is enough variety for a LCS candidate.
     private boolean enoughUniqueColorsInWindow(int lo, int hi) {
-      // TODO(williamfiset): Avoid initializing a new hash set to count colors every method call.
+      // TO-FIX(williamfiset): Avoid initializing a new hash set to count colors every method call.
       Set<Integer> set = new HashSet<>();
       for (int i = lo; i <= hi; i++) {
         set.add(imap[sa[i]]);
       }
-      // TODO(williamfiset): Investigate if == can become >=
+      // TO-FIX(williamfiset): Investigate if == can become >=
       return set.size() == k;
     }
 
@@ -472,7 +474,7 @@ public class LongestCommonSubstring {
       sa = suffixArray.getSa();
       lcp = suffixArray.getLcpArray();
 
-      // TODO(williamfiset): Replace with SlidingWindowMinimum for speed.
+      // TO-FIX(williamfiset): Replace with SlidingWindowMinimum for speed.
       CompactMinSegmentTree tree = new CompactMinSegmentTree(lcp);
 
       int lo = numSentinels;

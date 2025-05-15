@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 import os
@@ -18,14 +18,14 @@ class ConcatStringTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [14])
+        self.assertEqual(lines, [17])
 
     def test_member_plus_string(self):
         filepath = Path(self.dir_path, "MemberPlusString.java")
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [99, 111])
+        self.assertEqual(lines, [101, 113])
 
     def test_empty_case(self):
         filepath = Path(self.dir_path, "Nothing.java")
@@ -46,14 +46,14 @@ class ConcatStringTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [12, 13, 14, 15])
+        self.assertEqual(lines, [15, 16, 17, 18])
 
     def test_concat_in_different_methods(self):
         filepath = Path(self.dir_path, "DifferentMethods.java")
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [13, 27])
+        self.assertEqual(lines, [16, 30])
 
     def test_fake_operator_plus(self):
         filepath = Path(self.dir_path, "FakePlusOperator.java")
@@ -70,44 +70,44 @@ class ConcatStringTestCase(TestCase):
         self.assertEqual(
             lines,
             [
-                352,
-                372,
-                373,
-                379,
-                380,
-                408,
-                409,
-                418,
-                422,
-                429,
-                430,
-                438,
-                456,
-                466,
-                479,
-                494,
-                499,
-                509,
-                562,
-                563,
-                604,
-                605,
-                610,
-                701,
-                995,
-                1009,
-                1012,
-                1029,
-                1032,
-                1080,
-                1188,
-                1258,
-                1267,
-                1337,
-                1366,
-                1372,
-                1386,
-                1414,
+                354,
+                374,
+                375,
+                381,
+                382,
+                410,
+                411,
+                420,
+                424,
+                431,
+                432,
+                440,
+                458,
+                468,
+                481,
+                496,
+                501,
+                511,
+                564,
+                565,
+                606,
+                607,
+                612,
+                703,
+                997,
+                1011,
+                1014,
+                1031,
+                1034,
+                1082,
+                1190,
+                1260,
+                1269,
+                1339,
+                1368,
+                1374,
+                1388,
+                1416,
             ],
         )
 
@@ -116,11 +116,11 @@ class ConcatStringTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [160, 165, 177, 192, 218, 279])
+        self.assertEqual(lines, [162, 167, 179, 194, 220, 281])
 
     def test_fake1(self):
         filepath = Path(self.dir_path, "Chain.java")
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [32])
+        self.assertEqual(lines, [34])

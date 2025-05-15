@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -554,7 +556,7 @@ public class AbsoluteLayoutSupport extends AbstractLayoutSupport {
                         return new Integer(-1);
                     }
                     @Override
-                    public PropertyEditor getExpliciteEditor() {
+                    public PropertyEditor getExplicitEditor() {
                         return new SizeEditor();
                     }
                     @Override
@@ -599,7 +601,7 @@ public class AbsoluteLayoutSupport extends AbstractLayoutSupport {
                         return new Integer(-1);
                     }
                     @Override
-                    public PropertyEditor getExpliciteEditor() {
+                    public PropertyEditor getExplicitEditor() {
                         return new SizeEditor();
                     }
                     @Override

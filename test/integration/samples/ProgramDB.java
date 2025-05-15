@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /* ###
  * IP: GHIDRA
@@ -428,7 +430,7 @@ public class ProgramDB extends DomainObjectAdapterDB implements Program, ChangeM
 					oldLanguage, newLanguage);
 			if (languageUpgradeTranslator == null) {
 
-// TODO: This is a bad situation!! Most language revisions should be supportable, if not we have no choice but to throw
+// TO-FIX: This is a bad situation!! Most language revisions should be supportable, if not we have no choice but to throw
 // a LanguageNotFoundException  until we figure out how to deal with nasty translations which require
 // a complete redisassembly and possibly auto analysis.
 
@@ -1453,7 +1455,7 @@ public class ProgramDB extends DomainObjectAdapterDB implements Program, ChangeM
 					dbError(e);
 				}
 
-// TODO: Perform relocation fixups
+// TO-FIX: Perform relocation fixups
 
 			}
 			else {
@@ -2033,7 +2035,7 @@ public class ProgramDB extends DomainObjectAdapterDB implements Program, ChangeM
 	public void deleteAddressRange(Address startAddr, Address endAddr, TaskMonitor monitor)
 			throws RollbackException {
 
-// TODO: ensure that managers are notified with address ranges which correspond to a sequential set of address keys
+// TO-FIX: ensure that managers are notified with address ranges which correspond to a sequential set of address keys
 		lock.acquire();
 		try {
 			for (int i = NUM_MANAGERS - 1; i >= 0; i--) {
@@ -2073,9 +2075,9 @@ public class ProgramDB extends DomainObjectAdapterDB implements Program, ChangeM
 	public void moveAddressRange(Address fromAddr, Address toAddr, long length, TaskMonitor monitor)
 			throws AddressOverflowException, RollbackException {
 
-// TODO: ensure that managers are notified with address ranges which correspond to a sequential set of address keys
+// TO-FIX: ensure that managers are notified with address ranges which correspond to a sequential set of address keys
 
-// TODO: WARNING! fromAddr range may no longer exist in memory map which could affect certain database iterators
+// TO-FIX: WARNING! fromAddr range may no longer exist in memory map which could affect certain database iterators
 
 		lock.acquire();
 		try {

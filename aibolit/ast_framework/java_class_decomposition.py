@@ -1,9 +1,11 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from typing import List, Dict, Set, Iterator, Any
 
-from networkx import DiGraph, strongly_connected_components, weakly_connected_components  # type: ignore
+from networkx import (  # type: ignore
+    DiGraph, strongly_connected_components, weakly_connected_components
+)
 
 from aibolit.ast_framework import AST, ASTNodeType
 
@@ -69,9 +71,9 @@ def decompose_java_class(
     class_parts: List[AST] = []
     patterns_to_ignore: List[Any] = []
     if ignore_getters:
-        patterns_to_ignore.append(lambda: getter())
+        patterns_to_ignore.append(getter)
     if ignore_setters:
-        patterns_to_ignore.append(lambda: setter())
+        patterns_to_ignore.append(setter)
 
     if ignore_setters or ignore_getters:
         prohibited_function_names = find_patterns(class_ast, patterns_to_ignore)

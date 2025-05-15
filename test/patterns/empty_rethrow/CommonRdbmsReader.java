@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: Copyright (c) 2024-2025 Yegor Bugayenko
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 // SPDX-License-Identifier: MIT
 
 package com.alibaba.datax.plugin.rdbms.reader;
@@ -343,7 +343,7 @@ public class CommonRdbmsReader {
                     LOG.debug("read data " + record.toString()
                             + " occur exception:", e);
                 }
-                //TODO 这里识别为脏数据靠谱吗？
+                // TO-FIX 这里识别为脏数据靠谱吗？
                 taskPluginCollector.collectDirtyRecord(record, e);
                 if (e instanceof DataXException) {
                     throw (DataXException) e;

@@ -1,10 +1,11 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 import os
-from unittest import TestCase
-from aibolit.metrics.countLeaves.numberofleaves import CountNumberOfLeaves
 from pathlib import Path
+from unittest import TestCase
+
+from aibolit.metrics.countLeaves.numberofleaves import CountNumberOfLeaves
 
 
 class TestCountLeaves(TestCase):

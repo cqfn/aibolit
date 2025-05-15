@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from unittest import TestCase, skip
@@ -15,7 +15,9 @@ class JavaClassMethodTestCase(TestCase):
         self.assertEqual(java_class.methods.keys(), {'Decrement', 'Increment'})
 
     def test_used_methods(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / 'MethodUseOtherMethodExample.java')
+        java_package = JavaPackage(
+            Path(__file__).parent.absolute() / 'MethodUseOtherMethodExample.java'
+        )
         java_class = java_package.java_classes['MethodUseOtherMethod']
         for method_name, methods in java_class.methods.items():
             with self.subTest(f'Method: {method_name}'):
@@ -25,7 +27,9 @@ class JavaClassMethodTestCase(TestCase):
                                  method.used_methods.keys())
 
     def test_method_parameters(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / 'MethodUseOtherMethodExample.java')
+        java_package = JavaPackage(
+            Path(__file__).parent.absolute() / 'MethodUseOtherMethodExample.java'
+        )
         java_class = java_package.java_classes['MethodUseOtherMethod']
         for method_name, methods in java_class.methods.items():
             with self.subTest(f'Method: {method_name}'):
@@ -35,7 +39,9 @@ class JavaClassMethodTestCase(TestCase):
                                  method.parameters.keys())
 
     def test_used_fields(self):
-        java_package = JavaPackage(Path(__file__).parent.absolute() / 'MethodUseOtherMethodExample.java')
+        java_package = JavaPackage(
+            Path(__file__).parent.absolute() / 'MethodUseOtherMethodExample.java'
+        )
         java_class = java_package.java_classes['MethodUseOtherMethod']
         for method_name, methods in java_class.methods.items():
             with self.subTest(f'Method: {method_name}'):

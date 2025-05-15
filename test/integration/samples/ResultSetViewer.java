@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /*
  * DBeaver - Universal Database Manager
@@ -123,8 +125,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * ResultSetViewer
  *
- * TODO: not-editable cells (struct owners in record mode)
- * TODO: PROBLEM. Multiple occurrences of the same struct type in a single table.
+ * TO-FIX: not-editable cells (struct owners in record mode)
+ * TO-FIX: PROBLEM. Multiple occurrences of the same struct type in a single table.
  * Need to make wrapper over DBSAttributeBase or something. Or maybe it is not a problem
  * because we search for binding by attribute only in constraints and for unique key columns which are unique?
  * But what PK has struct type?
@@ -628,7 +630,7 @@ public class ResultSetViewer extends Viewer
                         DBWorkbench.getPlatformUI().showError("Presentation activate", "Can't instantiate data view '" + newPresentation.getLabel() + "'", e);
                     }
                 } else {
-                    // No presentation for this resulset
+                    // No presentation for this resultset
                     log.debug("No presentations for result set [" + resultSet.getClass().getSimpleName() + "]");
                     showEmptyPresentation();
                 }
@@ -3530,7 +3532,7 @@ public class ResultSetViewer extends Viewer
                             try {
                                 fireResultSetLoad();
                             } catch (Throwable e) {
-                                log.debug("Error handling resulset load", e);
+                                log.debug("Error handling resultset load", e);
                             }
                         }
                         updateFiltersText(true);

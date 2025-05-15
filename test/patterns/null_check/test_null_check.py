@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from pathlib import Path
@@ -17,7 +17,7 @@ class NullCheckTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NullCheck()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [4])
+        self.assertEqual(lines, [7])
 
     def test_null_check_in_constructor(self):
         filepath = self.current_directory / "2.java"
@@ -31,18 +31,18 @@ class NullCheckTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NullCheck()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [4])
+        self.assertEqual(lines, [7])
 
     def test_null_check_ternary(self):
         filepath = self.current_directory / "4.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NullCheck()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [4])
+        self.assertEqual(lines, [7])
 
     def test_null_check_not_equal_comparison(self):
         filepath = self.current_directory / "5.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NullCheck()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [4])
+        self.assertEqual(lines, [7])

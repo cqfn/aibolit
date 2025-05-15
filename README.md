@@ -1,4 +1,4 @@
-<img src="/logo.svg" height="92px"/>
+# ML-Based Static Analyzer for Java
 
 [![PyPi version](https://img.shields.io/pypi/v/aibolit.svg)](https://pypi.org/project/aibolit/)
 [![make](https://github.com/cqfn/aibolit/actions/workflows/make.yml/badge.svg)](https://github.com/cqfn/aibolit/actions/workflows/make.yml)
@@ -7,113 +7,124 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/fd7e32d8472b4d5e8ecb/maintainability)](https://codeclimate.com/github/cqfn/aibolit/maintainability)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/cqfn/aibolit/blob/master/LICENSE.txt)
 
-Learn how Aibolit works in our [White Paper](https://github.com/cqfn/aibolit/releases/download/1.2.5-post.1/aibolit_wp.pdf).
+Learn how Aibolit works in our [White Paper].
 
-First, you install it (you must have [Python 3.7.7](https://www.python.org/downloads/)
+First, you install it (you must have
+[Python 3.7.7](https://www.python.org/downloads/)
 and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
 
-
 ```bash
-$ pip3 install aibolit
+pip3 install aibolit
 ```
 
 To analyze your Java sources, located at `src/java` (for example), run:
 
 ```bash
-$ aibolit check --filenames src/java/File.java src/java/AnotherFile.java
+aibolit check --filenames src/java/File.java src/java/AnotherFile.java
 ```
+
 or
 
 ```bash
-$ aibolit recommend --filenames src/java/File.java src/java/AnotherFile.java
+aibolit recommend --filenames src/java/File.java src/java/AnotherFile.java
 ```
 
 Also, you can set a folder with Java files:
 
 ```bash
-$ aibolit recommend --folder src/java
+aibolit recommend --folder src/java
 ```
 
-It will run recommendation function for the model (model is located in [aibolit/binary_files/model.pkl](https://github.com/cqfn/aibolit/blob/master/aibolit/binary_files/model.pkl).
-The model finds a pattern which contribution is the largest to the Cyclomatic Complexity.
-If anything is found, you will see all recommendations for the mentioned patterns.
-You can see the list of all patterns in [Patterns.md](https://github.com/cqfn/aibolit/blob/master/PATTERNS.md).
+It will run recommendation function for the model (model is located in
+[aibolit/binary_files/model.pkl][model]).
+The model finds a pattern which contribution is the largest to the
+Cyclomatic Complexity.
+If anything is found, you will see all recommendations for the mentioned
+patterns.
+You can see the list of all patterns in
+[Patterns.md](https://github.com/cqfn/aibolit/blob/master/PATTERNS.md).
 The output of recommendation will be redirected to the stdout.
-If the program has the `0` exit code, it means that all analyzed files do not have any issues.
-If the program has the `1` exit code, it means that at least 1 analyzed file has an issue.
+If the program has the `0` exit code, it means that all analyzed files do
+not have any issues.
+If the program has the `1` exit code, it means that at least 1 analyzed file
+has an issue.
 If the program has the `2` exit code, it means that program crash occurred.
 
+You can suppress certain patterns (comma separated value) and they will be
+ignored. They won't be included into the report, also their importance will
+be set to 0.
 
-You can suppress certain patterns (comma separated value) and they will be ignored. They won't be included into the report, also their importance will be set to 0.
 ```bash
-$ aibolit recommend --folder src/java --suppress=P12,P13
+aibolit recommend --folder src/java --suppress=P12,P13
 ```
 
-You can change the format, using the `--format` parameter. The default value is `--format=compact`.
+You can change the format, using the `--format` parameter. The default value
+is `--format=compact`.
+
 ```bash
-$ aibolit recommend --folder src/java --format=compact --full
+aibolit recommend --folder src/java --format=compact --full
 ```
 
-It will output sorted patterns by importance in descending order and grouped by a pattern name:
+It will output sorted patterns by importance in descending order and grouped
+by a pattern name:
 
-```
+```text
 Show all patterns
-/mnt/d/src/java/Configuration.java score: 127.67642529949538
-/mnt/d/src/java/Configuration.java[3840]: Var in the middle (P21: 30.95612931128819 1/4)
-/mnt/d/src/java/Configuration.java[3844]: Var in the middle (P21: 30.95612931128819 1/4)
-/mnt/d/src/java/Configuration.java[3848]: Var in the middle (P21: 30.95612931128819 1/4)
-/mnt/d/src/java/Configuration.java[2411]: Null Assignment (P28: 10.76 2/4)
-/mnt/d/src/java/Configuration.java[826]: Many primary constructors (P9: 10.76 3/4)
-/mnt/d/src/java/Configuration.java[840]: Many primary constructors (P9: 10.76 3/4)
-/mnt/d/src/java/Configuration.java[829]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[841]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[865]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[2586]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3230]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3261]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3727]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3956]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/ErrorExample.java: error when calculating patterns: Can't count P1 metric:
+Configuration.java score: 127.67642529949538
+Configuration.java[3840]: Var in the middle (P21: 30.95612931128819 1/4)
+Configuration.java[3844]: Var in the middle (P21: 30.95612931128819 1/4)
+Configuration.java[3848]: Var in the middle (P21: 30.95612931128819 1/4)
+Configuration.java[2411]: Null Assignment (P28: 10.76 2/4)
+Configuration.java[826]: Many primary constructors (P9: 10.76 3/4)
+Configuration.java[840]: Many primary constructors (P9: 10.76 3/4)
+Configuration.java[829]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[841]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[865]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[2586]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3230]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3261]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3727]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3956]: Partial synchronized (P14: 0.228 4/4)
+ErrorExample.java: error when calculating patterns: Can't count P1 metric:
 Total score: 127.67642529949538
 ```
 
 `(P21: 30.95612931128819 1/4)` means the following:
 
-
-```
+```text
 30.95612931128819 is the score of this pattern
-1 is the position of this pattern in the total list of patterns found in the file
-4 is the total number of found patterns
+1 is the position of this pattern in the total list of patterns
+found in the file 4 is the total number of found patterns
 ```
 
-You can use `format=long`. In this case all results will be sorted by a line number:
+You can use `format=long`. In this case all results will be sorted by a
+line number:
 
-```
+```text
 Show all patterns
-/mnt/d/src/java/Configuration.java: some issues found
-/mnt/d/src/java/Configuration.java score: 127.67642529949538
-/mnt/d/src/java/Configuration.java[826]: Many primary constructors (P9: 10.76 3/4)
-/mnt/d/src/java/Configuration.java[829]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[840]: Many primary constructors (P9: 10.76 3/4)
-/mnt/d/src/java/Configuration.java[841]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[865]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[2411]: Null Assignment (P28: 10.76 2/4)
-/mnt/d/src/java/Configuration.java[2586]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3230]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3261]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3727]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/Configuration.java[3840]: Var in the middle (P21: 30.95612931128819 1/4)
-/mnt/d/src/java/Configuration.java[3844]: Var in the middle (P21: 30.95612931128819 1/4)
-/mnt/d/src/java/Configuration.java[3848]: Var in the middle (P21: 30.95612931128819 1/4)
-/mnt/d/src/java/Configuration.java[3956]: Partial synchronized (P14: 0.228 4/4)
-/mnt/d/src/java/ErrorExample.java: error when calculating patterns: Can't count P1 metric:
-/mnt/d/src/java/MavenSlice.java: your code is perfect in aibolit's opinion
+Configuration.java: some issues found
+Configuration.java score: 127.67642529949538
+Configuration.java[826]: Many primary constructors (P9: 10.76 3/4)
+Configuration.java[829]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[840]: Many primary constructors (P9: 10.76 3/4)
+Configuration.java[841]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[865]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[2411]: Null Assignment (P28: 10.76 2/4)
+Configuration.java[2586]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3230]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3261]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3727]: Partial synchronized (P14: 0.228 4/4)
+Configuration.java[3840]: Var in the middle (P21: 30.95612931128819 1/4)
+Configuration.java[3844]: Var in the middle (P21: 30.95612931128819 1/4)
+Configuration.java[3848]: Var in the middle (P21: 30.95612931128819 1/4)
+Configuration.java[3956]: Partial synchronized (P14: 0.228 4/4)
+ErrorExample.java: error when calculating patterns: Can't count P1 metric:
+MavenSlice.java: your code is perfect in aibolit's opinion
 Total score: 127.67642529949538
 ```
 
-
-
-You can also choose xml format. It will have the same format as `compact` mode, but xml will be created:
+You can also choose xml format. It will have the same format as `compact`
+mode, but xml will be created:
 
 ```xml
 <report>
@@ -121,7 +132,7 @@ You can also choose xml format. It will have the same format as `compact` mode, 
   <!--Show all patterns-->
   <files>
     <file>
-      <path>/mnt/d/src/java/Configuration.java</path>
+      <path>Configuration.java</path>
       <summary>Some issues found</summary>
       <score>127.67642529949538</score>
       <patterns>
@@ -161,161 +172,186 @@ You can also choose xml format. It will have the same format as `compact` mode, 
       </patterns>
     </file>
     <file>
-      <path>/mnt/d/src/java/ErrorExample.java</path>
-      <summary>Error when calculating patterns: Can't count P1 metric: </summary>
+      <path>ErrorExample.java</path>
+      <summary>Error when calculating patterns: Can't count P1 metric:</summary>
     </file>
     <file>
-      <path>/mnt/d/src/java/MavenSlice.java</path>
+      <path>MavenSlice.java</path>
       <summary>Your code is perfect in aibolit's opinion</summary>
     </file>
   </files>
 </report>
-
 ```
-The score is the relative importance of the pattern (there is no range for it).
+
+The score is the relative importance of the pattern (there is no range for
+it).
 The larger score is, the most important pattern is.
-E.g., if you have several patterns, first you need to fix the pattern with the score 5.45:
+E.g., if you have several patterns, first you need to fix the pattern with
+the score 5.45:
 
+```text
+SampleTests.java[43]: Non final attribute (P12: 5.45 1/10)
+SampleTests.java[44]: Non final attribute (P12: 5.45 1/10)
+SampleTests.java[80]: Var in the middle (P21: 3.71 2/10)
+SampleTests.java[121]: Var in the middle (P21: 3.71 2/10)
+SampleTests.java[122]: Var declaration distance for 5 lines (P20_5: 2.13 3/10)
+SampleTests.java[41]: Non final class (P24: 1.95 4/10)
+SampleTests.java[59]: Force Type Casting (P5: 1.45 5/10)
+SampleTests.java[122]: Var declaration distance for 7 lines (P20_7: 1.07 6/10)
+SampleTests.java[122]: Var declaration distance for 11 lines (P20_11: 0.78 7/10)
+SampleTests.java[51]: Protected Method (P30: 0.60 8/10)
+SampleTests.java[52]: Super Method (P18: 0.35 9/10)
+SampleTests.java[100]: Partial synchronized (P14: 0.08 10/10)
+SampleTests.java[106]: Partial synchronized (P14: 0.08 10/10)
+SampleTests.java[113]: Partial synchronized (P14: 0.08 10/10)
 ```
-/mnt/d/src/java/SampleTests.java[43]: Non final attribute (P12: 5.45 1/10)
-/mnt/d/src/java/SampleTests.java[44]: Non final attribute (P12: 5.45 1/10)
-/mnt/d/src/java/SampleTests.java[80]: Var in the middle (P21: 3.71 2/10)
-/mnt/d/src/java/SampleTests.java[121]: Var in the middle (P21: 3.71 2/10)
-/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 5 lines (P20_5: 2.13 3/10)
-/mnt/d/src/java/SampleTests.java[41]: Non final class (P24: 1.95 4/10)
-/mnt/d/src/java/SampleTests.java[59]: Force Type Casting (P5: 1.45 5/10)
-/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 7 lines (P20_7: 1.07 6/10)
-/mnt/d/src/java/SampleTests.java[122]: Var declaration distance for 11 lines (P20_11: 0.78 7/10)
-/mnt/d/src/java/SampleTests.java[51]: Protected Method (P30: 0.60 8/10)
-/mnt/d/src/java/SampleTests.java[52]: Super Method (P18: 0.35 9/10)
-/mnt/d/src/java/SampleTests.java[100]: Partial synchronized (P14: 0.08 10/10)
-/mnt/d/src/java/SampleTests.java[106]: Partial synchronized (P14: 0.08 10/10)
-/mnt/d/src/java/SampleTests.java[113]: Partial synchronized (P14: 0.08 10/10)
-```
+
 The score per class is the sum of all patterns scores.
 
-```
-/mnt/d/src/java/SampleTests.java score: 17.54698560768407
+```text
+SampleTests.java score: 17.54698560768407
 ```
 
-The total score is an average among all java files in a project (folder you've set to analyze)
-```
+The total score is an average among all java files in a project (folder
+you've set to analyze)
+
+```text
 Total average score: 4.0801854775508914
 ```
 
-If you have 2 scores of different projects, the worst project is that one which has the highest score.
+If you have 2 scores of different projects, the worst project is that one
+which has the highest score.
 
-
-
-Model is automatically installed with *aibolit* package, but you can also try your own model
+Model is automatically installed with *aibolit* package, but you can also
+try your own model
 
 ```bash
-$ aibolit recommend --folder src/java --model /mnt/d/some_folder/model.pkl
+aibolit recommend --folder src/java --model /mnt/d/some_folder/model.pkl
 ```
 
-You can get full report with `--full` command, then all patterns will be included to the output:
+You can get full report with `--full` command, then all patterns will be
+included to the output:
 
 ```bash
-$ aibolit recommend --folder src/java --full
+aibolit recommend --folder src/java --full
 ```
 
 You can exclude files with `--exclude` command.
 You to set glob patterns to ignore:
 
 ```bash
-$ aibolit recommend --folder src/java --exclude=**/*Test*.java --exclude=**/*Impl*.java
+aibolit recommend --folder src/java \
+  --exclude=**/*Test*.java --exclude=**/*Impl*.java
 ```
 
 If you need help, run
 
 ```bash
-$ aibolit recommend --help
+aibolit recommend --help
 ```
 
 ## How to retrain it?
 
 `Train` command does the following:
 
- - Calculates patterns and metrics
- - Creates a dataset
- - Trains model and save it
+* Calculates patterns and metrics
+* Creates a dataset
+* Trains model and save it
 
- Train works only with cloned git repository.
- 1. Clone aibolit repository
- 2. Go to `cloned_aibolit_path`
- 3. Run `pip install .`
- 4. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for Linux).
- 5. Set env variable `TARGET_FOLDER` if you need to save all dataset files to another directory.
- 6. You have to specify train and test dataset: set the `HOME_TRAIN_DATASET` environment variable
- for train dataset and the `HOME_TEST_DATASET` environment variable for test dataset.
- Usually, these files are in `scripts/target/08` directory after dataset collection (if you have not skipped it).
- But you can use your own datasets.
+Train works only with cloned git repository.
 
-    Please notice, that if you set `TARGET_FOLDER`, your dataset files will be in `TARGET_FOLDER/target`.
- That is why it is necessary to
- set HOME_TRAIN_DATASET=`TARGET_FOLDER`\target\08\08-train.csv,
- HOME_TEST_DATASET =`TARGET_FOLDER`\target\08\08-test.csv
- 7. If you need to set up own directory where model will be saved, set up also `SAVE_MODEL_FOLDER` environment variable.
- Otherwise model will be saved into `cloned_aibolit_path/aibolit/binary_files/model.pkl`
- 8. If you need to set up own folder with Java files, use `--java_folder parameter`, the default value will be `scripts/target/01` of aibolit cloned repo
+1. Clone aibolit repository
+2. Go to `cloned_aibolit_path`
+3. Run `pip install .`
+4. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for
+Linux).
+5. Set env variable `TARGET_FOLDER` if you need to save all dataset files to
+another directory.
+6. You have to specify train and test dataset: set the `HOME_TRAIN_DATASET`
+environment variable
+for train dataset and the `HOME_TEST_DATASET` environment variable for test
+dataset.
 
- Or you can use our docker image (link will be soon here)
+Usually, these files are in `scripts/target/08` directory after dataset
+collection (if you have not skipped it).
+But you can use your own datasets.
 
- Run train pipeline:
+Please notice, that if you set `TARGET_FOLDER`, your dataset files will be
+in `TARGET_FOLDER/target`.
+That is why it is necessary to
+set HOME_TRAIN_DATASET=`TARGET_FOLDER`\target\08\08-train.csv,
+HOME_TEST_DATASET =`TARGET_FOLDER`\target\08\08-test.csv
+7. If you need to set up own directory where model will be saved, set up also
+`SAVE_MODEL_FOLDER` environment variable.
+Otherwise model will be saved into
+`cloned_aibolit_path/aibolit/binary_files/model.pkl`
+8. If you need to set up own folder with Java files, use `--java_folder
+parameter`, the default value will be `scripts/target/01` of aibolit cloned
+repo
+
+Or you can use our docker image (link will be soon here)
+
+Run train pipeline:
 
 ```bash
-$ aibolit train --java_folder=src/java [--max_classes=100] [--dataset_file]
+aibolit train --java_folder=src/java [--max_classes=100] [--dataset_file]
 ```
 
-If you need to save the dataset with all calculated metrics to a different directory, you need to use `dataset_file` parameter
+If you need to save the dataset with all calculated metrics to a different
+directory, you need to use `dataset_file` parameter
 
 ```bash
-$ aibolit train --java_folder=src/java --dataset_file /mnt/d/new_dir/dataset.csv
+aibolit train --java_folder=src/java --dataset_file /mnt/d/new_dir/dataset.csv
 ```
 
-You can skip dataset collection with `skip_collect_dataset` parameter. In this case
+You can skip dataset collection with `skip_collect_dataset` parameter. In
+this case
 the model will be trained with predefined dataset (see 5 point):
 
 ```bash
-$ aibolit train --java_folder=src/java --skip_collect_dataset
+aibolit train --java_folder=src/java --skip_collect_dataset
 ```
 
 ## How to contribute?
 
 First, you need to install:
 
-  * [Python 3+](https://www.python.org/downloads/)
-  * [Pip](https://pip.pypa.io/en/stable/installing/)
-  * Ruby 2.6+
-  * [Xcop](https://github.com/yegor256/xcop)
+* [Python 3+](https://www.python.org/downloads/)
+* [Pip](https://pip.pypa.io/en/stable/installing/)
+* Ruby 2.6+
+* [Xcop](https://github.com/yegor256/xcop)
 
-Install the following packages if you don't have :
+Install the following packages if you don't have:
 
 ```bash
-$ apt-get install ruby-dev libz-dev libxml2
+apt-get install ruby-dev libz-dev libxml2
 ```
 
 Then, you fork the repo and make the changes. Then, you make
 sure the build is still clean, by running:
 
 ```bash
-$ make
+make
 ```
 
 To build white paper:
+
 ```bash
-$ cd wp
-$ latexmk -c && latexmk -pdf wp.tex
+cd wp
+latexmk -c && latexmk -pdf wp.tex
 ```
 
 If everything is fine, submit
 a [pull request](https://www.yegor256.com/2014/04/15/github-guidelines.html).
 
-
 Using Docker recommendation pipeline
+
 ```bash
-$ docker run --rm -it \
+docker run --rm -it \
   -v <absolute_path_to_folder_with_classes>:/in \
   -v <absolute_path_to_out_dir>:/out \
   cqfn/aibolit-image
 ```
+
+[White Paper]: https://github.com/cqfn/aibolit/releases/download/1.2.5-post.1/aibolit_wp.pdf
+[model]: https://github.com/cqfn/aibolit/blob/master/aibolit/binary_files/model.pkl

@@ -1,18 +1,21 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 from decimal import localcontext, ROUND_DOWN, Decimal
 from typing import Dict, Any, Tuple, List, Union
+from numpy.typing import NDArray
 
 import numpy as np
-import pandas as pd
-from catboost import CatBoost
-from sklearn.base import BaseEstimator
+import pandas as pd  # type: ignore[import-untyped]
+from catboost import CatBoost  # type: ignore[import-untyped]
+from sklearn.base import BaseEstimator  # type: ignore[import-untyped]
 
 from aibolit.config import Config
 
 
 def get_minimum(
-        c1: np.array,
-        c2: np.array,
-        c3: np.array) -> Tuple[np.array, np.array]:
+        c1: NDArray[np.float64],
+        c2: NDArray[np.float64],
+        c3: NDArray[np.float64]) -> Tuple[NDArray[np.float64], NDArray[np.int64]]:
     """
     Args:
         c1, c2, c3: np.array with shape (number of snippets, ).
@@ -23,7 +26,7 @@ def get_minimum(
         arrays' numbers with minimum elements.            .
     """
 
-    c = np.vstack((c1, c2, c3))
+    c: NDArray[np.float64] = np.vstack((c1, c2, c3))
 
     return np.min(c, 0), np.argmin(c, 0)
 
@@ -39,7 +42,7 @@ def generate_fake_dataset() -> pd.DataFrame:
         p = {p: (x + i) for i, p in enumerate(patterns)}
         m = {p: (x + i) for i, p in enumerate(metrics)}
         row = {**p, **m}
-        train_df = train_df.append(row, ignore_index=True)
+        train_df = pd.concat([train_df, pd.DataFrame([row])], ignore_index=True)
 
     train_df = train_df.astype(float)
     return train_df
@@ -52,21 +55,21 @@ def scale_dataset(
         scale_ncss=True) -> pd.DataFrame:
     config = Config.get_patterns_config()
     patterns_codes_set = set([x['code'] for x in config['patterns']])
-    metrics_codes_set = [x['code'] for x in config['metrics']]
+    metrics_codes_set = set([x['code'] for x in config['metrics']])
     exclude_features = set(config['patterns_exclude']).union(set(config['metrics_exclude']))
     used_codes = set(features_conf['features_order'])
     used_codes.add(target_metric_code)
     not_scaled_codes = set(patterns_codes_set).union(set(metrics_codes_set)).difference(used_codes).difference(
         exclude_features)
-    features_not_in_config = set(df.columns).difference(not_scaled_codes).difference(used_codes)
-    not_scaled_codes = sorted(not_scaled_codes.union(features_not_in_config))
+    features_not_in_config: List[str] = list(set(df.columns).difference(not_scaled_codes).difference(used_codes))
+    not_scaled_codes_list: List[str] = sorted(list(not_scaled_codes.union(set(features_not_in_config))))
     codes_to_scale = sorted(used_codes)
     if scale_ncss:
         scaled_df = pd.DataFrame(
             df[codes_to_scale].values / df['M2'].values.reshape((-1, 1)),
             columns=codes_to_scale
         )
-        not_scaled_df = df[not_scaled_codes]
+        not_scaled_df = df[not_scaled_codes_list]
         input = pd.concat([scaled_df, not_scaled_df], axis=1)
     else:
         input = df
@@ -174,7 +177,7 @@ class PatternRankingModel(BaseEstimator):
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
-    def test(self, files: List[str]) -> List[List[Union[Union[str, int, list, List[float]], Any]]]:
+    def test(self, files: List[str]) -> List[List[Union[str, List[str], List[float]]]]:
         """Make predict for list of java files using current model."""
 
         config = Config.get_patterns_config()
@@ -190,6 +193,8 @@ class PatternRankingModel(BaseEstimator):
                 # we need for test to scale snippet
                 # we will calculate it if we do not have M2 in feature_conf
                 found_feature = [x for x in metrics_config if x['code'] == 'M2']
+                if feature == 'M2':
+                    continue
                 row['filename'] = file
                 ncss_val = found_feature[0]['make']().value(file)
                 row['M2'] = ncss_val
@@ -197,7 +202,7 @@ class PatternRankingModel(BaseEstimator):
                 if feature in patterns_codes:
                     found_feature = [x for x in patterns_config if x['code'] == feature]
                     lines = found_feature[0]['make']().value(file)
-                    row[feature] = len(lines)
+                    row[feature] = float(len(lines))  # type: ignore[assignment]
                     results.append(row)
                 elif feature in metrics_codes:
                     found_feature = [x for x in metrics_config if x['code'] == feature]
@@ -213,7 +218,7 @@ class PatternRankingModel(BaseEstimator):
             sorted_result, importances = self.predict(file_for_file)
             result_array.append([file_for_file['filename'], list(sorted_result.keys()), importances])
 
-        return result_array
+        return result_array  # type: ignore[return-value]
 
     def rank(self, snippet, scale=True):
         """

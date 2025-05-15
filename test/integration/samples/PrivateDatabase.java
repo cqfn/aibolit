@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /* ###
  * IP: GHIDRA
@@ -211,7 +213,7 @@ public class PrivateDatabase extends Database {
 		synchronized (syncObject) {
 			if (srcFile != null) {
 				boolean success = false;
-				// TODO: watch-out for multiple updatable BufferFile instances
+				// TO-FIX: watch-out for multiple updatable BufferFile instances
 				LocalManagedBufferFile localBf = new LocalManagedBufferFile(bfMgr, true, -1, -1);
 				try {
 					localBf.updateFrom(srcFile, oldVersion, monitor);  // performs a save

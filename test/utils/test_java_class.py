@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from unittest import TestCase, skip
@@ -23,14 +23,18 @@ class JavaClassTestCase(TestCase):
         self.assertEqual(len(java_methods), 1)
         java_method = next(iter(java_methods))
         java_method_node_types = [java_method.get_type(node) for node in java_method.get_nodes()]
-        self.assertEqual(java_method_node_types, JavaClassTestCase._java_method_preorder_traversal_types)
+        self.assertEqual(
+            java_method_node_types, JavaClassTestCase._java_method_preorder_traversal_types
+        )
 
     def test_class_field(self):
         java_package = JavaPackage(Path(__file__).parent.absolute() / 'SimpleClass.java')
         java_class = java_package.java_classes['Simple']
         java_field = java_class.fields['x']
         java_field_node_types = [java_field.get_type(node) for node in java_field.get_nodes()]
-        self.assertEqual(java_field_node_types, JavaClassTestCase._java_field_preorder_traversal_types)
+        self.assertEqual(
+            java_field_node_types, JavaClassTestCase._java_field_preorder_traversal_types
+        )
 
     _java_packages_with_class_names = [
         ('SimpleClass.java', {'Simple'}),

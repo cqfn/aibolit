@@ -1,23 +1,29 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from collections import namedtuple
 from itertools import islice, repeat, chain
+from typing import Union, Any, Callable, Set, List, Iterator, Tuple, Dict, cast, Optional
 
 from deprecated import deprecated  # type: ignore
 from javalang.tree import Node
 from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
-from typing import Union, Any, Callable, Set, List, Iterator, Tuple, Dict, cast, Optional
 
 from aibolit.ast_framework.ast_node_type import ASTNodeType
-from aibolit.ast_framework._auxiliary_data import javalang_to_ast_node_type, attributes_by_node_type, ASTNodeReference
+from aibolit.ast_framework._auxiliary_data import (
+    javalang_to_ast_node_type, attributes_by_node_type, ASTNodeReference
+)
 from aibolit.ast_framework.ast_node import ASTNode
 
 MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'method_name'])
 
-MemberReferenceParams = namedtuple('MemberReferenceParams', ('object_name', 'member_name', 'unary_operator'))
+MemberReferenceParams = namedtuple(
+    'MemberReferenceParams', ('object_name', 'member_name', 'unary_operator')
+)
 
-BinaryOperationParams = namedtuple('BinaryOperationParams', ('operation', 'left_side', 'right_side'))
+BinaryOperationParams = namedtuple(
+    'BinaryOperationParams', ('operation', 'left_side', 'right_side')
+)
 
 TraverseCallback = Callable[[ASTNode], None]
 
@@ -131,22 +137,25 @@ class AST:
         '''
         Yields all children of node with given type.
         '''
-        for child in self.list_all_children_with_type(node, child_type):
-            yield child
+        yield from self.list_all_children_with_type(node, child_type)
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def get_first_n_children_with_type(self, node: int, child_type: ASTNodeType, quantity: int) -> List[int]:
+    def get_first_n_children_with_type(
+        self, node: int, child_type: ASTNodeType, quantity: int
+    ) -> List[int]:
         '''
         Returns first quantity of children of node with type child_type.
         Resulted list is padded with None to length quantity.
         '''
-        children_with_type = (child for child in self.tree.succ[node] if self.get_type(child) == child_type)
+        children_with_type = (
+            child for child in self.tree.succ[node] if self.get_type(child) == child_type
+        )
         children_with_type_padded = chain(children_with_type, repeat(None))
         return list(islice(children_with_type_padded, 0, quantity))
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def get_binary_operation_name(self, node: int) -> str:
-        assert(self.get_type(node) == ASTNodeType.BINARY_OPERATION)
+        assert self.get_type(node) == ASTNodeType.BINARY_OPERATION
         name_node, = islice(self.children_with_type(node, ASTNodeType.STRING), 1)
         return self.get_attr(name_node, 'string')
 
@@ -179,7 +188,7 @@ class AST:
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def get_method_invocation_params(self, invocation_node: int) -> MethodInvocationParams:
-        assert(self.get_type(invocation_node) == ASTNodeType.METHOD_INVOCATION)
+        assert self.get_type(invocation_node) == ASTNodeType.METHOD_INVOCATION
         # first two STRING nodes represent object and method names
         children = list(self.children_with_type(invocation_node, ASTNodeType.STRING))
         if len(children) == 1:
@@ -190,30 +199,38 @@ class AST:
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def get_member_reference_params(self, member_reference_node: int) -> MemberReferenceParams:
-        assert(self.get_type(member_reference_node) == ASTNodeType.MEMBER_REFERENCE)
-        params = [self.get_attr(child, 'string') for child in
-                  self.children_with_type(member_reference_node, ASTNodeType.STRING)]
+        assert self.get_type(member_reference_node) == ASTNodeType.MEMBER_REFERENCE
+        params = [
+            self.get_attr(child, 'string') for child in
+            self.children_with_type(member_reference_node, ASTNodeType.STRING)
+        ]
 
         member_reference_params: MemberReferenceParams
         if len(params) == 1:
             member_reference_params = MemberReferenceParams(object_name='', member_name=params[0],
                                                             unary_operator='')
         elif len(params) == 2:
-            member_reference_params = MemberReferenceParams(object_name=params[0], member_name=params[1],
-                                                            unary_operator='')
+            member_reference_params = MemberReferenceParams(
+                object_name=params[0], member_name=params[1], unary_operator=''
+            )
         elif len(params) == 3:
-            member_reference_params = MemberReferenceParams(unary_operator=params[0], object_name=params[1],
-                                                            member_name=params[2])
+            member_reference_params = MemberReferenceParams(
+                unary_operator=params[0], object_name=params[1], member_name=params[2]
+            )
         else:
-            raise ValueError('Node has 0 or more then 3 children with type "STRING": ' + str(params))
+            raise ValueError(
+                'Node has 0 or more then 3 children with type "STRING": ' + str(params)
+            )
 
         return member_reference_params
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def get_binary_operation_params(self, binary_operation_node: int) -> BinaryOperationParams:
-        assert(self.get_type(binary_operation_node) == ASTNodeType.BINARY_OPERATION)
+        assert self.get_type(binary_operation_node) == ASTNodeType.BINARY_OPERATION
         operation_node, left_side_node, right_side_node = self.tree.succ[binary_operation_node]
-        return BinaryOperationParams(self.get_attr(operation_node, 'string'), left_side_node, right_side_node)
+        return BinaryOperationParams(
+            self.get_attr(operation_node, 'string'), left_side_node, right_side_node
+        )
 
     @staticmethod
     def _add_subtree_from_javalang_node(tree: DiGraph, javalang_node: Union[Node, Set[Any], str],
@@ -234,12 +251,16 @@ class AST:
             if isinstance(child, list):
                 AST._add_javalang_children(tree, child, parent_index, javalang_node_to_index_map)
             else:
-                child_index = AST._add_subtree_from_javalang_node(tree, child, javalang_node_to_index_map)
+                child_index = AST._add_subtree_from_javalang_node(
+                    tree, child, javalang_node_to_index_map
+                )
                 if child_index != AST._UNKNOWN_NODE_TYPE:
                     tree.add_edge(parent_index, child_index)
 
     @staticmethod
-    def _add_javalang_node(tree: DiGraph, javalang_node: Union[Node, Set[Any], str]) -> Tuple[int, ASTNodeType]:
+    def _add_javalang_node(
+        tree: DiGraph, javalang_node: Union[Node, Set[Any], str]
+    ) -> Tuple[int, ASTNodeType]:
         node_index = AST._UNKNOWN_NODE_TYPE
         node_type = ASTNodeType.UNKNOWN
         if isinstance(javalang_node, Node):
@@ -254,7 +275,9 @@ class AST:
         return node_index, node_type
 
     @staticmethod
-    def _add_javalang_standard_node(tree: DiGraph, javalang_node: Node) -> Tuple[int, ASTNodeType]:
+    def _add_javalang_standard_node(
+        tree: DiGraph, javalang_node: Node
+    ) -> Tuple[int, ASTNodeType]:
         node_index = len(tree) + 1
         node_type = javalang_to_ast_node_type[type(javalang_node)]
 
@@ -262,7 +285,8 @@ class AST:
         attributes = {attr_name: getattr(javalang_node, attr_name) for attr_name in attr_names}
 
         attributes['node_type'] = node_type
-        attributes['line'] = javalang_node.position.line if javalang_node.position is not None else None
+        position = getattr(javalang_node, 'position', None)
+        attributes['line'] = position.line if position is not None else None
 
         AST._post_process_javalang_attributes(tree, node_type, attributes)
 
@@ -270,7 +294,9 @@ class AST:
         return node_index, node_type
 
     @staticmethod
-    def _post_process_javalang_attributes(tree: DiGraph, node_type: ASTNodeType, attributes: Dict[str, Any]) -> None:
+    def _post_process_javalang_attributes(
+        tree: DiGraph, node_type: ASTNodeType, attributes: Dict[str, Any]
+    ) -> None:
         """
         Replace some attributes with more appropriate values for convenient work
         """
@@ -292,12 +318,12 @@ class AST:
         # we expect only strings in collection
         # we add them here as children
         for item in collection_node:
-            if type(item) == str:
+            if isinstance(item, str):
                 string_node_index = AST._add_javalang_string_node(tree, item)
                 tree.add_edge(node_index, string_node_index)
             elif item is not None:
-                raise ValueError('Unexpected javalang AST node type {} inside \
-                                 "COLLECTION" node'.format(type(item)))
+                raise ValueError(f'Unexpected javalang AST node type {type(item)} inside '
+                                 '"COLLECTION" node')
         return node_index
 
     @staticmethod

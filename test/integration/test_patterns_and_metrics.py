@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from os import listdir
@@ -12,11 +12,11 @@ from aibolit.config import Config
 from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast
 
-# TODO: fix all errors in the patterns/metrics and make these lists empty
+# TO-FIX: fix all errors in the patterns/metrics and make these lists empty
 EXCLUDE_PATTERNS: Set[str] = {}
 EXCLUDE_METRICS: Set[str] = {}
 
-# TODO: refactor or delete following patterns and metrics
+# TO-FIX: refactor or delete following patterns and metrics
 PATTERNS_ACCEPT_FILE_PATH = {
     "P20_5",
     "P20_7",
@@ -28,10 +28,10 @@ METRICS_ACCEPT_FILE_PATH = {"M1", "M3_1", "M3_2", "M3_3", "M3_4", "M5", "M7"}
 samples_path = Path(__file__).absolute().parent / "samples"
 
 
-def _check_pattern(pattern_info, filepath):
+def _check_pattern(p_info, filepath):
     try:
-        pattern = pattern_info["make"]()
-        if pattern_info["code"] in PATTERNS_ACCEPT_FILE_PATH:
+        pattern = p_info["make"]()
+        if p_info["code"] in PATTERNS_ACCEPT_FILE_PATH:
             pattern_result = pattern.value(filepath)
         else:
             ast = AST.build_from_javalang(build_ast(filepath))
@@ -39,18 +39,21 @@ def _check_pattern(pattern_info, filepath):
 
         assert isinstance(pattern_result, list) and all(
             isinstance(item, int) for item in pattern_result
-        ), f"Pattern return {pattern_result} with type {type(pattern_result)}, but list of int was expected."
+        ), (
+            f"Pattern return {pattern_result} with type {type(pattern_result)}, "
+            "but list of int was expected."
+        )
     except Exception as exception:
         raise RuntimeError(
-            f"Error searching for pattern {pattern_info['name']} "
-            f"with code {pattern_info['code']} for file {filepath}"
+            f"Error searching for pattern {p_info['name']} "
+            f"with code {p_info['code']} for file {filepath}"
         ) from exception
 
 
-def _check_metric(metric_info, filepath):
+def _check_metric(m_info, filepath):
     try:
-        metric = metric_info["make"]()
-        if metric_info["code"] in METRICS_ACCEPT_FILE_PATH:
+        metric = m_info["make"]()
+        if m_info["code"] in METRICS_ACCEPT_FILE_PATH:
             metric_result = metric.value(filepath)
         else:
             ast = AST.build_from_javalang(build_ast(filepath))
@@ -62,8 +65,8 @@ def _check_metric(metric_info, filepath):
         )
     except Exception as exception:
         raise RuntimeError(
-            f"Error in application of the metric {metric_info['name']} "
-            f"with code {metric_info['code']} for file {filename}"
+            f"Error in application of the metric {m_info['name']} "
+            f"with code {m_info['code']} for file {filepath}"
         ) from exception
 
 

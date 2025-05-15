@@ -1,9 +1,11 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from networkx import DiGraph, disjoint_union  # type: ignore
-from aibolit.ast_framework import AST, ASTNodeType
 from typing import Tuple
+
+from networkx import DiGraph, disjoint_union  # type: ignore
+
+from aibolit.ast_framework import AST, ASTNodeType
 
 
 NODE_TYPES = [
@@ -32,9 +34,9 @@ def _mk_cfg_graph(node: ASTNodeType) -> Tuple[DiGraph, int]:
 
 
 def _compose_two_graphs(g1: DiGraph, g2: DiGraph) -> DiGraph:
-    '''Compose two graphs by creating the edge between last of the fist graph and fist of the second.
+    """Compose two graphs by creating edge between last of fist graph & fist of second.
        We assume that node in the each graph G has order from 0 to len(G)-1
-    '''
+    """
     g = disjoint_union(g1, g2)
     g.add_edge(len(g1) - 1, len(g1))
     return g

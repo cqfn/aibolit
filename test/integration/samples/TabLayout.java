@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /*
  * Copyright (C) 2015 The Android Open Source Project
@@ -569,7 +571,7 @@ public class TabLayout extends HorizontalScrollView {
     unboundedRipple = a.getBoolean(R.styleable.TabLayout_tabUnboundedRipple, false);
     a.recycle();
 
-    // TODO add attr for these
+    // TO-FIX add attr for these
     final Resources res = getResources();
     tabTextMultiLineSize = res.getDimensionPixelSize(R.dimen.design_tab_text_size_2line);
     scrollableTabMinWidth = res.getDimensionPixelSize(R.dimen.design_tab_scrollable_min_width);
@@ -821,7 +823,7 @@ public class TabLayout extends HorizontalScrollView {
     return tab;
   }
 
-  // TODO(b/76413401): remove this method and just create the final field after the widget migration
+  // TO-FIX(b/76413401): remove this method and just create the final field after the widget migration
   protected Tab createTabFromPool() {
     Tab tab = tabPool.acquire();
     if (tab == null) {
@@ -830,7 +832,7 @@ public class TabLayout extends HorizontalScrollView {
     return tab;
   }
 
-  // TODO(b/76413401): remove this method and just create the final field after the widget migration
+  // TO-FIX(b/76413401): remove this method and just create the final field after the widget migration
   protected boolean releaseFromTabPool(Tab tab) {
     return tabPool.release(tab);
   }
@@ -1862,7 +1864,7 @@ public class TabLayout extends HorizontalScrollView {
   }
 
   /** A tab in this layout. Instances can be created via {@link #newTab()}. */
-  // TODO(b/76413401): make class final after the widget migration is finished
+  // TO-FIX(b/76413401): make class final after the widget migration is finished
   public static class Tab {
 
     /**
@@ -1883,12 +1885,12 @@ public class TabLayout extends HorizontalScrollView {
     @Nullable private View customView;
     private @LabelVisibility int labelVisibilityMode = TAB_LABEL_VISIBILITY_LABELED;
 
-    // TODO(b/76413401): make package private after the widget migration is finished
+    // TO-FIX(b/76413401): make package private after the widget migration is finished
     @Nullable public TabLayout parent;
-    // TODO(b/76413401): make package private after the widget migration is finished
+    // TO-FIX(b/76413401): make package private after the widget migration is finished
     @NonNull public TabView view;
 
-    // TODO(b/76413401): make package private constructor after the widget migration is finished
+    // TO-FIX(b/76413401): make package private constructor after the widget migration is finished
     public Tab() {
       // Private constructor
     }
@@ -2256,7 +2258,7 @@ public class TabLayout extends HorizontalScrollView {
 
       if (tabRippleColorStateList != null) {
         GradientDrawable maskDrawable = new GradientDrawable();
-        // TODO: Find a workaround for this. Currently on certain devices/versions,
+        // TO-FIX: Find a workaround for this. Currently on certain devices/versions,
         // LayerDrawable will draw a black background underneath any layer with a non-opaque color,
         // (e.g. ripple) unless we set the shape to be something that's not a perfect rectangle.
         maskDrawable.setCornerRadius(0.00001F);
@@ -2265,7 +2267,7 @@ public class TabLayout extends HorizontalScrollView {
         ColorStateList rippleColor =
             RippleUtils.convertToRippleDrawableColor(tabRippleColorStateList);
 
-        // TODO: Add support to RippleUtils.compositeRippleColorStateList for different ripple color
+        // TO-FIX: Add support to RippleUtils.compositeRippleColorStateList for different ripple color
         // for selected items vs non-selected items
         if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
           background =
@@ -2633,7 +2635,7 @@ public class TabLayout extends HorizontalScrollView {
         return;
       }
       if (customView != null) {
-        // TODO(b/123406505): Support badging on custom tab views.
+        // TO-FIX(b/123406505): Support badging on custom tab views.
         tryRemoveBadgeFromAnchor();
       } else {
         if (iconView != null && tab != null && tab.getIcon() != null) {
@@ -2937,7 +2939,7 @@ public class TabLayout extends HorizontalScrollView {
         } else {
           // If the tabs will wrap to be larger than the width minus gutters, we need
           // to switch to GRAVITY_FILL.
-          // TODO (b/129799806): This overrides the user TabGravity setting.
+          // TO-FIX (b/129799806): This overrides the user TabGravity setting.
           tabGravity = GRAVITY_FILL;
           updateTabViews(false);
           remeasure = true;

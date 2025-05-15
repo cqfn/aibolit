@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from typing import List
@@ -15,6 +15,7 @@ class ArrayAsArgument:
         lines: List[int] = []
         for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION,
                                                       ASTNodeType.CONSTRUCTOR_DECLARATION):
-            if any(len(parameter.type.dimensions) > 0 for parameter in method_declaration.parameters):
+            if any(len(parameter.type.dimensions) > 0
+                   for parameter in method_declaration.parameters):
                 lines.append(method_declaration.line)
         return lines

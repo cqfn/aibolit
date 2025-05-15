@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 /*
  * Copyright 2018 OpenAPI-Generator Contributors (https://openapi-generator.tech)
  * Copyright 2018 SmartBear Software
@@ -60,7 +62,7 @@ public class AndroidClientCodegen extends DefaultCodegen implements CodegenConfi
     public AndroidClientCodegen() {
         super();
 
-        // TODO: Android client maintainer review.
+        // TO-FIX: Android client maintainer review.
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .excludeWireFormatFeatures(

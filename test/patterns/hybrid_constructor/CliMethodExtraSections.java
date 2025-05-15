@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 /* ###
  * IP: GHIDRA
  *
@@ -78,7 +80,7 @@ public class CliMethodExtraSections implements StructConverter {
 
 		public StructureDataType getSmallExceptionClauseDataType() {
 			StructureDataType struct = new StructureDataType(new CategoryPath(PATH), "SmallExceptionHandlerClause", 0);
-			struct.add(WORD, "Flags", "COR_ILEXCEPTION_CLAUSE_*"); //  TODO: explain flags
+			struct.add(WORD, "Flags", "COR_ILEXCEPTION_CLAUSE_*"); //  TO-FIX: explain flags
 			struct.add(WORD, "TryOffset", "Offset in bytes of try block from start of header");
 			struct.add(BYTE, "TryLength", "Length in bytes of try block");
 			struct.add(WORD, "HandlerOffset", "Location of handler for this try block");
@@ -92,7 +94,7 @@ public class CliMethodExtraSections implements StructConverter {
 
 		public StructureDataType getFatExceptionClauseDataType() {
 			StructureDataType struct = new StructureDataType(new CategoryPath(PATH), "FatExceptionHandlerClause", 0);
-			struct.add(DWORD, "Flags", "COR_ILEXCEPTION_CLAUSE_*"); //  TODO: explain flags
+			struct.add(DWORD, "Flags", "COR_ILEXCEPTION_CLAUSE_*"); //  TO-FIX: explain flags
 			struct.add(DWORD, "TryOffset", "Offset in bytes of try block from start of header");
 			struct.add(DWORD, "TryLength", "Length in bytes of try block");
 			struct.add(DWORD, "HandlerOffset", "Location of handler for this try block");
@@ -108,7 +110,7 @@ public class CliMethodExtraSections implements StructConverter {
 			int clauseSize = (isFat ? 24 : 12);
 			int numberClauses = (dataSize - 4) / clauseSize;
 			StructureDataType struct = new StructureDataType(new CategoryPath(PATH), "ExtraSection", 0);
-			struct.add(BYTE, "Kind", "flags: EH, OptIL, FatFormat, MoreSects"); // TODO: explain flags
+			struct.add(BYTE, "Kind", "flags: EH, OptIL, FatFormat, MoreSects"); // TO-FIX: explain flags
 			if (isFat) {
 				struct.add(BYTE, "size byte 1", "first byte");
 				struct.add(WORD, "size bytes 2-3", "size continued. n*24+4 clauses follow.");

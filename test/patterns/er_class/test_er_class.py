@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 import os
@@ -18,14 +18,14 @@ class ErClassTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ErClass()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [12])
+        self.assertEqual(lines, [15])
 
     def test_controller_in_end(self):
         filepath = Path(self.dir_path, "AnimatableTransform.java")
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ErClass()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [12])
+        self.assertEqual(lines, [15])
 
     def test_one_normal_class(self):
         filepath = Path(self.dir_path, "AuditEventModelProcessor.java")
@@ -39,14 +39,14 @@ class ErClassTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ErClass()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [18, 186])
+        self.assertEqual(lines, [21, 189])
 
     def test_class_parser(self):
         filepath = Path(self.dir_path, "Configuration.java")
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ErClass()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [3106])
+        self.assertEqual(lines, [3109])
 
     def test_another_normal_class(self):
         filepath = Path(self.dir_path, "FillContent.java")
@@ -95,4 +95,4 @@ class ErClassTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ErClass()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [837, 1478, 1538, 1684])
+        self.assertEqual(lines, [840, 1481, 1541, 1687])

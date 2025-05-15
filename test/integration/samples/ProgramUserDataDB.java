@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /* ###
  * IP: GHIDRA
@@ -50,7 +52,7 @@ import ghidra.util.task.TaskMonitorAdapter;
  */
 class ProgramUserDataDB extends DomainObjectAdapterDB implements ProgramUserData {
 
-// TODO: WARNING! This implementation does not properly handle undo/redo in terms of cache invalidation
+// TO-FIX: WARNING! This implementation does not properly handle undo/redo in terms of cache invalidation
 
 	/**
 	 * DB_VERSION should be incremented any time a change is made to the overall

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from pathlib import Path
@@ -38,4 +38,4 @@ class SetterTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ClassicGetter()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [5])
+        self.assertEqual(lines, [8])

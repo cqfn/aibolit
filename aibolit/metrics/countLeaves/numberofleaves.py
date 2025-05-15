@@ -1,7 +1,10 @@
-import javalang
-from aibolit.utils.ast_builder import build_ast
-
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 from typing import List, Type, Any
+
+import javalang
+
+from aibolit.utils.ast_builder import build_ast
 
 
 class CountNumberOfLeaves:

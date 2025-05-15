@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /* ###
  * IP: GHIDRA
@@ -169,7 +171,7 @@ public class DecompileDebug {
 			debugStream.close();
 		}
 		catch (Exception e) {
-			// TODO Auto-generated catch block
+			// TO-FIX Auto-generated catch block
 			Msg.error(this, "Unexpected Exception: " + e.getMessage(), e);
 		}
 	}

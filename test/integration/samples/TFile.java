@@ -2,6 +2,8 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 /**
  * Licensed to the Apache Software Foundation (ASF) under one or more
@@ -1291,7 +1293,7 @@ public class TFile {
         endLocation = end;
 
         valTransferBuffer = new BytesWritable();
-        // TODO: remember the longest key in a TFile, and use it to replace
+        // TO-FIX: remember the longest key in a TFile, and use it to replace
         // MAX_KEY_SIZE.
         keyBuffer = new byte[MAX_KEY_SIZE];
         keyDataInputStream = new DataInputBuffer();

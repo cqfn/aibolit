@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2025 Yegor Bugayenko
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 version = 1
@@ -7,7 +7,16 @@ path = [
     ".DS_Store",
     ".gitattributes",
     ".gitignore",
+    ".pylintrc",
     ".latexmkrc",
+    "**.zip",
+    "**.jar",
+    "aibolit/binary_files/model.pkl",
+    ".dcignore",
+    "MANIFEST.in",
+    "**.class",
+    "**.puml",
+    "test/stats/model.pkl",
     ".pdd",
     "**.csv",
     "**.jpg",
@@ -35,5 +44,5 @@ path = [
     "renovate.json",
 ]
 precedence = "override"
-SPDX-FileCopyrightText = "Copyright (c) 2025 Yegor Bugayenko"
+SPDX-FileCopyrightText = "Copyright (c) 2019-2025 Aibolit"
 SPDX-License-Identifier = "MIT"

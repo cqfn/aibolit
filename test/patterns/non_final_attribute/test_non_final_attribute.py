@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2020 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
 from pathlib import Path
@@ -17,14 +17,14 @@ class NonFinalAttributeTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NonFinalAttribute()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [2, 4, 6, 8])
+        self.assertEqual(lines, [5, 7, 9, 11])
 
     def test_nested_class(self):
         filepath = self.current_directory / "File.java"
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = NonFinalAttribute()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [12, 16, 64])
+        self.assertEqual(lines, [15, 19, 67])
 
     def test_attribute_in_interface(self):
         filepath = self.current_directory / "AttributeInInterface.java"

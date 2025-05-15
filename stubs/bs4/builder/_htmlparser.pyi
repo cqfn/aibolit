@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
 from bs4.builder import HTMLTreeBuilder
 from html.parser import HTMLParser
 from typing import Any, Optional
