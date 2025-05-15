@@ -652,7 +652,7 @@ def create_text(results, full_report, is_long=False):
             pass
         if not results_item and ex:
             output_string = (f'{filename}: error when calculating patterns: '
-                            f'{str(ex) or type(ex).__name__}')
+                             f'{str(ex) or type(ex).__name__}')
             buffer.append(output_string)
         elif results_item and not ex:
             # get unique patterns score
