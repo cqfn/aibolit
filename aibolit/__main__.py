@@ -819,8 +819,8 @@ def format_converter_for_pattern(results, sorted_by=None):
     total_patterns_list = []
     for file in results:
         components = file.get('results')
+        all_results = {}
         if components:
-            all_results = {}
             for i, component in enumerate(components):
                 new_items = flatten([
                     [{'pattern_code': x['pattern_code'],
