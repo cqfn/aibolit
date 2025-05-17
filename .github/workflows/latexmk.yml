@@ -19,7 +19,7 @@ jobs:
         with:
           submodules: 'true'
       - run: sudo apt-get install --yes ghostscript
-      - uses: yegor256/latexmk-action@0.16.1
+      - uses: yegor256/latexmk-action@0.16.2
         with:
           path: wp
           opts: -pdf
