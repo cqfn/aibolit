@@ -327,8 +327,14 @@ Install the following packages if you don't have:
 apt-get install ruby-dev libz-dev libxml2
 ```
 
-Then, you fork the repo and make the changes. Then, you make
-sure the build is still clean, by running:
+This project does not include a virtual environment by default . However, if you use one (e.g., .venv, venv, etc.), you can specify its directory in the Makefile using the VENV_DIR variable so that tools like xcop will skip it during analysis.
+
+Example:
+```makefile
+VENV_DIR = .venv
+```
+
+After forking the repo and making your changes, make sure the build is still clean by running:
 
 ```bash
 make
