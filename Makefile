@@ -7,8 +7,6 @@
 .SHELLFLAGS := -e -o pipefail -c
 .SECONDARY:
 SHELL := bash
-VENV_DIR = .venv
-XML_FILES = $(shell find . -type f -name "*.xml" | grep -v "$(VENV_DIR)")
 .PHONY: all clean requirements test it install xcop flake8 pylint sphinx mypy lint
 
 all: requirements install test it lint xcop sphinx
@@ -31,7 +29,7 @@ it:
 	./test/integration/test_recommend.sh
 
 xcop:
-	xcop --exclude=$(VENV_DIR) $(XML_FILES)
+	xcop $$(find . -name '*.xml')
 
 flake8:
 	python3 -m flake8 aibolit test scripts setup.py --exclude scripts/target/*
