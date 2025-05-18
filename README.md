@@ -327,12 +327,14 @@ Install the following packages if you don't have:
 apt-get install ruby-dev libz-dev libxml2
 ```
 
-This project does not include a virtual environment by default . If you're using one (e.g., .venv, venv), update the .xcop file to exclude it:
+This project does not include a virtual environment by default.
+If you're using one (e.g., .venv, venv), update the .xcop file to exclude it:
+
 ```bash
 --exclude=.venv/**
 ```
 
-After forking the repo and making your changes, make sure the build is still clean by running:
+After forking and editing the repo, verify the build is clean by running:
 
 ```bash
 make
