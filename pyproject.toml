@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aibolit"
+version = "0.0.0"
+description = "Aibolit: Static Analyzer with Machine Learning in Mind"
+readme = "README.md"
+authors = [
+    {name = "Yegor Bugayenko", email = "yegor256@gmail.com"},
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development",
+    "Topic :: Utilities"
+]
+requires-python = ">=3.7"
+dependencies = [
+    "beautifulsoup4==4.8.2",
+    "bs4==0.0.1",
+    "cached-property==1.2.0",
+    "catboost==1.2.8",
+    "chardet>=5.0.0",
+    "deprecated==1.2.10",
+    "javalang==0.13.0",
+    "lxml==5.4.0",
+    "matplotlib==3.10.3",
+    "networkx==3.2",
+    "numpy==2.2.5",
+    "packaging>=23.0",
+    "pandas==2.2.3",
+    "pebble==4.5.3",
+    "scikit-learn==1.6.1",
+    "scipy==1.15.3",
+    "tqdm==4.66.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "codecov==2.1.13",
+    "coverage==5.0.3",
+    "flake8==7.2.0",
+    "mypy>=1.0.0",
+    "pylint==3.3.7",
+    "sphinx==8.2.3",
+    "setuptools==80.7.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/yegor256/aibolit"
+Download = "https://github.com/yegor256/aibolit"
+
+[project.scripts]
+aibolit = "aibolit.__main__:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["aibolit*"]
+
+[tool.setuptools.package-data]
+aibolit = [
+    "binary_files/halstead.jar",
+    "binary_files/model.dat",
+    "binary_files/model.pkl",
+    "binary_files/features_order.json",
+]
+
+[tool.wheel]
+universal = true
+
+[tool.flake8]
+ignore = ["W504"]
+max-line-length = 120
+max-complexity = 10
+
+[tool.mypy]
+mypy_path = "stubs"
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
