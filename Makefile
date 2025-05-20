@@ -21,18 +21,18 @@ install:
 	uv run aibolit --version
 
 test:
-	python3 -m coverage run -m unittest discover
+	uv run coverage run -m unittest discover
 
 it:
-	python3 -m test.integration.test_patterns_and_metrics
-	python3 -m test.integration.test_model > /dev/null
+	uv run test.integration.test_patterns_and_metrics
+	uv run test.integration.test_model > /dev/null
 	./test/integration/test_recommend.sh
 
 xcop:
 	xcop $$(find . -name '*.xml')
 
 ruff:
-	python3 -m ruff check aibolit test scripts --exclude scripts/target/*
+	uv run ruff check aibolit test scripts --exclude scripts/target/*
 
 sphinx:
 	rm -rf sphinx html
@@ -40,7 +40,7 @@ sphinx:
 	sphinx-build sphinx html
 
 mypy:
-	python3 -m mypy aibolit
+	uv run mypy aibolit
 
 clean:
 	rm -rf build
