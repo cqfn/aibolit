@@ -7,7 +7,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "aibolit"
-version = "0.0.0"
+version = "1.3.0"
 description = "Aibolit: Static Analyzer with Machine Learning in Mind"
 readme = "README.md"
 authors = [
@@ -81,7 +81,7 @@ universal = true
 [tool.ruff]
 # Enable flake8-bugbear (`B`) rules.
 select = ["E", "F", "W", "I", "PL", "C90"] # To be added ["B", "N", "UP",  "C90"]
-ignore = ["PLR"]
+ignore = ["PLR", "PLC0206"]
 # Allow autofix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = []

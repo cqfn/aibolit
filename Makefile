@@ -24,8 +24,8 @@ test:
 	uv run coverage run -m unittest discover
 
 it:
-	uv run test.integration.test_patterns_and_metrics
-	uv run test.integration.test_model > /dev/null
+	python3 -m test.integration.test_patterns_and_metrics
+	python3 -m test.integration.test_model > /dev/null
 	./test/integration/test_recommend.sh
 
 xcop:
