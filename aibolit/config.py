@@ -9,7 +9,7 @@ providing a central registry for all available code analysis tools.
 import os
 from pathlib import Path
 
-from aibolit.ast_framework import ASTNodeType
+from aibolit.ast_framework.ast_node_type import ASTNodeType
 from aibolit.metrics.cognitiveC.cognitive_c import CognitiveComplexity as M4
 from aibolit.metrics.entropy.entropy import Entropy as M1
 from aibolit.metrics.fanout.FanOut import FanOut as M10

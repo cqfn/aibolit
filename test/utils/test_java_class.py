@@ -4,7 +4,7 @@
 from pathlib import Path
 from unittest import TestCase, skip
 
-from aibolit.ast_framework import ASTNodeType
+from aibolit.ast_framework.ast_node_type import ASTNodeType
 from aibolit.ast_framework.java_package import JavaPackage
 
 

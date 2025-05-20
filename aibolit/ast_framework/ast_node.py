@@ -6,7 +6,7 @@ from typing import Any, Iterator, List, Optional
 from cached_property import cached_property  # type: ignore
 from networkx import DiGraph, dfs_preorder_nodes  # type: ignore
 
-from aibolit.ast_framework import ASTNodeType
+from aibolit.ast_framework.ast_node_type import ASTNodeType
 from aibolit.ast_framework._auxiliary_data import (
     ASTNodeReference,
     attributes_by_node_type,

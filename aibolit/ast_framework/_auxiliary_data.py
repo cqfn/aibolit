@@ -6,7 +6,7 @@ from typing import Dict, NamedTuple, Set, Type
 from javalang import tree
 from javalang.ast import Node
 
-from aibolit.ast_framework import ASTNodeType
+from aibolit.ast_framework.ast_node_type import ASTNodeType
 
 
 class ASTNodeReference(NamedTuple):

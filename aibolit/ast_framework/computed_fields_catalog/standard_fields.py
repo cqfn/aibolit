@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from aibolit.ast_framework import ASTNodeType
+from aibolit.ast_framework.ast_node_type import ASTNodeType
 from aibolit.ast_framework.computed_fields_registry import computed_fields_registry
 
 from .chained_fields import chain_field_getter_factory
