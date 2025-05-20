@@ -44,9 +44,8 @@ dependencies = [
 dev = [
     "codecov==2.1.13",
     "coverage==5.0.3",
-    "flake8==7.2.0",
     "mypy>=1.0.0",
-    "pylint==3.3.7",
+    "ruff==0.5.0",
     "sphinx==8.2.3",
     "setuptools==80.7.1",
 ]
@@ -75,10 +74,127 @@ aibolit = [
 [tool.wheel]
 universal = true
 
-[tool.flake8]
-ignore = ["W504"]
-max-line-length = 120
+[tool.ruff]
+# Enable flake8-bugbear (`B`) rules.
+select = ["E", "F", "B", "W", "I", "N", "UP", "PL", "C90"]
+ignore = [
+    # Line break occurred after a binary operator (W504)
+    "W504",
+    # Missing docstring in module (C0114)
+    "D100",
+    # Missing docstring in class (C0115)
+    "D101",
+    # Missing docstring in function (C0116)
+    "D102",
+    # Too many local variables (R0914)
+    "PLR0913",
+    # Too many branches (R0912)
+    "PLR0912",
+    # Too many nested blocks (R1702)
+    "PLR0915",
+    # Duplicate code (R0801)
+    "PLR0801",
+    # Cyclic import (R0401)
+    "PLC0415",
+    # C-extension no-member (I1101)
+    # No direct equivalent in ruff
+    # Broad exception caught (W0718)
+    "BLE001",
+    # Broad exception raised (W0719)
+    "BLE001",
+    # Invalid name (C0103)
+    "N815", "N816", "N817",
+    # Too few public methods (R0903)
+    "PLR0903",
+    # Too many arguments (R0913)
+    "PLR0913",
+    # Raise missing from (W0707)
+    "B904",
+    # Too many instance attributes (R0902)
+    "PLR0902",
+    # Redefined builtin (W0622)
+    "A001", "A002", "A003",
+    # Too many public methods (R0904)
+    "PLR0904",
+    # Too many ancestors (R0901)
+    "PLR0901",
+    # Unused argument (W0613)
+    "ARG001", "ARG002",
+    # Unused variable (W0612)
+    "F841",
+    # No else return (R1705)
+    "PLR1705",
+    # Inconsistent return statements (R1710)
+    "PLR1710",
+    # Consider using in (R1714)
+    "PLR1714",
+    # Consider using get (R1715)
+    "PLR1715",
+    # Consider using set comprehension (R1718)
+    "PLR1718",
+    # Simplify boolean expression (R1719)
+    "PLR1719",
+    # No else raise (R1720)
+    "PLR1720",
+    # Unnecessary comprehension (R1721)
+    "PLR1721",
+    # Consider using sys.exit (R1722)
+    "PLR1722",
+    # No else break (R1723)
+    "PLR1723",
+    # No else continue (R1724)
+    "PLR1724",
+    # Super with arguments (R1725)
+    "PLR1725",
+    # Consider using generator (R1728)
+    "PLR1728",
+    # Consider using min/max builtin (R1730)
+    "PLR1730",
+    # Consider using max builtin (R1731)
+    "PLR1731",
+    # Consider using with (R1732)
+    "PLR1732",
+]
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+]
+# Same as Black.
+line-length = 120
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+# Assume Python 3.11
+target-version = "py311"
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
 max-complexity = 10
+
+[tool.ruff.per-file-ignores]
+# Tests can use assert
+"test/**/*.py" = ["S101"]
 
 [tool.mypy]
 mypy_path = "stubs"
