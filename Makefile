@@ -17,7 +17,7 @@ requirements:
 	uv sync --all-extras
 
 install:
-	uv pip install .
+	#uv pip install .
 	python3 aibolit --version
 
 test:
