@@ -7,17 +7,17 @@
 .SHELLFLAGS := -e -o pipefail -c
 .SECONDARY:
 SHELL := bash
-.PHONY: all clean requirements test it install xcop flake8 pylint sphinx mypy lint
+.PHONY: all clean requirements test it install xcop ruff sphinx mypy lint
 
 all: requirements install test it lint xcop sphinx
 
-lint: flake8 pylint mypy
+lint: ruff mypy
 
 requirements:
-	python3 -m pip install -r requirements.txt
+	uv pip install -r requirements.txt
 
 install:
-	python3 -m pip install .
+	uv pip install .
 	python3 aibolit --version
 
 test:
@@ -31,11 +31,8 @@ it:
 xcop:
 	xcop $$(find . -name '*.xml')
 
-flake8:
-	python3 -m flake8 aibolit test scripts setup.py --exclude scripts/target/*
-
-pylint:
-	python3 -m pylint aibolit test scripts setup.py --ignore=scripts/target
+ruff:
+	python3 -m ruff check aibolit test scripts --exclude scripts/target/*
 
 sphinx:
 	rm -rf sphinx html
