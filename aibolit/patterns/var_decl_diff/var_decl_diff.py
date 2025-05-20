@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MIT
 
 
-from typing import List, Optional, Tuple, Dict
+from typing import Dict, List, Optional, Tuple
 
 import javalang
 
-from aibolit.utils.java_parser import JavalangImproved, ASTNode
+from aibolit.utils.java_parser import ASTNode, JavalangImproved
 
 
 class VarDeclarationDistance:

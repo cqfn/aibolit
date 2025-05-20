@@ -4,8 +4,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.patterns.send_null.send_null import SendNull
 from aibolit.ast_framework import AST
+from aibolit.patterns.send_null.send_null import SendNull
 from aibolit.utils.ast_builder import build_ast
 
 

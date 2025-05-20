@@ -4,8 +4,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.patterns.non_final_class.non_final_class import NonFinalClass
 from aibolit.ast_framework import AST
+from aibolit.patterns.non_final_class.non_final_class import NonFinalClass
 from aibolit.utils.ast_builder import build_ast
 
 

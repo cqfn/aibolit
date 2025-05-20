@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MIT
 
 import os
-from unittest import TestCase
 from pathlib import Path
+from unittest import TestCase
 
-from aibolit.patterns.array_as_argument.array_as_argument import ArrayAsArgument
 from aibolit.ast_framework import AST
+from aibolit.patterns.array_as_argument.array_as_argument import ArrayAsArgument
 from aibolit.utils.ast_builder import build_ast
 
 

@@ -8,11 +8,17 @@ from unittest import TestCase, skip
 
 import javalang
 
+from aibolit.__main__ import (
+    add_pattern_if_ignored,
+    calculate_patterns_and_metrics,
+    create_text,
+    create_xml_tree,
+    find_annotation_by_node_type,
+    find_start_and_end_lines,
+    format_converter_for_pattern,
+    list_dir,
+)
 from aibolit.config import Config
-
-from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, \
-    create_xml_tree, create_text, format_converter_for_pattern, find_start_and_end_lines, \
-    find_annotation_by_node_type, add_pattern_if_ignored
 
 
 class TestRecommendPipeline(TestCase):

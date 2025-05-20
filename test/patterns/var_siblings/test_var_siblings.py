@@ -1,11 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from pathlib import Path
 import unittest
+from pathlib import Path
 
-from aibolit.patterns.var_siblings.var_siblings import VarSiblings
 from aibolit.ast_framework import AST
+from aibolit.patterns.var_siblings.var_siblings import VarSiblings
 from aibolit.utils.ast_builder import build_ast
 
 

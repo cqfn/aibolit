@@ -1,15 +1,22 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from typing import List, Tuple, Union, TypeVar
+from typing import List, Tuple, TypeVar, Union
 
 import networkx as nx  # type: ignore
-from javalang.tree import ClassDeclaration, MethodDeclaration, \
-    MemberReference, FieldDeclaration, MethodInvocation, This, Node, LocalVariableDeclaration
+from javalang.tree import (
+    ClassDeclaration,
+    FieldDeclaration,
+    LocalVariableDeclaration,
+    MemberReference,
+    MethodDeclaration,
+    MethodInvocation,
+    Node,
+    This,
+)
 from networkx import Graph
 
 from aibolit.utils.filter import Filters
-
 
 FldExh = Tuple[str, Tuple[str, str]]
 MthExh = Tuple[str, Tuple[Tuple[str, str], ...]]

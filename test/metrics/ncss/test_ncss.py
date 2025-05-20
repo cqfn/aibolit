@@ -3,8 +3,8 @@
 
 import unittest
 
-from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.ast_framework import AST
+from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.utils.ast_builder import build_ast
 
 

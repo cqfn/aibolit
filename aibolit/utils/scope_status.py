@@ -2,8 +2,7 @@
 # SPDX-License-Identifier: MIT
 
 from enum import Enum, auto
-
-from typing import List, Set, Optional
+from typing import List, Optional, Set
 
 
 class ScopeStatusFlags(Enum):

@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: MIT
 # import os
 from unittest import TestCase
+
 # from aibolit.config import Config
 
 

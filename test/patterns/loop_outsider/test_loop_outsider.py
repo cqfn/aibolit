@@ -5,6 +5,7 @@ import os
 import unittest
 from pathlib import Path
 from unittest import TestCase
+
 from aibolit.patterns.loop_outsider.loop_outsider import LoopOutsider
 
 

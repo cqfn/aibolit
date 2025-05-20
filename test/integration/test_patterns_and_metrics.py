@@ -8,8 +8,8 @@ from typing import Set
 import numpy as np
 from tqdm import tqdm
 
-from aibolit.config import Config
 from aibolit.ast_framework import AST
+from aibolit.config import Config
 from aibolit.utils.ast_builder import build_ast
 
 # TO-FIX: fix all errors in the patterns/metrics and make these lists empty

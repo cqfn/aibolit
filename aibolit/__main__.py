@@ -15,16 +15,16 @@ import pickle
 import sys
 import time
 import traceback
-from collections import defaultdict, OrderedDict
+from collections import OrderedDict, defaultdict
 from os import scandir
 from pathlib import Path
 from sys import stdout
-from typing import List, Any, Dict, Tuple
+from typing import Any, Dict, List, Tuple
 
 import javalang
-from javalang.parser import JavaSyntaxError
 import numpy as np  # type: ignore
 import requests  # type: ignore[import-untyped]
+from javalang.parser import JavaSyntaxError
 from lxml import etree  # type: ignore
 from packaging.version import parse as parse_version
 
@@ -33,7 +33,7 @@ from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
 from aibolit.config import Config
 from aibolit.metrics.ncss.ncss import NCSSMetric
-from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
+from aibolit.ml_pipeline.ml_pipeline import collect_dataset, train_process
 from aibolit.utils.ast_builder import build_ast
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -220,7 +220,7 @@ def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
             if node.position.line > max_line:
                 max_line = node.position.line
 
-    def traverse(node):
+    def traverse(node): #noqa: C901
         check_max_position(node)
 
         if hasattr(node, 'children'):

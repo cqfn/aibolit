@@ -3,6 +3,7 @@
 
 import os
 from unittest import TestCase
+
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance
 
 

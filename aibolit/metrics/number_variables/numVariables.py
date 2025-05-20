@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from javalang.tree import VariableDeclarator, MemberReference
+from javalang.tree import MemberReference, VariableDeclarator
 
 from aibolit.utils.ast_builder import build_ast
 

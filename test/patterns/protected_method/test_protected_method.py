@@ -4,8 +4,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.patterns.protected_method.protected_method import ProtectedMethod
 from aibolit.ast_framework import AST
+from aibolit.patterns.protected_method.protected_method import ProtectedMethod
 from aibolit.utils.ast_builder import build_ast
 
 

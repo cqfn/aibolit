@@ -4,8 +4,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.patterns.public_static_method.public_static_method import PublicStaticMethod
 from aibolit.ast_framework import AST
+from aibolit.patterns.public_static_method.public_static_method import PublicStaticMethod
 from aibolit.utils.ast_builder import build_ast
 
 

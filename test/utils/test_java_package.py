@@ -1,10 +1,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from unittest import TestCase, skip
 from pathlib import Path
-
 from typing import Set
+from unittest import TestCase, skip
 
 from aibolit.ast_framework import ASTNodeType
 from aibolit.ast_framework.java_package import JavaPackage

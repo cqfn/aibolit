@@ -2,11 +2,10 @@
 # SPDX-License-Identifier: MIT
 
 from pathlib import Path
-
 from unittest import TestCase
 
-from aibolit.metrics.fanout.FanOut import FanOut
 from aibolit.ast_framework import AST
+from aibolit.metrics.fanout.FanOut import FanOut
 from aibolit.utils.ast_builder import build_ast
 
 

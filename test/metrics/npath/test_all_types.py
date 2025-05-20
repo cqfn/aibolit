@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: MIT
 
 import unittest
+
 from aibolit.metrics.npath.main import NPathMetric
 
 

@@ -4,8 +4,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.patterns.multiple_try.multiple_try import MultipleTry
 from aibolit.ast_framework import AST
+from aibolit.patterns.multiple_try.multiple_try import MultipleTry
 from aibolit.utils.ast_builder import build_ast
 
 

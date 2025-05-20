@@ -1,8 +1,8 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from unittest import TestCase
 from pathlib import Path
+from unittest import TestCase
 
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.utils.ast_builder import build_ast

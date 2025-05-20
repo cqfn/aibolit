@@ -3,13 +3,13 @@
 
 
 import argparse
+import csv
 import multiprocessing
 import os
 import subprocess
 import time
 from multiprocessing import Pool
 from pathlib import Path
-import csv
 
 # You need to download the archive here:
 # https://dibt.unimol.it/report/readability/files/readability.zip

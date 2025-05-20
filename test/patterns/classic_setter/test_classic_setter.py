@@ -4,8 +4,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
 from aibolit.ast_framework import AST
+from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
 from aibolit.utils.ast_builder import build_ast
 
 

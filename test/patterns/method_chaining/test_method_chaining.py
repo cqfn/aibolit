@@ -1,11 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from unittest import TestCase
 from pathlib import Path
+from unittest import TestCase
 
-from aibolit.patterns.method_chaining.method_chaining import MethodChainFind
 from aibolit.ast_framework import AST
+from aibolit.patterns.method_chaining.method_chaining import MethodChainFind
 from aibolit.utils.ast_builder import build_ast
 
 

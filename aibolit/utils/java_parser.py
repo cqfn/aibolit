@@ -7,7 +7,6 @@ import javalang
 
 from aibolit.utils.lines import Lines
 
-
 # mapping between javalang node class names and Java keywords
 NODE_KEYWORD_MAP = {
     'SuperMethodInvocation': 'super',

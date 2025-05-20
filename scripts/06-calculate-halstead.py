@@ -3,14 +3,14 @@
 
 
 import argparse
+import csv
 import multiprocessing
 import os
 import subprocess
+import sys
 import time
 from multiprocessing import Pool
 from pathlib import Path
-import csv
-import sys
 
 # You need to run `mvn clean` in metrics/halsteadvolume.
 # You will to get a jar file  in `target` directory.

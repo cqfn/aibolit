@@ -1,9 +1,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from collections import defaultdict
 import sys
-from typing import Dict, Callable, Any, TYPE_CHECKING
+from collections import defaultdict
+from typing import TYPE_CHECKING, Any, Callable, Dict
 
 if TYPE_CHECKING:
     from aibolit.ast_framework import ASTNode, ASTNodeType  # noqa: F401

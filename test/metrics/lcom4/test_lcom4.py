@@ -2,8 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 import os
-from unittest import TestCase
 from pathlib import Path
+from unittest import TestCase
+
 from aibolit.metrics.lcom4.lcom4 import LCOM4
 
 

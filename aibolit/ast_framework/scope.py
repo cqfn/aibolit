@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from typing import List, Iterator, Optional
+from typing import Iterator, List, Optional
 
 from networkx import DiGraph  # type: ignore
 

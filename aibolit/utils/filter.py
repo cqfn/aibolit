@@ -1,8 +1,18 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from typing import List, Tuple, Any, Union, TypeVar, Type
-from javalang.tree import ClassDeclaration, InterfaceDeclaration, MethodDeclaration, \
-    MemberReference, FieldDeclaration, MethodInvocation, This, Node, LocalVariableDeclaration
+from typing import Any, List, Tuple, Type, TypeVar, Union
+
+from javalang.tree import (
+    ClassDeclaration,
+    FieldDeclaration,
+    InterfaceDeclaration,
+    LocalVariableDeclaration,
+    MemberReference,
+    MethodDeclaration,
+    MethodInvocation,
+    Node,
+    This,
+)
 
 FldExh = Tuple[str, Tuple[str, str]]
 MthExh = Tuple[str, Tuple[Tuple[str, str], ...]]

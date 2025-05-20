@@ -80,49 +80,8 @@ universal = true
 
 [tool.ruff]
 # Enable flake8-bugbear (`B`) rules.
-select = ["E", "F", "B", "W", "I", "N", "UP", "PL", "C90"]
+select = ["E", "F", "W", "I", "PL", "C90"] # To be added ["B", "N", "UP",  "C90"]
 ignore = [
-    # Missing docstring in module (C0114)
-    "D100",
-    # Missing docstring in class (C0115)
-    "D101",
-    # Missing docstring in function (C0116)
-    "D102",
-    # Too many local variables (R0914)
-    "PLR0913",
-    # Too many branches (R0912)
-    "PLR0912",
-    # Too many nested blocks (R1702)
-    "PLR0915",
-    # Duplicate code (R0801)
-    # "WIP Search analog",
-    # Cyclic import (R0401)
-    "PLC0415",
-    # C-extension no-member (I1101)
-    # No direct equivalent in ruff
-    # Broad exception caught (W0718)
-    "BLE001",
-    # Broad exception raised (W0719)
-    "BLE001",
-    # Invalid name (C0103)
-    "N815", "N816", "N817",
-    # Too few public methods (R0903)
-    # https://github.com/astral-sh/ruff/issues/12389",
-    # Too many arguments (R0913)
-    "PLR0913",
-    # Raise missing from (W0707)
-    "B904",
-    # Too many instance attributes (R0902)
-    "A001", "A002", "A003",
-    # Too many public methods (R0904)
-    "PLR0904",
-    # Too many ancestors (R0901)
-    "ARG001", "ARG002",
-    # Unused variable (W0612)
-    "F841",
-    # No else return (R1705)
-    "PLR1714",
-    # Consider using get (R1715)
     "PLR"
 ]
 # Allow autofix for all enabled rules (when `--fix`) is provided.
@@ -150,6 +109,7 @@ exclude = [
     "build",
     "dist",
     "node_modules",
+    "scripts/target/*",
 ]
 # Same as Black.
 line-length = 120

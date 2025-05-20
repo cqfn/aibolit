@@ -1,8 +1,8 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from typing import Dict, List, Callable, NamedTuple
 from itertools import chain
+from typing import Callable, Dict, List, NamedTuple
 
 from .ast import AST
 from .ast_node import ASTNode

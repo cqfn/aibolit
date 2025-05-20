@@ -4,8 +4,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks
 from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks
 from aibolit.utils.ast_builder import build_ast
 
 

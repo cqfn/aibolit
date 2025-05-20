@@ -7,7 +7,6 @@ from networkx import DiGraph, disjoint_union  # type: ignore
 
 from aibolit.ast_framework import AST, ASTNodeType
 
-
 NODE_TYPES = [
     ASTNodeType.ASSIGNMENT,
     ASTNodeType.RETURN_STATEMENT

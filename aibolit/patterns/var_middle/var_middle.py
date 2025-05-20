@@ -2,10 +2,11 @@
 # SPDX-License-Identifier: MIT
 
 from typing import List
+
 from networkx import DiGraph, dfs_labeled_edges  # type: ignore
 
-from aibolit.types_decl import LineNumber
 from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.types_decl import LineNumber
 from aibolit.utils.scope_status import ScopeStatus, ScopeStatusFlags
 
 

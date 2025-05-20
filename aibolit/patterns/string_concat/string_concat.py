@@ -1,8 +1,8 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from typing import Set, List
+from typing import List, Set
 
-from aibolit.ast_framework import ASTNodeType, AST
+from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.ast_node import ASTNode
 
 

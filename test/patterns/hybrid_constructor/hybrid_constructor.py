@@ -4,8 +4,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.patterns.hybrid_constructor.hybrid_constructor import HybridConstructor
 from aibolit.ast_framework import AST
+from aibolit.patterns.hybrid_constructor.hybrid_constructor import HybridConstructor
 from aibolit.utils.ast_builder import build_ast
 
 

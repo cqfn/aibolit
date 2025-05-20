@@ -9,8 +9,8 @@ import numpy as np
 import pandas as pd
 
 from aibolit.config import Config
+from aibolit.model.model import generate_fake_dataset, get_minimum
 from aibolit.model.stats import Stats
-from aibolit.model.model import get_minimum, generate_fake_dataset
 
 
 class TestStats(TestCase):

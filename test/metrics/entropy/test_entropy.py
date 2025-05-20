@@ -3,6 +3,7 @@
 
 import os
 from unittest import TestCase
+
 from aibolit.metrics.entropy.entropy import Entropy
 
 

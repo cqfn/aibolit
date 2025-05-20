@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MIT
 
 import os
-from unittest import TestCase
 from pathlib import Path
+from unittest import TestCase
 
-from aibolit.patterns.if_return_if_detection.if_detection import CountIfReturn
 from aibolit.ast_framework import AST
+from aibolit.patterns.if_return_if_detection.if_detection import CountIfReturn
 from aibolit.utils.ast_builder import build_ast
 
 

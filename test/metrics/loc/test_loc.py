@@ -3,6 +3,7 @@
 
 import os
 from unittest import TestCase
+
 from aibolit.metrics.loc.loc import Loc
 
 

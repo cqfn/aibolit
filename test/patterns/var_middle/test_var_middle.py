@@ -4,8 +4,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.patterns.var_middle.var_middle import VarMiddle
 from aibolit.ast_framework import AST
+from aibolit.patterns.var_middle.var_middle import VarMiddle
 from aibolit.utils.ast_builder import build_ast
 
 

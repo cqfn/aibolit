@@ -1,13 +1,13 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from unittest import TestCase, skip
-from pathlib import Path
 from itertools import zip_longest
+from pathlib import Path
+from unittest import TestCase, skip
 
-from aibolit.utils.ast_builder import build_ast
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.ast import MemberReferenceParams, MethodInvocationParams
+from aibolit.utils.ast_builder import build_ast
 
 
 class ASTTestSuite(TestCase):

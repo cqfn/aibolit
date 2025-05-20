@@ -1,8 +1,8 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from typing import List, Any
+from typing import Any, List
 
-from aibolit.ast_framework import ASTNodeType, AST
+from aibolit.ast_framework import AST, ASTNodeType
 
 
 class SendNull:

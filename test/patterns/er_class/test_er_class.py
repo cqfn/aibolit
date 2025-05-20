@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MIT
 
 import os
-from unittest import TestCase
 from pathlib import Path
+from unittest import TestCase
 
-from aibolit.patterns.er_class.er_class import ErClass
 from aibolit.ast_framework import AST
+from aibolit.patterns.er_class.er_class import ErClass
 from aibolit.utils.ast_builder import build_ast
 
 

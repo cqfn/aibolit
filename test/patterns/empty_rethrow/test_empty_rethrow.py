@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MIT
 
 import os
-from unittest import TestCase
 from pathlib import Path
+from unittest import TestCase
 
-from aibolit.patterns.empty_rethrow.empty_rethrow import EmptyRethrow
 from aibolit.ast_framework import AST
+from aibolit.patterns.empty_rethrow.empty_rethrow import EmptyRethrow
 from aibolit.utils.ast_builder import build_ast
 
 

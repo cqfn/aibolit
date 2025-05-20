@@ -4,8 +4,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.patterns.many_primary_ctors.many_primary_ctors import ManyPrimaryCtors
 from aibolit.ast_framework import AST
+from aibolit.patterns.many_primary_ctors.many_primary_ctors import ManyPrimaryCtors
 from aibolit.utils.ast_builder import build_ast
 
 
