@@ -18,7 +18,7 @@ requirements:
 
 install:
 	#uv pip install .
-	python3 aibolit --version
+	uv run aibolit --version
 
 test:
 	python3 -m coverage run -m unittest discover

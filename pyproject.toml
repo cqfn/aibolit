@@ -81,9 +81,7 @@ universal = true
 [tool.ruff]
 # Enable flake8-bugbear (`B`) rules.
 select = ["E", "F", "W", "I", "PL", "C90"] # To be added ["B", "N", "UP",  "C90"]
-ignore = [
-    "PLR"
-]
+ignore = ["PLR"]
 # Allow autofix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = []
@@ -110,6 +108,7 @@ exclude = [
     "dist",
     "node_modules",
     "scripts/target/*",
+    "stubs/"
 ]
 # Same as Black.
 line-length = 120
