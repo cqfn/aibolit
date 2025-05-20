@@ -10,7 +10,7 @@
 Learn how Aibolit works in our [White Paper].
 
 First, you install it (you must have
-[Python 3.7.7](https://www.python.org/downloads/)
+[Python 3.11](https://www.python.org/downloads/)
 and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
 
 ```bash
