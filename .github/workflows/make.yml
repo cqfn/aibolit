@@ -22,5 +22,8 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "latest"
       - run: gem install xcop
       - run: make
