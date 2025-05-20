@@ -14,7 +14,7 @@ all: requirements install test it lint xcop sphinx
 lint: ruff mypy
 
 requirements:
-	uv pip install -r requirements.txt
+	uv sync --all-extras
 
 install:
 	uv pip install .
