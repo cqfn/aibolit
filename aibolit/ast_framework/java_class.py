@@ -10,9 +10,6 @@ from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 from aibolit.ast_framework.java_class_method import JavaClassMethod
 from aibolit.ast_framework.java_class_field import JavaClassField
 
-if TYPE_CHECKING:
-    from aibolit.ast_framework.java_package import JavaPackage  # type: ignore
-
 
 @deprecated(reason='This functionality must be transmitted to ASTNode')
 class JavaClass(AST):
@@ -36,10 +33,6 @@ class JavaClass(AST):
             return class_name_nodes[0].string
         except ValueError:
             raise ValueError("Provided AST does not has 'STRING' node type right under the root")
-
-    @property
-    def package(self) -> 'JavaPackage':
-        return self._java_package
 
     @cached_property
     def methods(self) -> Dict[str, Set[JavaClassMethod]]:
