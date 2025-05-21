@@ -9,9 +9,6 @@ from networkx import DiGraph  # type: ignore
 from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 from aibolit.utils.cfg_builder import build_cfg
 
-if TYPE_CHECKING:
-    from aibolit.ast_framework.java_class import JavaClass  # type: ignore
-
 
 @deprecated(reason='This functionality must be transmitted to ASTNode')
 class JavaClassMethod(AST):
@@ -35,10 +32,6 @@ class JavaClassMethod(AST):
             return method_name_nodes[0].string
         except ValueError:
             raise ValueError("Provided AST does not has 'STRING' node type right under the root")
-
-    @property
-    def java_class(self) -> 'JavaClass':
-        return self._java_class
 
     @cached_property
     def parameters(self) -> Dict[str, AST]:
