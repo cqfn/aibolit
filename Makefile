@@ -32,10 +32,10 @@ xcop:
 	xcop $$(find . -name '*.xml')
 
 flake8:
-	python3 -m flake8 aibolit test scripts setup.py --exclude scripts/target/*
+	python3 -m flake8 aibolit test scripts --exclude scripts/target/*
 
 pylint:
-	python3 -m pylint aibolit test scripts setup.py --ignore=scripts/target
+	python3 -m pylint aibolit test scripts --ignore=scripts/target
 
 sphinx:
 	rm -rf sphinx html
