@@ -29,7 +29,7 @@ it:
 	./test/integration/test_recommend.sh
 
 xcop:
-	xcop $$(find . -name '*.xml')
+	xcop $$(find . -name '*.xml') --exclude=.venv/** --exclude=.idea/**
 
 ruff:
 	uv run ruff check aibolit test scripts --exclude scripts/target/*
