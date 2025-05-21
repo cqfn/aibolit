@@ -1,0 +1,47 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
+
+[project]
+name = "aibolit"
+description = "DevTool recommending how to improve the maintenance quality of your Java classes"
+authors = [
+  { name = "aibolit", email = "yegor256@gmail.com" },
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.11"
+dynamic = ["version", "dependencies", "optional-dependencies"]
+
+classifiers = [
+  "Programming Language :: Python",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Software Development",
+  "Topic :: Utilities"
+]
+
+[project.scripts]
+aibolit = "aibolit.__main__:main"
+
+[tool.setuptools]
+packages = ["aibolit"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+aibolit = [
+  "binary_files/halstead.jar",
+  "binary_files/model.dat"
+]
+
+[tool.setuptools.dynamic]
+version = { attr = "aibolit.__version__" }
+dependencies = { file = ["requirements.txt"] }
+optional-dependencies.test = { file = ["requirements.txt"] }
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.mypy]
+mypy_path = "stubs"
