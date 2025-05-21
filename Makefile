@@ -29,7 +29,9 @@ it:
 	./test/integration/test_recommend.sh
 
 xcop:
-	xcop $$(find . -name '*.xml')
+	while IFS= read -r f; do
+		xcop "$${f}"
+	done < <(find . -name '*.xml')
 
 flake8:
 	python3 -m flake8 aibolit test scripts --exclude scripts/target/*
