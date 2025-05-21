@@ -29,7 +29,8 @@ it:
 	./test/integration/test_recommend.sh
 
 xcop:
-	xcop $$(find . -name '*.xml')
+	xcop $$(find ./aibolit -name '*.xml')
+	xcop $$(find ./scripts -name '*.xml')
 
 flake8:
 	python3 -m flake8 aibolit test scripts setup.py --exclude scripts/target/*
