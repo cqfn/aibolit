@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from typing import Dict, NamedTuple, Set, Type
+from typing import Dict, Set, Type, NamedTuple
 
 from javalang import tree
 from javalang.ast import Node

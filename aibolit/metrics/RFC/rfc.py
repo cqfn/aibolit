@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from typing import NamedTuple, Set
+from typing import Set, NamedTuple
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 

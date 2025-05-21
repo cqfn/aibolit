@@ -3,7 +3,6 @@
 
 import os
 from unittest import TestCase
-
 from aibolit.patterns.assign_null_finder.assign_null_finder import NullAssignment
 
 

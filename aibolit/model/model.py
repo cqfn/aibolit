@@ -1,12 +1,12 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from decimal import ROUND_DOWN, Decimal, localcontext
-from typing import Any, Dict, List, Tuple, Union
+from decimal import localcontext, ROUND_DOWN, Decimal
+from typing import Dict, Any, Tuple, List, Union
+from numpy.typing import NDArray
 
 import numpy as np
 import pandas as pd  # type: ignore[import-untyped]
 from catboost import CatBoost  # type: ignore[import-untyped]
-from numpy.typing import NDArray
 from sklearn.base import BaseEstimator  # type: ignore[import-untyped]
 
 from aibolit.config import Config

@@ -1,14 +1,14 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from pathlib import Path
 from unittest import TestCase
+from pathlib import Path
 
 from aibolit.__main__ import flatten
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
-from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.utils.ast_builder import build_ast
+from aibolit.metrics.ncss.ncss import NCSSMetric
 
 
 class JavaClassDecompositionTestSuite(TestCase):

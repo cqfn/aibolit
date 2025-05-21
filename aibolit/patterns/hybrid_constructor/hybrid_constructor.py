@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 from typing import Any, List
 
-from aibolit.ast_framework import AST, ASTNode, ASTNodeType
+from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 
 
 class HybridConstructor:

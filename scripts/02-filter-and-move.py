@@ -11,7 +11,7 @@ from concurrent.futures import ThreadPoolExecutor
 from ctypes import c_bool
 from enum import Enum
 from functools import partial
-from multiprocessing import Lock, Manager, Value, cpu_count
+from multiprocessing import Value, Manager, cpu_count, Lock
 from pathlib import Path
 
 import chardet

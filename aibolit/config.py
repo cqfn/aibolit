@@ -9,25 +9,26 @@ providing a central registry for all available code analysis tools.
 import os
 from pathlib import Path
 
-from aibolit.ast_framework.ast_node_type import ASTNodeType
+from aibolit.ast_framework import ASTNodeType
+
+from aibolit.metrics.number_variables.numVariables import NumVars as M7
 from aibolit.metrics.cognitiveC.cognitive_c import CognitiveComplexity as M4
 from aibolit.metrics.entropy.entropy import Entropy as M1
-from aibolit.metrics.fanout.FanOut import FanOut as M10
 from aibolit.metrics.lcom4.lcom4 import LCOM4 as M5
 from aibolit.metrics.max_diameter.max_diameter import MaxDiameter as M6
 from aibolit.metrics.ncss.ncss import NCSSMetric as M2
-from aibolit.metrics.number_variables.numVariables import NumVars as M7
+from aibolit.metrics.spaces.SpaceCounter import IndentationCounter as M3
 from aibolit.metrics.NumberMethods.NumberMethods import NumberMethods as M8
 from aibolit.metrics.RFC.rfc import RFC as M9
-from aibolit.metrics.spaces.SpaceCounter import IndentationCounter as M3
+from aibolit.metrics.fanout.FanOut import FanOut as M10
 from aibolit.patterns.array_as_argument.array_as_argument import ArrayAsArgument as P22
 from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode as P1
 from aibolit.patterns.assign_null_finder.assign_null_finder import NullAssignment as P28
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter as P2
 from aibolit.patterns.empty_rethrow.empty_rethrow import EmptyRethrow as P3
 from aibolit.patterns.er_class.er_class import ErClass as P4
-from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import ForceTypeCastingFinder as P5
-from aibolit.patterns.hybrid_constructor.hybrid_constructor import HybridConstructor as P19
+from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import \
+    ForceTypeCastingFinder as P5
 from aibolit.patterns.if_return_if_detection.if_detection import CountIfReturn as P6
 from aibolit.patterns.implements_multi.implements_multi import ImplementsMultiFinder as P7
 from aibolit.patterns.instanceof.instance_of import InstanceOf as P8
@@ -41,7 +42,7 @@ from aibolit.patterns.non_final_attribute.non_final_attribute import NonFinalAtt
 from aibolit.patterns.non_final_class.non_final_class import NonFinalClass as P24
 from aibolit.patterns.null_check.null_check import NullCheck as P13
 from aibolit.patterns.partially_synchronized_methods.partially_synchronized_methods import (
-    PartiallySynchronizedMethods as P14,
+    PartiallySynchronizedMethods as P14
 )
 from aibolit.patterns.private_static_method.private_static_method import PrivateStaticMethod as P25
 from aibolit.patterns.protected_method.protected_method import ProtectedMethod as P30
@@ -51,6 +52,7 @@ from aibolit.patterns.return_null.return_null import ReturnNull as P16
 from aibolit.patterns.send_null.send_null import SendNull as P31
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder as P17
 from aibolit.patterns.supermethod.supermethod import SuperMethod as P18
+from aibolit.patterns.hybrid_constructor.hybrid_constructor import HybridConstructor as P19
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
 from aibolit.patterns.var_middle.var_middle import VarMiddle as P21
 from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27

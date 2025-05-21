@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MIT
 
 import networkx as nx  # type: ignore
-
 from aibolit.utils.ast_builder import build_ast
+
 from aibolit.utils.cohesiongraph import CohesionGraph
 
 

@@ -4,7 +4,7 @@ import re
 from itertools import groupby
 from typing import List, Set
 
-from aibolit.ast_framework import AST, ASTNode, ASTNodeType
+from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 
 only_increment_for: Set[ASTNodeType] = set([
     ASTNodeType.BREAK_STATEMENT,

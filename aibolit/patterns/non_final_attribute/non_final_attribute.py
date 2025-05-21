@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 from typing import List
 
-from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework import ASTNodeType, AST
 
 
 class NonFinalAttribute:

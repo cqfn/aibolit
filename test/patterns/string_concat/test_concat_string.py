@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MIT
 
 import os
-from pathlib import Path
 from unittest import TestCase
+from pathlib import Path
 
-from aibolit.ast_framework import AST
 from aibolit.patterns.string_concat.string_concat import StringConcatFinder
+from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast
 
 

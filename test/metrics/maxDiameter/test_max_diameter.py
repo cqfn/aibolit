@@ -4,8 +4,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-from aibolit.ast_framework import AST
 from aibolit.metrics.max_diameter.max_diameter import MaxDiameter
+from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast
 
 

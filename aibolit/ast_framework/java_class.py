@@ -6,9 +6,9 @@ from cached_property import cached_property  # type: ignore
 from deprecated import deprecated  # type: ignore
 from networkx import DiGraph  # type: ignore
 
-from aibolit.ast_framework import AST, ASTNode, ASTNodeType
-from aibolit.ast_framework.java_class_field import JavaClassField
+from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 from aibolit.ast_framework.java_class_method import JavaClassMethod
+from aibolit.ast_framework.java_class_field import JavaClassField
 
 if TYPE_CHECKING:
     from aibolit.ast_framework.java_package import JavaPackage  # type: ignore

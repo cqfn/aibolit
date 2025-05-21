@@ -1,11 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from pathlib import Path
 from unittest import TestCase, skip
+from pathlib import Path
 
-from aibolit.ast_framework.ast_node_type import ASTNodeType
 from aibolit.ast_framework.java_package import JavaPackage
+from aibolit.ast_framework import ASTNodeType
 
 
 @skip('JavaClass is deprecated')

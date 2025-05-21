@@ -1,8 +1,8 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
+from typing import Union, Any, Callable
 from itertools import chain
-from typing import Any, Callable, Union
 
 from aibolit.ast_framework import ASTNode
 

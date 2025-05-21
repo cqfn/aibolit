@@ -2,10 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 import os
+from unittest import TestCase
 import unittest
 from pathlib import Path
-from unittest import TestCase
-
 from aibolit.patterns.mutable_index.mutable_index import MutableIndex
 
 

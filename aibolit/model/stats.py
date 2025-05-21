@@ -1,14 +1,13 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 import pickle
-from typing import Any, Dict, Tuple
+from typing import Dict, Any, Tuple
+from numpy.typing import NDArray
 
 import numpy as np
 import pandas as pd  # type: ignore[import-untyped]
-from numpy.typing import NDArray
-
 from aibolit.config import Config
-from aibolit.model.model import PatternRankingModel, get_minimum, scale_dataset  # noqa: F401 type: ignore
+from aibolit.model.model import PatternRankingModel, scale_dataset, get_minimum  # noqa: F401 type: ignore
 
 
 class Stats(object):

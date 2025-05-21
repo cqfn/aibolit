@@ -1,9 +1,8 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 import os
-from pathlib import Path
 from unittest import TestCase
-
+from pathlib import Path
 from aibolit.utils.lines import Lines
 
 

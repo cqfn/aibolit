@@ -54,8 +54,8 @@ class CCMetric():
     def __parseFile(self, root):
         result = {'data': [], 'errors': []}
         content = []
-        with open(root + '/target/pmd.xml', 'r', encoding='utf-8') as f:
-            content = f.read()
+        with open(root + '/target/pmd.xml', 'r', encoding='utf-8') as file:
+            content = file.read()
             soup = BeautifulSoup(content, 'lxml')
             files = soup.find_all("file")
             for file in files:

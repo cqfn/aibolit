@@ -1,11 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from aibolit.ast_framework.ast_node_type import ASTNodeType
 from aibolit.ast_framework.computed_fields_registry import computed_fields_registry
+from aibolit.ast_framework import ASTNodeType
 
-from .chained_fields import chain_field_getter_factory
 from .nodes_filter import nodes_filter_factory
+from .chained_fields import chain_field_getter_factory
 
 
 def register_standard_computed_properties() -> None:

@@ -1,14 +1,14 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
+from unittest import TestCase
 from pathlib import Path
 from typing import List
-from unittest import TestCase
 
-from aibolit.ast_framework import AST
 from aibolit.patterns.partially_synchronized_methods.partially_synchronized_methods import (
     PartiallySynchronizedMethods,
 )
+from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast
 
 

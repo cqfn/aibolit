@@ -6,7 +6,7 @@ from pathlib import Path
 from time import time
 
 from aibolit.config import Config
-from aibolit.model.model import PatternRankingModel, generate_fake_dataset, scale_dataset
+from aibolit.model.model import PatternRankingModel, scale_dataset, generate_fake_dataset
 
 
 def test_model_training():

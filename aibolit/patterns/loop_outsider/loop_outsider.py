@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 from typing import List
-
 from aibolit.types_decl import LineNumber
 
 

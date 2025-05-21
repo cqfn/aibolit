@@ -4,27 +4,26 @@
 from argparse import ArgumentParser
 from collections import defaultdict
 from concurrent.futures import TimeoutError
-from csv import QUOTE_MINIMAL, DictWriter
+from csv import DictWriter, QUOTE_MINIMAL
 from functools import partial
-from logging import INFO, basicConfig, warning
+from logging import basicConfig, INFO, warning
 from os import cpu_count, getenv, makedirs
-
 try:
     from os import sched_getaffinity
 except ImportError:
     # sched_getaffinity is not available on macOS
     sched_getaffinity = None
-import json
 from pathlib import Path
 from sys import stderr
 from typing import Any, Dict, List
+import json
 
 from pebble import ProcessPool
 from tqdm import tqdm
 
+from aibolit.config import Config
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
-from aibolit.config import Config
 from aibolit.utils.ast_builder import build_ast
 
 

@@ -3,8 +3,9 @@
 from typing import List, Tuple
 
 from javalang.ast import Node
-from javalang.parse import parse
 from javalang.tree import CompilationUnit
+
+from javalang.parse import parse
 
 from aibolit.utils.encoding_detector import read_text_with_autodetected_encoding
 

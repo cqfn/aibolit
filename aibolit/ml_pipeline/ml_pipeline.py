@@ -1,15 +1,14 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 import os
-import pickle
 import shutil
 import subprocess
 from pathlib import Path
-
+import pickle
 import pandas as pd  # type: ignore
 
-from aibolit.config import Config
 from aibolit.model.model import PatternRankingModel, scale_dataset  # type: ignore
+from aibolit.config import Config
 
 
 def collect_dataset(args):

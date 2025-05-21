@@ -4,8 +4,8 @@
 import os
 from unittest import TestCase
 
-from aibolit.ast_framework import AST
 from aibolit.patterns.force_type_casting_finder import force_type_casting_finder
+from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast
 
 

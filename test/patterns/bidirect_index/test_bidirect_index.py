@@ -2,10 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 import os.path
-import unittest
 from pathlib import Path
 from unittest import TestCase
-
+import unittest
 from aibolit.patterns.bidirect_index.bidirect_index import BidirectIndex
 
 

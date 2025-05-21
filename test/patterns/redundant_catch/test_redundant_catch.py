@@ -4,8 +4,8 @@
 import os
 from unittest import TestCase
 
-from aibolit.ast_framework import AST
 from aibolit.patterns.redundant_catch.redundant_catch import RedundantCatch
+from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast
 
 

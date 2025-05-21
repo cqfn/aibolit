@@ -1,11 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from pathlib import Path
 from unittest import TestCase
+from pathlib import Path
 
-from aibolit.ast_framework import AST
 from aibolit.patterns.implements_multi.implements_multi import ImplementsMultiFinder
+from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast
 
 

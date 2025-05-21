@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 from typing import List, Union
 
-from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.ast_framework.ast_node import ASTNode
 
 

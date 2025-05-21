@@ -1,9 +1,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from pathlib import Path
-from typing import Iterator, List
 from unittest import TestCase
+from pathlib import Path
+from typing import List, Iterator
 
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.scope import Scope
