@@ -40,7 +40,9 @@ class JavaTestCase(unittest.TestCase):
             file = 'test/metrics/npath/ooo1.java'
             metric = NPathMetric(file)
             metric.value(True)
-        self.assertTrue('File test/metrics/npath/ooo1.java does not exist' == str(context.exception))
+        self.assertTrue(
+            'File test/metrics/npath/ooo1.java does not exist' == str(context.exception)
+        )
 
     def testMediumScore(self):
         super(JavaTestCase, self).setUp()
