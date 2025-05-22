@@ -31,7 +31,7 @@ it:
 xcop:
 	while IFS= read -r f; do
 		xcop "$${f}"
-	done < <(find . -name '*.xml')
+	done < <(find . -name '*.xml' -not -path './.venv/**' -not -path './wp/**')
 
 flake8:
 	python3 -m flake8 aibolit test scripts --exclude scripts/target/*
