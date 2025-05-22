@@ -21,7 +21,7 @@ install:
 	python3 aibolit --version
 
 test:
-	python3 -m coverage run -m unittest discover
+	python3 -m pytest --cov=aibolit/ test/
 
 it:
 	python3 -m test.integration.test_patterns_and_metrics

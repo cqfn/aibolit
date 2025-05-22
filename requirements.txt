@@ -3,7 +3,6 @@ bs4==0.0.1
 catboost==1.2.8
 chardet>=5.0.0  # Replace cchardet with chardet for Python 3.12 compatibility
 codecov==2.1.13
-coverage==5.0.3
 deprecated==1.2.10
 flake8==7.2.0
 javalang==0.13.0
@@ -16,6 +15,8 @@ packaging>=23.0  # For version parsing, updated for sphinx compatibility
 pandas==2.2.3
 pebble==4.5.3
 pylint==3.3.7
+pytest==8.3.5
+pytest-cov==6.1.1
 scikit-learn==1.6.1
 scipy==1.15.3
 setuptools==80.7.1
