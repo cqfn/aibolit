@@ -1,10 +1,10 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
+from functools import cached_property
 from typing import Any, List, Iterator, Optional
 
 from networkx import DiGraph, dfs_preorder_nodes  # type: ignore
-from cached_property import cached_property  # type: ignore
 
 from aibolit.ast_framework._auxiliary_data import (
     common_attributes,
