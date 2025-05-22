@@ -289,6 +289,7 @@ def test_pass_null_as_the_second_parameter_into_another_ctor() -> None:
 
 
 def _offending_lines(content: str) -> list[int]:
+    """Return a list of lines offending SendNull pattern."""
     ast = AST.build_from_javalang(build_ast_from_string(content))
     pattern = SendNull()
     return pattern.value(ast)
