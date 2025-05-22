@@ -95,6 +95,24 @@ def test_pass_null_as_the_only_parameter_into_another_private_method() -> None:
     assert _offending_lines(content) == [5]
 
 
+def test_pass_null_into_method_for_poorly_formatted_file() -> None:
+    content = dedent(
+        """\
+        class Dummy {
+            private byte tmp;
+          private doSomething( byte value  ) {}
+             private passNullIntoAnotherMethod(
+          ) {
+            doSomething(
+
+            null);
+          }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == [8]
+
+
 def test_pass_null_as_the_first_parameter_into_another_private_method() -> None:
     content = dedent(
         """\
