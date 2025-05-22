@@ -92,9 +92,7 @@ def test_pass_null_as_the_only_parameter_into_another_private_method() -> None:
         }
         """
     ).strip()
-    ast = AST.build_from_javalang(build_ast_from_string(content))
-    pattern = SendNull()
-    assert pattern.value(ast) == [5]
+    assert _offending_lines(content) == [5]
 
 
 def test_pass_null_as_the_first_parameter_into_another_private_method() -> None:
@@ -128,9 +126,7 @@ def test_pass_null_as_the_first_parameter_into_another_private_method_on_newline
         }
         """
     ).strip()
-    ast = AST.build_from_javalang(build_ast_from_string(content))
-    pattern = SendNull()
-    assert pattern.value(ast) == [6]
+    assert _offending_lines(content) == [6]
 
 
 def test_pass_null_as_the_second_parameter_into_another_private_method_on_newline() -> None:
@@ -146,9 +142,7 @@ def test_pass_null_as_the_second_parameter_into_another_private_method_on_newlin
         }
         """
     ).strip()
-    ast = AST.build_from_javalang(build_ast_from_string(content))
-    pattern = SendNull()
-    assert pattern.value(ast) == [6]
+    assert _offending_lines(content) == [6]
 
 
 def test_pass_null_as_parameter_into_another_private_method() -> None:
@@ -162,9 +156,7 @@ def test_pass_null_as_parameter_into_another_private_method() -> None:
         }
         """
     ).strip()
-    ast = AST.build_from_javalang(build_ast_from_string(content))
-    pattern = SendNull()
-    assert pattern.value(ast) == [4]
+    assert _offending_lines(content) == [4]
 
 
 def test_pass_null_as_parameter_into_another_public_method() -> None:
@@ -178,9 +170,7 @@ def test_pass_null_as_parameter_into_another_public_method() -> None:
         }
         """
     ).strip()
-    ast = AST.build_from_javalang(build_ast_from_string(content))
-    pattern = SendNull()
-    assert pattern.value(ast) == [4]
+    assert _offending_lines(content) == [4]
 
 
 def test_pass_null_into_hashmap_in_for_loop() -> None:
@@ -196,9 +186,7 @@ def test_pass_null_into_hashmap_in_for_loop() -> None:
         }
         """
     ).strip()
-    ast = AST.build_from_javalang(build_ast_from_string(content))
-    pattern = SendNull()
-    assert pattern.value(ast) == [5]
+    assert _offending_lines(content) == [5]
 
 
 def test_pass_null_into_array_list() -> None:
@@ -215,9 +203,7 @@ def test_pass_null_into_array_list() -> None:
         }
         """
     ).strip()
-    ast = AST.build_from_javalang(build_ast_from_string(content))
-    pattern = SendNull()
-    assert pattern.value(ast) == [6]
+    assert _offending_lines(content) == [6]
 
 
 def test_pass_null_as_the_only_parameter_into_another_ctor() -> None:
@@ -237,9 +223,7 @@ def test_pass_null_as_the_only_parameter_into_another_ctor() -> None:
         }
         """
     ).strip()
-    ast = AST.build_from_javalang(build_ast_from_string(content))
-    pattern = SendNull()
-    assert pattern.value(ast) == [3]
+    assert _offending_lines(content) == [3]
 
 
 def test_pass_null_as_the_first_parameter_into_another_ctor() -> None:
@@ -261,9 +245,7 @@ def test_pass_null_as_the_first_parameter_into_another_ctor() -> None:
         }
         """
     ).strip()
-    ast = AST.build_from_javalang(build_ast_from_string(content))
-    pattern = SendNull()
-    assert pattern.value(ast) == [3]
+    assert _offending_lines(content) == [3]
 
 
 def test_pass_null_as_the_second_parameter_into_another_ctor() -> None:
@@ -285,6 +267,10 @@ def test_pass_null_as_the_second_parameter_into_another_ctor() -> None:
         }
         """
     ).strip()
+    assert _offending_lines(content) == [3]
+
+
+def _offending_lines(content: str) -> list[int]:
     ast = AST.build_from_javalang(build_ast_from_string(content))
     pattern = SendNull()
-    assert pattern.value(ast) == [3]
+    return pattern.value(ast)
