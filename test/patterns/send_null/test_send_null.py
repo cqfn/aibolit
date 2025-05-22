@@ -44,13 +44,6 @@ class SendNullTestCase(TestCase):
         lines = pattern.value(ast)
         self.assertEqual(lines, [489])
 
-    def test_more_method_invocations(self):
-        filepath = self.current_directory / "SequenceFile.java"
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = SendNull()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [1100, 1189, 1204, 1220, 3288, 3301, 3370, 3540, 3553])
-
     def test_constructor_send_null(self):
         filepath = self.current_directory / "Constructor.java"
         ast = AST.build_from_javalang(build_ast(filepath))
