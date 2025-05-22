@@ -3,6 +3,8 @@
 
 import unittest
 
+from aibolit.metrics.hv.main import HVMetric
+
 
 class JavaTestCase(unittest.TestCase):
     @classmethod
@@ -11,8 +13,6 @@ class JavaTestCase(unittest.TestCase):
 
     def runAnalysis(self):
         super(JavaTestCase, self).setUp()
-        from aibolit.metrics.hv.main import HVMetric
-
         file = 'test/metrics/cc/Complicated.java'
         metric = HVMetric(file)
         res = metric.value()
