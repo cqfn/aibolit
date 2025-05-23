@@ -12,4 +12,4 @@ if target_folder:
     os.chdir(target_folder)
 
 df_patterns = pd.read_csv('./target/04/04-find-patterns.csv', sep=';')
-df_patterns.set_index('filepath', 'class_name', 'component_index').to_csv('./target/dataset.csv')
+df_patterns.set_index(['filepath', 'class_name', 'component_index']).to_csv('./target/dataset.csv')
