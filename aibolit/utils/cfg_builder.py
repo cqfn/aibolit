@@ -1,8 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from typing import Tuple
-
 from networkx import DiGraph, disjoint_union  # type: ignore
 
 from aibolit.ast_framework import AST, ASTNodeType
@@ -26,7 +24,7 @@ def build_cfg(tree: AST) -> DiGraph:
     return g
 
 
-def _mk_cfg_graph(node: ASTNodeType) -> Tuple[DiGraph, int]:
+def _mk_cfg_graph(node: ASTNodeType) -> DiGraph:
     '''Takes in Javalang statement and returns corresponding CFG'''
     g = DiGraph()
     g.add_node(0)
