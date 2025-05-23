@@ -5,6 +5,7 @@
 from typing import List, Optional, Tuple, Dict
 
 import javalang
+import javalang.tree
 
 from aibolit.utils.java_parser import JavalangImproved, ASTNode
 

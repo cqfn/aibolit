@@ -3,6 +3,7 @@
 from typing import List, Type, Any
 
 import javalang
+import javalang.tree
 
 from aibolit.utils.ast_builder import build_ast
 
