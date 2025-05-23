@@ -18,8 +18,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Create venv
+        run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+
       - name: Install aibolit dependencies
-        run: pip install -r requirements.txt
+        run: python -m pip install -r requirements.txt
 
       - name: Install uv (from Astral)
         run: |
