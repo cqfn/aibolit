@@ -309,10 +309,9 @@ def calculate_patterns_and_metrics_with_decomposition(
     return results_for_components, error_exc
 
 
-def calculate_patterns_and_metrics(file, args):
+def calculate_patterns_and_metrics(file, patterns_to_suppress: list[str]):
     code_lines_dict = input_params = {}  # type: ignore
     error_exc = None
-    patterns_to_suppress = args.suppress
     try:
         config = Config.get_patterns_config()
         for pattern in config['patterns']:

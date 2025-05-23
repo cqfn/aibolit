@@ -1,6 +1,5 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-import argparse
 import os
 from hashlib import md5
 from pathlib import Path
@@ -70,16 +69,6 @@ class TestRecommendPipeline(TestCase):
         mock_input = [item, another_item, error_file]
         return mock_input
 
-    def __suppress_argparse_mock(self):
-        argparse_mock = argparse.ArgumentParser()
-        argparse_mock.add_argument(
-            '--suppress',
-            default=[],
-            nargs="*",
-        )
-        argparse_mock.suppress = []
-        return argparse_mock
-
     def __create_input_for_xml(self):
         ex = Exception("Smth happened")
         return [
@@ -124,19 +113,22 @@ class TestRecommendPipeline(TestCase):
         ]
 
     def test_calculate_patterns_and_metrics(self):
-        args = self.__suppress_argparse_mock()
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
-        input_params, code_lines_dict, _ = calculate_patterns_and_metrics(file, args)
+        input_params, code_lines_dict, _ = calculate_patterns_and_metrics(
+            file,
+            patterns_to_suppress=[],
+        )
         val = code_lines_dict['P2']
         self.assertNotEqual(val, 0)
         val = code_lines_dict['P24']
         self.assertNotEqual(val, 0)
 
     def test_calculate_patterns_and_metrics_with_suppress(self):
-        args = self.__suppress_argparse_mock()
-        args.suppress = 'P2'
         file = Path(self.cur_file_dir, 'folder/LottieImageAsset.java')
-        input_params, code_lines_dict, _ = calculate_patterns_and_metrics(file, args)
+        input_params, code_lines_dict, _ = calculate_patterns_and_metrics(
+            file,
+            patterns_to_suppress=['P2'],
+        )
         val = code_lines_dict['P2']
         self.assertEqual(val, 0)
         val = code_lines_dict['P24']
