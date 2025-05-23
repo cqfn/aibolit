@@ -14,7 +14,7 @@ def detect_encoding_of_data(data: bytes):
     return detect(data)['encoding']
 
 
-def read_text_with_autodetected_encoding(filename: str):
+def read_text_with_autodetected_encoding(filename: str | os.PathLike):
     with open(filename, 'rb') as target_file:
         data = target_file.read()
 
