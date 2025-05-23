@@ -39,6 +39,9 @@ flake8:
 pylint:
 	python3 -m pylint aibolit test scripts --ignore=scripts/target
 
+ruff:
+	python3 -m ruff check .
+
 sphinx:
 	rm -rf sphinx html
 	sphinx-apidoc -o sphinx aibolit --full
