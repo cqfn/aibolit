@@ -1,9 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from typing import List, Type, Any
+import os
+from typing import Any, List
 
 import javalang
 import javalang.tree
+from javalang.ast import Node
 
 from aibolit.utils.ast_builder import build_ast
 
@@ -17,7 +19,7 @@ class CountNumberOfLeaves:
     def __init__(self):
         pass
 
-    def countLeaves(self, root: Type) -> int:
+    def countLeaves(self, root: Node | list[Node]) -> int:
         # forming the same data type for each object
         root_arr = root if isinstance(root, List) else [root]
         leaves = 0
@@ -37,7 +39,7 @@ class CountNumberOfLeaves:
 
         return leaves
 
-    def value(self, filename: str) -> int:
+    def value(self, filename: str | os.PathLike) -> int:
 
         tree = build_ast(filename)
         traversed = []
