@@ -82,7 +82,7 @@ class PatternRankingModel(BaseEstimator):
     def __init__(self):
         self.do_rename_columns = False
         self.model = None
-        self.features_conf = None
+        self.features_conf = {}
 
     def predict(self, input_params: Dict[Any, Any]) -> Tuple[Dict[Any, int], List[float]]:
         features_order = self.features_conf['features_order']
