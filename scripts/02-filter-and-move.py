@@ -16,6 +16,7 @@ from pathlib import Path
 
 import chardet
 import javalang
+import javalang.tree
 import pandas as pd
 from sklearn.model_selection import train_test_split
 

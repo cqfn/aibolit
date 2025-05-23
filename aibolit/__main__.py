@@ -22,6 +22,7 @@ from sys import stdout
 from typing import List, Any, Dict, Tuple
 
 import javalang
+import javalang.tree
 from javalang.parser import JavaSyntaxError
 import numpy as np  # type: ignore
 import requests  # type: ignore[import-untyped]

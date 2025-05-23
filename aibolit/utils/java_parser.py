@@ -4,6 +4,7 @@
 from typing import List, Type
 
 import javalang
+import javalang.tree
 
 from aibolit.utils.lines import Lines
 
