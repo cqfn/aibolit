@@ -121,7 +121,7 @@ def _create_dataset_writer(file):
 
 def _parse_args():
     allowed_cores_qty = len(sched_getaffinity(0)) if not MAYBE_ON_MACOS else cpu_count()
-    system_cores_qty = cpu_count()
+    system_cores_qty = cpu_count() or 1
 
     parser = ArgumentParser(description="Creates dataset")
     parser.add_argument("file", help="Path for file with a list of Java files.")
@@ -130,7 +130,7 @@ def _parse_args():
         "--jobs",
         "-j",
         type=int,
-        default=min(allowed_cores_qty, system_cores_qty - 1),
+        default=_default_number_of_processes(),
         help="Number of processes to spawn. "
         "By default one less than number of cores. "
         "Be carefull to raise it above, machine may stop responding while creating dataset.",
@@ -204,6 +204,20 @@ def _parse_args():
         parsed_args.is_decomposition_requested = True
 
     return parsed_args
+
+
+def _default_number_of_processes() -> int:
+    allowed_cores_qty = len(sched_getaffinity(0)) if not MAYBE_ON_MACOS else _cpu_count()
+    system_cores_qty = _cpu_count()
+    return min(allowed_cores_qty, system_cores_qty - 1)
+
+
+def _cpu_count() -> int:
+    num = cpu_count()
+    if num is not None:
+        # if None, then the number of CPUs is undeterminable
+        return num
+    return 1  # fallback
 
 
 if __name__ == "__main__":
