@@ -7,8 +7,5 @@ class Loc:
         self.path = path
 
     def value(self):
-        i = -1
-        with open(self.path, encoding='utf-8') as f:
-            for i, l in enumerate(f):
-                pass
-        return i + 1
+        with open(self.path, encoding='utf-8') as buf:
+            return sum(1 for line in buf)
