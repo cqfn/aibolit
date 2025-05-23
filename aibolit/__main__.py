@@ -26,6 +26,7 @@ import javalang.tree
 from javalang.parser import JavaSyntaxError
 import numpy as np  # type: ignore
 import requests  # type: ignore[import-untyped]
+import requests.exceptions
 from lxml import etree  # type: ignore
 from packaging.version import parse as parse_version
 
