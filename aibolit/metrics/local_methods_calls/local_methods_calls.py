@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+import os
 
 
 class LocalMethodsCalls:
@@ -15,5 +16,5 @@ class LocalMethodsCalls:
     def __init__(self):
         pass
 
-    def value(self, filename: str):
+    def value(self, filename: str | os.PathLike):
         return 0
