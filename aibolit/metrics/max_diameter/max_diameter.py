@@ -38,15 +38,15 @@ class MaxDiameter:
 
         def on_node_entering(node: ASTNode) -> None:
             nonlocal distance
-            distance += 1
+            distance += 1  # type: ignore[unresolved-reference]
 
         def on_node_leaving(node: ASTNode) -> None:
             nonlocal distance, max_distance, distant_node
-            if distance > max_distance:
-                max_distance = distance
+            if distance > max_distance:  # type: ignore[unresolved-reference]
+                max_distance = distance  # type: ignore[unresolved-reference]
                 distant_node = node
 
-            distance -= 1
+            distance -= 1  # type: ignore[unresolved-reference]
 
         ast.traverse(on_node_entering, on_node_leaving, source_node, undirected)
 
