@@ -11,8 +11,9 @@ from os import cpu_count, getenv, makedirs
 try:
     from os import sched_getaffinity
 except ImportError:
-    # sched_getaffinity is not available on macOS
-    sched_getaffinity = None
+    MAYBE_ON_MACOS = True
+else:
+    MAYBE_ON_MACOS = False
 from pathlib import Path
 from sys import stderr
 from typing import Any, Dict, List
@@ -119,7 +120,7 @@ def _create_dataset_writer(file):
 
 
 def _parse_args():
-    allowed_cores_qty = len(sched_getaffinity(0)) if sched_getaffinity else cpu_count()
+    allowed_cores_qty = len(sched_getaffinity(0)) if not MAYBE_ON_MACOS else cpu_count()
     system_cores_qty = cpu_count()
 
     parser = ArgumentParser(description="Creates dataset")
