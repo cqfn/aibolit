@@ -46,7 +46,7 @@ class Filters:
         # To-Fix: implement get/set detection with .body
         temp_list = []
         for path, node in method_node_list:
-            if node.name.startswith(('get', 'set')):
+            if node.name.startswith(('get', 'set')):  # type: ignore[unresolved-attribute]
                 pass
             else:
                 temp_list.append((path, node))
@@ -75,8 +75,8 @@ class Filters:
         """
 
         parameter_list = []
-        name: str = method_node.name
-        for parameter in method_node.parameters:
+        name: str = method_node.name  # type: ignore[unresolved-attribute]
+        for parameter in method_node.parameters:  # type: ignore[unresolved-attribute]
             parameter_list.append((parameter.name, parameter.type.name))
         parameter_tuple: Tuple[Tuple[str, str], ...] = tuple(parameter_list)
         return name, parameter_tuple
