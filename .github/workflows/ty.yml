@@ -18,6 +18,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install aibolit dependencies
+        run: pip install -r requirements.txt
+
       - name: Install uv (from Astral)
         run: |
           curl -LsSf https://astral.sh/uv/install.sh | bash
