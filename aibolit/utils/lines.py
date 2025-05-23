@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+import os
 from typing import List, Tuple
 
 from javalang.ast import Node
@@ -16,7 +17,7 @@ class Lines:
     Deprecated: This class is used ony once by JavalangImproved
                 and does not provide any complex functionality, so should be removed.
     """
-    def __init__(self, filename: str):
+    def __init__(self, filename: str | os.PathLike) -> None:
         source_code = read_text_with_autodetected_encoding(filename)
 
         self._lines = source_code.splitlines(keepends=True)
