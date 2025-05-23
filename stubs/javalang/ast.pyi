@@ -4,7 +4,7 @@ from typing import Any, Iterator, Tuple, TypeVar, Union, Type
 
 Path = Tuple
 
-T = TypeVar('T', bound=Node)
+T = TypeVar('T', bound='Node')
 
 
 class MetaNode(type):
