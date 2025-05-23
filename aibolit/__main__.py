@@ -218,7 +218,7 @@ def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
     def check_max_position(node):
         nonlocal max_line
         if hasattr(node, '_position'):
-            if node.position.line > max_line:
+            if node.position.line > max_line:  # type: ignore[unresolved-reference]
                 max_line = node.position.line
 
     def traverse(node):
