@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+import os
 from typing import List
+
 from aibolit.types_decl import LineNumber
 
 
@@ -8,7 +10,7 @@ class NonFinalArgument:
     def __init__(self):
         pass
 
-    def value(self, filename: str) -> List[LineNumber]:
+    def value(self, filename: str | os.PathLike) -> List[LineNumber]:
         """
         Returns the line numbers of the file name which contains no final arguments
         :param filename: name of the file

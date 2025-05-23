@@ -53,7 +53,7 @@ class TestStats(TestCase):
 
         class MockModel:
 
-            def predict(self, input: np.array) -> np.array:
+            def predict(self, input: np.ndarray) -> np.ndarray:
                 results = []
                 for row in input:
                     s = sum(row)

@@ -26,6 +26,7 @@ import javalang.tree
 from javalang.parser import JavaSyntaxError
 import numpy as np  # type: ignore
 import requests  # type: ignore[import-untyped]
+import requests.exceptions
 from lxml import etree  # type: ignore
 from packaging.version import parse as parse_version
 
@@ -218,7 +219,7 @@ def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
     def check_max_position(node):
         nonlocal max_line
         if hasattr(node, '_position'):
-            if node.position.line > max_line:
+            if node.position.line > max_line:  # type: ignore[unresolved-reference]
                 max_line = node.position.line
 
     def traverse(node):
@@ -308,10 +309,9 @@ def calculate_patterns_and_metrics_with_decomposition(
     return results_for_components, error_exc
 
 
-def calculate_patterns_and_metrics(file, args):
+def calculate_patterns_and_metrics(file, patterns_to_suppress: list[str]):
     code_lines_dict = input_params = {}  # type: ignore
     error_exc = None
-    patterns_to_suppress = args.suppress
     try:
         config = Config.get_patterns_config()
         for pattern in config['patterns']:

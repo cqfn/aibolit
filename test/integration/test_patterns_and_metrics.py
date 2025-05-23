@@ -3,7 +3,6 @@
 
 from os import listdir
 from pathlib import Path
-from typing import Set
 
 import numpy as np
 from tqdm import tqdm
@@ -11,10 +10,6 @@ from tqdm import tqdm
 from aibolit.config import Config
 from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast
-
-# TO-FIX: fix all errors in the patterns/metrics and make these lists empty
-EXCLUDE_PATTERNS: Set[str] = {}
-EXCLUDE_METRICS: Set[str] = {}
 
 # TO-FIX: refactor or delete following patterns and metrics
 PATTERNS_ACCEPT_FILE_PATH = {
@@ -76,9 +71,7 @@ if __name__ == "__main__":
     print(f"Processed files in {samples_path}:")
     for filename in tqdm(listdir(samples_path)):
         for pattern_info in config["patterns"]:
-            if pattern_info["code"] not in EXCLUDE_PATTERNS:
-                _check_pattern(pattern_info, samples_path / filename)
+            _check_pattern(pattern_info, samples_path / filename)
 
         for metric_info in config["metrics"]:
-            if metric_info["code"] not in EXCLUDE_METRICS:
-                _check_metric(metric_info, samples_path / filename)
+            _check_metric(metric_info, samples_path / filename)

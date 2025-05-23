@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+import os
 
 
 class MutableIndex:
@@ -7,7 +8,7 @@ class MutableIndex:
     def __init__(self):
         pass
 
-    def value(self, filename: str):
+    def value(self, filename: str | os.PathLike):
         """
         Traverse over AST tree and finds loops with mutable index
         :return:

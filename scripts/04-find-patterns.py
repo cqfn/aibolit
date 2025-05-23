@@ -11,8 +11,9 @@ from os import cpu_count, getenv, makedirs
 try:
     from os import sched_getaffinity
 except ImportError:
-    # sched_getaffinity is not available on macOS
-    sched_getaffinity = None
+    MAYBE_ON_MACOS = True
+else:
+    MAYBE_ON_MACOS = False
 from pathlib import Path
 from sys import stderr
 from typing import Any, Dict, List
@@ -119,8 +120,8 @@ def _create_dataset_writer(file):
 
 
 def _parse_args():
-    allowed_cores_qty = len(sched_getaffinity(0)) if sched_getaffinity else cpu_count()
-    system_cores_qty = cpu_count()
+    allowed_cores_qty = _allowed_cores_qty()
+    system_cores_qty = _system_cores_qty()
 
     parser = ArgumentParser(description="Creates dataset")
     parser.add_argument("file", help="Path for file with a list of Java files.")
@@ -129,7 +130,7 @@ def _parse_args():
         "--jobs",
         "-j",
         type=int,
-        default=min(allowed_cores_qty, system_cores_qty - 1),
+        default=min(allowed_cores_qty, system_cores_qty),
         help="Number of processes to spawn. "
         "By default one less than number of cores. "
         "Be carefull to raise it above, machine may stop responding while creating dataset.",
@@ -203,6 +204,22 @@ def _parse_args():
         parsed_args.is_decomposition_requested = True
 
     return parsed_args
+
+
+def _allowed_cores_qty() -> int:
+    return len(sched_getaffinity(0)) if not MAYBE_ON_MACOS else _cpu_count()
+
+
+def _system_cores_qty() -> int:
+    return _cpu_count()
+
+
+def _cpu_count() -> int:
+    num = cpu_count()
+    if num is not None:
+        # if None, then the number of CPUs is undeterminable
+        return num
+    return 1  # fallback
 
 
 if __name__ == "__main__":
