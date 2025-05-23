@@ -13,8 +13,8 @@ from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast
 
 # TO-FIX: fix all errors in the patterns/metrics and make these lists empty
-EXCLUDE_PATTERNS: Set[str] = {}
-EXCLUDE_METRICS: Set[str] = {}
+EXCLUDE_PATTERNS: Set[str] = set()
+EXCLUDE_METRICS: Set[str] = set()
 
 # TO-FIX: refactor or delete following patterns and metrics
 PATTERNS_ACCEPT_FILE_PATH = {
