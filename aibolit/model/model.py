@@ -82,7 +82,20 @@ class PatternRankingModel(BaseEstimator):
     def __init__(self):
         self.do_rename_columns = False
         self.model = None
-        self.features_conf = None
+        self._features_conf = None
+
+    @property
+    def features_conf(self) -> dict[Any, Any]:
+        if self._features_conf is not None:
+            return self._features_conf
+        raise RuntimeError(
+            'features_conf is not available, '
+            'probably need to run fit_regressor first',
+        )
+
+    @features_conf.setter
+    def features_conf(self, value: dict[Any, Any]) -> None:
+        self._features_conf = value
 
     def predict(self, input_params: Dict[Any, Any]) -> Tuple[Dict[Any, int], List[float]]:
         features_order = self.features_conf['features_order']
