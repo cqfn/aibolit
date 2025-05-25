@@ -45,3 +45,9 @@ build-backend = "setuptools.build_meta"
 
 [tool.mypy]
 mypy_path = "stubs"
+
+[tool.ruff.lint]
+extend-select = [
+  "D207",
+  "D208",
+]
