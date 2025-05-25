@@ -281,6 +281,21 @@ def test_pass_null_as_the_second_parameter_into_another_ctor() -> None:
     assert _offending_lines(content) == [3]
 
 
+def test_null_in_ternary_expression_comparison_with_class_creator() -> None:
+    content = dedent(
+        """\
+        public class Dummy {
+            transient volatile Set<Integer> keySet = null;
+            public Set<Integer> keySet() {
+                Set<Integer> ks = keySet;
+                return (ks != null ? ks : (keySet = new KeySet()));
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == []
+
+
 def _offending_lines(content: str) -> list[int]:
     """Return a list of lines offending SendNull pattern."""
     ast = AST.build_from_javalang(build_ast_from_string(content))
