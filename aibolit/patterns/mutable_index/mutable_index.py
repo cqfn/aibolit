@@ -12,8 +12,7 @@ class MutableIndex:
         """
         Traverse over AST tree and finds loops with mutable index
 
-        :return:
-        List of line number of loops with mutable index
+        :return: List of line number of loops with mutable index
 
         @todo #147:30min Implement MutableIndex pattern
         We need to implement the code on mutable index pattern. It must return the number
