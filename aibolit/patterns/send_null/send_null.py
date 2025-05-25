@@ -13,11 +13,7 @@ class SendNull:
     def __is_null(self, val: Any) -> bool:
         if not hasattr(val, 'value'):
             return False
-        if not isinstance(val.value, str):
-            return False
-        if val.value != 'null':
-            return False
-        return True
+        return val.value == 'null'
 
     def value(self, ast: AST) -> List[int]:
 
