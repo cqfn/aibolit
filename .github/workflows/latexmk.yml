@@ -26,7 +26,7 @@ jobs:
           depends: DEPENDS.txt
       - run: |
           mkdir gh-pages
-          cp wp.pdf gh-pages
+          cp wp/wp.pdf gh-pages
       - uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:
           branch: gh-pages
