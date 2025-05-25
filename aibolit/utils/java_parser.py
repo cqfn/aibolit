@@ -45,9 +45,10 @@ class ASTNode:
 
 class JavalangImproved:
     """
-    Thi class flattens AST to provie easier interface.
+    This class flattens AST to provie easier interface.
+
     Deprecated: flatening the AST leads to lose of information and bugs.
-                All patterns using it should start traversing the tree manually.
+    All patterns using it should start traversing the tree manually.
     """
 
     def __init__(self, filename: str):
