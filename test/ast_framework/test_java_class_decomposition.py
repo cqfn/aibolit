@@ -4,6 +4,8 @@
 from unittest import TestCase
 from pathlib import Path
 
+import pytest
+
 from aibolit.__main__ import flatten
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
@@ -122,3 +124,58 @@ class JavaClassDecompositionTestSuite(TestCase):
     def test_do_not_ignore_getters(self):
         function_names = self.__decompose_with_setter_functionality(ignore_getters=False)
         self.assertTrue('getWidth' in function_names)
+
+
+@pytest.mark.parametrize(
+    'filename', [
+        'CheckDecompose.java',
+        'LottieImageAsset.java',
+        'PrimeFactorization.java',
+        'ImmersiveModeSampleTests.java',
+        'SampleTests.java',
+        'ChineseRemainderTheorem.java',
+        'NoConstructors.java',
+        '1.java',
+        'Configuration.java',
+    ],
+)
+def test_ncss(filename):
+    cur_dir = Path(__file__).absolute().parent
+    test_data_folder = cur_dir / "ncss"
+    filepath = test_data_folder / filename
+    ast = AST.build_from_javalang(build_ast(filepath))
+
+    classes_ast = [
+        ast.get_subtree(node)
+        for node in ast.get_root().types
+        if node.node_type == ASTNodeType.CLASS_DECLARATION
+    ]
+
+    ncss_metric = NCSSMetric()
+
+    # NCSS of a class may not be equal to sum of ncss of methods and fields
+    # due to presence of nested classes. To bypass it we calculate NCSS only
+    # of methods and fields.
+    methods_ncss = 0
+    fields_ncss = 0
+    components_ncss = 0
+    components_qty = 0
+
+    for class_ast in classes_ast:
+        class_declaration = class_ast.get_root()
+
+        for method in class_declaration.methods:
+            methods_ncss += ncss_metric.value(class_ast.get_subtree(method))
+
+        for field in class_declaration.fields:
+            fields_ncss += ncss_metric.value(class_ast.get_subtree(field))
+
+        for component in decompose_java_class(class_ast, "strong"):
+            components_qty += 1
+            components_ncss += ncss_metric.value(component)
+
+    # Each component has a CLASS_DECLARATION node.
+    # It increase NCSS of each component by 1.
+    # To achieve equality we add number of components
+    # to the sum of NCSS of just methods and fields.
+    assert components_ncss == methods_ncss + fields_ncss + components_qty
