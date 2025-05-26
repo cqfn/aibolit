@@ -137,4 +137,5 @@ def test_ncss(filename):
     # It increase NCSS of each component by 1.
     # To achieve equality we add number of components
     # to the sum of NCSS of just methods and fields.
+    print(filename, components_ncss)
     assert components_ncss == methods_ncss + fields_ncss + components_qty
