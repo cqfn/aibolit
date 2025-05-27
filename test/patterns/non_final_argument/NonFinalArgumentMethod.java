@@ -2,7 +2,7 @@ package patterns.non_final_argument;
 
 public class NonFinalArgumentCtor {
 
-    private final argument;
+    private final int argument;
 
     public NonFinalArgumentCtor(int argument) {
         this.argument = argument;
