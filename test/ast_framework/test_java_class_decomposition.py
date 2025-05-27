@@ -158,6 +158,41 @@ class TestDecomposeJavaClass:
 
         assert len(components) == 0
 
+    def test_class_with_ctor_ignored(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {
+                public Dummy() {};
+            }
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+        )
+
+        assert len(components) == 0
+
+    def test_class_with_ctor_and_one_attribute(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {
+                private int value;
+                public Dummy(int value) {
+                    this.value = value;
+                };
+            }
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+        )
+
+        assert len(components) == 1
+
     def test_class_with_one_attribute(self) -> None:
         content = dedent(
             """\
