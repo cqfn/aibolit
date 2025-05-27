@@ -11,12 +11,12 @@ class ClassicGetter:
     excepting asserts.
     '''
 
-    def _check_body_nodes(self, check_setter_body: List[ASTNode]) -> bool:
+    def _check_body_nodes(self, check_getter_body: List[ASTNode]) -> bool:
         '''
         Check whether nodes are agree with the following types
         (in self.suitable_nodes) or not.
         '''
-        for node in check_setter_body:
+        for node in check_getter_body:
             has_expression_value = hasattr(node, "expression")
             if not has_expression_value:
                 return False
