@@ -56,7 +56,7 @@ class NPathMetric():
         content = []
         with open(f'{root}/target/pmd.xml', 'r', encoding='utf-8') as file:
             content = file.read()
-            soup = BeautifulSoup(content, 'lxml')
+            soup = BeautifulSoup(content, features='xml')
             files = soup.find_all('file')
             for file in files:
                 out = file.violation.string
