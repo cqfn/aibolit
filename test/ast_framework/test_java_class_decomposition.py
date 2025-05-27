@@ -6,13 +6,10 @@ from pathlib import Path
 from textwrap import dedent
 from typing import Literal
 
-import pytest
-
 from aibolit.__main__ import flatten
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
 from aibolit.utils.ast_builder import build_ast, build_ast_from_string
-from aibolit.metrics.ncss.ncss import NCSSMetric
 
 
 class JavaClassDecompositionTestSuite(TestCase):
