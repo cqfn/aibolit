@@ -91,13 +91,14 @@ class TestDecomposeJavaClass:
             class Dummy {}
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
-        )
-
-        assert len(components) == 0
+        ) == {
+            'num_components': 0,
+            'field_names': [],
+            'method_names': [],
+        }
 
     def test_class_with_ctor_ignored(self) -> None:
         content = dedent(
@@ -107,13 +108,14 @@ class TestDecomposeJavaClass:
             }
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
-        )
-
-        assert len(components) == 0
+        ) == {
+            'num_components': 0,
+            'field_names': [],
+            'method_names': [],
+        }
 
     def test_class_with_ctor_and_one_attribute(self) -> None:
         content = dedent(
@@ -126,13 +128,14 @@ class TestDecomposeJavaClass:
             }
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
-        )
-
-        assert len(components) == 1
+        ) == {
+            'num_components': 1,
+            'field_names': ['value'],
+            'method_names': [],
+        }
 
     def test_class_with_one_attribute(self) -> None:
         content = dedent(
@@ -142,15 +145,14 @@ class TestDecomposeJavaClass:
             }
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
-        )
-
-        assert len(components) == 1
-        assert _method_names(components) == []
-        assert _field_names(components) == {'i'}
+        ) == {
+            'num_components': 1,
+            'field_names': ['i'],
+            'method_names': [],
+        }
 
     def test_class_with_two_attributes_defined_on_one_line(self) -> None:
         content = dedent(
@@ -160,14 +162,14 @@ class TestDecomposeJavaClass:
             }
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
-        )
-
-        assert len(components) == 2
-        assert _field_names(components) == {'i', 'j'}
+        ) == {
+            'num_components': 2,
+            'field_names': ['i', 'j'],
+            'method_names': [],
+        }
 
     def test_class_with_two_attributes_defined_on_two_lines(self) -> None:
         content = dedent(
@@ -178,14 +180,14 @@ class TestDecomposeJavaClass:
             }
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
-        )
-
-        assert len(components) == 2
-        assert _field_names(components) == {'first', 'second'}
+        ) == {
+            'num_components': 2,
+            'field_names': ['first', 'second'],
+            'method_names': [],
+        }
 
     def test_class_with_one_attribute_and_one_method(self) -> None:
         content = dedent(
@@ -198,14 +200,14 @@ class TestDecomposeJavaClass:
             }
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
-        )
-
-        assert len(components) == 2
-        assert _method_names(components) == ['print']
+        ) == {
+            'num_components': 2,
+            'field_names': ['i'],
+            'method_names': ['print'],
+        }
 
     def test_class_with_two_methods(self) -> None:
         content = dedent(
@@ -220,14 +222,14 @@ class TestDecomposeJavaClass:
             }
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
-        )
-
-        assert len(components) == 2
-        assert _method_names(components) == ['printOk', 'printNotOk']
+        ) == {
+            'num_components': 2,
+            'field_names': [],
+            'method_names': ['printOk', 'printNotOk'],
+        }
 
     def test_class_with_two_attributes_and_setter(self) -> None:
         content = dedent(
@@ -241,14 +243,14 @@ class TestDecomposeJavaClass:
             }
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
-        )
-
-        assert len(components) == 3
-        assert _method_names(components) == ['setValue']
+        ) == {
+            'num_components': 3,
+            'field_names': ['i', 'value'],
+            'method_names': ['setValue'],
+        }
 
     def test_class_with_two_attributes_and_setter_ignored(self) -> None:
         content = dedent(
@@ -262,15 +264,15 @@ class TestDecomposeJavaClass:
             }
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
             ignore_setters=True,
-        )
-
-        assert len(components) == 3
-        assert _method_names(components) == []
+        ) == {
+            'num_components': 3,
+            'field_names': ['i', 'value'],
+            'method_names': [],
+        }
 
     def test_class_with_one_attribute_and_getter(self) -> None:
         content = dedent(
@@ -283,14 +285,14 @@ class TestDecomposeJavaClass:
             }
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
-        )
-
-        assert len(components) == 2
-        assert _method_names(components) == ['getValue']
+        ) == {
+            'num_components': 2,
+            'field_names': ['value'],
+            'method_names': ['getValue'],
+        }
 
     def test_class_with_one_attribute_and_getter_ignored(self) -> None:
         content = dedent(
@@ -303,15 +305,15 @@ class TestDecomposeJavaClass:
             }
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
             ignore_getters=True,
-        )
-
-        assert len(components) == 2
-        assert _method_names(components) == []
+        ) == {
+            'num_components': 2,
+            'field_names': ['value'],
+            'method_names': [],
+        }
 
     def test_class_with_local_variable_declaration(self) -> None:
         content = dedent(
@@ -323,21 +325,23 @@ class TestDecomposeJavaClass:
             }
             """
         ).strip()
-
-        components = _decomopose_java_class_from_string(
+        assert _decompose_java_class_from_string(
             content=content,
             strength='strong',
-        )
+            ignore_getters=True,
+        ) == {
+            'num_components': 1,
+            'field_names': [],
+            'method_names': ['doNothing'],
+        }
 
-        assert len(components) == 1
 
-
-def _decomopose_java_class_from_string(
+def _decompose_java_class_from_string(
     content: str,
     strength: Literal['strong', 'weak'],
     ignore_getters=False,
     ignore_setters=False,
-) -> list[AST]:
+) -> dict:
     ast = AST.build_from_javalang(build_ast_from_string(content))
     classes_ast = [
         ast.get_subtree(node)
@@ -345,21 +349,26 @@ def _decomopose_java_class_from_string(
         if node.node_type == ASTNodeType.CLASS_DECLARATION
     ]
     assert len(classes_ast) == 1, 'String content must have exactly one class declaration'
-    return decompose_java_class(
+    components = decompose_java_class(
         classes_ast[0],
         strength=strength,
         ignore_getters=ignore_getters,
         ignore_setters=ignore_setters,
     )
+    return {
+        'num_components': len(components),
+        'field_names': _field_names(components),
+        'method_names': _method_names(components),
+    }
 
 
-def _field_names(components: list[AST]) -> set[str]:
+def _field_names(components: list[AST]) -> list[str]:
     result = set()
     for component in components:
         for field_declaration in component.get_proxy_nodes(ASTNodeType.FIELD_DECLARATION):
             for name in field_declaration.names:
                 result.add(name)
-    return result
+    return sorted(result)
 
 
 def _method_names(components: list[AST]) -> list[str]:
