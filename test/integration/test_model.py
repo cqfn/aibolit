@@ -9,7 +9,7 @@ from aibolit.config import Config
 from aibolit.model.model import PatternRankingModel, scale_dataset, generate_fake_dataset
 
 
-def test_model_training():
+def run_model_training():
     cur_file_dir = Path(os.path.realpath(__file__)).parent
     config = Config.get_patterns_config()
     model = PatternRankingModel()
@@ -28,7 +28,7 @@ def test_model_training():
         shutil.rmtree(catboost_folder)
 
 
-def test_train_with_selected_features():
+def run_train_with_selected_features():
     cur_file_dir = Path(os.path.realpath(__file__)).parent
     model = PatternRankingModel()
     selected_patterns = ['P18', 'P10', 'M2', 'M5']
@@ -48,5 +48,5 @@ def test_train_with_selected_features():
 
 
 if __name__ == '__main__':
-    test_model_training()
-    test_train_with_selected_features()
+    run_model_training()
+    run_train_with_selected_features()
