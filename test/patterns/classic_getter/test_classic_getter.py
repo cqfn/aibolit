@@ -5,8 +5,6 @@ from pathlib import Path
 from textwrap import dedent
 from unittest import TestCase
 
-import pytest
-
 from aibolit.patterns.classic_getter.classic_getter import ClassicGetter
 from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast, build_ast_from_string
@@ -44,11 +42,7 @@ class SetterTestCase(TestCase):
         self.assertEqual(lines, [8])
 
 
-@pytest.mark.xfail(reason='ClassicGetter implementation is incorrect #736')
 def test_getter_using_this_reference() -> None:
-    # TODO #736:30min/DEV Fix ClassicGetter pattern implementation,
-    #  so that it gets triggered when the getter's body references `this`.
-    #  When completed, remove `xfail` mark.
     content = dedent(
         """\
         class Dummy {
