@@ -23,13 +23,12 @@ class ClassicGetter:
             if not _is_return(node):
                 return False
 
-            if (
-                (
-                    _is_this_reference(node.expression) and
-                    not _method_invocation(node.expression)
-                )
-                or _is_expression_memeber_ref(node)
-            ):
+            return_this_attr = (
+                _is_this_reference(node.expression) and
+                not _method_invocation(node.expression)
+            )
+            return_attr = _is_expression_memeber_ref(node)
+            if return_this_attr or return_attr:
                 return True
 
         return False
