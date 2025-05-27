@@ -44,7 +44,7 @@ class SetterTestCase(TestCase):
         self.assertEqual(lines, [8])
 
 
-@pytest.mark.xfail(reason='ClassicGetter implementation is incorrect')
+@pytest.mark.xfail(reason='ClassicGetter implementation is incorrect #736')
 def test_getter_using_this_reference() -> None:
     content = dedent(
         """\
