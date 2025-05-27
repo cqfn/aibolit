@@ -20,14 +20,16 @@ class ClassicGetter:
             if not hasattr(node, 'expression'):
                 return False
 
-            if (
-                _is_return(node) and
-                _is_this_reference(node.expression) and
-                not _method_invocation(node.expression)
-            ):
-                return True
+            if not _is_return(node):
+                return False
 
-            if _is_return(node) and _is_expression_memeber_ref(node):
+            if (
+                (
+                    _is_this_reference(node.expression) and
+                    not _method_invocation(node.expression)
+                )
+                or _is_expression_memeber_ref(node)
+            ):
                 return True
 
         return False
