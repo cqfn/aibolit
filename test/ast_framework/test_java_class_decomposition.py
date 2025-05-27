@@ -3,13 +3,15 @@
 
 from unittest import TestCase
 from pathlib import Path
+from textwrap import dedent
+from typing import Literal
 
 import pytest
 
 from aibolit.__main__ import flatten
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
-from aibolit.utils.ast_builder import build_ast
+from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 from aibolit.metrics.ncss.ncss import NCSSMetric
 
 
@@ -139,3 +141,255 @@ def test_ncss(filename):
     # to the sum of NCSS of just methods and fields.
     print(filename, components_ncss)
     assert components_ncss == methods_ncss + fields_ncss + components_qty
+
+
+class TestDecomposeJavaClass:
+    def test_empty_class(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {}
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+        )
+
+        assert len(components) == 0
+
+    def test_class_with_one_attribute(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {
+                private int i;
+            }
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+        )
+
+        assert len(components) == 1
+        assert _method_names(components) == []
+        assert _field_names(components) == {'i'}
+
+    def test_class_with_two_attributes_defined_on_one_line(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {
+                private int i, j;
+            }
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+        )
+
+        assert len(components) == 2
+        assert _field_names(components) == {'i', 'j'}
+
+    def test_class_with_two_attributes_defined_on_two_lines(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {
+                private int first;
+                public double second;
+            }
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+        )
+
+        assert len(components) == 2
+        assert _field_names(components) == {'first', 'second'}
+
+    def test_class_with_one_attribute_and_one_method(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {
+                private int i;
+                public void print(String inputString) {
+                    System.out.println(inputString);
+                };
+            }
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+        )
+
+        assert len(components) == 2
+        assert _method_names(components) == ['print']
+
+    def test_class_with_two_methods(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {
+                public void printOk() {
+                    System.out.println("OK");
+                };
+                public void printNotOk() {
+                    System.out.println("Not OK");
+                };
+            }
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+        )
+
+        assert len(components) == 2
+        assert _method_names(components) == ['printOk', 'printNotOk']
+
+    def test_class_with_two_attributes_and_setter(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {
+                private int i;
+                private int value;
+                public void setValue(int value) {
+                    this.value = value;
+                };
+            }
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+        )
+
+        assert len(components) == 3
+        assert _method_names(components) == ['setValue']
+
+    def test_class_with_two_attributes_and_setter_ignored(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {
+                private int i;
+                private int value;
+                public void setValue(int value) {
+                    this.value = value;
+                };
+            }
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+            ignore_setters=True,
+        )
+
+        assert len(components) == 3
+        assert _method_names(components) == []
+
+    def test_class_with_one_attribute_and_getter(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {
+                private int value;
+                public int getValue() {
+                    return value;
+                };
+            }
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+        )
+
+        assert len(components) == 2
+        assert _method_names(components) == ['getValue']
+
+    def test_class_with_one_attribute_and_getter_ignored(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {
+                private int value;
+                public int getValue() {
+                    return value;
+                };
+            }
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+            ignore_getters=True,
+        )
+
+        assert len(components) == 2
+        assert _method_names(components) == []
+
+    def test_class_with_local_variable_declaration(self) -> None:
+        content = dedent(
+            """\
+            class Dummy {
+                public void doNothing() {
+                    String empty = "";
+                };
+            }
+            """
+        ).strip()
+
+        components = _decomopose_java_class_from_string(
+            content=content,
+            strength='strong',
+        )
+
+        assert len(components) == 1
+
+
+def _decomopose_java_class_from_string(
+    content: str,
+    strength: Literal['strong', 'weak'],
+    ignore_getters=False,
+    ignore_setters=False,
+) -> list[AST]:
+    ast = AST.build_from_javalang(build_ast_from_string(content))
+    classes_ast = [
+        ast.get_subtree(node)
+        for node in ast.get_root().types
+        if node.node_type == ASTNodeType.CLASS_DECLARATION
+    ]
+    assert len(classes_ast) == 1, 'String content must have exactly one class declaration'
+    return decompose_java_class(
+        classes_ast[0],
+        strength=strength,
+        ignore_getters=ignore_getters,
+        ignore_setters=ignore_setters,
+    )
+
+
+def _field_names(components: list[AST]) -> set[str]:
+    result = set()
+    for component in components:
+        for field_declaration in component.get_proxy_nodes(ASTNodeType.FIELD_DECLARATION):
+            for name in field_declaration.names:
+                result.add(name)
+    return result
+
+
+def _method_names(components: list[AST]) -> list[str]:
+    return flatten(
+        [
+            [x.name for x in c.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)]
+            for c in components
+        ],
+    )
