@@ -27,9 +27,8 @@ class ClassicGetter:
             else:
                 return False
 
-            is_return = node.node_type == ASTNodeType.RETURN_STATEMENT
             is_expression_memeber_ref = node.expression.node_type == ASTNodeType.MEMBER_REFERENCE
-            if is_return and is_expression_memeber_ref:
+            if _is_return(node) and is_expression_memeber_ref:
                 return True
 
         return False
