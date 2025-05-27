@@ -17,15 +17,15 @@ class ClassicGetter:
         (in self.suitable_nodes) or not.
         '''
         for node in check_getter_body:
-            if hasattr(node, 'expression'):
-                if (
-                    _is_return(node) and
-                    _is_this_reference(node.expression) and
-                    not _method_invocation(node.expression)
-                ):
-                    return True
-            else:
+            if not hasattr(node, 'expression'):
                 return False
+
+            if (
+                _is_return(node) and
+                _is_this_reference(node.expression) and
+                not _method_invocation(node.expression)
+            ):
+                return True
 
             if _is_return(node) and _is_expression_memeber_ref(node):
                 return True
