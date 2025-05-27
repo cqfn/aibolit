@@ -17,8 +17,14 @@ class ClassicGetter:
         (in self.suitable_nodes) or not.
         '''
         for node in check_getter_body:
-            has_expression_value = hasattr(node, "expression")
-            if not has_expression_value:
+            if hasattr(node, 'expression'):
+                if (
+                    _is_return(node) and
+                    _is_this_reference(node.expression) and
+                    not _method_invocation(node.expression)
+                ):
+                    return True
+            else:
                 return False
 
             is_return = node.node_type == ASTNodeType.RETURN_STATEMENT
@@ -35,3 +41,16 @@ class ClassicGetter:
             if method_name.startswith('get') and self._check_body_nodes(node.body):
                 lines.append(node.line)
         return sorted(lines)
+
+
+def _is_return(node: ASTNode) -> bool:
+    return node.node_type == ASTNodeType.RETURN_STATEMENT
+
+
+def _is_this_reference(node: ASTNode) -> bool:
+    return node.node_type == ASTNodeType.THIS
+
+
+def _method_invocation(node: ASTNode) -> bool:
+    first_child = next(node.children)
+    return first_child.node_type == ASTNodeType.METHOD_INVOCATION
