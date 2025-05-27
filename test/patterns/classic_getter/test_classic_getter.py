@@ -43,9 +43,6 @@ class SetterTestCase(TestCase):
 
 
 def test_getter_using_this_reference() -> None:
-    # TODO #736:30min/DEV Fix ClassicGetter pattern implementation,
-    #  so that it gets triggered when the getter's body references `this`.
-    #  When completed, remove `xfail` mark.
     content = dedent(
         """\
         class Dummy {
