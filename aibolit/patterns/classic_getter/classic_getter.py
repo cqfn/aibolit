@@ -27,8 +27,7 @@ class ClassicGetter:
             else:
                 return False
 
-            is_expression_memeber_ref = node.expression.node_type == ASTNodeType.MEMBER_REFERENCE
-            if _is_return(node) and is_expression_memeber_ref:
+            if _is_return(node) and _is_expression_memeber_ref(node):
                 return True
 
         return False
@@ -53,3 +52,7 @@ def _is_this_reference(node: ASTNode) -> bool:
 def _method_invocation(node: ASTNode) -> bool:
     first_child = next(node.children)
     return first_child.node_type == ASTNodeType.METHOD_INVOCATION
+
+
+def _is_expression_memeber_ref(node: ASTNode) -> bool:
+    return node.expression.node_type == ASTNodeType.MEMBER_REFERENCE
