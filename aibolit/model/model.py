@@ -121,7 +121,7 @@ class PatternRankingModel(BaseEstimator):
         )
 
         self.model = model
-        self.model.fit(X, y.ravel(), logging_level='Silent')
+        self.model.fit(X, y, logging_level='Silent')
 
     def sigmoid(self, x):
         return 1 / (1 + np.exp(-x))
