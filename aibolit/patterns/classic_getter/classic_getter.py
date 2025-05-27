@@ -22,6 +22,8 @@ class ClassicGetter:
 
             if not _is_return(node):
                 # TODO #758:15min/DEV Add test to cover this all conditions of this if statement.
+                #  One more case is required with getSomething method,
+                #  that does not even return anything.
                 return False
 
             return_this_attr = (
