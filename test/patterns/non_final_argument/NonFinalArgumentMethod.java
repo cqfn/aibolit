@@ -1,10 +1,10 @@
 package patterns.non_final_argument;
 
-public class NonFinalArgumentCtor {
+public class NonFinalArgumentMethod {
 
     private final int argument;
 
-    public NonFinalArgumentCtor(final int argument) {
+    public NonFinalArgumentMethod(final int argument) {
         this.argument = argument;
     }
 
