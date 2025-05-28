@@ -3,15 +3,15 @@
 
 package patterns.non_final_argument;
 
-public class NonFinalArgumentMethod {
+public class NonFinalArgumentCtor {
 
-    private final argument;
+    private final int argument;
 
-    public NonFinalArgumentMethod(final int argument) {
+    public NonFinalArgumentCtor(int argument) {
         this.argument = argument;
     }
 
-    public int method(int argument) {
+    public int method(final int argument) {
         return argument;
     }
 }
