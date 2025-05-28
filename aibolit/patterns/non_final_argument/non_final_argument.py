@@ -3,7 +3,9 @@
 import os
 from typing import List
 
+from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.types_decl import LineNumber
+from aibolit.utils.ast_builder import build_ast
 
 
 class NonFinalArgument:
@@ -17,8 +19,13 @@ class NonFinalArgument:
         :param filename: name of the file
         :return: number of the lines with non-final arguments
         """
-        # @todo #146:30min Implement NonFinalArgument pattern.
-        #  All method arguments must have final modifiers. Once we find an argument
-        #  without final, it's a pattern. After implementing that, enable tests in
-        #  test_non_final_argument.py
-        return []
+        ast = AST.build_from_javalang(build_ast(filename))
+        lines: list[int] = []
+        for node in ast.get_proxy_nodes(
+            ASTNodeType.METHOD_DECLARATION,
+            ASTNodeType.CONSTRUCTOR_DECLARATION,
+        ):
+            for parameter in node.parameters:
+                if 'final' not in parameter.modifiers:
+                    lines.append(node.line)
+        return sorted(lines)
