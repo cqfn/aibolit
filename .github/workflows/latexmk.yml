@@ -18,7 +18,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: 'true'
-      - run: sudo apt-get update && sudo apt-get install --yes ghostscript texlive-fonts-recommended
       - uses: yegor256/latexmk-action@0.16.2
         with:
           path: wp
