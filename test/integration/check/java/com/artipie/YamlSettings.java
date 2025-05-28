@@ -138,8 +138,6 @@ public final class YamlSettings implements Settings {
      * Create async yaml config from content publisher.
      * @param pub Flow publisher
      * @return Completion stage of yaml
-     * @todo #146:30min Extract this method to a class: we have the same method in RepoConfig. After
-     *  extracting use this new class here and in RepoConfig. Do not forget about test.
      */
     private static CompletionStage<YamlMapping> yamlFromPublisher(
         final Publisher<ByteBuffer> pub
