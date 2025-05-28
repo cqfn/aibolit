@@ -3,7 +3,7 @@
 import os
 from typing import Iterator
 
-from aibolit.ast_framework import AST, ASTNode, ASTNodeType
+from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.types_decl import LineNumber
 from aibolit.utils.ast_builder import build_ast
 
@@ -19,17 +19,14 @@ class NonFinalArgument:
         :param filename: name of the file
         :return: number of the lines with non-final arguments
         """
-        return sorted(
-            node.line
-            for node in _offending_nodes(AST.build_from_javalang(build_ast(filename)))
-        )
+        return sorted(_offending_lines(AST.build_from_javalang(build_ast(filename))))
 
 
-def _offending_nodes(ast: AST) -> Iterator[ASTNode]:
+def _offending_lines(ast: AST) -> Iterator[LineNumber]:
     for node in ast.get_proxy_nodes(
         ASTNodeType.METHOD_DECLARATION,
         ASTNodeType.CONSTRUCTOR_DECLARATION,
     ):
         for parameter in node.parameters:
             if 'final' not in parameter.modifiers:
-                yield node
+                yield node.line
