@@ -56,6 +56,19 @@ def test_getter_using_this_reference() -> None:
     assert _offending_lines(content) == [3]
 
 
+def test_getSomething_method_that_does_not_return() -> None:
+    content = dedent(
+        """\
+        class Dummy {
+            public void getProudOfThisCode() {
+                System.out.println('This code does not have getters');
+            }
+        }
+        """
+    ).strip()
+    assert not _offending_lines(content)
+
+
 def _offending_lines(content: str) -> list[int]:
     """Return a list of lines offending ClassicGetter pattern."""
     ast = AST.build_from_javalang(build_ast_from_string(content))
