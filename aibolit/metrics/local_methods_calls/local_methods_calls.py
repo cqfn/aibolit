@@ -1,6 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 import os
+from typing import Iterator
+
+from aibolit.ast_framework import AST, ASTNode, ASTNodeType
+from aibolit.types_decl import LineNumber
+from aibolit.utils.ast_builder import build_ast
 
 
 class LocalMethodsCalls:
@@ -17,5 +22,10 @@ class LocalMethodsCalls:
     def __init__(self):
         pass
 
-    def value(self, filename: str | os.PathLike):
-        return 0
+    def value(self, filepath: str | os.PathLike):
+        ast = AST.build_from_javalang(build_ast(filepath))
+        return sum(1 for _ in _offending_lines(ast))
+
+
+def _offending_lines(ast: AST) -> Iterator[LineNumber]:
+    yield from []
