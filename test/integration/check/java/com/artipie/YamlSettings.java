@@ -29,12 +29,6 @@ import org.reactivestreams.Publisher;
  * Settings built from YAML.
  *
  * @since 0.1
- * @todo #285:30min Settings configuration for GitHub auth.
- *  Add additional settings configuration for GitHub authentication,
- *  now it's applied by default to auth from yaml using chained authentication, see auth()
- *  method. We can configure this chain via settings and compose complex authentication
- *  providers there. E.g. user can use ordered list of env auth, github auth
- *  and auth from yaml file.
  * @checkstyle ReturnCountCheck (500 lines)
  */
 public final class YamlSettings implements Settings {
@@ -144,8 +138,6 @@ public final class YamlSettings implements Settings {
      * Create async yaml config from content publisher.
      * @param pub Flow publisher
      * @return Completion stage of yaml
-     * @todo #146:30min Extract this method to a class: we have the same method in RepoConfig. After
-     *  extracting use this new class here and in RepoConfig. Do not forget about test.
      */
     private static CompletionStage<YamlMapping> yamlFromPublisher(
         final Publisher<ByteBuffer> pub
