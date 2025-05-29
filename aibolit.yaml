@@ -3,14 +3,14 @@
   cycles: 2
   deleted: 8
   error:
-  - 'Many (229) issues are missing in cqfn/aibolit (between 485 and 777): 490, 491,
+  - 'Many (231) issues are missing in cqfn/aibolit (between 485 and 785): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 2.45620373
+  seconds: 14.780497965
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-29 17:01:42.400397862 Z
+  when: 2025-05-29 18:01:26.022701779 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -3814,32 +3814,46 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-29 17:58:31.000000000 Z
+  when: &51 2025-05-29 17:58:31.000000000 Z
   where: github
   who: 526301
-- _id: 460
-  _time: 2025-05-29 18:00:46.412701193 Z
+- _id: 464
+  _job: 22630
+  _time: 2025-05-29 18:01:24.818459350 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#776 reported by @0pdd;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 776
+  reporter: 24456188
+  repository: 237167507
+  what: bug-was-accepted
+  when: *51
+  where: github
+  who: 526301
+- _id: 476
+  _time: 2025-05-29 19:00:39.139161487 Z
   _version: 0.10.2/0.45.0/
   latest: 50244313175
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 461
-  _time: 2025-05-29 18:00:53.309520600 Z
+- _id: 477
+  _time: 2025-05-29 19:00:48.521337773 Z
   _version: 0.10.2/0.45.0/
   latest: 743
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 462
-  _time: 2025-05-29 18:00:55.743837574 Z
+- _id: 478
+  _time: 2025-05-29 19:00:59.531220788 Z
   _version: 0.10.2/0.45.0/
-  latest: 0
+  latest: 776
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 463
-  _time: 2025-05-29 18:00:56.424421655 Z
+- _id: 479
+  _time: 2025-05-29 19:01:00.556726525 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
