@@ -37,7 +37,7 @@ class ExternalMethodsCalledCount:
     def _external_method_names_called(self) -> Iterator[str]:
         for node in self._parent_method_invocation_nodes():
             for first, second in itertools.pairwise(node.children):
-                if self._member_ref_followed_by_method_invocation(first, second):
+                if self._member_reference_followed_by_method_invocation(first, second):
                     yield second.member
 
     def _parent_method_invocation_nodes(self) -> Iterator[ASTNode]:
@@ -45,7 +45,7 @@ class ExternalMethodsCalledCount:
             if (parent := node.parent) is not None:
                 yield parent
 
-    def _member_ref_followed_by_method_invocation(
+    def _member_reference_followed_by_method_invocation(
         self,
         first: ASTNode | None,
         second: ASTNode | None,
