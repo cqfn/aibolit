@@ -1,6 +1,10 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 import os
+from dataclasses import dataclass
+
+from aibolit.ast_framework import AST
+from aibolit.utils.ast_builder import build_ast
 
 
 class ExternalMethodsCalled:
@@ -17,5 +21,13 @@ class ExternalMethodsCalled:
     def __init__(self):
         pass
 
-    def value(self, filename: str | os.PathLike):
+    def value(self, filepath: str | os.PathLike):
+        return ExternalMethodsCalledCount(AST.build_from_javalang(build_ast(filepath))).total()
+
+
+@dataclass(frozen=True)
+class ExternalMethodsCalledCount:
+    ast: AST
+
+    def total(self) -> int:
         return 0
