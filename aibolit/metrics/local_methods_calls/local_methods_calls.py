@@ -32,9 +32,12 @@ def _local_methods_called(ast: AST) -> int:
         for node in ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION)
     )
     methods_called = set(methods_called_counter)
-    local_methods_declared = set(
+    local_methods_called = methods_called.intersection(_local_methods_declared(ast))
+    return sum(methods_called_counter[method_name] for method_name in local_methods_called)
+
+
+def _local_methods_declared(ast: AST) -> set[str]:
+    return set(
         node.name
         for node in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)
     )
-    local_methods_called = methods_called.intersection(local_methods_declared)
-    return sum(methods_called_counter[method_name] for method_name in local_methods_called)
