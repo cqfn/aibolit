@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="87903">
+<fb version="0.10.2" size="88920">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
@@ -9,10 +9,10 @@
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">2.623396025</seconds>
+    <seconds t="F">2.422877385</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-05-29T19:11:33Z</when>
+    <when t="T">2025-05-29T20:00:55Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -4276,8 +4276,40 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">488</_id>
-    <_time t="T">2025-05-29T20:00:27Z</_time>
+    <_id t="I">493</_id>
+    <_time t="T">2025-05-29T20:59:51Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">485</branch>
+    <details t="S">The pull request cqfn/aibolit#769 has been opened by @ivanovmg.</details>
+    <event_id t="I">50268020844</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">769</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-05-29T04:54:44Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">494</_id>
+    <_time t="T">2025-05-29T20:59:51Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">741</branch>
+    <details t="S">The pull request cqfn/aibolit#768 has been opened by @ivanovmg.</details>
+    <event_id t="I">50267935089</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">768</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-05-29T04:50:46Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">507</_id>
+    <_time t="T">2025-05-29T21:00:29Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -4285,26 +4317,44 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">490</_id>
-    <_time t="T">2025-05-29T20:00:31Z</_time>
+    <_id t="I">509</_id>
+    <_time t="T">2025-05-29T21:00:32Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50244313175</latest>
+    <commit t="S">4d154d9e90f6a28a6a084db85ac38e1d59a3bdf0</commit>
+    <default_branch t="S">master</default_branch>
+    <details t="S">A new Git push #24576936567 has arrived to cqfn/aibolit, made by @yegor256 (default branch is 'master'), not associated with any pull request.</details>
+    <event_id t="I">50269465817</event_id>
+    <event_type t="S">PushEvent</event_type>
+    <push_id t="I">24576936567</push_id>
+    <ref t="S">refs/heads/master</ref>
+    <repository t="I">237167507</repository>
+    <to_master t="I">1</to_master>
+    <what t="S">git-was-pushed</what>
+    <when t="T">2025-05-29T05:55:23Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">510</_id>
+    <_time t="T">2025-05-29T21:00:32Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50269465817</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">491</_id>
-    <_time t="T">2025-05-29T20:00:34Z</_time>
+    <_id t="I">511</_id>
+    <_time t="T">2025-05-29T21:00:39Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">743</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">492</_id>
-    <_time t="T">2025-05-29T20:00:35Z</_time>
+    <_id t="I">512</_id>
+    <_time t="T">2025-05-29T21:00:40Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>

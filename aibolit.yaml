@@ -7,10 +7,10 @@
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 2.623396025
+  seconds: 2.422877385
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-29 19:11:33.832329471 Z
+  when: 2025-05-29 20:00:55.935217624 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -3831,29 +3831,74 @@
   when: *51
   where: github
   who: 526301
-- _id: 488
-  _time: 2025-05-29 20:00:27.019968709 Z
+- _id: 493
+  _time: 2025-05-29 20:59:51.511349006 Z
+  _version: 0.10.2/0.45.0/
+  branch: '485'
+  details: The pull request cqfn/aibolit#769 has been opened by @ivanovmg.
+  event_id: 50268020844
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 769
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 04:54:44.000000000 Z
+  where: github
+  who: 41443370
+- _id: 494
+  _time: 2025-05-29 20:59:51.522370788 Z
+  _version: 0.10.2/0.45.0/
+  branch: '741'
+  details: The pull request cqfn/aibolit#768 has been opened by @ivanovmg.
+  event_id: 50267935089
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 768
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 04:50:46.000000000 Z
+  where: github
+  who: 41443370
+- _id: 507
+  _time: 2025-05-29 21:00:29.437318852 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 490
-  _time: 2025-05-29 20:00:31.223332492 Z
+- _id: 509
+  _time: 2025-05-29 21:00:32.345238040 Z
   _version: 0.10.2/0.45.0/
-  latest: 50244313175
+  commit: 4d154d9e90f6a28a6a084db85ac38e1d59a3bdf0
+  default_branch: master
+  details: 'A new Git push #24576936567 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is ''master''), not associated with any pull request.'
+  event_id: 50269465817
+  event_type: PushEvent
+  push_id: 24576936567
+  ref: refs/heads/master
+  repository: 237167507
+  to_master: 1
+  what: git-was-pushed
+  when: 2025-05-29 05:55:23.000000000 Z
+  where: github
+  who: 526301
+- _id: 510
+  _time: 2025-05-29 21:00:32.643242139 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50269465817
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 491
-  _time: 2025-05-29 20:00:34.597789747 Z
+- _id: 511
+  _time: 2025-05-29 21:00:39.639875034 Z
   _version: 0.10.2/0.45.0/
-  latest: 0
+  latest: 743
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 492
-  _time: 2025-05-29 20:00:35.566233525 Z
+- _id: 512
+  _time: 2025-05-29 21:00:40.980049377 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
