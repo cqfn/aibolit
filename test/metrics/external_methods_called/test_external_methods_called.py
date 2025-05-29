@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: MIT
 
 import os
-import unittest
 from pathlib import Path
 from unittest import TestCase
 
@@ -35,7 +34,6 @@ class ExternalMethodsCalledTest(TestCase):
             'Could not calculate how many external methods called when they exist in inner class'
         )
 
-    @unittest.skip('Not implemented')
     def test_double_external_method_calls(self):
         self.assertEqual(
             ExternalMethodsCalled().value(
