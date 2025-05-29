@@ -19,7 +19,6 @@ class ExternalMethodsCalledTest(TestCase):
             'Could not calculate how many external methods are called when none'
         )
 
-    @unittest.skip('Not implemented')
     def test_external_method_calls(self):
         self.assertEqual(
             ExternalMethodsCalled().value(Path(self.dir_path, 'ExternalMethodCalls.java')),
@@ -27,7 +26,6 @@ class ExternalMethodsCalledTest(TestCase):
             'Could not calculate how many external method are called when they exist'
         )
 
-    @unittest.skip('Not implemented')
     def test_inner_class_external_method_calls(self):
         self.assertEqual(
             ExternalMethodsCalled().value(
