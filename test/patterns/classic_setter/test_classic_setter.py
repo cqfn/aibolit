@@ -111,7 +111,7 @@ def test_simple_setter() -> None:
 def test_update_attribute_in_method_is_not_a_setter() -> None:
     content = dedent(
         """\
-        class SimpleSetterClass {
+        class ClassWithoutSetters {
             private int attr;
             public void multiply(int multiplier) {
                 this.attr = this.attr * multiplier;
