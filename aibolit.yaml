@@ -2,11 +2,12 @@
 - added: 8
   cycles: 2
   deleted: 8
+  error: A few (7) facts were found with missing openings
   inserted: 8
-  seconds: 1.833747537
+  seconds: 4.442686989
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-29 10:00:18.057945760 Z
+  when: 2025-05-29 11:01:36.451506901 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -3448,13 +3449,6 @@
   when: 2025-05-29 09:43:20.000000000 Z
   where: github
   who: 41443370
-- _id: 302
-  _time: 2025-05-29 09:59:47.140999705 Z
-  _version: 0.10.2/0.45.0/
-  latest: 723
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
 - _id:
   - 311
   - 257
@@ -3632,32 +3626,64 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-29 10:30:17.000000000 Z
+  when: &49 2025-05-29 10:30:17.000000000 Z
   where: github
   who: 526301
-- _id: 332
-  _time: 2025-05-29 11:00:56.160052808 Z
+- _id: 336
+  _job: 22571
+  _time: 2025-05-29 11:01:34.034261843 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#772 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 772
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *49
+  where: github
+  who: 526301
+- _id: 339
+  _time: 2025-05-29 11:59:54.507503880 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#776 has been opened by @0pdd.
+  is_human: 0
+  issue: 776
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 11:33:10.000000000 Z
+  where: github
+  who: 24456188
+- _id: 341
+  _time: 2025-05-29 11:59:55.247761257 Z
+  _version: 0.10.2/0.45.0/
+  latest: 726
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 352
+  _time: 2025-05-29 12:00:30.331042753 Z
   _version: 0.10.2/0.45.0/
   latest: 50244313175
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 333
-  _time: 2025-05-29 11:01:04.446770540 Z
-  _version: 0.10.2/0.45.0/
-  latest: 743
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 334
-  _time: 2025-05-29 11:01:12.218320953 Z
+- _id: 353
+  _time: 2025-05-29 12:00:31.813292266 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 335
-  _time: 2025-05-29 11:01:14.327188769 Z
+- _id: 354
+  _time: 2025-05-29 12:00:31.830253229 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 355
+  _time: 2025-05-29 12:00:32.633603552 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
