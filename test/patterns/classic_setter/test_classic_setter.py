@@ -2,11 +2,12 @@
 # SPDX-License-Identifier: MIT
 
 from pathlib import Path
+from textwrap import dedent
 from unittest import TestCase
 
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
 from aibolit.ast_framework import AST
-from aibolit.utils.ast_builder import build_ast
+from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 
 
 class SetterTestCase(TestCase):
@@ -35,3 +36,24 @@ class SetterTestCase(TestCase):
         pattern = ClassicSetter()
         lines = pattern.value(ast)
         self.assertEqual(lines, [262, 747, 2852, 2858, 2864, 3130])
+
+
+def test_simple_setter() -> None:
+    content = dedent(
+        """\
+        class SimpleSetterClass {
+            private int attr;
+            public void setAttr(int value) {
+                this.attr = value;
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == [3]
+
+
+def _offending_lines(content: str) -> list[int]:
+    """Return a list of lines matching ClassicSetter pattern."""
+    ast = AST.build_from_javalang(build_ast_from_string(content))
+    pattern = ClassicSetter()
+    return pattern.value(ast)
