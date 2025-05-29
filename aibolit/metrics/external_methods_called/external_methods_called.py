@@ -47,12 +47,10 @@ class ExternalMethodsCalledCount:
 
     def _member_reference_followed_by_method_invocation(
         self,
-        first: ASTNode | None,
-        second: ASTNode | None,
+        first: ASTNode,
+        second: ASTNode,
     ) -> bool:
         return (
-            first is not None and
-            second is not None and
             first.node_type == ASTNodeType.MEMBER_REFERENCE and
             second.node_type == ASTNodeType.METHOD_INVOCATION
         )
