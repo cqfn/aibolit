@@ -122,6 +122,21 @@ def test_setter_without_referencing_this() -> None:
     assert _offending_lines(content) == [3]
 
 
+def test_setter_with_annotation() -> None:
+    content = dedent(
+        """\
+        class SimpleSetterClassWithAnnotation {
+            private int attr;
+            @VisibleForTesting
+            public void setAttr(int value) {
+                this.attr = value;
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == [4]
+
+
 def test_setter_in_inner_class() -> None:
     content = dedent(
         """\
