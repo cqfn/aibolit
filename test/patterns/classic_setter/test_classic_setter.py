@@ -122,6 +122,27 @@ def test_setter_without_referencing_this() -> None:
     assert _offending_lines(content) == [3]
 
 
+def test_two_setters() -> None:
+    content = dedent(
+        """\
+        class ClassWithTwoSetters {
+            private int tomato;
+            private double potato;
+            public void setTomato(int value) {
+                tomato = value;
+            }
+            public void method() {
+                System.out.println("Do something");
+            }
+            public void setPotato(int value) {
+                this.potato = value;
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == [4, 10]
+
+
 def test_update_attribute_in_method_is_not_a_setter() -> None:
     content = dedent(
         """\
