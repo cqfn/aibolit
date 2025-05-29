@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="85396">
+<fb version="0.10.2" size="86010">
   <f>
     <added t="I">8</added>
-    <cycles t="I">2</cycles>
+    <cycles t="I">3</cycles>
     <deleted t="I">8</deleted>
     <error>
-      <v t="S">Many (229) issues are missing: 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
-      <v t="S">A few (7) facts were found with missing openings</v>
+      <v t="S">Many (229) issues are missing in cqfn/aibolit (between 485 and 777): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
+      <v t="S">A few (6) facts were found with missing openings, in cqfn/aibolit</v>
+      <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">2.466867101</seconds>
+    <seconds t="F">11.074578581</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-05-29T14:00:56Z</when>
+    <when t="T">2025-05-29T15:00:46Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -4133,15 +4134,6 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">390</_id>
-    <_time t="T">2025-05-29T14:00:34Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">776</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">392</_id>
     <_job t="I">22592</_job>
     <_time t="T">2025-05-29T14:00:55Z</_time>
@@ -4157,17 +4149,38 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">401</_id>
-    <_time t="T">2025-05-29T15:00:15Z</_time>
+    <_id t="I">405</_id>
+    <_job t="I">22599</_job>
+    <_time>
+      <v t="T">2025-05-29T15:00:44Z</v>
+      <v t="T">2025-05-29T15:00:36Z</v>
+    </_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <award t="I">12</award>
+    <details t="S">It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#777, the reward amount is 12.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/777/#issuecomment-2919676418</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">777</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-report-was-rewarded</what>
+    <when t="T">2025-05-29T15:00:36Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Reported bug in cqfn/aibolit#777</why>
+  </f>
+  <f>
+    <_id t="I">417</_id>
+    <_time t="T">2025-05-29T16:00:31Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">776</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">403</_id>
-    <_time t="T">2025-05-29T15:00:18Z</_time>
+    <_id t="I">419</_id>
+    <_time t="T">2025-05-29T16:00:34Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">50244313175</latest>
     <repository t="I">237167507</repository>
@@ -4175,8 +4188,17 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">404</_id>
-    <_time t="T">2025-05-29T15:00:20Z</_time>
+    <_id t="I">420</_id>
+    <_time t="T">2025-05-29T16:00:35Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">421</_id>
+    <_time t="T">2025-05-29T16:00:36Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>

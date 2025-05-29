@@ -1,16 +1,17 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 3
   deleted: 8
   error:
-  - 'Many (229) issues are missing: 490, 491, 492, 493, 494, 495, 496, 497, 498, and
-    499...'
-  - A few (7) facts were found with missing openings
+  - 'Many (229) issues are missing in cqfn/aibolit (between 485 and 777): 490, 491,
+    492, 493, 494, 495, 496, 497, 498, and 499...'
+  - A few (6) facts were found with missing openings, in cqfn/aibolit
+  - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 2.466867101
+  seconds: 11.074578581
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-29 14:00:56.575400892 Z
+  when: 2025-05-29 15:00:46.127958869 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -3706,13 +3707,6 @@
   when: &50 2025-05-29 13:27:40.000000000 Z
   where: github
   who: 526301
-- _id: 390
-  _time: 2025-05-29 14:00:34.974376008 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 392
   _job: 22592
   _time: 2025-05-29 14:00:55.004688507 Z
@@ -3727,22 +3721,48 @@
   when: *50
   where: github
   who: 526301
-- _id: 401
-  _time: 2025-05-29 15:00:15.172480476 Z
+- _id: 405
+  _job: 22599
+  _time:
+  - 2025-05-29 15:00:44.316541210 Z
+  - 2025-05-29 15:00:36.560935359 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 12
+  details: It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#777,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/777/#issuecomment-2919676418
+  is_human: 1
+  issue: 777
+  receipt: 0
+  repository: 237167507
+  what: bug-report-was-rewarded
+  when: 2025-05-29 15:00:36.562430581 Z
+  where: github
+  who: 41443370
+  why: Reported bug in cqfn/aibolit#777
+- _id: 417
+  _time: 2025-05-29 16:00:31.875312156 Z
   _version: 0.10.2/0.45.0/
-  latest: 0
+  latest: 776
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 403
-  _time: 2025-05-29 15:00:18.844382906 Z
+- _id: 419
+  _time: 2025-05-29 16:00:34.728535362 Z
   _version: 0.10.2/0.45.0/
   latest: 50244313175
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 404
-  _time: 2025-05-29 15:00:20.767754088 Z
+- _id: 420
+  _time: 2025-05-29 16:00:35.659112802 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 421
+  _time: 2025-05-29 16:00:36.376166926 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
