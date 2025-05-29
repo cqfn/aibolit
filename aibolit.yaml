@@ -7,10 +7,10 @@
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 2.724417643
+  seconds: 2.51957872
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-29 21:00:57.880313949 Z
+  when: 2025-05-29 22:02:09.297040746 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -3912,7 +3912,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-29 05:58:54.000000000 Z
+  when: &52 2025-05-29 05:58:54.000000000 Z
   where: github
   who: 526301
 - _id: 515
@@ -3963,7 +3963,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-29 05:58:35.000000000 Z
+  when: &53 2025-05-29 05:58:35.000000000 Z
   where: github
   who: 526301
 - _id: 518
@@ -3988,7 +3988,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-29 05:58:02.000000000 Z
+  when: &54 2025-05-29 05:58:02.000000000 Z
   where: github
   who: 526301
 - _id: 519
@@ -4026,7 +4026,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-29 05:57:36.000000000 Z
+  when: &55 2025-05-29 05:57:36.000000000 Z
   where: github
   who: 526301
 - _id: 521
@@ -4047,29 +4047,101 @@
   when: 2025-05-29 05:56:34.000000000 Z
   where: github
   who: 526301
-- _id: 524
-  _time: 2025-05-29 22:01:20.857946725 Z
-  _version: 0.10.2/0.45.0/
-  latest: 743
+- _id: 536
+  _job: 22659
+  _time: 2025-05-29 22:02:08.127640650 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#766 with 4 HoC created by @ivanovmg was merged
+    by @yegor256 after 15h20m of being in review and 1 comments.
+  hoc: 4
+  is_human: 1
+  issue: 766
+  merger: 526301
   repository: 237167507
-  what: labels-were-scanned
+  review_comments: 0
+  seconds: 55222
+  what: code-was-contributed
+  when: *52
   where: github
-- _id: 533
-  _time: 2025-05-29 22:01:41.338154657 Z
+  who: 41443370
+- _id: 537
+  _job: 22659
+  _time: 2025-05-29 22:02:08.266104798 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#767 with 8 HoC created by @ivanovmg was merged
+    by @yegor256 after 15h14m of being in review and 1 comments.
+  hoc: 8
+  is_human: 1
+  issue: 767
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 54852
+  what: code-was-contributed
+  when: *53
+  where: github
+  who: 41443370
+- _id: 538
+  _job: 22659
+  _time: 2025-05-29 22:02:08.273165452 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#769 with 24 HoC created by @ivanovmg was
+    merged by @yegor256 after 1h3m of being in review and 1 comments.
+  hoc: 24
+  is_human: 1
+  issue: 769
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 3798
+  what: code-was-contributed
+  when: *54
+  where: github
+  who: 41443370
+- _id: 539
+  _job: 22659
+  _time: 2025-05-29 22:02:08.278205941 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#768 with 47 HoC created by @ivanovmg was
+    merged by @yegor256 after 1h6m of being in review and 1 comments.
+  hoc: 47
+  is_human: 1
+  issue: 768
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 4010
+  what: code-was-contributed
+  when: *55
+  where: github
+  who: 41443370
+- _id: 554
+  _time: 2025-05-29 23:00:22.323927673 Z
   _version: 0.10.2/0.45.0/
   latest: 50271460204
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 534
-  _time: 2025-05-29 22:01:50.152309608 Z
+- _id: 555
+  _time: 2025-05-29 23:00:29.209279187 Z
   _version: 0.10.2/0.45.0/
-  latest: 743
+  latest: 776
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 556
+  _time: 2025-05-29 23:00:30.362549285 Z
+  _version: 0.10.2/0.45.0/
+  latest: 776
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 535
-  _time: 2025-05-29 22:01:51.106950830 Z
+- _id: 557
+  _time: 2025-05-29 23:00:31.057055410 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
