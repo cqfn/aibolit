@@ -7,10 +7,10 @@
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 2.290961554
+  seconds: 2.45620373
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-29 16:00:55.358145757 Z
+  when: 2025-05-29 17:01:42.400397862 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -3687,13 +3687,6 @@
   when: 2025-05-29 12:25:10.000000000 Z
   where: github
   who: 41443370
-- _id: 360
-  _time: 2025-05-29 13:22:49.687177857 Z
-  _version: 0.10.2/0.45.0/
-  latest: 727
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
 - _id: 373
   _time: 2025-05-29 13:59:44.959399169 Z
   _version: 0.10.2/0.45.0/
@@ -3739,29 +3732,114 @@
   where: github
   who: 41443370
   why: Reported bug in cqfn/aibolit#777
-- _id: 430
-  _time: 2025-05-29 17:01:12.943070521 Z
+- _id: 440
+  _time: 2025-05-29 18:00:07.008714476 Z
   _version: 0.10.2/0.45.0/
-  latest: 776
+  details: The issue cqfn/aibolit#785 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 785
   repository: 237167507
-  what: labels-were-scanned
+  what: issue-was-opened
+  when: 2025-05-29 17:59:36.000000000 Z
   where: github
-- _id: 435
-  _time: 2025-05-29 17:01:19.562831675 Z
+  who: 41443370
+- _id: 441
+  _time: 2025-05-29 18:00:07.075617326 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#783 has been opened by @0pdd.
+  is_human: 0
+  issue: 783
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 17:23:42.000000000 Z
+  where: github
+  who: 24456188
+- _id: 442
+  _time: 2025-05-29 18:00:07.168500451 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#782 has been opened by @0pdd.
+  is_human: 0
+  issue: 782
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 17:23:41.000000000 Z
+  where: github
+  who: 24456188
+- _id: 443
+  _time: 2025-05-29 18:00:07.179265399 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#781 has been opened by @0pdd.
+  is_human: 0
+  issue: 781
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 17:23:40.000000000 Z
+  where: github
+  who: 24456188
+- _id: 444
+  _time: 2025-05-29 18:00:07.183491922 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#780 has been opened by @0pdd.
+  is_human: 0
+  issue: 780
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 17:23:39.000000000 Z
+  where: github
+  who: 24456188
+- _id: 445
+  _time: 2025-05-29 18:00:07.187532468 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#779 has been opened by @0pdd.
+  is_human: 0
+  issue: 779
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 17:23:38.000000000 Z
+  where: github
+  who: 24456188
+- _id: 447
+  _time: 2025-05-29 18:00:07.496443617 Z
+  _version: 0.10.2/0.45.0/
+  latest: 729
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 457
+  _time: 2025-05-29 18:00:43.708874756 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#776.
+  is_human: 1
+  issue: 776
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-29 17:58:31.000000000 Z
+  where: github
+  who: 526301
+- _id: 460
+  _time: 2025-05-29 18:00:46.412701193 Z
   _version: 0.10.2/0.45.0/
   latest: 50244313175
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 436
-  _time: 2025-05-29 17:01:20.864578935 Z
+- _id: 461
+  _time: 2025-05-29 18:00:53.309520600 Z
   _version: 0.10.2/0.45.0/
-  latest: 0
+  latest: 743
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 437
-  _time: 2025-05-29 17:01:21.534256356 Z
+- _id: 462
+  _time: 2025-05-29 18:00:55.743837574 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 463
+  _time: 2025-05-29 18:00:56.424421655 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
