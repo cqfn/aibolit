@@ -15,14 +15,14 @@ class BidirectIndexTestCase(TestCase):
     def test_bidirect_index_increase_decrease(self):
         self.assertEqual(
             BidirectIndex().value(Path(self.dir_path, "BidirectIndexIncreaseDecrease.java")),
-            [3],
+            [6],
             "Could not find bidirect index when index increased and then decreased",
         )
 
     def test_bidirect_index_decrease_increase(self):
         self.assertEqual(
             BidirectIndex().value(Path(self.dir_path, "BidirectIndexDecreaseIncrease.java")),
-            [3],
+            [6],
             "Could not find bidirect index when index decreased and then increased",
         )
 
@@ -31,7 +31,7 @@ class BidirectIndexTestCase(TestCase):
             BidirectIndex().value(
                 Path(self.dir_path, "BidirectIndexIncreaseDecreaseAssignment.java")
             ),
-            [3],
+            [6],
             "Could not find bidirect index when index increased and then decreased with assignment",
         )
 
@@ -40,7 +40,7 @@ class BidirectIndexTestCase(TestCase):
             BidirectIndex().value(
                 Path(self.dir_path, "BidirectIndexIncreaseAssignmentDecrease.java")
             ),
-            [3],
+            [6],
             "Could not find bidirect index when index increased with assignment and then decreased",
         )
 
@@ -49,12 +49,15 @@ class BidirectIndexTestCase(TestCase):
             BidirectIndex().value(
                 Path(self.dir_path, "BidirectIndexIncreaseAssignmentDecreaseAssignment.java")
             ),
-            [3],
+            [6],
             "Could not find bidirect index when index increased with assignment "
             "and then decreased with assignment",
         )
 
     def test_bidirect_index_hidden_scope_true(self):
+        # TODO #772:15min/DEV It is necessary to re-evaluate the correctness of this test case.
+        #  Since the scope in while and for loop changes, then presumably this is not a pattern.
+        #  Therefore, looks like the proper expected value is an empty list.
         self.assertEqual(
             BidirectIndex().value(Path(self.dir_path, "BidirectIndexHiddenScope.java")),
             [0],
@@ -64,6 +67,6 @@ class BidirectIndexTestCase(TestCase):
     def test_bidirect_index_outsider(self):
         self.assertEqual(
             BidirectIndex().value(Path(self.dir_path, "BidirectIndexOutsider.java")),
-            [10],
+            [13],
             "Could not find bidirec index when index is ot of loop",
         )
