@@ -74,6 +74,20 @@ def test_simple_setter() -> None:
     assert _offending_lines(content) == [3]
 
 
+def test_setter_without_referencing_this() -> None:
+    content = dedent(
+        """\
+        class SimpleSetterClass {
+            private int attr;
+            public void setAttr(int value) {
+                attr = value;
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == [3]
+
+
 def _offending_lines(content: str) -> list[int]:
     """Return a list of lines matching ClassicSetter pattern."""
     ast = AST.build_from_javalang(build_ast_from_string(content))
