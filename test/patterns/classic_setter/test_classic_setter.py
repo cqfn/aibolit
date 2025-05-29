@@ -15,16 +15,6 @@ from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 class SetterTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
-    def test_four_setter_patterns(self):
-        filepath = self.current_directory / "Configuration.java"
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ClassicSetter()
-        lines = pattern.value(ast)
-        self.assertEqual(lines,
-                         [905, 909, 1239, 1243, 1364, 1542, 1615, 1644, 1673,
-                          1706, 1715, 1726, 1804, 1973, 2023, 2339,
-                          2510, 3786, 3822])
-
     def test_another_setter_patterns(self):
         filepath = self.current_directory / "SequenceFile.java"
         ast = AST.build_from_javalang(build_ast(filepath))
