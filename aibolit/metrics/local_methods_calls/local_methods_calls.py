@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: MIT
 import os
 from collections import Counter
+from dataclasses import dataclass
 
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.utils.ast_builder import build_ast
@@ -22,22 +23,32 @@ class LocalMethodsCalls:
         pass
 
     def value(self, filepath: str | os.PathLike):
-        ast = AST.build_from_javalang(build_ast(filepath))
-        return _local_methods_called(ast)
+        return LocalMethodsCallsCount(AST.build_from_javalang(build_ast(filepath))).total()
 
 
-def _local_methods_called(ast: AST) -> int:
-    methods_called_counter = Counter(
-        node.member
-        for node in ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION)
-    )
-    methods_called = set(methods_called_counter)
-    local_methods_called = methods_called.intersection(_local_methods_declared(ast))
-    return sum(methods_called_counter[method_name] for method_name in local_methods_called)
+@dataclass(frozen=True)
+class LocalMethodsCallsCount:
+    ast: AST
 
+    def total(self) -> int:
+        methods_called_counter = self._methods_called()
+        return sum(
+            methods_called_counter[method_name]
+            for method_name in self._local_methods_called()
+        )
 
-def _local_methods_declared(ast: AST) -> set[str]:
-    return set(
-        node.name
-        for node in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)
-    )
+    def _local_methods_called(self) -> set[str]:
+        methods_called = set(self._methods_called())
+        return methods_called.intersection(self._local_methods_declared())
+
+    def _methods_called(self) -> Counter:
+        return Counter(
+            node.member
+            for node in self.ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION)
+        )
+
+    def _local_methods_declared(self) -> set[str]:
+        return set(
+            node.name
+            for node in self.ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)
+        )
