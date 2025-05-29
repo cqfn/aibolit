@@ -55,6 +55,9 @@ class BidirectIndexTestCase(TestCase):
         )
 
     def test_bidirect_index_hidden_scope_true(self):
+        # TODO #772:15min/DEV It is necessary to re-evaluate the correctness of this test case.
+        #  Since the scope in while and for loop changes, then presumably this is not a pattern.
+        #  Therefore, looks like the proper expected value is an empty list.
         self.assertEqual(
             BidirectIndex().value(Path(self.dir_path, "BidirectIndexHiddenScope.java")),
             [0],
