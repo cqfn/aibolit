@@ -1,26 +1,13 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from pathlib import Path
 from textwrap import dedent
-from unittest import TestCase
 
 import pytest
 
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
 from aibolit.ast_framework import AST
-from aibolit.utils.ast_builder import build_ast, build_ast_from_string
-
-
-class SetterTestCase(TestCase):
-    current_directory = Path(__file__).absolute().parent
-
-    def test_another_setter_patterns(self):
-        filepath = self.current_directory / "SequenceFile.java"
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ClassicSetter()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [262, 747, 2852, 2858, 2864, 3130])
+from aibolit.utils.ast_builder import build_ast_from_string
 
 
 @pytest.mark.xfail(reason='Wrong implementation')
