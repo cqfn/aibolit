@@ -67,6 +67,20 @@ def test_simple_setter() -> None:
     assert _offending_lines(content) == [3]
 
 
+def test_update_attribute_in_method_is_not_a_setter() -> None:
+    content = dedent(
+        """\
+        class SimpleSetterClass {
+            private int attr;
+            public void multiply(int multiplier) {
+                this.attr = this.attr * multiplier;
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == []
+
+
 def test_setter_without_referencing_this() -> None:
     content = dedent(
         """\
