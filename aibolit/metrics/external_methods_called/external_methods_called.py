@@ -36,7 +36,11 @@ class ExternalMethodsCalledCount:
 
     def _external_method_names_called(self) -> Iterator[str]:
         for node in self.ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION):
-            for first, second in itertools.pairwise(node.parent.children):
+            parent = node.parent
+            if parent is None:
+                continue
+
+            for first, second in itertools.pairwise(parent.children):
                 if self._member_ref_followed_by_method_invocation(first, second):
                     yield second.member
 
