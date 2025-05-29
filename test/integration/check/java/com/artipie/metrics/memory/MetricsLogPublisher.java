@@ -16,9 +16,6 @@ import org.slf4j.Logger;
  * Periodic publisher of {@link InMemoryMetrics} to log.
  *
  * @since 0.9
- * @todo #231:30min Add tests for `MetricsLogPublisher`.
- *  It should be tested that the publisher runs periodically, collects fresh metrics data
- *  and logs the data as expected.
  */
 public class MetricsLogPublisher {
 
