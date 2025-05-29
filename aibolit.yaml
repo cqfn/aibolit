@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 3
+  cycles: 2
   deleted: 8
   error:
   - 'Many (229) issues are missing: 490, 491, 492, 493, 494, 495, 496, 497, 498, and
     499...'
   - A few (7) facts were found with missing openings
   inserted: 8
-  seconds: 12.268010428
+  seconds: 2.293194074
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-29 12:00:59.020148194 Z
+  when: 2025-05-29 13:26:44.724933187 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -3694,29 +3694,41 @@
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 362
-  _time: 2025-05-29 13:23:01.395958711 Z
+- _id: 373
+  _time: 2025-05-29 13:59:44.959399169 Z
   _version: 0.10.2/0.45.0/
-  latest: 743
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#777.
+  is_human: 1
+  issue: 777
+  label: bug
   repository: 237167507
-  what: types-were-scanned
+  what: label-was-attached
+  when: 2025-05-29 13:27:40.000000000 Z
   where: github
-- _id: 368
-  _time: 2025-05-29 13:23:19.132532196 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 370
-  _time: 2025-05-29 13:23:22.662997567 Z
+  who: 526301
+- _id: 388
+  _time: 2025-05-29 14:00:22.221000310 Z
   _version: 0.10.2/0.45.0/
   latest: 50244313175
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 371
-  _time: 2025-05-29 13:23:23.447870225 Z
+- _id: 389
+  _time: 2025-05-29 14:00:29.010982685 Z
+  _version: 0.10.2/0.45.0/
+  latest: 743
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 390
+  _time: 2025-05-29 14:00:34.974376008 Z
+  _version: 0.10.2/0.45.0/
+  latest: 776
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 391
+  _time: 2025-05-29 14:00:36.199664885 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
