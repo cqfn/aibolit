@@ -54,6 +54,25 @@ def test_setSomething_is_not_a_setter_unless_sets_value_to_attribute() -> None:
 
 
 @pytest.mark.xfail(reason='Incomplete implementation')
+def test_settle_is_not_a_setter_even_though_has_one_argument() -> None:
+    # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
+    #  When the method starts with `set` and has one input parameter,
+    #  but does not assign to the attribute is not a setter.
+    #  Once the implementation is updated,
+    #  remove `xfail` mark above this test definition.
+    content = dedent(
+        """\
+        class FakeSetterClass {
+            public void settle(String place) {
+                System.out.println("Let us settle here:" + place);
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == []
+
+
+@pytest.mark.xfail(reason='Incomplete implementation')
 def test_update_attribute_in_method_starting_with_set_is_not_a_setter() -> None:
     # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
     #  When the method starts with `set`, changes the value of the attribute,
