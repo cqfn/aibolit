@@ -5,6 +5,8 @@ from pathlib import Path
 from textwrap import dedent
 from unittest import TestCase
 
+import pytest
+
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
 from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast, build_ast_from_string
@@ -36,6 +38,26 @@ class SetterTestCase(TestCase):
         pattern = ClassicSetter()
         lines = pattern.value(ast)
         self.assertEqual(lines, [262, 747, 2852, 2858, 2864, 3130])
+
+
+@pytest.mark.xfail(reason='Wrong implementation')
+def test_setSomething_is_not_a_setter_unless_sets_value_to_attribute() -> None:
+    # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
+    #  When the method starts with `set`,
+    #  but does not assign to the attribute is not a setter.
+    #  Once the implementation is updated,
+    #  remove `xfail` mark above this test definition.
+    content = dedent(
+        """\
+        class FakeSetterClass {
+            private int attr;
+            public void setSunset() {
+                System.out.println("This is not a setter");
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == []
 
 
 def test_simple_setter() -> None:
