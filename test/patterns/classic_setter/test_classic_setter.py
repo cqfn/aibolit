@@ -160,6 +160,22 @@ def test_setter_without_referencing_this() -> None:
     assert _offending_lines(content) == [3]
 
 
+def test_setter_with_side_effect() -> None:
+    content = dedent(
+        """\
+        class SetterWithSideEffectClass {
+            private int attr;
+            public void setAttr(int value) {
+                System.out.println("Side effect");
+                this.attr = value;
+                System.out.println("Another side effect");
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == [3]
+
+
 def test_setter_with_annotation() -> None:
     content = dedent(
         """\
