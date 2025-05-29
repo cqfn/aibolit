@@ -1,12 +1,12 @@
 ---
 - added: 8
-  cycles: 5
+  cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 143.526788422
-  version: 0.45.0
+  seconds: 9.2865515
+  version: 0.43.0
   what: judges-summary
-  when: 2025-05-29 07:02:08.308678881 Z
+  when: 2025-05-29 07:02:35.685949671 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -83,7 +83,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-28 09:22:33.000000000 Z
+  when: &1 2025-05-28 09:22:33.000000000 Z
   where: github
   who: 526301
 - _id: 6
@@ -110,7 +110,7 @@
   issue: 764
   repository: 237167507
   what: issue-was-opened
-  when: 2025-05-28 07:03:16.000000000 Z
+  when: &15 2025-05-28 07:03:16.000000000 Z
   where: github
   who: 41443370
 - _id: 8
@@ -161,7 +161,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-28 03:05:02.000000000 Z
+  when: &2 2025-05-28 03:05:02.000000000 Z
   where: github
   who: 526301
 - _id: 11
@@ -199,7 +199,7 @@
   review_comments: 4
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-28 03:04:29.000000000 Z
+  when: &3 2025-05-28 03:04:29.000000000 Z
   where: github
   who: 526301
 - _id: 13
@@ -251,7 +251,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-27 18:04:33.000000000 Z
+  when: &4 2025-05-27 18:04:33.000000000 Z
   where: github
   who: 526301
 - _id: 16
@@ -264,7 +264,7 @@
   issue: 762
   repository: 237167507
   what: issue-was-opened
-  when: 2025-05-27 18:04:30.000000000 Z
+  when: &16 2025-05-27 18:04:30.000000000 Z
   where: github
   who: 24456188
 - _id: 17
@@ -318,7 +318,7 @@
   issue: 758
   repository: 237167507
   what: issue-was-opened
-  when: 2025-05-27 09:46:07.000000000 Z
+  when: &17 2025-05-27 09:46:07.000000000 Z
   where: github
   who: 24456188
 - _id: 21
@@ -642,7 +642,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-27 09:44:16.000000000 Z
+  when: &5 2025-05-27 09:44:16.000000000 Z
   where: github
   who: 526301
 - _id: 45
@@ -680,7 +680,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-27 09:11:28.000000000 Z
+  when: &6 2025-05-27 09:11:28.000000000 Z
   where: github
   who: 526301
 - _id: 47
@@ -718,7 +718,7 @@
   review_comments: 2
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-27 09:10:35.000000000 Z
+  when: &7 2025-05-27 09:10:35.000000000 Z
   where: github
   who: 526301
 - _id: 49
@@ -745,7 +745,7 @@
   issue: 738
   repository: 237167507
   what: issue-was-opened
-  when: 2025-05-27 09:00:45.000000000 Z
+  when: &18 2025-05-27 09:00:45.000000000 Z
   where: github
   who: 41443370
 - _id: 51
@@ -783,7 +783,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-27 07:37:23.000000000 Z
+  when: &8 2025-05-27 07:37:23.000000000 Z
   where: github
   who: 526301
 - _id: 53
@@ -821,7 +821,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-27 07:37:01.000000000 Z
+  when: &9 2025-05-27 07:37:01.000000000 Z
   where: github
   who: 526301
 - _id: 55
@@ -859,7 +859,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-27 07:36:24.000000000 Z
+  when: &10 2025-05-27 07:36:24.000000000 Z
   where: github
   who: 526301
 - _id: 57
@@ -913,7 +913,7 @@
   issue: 734
   repository: 237167507
   what: issue-was-opened
-  when: 2025-05-27 06:50:33.000000000 Z
+  when: &19 2025-05-27 06:50:33.000000000 Z
   where: github
   who: 41443370
 - _id: 61
@@ -940,7 +940,7 @@
   issue: 732
   repository: 237167507
   what: issue-was-opened
-  when: 2025-05-27 06:41:11.000000000 Z
+  when: &20 2025-05-27 06:41:11.000000000 Z
   where: github
   who: 41443370
 - _id: 63
@@ -967,7 +967,7 @@
   issue: 730
   repository: 237167507
   what: issue-was-opened
-  when: 2025-05-27 05:38:56.000000000 Z
+  when: &21 2025-05-27 05:38:56.000000000 Z
   where: github
   who: 41443370
 - _id: 65
@@ -994,7 +994,7 @@
   issue: 728
   repository: 237167507
   what: issue-was-opened
-  when: 2025-05-26 14:13:46.000000000 Z
+  when: &22 2025-05-26 14:13:46.000000000 Z
   where: github
   who: 41443370
 - _id: 67
@@ -1032,7 +1032,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-26 07:22:21.000000000 Z
+  when: &11 2025-05-26 07:22:21.000000000 Z
   where: github
   who: 526301
 - _id: 69
@@ -1084,7 +1084,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-25 22:12:20.000000000 Z
+  when: &12 2025-05-25 22:12:20.000000000 Z
   where: github
   who: 526301
 - _id: 72
@@ -1311,7 +1311,7 @@
   review_comments: 0
   succeeded_builds: 15
   what: pull-was-merged
-  when: 2025-05-25 13:34:08.000000000 Z
+  when: &13 2025-05-25 13:34:08.000000000 Z
   where: github
   who: 526301
 - _id: 85
@@ -1362,7 +1362,7 @@
   review_comments: 0
   succeeded_builds: 15
   what: pull-was-merged
-  when: 2025-05-25 09:58:33.000000000 Z
+  when: &14 2025-05-25 09:58:33.000000000 Z
   where: github
   who: 526301
 - _id: 88
@@ -1389,7 +1389,7 @@
   issue: 722
   repository: 237167507
   what: issue-was-opened
-  when: 2025-05-25 08:24:34.000000000 Z
+  when: &23 2025-05-25 08:24:34.000000000 Z
   where: github
   who: 41443370
 - _id: 90
@@ -1509,15 +1509,6 @@
   when: 2025-05-23 13:28:14.000000000 Z
   where: github
   who: 84927447
-- _id: 99
-  _time: 2025-05-29 07:01:49.861607253 Z
-  _version: 0.10.2/0.45.0/
-  total_active_contributors: 5
-  total_commits: 2311
-  total_contributors: 18
-  total_files: 1044
-  what: dimensions-of-terrain
-  when: 2025-05-29 07:01:47.850125713 Z
 - _id: 101
   _time: 2025-05-29 07:01:49.877415023 Z
   _version: 0.10.2/0.45.0/
@@ -1611,68 +1602,59 @@
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 116
-  _time: 2025-05-29 07:01:59.157883812 Z
-  _version: 0.10.2/0.45.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 117
-  _time: 2025-05-29 07:02:00.857808527 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50244313175
-  repository: 237167507
-  what: events-were-scanned
-  where: github
 - _id: 118
   _time: 2025-05-29 07:02:01.916909037 Z
   _version: 0.10.2/0.45.0/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#710.
+  is_human: 1
   issue: 710
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-23 07:46:28.000000000 Z
+  when: &24 2025-05-23 07:46:28.000000000 Z
   where: github
   who: 526301
 - _id: 119
   _time: 2025-05-29 07:02:02.335276496 Z
   _version: 0.10.2/0.45.0/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#712.
+  is_human: 1
   issue: 712
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-23 08:00:14.000000000 Z
+  when: &25 2025-05-23 08:00:14.000000000 Z
   where: github
   who: 526301
 - _id: 120
   _time: 2025-05-29 07:02:03.319614804 Z
   _version: 0.10.2/0.45.0/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#719.
+  is_human: 1
   issue: 719
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-24 07:25:05.000000000 Z
+  when: &26 2025-05-24 07:25:05.000000000 Z
   where: github
   who: 526301
 - _id: 121
   _time: 2025-05-29 07:02:04.151413218 Z
   _version: 0.10.2/0.45.0/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#724.
+  is_human: 1
   issue: 724
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-27 11:57:07.000000000 Z
+  when: &27 2025-05-27 11:57:07.000000000 Z
   where: github
   who: 526301
 - _id: 122
   _time: 2025-05-29 07:02:04.494979806 Z
   _version: 0.10.2/0.45.0/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#725.
+  is_human: 1
   issue: 725
   label: bug
   repository: 237167507
@@ -1684,68 +1666,1136 @@
   _time: 2025-05-29 07:02:06.024378460 Z
   _version: 0.10.2/0.45.0/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#736.
+  is_human: 1
   issue: 736
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-27 11:57:07.000000000 Z
+  when: &28 2025-05-27 11:57:07.000000000 Z
   where: github
   who: 526301
 - _id: 124
   _time: 2025-05-29 07:02:06.481130818 Z
   _version: 0.10.2/0.45.0/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#740.
+  is_human: 1
   issue: 740
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-27 11:57:08.000000000 Z
+  when: &29 2025-05-27 11:57:08.000000000 Z
   where: github
   who: 526301
 - _id: 125
   _time: 2025-05-29 07:02:06.721001870 Z
   _version: 0.10.2/0.45.0/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#741.
+  is_human: 1
   issue: 741
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-27 11:57:08.000000000 Z
+  when: &30 2025-05-27 11:57:08.000000000 Z
   where: github
   who: 526301
 - _id: 126
   _time: 2025-05-29 07:02:07.015030546 Z
   _version: 0.10.2/0.45.0/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#742.
+  is_human: 1
   issue: 742
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-27 11:57:09.000000000 Z
+  when: &31 2025-05-27 11:57:09.000000000 Z
   where: github
   who: 526301
 - _id: 127
   _time: 2025-05-29 07:02:07.315621845 Z
   _version: 0.10.2/0.45.0/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#743.
+  is_human: 1
   issue: 743
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: &32 2025-05-27 11:57:09.000000000 Z
+  where: github
+  who: 526301
+- _id: 131
+  _job: 22543
+  _time: 2025-05-29 07:02:26.852835270 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  area: integration
+  eva_interval: 10
+  eva_learn_hours: 8
+  what: pmp
+- _id: 134
+  _job: 22543
+  _time: 2025-05-29 07:02:26.871763198 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  area: cost
+  award_price: 0.0
+  slaves: torvalds
+  what: pmp
+- _id: 135
+  _job: 22543
+  _time: 2025-05-29 07:02:26.929117754 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  area: hr
+  bad_branch_name_was_punished: "(award (explain 'If a branch has a name that doesn\\\\\\'t
+    obey the convention, a penalty is given to the author') (aka (let fee -12) (give
+    fee 'as a basis') 'deduct ${fee} points'))"
+  bug_report_was_rewarded: "(award (explain 'When a bug is reported and accepted by
+    the team, the reporter receives a bonus') (aka (let bonus 12) (give bonus 'as
+    a basis') 'award ${bonus} points'))"
+  code_contribution_was_rewarded: |-
+    (award (explain 'When a code contribution is made, the author receives a bonus') (in hoc 'the total number of hits-of-code in the contribution') (in comments 'the total number of comments made by all reviewers') (in reviews 'the number of reviews provided') (aka (let basis 16) (give basis 'as a basis') 'award ${basis} points') (aka (let hoc_k 0.05) (let hoc_threshold 200) (let hoc_max 16) (let hoc_min 5) (set bonus_for_hoc (if (lt hoc hoc_threshold) (times hoc hoc_k) 0)) (set bonus_for_hoc (between bonus_for_hoc hoc_min hoc_max)) (give bonus_for_hoc 'for the ${hoc} hits-of-code that you wrote') 'add ${hoc_k} points for each
+          [hit-of-code](https://www.yegor256.com/2014/11/14/hits-of-code.html),
+          but not more than ${hoc_max} points') (aka (let many_hoc_fee 8) (set penalty_for_hoc (if (gte hoc hoc_threshold) (times -1 many_hoc_fee) 0)) (give penalty_for_hoc 'for too many hits-of-code (${hoc} >= ${hoc_threshold})') 'deduct ${many_hoc_fee} points if more than ${hoc_threshold}
+          [hits-of-code](https://www.yegor256.com/2014/11/14/hits-of-code.html)') (aka (let many_hoc_fee2 16) (let hoc_threshold2 800) (set penalty_for_hoc2 (if (gte hoc hoc_threshold2) (times -1 many_hoc_fee2) 0)) (give penalty_for_hoc2 'for way too many hits-of-code (${hoc} >= ${hoc_threshold2})') 'deduct ${many_hoc_fee2} points if more than ${hoc_threshold2}
+          [hits-of-code](https://www.yegor256.com/2014/11/14/hits-of-code.html)') (aka (let no_review_fee 16) (set penalty_for_no_review (if (eq reviews 0) (times -1 no_review_fee) 0)) (give penalty_for_no_review 'for the lack of code review') 'deduct ${no_review_fee} points if there were no code review') (aka (let comments_k 0.2) (let comments_max -16) (let comments_min -4) (let comments_threshold 8) (set bonus_for_comments (if (gt comments comments_threshold) (times comments (times -1 comments_k)) 0)) (set bonus_for_comments (between bonus_for_comments comments_min comments_max)) (give bonus_for_comments 'for too many (${comments} > ${comments_threshold}) comments that were made during review') 'deduct ${comments_k} points for every comment above ${comments_threshold} made during review, but not more than ${comments_max} points') (aka (let few_hoc_fee 8) (let hoc_needed 20) (set penalty_for_few_hoc (if (lt hoc hoc_needed) (times -1 few_hoc_fee) 0)) (give penalty_for_few_hoc 'for too few (${hoc}) hits-of-code') 'deduct ${few_hoc_fee} points if you contribute less than ${hoc_needed} hits-of-code') (aka (let max 24) (set over (if (gt (total) max) (minus max (total)) 0)) (give over 'to not go over the cap') (let min 4) (set least (if (lt (total) min) (minus min (total)) 0)) (give least 'to give you at least something') 'make sure the reward is not larger than ${max} points and not smaller than ${min} points'))
+  code_review_was_rewarded: |-
+    (award (explain 'An author of every code review receives a bonus') (in hoc 'the total number of hits-of-code in the contribution') (in comments 'the total number of comments made by all reviewers') (in self '1 if the review was made for their own code contribution, otherwise zero') (aka (let basis 12) (give basis 'as a basis') 'award ${basis} points') (aka (let self_fee 24) (set penalty_for_self_review (if (eq self 1) (times -1 self_fee) 0)) (give penalty_for_self_review 'for reviewing your own contribution (which is a bad idea)') 'deduct ${self_fee} points if they reviewed their own contribution') (aka (let hoc_k 0.01) (let hoc_max 16) (let hoc_min 5) (set bonus_for_hoc (times hoc hoc_k)) (set bonus_for_hoc (between bonus_for_hoc hoc_min hoc_max)) (set bonus_for_hoc (if (eq self 1) 0 bonus_for_hoc)) (give bonus_for_hoc 'for the ${hoc} hits-of-code that you reviewed') 'add ${hoc_k} points for each
+          [hit-of-code](https://www.yegor256.com/2014/11/14/hits-of-code.html),
+          but not more than ${hoc_max} points') (aka (let few_comments_fee 10) (let comments_needed 6) (set penalty_for_few_comments (if (and (lt comments comments_needed) (not (eq comments 0))) (times -1 few_comments_fee) 0)) (give penalty_for_few_comments 'for very few (${comments}) comments') 'deduct ${few_comments_fee} points if there were less than ${comments_needed} comments made during review') (aka (let silence_fee 16) (set penalty_for_silence (if (eq comments 0) (times -1 silence_fee) 0)) (give penalty_for_silence 'for absolutely no comments posted') 'deduct ${silence_fee} points if there were absolutely no comments made during review') (aka (let comments_k 0.25) (let comments_max 8) (let comments_min 5) (set bonus_for_comments (times comments comments_k)) (set bonus_for_comments (between bonus_for_comments comments_min comments_max)) (set bonus_for_comments (if (eq self 1) 0 bonus_for_comments)) (give bonus_for_comments 'for the ${comments} comment(s) that you have made') 'add ${comments_k} points for each comment during the review, but not more than ${comments_max} points') (aka (let hoc_fee 8) (let hoc_needed 16) (set penalty_for_hoc (if (lt hoc hoc_needed) (times -1 hoc_fee) 0)) (give penalty_for_hoc 'for too few (${hoc}) hits-of-code') 'deduct ${hoc_fee} points if there were less than ${hoc_needed} hits-of-code') (aka (let max 24) (set over (if (gt (total) max) (minus max (total)) 0)) (give over 'to not go over the cap') (let min 4) (set least (if (lt (total) min) (minus min (total)) 0)) (give least 'to give you at least something') 'make sure the reward is not larger than ${max} points and not smaller than ${min} points'))
+  days_of_running_balance: 56
+  days_to_reward: 14
+  dud_was_punished: "(award (explain 'When an issue is submitted but then rejected
+    by the team, the reporter receives a penalty') (aka (let fee -16) (give fee 'as
+    a basis') 'deduct ${fee} points'))"
+  enhancement_suggestion_was_rewarded: "(award (explain 'When an enhancement is suggested
+    and accepted by the team, the reporter receives a bonus') (aka (let bonus 12)
+    (give bonus 'as a basis') 'award ${bonus} points'))"
+  long_pull_was_punished: "(award (explain 'Oversized pull requests get penalized')
+    (aka (let fee -8) (give fee 'as a basis') 'deduct ${fee} points'))"
+  master_punish_days: 4
+  published_release_was_rewarded: |-
+    (award (explain 'When a new release is published, everyone who contributed receives a bonus') (in hoc 'how many hits-of-code are in the release') (in contributors 'how many people contributed to the release') (aka (let basis 24) (give basis 'as a basis') 'award ${basis} points') (aka (let hoc_k 0.01) (let hoc_max 24) (let hoc_min 4) (set b1 (times hoc hoc_k)) (set b1 (between b1 hoc_min hoc_max)) (give b1 'for ${hoc} hits-of-code') 'add ${hoc_k} points for each
+          [hit-of-code](https://www.yegor256.com/2014/11/14/hits-of-code.html),
+          but not more than ${hoc_max} points') (aka (let max 32) (set over (if (gt (total) max) (minus max (total)) 0)) (give over 'to not go over the cap') (let min 4) (set least (if (lt (total) min) (minus min (total)) 0)) (give least 'to give you at least something') 'make sure the reward is not larger than ${max} points and not smaller than ${min} points'))
+  push_to_master_was_punished: "(award (explain 'When someone pushes directly to the
+    default branch, they get a penalty') (aka (let fee -16) (give fee 'as a basis')
+    '${fee} points'))"
+  resolved_bug_was_rewarded: "(award (explain 'When a bug is resolved, the person
+    who was assigned to it receives a bonus') (in hours 'how many hours it took to
+    resolve the bug') (in self '1 if the bug was reported and resolved by the same
+    person, otherwise zero') (set days (div hours 24)) (aka (let basis 8) (give basis
+    'as a basis') 'award ${basis} points') (aka (let b1 4) (let hours_threshold 24)
+    (set b1 (if (lt hours hours_threshold) b1 0)) (give b1 'for resolving it in less
+    than ${hours_threshold} hours') 'add ${b1} points if it was resolved in less than
+    ${hours_threshold} hours') (aka (let self_fee 16) (set penalty_for_self (if (eq
+    self 1) (times -1 self_fee) 0)) (give penalty_for_self 'for resolving the bug
+    reported by you earlier') 'deduct ${self_fee} points if they resolved the bug
+    earlier reported by themselves') (aka (let day_fee 1.0) (set b2 (times -1 (times
+    days day_fee))) (let days_fee_max -20) (set b2 (max b2 days_fee_max)) (give b2
+    'for ${days} days of delay') 'deduct ${day_fee} points for each day of delay,
+    but no more than ${days_fee_max} points') (aka (let max 16) (set over (if (gt
+    (total) max) (minus max (total)) 0)) (give over 'to not go over the cap') (let
+    min 4) (set least (if (lt (total) min) (minus min (total)) 0)) (give least 'to
+    give you at least something') 'make sure the reward is not larger than ${max}
+    points and not smaller than ${min} points'))"
+  what: pmp
+- _id: 136
+  _job: 22543
+  _time: 2025-05-29 07:02:26.933101504 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  area: quality
+  qos_composite: "(join 15 (below '3 days' average_release_interval) 10 (above 0.95
+    average_build_success_rate) 10 (below '2 days' average_issue_lifetime) 5 (below
+    '12 hours' average_pull_lifetime) 5 (below 8 average_backlog_size))"
+  qos_days: 7
+  qos_interval: 2
+  what: pmp
+- _id: 137
+  _job: 22543
+  _time: 2025-05-29 07:02:26.935421375 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  area: scope
+  qod_composite: "(join 1 total_commits_pushed 8 total_issues_created 10 total_pulls_submitted
+    0.1 total_hoc_committed)"
+  qod_days: 7
+  qod_interval: 2
+  what: pmp
+- _id: 138
+  _job: 22543
+  _time: 2025-05-29 07:02:26.980760714 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  award: -16
+  commit: 5bd31c70063e17306016367b860349594c1ec233
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  greeting: 'It is [not a good idea](https://www.yegor256.com/2014/07/21/read-only-master-branch.html)
+    to push directly to the default branch `master`. You''ve earned -16 points. Next
+    time, create a new branch, push your changes over there, then make a pull request
+    and merge it. Even if you are flying solo, contributing via pull requests is a
+    [good practice](https://www.yegor256.com/2020/07/29/open-source-etiquette.html). '
+  href: https://github.com/cqfn/aibolit/commit/5bd31c70063e17306016367b860349594c1ec233/#commitcomment-158330429
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-05-29 07:02:26.982075518 Z
+  where: github
+  who: 526301
+  why: Pushed 5bd31c700 to the default branch 'master' in cqfn/aibolit
+- _id: 139
+  _job: 22543
+  _time: 2025-05-29 07:02:27.232720653 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  award: -16
+  commit: 2ad84cbfa110fc476bd765d66aa83f968e20cdbc
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  greeting: 'It is [not a good idea](https://www.yegor256.com/2014/07/21/read-only-master-branch.html)
+    to push directly to the default branch `master`. You''ve earned -16 points. Next
+    time, create a new branch, push your changes over there, then make a pull request
+    and merge it. Even if you are flying solo, contributing via pull requests is a
+    [good practice](https://www.yegor256.com/2020/07/29/open-source-etiquette.html). '
+  href: https://github.com/cqfn/aibolit/commit/2ad84cbfa110fc476bd765d66aa83f968e20cdbc/#commitcomment-158330430
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-05-29 07:02:27.234158384 Z
+  where: github
+  who: 526301
+  why: Pushed 2ad84cbfa to the default branch 'master' in cqfn/aibolit
+- _id: 140
+  _job: 22543
+  _time: 2025-05-29 07:02:27.240770986 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  award: -16
+  commit: 5e0a85b9886b388e6d570c3a8b16a6649601758a
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  greeting: 'It is [not a good idea](https://www.yegor256.com/2014/07/21/read-only-master-branch.html)
+    to push directly to the default branch `master`. You''ve earned -16 points. Next
+    time, create a new branch, push your changes over there, then make a pull request
+    and merge it. Even if you are flying solo, contributing via pull requests is a
+    [good practice](https://www.yegor256.com/2020/07/29/open-source-etiquette.html). '
+  href: https://github.com/cqfn/aibolit/commit/5e0a85b9886b388e6d570c3a8b16a6649601758a/#commitcomment-158330431
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-05-29 07:02:27.241966708 Z
+  where: github
+  who: 526301
+  why: Pushed 5e0a85b98 to the default branch 'master' in cqfn/aibolit
+- _id: 141
+  _job: 22543
+  _time: 2025-05-29 07:02:27.248038027 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  award: -16
+  commit: 16ff8b0adfa637cf16fe8c319add4ee246b7eaf9
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  greeting: 'It is [not a good idea](https://www.yegor256.com/2014/07/21/read-only-master-branch.html)
+    to push directly to the default branch `master`. You''ve earned -16 points. Next
+    time, create a new branch, push your changes over there, then make a pull request
+    and merge it. Even if you are flying solo, contributing via pull requests is a
+    [good practice](https://www.yegor256.com/2020/07/29/open-source-etiquette.html). '
+  href: https://github.com/cqfn/aibolit/commit/16ff8b0adfa637cf16fe8c319add4ee246b7eaf9/#commitcomment-158330434
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-05-29 07:02:27.249265123 Z
+  where: github
+  who: 526301
+  why: Pushed 16ff8b0ad to the default branch 'master' in cqfn/aibolit
+- _id: 142
+  _job: 22543
+  _time: 2025-05-29 07:02:27.261630814 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  award: -16
+  commit: 2812edebf1196c050fc63c7324781de852df4188
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  greeting: 'It is [not a good idea](https://www.yegor256.com/2014/07/21/read-only-master-branch.html)
+    to push directly to the default branch `master`. You''ve earned -16 points. Next
+    time, create a new branch, push your changes over there, then make a pull request
+    and merge it. Even if you are flying solo, contributing via pull requests is a
+    [good practice](https://www.yegor256.com/2020/07/29/open-source-etiquette.html). '
+  href: https://github.com/cqfn/aibolit/commit/2812edebf1196c050fc63c7324781de852df4188/#commitcomment-158330436
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-05-29 07:02:27.263330474 Z
+  where: github
+  who: 526301
+  why: Pushed 2812edebf to the default branch 'master' in cqfn/aibolit
+- _id: 143
+  _job: 22543
+  _time: 2025-05-29 07:02:27.270146567 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  award: -16
+  commit: 3c7f0ab6b9763fefaef44514ed1d9507cf77a2b4
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  greeting: 'It is [not a good idea](https://www.yegor256.com/2014/07/21/read-only-master-branch.html)
+    to push directly to the default branch `master`. You''ve earned -16 points. Next
+    time, create a new branch, push your changes over there, then make a pull request
+    and merge it. Even if you are flying solo, contributing via pull requests is a
+    [good practice](https://www.yegor256.com/2020/07/29/open-source-etiquette.html). '
+  href: https://github.com/cqfn/aibolit/commit/3c7f0ab6b9763fefaef44514ed1d9507cf77a2b4/#commitcomment-158330441
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-05-29 07:02:27.271487481 Z
+  where: github
+  who: 526301
+  why: Pushed 3c7f0ab6b to the default branch 'master' in cqfn/aibolit
+- _id: 144
+  _job: 22543
+  _time: 2025-05-29 07:02:27.277453437 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  award: -16
+  commit: 72f85ef701606e52b9cb51ffa59315a8656ec7b9
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  greeting: 'It is [not a good idea](https://www.yegor256.com/2014/07/21/read-only-master-branch.html)
+    to push directly to the default branch `master`. You''ve earned -16 points. Next
+    time, create a new branch, push your changes over there, then make a pull request
+    and merge it. Even if you are flying solo, contributing via pull requests is a
+    [good practice](https://www.yegor256.com/2020/07/29/open-source-etiquette.html). '
+  href: https://github.com/cqfn/aibolit/commit/72f85ef701606e52b9cb51ffa59315a8656ec7b9/#commitcomment-158330442
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-05-29 07:02:27.278623859 Z
+  where: github
+  who: 526301
+  why: Pushed 72f85ef70 to the default branch 'master' in cqfn/aibolit
+- _id: 145
+  _job: 22543
+  _time: 2025-05-29 07:02:27.289035109 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  award: -16
+  commit: 7409fdd019eb4b3085c1d9fd52e60ed0f40cb850
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  greeting: 'It is [not a good idea](https://www.yegor256.com/2014/07/21/read-only-master-branch.html)
+    to push directly to the default branch `master`. You''ve earned -16 points. Next
+    time, create a new branch, push your changes over there, then make a pull request
+    and merge it. Even if you are flying solo, contributing via pull requests is a
+    [good practice](https://www.yegor256.com/2020/07/29/open-source-etiquette.html). '
+  href: https://github.com/cqfn/aibolit/commit/7409fdd019eb4b3085c1d9fd52e60ed0f40cb850/#commitcomment-158330443
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-05-29 07:02:27.290537987 Z
+  where: github
+  who: 526301
+  why: Pushed 7409fdd01 to the default branch 'master' in cqfn/aibolit
+- _id: 146
+  _job: 22543
+  _time: 2025-05-29 07:02:27.297346939 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  award: -16
+  commit: d329248c0b4fb6049b81b72b793e1864027e36a6
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  greeting: 'It is [not a good idea](https://www.yegor256.com/2014/07/21/read-only-master-branch.html)
+    to push directly to the default branch `master`. You''ve earned -16 points. Next
+    time, create a new branch, push your changes over there, then make a pull request
+    and merge it. Even if you are flying solo, contributing via pull requests is a
+    [good practice](https://www.yegor256.com/2020/07/29/open-source-etiquette.html). '
+  href: https://github.com/cqfn/aibolit/commit/d329248c0b4fb6049b81b72b793e1864027e36a6/#commitcomment-158330444
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-05-29 07:02:27.298745054 Z
+  where: github
+  who: 526301
+  why: Pushed d329248c0 to the default branch 'master' in cqfn/aibolit
+- _id: 147
+  _job: 22543
+  _time: 2025-05-29 07:02:27.326500165 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#765 with 17 HoC created by @ivanovmg was
+    merged by @yegor256 after 2h13m of being in review and 1 comments.
+  hoc: 17
+  is_human: 1
+  issue: 765
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 8031
+  what: code-was-contributed
+  when: *1
+  where: github
+  who: 41443370
+- _id: 148
+  _job: 22543
+  _time: 2025-05-29 07:02:27.404365434 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 0
+  details: The pull request cqfn/aibolit#763 with 16 HoC created by @ivanovmg was
+    merged by @yegor256 after 40m30s of being in review and 0 comments.
+  hoc: 16
+  is_human: 1
+  issue: 763
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 2431
+  what: code-was-contributed
+  when: *2
+  where: github
+  who: 41443370
+- _id: 149
+  _job: 22543
+  _time: 2025-05-29 07:02:27.424743802 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 5
+  details: The pull request cqfn/aibolit#761 with 1 HoC created by @ivanovmg was merged
+    by @yegor256 after 12h12m of being in review and 5 comments.
+  hoc: 1
+  is_human: 1
+  issue: 761
+  merger: 526301
+  repository: 237167507
+  review_comments: 4
+  seconds: 43975
+  what: code-was-contributed
+  when: *3
+  where: github
+  who: 41443370
+- _id: 150
+  _job: 22543
+  _time: 2025-05-29 07:02:27.433656732 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 2
+  details: The pull request cqfn/aibolit#760 with 45 HoC created by @ivanovmg was
+    merged by @yegor256 after 7h34m of being in review and 2 comments.
+  hoc: 45
+  is_human: 1
+  issue: 760
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 27276
+  what: code-was-contributed
+  when: *4
+  where: github
+  who: 41443370
+- _id: 151
+  _job: 22543
+  _time: 2025-05-29 07:02:27.439101409 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 3
+  details: The pull request cqfn/aibolit#737 with 30 HoC created by @ivanovmg was
+    merged by @yegor256 after 2h23m of being in review and 3 comments.
+  hoc: 30
+  is_human: 1
+  issue: 737
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 8603
+  what: code-was-contributed
+  when: *5
+  where: github
+  who: 41443370
+- _id: 152
+  _job: 22543
+  _time: 2025-05-29 07:02:27.444841646 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 0
+  details: The pull request cqfn/aibolit#739 with 1 HoC created by @ivanovmg was merged
+    by @yegor256 after 9m49s of being in review and 0 comments.
+  hoc: 1
+  is_human: 1
+  issue: 739
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 590
+  what: code-was-contributed
+  when: *6
+  where: github
+  who: 41443370
+- _id: 153
+  _job: 22543
+  _time: 2025-05-29 07:02:27.449741571 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 7
+  details: The pull request cqfn/aibolit#729 with 5579 HoC created by @ivanovmg was
+    merged by @yegor256 after 4h22m of being in review and 7 comments.
+  hoc: 5579
+  is_human: 1
+  issue: 729
+  merger: 526301
+  repository: 237167507
+  review_comments: 2
+  seconds: 15737
+  what: code-was-contributed
+  when: *7
+  where: github
+  who: 41443370
+- _id: 154
+  _job: 22543
+  _time: 2025-05-29 07:02:27.456902461 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#733 with 2 HoC created by @ivanovmg was merged
+    by @yegor256 after 50m40s of being in review and 1 comments.
+  hoc: 2
+  is_human: 1
+  issue: 733
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 3041
+  what: code-was-contributed
+  when: *8
+  where: github
+  who: 41443370
+- _id: 155
+  _job: 22543
+  _time: 2025-05-29 07:02:27.463099678 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 3
+  details: The pull request cqfn/aibolit#731 with 4 HoC created by @ivanovmg was merged
+    by @yegor256 after 1h41m of being in review and 3 comments.
+  hoc: 4
+  is_human: 1
+  issue: 731
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 6112
+  what: code-was-contributed
+  when: *9
+  where: github
+  who: 41443370
+- _id: 156
+  _job: 22543
+  _time: 2025-05-29 07:02:27.468751046 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#735 with 8 HoC created by @ivanovmg was merged
+    by @yegor256 after 43m11s of being in review and 1 comments.
+  hoc: 8
+  is_human: 1
+  issue: 735
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 2592
+  what: code-was-contributed
+  when: *10
+  where: github
+  who: 41443370
+- _id: 157
+  _job: 22543
+  _time: 2025-05-29 07:02:27.474181300 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#727 with 33 HoC created by @ivanovmg was
+    merged by @yegor256 after 2h7m of being in review and 1 comments.
+  hoc: 33
+  is_human: 1
+  issue: 727
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 7675
+  what: code-was-contributed
+  when: *11
+  where: github
+  who: 41443370
+- _id: 158
+  _job: 22543
+  _time: 2025-05-29 07:02:27.479062906 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 4
+  details: The pull request cqfn/aibolit#726 with 15 HoC created by @ivanovmg was
+    merged by @yegor256 after 6h12m of being in review and 4 comments.
+  hoc: 15
+  is_human: 1
+  issue: 726
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 22322
+  what: code-was-contributed
+  when: *12
+  where: github
+  who: 41443370
+- _id: 159
+  _job: 22543
+  _time: 2025-05-29 07:02:27.487209631 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 7
+  details: The pull request cqfn/aibolit#721 with 81 HoC created by @ivanovmg was
+    merged by @yegor256 after 5h27m of being in review and 7 comments.
+  hoc: 81
+  is_human: 1
+  issue: 721
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 19624
+  what: code-was-contributed
+  when: *13
+  where: github
+  who: 41443370
+- _id: 160
+  _job: 22543
+  _time: 2025-05-29 07:02:27.492930184 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#723 with 14 HoC created by @ivanovmg was
+    merged by @yegor256 after 1h26m of being in review and 1 comments.
+  hoc: 14
+  is_human: 1
+  issue: 723
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 5175
+  what: code-was-contributed
+  when: *14
+  where: github
+  who: 41443370
+- _id: 161
+  _job: 22543
+  _time: 2025-05-29 07:02:35.465680671 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  closer: 526301
+  details: 'In the repository #237167507, the user #41443370 submitted the issue #764
+    which was later closed by the user #526301 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 1
+  issue: 764
+  repository: 237167507
+  what: dud-was-closed
+  when: *15
+  where: github
+  who: 41443370
+- _id: 162
+  _job: 22543
+  _time: 2025-05-29 07:02:35.466729625 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  closer: 526301
+  details: 'In the repository #237167507, the user #24456188 submitted the issue #762
+    which was later closed by the user #526301 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 0
+  issue: 762
+  repository: 237167507
+  what: dud-was-closed
+  when: *16
+  where: github
+  who: 24456188
+- _id: 163
+  _job: 22543
+  _time: 2025-05-29 07:02:35.467610524 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  closer: 526301
+  details: 'In the repository #237167507, the user #24456188 submitted the issue #758
+    which was later closed by the user #526301 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 0
+  issue: 758
+  repository: 237167507
+  what: dud-was-closed
+  when: *17
+  where: github
+  who: 24456188
+- _id: 164
+  _job: 22543
+  _time: 2025-05-29 07:02:35.468502664 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  closer: 526301
+  details: 'In the repository #237167507, the user #41443370 submitted the issue #738
+    which was later closed by the user #526301 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 1
+  issue: 738
+  repository: 237167507
+  what: dud-was-closed
+  when: *18
+  where: github
+  who: 41443370
+- _id: 165
+  _job: 22543
+  _time: 2025-05-29 07:02:35.469317825 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  closer: 526301
+  details: 'In the repository #237167507, the user #41443370 submitted the issue #734
+    which was later closed by the user #526301 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 1
+  issue: 734
+  repository: 237167507
+  what: dud-was-closed
+  when: *19
+  where: github
+  who: 41443370
+- _id: 166
+  _job: 22543
+  _time: 2025-05-29 07:02:35.470160703 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  closer: 526301
+  details: 'In the repository #237167507, the user #41443370 submitted the issue #732
+    which was later closed by the user #526301 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 1
+  issue: 732
+  repository: 237167507
+  what: dud-was-closed
+  when: *20
+  where: github
+  who: 41443370
+- _id: 167
+  _job: 22543
+  _time: 2025-05-29 07:02:35.471013638 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  closer: 526301
+  details: 'In the repository #237167507, the user #41443370 submitted the issue #730
+    which was later closed by the user #526301 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 1
+  issue: 730
+  repository: 237167507
+  what: dud-was-closed
+  when: *21
+  where: github
+  who: 41443370
+- _id: 168
+  _job: 22543
+  _time: 2025-05-29 07:02:35.471858630 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  closer: 526301
+  details: 'In the repository #237167507, the user #41443370 submitted the issue #728
+    which was later closed by the user #526301 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 1
+  issue: 728
+  repository: 237167507
+  what: dud-was-closed
+  when: *22
+  where: github
+  who: 41443370
+- _id: 169
+  _job: 22543
+  _time: 2025-05-29 07:02:35.475389261 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  closer: 526301
+  details: 'In the repository #237167507, the user #41443370 submitted the issue #722
+    which was later closed by the user #526301 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 1
+  issue: 722
+  repository: 237167507
+  what: dud-was-closed
+  when: *23
+  where: github
+  who: 41443370
+- _id: 170
+  _job: 22543
+  _time: 2025-05-29 07:02:35.513246842 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#710 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 710
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *24
+  where: github
+  who: 526301
+- _id: 171
+  _job: 22543
+  _time: 2025-05-29 07:02:35.519353283 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#712 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 712
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *25
+  where: github
+  who: 526301
+- _id: 172
+  _job: 22543
+  _time: 2025-05-29 07:02:35.527749444 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#719 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 719
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *26
+  where: github
+  who: 526301
+- _id: 173
+  _job: 22543
+  _time: 2025-05-29 07:02:35.533105441 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#724 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 724
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *27
+  where: github
+  who: 526301
+- _id: 174
+  _job: 22543
+  _time: 2025-05-29 07:02:35.538377606 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#736 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 736
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *28
+  where: github
+  who: 526301
+- _id: 175
+  _job: 22543
+  _time: 2025-05-29 07:02:35.545274896 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#740 reported by @0pdd;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 740
+  reporter: 24456188
+  repository: 237167507
+  what: bug-was-accepted
+  when: *29
+  where: github
+  who: 526301
+- _id: 176
+  _job: 22543
+  _time: 2025-05-29 07:02:35.601034150 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#741 reported by @0pdd;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 741
+  reporter: 24456188
+  repository: 237167507
+  what: bug-was-accepted
+  when: *30
+  where: github
+  who: 526301
+- _id: 177
+  _job: 22543
+  _time: 2025-05-29 07:02:35.607659153 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#742 reported by @0pdd;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 742
+  reporter: 24456188
+  repository: 237167507
+  what: bug-was-accepted
+  when: *31
+  where: github
+  who: 526301
+- _id: 178
+  _job: 22543
+  _time: 2025-05-29 07:02:35.613028422 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#743 reported by @0pdd;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 743
+  reporter: 24456188
+  repository: 237167507
+  what: bug-was-accepted
+  when: *32
+  where: github
+  who: 526301
+- _id: 179
+  _job: 22543
+  _time: 2025-05-29 07:02:58.046876638 Z
+  _version: 0.10.2/0.43.0/0.9.0
+  ac: -144
+  cost_of_qod: 2.913362321635045
+  ev: 0
+  pv: 0
+  qod: 0
+  qod_per_day: 0.5127168367874803
+  qod_per_sec: 0
+  start: 2025-05-29 07:01:48.877523876 Z
+  what: earned-value
+  when: 2025-05-29 07:02:58.047187099 Z
+- _id: 181
+  _time: 2025-05-29 07:59:53.751177316 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#744.
+  is_human: 1
+  issue: 744
   label: bug
   repository: 237167507
   what: label-was-attached
   when: 2025-05-27 11:57:09.000000000 Z
   where: github
   who: 526301
-- _id: 128
-  _time: 2025-05-29 07:02:07.318002191 Z
+- _id: 182
+  _time: 2025-05-29 07:59:54.064081142 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#745.
+  is_human: 1
+  issue: 745
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:10.000000000 Z
+  where: github
+  who: 526301
+- _id: 183
+  _time: 2025-05-29 07:59:54.308112421 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#746.
+  is_human: 1
+  issue: 746
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:10.000000000 Z
+  where: github
+  who: 526301
+- _id: 184
+  _time: 2025-05-29 07:59:54.591180445 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#747.
+  is_human: 1
+  issue: 747
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:10.000000000 Z
+  where: github
+  who: 526301
+- _id: 185
+  _time: 2025-05-29 07:59:54.885177212 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#748.
+  is_human: 1
+  issue: 748
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:11.000000000 Z
+  where: github
+  who: 526301
+- _id: 186
+  _time: 2025-05-29 07:59:55.200954252 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#749.
+  is_human: 1
+  issue: 749
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:11.000000000 Z
+  where: github
+  who: 526301
+- _id: 187
+  _time: 2025-05-29 07:59:55.516704950 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#750.
+  is_human: 1
+  issue: 750
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:11.000000000 Z
+  where: github
+  who: 526301
+- _id: 188
+  _time: 2025-05-29 07:59:55.837197413 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#751.
+  is_human: 1
+  issue: 751
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:12.000000000 Z
+  where: github
+  who: 526301
+- _id: 189
+  _time: 2025-05-29 07:59:56.129883627 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#752.
+  is_human: 1
+  issue: 752
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:12.000000000 Z
+  where: github
+  who: 526301
+- _id: 190
+  _time: 2025-05-29 07:59:56.370378002 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#753.
+  is_human: 1
+  issue: 753
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:13.000000000 Z
+  where: github
+  who: 526301
+- _id: 191
+  _time: 2025-05-29 07:59:56.667725929 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#754.
+  is_human: 1
+  issue: 754
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:13.000000000 Z
+  where: github
+  who: 526301
+- _id: 192
+  _time: 2025-05-29 07:59:56.908032707 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#755.
+  is_human: 1
+  issue: 755
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:13.000000000 Z
+  where: github
+  who: 526301
+- _id: 193
+  _time: 2025-05-29 07:59:57.148821389 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#756.
+  is_human: 1
+  issue: 756
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:14.000000000 Z
+  where: github
+  who: 526301
+- _id: 194
+  _time: 2025-05-29 07:59:57.382995014 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#757.
+  is_human: 1
+  issue: 757
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:14.000000000 Z
+  where: github
+  who: 526301
+- _id: 195
+  _time: 2025-05-29 07:59:57.685715794 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#758.
+  is_human: 1
+  issue: 758
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:14.000000000 Z
+  where: github
+  who: 526301
+- _id: 196
+  _time: 2025-05-29 07:59:57.917294364 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#759.
+  is_human: 1
+  issue: 759
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:15.000000000 Z
+  where: github
+  who: 526301
+- _id: 205
+  _time: 2025-05-29 08:00:43.504904074 Z
+  _version: 0.10.2/0.45.0/
+  latest: 743
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 207
+  _time: 2025-05-29 08:00:53.072464311 Z
+  _version: 0.10.2/0.45.0/
+  total_active_contributors: 5
+  total_commits: 2311
+  total_contributors: 18
+  total_files: 1044
+  total_forks: 23
+  total_issues: 384
+  total_pulls: 385
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 61
+  what: dimensions-of-terrain
+  when: 2025-05-29 07:01:47.850125713 Z
+- _id: 209
+  _time: 2025-05-29 08:00:55.357826509 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50244313175
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 210
+  _time: 2025-05-29 08:03:32.657159907 Z
+  _version: 0.10.2/0.45.0/
+  average_build_duration: 78.682
+  average_build_mttr: -9987
+  average_build_success_rate: 0.977
+  average_issue_lifetime: 18471568.04761905
+  average_pull_files_size: 32.25714285714286
+  average_pull_hoc_size: 527.4857142857143
+  average_pull_lifetime: 21812321.0625
+  average_pull_rejection_rate: 0.2708333333333333
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
+  average_release_interval: 0
+  average_review_size: 0.2857142857142857
+  average_review_time: 25690.8
+  average_reviewers_per_pull: 0.22857142857142856
+  average_reviews_per_pull: 0.34285714285714286
+  average_triage_time: 15975.153846153846
+  since: 2025-05-01 07:01:49.867476159 Z
+  what: quality-of-service
+  when: 2025-05-29 07:01:49.867437818 Z
+- _id: 211
+  _time: 2025-05-29 08:03:38.657746537 Z
   _version: 0.10.2/0.45.0/
   latest: 743
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 129
-  _time: 2025-05-29 07:02:08.298383041 Z
+- _id: 212
+  _time: 2025-05-29 08:03:39.417772391 Z
   _version: 0.10.2/0.45.0/
-  average_pull_rejection_rate: 0.2708333333333333
-  since: 2025-05-01 07:01:49.867476159 Z
-  what: quality-of-service
-  when: 2025-05-29 07:01:49.867437818 Z
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
