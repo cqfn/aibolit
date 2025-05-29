@@ -73,6 +73,25 @@ def test_settle_is_not_a_setter_even_though_has_one_argument() -> None:
 
 
 @pytest.mark.xfail(reason='Incomplete implementation')
+def test_settings_is_not_a_setter_as_it_calls_method() -> None:
+    # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
+    #  When the method starts with `set` and calls an external method,
+    #  without assigning to the attribute, is not a setter.
+    #  Once the implementation is updated,
+    #  remove `xfail` mark above this test definition.
+    content = dedent(
+        """\
+        class FakeSetterClass {
+            public void settings(Difficulty difficulty, Resolution resolution) {
+                this.gameSettings.apply(difficulty, resolution);
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == []
+
+
+@pytest.mark.xfail(reason='Incomplete implementation')
 def test_update_attribute_in_method_starting_with_set_is_not_a_setter() -> None:
     # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
     #  When the method starts with `set`, changes the value of the attribute,
