@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: MIT
 
 import os
-import unittest
 from pathlib import Path
 from unittest import TestCase
 
@@ -33,7 +32,6 @@ class LocalMethodsCallsTest(TestCase):
             'Could not calculate how many local methods called when they exist in inner class'
         )
 
-    @unittest.skip('Not implemented')
     def test_double_local_method_calls(self):
         self.assertEqual(
             LocalMethodsCalls().value(Path(self.dir_path, 'DoubleLocalMethodCalls.java')),

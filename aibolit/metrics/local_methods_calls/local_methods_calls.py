@@ -1,10 +1,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 import os
-from typing import Iterator
+from collections import Counter
 
-from aibolit.ast_framework import AST, ASTNode, ASTNodeType
-from aibolit.types_decl import LineNumber
+from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.utils.ast_builder import build_ast
 
 
@@ -24,16 +23,18 @@ class LocalMethodsCalls:
 
     def value(self, filepath: str | os.PathLike):
         ast = AST.build_from_javalang(build_ast(filepath))
-        return sum(1 for _ in _offending_lines(ast))
+        return _local_methods_called(ast)
 
 
-def _offending_lines(ast: AST) -> Iterator[LineNumber]:
-    methods_called = set(
+def _local_methods_called(ast: AST) -> int:
+    methods_called_counter = Counter(
         node.member
         for node in ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION)
     )
+    methods_called = set(methods_called_counter)
     local_methods_declared = set(
         node.name
         for node in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)
     )
-    yield from methods_called.difference(local_methods_declared)
+    local_methods_called = methods_called.intersection(local_methods_declared)
+    return sum(methods_called_counter[method_name] for method_name in local_methods_called)
