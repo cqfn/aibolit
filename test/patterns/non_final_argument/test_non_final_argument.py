@@ -2,14 +2,12 @@
 # SPDX-License-Identifier: MIT
 
 import os
-import unittest
 from pathlib import Path
 from unittest import TestCase
 
 from aibolit.patterns.non_final_argument.non_final_argument import NonFinalArgument
 
 
-@unittest.skip("Not implemented")
 class NonFinalArgumentTestCase(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
 
