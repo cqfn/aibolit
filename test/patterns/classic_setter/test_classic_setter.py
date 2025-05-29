@@ -136,6 +136,18 @@ def test_simple_setter() -> None:
     assert _offending_lines(content) == [3]
 
 
+def test_simple_setter_on_one_line() -> None:
+    content = dedent(
+        """\
+        class SimpleSetterClass {
+            private int attr;
+            public void setAttr(int value) { this.attr = value; }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == [3]
+
+
 def test_setter_without_referencing_this() -> None:
     content = dedent(
         """\
