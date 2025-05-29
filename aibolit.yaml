@@ -7,10 +7,10 @@
     499...'
   - A few (7) facts were found with missing openings
   inserted: 8
-  seconds: 2.293194074
+  seconds: 2.466867101
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-29 13:26:44.724933187 Z
+  when: 2025-05-29 14:00:56.575400892 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -3703,23 +3703,9 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-29 13:27:40.000000000 Z
+  when: &50 2025-05-29 13:27:40.000000000 Z
   where: github
   who: 526301
-- _id: 388
-  _time: 2025-05-29 14:00:22.221000310 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50244313175
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 389
-  _time: 2025-05-29 14:00:29.010982685 Z
-  _version: 0.10.2/0.45.0/
-  latest: 743
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
 - _id: 390
   _time: 2025-05-29 14:00:34.974376008 Z
   _version: 0.10.2/0.45.0/
@@ -3727,8 +3713,36 @@
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 391
-  _time: 2025-05-29 14:00:36.199664885 Z
+- _id: 392
+  _job: 22592
+  _time: 2025-05-29 14:00:55.004688507 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#777 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 777
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *50
+  where: github
+  who: 526301
+- _id: 401
+  _time: 2025-05-29 15:00:15.172480476 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 403
+  _time: 2025-05-29 15:00:18.844382906 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50244313175
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 404
+  _time: 2025-05-29 15:00:20.767754088 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
