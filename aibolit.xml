@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="83968">
+<fb version="0.10.2" size="84786">
   <f>
     <added t="I">8</added>
-    <cycles t="I">2</cycles>
+    <cycles t="I">3</cycles>
     <deleted t="I">8</deleted>
-    <error t="S">A few (7) facts were found with missing openings</error>
+    <error>
+      <v t="S">Many (229) issues are missing: 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
+      <v t="S">A few (7) facts were found with missing openings</v>
+    </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">4.442686989</seconds>
+    <seconds t="F">12.268010428</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-05-29T11:01:36Z</when>
+    <when t="T">2025-05-29T12:00:59Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -4073,17 +4076,69 @@
     <who t="I">24456188</who>
   </f>
   <f>
-    <_id t="I">341</_id>
-    <_time t="T">2025-05-29T11:59:55Z</_time>
+    <_id t="I">356</_id>
+    <_job t="I">22578</_job>
+    <_time>
+      <v t="T">2025-05-29T12:00:57Z</v>
+      <v t="T">2025-05-29T12:00:49Z</v>
+    </_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <award t="I">12</award>
+    <details t="S">It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#772, the reward amount is 12.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/772/#issuecomment-2919188575</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">772</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-report-was-rewarded</what>
+    <when t="T">2025-05-29T12:00:49Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Reported bug in cqfn/aibolit#772</why>
+  </f>
+  <f>
+    <_id t="I">358</_id>
+    <_time t="T">2025-05-29T13:22:49Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">726</latest>
+    <details t="S">The issue cqfn/aibolit#777 has been opened by @ivanovmg.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">777</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-05-29T12:25:10Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">360</_id>
+    <_time t="T">2025-05-29T13:22:49Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">727</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">352</_id>
-    <_time t="T">2025-05-29T12:00:30Z</_time>
+    <_id t="I">362</_id>
+    <_time t="T">2025-05-29T13:23:01Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">743</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">368</_id>
+    <_time t="T">2025-05-29T13:23:19Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">776</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">370</_id>
+    <_time t="T">2025-05-29T13:23:22Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">50244313175</latest>
     <repository t="I">237167507</repository>
@@ -4091,26 +4146,8 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">353</_id>
-    <_time t="T">2025-05-29T12:00:31Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">354</_id>
-    <_time t="T">2025-05-29T12:00:31Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">355</_id>
-    <_time t="T">2025-05-29T12:00:32Z</_time>
+    <_id t="I">371</_id>
+    <_time t="T">2025-05-29T13:23:23Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
