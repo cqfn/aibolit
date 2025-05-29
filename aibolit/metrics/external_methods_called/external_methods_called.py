@@ -5,7 +5,7 @@ import os
 from dataclasses import dataclass
 from typing import Iterator
 
-from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 from aibolit.utils.ast_builder import build_ast
 
 
@@ -37,8 +37,17 @@ class ExternalMethodsCalledCount:
     def _external_method_names_called(self) -> Iterator[str]:
         for node in self.ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION):
             for first, second in itertools.pairwise(node.parent.children):
-                if (
-                    first.node_type == ASTNodeType.MEMBER_REFERENCE and
-                    second.node_type == ASTNodeType.METHOD_INVOCATION
-                ):
+                if self._member_ref_followed_by_method_invocation(first, second):
                     yield second.member
+
+    def _member_ref_followed_by_method_invocation(
+        self,
+        first: ASTNode | None,
+        second: ASTNode | None,
+    ) -> bool:
+        return (
+            first is not None and
+            second is not None and
+            first.node_type == ASTNodeType.MEMBER_REFERENCE and
+            second.node_type == ASTNodeType.METHOD_INVOCATION
+        )
