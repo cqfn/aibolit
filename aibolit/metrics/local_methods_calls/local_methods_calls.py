@@ -28,4 +28,12 @@ class LocalMethodsCalls:
 
 
 def _offending_lines(ast: AST) -> Iterator[LineNumber]:
-    yield from []
+    methods_called = set(
+        node.member
+        for node in ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION)
+    )
+    local_methods_declared = set(
+        node.name
+        for node in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)
+    )
+    yield from methods_called.difference(local_methods_declared)

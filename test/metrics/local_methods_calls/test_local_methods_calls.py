@@ -19,7 +19,6 @@ class LocalMethodsCallsTest(TestCase):
             'Could not calculate how many local methods are called when none'
         )
 
-    @unittest.skip('Not implemented')
     def test_local_method_calls(self):
         self.assertEqual(
             LocalMethodsCalls().value(Path(self.dir_path, 'LocalMethodCalls.java')),
@@ -27,7 +26,6 @@ class LocalMethodsCallsTest(TestCase):
             'Could not calculate how many local method are called when they exist'
         )
 
-    @unittest.skip('Not implemented')
     def test_inner_class_local_method_calls(self):
         self.assertEqual(
             LocalMethodsCalls().value(Path(self.dir_path, 'InnerClassLocalMethodCalls.java')),
