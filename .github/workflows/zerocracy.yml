@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: Copyright (c) 2012-2025 Yegor Bugayenko
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: zerocracy
+'on':
+  schedule:
+    - cron: '51 * * * *'
+permissions:
+  contents: write
+concurrency:
+  group: zerocracy
+  cancel-in-progress: false
+jobs:
+  zerocracy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: zerocracy/judges-action@0.9.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ZEROCRACY_TOKEN }}
+          repositories: cqfn/aibolit
+          factbase: aibolit.fb
+      - uses: zerocracy/pages-action@0.1.5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          factbase: aibolit.fb
+          output: pages
+      - uses: JamesIves/github-pages-deploy-action@v4.7.3
+        with:
+          folder: pages
+          clean: false
