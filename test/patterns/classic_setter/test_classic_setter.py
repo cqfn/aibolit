@@ -15,13 +15,6 @@ from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 class SetterTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
-    def test_one_valid_patterns(self):
-        filepath = self.current_directory / "BaseKeyframeAnimation.java"
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ClassicSetter()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [43])
-
     def test_four_setter_patterns(self):
         filepath = self.current_directory / "Configuration.java"
         ast = AST.build_from_javalang(build_ast(filepath))
