@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="88920">
+<fb version="0.10.2" size="91992">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <error>
-      <v t="S">Many (231) issues are missing in cqfn/aibolit (between 485 and 785): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
+      <v t="S">Many (229) issues are missing in cqfn/aibolit (between 485 and 785): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">2.422877385</seconds>
+    <seconds t="F">2.724417643</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-05-29T20:00:55Z</when>
+    <when t="T">2025-05-29T21:00:57Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -4308,15 +4308,6 @@
     <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">507</_id>
-    <_time t="T">2025-05-29T21:00:29Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">509</_id>
     <_time t="T">2025-05-29T21:00:32Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
@@ -4325,6 +4316,7 @@
     <details t="S">A new Git push #24576936567 has arrived to cqfn/aibolit, made by @yegor256 (default branch is 'master'), not associated with any pull request.</details>
     <event_id t="I">50269465817</event_id>
     <event_type t="S">PushEvent</event_type>
+    <is_human t="I">1</is_human>
     <push_id t="I">24576936567</push_id>
     <ref t="S">refs/heads/master</ref>
     <repository t="I">237167507</repository>
@@ -4335,17 +4327,209 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">510</_id>
-    <_time t="T">2025-05-29T21:00:32Z</_time>
+    <_id t="I">513</_id>
+    <_time t="T">2025-05-29T22:00:03Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50269465817</latest>
+    <details t="S">The issue cqfn/aibolit#754 has been closed by @yegor256.</details>
+    <event_id t="I">50269555911</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">754</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-05-29T05:58:55Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">514</_id>
+    <_time t="T">2025-05-29T22:00:03Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">754</branch>
+    <comments t="I">1</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">1</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#766 has been closed by @yegor256, with 4 HoC and 1 comments.</details>
+    <event_id t="I">50269555712</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">4</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">766</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-05-29T05:58:54Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">515</_id>
+    <_time t="T">2025-05-29T22:00:21Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <details t="S">The issue cqfn/aibolit#751 has been closed by @yegor256.</details>
+    <event_id t="I">50269547902</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">751</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-05-29T05:58:36Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">516</_id>
+    <_time t="T">2025-05-29T22:00:21Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <details t="S">The issue cqfn/aibolit#750 has been closed by @yegor256.</details>
+    <event_id t="I">50269547794</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">750</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-05-29T05:58:35Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">517</_id>
+    <_time t="T">2025-05-29T22:00:21Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">750</branch>
+    <comments t="I">1</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">1</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#767 has been closed by @yegor256, with 8 HoC and 1 comments.</details>
+    <event_id t="I">50269547544</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">8</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">767</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-05-29T05:58:35Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">518</_id>
+    <_time t="T">2025-05-29T22:00:34Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">485</branch>
+    <comments t="I">1</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">1</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#769 has been closed by @yegor256, with 24 HoC and 1 comments.</details>
+    <event_id t="I">50269533607</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">24</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">769</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-05-29T05:58:02Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">519</_id>
+    <_time t="T">2025-05-29T22:00:46Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <details t="S">The issue cqfn/aibolit#741 has been closed by @yegor256.</details>
+    <event_id t="I">50269523040</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">741</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-05-29T05:57:36Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">520</_id>
+    <_time t="T">2025-05-29T22:00:46Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">741</branch>
+    <comments t="I">1</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">1</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#768 has been closed by @yegor256, with 47 HoC and 1 comments.</details>
+    <event_id t="I">50269522792</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">47</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">768</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-05-29T05:57:36Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">521</_id>
+    <_time t="T">2025-05-29T22:00:58Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <commit t="S">0b503d41286e2253dffd5aa2e7b8817435e31575</commit>
+    <default_branch t="S">master</default_branch>
+    <details t="S">A new Git push #24576951518 has arrived to cqfn/aibolit, made by @yegor256 (default branch is 'master'), not associated with any pull request.</details>
+    <event_id t="I">50269495631</event_id>
+    <event_type t="S">PushEvent</event_type>
+    <is_human t="I">1</is_human>
+    <push_id t="I">24576951518</push_id>
+    <ref t="S">refs/heads/master</ref>
+    <repository t="I">237167507</repository>
+    <to_master t="I">1</to_master>
+    <what t="S">git-was-pushed</what>
+    <when t="T">2025-05-29T05:56:34Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">524</_id>
+    <_time t="T">2025-05-29T22:01:20Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">743</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">533</_id>
+    <_time t="T">2025-05-29T22:01:41Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50271460204</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">511</_id>
-    <_time t="T">2025-05-29T21:00:39Z</_time>
+    <_id t="I">534</_id>
+    <_time t="T">2025-05-29T22:01:50Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">743</latest>
     <repository t="I">237167507</repository>
@@ -4353,8 +4537,8 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">512</_id>
-    <_time t="T">2025-05-29T21:00:40Z</_time>
+    <_id t="I">535</_id>
+    <_time t="T">2025-05-29T22:01:51Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
