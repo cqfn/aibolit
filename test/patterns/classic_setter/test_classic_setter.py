@@ -122,6 +122,22 @@ def test_setter_without_referencing_this() -> None:
     assert _offending_lines(content) == [3]
 
 
+def test_setter_in_inner_class() -> None:
+    content = dedent(
+        """\
+        class ClassWithInnerSetterClass {
+            class InnerSetterClass {
+                private int attr;
+                public void setAttr(int value) {
+                    attr = value;
+                }
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == [4]
+
+
 def test_two_setters() -> None:
     content = dedent(
         """\
