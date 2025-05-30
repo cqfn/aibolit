@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 3
+  cycles: 2
   deleted: 8
   error:
-  - 'Many (224) issues are missing in cqfn/aibolit (between 485 and 786): 490, 491,
+  - 'Many (225) issues are missing in cqfn/aibolit (between 485 and 788): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 12.747269221
+  seconds: 2.664212135
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-30 06:01:13.688267623 Z
+  when: 2025-05-30 07:00:43.732169308 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -4771,7 +4771,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-30 06:29:59.000000000 Z
+  when: &63 2025-05-30 06:29:59.000000000 Z
   where: github
   who: 526301
 - _id: 701
@@ -4783,7 +4783,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-30 06:30:00.000000000 Z
+  when: &64 2025-05-30 06:30:00.000000000 Z
   where: github
   who: 526301
 - _id: 702
@@ -4795,7 +4795,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-30 06:30:00.000000000 Z
+  when: &65 2025-05-30 06:30:00.000000000 Z
   where: github
   who: 526301
 - _id: 703
@@ -4807,7 +4807,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-30 06:30:01.000000000 Z
+  when: &66 2025-05-30 06:30:01.000000000 Z
   where: github
   who: 526301
 - _id: 704
@@ -4819,7 +4819,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-30 06:30:01.000000000 Z
+  when: &67 2025-05-30 06:30:01.000000000 Z
   where: github
   who: 526301
 - _id: 706
@@ -4840,29 +4840,114 @@
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 716
-  _time: 2025-05-30 07:00:12.115156586 Z
+- _id: 721
+  _job: 22717
+  _time: 2025-05-30 07:00:42.347348482 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#779 reported by @0pdd;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 779
+  reporter: 24456188
+  repository: 237167507
+  what: bug-was-accepted
+  when: *63
+  where: github
+  who: 526301
+- _id: 722
+  _job: 22717
+  _time: 2025-05-30 07:00:42.442483934 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#780 reported by @0pdd;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 780
+  reporter: 24456188
+  repository: 237167507
+  what: bug-was-accepted
+  when: *64
+  where: github
+  who: 526301
+- _id: 723
+  _job: 22717
+  _time: 2025-05-30 07:00:42.449152358 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#781 reported by @0pdd;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 781
+  reporter: 24456188
+  repository: 237167507
+  what: bug-was-accepted
+  when: *65
+  where: github
+  who: 526301
+- _id: 724
+  _job: 22717
+  _time: 2025-05-30 07:00:42.454405807 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#782 reported by @0pdd;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 782
+  reporter: 24456188
+  repository: 237167507
+  what: bug-was-accepted
+  when: *66
+  where: github
+  who: 526301
+- _id: 725
+  _job: 22717
+  _time: 2025-05-30 07:00:42.461584556 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#783 reported by @0pdd;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 783
+  reporter: 24456188
+  repository: 237167507
+  what: bug-was-accepted
+  when: *67
+  where: github
+  who: 526301
+- _id: 729
+  _time: 2025-05-30 08:00:33.873280331 Z
+  _version: 0.10.2/0.45.0/
+  total_active_contributors: 5
+  total_commits: 2357
+  total_contributors: 18
+  total_files: 1042
+  total_forks: 23
+  total_issues: 395
+  total_pulls: 393
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 62
+  what: dimensions-of-terrain
+  when: 2025-05-30 08:00:21.273956796 Z
+- _id: 734
+  _time: 2025-05-30 08:00:53.116073664 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 735
+  _time: 2025-05-30 08:01:01.707327928 Z
   _version: 0.10.2/0.45.0/
   latest: 776
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 717
-  _time: 2025-05-30 07:00:19.650406295 Z
-  _version: 0.10.2/0.45.0/
-  latest: 743
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 719
-  _time: 2025-05-30 07:00:21.907637087 Z
+- _id: 739
+  _time: 2025-05-30 08:01:11.413929298 Z
   _version: 0.10.2/0.45.0/
   latest: 50287146136
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 720
-  _time: 2025-05-30 07:00:23.893327951 Z
+- _id: 740
+  _time: 2025-05-30 08:01:12.354781105 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
