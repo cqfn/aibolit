@@ -22,11 +22,13 @@ def _setter_nodes(ast: AST) -> Iterator[ASTNode]:
             for child in node.children:
                 if child.node_type == ASTNodeType.STATEMENT_EXPRESSION:
                     expression = child.expression
-                    if (
-                        expression.node_type == ASTNodeType.ASSIGNMENT and
-                        expression.value.member == parameter_name
-                    ):
-                        yield node
+                    if expression.node_type == ASTNodeType.ASSIGNMENT:
+                        value = expression.value
+                        if (
+                            value.node_type == ASTNodeType.MEMBER_REFERENCE and
+                            value.member == parameter_name
+                        ):
+                            yield node
 
 
 def _methods_with_parameters(ast: AST) -> Iterator[tuple[ASTNode, list[str]]]:
