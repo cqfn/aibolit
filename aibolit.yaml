@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 3
   deleted: 8
   error:
-  - 'Many (226) issues are missing in cqfn/aibolit (between 485 and 786): 490, 491,
+  - 'Many (225) issues are missing in cqfn/aibolit (between 485 and 786): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 2.856947983
+  seconds: 14.707618517
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-30 02:27:36.707804292 Z
+  when: 2025-05-30 03:37:46.974953172 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -4417,32 +4417,168 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-29 10:29:30.000000000 Z
+  when: &58 2025-05-29 10:29:30.000000000 Z
   where: github
   who: 526301
-- _id: 615
-  _time: 2025-05-30 03:36:58.590459943 Z
-  _version: 0.10.2/0.45.0/
-  latest: 0
+- _id: 622
+  _job: 22683
+  _time: 2025-05-30 03:37:33.269795305 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#773 with 5 HoC created by @ivanovmg was merged
+    by @yegor256 after 34m45s of being in review and 1 comments.
+  hoc: 5
+  is_human: 1
+  issue: 773
+  merger: 526301
   repository: 237167507
-  what: labels-were-scanned
+  review_comments: 0
+  seconds: 2086
+  what: code-was-contributed
+  when: *58
   where: github
-- _id: 616
-  _time: 2025-05-30 03:37:06.448883136 Z
-  _version: 0.10.2/0.45.0/
-  latest: 743
+  who: 41443370
+- _id:
+  - 625
+  - 623
+  _job: 22683
+  _time:
+  - 2025-05-30 03:37:46.009318647 Z
+  - 2025-05-30 03:37:33.816816442 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#771,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/771/#issuecomment-2921138367
+  is_human: 1
+  issue: 771
+  receipt: 0
   repository: 237167507
-  what: types-were-scanned
+  what: code-contribution-was-rewarded
+  when: 2025-05-30 03:37:33.820537494 Z
   where: github
-- _id: 620
-  _time: 2025-05-30 03:37:13.327727948 Z
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#771
+- _id:
+  - 626
+  - 624
+  _job: 22683
+  _time:
+  - 2025-05-30 03:37:46.011997326 Z
+  - 2025-05-30 03:37:37.736603382 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#770,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/770/#issuecomment-2921138401
+  is_human: 1
+  issue: 770
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-05-30 03:37:37.740050961 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#770
+- _id: 627
+  _time: 2025-05-30 04:12:52.613806461 Z
   _version: 0.10.2/0.45.0/
-  latest: 50280921439
+  details: The issue cqfn/aibolit#772 has been closed by @yegor256.
+  event_id: 50281266655
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 772
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-05-29 11:33:04.000000000 Z
+  where: github
+  who: 526301
+- _id: 628
+  _time: 2025-05-30 04:12:52.745078408 Z
+  _version: 0.10.2/0.45.0/
+  branch: '772'
+  comments: 1
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 0
+  comments_resolved: 0
+  comments_to_code: 0
+  details: The pull request cqfn/aibolit#774 has been closed by @yegor256, with 15
+    HoC and 1 comments.
+  event_id: 50281266310
+  event_type: PullRequestEvent
+  failed_builds: 0
+  hoc: 15
+  is_human: 1
+  issue: 774
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 16
+  what: pull-was-merged
+  when: 2025-05-29 11:33:03.000000000 Z
+  where: github
+  who: 526301
+- _id: 629
+  _time: 2025-05-30 04:13:05.973969284 Z
+  _version: 0.10.2/0.45.0/
+  branch: '757'
+  details: The pull request cqfn/aibolit#775 has been opened by @ivanovmg.
+  event_id: 50281078215
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 775
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 11:27:49.000000000 Z
+  where: github
+  who: 41443370
+- _id: 643
+  _time: 2025-05-30 04:13:55.836294667 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#785.
+  is_human: 1
+  issue: 785
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-30 03:45:07.000000000 Z
+  where: github
+  who: 526301
+- _id: 644
+  _time: 2025-05-30 04:13:56.112421315 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#786.
+  is_human: 1
+  issue: 786
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-30 03:45:56.000000000 Z
+  where: github
+  who: 526301
+- _id: 647
+  _time: 2025-05-30 04:13:58.651246086 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50281723591
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 621
-  _time: 2025-05-30 03:37:14.219158485 Z
+- _id: 648
+  _time: 2025-05-30 04:14:01.148932754 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 649
+  _time: 2025-05-30 04:14:07.451783775 Z
+  _version: 0.10.2/0.45.0/
+  latest: 743
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 650
+  _time: 2025-05-30 04:14:08.653465709 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
