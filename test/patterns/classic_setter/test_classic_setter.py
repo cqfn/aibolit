@@ -76,14 +76,7 @@ def test_update_attribute_in_method_starting_with_set_is_not_a_setter() -> None:
     assert _offending_lines(content) == []
 
 
-@pytest.mark.xfail(reason='Incomplete implementation')
 def test_setka_is_not_a_setter_even_though_starts_with_set() -> None:
-    # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
-    #  When the method starts with `set`, followed by a non-capital letter,
-    #  without even assigning a value to the attribute,
-    #  is not a setter.
-    #  Once the implementation is updated,
-    #  remove `xfail` mark above this test definition.
     content = dedent(
         """\
         class FakeSetterClass {
