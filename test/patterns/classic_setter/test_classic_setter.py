@@ -76,6 +76,37 @@ def test_update_attribute_in_method_starting_with_set_is_not_a_setter() -> None:
     assert _offending_lines(content) == []
 
 
+def test_update_flag_with_boolean_value_is_not_a_setter() -> None:
+    content = dedent(
+        """\
+        class FakeSetterClass {
+            private bool isFree;
+            public void setMeFree() {
+                isFree = true;
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == []
+
+
+def test_fake_setter_when_defined_inplace() -> None:
+    content = dedent(
+        """\
+        class ProgramUserDataDB extends DomainObjectAdapterDB implements ProgramUserData {
+            private final ChangeManager changeMgr = new ChangeManagerAdapter() {
+                @Override
+                public void setPropertyChanged(String propertyName, Address codeUnitAddr) {
+                    changed = true;
+                    program.userDataChanged(propertyName, codeUnitAddr);
+                }
+            };
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == []
+
+
 def test_setka_is_not_a_setter_even_though_starts_with_set() -> None:
     content = dedent(
         """\
