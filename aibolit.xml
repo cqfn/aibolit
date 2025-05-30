@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="102121">
+<fb version="0.10.2" size="104343">
   <f>
     <added t="I">8</added>
     <cycles t="I">3</cycles>
     <deleted t="I">8</deleted>
     <error>
-      <v t="S">Many (225) issues are missing in cqfn/aibolit (between 485 and 786): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
+      <v t="S">Many (224) issues are missing in cqfn/aibolit (between 485 and 786): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
+      <v t="S">undefined method 'who' for module Fbe</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">14.707618517</seconds>
+    <seconds t="F">10.234869901</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-05-30T03:37:46Z</when>
+    <when t="T">2025-05-30T04:14:33Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -5072,17 +5073,122 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">647</_id>
-    <_time t="T">2025-05-30T04:13:58Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50281723591</latest>
+    <_id t="I">652</_id>
+    <_job t="I">22688</_job>
+    <_time t="T">2025-05-30T04:14:29Z</_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <comments t="I">1</comments>
+    <details t="S">The pull request cqfn/aibolit#774 with 15 HoC created by @ivanovmg was merged by @yegor256 after 46m51s of being in review and 1 comments.</details>
+    <hoc t="I">15</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">774</issue>
+    <merger t="I">526301</merger>
     <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">2812</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-29T11:33:03Z</when>
     <where t="S">github</where>
+    <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">648</_id>
-    <_time t="T">2025-05-30T04:14:01Z</_time>
+    <_id t="I">653</_id>
+    <_job t="I">22688</_job>
+    <_time t="T">2025-05-30T04:14:30Z</_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#785 reported by @ivanovmg; this means that a bug was accepted as valid, by the project team.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">785</issue>
+    <reporter t="I">41443370</reporter>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-was-accepted</what>
+    <when t="T">2025-05-30T03:45:07Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">654</_id>
+    <_job t="I">22688</_job>
+    <_time t="T">2025-05-30T04:14:30Z</_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#786 reported by @ivanovmg; this means that a bug was accepted as valid, by the project team.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">786</issue>
+    <reporter t="I">41443370</reporter>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-was-accepted</what>
+    <when t="T">2025-05-30T03:45:56Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id>
+      <v t="I">655</v>
+      <v t="I">651</v>
+    </_id>
+    <_job t="I">22688</_job>
+    <_time>
+      <v t="T">2025-05-30T04:14:32Z</v>
+      <v t="T">2025-05-30T04:14:24Z</v>
+    </_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <award t="I">4</award>
+    <details t="S">It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#773, the reward amount is 4.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/773/#issuecomment-2921178397</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">773</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">code-contribution-was-rewarded</what>
+    <when t="T">2025-05-30T04:14:24Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Contributed code in cqfn/aibolit#773</why>
+  </f>
+  <f>
+    <_id t="I">656</_id>
+    <_time t="T">2025-05-30T04:59:39Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <details t="S">The issue cqfn/aibolit#757 has been closed by @yegor256.</details>
+    <event_id t="I">50282019340</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">757</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-05-29T11:54:32Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">657</_id>
+    <_time t="T">2025-05-30T04:59:40Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">757</branch>
+    <comments t="I">0</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">0</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#775 has been closed by @yegor256, with 3 HoC and 0 comments.</details>
+    <event_id t="I">50282018932</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">3</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">775</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-05-29T11:54:31Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">666</_id>
+    <_time t="T">2025-05-30T05:00:22Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -5090,8 +5196,8 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">649</_id>
-    <_time t="T">2025-05-30T04:14:07Z</_time>
+    <_id t="I">670</_id>
+    <_time t="T">2025-05-30T05:00:31Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">743</latest>
     <repository t="I">237167507</repository>
@@ -5099,8 +5205,17 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">650</_id>
-    <_time t="T">2025-05-30T04:14:08Z</_time>
+    <_id t="I">672</_id>
+    <_time t="T">2025-05-30T05:00:34Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50283149248</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">673</_id>
+    <_time t="T">2025-05-30T05:00:35Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
