@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 3
   deleted: 8
   error:
   - 'Many (224) issues are missing in cqfn/aibolit (between 485 and 786): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 16.069479501
+  seconds: 12.747269221
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-30 05:01:08.874872114 Z
+  when: 2025-05-30 06:01:13.688267623 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -4325,13 +4325,6 @@
   when: 2025-05-30 01:56:50.000000000 Z
   where: github
   who: 41443370
-- _id: 591
-  _time: 2025-05-30 02:26:49.635540082 Z
-  _version: 0.10.2/0.45.0/
-  latest: 731
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
 - _id: 603
   _job: 22675
   _time: 2025-05-30 02:27:35.232949045 Z
@@ -4679,111 +4672,197 @@
   when: *62
   where: github
   who: 41443370
-- _id: 675
-  _job: 22695
-  _time: 2025-05-30 05:00:54.578466851 Z
+- _id:
+  - 694
+  - 675
+  _job:
+  - 22702
+  - 22695
+  _time:
+  - 2025-05-30 06:01:10.197953791 Z
+  - 2025-05-30 05:00:54.578466851 Z
   _version: 0.10.2/0.45.0/0.9.0
   award: 4
   details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#774,
     the reward amount is 4.
-  greeting: "Great work on your contribution! \U0001F31F You've earned +4 points:
-    +16 base, -16 for missed code review, -8 for low hits-of-code (15), +12 bonus.
-    Your dedication is appreciated! [Keep](https://www.yegor256.com/2018/03/06/speed-vs-quality.html)
-    the momentum going. Your current balance stands at [+56](https://cqfn.github.io/aibolit/aibolit-vitals.html).
-    Looking forward to your next submission!\n\n<!-- Thanks for the contribution!
-    You've earned +4 points for this: +16 as a basis; -16 for the lack of code review;
-    -8 for too few (15) hits-of-code; +12 to give you at least something. Please,
-    [keep](https://www.yegor256.com/2018/03/06/speed-vs-quality.html) them coming.
-    Your running balance is [+56](https://cqfn.github.io/aibolit/aibolit-vitals.html).
-    \ -->"
+  href: https://github.com/cqfn/aibolit/issues/774/#issuecomment-2921317151
   is_human: 1
   issue: 774
+  receipt: 0
   repository: 237167507
   what: code-contribution-was-rewarded
   when: 2025-05-30 05:00:54.581564793 Z
   where: github
   who: 41443370
   why: Contributed code in cqfn/aibolit#774
-- _id: 676
-  _job: 22695
-  _time: 2025-05-30 05:00:58.017330400 Z
+- _id:
+  - 695
+  - 676
+  _job:
+  - 22702
+  - 22695
+  _time:
+  - 2025-05-30 06:01:10.200924376 Z
+  - 2025-05-30 05:00:58.017330400 Z
   _version: 0.10.2/0.45.0/0.9.0
   award: 12
   details: It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#785,
     the reward amount is 12.
-  greeting: "Great job reporting that new bug! \U0001F41B As per our policy, you've
-    earned **12** points for your keen eye. Your contribution is crucial in enhancing
-    our project's quality. Keep an eye out for anything that [doesn't look](https://www.yegor256.com/2018/02/06/where-to-find-more-bugs.html)
-    quite right in the repository and [don't hesitate](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html)
-    to [report](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html)
-    it. Remember, each accepted bug report earns you points! Your current balance
-    stands at [+60](https://cqfn.github.io/aibolit/aibolit-vitals.html). Keep up the
-    excellent work!\n\n<!-- Thanks for reporting a new bug! You've earned +12 points.
-    By reporting bugs, you help our project improve its quality. If you find anything
-    else in the repository that [doesn't look](https://www.yegor256.com/2018/02/06/where-to-find-more-bugs.html)
-    as good as you might expect, [do not hesitate](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html)
-    to [report](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html)
-    it. Your running balance is [+60](https://cqfn.github.io/aibolit/aibolit-vitals.html).
-    \ -->"
+  href: https://github.com/cqfn/aibolit/issues/785/#issuecomment-2921317178
   is_human: 1
   issue: 785
+  receipt: 0
   repository: 237167507
   what: bug-report-was-rewarded
   when: 2025-05-30 05:00:58.018692520 Z
   where: github
   who: 41443370
   why: Reported bug in cqfn/aibolit#785
-- _id: 677
-  _job: 22695
-  _time: 2025-05-30 05:01:02.300462913 Z
+- _id:
+  - 696
+  - 677
+  _job:
+  - 22702
+  - 22695
+  _time:
+  - 2025-05-30 06:01:10.204104216 Z
+  - 2025-05-30 05:01:02.300462913 Z
   _version: 0.10.2/0.45.0/0.9.0
   award: 12
   details: It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#786,
     the reward amount is 12.
-  greeting: "\U0001F389 Awesome bug report! You've earned +12 points, boosting your
-    balance to [+60](https://cqfn.github.io/aibolit/aibolit-vitals.html). Your keen
-    eye helps elevate our project's quality. Keep spotting things that [don't look
-    quite right](https://www.yegor256.com/2018/02/06/where-to-find-more-bugs.html)
-    and [report them](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html)
-    without hesitation. Remember, [bugs are welcome](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html)
-    - they're opportunities for improvement!\n\n<!-- Thanks for reporting a new bug!
-    You've earned +12 points. By reporting bugs, you help our project improve its
-    quality. If you find anything else in the repository that [doesn't look](https://www.yegor256.com/2018/02/06/where-to-find-more-bugs.html)
-    as good as you might expect, [do not hesitate](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html)
-    to [report](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html)
-    it. Your running balance is [+60](https://cqfn.github.io/aibolit/aibolit-vitals.html).
-    \ -->"
+  href: https://github.com/cqfn/aibolit/issues/786/#issuecomment-2921317213
   is_human: 1
   issue: 786
+  receipt: 0
   repository: 237167507
   what: bug-report-was-rewarded
   when: 2025-05-30 05:01:02.302153464 Z
   where: github
   who: 41443370
   why: Reported bug in cqfn/aibolit#786
-- _id: 688
-  _time: 2025-05-30 06:00:36.005834229 Z
+- _id:
+  - 697
+  - 693
+  _job: 22702
+  _time:
+  - 2025-05-30 06:01:12.627541067 Z
+  - 2025-05-30 06:01:05.972683030 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#775,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/775/#issuecomment-2921317385
+  is_human: 1
+  issue: 775
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-05-30 06:01:05.976867728 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#775
+- _id: 700
+  _time: 2025-05-30 06:59:45.493635644 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#779.
+  is_human: 1
+  issue: 779
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-30 06:29:59.000000000 Z
+  where: github
+  who: 526301
+- _id: 701
+  _time: 2025-05-30 06:59:45.745087588 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#780.
+  is_human: 1
+  issue: 780
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-30 06:30:00.000000000 Z
+  where: github
+  who: 526301
+- _id: 702
+  _time: 2025-05-30 06:59:46.022035279 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#781.
+  is_human: 1
+  issue: 781
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-30 06:30:00.000000000 Z
+  where: github
+  who: 526301
+- _id: 703
+  _time: 2025-05-30 06:59:46.340668983 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#782.
+  is_human: 1
+  issue: 782
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-30 06:30:01.000000000 Z
+  where: github
+  who: 526301
+- _id: 704
+  _time: 2025-05-30 06:59:46.607015980 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#783.
+  is_human: 1
+  issue: 783
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-30 06:30:01.000000000 Z
+  where: github
+  who: 526301
+- _id: 706
+  _time: 2025-05-30 06:59:47.857380829 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#788 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 788
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-30 06:11:03.000000000 Z
+  where: github
+  who: 41443370
+- _id: 708
+  _time: 2025-05-30 06:59:48.214909559 Z
+  _version: 0.10.2/0.45.0/
+  latest: 733
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 716
+  _time: 2025-05-30 07:00:12.115156586 Z
   _version: 0.10.2/0.45.0/
   latest: 776
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 689
-  _time: 2025-05-30 06:00:43.639884595 Z
+- _id: 717
+  _time: 2025-05-30 07:00:19.650406295 Z
   _version: 0.10.2/0.45.0/
   latest: 743
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 691
-  _time: 2025-05-30 06:00:46.290530675 Z
+- _id: 719
+  _time: 2025-05-30 07:00:21.907637087 Z
   _version: 0.10.2/0.45.0/
-  latest: 50283841037
+  latest: 50287146136
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 692
-  _time: 2025-05-30 06:00:46.978548199 Z
+- _id: 720
+  _time: 2025-05-30 07:00:23.893327951 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
