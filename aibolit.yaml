@@ -7,10 +7,10 @@
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.265308406
+  seconds: 3.380716673
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-30 10:01:03.635844798 Z
+  when: 2025-05-30 11:01:50.464503338 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -4925,29 +4925,43 @@
   total_stars: 62
   what: dimensions-of-terrain
   when: 2025-05-30 08:00:21.273956796 Z
-- _id: 783
-  _time: 2025-05-30 11:01:15.132192392 Z
+- _id: 787
+  _time: 2025-05-30 11:59:39.358642472 Z
   _version: 0.10.2/0.45.0/
-  latest: 50292316760
+  branch: '777'
+  details: The pull request cqfn/aibolit#778 has been opened by @ivanovmg.
+  event_id: 50294253093
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 778
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 16:51:53.000000000 Z
+  where: github
+  who: 41443370
+- _id: 798
+  _time: 2025-05-30 12:00:05.346561982 Z
+  _version: 0.10.2/0.45.0/
+  latest: 743
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 800
+  _time: 2025-05-30 12:00:09.040191286 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50294604142
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 784
-  _time: 2025-05-30 11:01:22.661628357 Z
+- _id: 801
+  _time: 2025-05-30 12:00:16.366712785 Z
   _version: 0.10.2/0.45.0/
   latest: 743
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 785
-  _time: 2025-05-30 11:01:31.152222263 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 786
-  _time: 2025-05-30 11:01:31.932783585 Z
+- _id: 802
+  _time: 2025-05-30 12:00:17.057806870 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
