@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 3
   deleted: 8
   error:
   - 'Many (229) issues are missing in cqfn/aibolit (between 485 and 785): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 2.51957872
+  seconds: 26.122351883
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-29 22:02:09.297040746 Z
+  when: 2025-05-29 23:01:10.476014720 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -4119,29 +4119,113 @@
   when: *55
   where: github
   who: 41443370
-- _id: 554
-  _time: 2025-05-29 23:00:22.323927673 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50271460204
+- _id:
+  - 562
+  - 558
+  _job: 22665
+  _time:
+  - 2025-05-29 23:01:08.408057546 Z
+  - 2025-05-29 23:00:45.713702012 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#766,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/766/#issuecomment-2920769622
+  is_human: 1
+  issue: 766
+  receipt: 0
   repository: 237167507
-  what: events-were-scanned
+  what: code-contribution-was-rewarded
+  when: 2025-05-29 23:00:45.729701870 Z
   where: github
-- _id: 555
-  _time: 2025-05-29 23:00:29.209279187 Z
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#766
+- _id:
+  - 563
+  - 559
+  _job: 22665
+  _time:
+  - 2025-05-29 23:01:08.410911296 Z
+  - 2025-05-29 23:00:50.514702799 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#767,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/767/#issuecomment-2920769644
+  is_human: 1
+  issue: 767
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-05-29 23:00:50.521171800 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#767
+- _id:
+  - 564
+  - 560
+  _job: 22665
+  _time:
+  - 2025-05-29 23:01:08.421934258 Z
+  - 2025-05-29 23:00:55.564845264 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#769,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/769/#issuecomment-2920769666
+  is_human: 1
+  issue: 769
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-05-29 23:00:55.568315345 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#769
+- _id:
+  - 565
+  - 561
+  _job: 22665
+  _time:
+  - 2025-05-29 23:01:08.424920232 Z
+  - 2025-05-29 23:00:58.657722476 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#768,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/768/#issuecomment-2920769683
+  is_human: 1
+  issue: 768
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-05-29 23:00:58.661010630 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#768
+- _id: 575
+  _time: 2025-05-30 00:00:23.933975484 Z
   _version: 0.10.2/0.45.0/
   latest: 776
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 556
-  _time: 2025-05-29 23:00:30.362549285 Z
+- _id: 576
+  _time: 2025-05-30 00:00:26.883574361 Z
   _version: 0.10.2/0.45.0/
-  latest: 776
+  latest: 0
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 557
-  _time: 2025-05-29 23:00:31.057055410 Z
+- _id: 578
+  _time: 2025-05-30 00:00:30.850749191 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50273607099
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 579
+  _time: 2025-05-30 00:00:33.207519220 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
