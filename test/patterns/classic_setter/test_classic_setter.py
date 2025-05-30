@@ -10,13 +10,7 @@ from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast_from_string
 
 
-@pytest.mark.xfail(reason='Wrong implementation')
 def test_setSomething_is_not_a_setter_unless_sets_value_to_attribute() -> None:
-    # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
-    #  When the method starts with `set`,
-    #  but does not assign to the attribute is not a setter.
-    #  Once the implementation is updated,
-    #  remove `xfail` mark above this test definition.
     content = dedent(
         """\
         class FakeSetterClass {
@@ -68,14 +62,7 @@ def test_settings_is_not_a_setter_as_it_calls_method() -> None:
     assert _offending_lines(content) == []
 
 
-@pytest.mark.xfail(reason='Incomplete implementation')
 def test_update_attribute_in_method_starting_with_set_is_not_a_setter() -> None:
-    # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
-    #  When the method starts with `set`, changes the value of the attribute,
-    #  but does not assign the input parameter to the attribute,
-    #  is not a setter.
-    #  Once the implementation is updated,
-    #  remove `xfail` mark above this test definition.
     content = dedent(
         """\
         class FakeSetterClass {
@@ -89,14 +76,38 @@ def test_update_attribute_in_method_starting_with_set_is_not_a_setter() -> None:
     assert _offending_lines(content) == []
 
 
-@pytest.mark.xfail(reason='Incomplete implementation')
+def test_update_flag_with_boolean_value_is_not_a_setter() -> None:
+    content = dedent(
+        """\
+        class FakeSetterClass {
+            private bool isFree;
+            public void setMeFree() {
+                isFree = true;
+            }
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == []
+
+
+def test_fake_setter_when_defined_inplace() -> None:
+    content = dedent(
+        """\
+        class ProgramUserDataDB extends DomainObjectAdapterDB implements ProgramUserData {
+            private final ChangeManager changeMgr = new ChangeManagerAdapter() {
+                @Override
+                public void setPropertyChanged(String propertyName, Address codeUnitAddr) {
+                    changed = true;
+                    program.userDataChanged(propertyName, codeUnitAddr);
+                }
+            };
+        }
+        """
+    ).strip()
+    assert _offending_lines(content) == []
+
+
 def test_setka_is_not_a_setter_even_though_starts_with_set() -> None:
-    # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
-    #  When the method starts with `set`, followed by a non-capital letter,
-    #  without even assigning a value to the attribute,
-    #  is not a setter.
-    #  Once the implementation is updated,
-    #  remove `xfail` mark above this test definition.
     content = dedent(
         """\
         class FakeSetterClass {
