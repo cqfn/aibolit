@@ -15,10 +15,6 @@ import java.util.concurrent.ConcurrentMap;
  * {@link Metrics} implementation storing data in memory.
  *
  * @since 0.9
- * @todo #231:30min Support gauges in InMemoryMetrics.
- *  `InMemoryMetrics.gauge()` method implementation should get or create an `InMemoryGauge` by name
- *  and store it. `InMemoryMetrics.gauges()` method should be added
- *  to create snapshot of existing gauges. Implementations are expected to be similar to counters.
  */
 public final class InMemoryMetrics implements Metrics {
 
