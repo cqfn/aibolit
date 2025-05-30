@@ -10,7 +10,7 @@ from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 
 
-class SetterTestCase(TestCase):
+class ClassicGetterTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
     def test_no_getters(self):
