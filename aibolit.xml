@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="104343">
+<fb version="0.10.2" size="108800">
   <f>
     <added t="I">8</added>
-    <cycles t="I">3</cycles>
+    <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <error>
       <v t="S">Many (224) issues are missing in cqfn/aibolit (between 485 and 786): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
-      <v t="S">undefined method 'who' for module Fbe</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">10.234869901</seconds>
+    <seconds t="F">16.069479501</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-05-30T04:14:33Z</when>
+    <when t="T">2025-05-30T05:01:08Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -5187,35 +5186,111 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">666</_id>
-    <_time t="T">2025-05-30T05:00:22Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
+    <_id t="I">674</_id>
+    <_job t="I">22695</_job>
+    <_time t="T">2025-05-30T05:00:54Z</_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <comments t="I">0</comments>
+    <details t="S">The pull request cqfn/aibolit#775 with 3 HoC created by @ivanovmg was merged by @yegor256 after 26m41s of being in review and 0 comments.</details>
+    <hoc t="I">3</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">775</issue>
+    <merger t="I">526301</merger>
     <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">1602</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-29T11:54:31Z</when>
     <where t="S">github</where>
+    <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">670</_id>
-    <_time t="T">2025-05-30T05:00:31Z</_time>
+    <_id t="I">675</_id>
+    <_job t="I">22695</_job>
+    <_time t="T">2025-05-30T05:00:54Z</_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <award t="I">4</award>
+    <details t="S">It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#774, the reward amount is 4.</details>
+    <greeting t="S">Great work on your contribution! 🌟 You've earned +4 points: +16 base, -16 for missed code review, -8 for low hits-of-code (15), +12 bonus. Your dedication is appreciated! [Keep](https://www.yegor256.com/2018/03/06/speed-vs-quality.html) the momentum going. Your current balance stands at [+56](https://cqfn.github.io/aibolit/aibolit-vitals.html). Looking forward to your next submission!
+
+&lt;!-- Thanks for the contribution! You've earned +4 points for this: +16 as a basis; -16 for the lack of code review; -8 for too few (15) hits-of-code; +12 to give you at least something. Please, [keep](https://www.yegor256.com/2018/03/06/speed-vs-quality.html) them coming. Your running balance is [+56](https://cqfn.github.io/aibolit/aibolit-vitals.html).  --&gt;</greeting>
+    <is_human t="I">1</is_human>
+    <issue t="I">774</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">code-contribution-was-rewarded</what>
+    <when t="T">2025-05-30T05:00:54Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Contributed code in cqfn/aibolit#774</why>
+  </f>
+  <f>
+    <_id t="I">676</_id>
+    <_job t="I">22695</_job>
+    <_time t="T">2025-05-30T05:00:58Z</_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <award t="I">12</award>
+    <details t="S">It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#785, the reward amount is 12.</details>
+    <greeting t="S">Great job reporting that new bug! 🐛 As per our policy, you've earned **12** points for your keen eye. Your contribution is crucial in enhancing our project's quality. Keep an eye out for anything that [doesn't look](https://www.yegor256.com/2018/02/06/where-to-find-more-bugs.html) quite right in the repository and [don't hesitate](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html) to [report](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html) it. Remember, each accepted bug report earns you points! Your current balance stands at [+60](https://cqfn.github.io/aibolit/aibolit-vitals.html). Keep up the excellent work!
+
+&lt;!-- Thanks for reporting a new bug! You've earned +12 points. By reporting bugs, you help our project improve its quality. If you find anything else in the repository that [doesn't look](https://www.yegor256.com/2018/02/06/where-to-find-more-bugs.html) as good as you might expect, [do not hesitate](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html) to [report](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html) it. Your running balance is [+60](https://cqfn.github.io/aibolit/aibolit-vitals.html).  --&gt;</greeting>
+    <is_human t="I">1</is_human>
+    <issue t="I">785</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-report-was-rewarded</what>
+    <when t="T">2025-05-30T05:00:58Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Reported bug in cqfn/aibolit#785</why>
+  </f>
+  <f>
+    <_id t="I">677</_id>
+    <_job t="I">22695</_job>
+    <_time t="T">2025-05-30T05:01:02Z</_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <award t="I">12</award>
+    <details t="S">It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#786, the reward amount is 12.</details>
+    <greeting t="S">🎉 Awesome bug report! You've earned +12 points, boosting your balance to [+60](https://cqfn.github.io/aibolit/aibolit-vitals.html). Your keen eye helps elevate our project's quality. Keep spotting things that [don't look quite right](https://www.yegor256.com/2018/02/06/where-to-find-more-bugs.html) and [report them](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html) without hesitation. Remember, [bugs are welcome](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html) - they're opportunities for improvement!
+
+&lt;!-- Thanks for reporting a new bug! You've earned +12 points. By reporting bugs, you help our project improve its quality. If you find anything else in the repository that [doesn't look](https://www.yegor256.com/2018/02/06/where-to-find-more-bugs.html) as good as you might expect, [do not hesitate](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html) to [report](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html) it. Your running balance is [+60](https://cqfn.github.io/aibolit/aibolit-vitals.html).  --&gt;</greeting>
+    <is_human t="I">1</is_human>
+    <issue t="I">786</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-report-was-rewarded</what>
+    <when t="T">2025-05-30T05:01:02Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Reported bug in cqfn/aibolit#786</why>
+  </f>
+  <f>
+    <_id t="I">688</_id>
+    <_time t="T">2025-05-30T06:00:36Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">743</latest>
+    <latest t="I">776</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">672</_id>
-    <_time t="T">2025-05-30T05:00:34Z</_time>
+    <_id t="I">689</_id>
+    <_time t="T">2025-05-30T06:00:43Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50283149248</latest>
+    <latest t="I">743</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">691</_id>
+    <_time t="T">2025-05-30T06:00:46Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50283841037</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">673</_id>
-    <_time t="T">2025-05-30T05:00:35Z</_time>
+    <_id t="I">692</_id>
+    <_time t="T">2025-05-30T06:00:46Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
