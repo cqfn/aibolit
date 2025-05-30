@@ -3,14 +3,14 @@
   cycles: 2
   deleted: 8
   error:
-  - 'Many (224) issues are missing in cqfn/aibolit (between 485 and 788): 490, 491,
+  - 'Many (223) issues are missing in cqfn/aibolit (between 485 and 788): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 2.963228447
+  seconds: 3.075512324
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-30 12:00:35.313675504 Z
+  when: 2025-05-30 13:23:12.289840059 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5006,32 +5006,50 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-29 17:23:31.000000000 Z
+  when: &68 2025-05-29 17:23:31.000000000 Z
   where: github
   who: 526301
-- _id: 808
-  _time: 2025-05-30 13:22:37.444601875 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
+- _id: 819
+  _job: 22776
+  _time: 2025-05-30 13:23:10.226582711 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 2
+  details: The pull request cqfn/aibolit#778 with 8392 HoC created by @ivanovmg was
+    merged by @yegor256 after 31m37s of being in review and 2 comments.
+  hoc: 8392
+  is_human: 1
+  issue: 778
+  merger: 526301
   repository: 237167507
-  what: labels-were-scanned
+  review_comments: 0
+  seconds: 1898
+  what: code-was-contributed
+  when: *68
   where: github
-- _id: 809
-  _time: 2025-05-30 13:22:37.965162717 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 817
-  _time: 2025-05-30 13:22:50.713286997 Z
+  who: 41443370
+- _id: 835
+  _time: 2025-05-30 14:00:37.938267462 Z
   _version: 0.10.2/0.45.0/
   latest: 50297222613
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 818
-  _time: 2025-05-30 13:22:51.750379541 Z
+- _id: 836
+  _time: 2025-05-30 14:00:45.287672324 Z
+  _version: 0.10.2/0.45.0/
+  latest: 743
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 837
+  _time: 2025-05-30 14:00:49.147485252 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 838
+  _time: 2025-05-30 14:00:49.885157067 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
