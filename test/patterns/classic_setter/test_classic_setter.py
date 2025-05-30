@@ -62,14 +62,7 @@ def test_settings_is_not_a_setter_as_it_calls_method() -> None:
     assert _offending_lines(content) == []
 
 
-@pytest.mark.xfail(reason='Incomplete implementation')
 def test_update_attribute_in_method_starting_with_set_is_not_a_setter() -> None:
-    # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
-    #  When the method starts with `set`, changes the value of the attribute,
-    #  but does not assign the input parameter to the attribute,
-    #  is not a setter.
-    #  Once the implementation is updated,
-    #  remove `xfail` mark above this test definition.
     content = dedent(
         """\
         class FakeSetterClass {
