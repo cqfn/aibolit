@@ -10,13 +10,7 @@ from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast_from_string
 
 
-@pytest.mark.xfail(reason='Wrong implementation')
 def test_setSomething_is_not_a_setter_unless_sets_value_to_attribute() -> None:
-    # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
-    #  When the method starts with `set`,
-    #  but does not assign to the attribute is not a setter.
-    #  Once the implementation is updated,
-    #  remove `xfail` mark above this test definition.
     content = dedent(
         """\
         class FakeSetterClass {
