@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 3
   deleted: 8
   error:
   - 'Many (223) issues are missing in cqfn/aibolit (between 485 and 788): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.075512324
+  seconds: 12.284694152
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-30 13:23:12.289840059 Z
+  when: 2025-05-30 14:01:21.510497298 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5027,29 +5027,48 @@
   when: *68
   where: github
   who: 41443370
-- _id: 835
-  _time: 2025-05-30 14:00:37.938267462 Z
+- _id: 839
+  _job: 22782
+  _time:
+  - 2025-05-30 14:01:20.329761460 Z
+  - 2025-05-30 14:01:10.838308353 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#778,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/778/#issuecomment-2922482783
+  is_human: 1
+  issue: 778
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-05-30 14:01:10.842594519 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#778
+- _id: 853
+  _time: 2025-05-30 15:00:20.480352344 Z
   _version: 0.10.2/0.45.0/
-  latest: 50297222613
+  latest: 50298934408
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 836
-  _time: 2025-05-30 14:00:45.287672324 Z
+- _id: 854
+  _time: 2025-05-30 15:00:29.530699216 Z
+  _version: 0.10.2/0.45.0/
+  latest: 743
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 855
+  _time: 2025-05-30 15:00:30.040341856 Z
   _version: 0.10.2/0.45.0/
   latest: 743
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 837
-  _time: 2025-05-30 14:00:49.147485252 Z
-  _version: 0.10.2/0.45.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 838
-  _time: 2025-05-30 14:00:49.885157067 Z
+- _id: 856
+  _time: 2025-05-30 15:00:30.880361134 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
