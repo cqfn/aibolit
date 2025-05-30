@@ -14,6 +14,16 @@ class ClassicSetter:
         lines: List[int] = []
         for node in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             method_name = node.name
+            if not node.parameters:
+                continue
+
+            parameter_name = node.parameters[0].name
             if node.return_type is None and method_name.startswith('set'):
+                for child in node.children:
+                    if child.node_type == ASTNodeType.STATEMENT_EXPRESSION:
+                        expression = child.expression
+                        if expression.node_type == ASTNodeType.ASSIGNMENT and expression.value.member == parameter_name:
+                            lines.append(node.line)
+
                 lines.append(node.line)
-        return sorted(lines)
+        return sorted(set(lines))
