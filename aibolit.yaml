@@ -3,14 +3,14 @@
   cycles: 2
   deleted: 8
   error:
-  - 'Many (229) issues are missing in cqfn/aibolit (between 485 and 785): 490, 491,
+  - 'Many (226) issues are missing in cqfn/aibolit (between 485 and 786): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 2.48157427
+  seconds: 2.856947983
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-30 00:00:49.345771187 Z
+  when: 2025-05-30 02:27:36.707804292 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -4231,7 +4231,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-29 09:54:48.000000000 Z
+  when: &56 2025-05-29 09:54:48.000000000 Z
   where: github
   who: 526301
 - _id: 582
@@ -4297,7 +4297,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-29 09:26:55.000000000 Z
+  when: &57 2025-05-29 09:26:55.000000000 Z
   where: github
   who: 526301
 - _id: 586
@@ -4318,6 +4318,7 @@
   _time: 2025-05-30 02:26:49.249161694 Z
   _version: 0.10.2/0.45.0/
   details: The issue cqfn/aibolit#786 has been opened by @ivanovmg.
+  is_human: 1
   issue: 786
   repository: 237167507
   what: issue-was-opened
@@ -4331,29 +4332,117 @@
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 598
-  _time: 2025-05-30 02:27:06.194216484 Z
+- _id: 603
+  _job: 22675
+  _time: 2025-05-30 02:27:35.232949045 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#771 with 4 HoC created by @ivanovmg was merged
+    by @yegor256 after 22m29s of being in review and 1 comments.
+  hoc: 4
+  is_human: 1
+  issue: 771
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 1350
+  what: code-was-contributed
+  when: *56
+  where: github
+  who: 41443370
+- _id: 604
+  _job: 22675
+  _time: 2025-05-30 02:27:35.335504360 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#770 with 49 HoC created by @ivanovmg was
+    merged by @yegor256 after 11m32s of being in review and 1 comments.
+  hoc: 49
+  is_human: 1
+  issue: 770
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 693
+  what: code-was-contributed
+  when: *57
+  where: github
+  who: 41443370
+- _id: 605
+  _time: 2025-05-30 03:36:19.483463448 Z
   _version: 0.10.2/0.45.0/
-  latest: 743
+  branch: '772'
+  details: The pull request cqfn/aibolit#774 has been opened by @ivanovmg.
+  event_id: 50279594773
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 774
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 10:46:11.000000000 Z
+  where: github
+  who: 41443370
+- _id: 606
+  _time: 2025-05-30 03:36:20.442689776 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#753 has been closed by @yegor256.
+  event_id: 50278972310
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 753
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-05-29 10:29:31.000000000 Z
+  where: github
+  who: 526301
+- _id: 607
+  _time: 2025-05-30 03:36:20.465089468 Z
+  _version: 0.10.2/0.45.0/
+  branch: '753'
+  comments: 1
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 1
+  comments_resolved: 0
+  comments_to_code: 0
+  details: The pull request cqfn/aibolit#773 has been closed by @yegor256, with 5
+    HoC and 1 comments.
+  event_id: 50278971898
+  event_type: PullRequestEvent
+  failed_builds: 0
+  hoc: 5
+  is_human: 1
+  issue: 773
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 16
+  what: pull-was-merged
+  when: 2025-05-29 10:29:30.000000000 Z
+  where: github
+  who: 526301
+- _id: 615
+  _time: 2025-05-30 03:36:58.590459943 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 599
-  _time: 2025-05-30 02:27:12.819166813 Z
+- _id: 616
+  _time: 2025-05-30 03:37:06.448883136 Z
   _version: 0.10.2/0.45.0/
-  latest: 776
+  latest: 743
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 601
-  _time: 2025-05-30 02:27:15.875757029 Z
+- _id: 620
+  _time: 2025-05-30 03:37:13.327727948 Z
   _version: 0.10.2/0.45.0/
-  latest: 50278132720
+  latest: 50280921439
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 602
-  _time: 2025-05-30 02:27:16.588653149 Z
+- _id: 621
+  _time: 2025-05-30 03:37:14.219158485 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
