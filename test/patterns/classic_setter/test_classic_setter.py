@@ -3,8 +3,6 @@
 
 from textwrap import dedent
 
-import pytest
-
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter
 from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast_from_string
@@ -24,13 +22,7 @@ def test_setSomething_is_not_a_setter_unless_sets_value_to_attribute() -> None:
     assert _offending_lines(content) == []
 
 
-@pytest.mark.xfail(reason='Incomplete implementation')
 def test_settle_is_not_a_setter_even_though_has_one_argument() -> None:
-    # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
-    #  When the method starts with `set` and has one input parameter,
-    #  but does not assign to the attribute is not a setter.
-    #  Once the implementation is updated,
-    #  remove `xfail` mark above this test definition.
     content = dedent(
         """\
         class FakeSetterClass {
@@ -43,13 +35,7 @@ def test_settle_is_not_a_setter_even_though_has_one_argument() -> None:
     assert _offending_lines(content) == []
 
 
-@pytest.mark.xfail(reason='Incomplete implementation')
 def test_settings_is_not_a_setter_as_it_calls_method() -> None:
-    # TODO #777:15min/DEV It is necessary to handle case of a fake setter.
-    #  When the method starts with `set` and calls an external method,
-    #  without assigning to the attribute, is not a setter.
-    #  Once the implementation is updated,
-    #  remove `xfail` mark above this test definition.
     content = dedent(
         """\
         class FakeSetterClass {
