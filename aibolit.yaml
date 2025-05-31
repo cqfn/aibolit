@@ -3,14 +3,14 @@
   cycles: 2
   deleted: 8
   error:
-  - 'Many (223) issues are missing in cqfn/aibolit (between 485 and 788): 490, 491,
+  - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 788): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 4.133473296
+  seconds: 4.586353558
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-30 23:01:01.378068013 Z
+  when: 2025-05-31 00:01:02.906499038 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5081,7 +5081,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-30 04:02:22.000000000 Z
+  when: &69 2025-05-30 04:02:22.000000000 Z
   where: github
   who: 526301
 - _id: 983
@@ -5129,29 +5129,85 @@
   when: 2025-05-30 03:45:57.000000000 Z
   where: github
   who: 526301
-- _id: 996
-  _time: 2025-05-31 00:00:29.973471984 Z
+- _id: 1001
+  _job: 22846
+  _time: 2025-05-31 00:00:59.999336837 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#784 with 5 HoC created by @ivanovmg was merged
+    by @yegor256 after 10h8m of being in review and 1 comments.
+  hoc: 5
+  is_human: 1
+  issue: 784
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 36497
+  what: code-was-contributed
+  when: *69
+  where: github
+  who: 41443370
+- _id: 1002
+  _time: 2025-05-31 02:24:42.844981804 Z
   _version: 0.10.2/0.45.0/
-  latest: 743
+  details: The issue cqfn/aibolit#785 has been closed by @yegor256.
+  event_id: 50314903997
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 785
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-05-30 06:30:36.000000000 Z
+  where: github
+  who: 526301
+- _id: 1003
+  _time: 2025-05-31 02:24:42.868580109 Z
+  _version: 0.10.2/0.45.0/
+  branch: '785'
+  comments: 2
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 1
+  comments_resolved: 0
+  comments_to_code: 0
+  details: The pull request cqfn/aibolit#787 has been closed by @yegor256, with 2
+    HoC and 2 comments.
+  event_id: 50314903893
+  event_type: PullRequestEvent
+  failed_builds: 0
+  hoc: 2
+  is_human: 1
+  issue: 787
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 16
+  what: pull-was-merged
+  when: 2025-05-30 06:30:35.000000000 Z
+  where: github
+  who: 526301
+- _id: 1008
+  _time: 2025-05-31 02:25:05.112242151 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 997
-  _time: 2025-05-31 00:00:37.950948409 Z
+- _id: 1015
+  _time: 2025-05-31 02:25:14.075948525 Z
   _version: 0.10.2/0.45.0/
-  latest: 776
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 999
-  _time: 2025-05-31 00:00:40.590580544 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50311752869
+  latest: 50315816959
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 1000
-  _time: 2025-05-31 00:00:41.402202598 Z
+- _id: 1016
+  _time: 2025-05-31 02:25:19.879064482 Z
+  _version: 0.10.2/0.45.0/
+  latest: 743
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 1017
+  _time: 2025-05-31 02:25:20.546219679 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
