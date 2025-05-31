@@ -7,10 +7,10 @@
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.923145999
+  seconds: 3.519846599
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-31 13:20:04.269068184 Z
+  when: 2025-05-31 14:01:24.435092543 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5490,7 +5490,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-30 16:37:12.000000000 Z
+  when: &72 2025-05-30 16:37:12.000000000 Z
   where: github
   who: 526301
 - _id: 1214
@@ -5528,34 +5528,70 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-30 16:36:54.000000000 Z
+  when: &73 2025-05-30 16:36:54.000000000 Z
   where: github
   who: 526301
-- _id: 1223
-  _time: 2025-05-31 14:00:39.362900619 Z
-  _version: 0.10.2/0.45.0/
-  latest: 0
+- _id: 1231
+  _job: 22946
+  _time: 2025-05-31 14:01:21.973159044 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#790 with 14 HoC created by @ivanovmg was
+    merged by @yegor256 after 2h33m of being in review and 1 comments.
+  hoc: 14
+  is_human: 1
+  issue: 790
+  merger: 526301
   repository: 237167507
-  what: labels-were-scanned
+  review_comments: 0
+  seconds: 9203
+  what: code-was-contributed
+  when: *72
   where: github
-- _id: 1228
-  _time: 2025-05-31 14:00:56.899388408 Z
+  who: 41443370
+- _id: 1232
+  _job: 22946
+  _time: 2025-05-31 14:01:22.077641117 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#791 with 4 HoC created by @ivanovmg was merged
+    by @yegor256 after 2h28m of being in review and 1 comments.
+  hoc: 4
+  is_human: 1
+  issue: 791
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 8939
+  what: code-was-contributed
+  when: *73
+  where: github
+  who: 41443370
+- _id: 1248
+  _time: 2025-05-31 15:00:39.915418114 Z
   _version: 0.10.2/0.45.0/
-  latest: 50337069184
+  latest: 50337840738
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 1229
-  _time: 2025-05-31 14:01:05.002263442 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 1230
-  _time: 2025-05-31 14:01:05.901776656 Z
+- _id: 1249
+  _time: 2025-05-31 15:00:41.190551199 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 1250
+  _time: 2025-05-31 15:00:43.925411634 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 1251
+  _time: 2025-05-31 15:00:49.748377523 Z
+  _version: 0.10.2/0.45.0/
+  latest: 776
+  repository: 237167507
+  what: labels-were-scanned
   where: github
