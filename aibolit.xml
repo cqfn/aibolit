@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="124271">
+<fb version="0.10.2" size="124577">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
@@ -7,12 +7,13 @@
     <error>
       <v t="S">Many (225) issues are missing in cqfn/aibolit (between 485 and 796): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
+      <v t="S">GET https://api.github.com/users/yegor256: 403 - API rate limit exceeded for 52.201.250.167. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">3.080714334</seconds>
+    <seconds t="F">63.25075485</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-05-31T18:01:39Z</when>
+    <when t="T">2025-05-31T19:02:27Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -6263,8 +6264,17 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1315</_id>
-    <_time t="T">2025-05-31T19:00:26Z</_time>
+    <_id t="I">1336</_id>
+    <_time t="T">2025-05-31T20:00:31Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50345480758</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1337</_id>
+    <_time t="T">2025-05-31T20:00:40Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">776</latest>
     <repository t="I">237167507</repository>
@@ -6272,26 +6282,17 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1323</_id>
-    <_time t="T">2025-05-31T19:00:52Z</_time>
+    <_id t="I">1338</_id>
+    <_time t="T">2025-05-31T20:00:44Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50343792370</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">1324</_id>
-    <_time t="T">2025-05-31T19:01:00Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">776</latest>
+    <latest t="I">0</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1325</_id>
-    <_time t="T">2025-05-31T19:01:01Z</_time>
+    <_id t="I">1339</_id>
+    <_time t="T">2025-05-31T20:00:46Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>

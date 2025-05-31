@@ -6,11 +6,14 @@
   - 'Many (225) issues are missing in cqfn/aibolit (between 485 and 796): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
+  - 'GET https://api.github.com/users/yegor256: 403 - API rate limit exceeded for
+    52.201.250.167. (But here''s the good news: Authenticated requests get a higher
+    rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting'
   inserted: 8
-  seconds: 3.080714334
+  seconds: 63.25075485
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-31 18:01:39.315911614 Z
+  when: 2025-05-31 19:02:27.234525350 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5631,29 +5634,29 @@
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 1315
-  _time: 2025-05-31 19:00:26.717492266 Z
+- _id: 1336
+  _time: 2025-05-31 20:00:31.260407401 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50345480758
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 1337
+  _time: 2025-05-31 20:00:40.716385378 Z
   _version: 0.10.2/0.45.0/
   latest: 776
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 1323
-  _time: 2025-05-31 19:00:52.669661992 Z
+- _id: 1338
+  _time: 2025-05-31 20:00:44.815108451 Z
   _version: 0.10.2/0.45.0/
-  latest: 50343792370
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 1324
-  _time: 2025-05-31 19:01:00.894595306 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
+  latest: 0
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 1325
-  _time: 2025-05-31 19:01:01.763515342 Z
+- _id: 1339
+  _time: 2025-05-31 20:00:46.402545755 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
