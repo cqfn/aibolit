@@ -6,12 +6,11 @@
   - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 789): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
-  - 'Judge quality-of-service stopped by timeout after 3m0s: execution expired'
   inserted: 8
-  seconds: 2.970836662
+  seconds: 3.045185808
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-31 07:00:30.153197039 Z
+  when: 2025-05-31 08:07:40.885130761 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5263,6 +5262,8 @@
 - _id: 1095
   _time: 2025-05-31 08:00:34.312920448 Z
   _version: 0.10.2/0.45.0/
+  composite: 215.864
+  ffact: 137
   since: 2025-05-24 07:59:38.644893463 Z
   total_builds_ran: 1843
   total_commits_pushed: 158
@@ -5272,47 +5273,133 @@
   total_releases_published: 0
   what: quantity-of-deliverables
   when: 2025-05-31 07:59:38.644846054 Z
-- _id: 1099
-  _time: 2025-05-31 08:00:48.372195418 Z
+- _id: 1110
+  _time: 2025-05-31 08:59:43.060258808 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#783 has been closed by @0pdd.
+  event_id: 50327347924
+  event_type: IssuesEvent
+  is_human: 0
+  issue: 783
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-05-30 12:25:21.000000000 Z
+  where: github
+  who: 24456188
+- _id: 1111
+  _time: 2025-05-31 08:59:43.100987630 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#782 has been closed by @0pdd.
+  event_id: 50327346928
+  event_type: IssuesEvent
+  is_human: 0
+  issue: 782
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-05-30 12:25:19.000000000 Z
+  where: github
+  who: 24456188
+- _id: 1112
+  _time: 2025-05-31 08:59:43.471249722 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#779 has been closed by @yegor256.
+  event_id: 50327342207
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 779
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-05-30 12:25:12.000000000 Z
+  where: github
+  who: 526301
+- _id: 1113
+  _time: 2025-05-31 08:59:43.499100052 Z
+  _version: 0.10.2/0.45.0/
+  branch: '779'
+  comments: 1
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 1
+  comments_resolved: 0
+  comments_to_code: 0
+  details: The pull request cqfn/aibolit#789 has been closed by @yegor256, with 97
+    HoC and 1 comments.
+  event_id: 50327341842
+  event_type: PullRequestEvent
+  failed_builds: 0
+  hoc: 97
+  is_human: 1
+  issue: 789
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 16
+  what: pull-was-merged
+  when: 2025-05-30 12:25:11.000000000 Z
+  where: github
+  who: 526301
+- _id: 1118
+  _time: 2025-05-31 09:00:02.506673109 Z
+  _version: 0.10.2/0.45.0/
+  total_active_contributors: 5
+  total_commits: 2370
+  total_contributors: 18
+  total_files: 1042
+  total_forks: 23
+  total_issues: 395
+  total_pulls: 396
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 64
+  what: dimensions-of-terrain
+  when: 2025-05-31 08:00:48.390076703 Z
+- _id: 1122
+  _time: 2025-05-31 09:02:51.840108854 Z
+  _version: 0.10.2/0.45.0/
+  latest: 776
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 1128
+  _time: 2025-05-31 09:03:14.953806378 Z
   _version: 0.10.2/0.45.0/
   average_backlog_size: 14.125
+  average_build_duration: 77.149
+  average_build_mttr: -6700
+  average_build_success_rate: 0.979
   average_issue_lifetime: 19863310.282051284
+  average_pull_files_size: 2.0689655172413794
+  average_pull_hoc_size: 500.6551724137931
   average_pull_lifetime: 13018.103448275862
+  average_pull_rejection_rate: 0.0
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
+  average_release_interval: 0
+  average_review_size: 0.20689655172413793
+  average_review_time: 24724.5
+  average_reviewers_per_pull: 0.13793103448275862
+  average_reviews_per_pull: 0.20689655172413793
+  average_triage_time: 19900.030303030304
   since: 2025-05-24 08:00:34.319742506 Z
   what: quality-of-service
   when: 2025-05-31 08:00:34.319700909 Z
-- _id: 1104
-  _time: 2025-05-31 08:04:00.508770364 Z
+- _id: 1130
+  _time: 2025-05-31 09:03:17.498302986 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50327561309
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 1131
+  _time: 2025-05-31 09:03:20.951030375 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 1106
-  _time: 2025-05-31 08:04:08.333351929 Z
+- _id: 1132
+  _time: 2025-05-31 09:03:21.491864604 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 1107
-  _time: 2025-05-31 08:04:10.762450916 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50326919590
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 1108
-  _time: 2025-05-31 08:04:13.907581200 Z
-  _version: 0.10.2/0.45.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 1109
-  _time: 2025-05-31 08:04:22.554130221 Z
-  _version: 0.10.2/0.45.0/
-  total_active_contributors: 5
-  total_commits: 2370
-  what: dimensions-of-terrain
-  when: 2025-05-31 08:00:48.390076703 Z
