@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="119106">
+<fb version="0.10.2" size="119499">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
@@ -9,10 +9,10 @@
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">3.045185808</seconds>
+    <seconds t="F">64.474739124</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-05-31T08:07:40Z</when>
+    <when t="T">2025-05-31T09:04:41Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -5955,15 +5955,6 @@
     <when t="T">2025-05-31T08:00:48Z</when>
   </f>
   <f>
-    <_id t="I">1122</_id>
-    <_time t="T">2025-05-31T09:02:51Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">776</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">1128</_id>
     <_time t="T">2025-05-31T09:03:14Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
@@ -5984,31 +5975,61 @@
     <average_reviewers_per_pull t="F">0.13793103448275862</average_reviewers_per_pull>
     <average_reviews_per_pull t="F">0.20689655172413793</average_reviews_per_pull>
     <average_triage_time t="F">19900.030303030304</average_triage_time>
+    <composite t="F">0.398</composite>
+    <ffact t="I">136</ffact>
     <since t="T">2025-05-24T08:00:34Z</since>
     <what t="S">quality-of-service</what>
     <when t="T">2025-05-31T08:00:34Z</when>
   </f>
   <f>
-    <_id t="I">1130</_id>
-    <_time t="T">2025-05-31T09:03:17Z</_time>
+    <_id t="I">1133</_id>
+    <_job t="I">22903</_job>
+    <_time t="T">2025-05-31T09:04:38Z</_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <comments t="I">1</comments>
+    <details t="S">The pull request cqfn/aibolit#789 with 97 HoC created by @ivanovmg was merged by @yegor256 after 3h22m of being in review and 1 comments.</details>
+    <hoc t="I">97</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">789</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">12142</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-30T12:25:11Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">1149</_id>
+    <_time t="T">2025-05-31T10:00:40Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50327561309</latest>
+    <latest t="I">50329570205</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1131</_id>
-    <_time t="T">2025-05-31T09:03:20Z</_time>
+    <_id t="I">1150</_id>
+    <_time t="T">2025-05-31T10:00:46Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">743</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1151</_id>
+    <_time t="T">2025-05-31T10:00:47Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">743</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1132</_id>
-    <_time t="T">2025-05-31T09:03:21Z</_time>
+    <_id t="I">1152</_id>
+    <_time t="T">2025-05-31T10:00:48Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>

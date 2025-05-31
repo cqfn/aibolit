@@ -7,10 +7,10 @@
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.045185808
+  seconds: 64.474739124
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-31 08:07:40.885130761 Z
+  when: 2025-05-31 09:04:41.485130757 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5334,7 +5334,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-30 12:25:11.000000000 Z
+  when: &71 2025-05-30 12:25:11.000000000 Z
   where: github
   who: 526301
 - _id: 1118
@@ -5352,13 +5352,6 @@
   total_stars: 64
   what: dimensions-of-terrain
   when: 2025-05-31 08:00:48.390076703 Z
-- _id: 1122
-  _time: 2025-05-31 09:02:51.840108854 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 1128
   _time: 2025-05-31 09:03:14.953806378 Z
   _version: 0.10.2/0.45.0/
@@ -5379,25 +5372,52 @@
   average_reviewers_per_pull: 0.13793103448275862
   average_reviews_per_pull: 0.20689655172413793
   average_triage_time: 19900.030303030304
+  composite: 0.398
+  ffact: 136
   since: 2025-05-24 08:00:34.319742506 Z
   what: quality-of-service
   when: 2025-05-31 08:00:34.319700909 Z
-- _id: 1130
-  _time: 2025-05-31 09:03:17.498302986 Z
+- _id: 1133
+  _job: 22903
+  _time: 2025-05-31 09:04:38.326997117 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#789 with 97 HoC created by @ivanovmg was
+    merged by @yegor256 after 3h22m of being in review and 1 comments.
+  hoc: 97
+  is_human: 1
+  issue: 789
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 12142
+  what: code-was-contributed
+  when: *71
+  where: github
+  who: 41443370
+- _id: 1149
+  _time: 2025-05-31 10:00:40.666178192 Z
   _version: 0.10.2/0.45.0/
-  latest: 50327561309
+  latest: 50329570205
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 1131
-  _time: 2025-05-31 09:03:20.951030375 Z
+- _id: 1150
+  _time: 2025-05-31 10:00:46.511169325 Z
   _version: 0.10.2/0.45.0/
-  latest: 0
+  latest: 743
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 1151
+  _time: 2025-05-31 10:00:47.650768635 Z
+  _version: 0.10.2/0.45.0/
+  latest: 743
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 1132
-  _time: 2025-05-31 09:03:21.491864604 Z
+- _id: 1152
+  _time: 2025-05-31 10:00:48.883864251 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
