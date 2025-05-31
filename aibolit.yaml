@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 3
+  cycles: 2
   deleted: 8
   error:
   - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 791): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 17.607078588
+  seconds: 3.476990065
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-31 15:01:22.714197900 Z
+  when: 2025-05-31 16:01:00.240280832 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -4833,13 +4833,6 @@
   when: 2025-05-30 06:11:03.000000000 Z
   where: github
   who: 41443370
-- _id: 708
-  _time: 2025-05-30 06:59:48.214909559 Z
-  _version: 0.10.2/0.45.0/
-  latest: 733
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
 - _id: 721
   _job: 22717
   _time: 2025-05-30 07:00:42.347348482 Z
@@ -5609,29 +5602,47 @@
   where: github
   who: 41443370
   why: Contributed code in cqfn/aibolit#791
-- _id: 1267
-  _time: 2025-05-31 16:00:26.652354802 Z
+- _id: 1274
+  _time: 2025-05-31 16:59:38.550114860 Z
   _version: 0.10.2/0.45.0/
-  latest: 0
+  details: The issue cqfn/aibolit#792 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 792
   repository: 237167507
-  what: types-were-scanned
+  what: issue-was-opened
+  when: 2025-05-31 16:49:53.000000000 Z
   where: github
-- _id: 1270
-  _time: 2025-05-31 16:00:36.198976409 Z
+  who: 41443370
+- _id: 1276
+  _time: 2025-05-31 16:59:39.237650050 Z
+  _version: 0.10.2/0.45.0/
+  latest: 735
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 1286
+  _time: 2025-05-31 17:00:14.630268409 Z
   _version: 0.10.2/0.45.0/
   latest: 50339893792
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 1271
-  _time: 2025-05-31 16:00:40.405883288 Z
+- _id: 1287
+  _time: 2025-05-31 17:00:18.049349168 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 1288
+  _time: 2025-05-31 17:00:26.294231405 Z
+  _version: 0.10.2/0.45.0/
+  latest: 776
+  repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 1272
-  _time: 2025-05-31 16:00:41.046938181 Z
+- _id: 1289
+  _time: 2025-05-31 17:00:26.981560249 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
