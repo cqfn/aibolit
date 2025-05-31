@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 3
   deleted: 8
   error:
   - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 788): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 4.586353558
+  seconds: 10.312434238
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-31 00:01:02.906499038 Z
+  when: 2025-05-31 02:25:43.984414972 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5182,7 +5182,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-05-30 06:30:35.000000000 Z
+  when: &70 2025-05-30 06:30:35.000000000 Z
   where: github
   who: 526301
 - _id: 1008
@@ -5192,22 +5192,59 @@
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 1015
-  _time: 2025-05-31 02:25:14.075948525 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50315816959
+- _id: 1018
+  _job: 22855
+  _time: 2025-05-31 02:25:35.151843337 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 2
+  details: The pull request cqfn/aibolit#787 with 2 HoC created by @ivanovmg was merged
+    by @yegor256 after 2h33m of being in review and 2 comments.
+  hoc: 2
+  is_human: 1
+  issue: 787
+  merger: 526301
   repository: 237167507
-  what: events-were-scanned
+  review_comments: 0
+  seconds: 9213
+  what: code-was-contributed
+  when: *70
   where: github
-- _id: 1016
-  _time: 2025-05-31 02:25:19.879064482 Z
+  who: 41443370
+- _id: 1019
+  _job: 22855
+  _time:
+  - 2025-05-31 02:25:41.488339123 Z
+  - 2025-05-31 02:25:35.291925017 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#784,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/784/#issuecomment-2924020431
+  is_human: 1
+  issue: 784
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-05-31 02:25:35.296396584 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#784
+- _id: 1025
+  _time: 2025-05-31 03:34:41.257846829 Z
   _version: 0.10.2/0.45.0/
-  latest: 743
+  latest: 776
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 1017
-  _time: 2025-05-31 02:25:20.546219679 Z
+- _id: 1029
+  _time: 2025-05-31 03:34:51.083594308 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50317849687
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 1030
+  _time: 2025-05-31 03:34:52.686072131 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507

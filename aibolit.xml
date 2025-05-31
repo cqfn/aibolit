@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="115191">
+<fb version="0.10.2" size="116059">
   <f>
     <added t="I">8</added>
-    <cycles t="I">2</cycles>
+    <cycles t="I">3</cycles>
     <deleted t="I">8</deleted>
     <error>
       <v t="S">Many (222) issues are missing in cqfn/aibolit (between 485 and 788): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">4.586353558</seconds>
+    <seconds t="F">10.312434238</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-05-31T00:01:02Z</when>
+    <when t="T">2025-05-31T02:25:43Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -5777,26 +5777,66 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1015</_id>
-    <_time t="T">2025-05-31T02:25:14Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50315816959</latest>
+    <_id t="I">1018</_id>
+    <_job t="I">22855</_job>
+    <_time t="T">2025-05-31T02:25:35Z</_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <comments t="I">2</comments>
+    <details t="S">The pull request cqfn/aibolit#787 with 2 HoC created by @ivanovmg was merged by @yegor256 after 2h33m of being in review and 2 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">787</issue>
+    <merger t="I">526301</merger>
     <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">9213</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-30T06:30:35Z</when>
     <where t="S">github</where>
+    <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">1016</_id>
-    <_time t="T">2025-05-31T02:25:19Z</_time>
+    <_id t="I">1019</_id>
+    <_job t="I">22855</_job>
+    <_time>
+      <v t="T">2025-05-31T02:25:41Z</v>
+      <v t="T">2025-05-31T02:25:35Z</v>
+    </_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <award t="I">4</award>
+    <details t="S">It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#784, the reward amount is 4.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/784/#issuecomment-2924020431</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">784</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">code-contribution-was-rewarded</what>
+    <when t="T">2025-05-31T02:25:35Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Contributed code in cqfn/aibolit#784</why>
+  </f>
+  <f>
+    <_id t="I">1025</_id>
+    <_time t="T">2025-05-31T03:34:41Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">743</latest>
+    <latest t="I">776</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1017</_id>
-    <_time t="T">2025-05-31T02:25:20Z</_time>
+    <_id t="I">1029</_id>
+    <_time t="T">2025-05-31T03:34:51Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50317849687</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1030</_id>
+    <_time t="T">2025-05-31T03:34:52Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
