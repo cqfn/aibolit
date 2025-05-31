@@ -125,9 +125,6 @@ public final class SliceFromConfig extends Slice.Wrap {
      * @param cfg Repository config
      * @param aliases Storage aliases
      * @return Slice completionStage
-     * @todo #90:30min This method still needs more refactoring.
-     *  We should test if the type exist in the constructed map. If the type does not exist,
-     *  we should throw an IllegalStateException with the message "Unsupported repository type '%s'"
      * @checkstyle LineLengthCheck (150 lines)
      * @checkstyle ExecutableStatementCountCheck (100 lines)
      * @checkstyle JavaNCSSCheck (500 lines)
