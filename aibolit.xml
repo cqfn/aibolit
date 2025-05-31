@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="119499">
+<fb version="0.10.2" size="120555">
   <f>
     <added t="I">8</added>
-    <cycles t="I">2</cycles>
+    <cycles t="I">3</cycles>
     <deleted t="I">8</deleted>
     <error>
       <v t="S">Many (222) issues are missing in cqfn/aibolit (between 485 and 789): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">64.474739124</seconds>
+    <seconds t="F">8.839137843</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-05-31T09:04:41Z</when>
+    <when t="T">2025-05-31T10:01:13Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -6001,35 +6001,88 @@
     <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">1149</_id>
-    <_time t="T">2025-05-31T10:00:40Z</_time>
+    <_id t="I">1153</_id>
+    <_job t="I">22910</_job>
+    <_time>
+      <v t="T">2025-05-31T10:01:11Z</v>
+      <v t="T">2025-05-31T10:01:06Z</v>
+    </_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <award t="I">4</award>
+    <details t="S">It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#789, the reward amount is 4.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/789/#issuecomment-2924825546</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">789</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">code-contribution-was-rewarded</what>
+    <when t="T">2025-05-31T10:01:06Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Contributed code in cqfn/aibolit#789</why>
+  </f>
+  <f>
+    <_id t="I">1154</_id>
+    <_time t="T">2025-05-31T10:59:44Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50329570205</latest>
+    <branch t="S">755</branch>
+    <details t="S">The pull request cqfn/aibolit#791 has been opened by @ivanovmg.</details>
+    <event_id t="I">50331366623</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">791</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-05-30T14:07:55Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">1155</_id>
+    <_time t="T">2025-05-31T10:59:44Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">780</branch>
+    <details t="S">The pull request cqfn/aibolit#790 has been opened by @ivanovmg.</details>
+    <event_id t="I">50331203415</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">790</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-05-30T14:03:49Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">1171</_id>
+    <_time t="T">2025-05-31T11:00:29Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50332183931</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1150</_id>
-    <_time t="T">2025-05-31T10:00:46Z</_time>
+    <_id t="I">1172</_id>
+    <_time t="T">2025-05-31T11:00:36Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">743</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">1151</_id>
-    <_time t="T">2025-05-31T10:00:47Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">743</latest>
+    <latest t="I">776</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1152</_id>
-    <_time t="T">2025-05-31T10:00:48Z</_time>
+    <_id t="I">1173</_id>
+    <_time t="T">2025-05-31T11:00:39Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1174</_id>
+    <_time t="T">2025-05-31T11:00:40Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
