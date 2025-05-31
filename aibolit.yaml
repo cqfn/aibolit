@@ -6,11 +6,12 @@
   - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 789): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
+  - 'Judge quality-of-service stopped by timeout after 3m0s: execution expired'
   inserted: 8
-  seconds: 3.18626555
+  seconds: 2.970836662
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-31 06:00:41.182327389 Z
+  when: 2025-05-31 07:00:30.153197039 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5259,31 +5260,59 @@
   where: github
   who: 41443370
   why: Contributed code in cqfn/aibolit#787
-- _id: 1090
-  _time: 2025-05-31 06:59:59.552343963 Z
+- _id: 1095
+  _time: 2025-05-31 08:00:34.312920448 Z
   _version: 0.10.2/0.45.0/
-  latest: 50324450982
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 1091
-  _time: 2025-05-31 07:00:03.142114079 Z
+  since: 2025-05-24 07:59:38.644893463 Z
+  total_builds_ran: 1843
+  total_commits_pushed: 158
+  total_hoc_committed: 38270
+  total_issues_created: 16
+  total_pulls_submitted: 1
+  total_releases_published: 0
+  what: quantity-of-deliverables
+  when: 2025-05-31 07:59:38.644846054 Z
+- _id: 1099
+  _time: 2025-05-31 08:00:48.372195418 Z
+  _version: 0.10.2/0.45.0/
+  average_backlog_size: 14.125
+  average_issue_lifetime: 19863310.282051284
+  average_pull_lifetime: 13018.103448275862
+  since: 2025-05-24 08:00:34.319742506 Z
+  what: quality-of-service
+  when: 2025-05-31 08:00:34.319700909 Z
+- _id: 1104
+  _time: 2025-05-31 08:04:00.508770364 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 1092
-  _time: 2025-05-31 07:00:09.742153753 Z
-  _version: 0.10.2/0.45.0/
-  latest: 743
-  repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 1093
-  _time: 2025-05-31 07:00:10.269671723 Z
+- _id: 1106
+  _time: 2025-05-31 08:04:08.333351929 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
+- _id: 1107
+  _time: 2025-05-31 08:04:10.762450916 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50326919590
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 1108
+  _time: 2025-05-31 08:04:13.907581200 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 1109
+  _time: 2025-05-31 08:04:22.554130221 Z
+  _version: 0.10.2/0.45.0/
+  total_active_contributors: 5
+  total_commits: 2370
+  what: dimensions-of-terrain
+  when: 2025-05-31 08:00:48.390076703 Z

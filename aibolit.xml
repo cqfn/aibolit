@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="116860">
+<fb version="0.10.2" size="117714">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
@@ -7,12 +7,13 @@
     <error>
       <v t="S">Many (222) issues are missing in cqfn/aibolit (between 485 and 789): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
+      <v t="S">Judge quality-of-service stopped by timeout after 3m0s: execution expired</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">3.18626555</seconds>
+    <seconds t="F">2.970836662</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-05-31T06:00:41Z</when>
+    <when t="T">2025-05-31T07:00:30Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -5851,17 +5852,60 @@
     <why t="S">Contributed code in cqfn/aibolit#787</why>
   </f>
   <f>
-    <_id t="I">1090</_id>
-    <_time t="T">2025-05-31T06:59:59Z</_time>
+    <_id t="I">1095</_id>
+    <_time t="T">2025-05-31T08:00:34Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50324450982</latest>
+    <since t="T">2025-05-24T07:59:38Z</since>
+    <total_builds_ran t="I">1843</total_builds_ran>
+    <total_commits_pushed t="I">158</total_commits_pushed>
+    <total_hoc_committed t="I">38270</total_hoc_committed>
+    <total_issues_created t="I">16</total_issues_created>
+    <total_pulls_submitted t="I">1</total_pulls_submitted>
+    <total_releases_published t="I">0</total_releases_published>
+    <what t="S">quantity-of-deliverables</what>
+    <when t="T">2025-05-31T07:59:38Z</when>
+  </f>
+  <f>
+    <_id t="I">1099</_id>
+    <_time t="T">2025-05-31T08:00:48Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <average_backlog_size t="F">14.125</average_backlog_size>
+    <average_issue_lifetime t="F">19863310.282051284</average_issue_lifetime>
+    <average_pull_lifetime t="F">13018.103448275862</average_pull_lifetime>
+    <since t="T">2025-05-24T08:00:34Z</since>
+    <what t="S">quality-of-service</what>
+    <when t="T">2025-05-31T08:00:34Z</when>
+  </f>
+  <f>
+    <_id t="I">1104</_id>
+    <_time t="T">2025-05-31T08:04:00Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1106</_id>
+    <_time t="T">2025-05-31T08:04:08Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1107</_id>
+    <_time t="T">2025-05-31T08:04:10Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50326919590</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1091</_id>
-    <_time t="T">2025-05-31T07:00:03Z</_time>
+    <_id t="I">1108</_id>
+    <_time t="T">2025-05-31T08:04:13Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -5869,21 +5913,12 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1092</_id>
-    <_time t="T">2025-05-31T07:00:09Z</_time>
+    <_id t="I">1109</_id>
+    <_time t="T">2025-05-31T08:04:22Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">743</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">1093</_id>
-    <_time t="T">2025-05-31T07:00:10Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">710</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
+    <total_active_contributors t="I">5</total_active_contributors>
+    <total_commits t="I">2370</total_commits>
+    <what t="S">dimensions-of-terrain</what>
+    <when t="T">2025-05-31T08:00:48Z</when>
   </f>
 </fb>
