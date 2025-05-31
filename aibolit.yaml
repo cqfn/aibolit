@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 3
   deleted: 8
   error:
   - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 791): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.519846599
+  seconds: 17.607078588
   version: 0.45.0
   what: judges-summary
-  when: 2025-05-31 14:01:24.435092543 Z
+  when: 2025-05-31 15:01:22.714197900 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5567,31 +5567,73 @@
   when: *73
   where: github
   who: 41443370
-- _id: 1248
-  _time: 2025-05-31 15:00:39.915418114 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50337840738
+- _id:
+  - 1254
+  - 1252
+  _job: 22953
+  _time:
+  - 2025-05-31 15:01:20.094558401 Z
+  - 2025-05-31 15:01:06.549604707 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#790,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/790/#issuecomment-2925305628
+  is_human: 1
+  issue: 790
+  receipt: 0
   repository: 237167507
-  what: events-were-scanned
+  what: code-contribution-was-rewarded
+  when: 2025-05-31 15:01:06.558844402 Z
   where: github
-- _id: 1249
-  _time: 2025-05-31 15:00:41.190551199 Z
-  _version: 0.10.2/0.45.0/
-  latest: 710
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#790
+- _id:
+  - 1255
+  - 1253
+  _job: 22953
+  _time:
+  - 2025-05-31 15:01:20.097880392 Z
+  - 2025-05-31 15:01:12.370408085 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#791,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/791/#issuecomment-2925305646
+  is_human: 1
+  issue: 791
+  receipt: 0
   repository: 237167507
-  what: min-issue-was-found
+  what: code-contribution-was-rewarded
+  when: 2025-05-31 15:01:12.375088480 Z
   where: github
-- _id: 1250
-  _time: 2025-05-31 15:00:43.925411634 Z
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#791
+- _id: 1267
+  _time: 2025-05-31 16:00:26.652354802 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 1251
-  _time: 2025-05-31 15:00:49.748377523 Z
+- _id: 1270
+  _time: 2025-05-31 16:00:36.198976409 Z
   _version: 0.10.2/0.45.0/
-  latest: 776
+  latest: 50339893792
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 1271
+  _time: 2025-05-31 16:00:40.405883288 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
   repository: 237167507
   what: labels-were-scanned
+  where: github
+- _id: 1272
+  _time: 2025-05-31 16:00:41.046938181 Z
+  _version: 0.10.2/0.45.0/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
   where: github
