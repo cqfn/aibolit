@@ -7,10 +7,10 @@
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.338129592
+  seconds: 3.116622074
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-01 02:56:11.569803988 Z
+  when: 2025-06-01 04:26:57.557103630 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5640,7 +5640,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-06-01 04:01:14.000000000 Z
+  when: &74 2025-06-01 04:01:14.000000000 Z
   where: github
   who: 526301
 - _id: 1429
@@ -5652,34 +5652,62 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-06-01 04:00:47.000000000 Z
+  when: &75 2025-06-01 04:00:47.000000000 Z
   where: github
   who: 526301
-- _id: 1438
-  _time: 2025-06-01 04:26:18.796911468 Z
+- _id: 1442
+  _job: 23033
+  _time: 2025-06-01 04:26:55.508468272 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#792 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 792
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *74
+  where: github
+  who: 526301
+- _id: 1443
+  _job: 23033
+  _time: 2025-06-01 04:26:55.607150068 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#796 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 796
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *75
+  where: github
+  who: 526301
+- _id: 1454
+  _time: 2025-06-01 05:02:04.898120870 Z
   _version: 0.10.2/0.45.0/
   latest: 50358490009
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 1439
-  _time: 2025-06-01 04:26:27.088182946 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 1440
-  _time: 2025-06-01 04:26:34.594885872 Z
+- _id: 1455
+  _time: 2025-06-01 05:02:10.944934572 Z
   _version: 0.10.2/0.45.0/
   latest: 743
   repository: 237167507
-  what: types-were-scanned
+  what: labels-were-scanned
   where: github
-- _id: 1441
-  _time: 2025-06-01 04:26:37.041534667 Z
+- _id: 1456
+  _time: 2025-06-01 05:02:12.761553601 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 1457
+  _time: 2025-06-01 05:02:16.399244157 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
   where: github
