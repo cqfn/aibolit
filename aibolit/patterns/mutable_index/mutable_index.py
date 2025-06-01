@@ -18,51 +18,50 @@ class MutableIndex:
         Traverse over AST tree and finds loops with mutable index
 
         :return: List of line number of loops with mutable index
-
-        @todo #147:30min Implement MutableIndex pattern
-        We need to implement the code on mutable index pattern. It must return the number
-        of the lines where we have an index of a for loop being mutated. After implementing,
-        the method, enable all tests in test_mutable_index.py
         """
         result = set()
         ast = AST.build_from_javalang(build_ast(filename))
         for node in ast.get_proxy_nodes(
             ASTNodeType.FOR_STATEMENT,
         ):
-            index_names = set()
-            for decl in ast.get_subtree(node.control).get_proxy_nodes(
-                ASTNodeType.VARIABLE_DECLARATOR
-            ):
-                index_names.add(decl.name)
-            for assignment in ast.get_subtree(node.control).get_proxy_nodes(
-                ASTNodeType.ASSIGNMENT
-            ):
-                index_names.add(assignment.expressionl.member)
-            # print(ast.get_subtree(node.body))
-            # index_names = set(d.name for d in node.control.init.declarators)
-            for op in ast.get_subtree(node.body).get_proxy_nodes(
-                ASTNodeType.ASSIGNMENT
-            ):
-                if op.expressionl.node_type == ASTNodeType.MEMBER_REFERENCE:
-                    if op.expressionl.member in index_names:
-                        result.add(op.expressionl.line)
-
-            for op in ast.get_subtree(node.body).get_proxy_nodes(
-                ASTNodeType.STATEMENT_EXPRESSION
-            ):
-                if op.expression.node_type == ASTNodeType.ASSIGNMENT:
-                    continue
-                if op.expression.member not in index_names:
-                    continue
-                if any(
-                    operator in ("++", "--")
-                    for operator in op.expression.postfix_operators
-                ):
-                    result.add(op.expression.line)
-                if any(
-                    operator in ("++", "--")
-                    for operator in op.expression.prefix_operators
-                ):
-                    result.add(op.expression.line)
+            index_names = self._collect_index_names(ast, node)
+            for_body = node.body
+            result.update(self._handle_assignment(ast, index_names, for_body))
+            result.update(self._handle_unary_operations(ast, index_names, for_body))
 
         return sorted(result)
+
+    def _collect_index_names(self, ast: AST, node: ASTNode) -> set[str]:
+        result = set()
+        node_control = ast.get_subtree(node.control)
+        for decl in node_control.get_proxy_nodes(ASTNodeType.VARIABLE_DECLARATOR):
+            result.add(decl.name)
+        for assignment in node_control.get_proxy_nodes(ASTNodeType.ASSIGNMENT):
+            result.add(assignment.expressionl.member)
+        return result
+
+    def _handle_assignment(self, ast: AST, index_names: set[str], for_body: ASTNode) -> set[LineNumber]:
+        result = set()
+        for op in ast.get_subtree(for_body).get_proxy_nodes(ASTNodeType.ASSIGNMENT):
+            if op.expressionl.node_type != ASTNodeType.MEMBER_REFERENCE:
+                continue
+            if op.expressionl.member not in index_names:
+                continue
+            result.add(op.expressionl.line)
+        return result
+
+    def _handle_unary_operations(self, ast: AST, index_names: set[str], for_body: ASTNode) -> set[LineNumber]:
+        result = set()
+        for op in ast.get_subtree(for_body).get_proxy_nodes(ASTNodeType.STATEMENT_EXPRESSION):
+            if op.expression.node_type == ASTNodeType.ASSIGNMENT:
+                continue
+            if op.expression.member not in index_names:
+                continue
+            unary_operators = ("++", "--")
+            for operator in op.expression.prefix_operators:
+                if operator in unary_operators:
+                    result.add(op.expression.line)
+            for operator in op.expression.postfix_operators:
+                if operator in unary_operators:
+                    result.add(op.expression.line)
+        return result

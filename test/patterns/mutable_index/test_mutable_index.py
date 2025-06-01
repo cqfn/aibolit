@@ -20,72 +20,56 @@ class MutableIndexTestCase(TestCase):
     def test_find_mutable_index_prefix_increment(self):
         self.assertEqual(
             [7],
-            MutableIndex().value(
-                Path(self.dir_path, "MutableIndexPrefixIncrement.java")
-            ),
+            MutableIndex().value(Path(self.dir_path, "MutableIndexPrefixIncrement.java")),
             "Should match index prefix increment (++i)",
         )
 
     def test_find_mutable_index_prefix_decrement(self):
         self.assertEqual(
             [7],
-            MutableIndex().value(
-                Path(self.dir_path, "MutableIndexPrefixDecrement.java")
-            ),
+            MutableIndex().value(Path(self.dir_path, "MutableIndexPrefixDecrement.java")),
             "Should match index prefix decrement (--i)",
         )
 
     def test_find_mutable_index_postfix_increment(self):
         self.assertEqual(
             [7],
-            MutableIndex().value(
-                Path(self.dir_path, "MutableIndexPostfixIncrement.java")
-            ),
+            MutableIndex().value(Path(self.dir_path, "MutableIndexPostfixIncrement.java")),
             "Should match index postfix increment (i++)",
         )
 
     def test_find_mutable_index_postfix_decrement(self):
         self.assertEqual(
             [7],
-            MutableIndex().value(
-                Path(self.dir_path, "MutableIndexPostfixDecrement.java")
-            ),
+            MutableIndex().value(Path(self.dir_path, "MutableIndexPostfixDecrement.java")),
             "Should match index postfix decrement (i--)",
         )
 
     def test_find_mutable_index_addition_assignment(self):
         self.assertEqual(
             [7],
-            MutableIndex().value(
-                Path(self.dir_path, "MutableIndexAdditionAssignment.java")
-            ),
+            MutableIndex().value(Path(self.dir_path, "MutableIndexAdditionAssignment.java")),
             "Should match index addition assignment (+=)",
         )
 
     def test_find_mutable_index_subtraction_assignment(self):
         self.assertEqual(
             [7],
-            MutableIndex().value(
-                Path(self.dir_path, "MutableIndexSubtractionAssignment.java")
-            ),
+            MutableIndex().value(Path(self.dir_path, "MutableIndexSubtractionAssignment.java")),
             "Should match index subtraction assignment (-=)",
         )
 
     def test_find_mutable_index_multiplication_assignment(self):
         self.assertEqual(
             [7],
-            MutableIndex().value(
-                Path(self.dir_path, "MutableIndexMultiplicationAssignment.java")
-            ),
+            MutableIndex().value(Path(self.dir_path, "MutableIndexMultiplicationAssignment.java")),
             "Should match index multiplication assignment (*=)",
         )
 
     def test_find_mutable_index_division_assignment(self):
         self.assertEqual(
             [7],
-            MutableIndex().value(
-                Path(self.dir_path, "MutableIndexDivisionAssignment.java")
-            ),
+            MutableIndex().value(Path(self.dir_path, "MutableIndexDivisionAssignment.java")),
             "Should match index division assignment (/=)",
         )
 
@@ -106,9 +90,7 @@ class MutableIndexTestCase(TestCase):
     def test_find_mutable_index_hidden_nested_for(self):
         self.assertEqual(
             [8],
-            MutableIndex().value(
-                Path(self.dir_path, "MutableIndexHiddenNestedFor.java")
-            ),
+            MutableIndex().value(Path(self.dir_path, "MutableIndexHiddenNestedFor.java")),
             "Should match mutable index hidden in nested for",
         )
 
