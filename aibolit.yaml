@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 3
+  cycles: 2
   deleted: 8
   error:
   - 'Many (225) issues are missing in cqfn/aibolit (between 485 and 796): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 14.540833277
+  seconds: 3.425067316
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-01 05:02:44.495633753 Z
+  when: 2025-06-01 06:00:56.364743419 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5725,31 +5725,73 @@
   where: github
   who: 41443370
   why: Reported bug in cqfn/aibolit#796
-- _id: 1463
-  _time: 2025-06-01 06:00:06.849410319 Z
+- _id: 1476
+  _time: 2025-06-01 06:59:54.105290910 Z
   _version: 0.10.2/0.45.0/
-  latest: 743
+  branch: '749'
+  details: The pull request cqfn/aibolit#795 has been opened by @ivanovmg.
+  event_id: 50360824102
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 795
   repository: 237167507
-  what: types-were-scanned
+  what: pull-was-opened
+  when: 2025-05-31 17:02:06.000000000 Z
   where: github
-- _id: 1472
-  _time: 2025-06-01 06:00:36.463482520 Z
+  who: 41443370
+- _id: 1477
+  _time: 2025-06-01 06:59:54.124471104 Z
   _version: 0.10.2/0.45.0/
-  latest: 743
+  branch: '748'
+  details: The pull request cqfn/aibolit#794 has been opened by @ivanovmg.
+  event_id: 50360766614
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 794
   repository: 237167507
-  what: labels-were-scanned
+  what: pull-was-opened
+  when: 2025-05-31 16:57:34.000000000 Z
   where: github
-- _id: 1474
-  _time: 2025-06-01 06:00:38.894874529 Z
+  who: 41443370
+- _id: 1478
+  _time: 2025-06-01 06:59:54.136910394 Z
   _version: 0.10.2/0.45.0/
-  latest: 50360037437
+  branch: '746'
+  details: The pull request cqfn/aibolit#793 has been opened by @ivanovmg.
+  event_id: 50360731416
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 793
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-31 16:54:33.000000000 Z
+  where: github
+  who: 41443370
+- _id: 1491
+  _time: 2025-06-01 07:00:31.386454691 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50361078693
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 1475
-  _time: 2025-06-01 06:00:40.720440045 Z
+- _id: 1492
+  _time: 2025-06-01 07:00:38.635849754 Z
+  _version: 0.10.2/0.45.0/
+  latest: 776
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 1493
+  _time: 2025-06-01 07:00:39.279855739 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 1494
+  _time: 2025-06-01 07:00:43.271671688 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
   where: github
