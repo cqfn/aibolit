@@ -25,9 +25,9 @@ class MutableIndex:
             ASTNodeType.FOR_STATEMENT,
         ):
             index_names = self._collect_index_names(ast, node)
-            for_body = node.body
-            result.update(self._handle_assignment(ast, index_names, for_body))
-            result.update(self._handle_unary_operations(ast, index_names, for_body))
+            for_body = ast.get_subtree(node.body)
+            result.update(self._handle_assignment(index_names, for_body))
+            result.update(self._handle_unary_operations(index_names, for_body))
 
         return sorted(result)
 
@@ -40,9 +40,9 @@ class MutableIndex:
             result.add(assignment.expressionl.member)
         return result
 
-    def _handle_assignment(self, ast: AST, index_names: set[str], for_body: ASTNode) -> set[LineNumber]:
+    def _handle_assignment(self, index_names: set[str], for_body: AST) -> set[LineNumber]:
         result = set()
-        for op in ast.get_subtree(for_body).get_proxy_nodes(ASTNodeType.ASSIGNMENT):
+        for op in for_body.get_proxy_nodes(ASTNodeType.ASSIGNMENT):
             if op.expressionl.node_type != ASTNodeType.MEMBER_REFERENCE:
                 continue
             if op.expressionl.member not in index_names:
@@ -50,9 +50,9 @@ class MutableIndex:
             result.add(op.expressionl.line)
         return result
 
-    def _handle_unary_operations(self, ast: AST, index_names: set[str], for_body: ASTNode) -> set[LineNumber]:
+    def _handle_unary_operations(self, index_names: set[str], for_body: AST) -> set[LineNumber]:
         result = set()
-        for op in ast.get_subtree(for_body).get_proxy_nodes(ASTNodeType.STATEMENT_EXPRESSION):
+        for op in for_body.get_proxy_nodes(ASTNodeType.STATEMENT_EXPRESSION):
             if op.expression.node_type == ASTNodeType.ASSIGNMENT:
                 continue
             if op.expression.member not in index_names:
