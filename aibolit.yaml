@@ -7,10 +7,10 @@
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.678917151
+  seconds: 3.593296644
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-01 16:01:18.970601163 Z
+  when: 2025-06-01 17:00:50.715602690 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6026,29 +6026,52 @@
   where: github
   who: 41443370
   why: Contributed code in cqfn/aibolit#795
-- _id: 1677
-  _time: 2025-06-01 17:00:19.585282909 Z
+- _id: 1681
+  _time: 2025-06-01 17:59:55.783125232 Z
   _version: 0.10.2/0.45.0/
-  latest: 50374569519
+  branch: implement-147-mutable-index
+  details: The pull request cqfn/aibolit#797 has been opened by @antonprokopyev.
+  event_id: 50375654121
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 797
   repository: 237167507
-  what: events-were-scanned
+  what: pull-was-opened
+  when: 2025-06-01 14:38:34.000000000 Z
   where: github
-- _id: 1678
-  _time: 2025-06-01 17:00:25.891779649 Z
+  who: 13173649
+- _id: 1685
+  _time: 2025-06-01 18:00:00.908277833 Z
   _version: 0.10.2/0.45.0/
-  latest: 776
-  repository: 237167507
-  what: labels-were-scanned
+  is_human: 1
+  name: antonprokopyev
+  what: who-has-name
+  when: 2025-06-01 18:00:00.908514817 Z
   where: github
-- _id: 1679
-  _time: 2025-06-01 17:00:27.617164573 Z
+  who: 13173649
+- _id: 1691
+  _time: 2025-06-01 18:00:14.471749517 Z
   _version: 0.10.2/0.45.0/
-  latest: 776
+  latest: 743
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 1680
-  _time: 2025-06-01 17:00:28.276662959 Z
+- _id: 1696
+  _time: 2025-06-01 18:00:26.182506791 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50375961717
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 1697
+  _time: 2025-06-01 18:00:31.029240006 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 1698
+  _time: 2025-06-01 18:00:31.745740700 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
