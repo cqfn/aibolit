@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="127448">
+<fb version="0.10.2" size="129641">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
@@ -9,10 +9,10 @@
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">3.137975957</seconds>
+    <seconds t="F">3.511528825</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-01T11:01:05Z</when>
+    <when t="T">2025-06-01T12:01:17Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -6434,39 +6434,177 @@
     <when t="T">2025-06-01T08:00:52Z</when>
   </f>
   <f>
-    <_id t="I">1578</_id>
-    <_time t="T">2025-06-01T12:00:43Z</_time>
+    <_id t="I">1582</_id>
+    <_time t="T">2025-06-01T13:17:45Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50365309022</latest>
+    <details t="S">The issue cqfn/aibolit#746 has been closed by @yegor256.</details>
+    <event_id t="I">50367875079</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">746</issue>
     <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-01T03:59:15Z</when>
     <where t="S">github</where>
+    <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">1579</_id>
-    <_time t="T">2025-06-01T12:00:45Z</_time>
+    <_id t="I">1583</_id>
+    <_time t="T">2025-06-01T13:17:45Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">710</latest>
+    <details t="S">The issue cqfn/aibolit#745 has been closed by @yegor256.</details>
+    <event_id t="I">50367875065</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">745</issue>
     <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-01T03:59:15Z</when>
     <where t="S">github</where>
+    <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">1580</_id>
-    <_time t="T">2025-06-01T12:00:54Z</_time>
+    <_id t="I">1584</_id>
+    <_time t="T">2025-06-01T13:17:45Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">743</latest>
+    <branch t="S">746</branch>
+    <comments t="I">2</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">1</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#793 has been closed by @yegor256, with 7 HoC and 2 comments.</details>
+    <event_id t="I">50367874934</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">7</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">793</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-01T03:59:14Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">1585</_id>
+    <_time t="T">2025-06-01T13:17:56Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <details t="S">The issue cqfn/aibolit#748 has been closed by @yegor256.</details>
+    <event_id t="I">50367871847</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">748</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-01T03:58:54Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">1586</_id>
+    <_time t="T">2025-06-01T13:17:56Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">748</branch>
+    <comments t="I">2</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">1</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#794 has been closed by @yegor256, with 3 HoC and 2 comments.</details>
+    <event_id t="I">50367871724</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">3</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">794</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-01T03:58:53Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">1587</_id>
+    <_time t="T">2025-06-01T13:18:03Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <details t="S">The issue cqfn/aibolit#749 has been closed by @yegor256.</details>
+    <event_id t="I">50367868306</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">749</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-01T03:58:33Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">1588</_id>
+    <_time t="T">2025-06-01T13:18:03Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">749</branch>
+    <comments t="I">1</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">1</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#795 has been closed by @yegor256, with 2 HoC and 1 comments.</details>
+    <event_id t="I">50367867936</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">795</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-01T03:58:32Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">1601</_id>
+    <_time t="T">2025-06-01T13:18:50Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">776</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1581</_id>
-    <_time t="T">2025-06-01T12:00:58Z</_time>
+    <_id t="I">1602</_id>
+    <_time t="T">2025-06-01T13:18:52Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">50368168962</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1603</_id>
+    <_time t="T">2025-06-01T13:18:59Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">776</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1604</_id>
+    <_time t="T">2025-06-01T13:19:00Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
     <where t="S">github</where>
   </f>
 </fb>
