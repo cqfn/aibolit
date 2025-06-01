@@ -3,14 +3,14 @@
   cycles: 2
   deleted: 8
   error:
-  - 'Many (225) issues are missing in cqfn/aibolit (between 485 and 796): 490, 491,
+  - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 796): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.425067316
+  seconds: 3.355792367
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-01 06:00:56.364743419 Z
+  when: 2025-06-01 07:01:03.827786757 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5767,31 +5767,46 @@
   when: 2025-05-31 16:54:33.000000000 Z
   where: github
   who: 41443370
-- _id: 1491
-  _time: 2025-06-01 07:00:31.386454691 Z
+- _id: 1509
+  _time: 2025-06-01 08:00:52.477986085 Z
   _version: 0.10.2/0.45.0/
-  latest: 50361078693
+  latest: 743
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 1511
+  _time: 2025-06-01 08:00:55.637756805 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50362282020
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 1492
-  _time: 2025-06-01 07:00:38.635849754 Z
+- _id: 1512
+  _time: 2025-06-01 08:01:02.595274175 Z
   _version: 0.10.2/0.45.0/
-  latest: 776
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 1493
-  _time: 2025-06-01 07:00:39.279855739 Z
+  total_active_contributors: 5
+  total_commits: 2376
+  total_contributors: 18
+  total_files: 1042
+  total_forks: 23
+  total_issues: 397
+  total_pulls: 399
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 65
+  what: dimensions-of-terrain
+  when: 2025-06-01 08:00:52.483695421 Z
+- _id: 1513
+  _time: 2025-06-01 08:01:03.820598482 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 1494
-  _time: 2025-06-01 07:00:43.271671688 Z
+- _id: 1514
+  _time: 2025-06-01 08:01:07.192794008 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
-  what: labels-were-scanned
+  what: types-were-scanned
   where: github
