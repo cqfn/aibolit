@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 3
   deleted: 8
   error:
   - 'Many (225) issues are missing in cqfn/aibolit (between 485 and 796): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.116622074
+  seconds: 14.540833277
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-01 04:26:57.557103630 Z
+  when: 2025-06-01 05:02:44.495633753 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5683,31 +5683,73 @@
   when: *75
   where: github
   who: 526301
-- _id: 1454
-  _time: 2025-06-01 05:02:04.898120870 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50358490009
+- _id:
+  - 1460
+  - 1458
+  _job: 23041
+  _time:
+  - 2025-06-01 05:02:41.773293283 Z
+  - 2025-06-01 05:02:31.012940395 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 12
+  details: It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#792,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/792/#issuecomment-2926517708
+  is_human: 1
+  issue: 792
+  receipt: 0
   repository: 237167507
-  what: events-were-scanned
+  what: bug-report-was-rewarded
+  when: 2025-06-01 05:02:31.014605494 Z
   where: github
-- _id: 1455
-  _time: 2025-06-01 05:02:10.944934572 Z
+  who: 41443370
+  why: Reported bug in cqfn/aibolit#792
+- _id:
+  - 1461
+  - 1459
+  _job: 23041
+  _time:
+  - 2025-06-01 05:02:41.776242612 Z
+  - 2025-06-01 05:02:34.773412167 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 12
+  details: It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#796,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/796/#issuecomment-2926517730
+  is_human: 1
+  issue: 796
+  receipt: 0
+  repository: 237167507
+  what: bug-report-was-rewarded
+  when: 2025-06-01 05:02:34.775297003 Z
+  where: github
+  who: 41443370
+  why: Reported bug in cqfn/aibolit#796
+- _id: 1463
+  _time: 2025-06-01 06:00:06.849410319 Z
+  _version: 0.10.2/0.45.0/
+  latest: 743
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 1472
+  _time: 2025-06-01 06:00:36.463482520 Z
   _version: 0.10.2/0.45.0/
   latest: 743
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 1456
-  _time: 2025-06-01 05:02:12.761553601 Z
+- _id: 1474
+  _time: 2025-06-01 06:00:38.894874529 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50360037437
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 1475
+  _time: 2025-06-01 06:00:40.720440045 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
-  where: github
-- _id: 1457
-  _time: 2025-06-01 05:02:16.399244157 Z
-  _version: 0.10.2/0.45.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
   where: github

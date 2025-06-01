@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="125425">
+<fb version="0.10.2" size="126375">
   <f>
     <added t="I">8</added>
-    <cycles t="I">2</cycles>
+    <cycles t="I">3</cycles>
     <deleted t="I">8</deleted>
     <error>
       <v t="S">Many (225) issues are missing in cqfn/aibolit (between 485 and 796): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">3.116622074</seconds>
+    <seconds t="F">14.540833277</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-01T04:26:57Z</when>
+    <when t="T">2025-06-01T05:02:44Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -6321,17 +6321,65 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">1454</_id>
-    <_time t="T">2025-06-01T05:02:04Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50358490009</latest>
+    <_id>
+      <v t="I">1460</v>
+      <v t="I">1458</v>
+    </_id>
+    <_job t="I">23041</_job>
+    <_time>
+      <v t="T">2025-06-01T05:02:41Z</v>
+      <v t="T">2025-06-01T05:02:31Z</v>
+    </_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <award t="I">12</award>
+    <details t="S">It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#792, the reward amount is 12.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/792/#issuecomment-2926517708</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">792</issue>
+    <receipt t="I">0</receipt>
     <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
+    <what t="S">bug-report-was-rewarded</what>
+    <when t="T">2025-06-01T05:02:31Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Reported bug in cqfn/aibolit#792</why>
+  </f>
+  <f>
+    <_id>
+      <v t="I">1461</v>
+      <v t="I">1459</v>
+    </_id>
+    <_job t="I">23041</_job>
+    <_time>
+      <v t="T">2025-06-01T05:02:41Z</v>
+      <v t="T">2025-06-01T05:02:34Z</v>
+    </_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <award t="I">12</award>
+    <details t="S">It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#796, the reward amount is 12.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/796/#issuecomment-2926517730</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">796</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-report-was-rewarded</what>
+    <when t="T">2025-06-01T05:02:34Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Reported bug in cqfn/aibolit#796</why>
+  </f>
+  <f>
+    <_id t="I">1463</_id>
+    <_time t="T">2025-06-01T06:00:06Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">743</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1455</_id>
-    <_time t="T">2025-06-01T05:02:10Z</_time>
+    <_id t="I">1472</_id>
+    <_time t="T">2025-06-01T06:00:36Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">743</latest>
     <repository t="I">237167507</repository>
@@ -6339,21 +6387,21 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1456</_id>
-    <_time t="T">2025-06-01T05:02:12Z</_time>
+    <_id t="I">1474</_id>
+    <_time t="T">2025-06-01T06:00:38Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50360037437</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1475</_id>
+    <_time t="T">2025-06-01T06:00:40Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">1457</_id>
-    <_time t="T">2025-06-01T05:02:16Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
