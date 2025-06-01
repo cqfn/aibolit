@@ -5,12 +5,13 @@
   error:
   - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 796): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
+  - A few (8) facts were found with missing openings, in cqfn/aibolit
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.511528825
+  seconds: 3.253786418
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-01 12:01:17.710342299 Z
+  when: 2025-06-01 13:19:18.720752613 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5830,7 +5831,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-06-01 03:59:14.000000000 Z
+  when: &76 2025-06-01 03:59:14.000000000 Z
   where: github
   who: 526301
 - _id: 1585
@@ -5868,7 +5869,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-06-01 03:58:53.000000000 Z
+  when: &77 2025-06-01 03:58:53.000000000 Z
   where: github
   who: 526301
 - _id: 1587
@@ -5906,34 +5907,88 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-06-01 03:58:32.000000000 Z
+  when: &78 2025-06-01 03:58:32.000000000 Z
   where: github
   who: 526301
-- _id: 1601
-  _time: 2025-06-01 13:18:50.731012896 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
+- _id: 1605
+  _job: 23102
+  _time: 2025-06-01 13:19:17.325420695 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 2
+  details: The pull request cqfn/aibolit#793 with 7 HoC created by @ivanovmg was merged
+    by @yegor256 after 11h4m of being in review and 2 comments.
+  hoc: 7
+  is_human: 1
+  issue: 793
+  merger: 526301
   repository: 237167507
-  what: types-were-scanned
+  review_comments: 0
+  seconds: 39881
+  what: code-was-contributed
+  when: *76
   where: github
-- _id: 1602
-  _time: 2025-06-01 13:18:52.689094682 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50368168962
+  who: 41443370
+- _id: 1606
+  _job: 23102
+  _time: 2025-06-01 13:19:17.447011516 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 2
+  details: The pull request cqfn/aibolit#794 with 3 HoC created by @ivanovmg was merged
+    by @yegor256 after 11h1m of being in review and 2 comments.
+  hoc: 3
+  is_human: 1
+  issue: 794
+  merger: 526301
   repository: 237167507
-  what: events-were-scanned
+  review_comments: 0
+  seconds: 39679
+  what: code-was-contributed
+  when: *77
   where: github
-- _id: 1603
-  _time: 2025-06-01 13:18:59.715567349 Z
+  who: 41443370
+- _id: 1607
+  _job: 23102
+  _time: 2025-06-01 13:19:17.452706403 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 1
+  details: The pull request cqfn/aibolit#795 with 2 HoC created by @ivanovmg was merged
+    by @yegor256 after 10h56m of being in review and 1 comments.
+  hoc: 2
+  is_human: 1
+  issue: 795
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 39386
+  what: code-was-contributed
+  when: *78
+  where: github
+  who: 41443370
+- _id: 1618
+  _time: 2025-06-01 14:00:36.311925112 Z
   _version: 0.10.2/0.45.0/
-  latest: 776
+  latest: 743
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 1604
-  _time: 2025-06-01 13:19:00.917350953 Z
+- _id: 1621
+  _time: 2025-06-01 14:00:49.719072456 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50369152126
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 1622
+  _time: 2025-06-01 14:00:50.736245640 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 1623
+  _time: 2025-06-01 14:00:57.693108890 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
   where: github
