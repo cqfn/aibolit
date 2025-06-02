@@ -9,6 +9,8 @@ import uuid
 
 from bs4 import BeautifulSoup
 
+from aibolit.ast_framework import AST
+
 
 class NPathMetric():
     """Main NPath Complexity class."""
@@ -77,3 +79,11 @@ class NPathMetric():
                 name = name[pos1:]
                 raise Exception(error['msg'])
         return result
+
+
+class MvnFreeNPathMetric:
+    def __init__(self, ast: AST) -> None:
+        self.ast = ast
+
+    def value(self) -> int:
+        return 0

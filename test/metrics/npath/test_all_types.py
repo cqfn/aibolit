@@ -1,9 +1,13 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
+from textwrap import dedent
+
 import pytest
 
-from aibolit.metrics.npath.main import NPathMetric
+from aibolit.ast_framework import AST
+from aibolit.metrics.npath.main import MvnFreeNPathMetric, NPathMetric
+from aibolit.utils.ast_builder import build_ast_from_string
 
 
 def testIncorrectFormat():
@@ -42,3 +46,20 @@ def testMediumScore():
     metric = NPathMetric(file)
     res = metric.value(True)
     assert res['data'][0]['complexity'] == 12
+
+
+class TestMvnFreeNPathMetric:
+    def test_class_definition(self) -> None:
+        content = dedent(
+            """\
+            class Dummy { }
+            """
+        ).strip()
+        assert self._value(content) == 0
+
+    def _value(self, content: str) -> int:
+        return MvnFreeNPathMetric(
+            AST.build_from_javalang(
+                build_ast_from_string(content),
+            ),
+        ).value()
