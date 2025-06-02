@@ -21,14 +21,11 @@ class MutableIndex:
         """
         result = set()
         ast = AST.build_from_javalang(build_ast(filename))
-        for node in ast.get_proxy_nodes(
-            ASTNodeType.FOR_STATEMENT,
-        ):
+        for node in ast.get_proxy_nodes(ASTNodeType.FOR_STATEMENT):
             index_names = self._collect_index_names(ast, node)
             for_body = ast.get_subtree(node.body)
             result.update(self._handle_assignment(index_names, for_body))
             result.update(self._handle_unary_operations(index_names, for_body))
-
         return sorted(result)
 
     def _collect_index_names(self, ast: AST, node: ASTNode) -> set[str]:
@@ -43,25 +40,21 @@ class MutableIndex:
     def _handle_assignment(self, index_names: set[str], for_body: AST) -> set[LineNumber]:
         result = set()
         for op in for_body.get_proxy_nodes(ASTNodeType.ASSIGNMENT):
-            if op.expressionl.node_type != ASTNodeType.MEMBER_REFERENCE:
-                continue
-            if op.expressionl.member not in index_names:
-                continue
-            result.add(op.expressionl.line)
+            expr = op.expressionl
+            if expr.node_type == ASTNodeType.MEMBER_REFERENCE and expr.member in index_names:
+                result.add(expr.line)
         return result
 
     def _handle_unary_operations(self, index_names: set[str], for_body: AST) -> set[LineNumber]:
         result = set()
         for op in for_body.get_proxy_nodes(ASTNodeType.STATEMENT_EXPRESSION):
-            if op.expression.node_type == ASTNodeType.ASSIGNMENT:
-                continue
-            if op.expression.member not in index_names:
-                continue
-            unary_operators = ("++", "--")
-            for operator in op.expression.prefix_operators:
-                if operator in unary_operators:
-                    result.add(op.expression.line)
-            for operator in op.expression.postfix_operators:
-                if operator in unary_operators:
-                    result.add(op.expression.line)
+            expr = op.expression
+            if expr.node_type != ASTNodeType.ASSIGNMENT and expr.member in index_names:
+                unary_operators = ("++", "--")
+                for operator in expr.prefix_operators:
+                    if operator in unary_operators:
+                        result.add(expr.line)
+                for operator in expr.postfix_operators:
+                    if operator in unary_operators:
+                        result.add(expr.line)
         return result
