@@ -57,6 +57,15 @@ class TestMvnFreeNPathMetric:
         ).strip()
         assert self._value(content) == 0
 
+    def test_two_classes_definition(self) -> None:
+        content = dedent(
+            """\
+            class First { }
+            class Second { }
+            """
+        ).strip()
+        assert self._value(content) == 0
+
     def _value(self, content: str) -> int:
         return MvnFreeNPathMetric(
             AST.build_from_javalang(
