@@ -66,6 +66,20 @@ class TestMvnFreeNPathMetric:
         ).strip()
         assert self._value(content) == 0
 
+    def test_one_if_statement(self) -> None:
+        content = dedent(
+            """\
+            class WithOneIf {
+                public void print(bool flag) {
+                    if (flag) {
+                        System.out.println("OK");
+                    }
+                }
+            }
+            """
+        ).strip()
+        assert self._value(content) == 2
+
     def _value(self, content: str) -> int:
         return MvnFreeNPathMetric(
             AST.build_from_javalang(

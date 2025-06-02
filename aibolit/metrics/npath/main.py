@@ -6,10 +6,11 @@ import shutil
 import subprocess
 import tempfile
 import uuid
+from typing import Iterator
 
 from bs4 import BeautifulSoup
 
-from aibolit.ast_framework import AST
+from aibolit.ast_framework import AST, ASTNodeType
 
 
 class NPathMetric():
@@ -86,4 +87,8 @@ class MvnFreeNPathMetric:
         self.ast = ast
 
     def value(self) -> int:
-        return 0
+        return sum(self._paths())
+
+    def _paths(self) -> Iterator[int]:
+        for node in self.ast.get_proxy_nodes(ASTNodeType.IF_STATEMENT):
+            yield 2
