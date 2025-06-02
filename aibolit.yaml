@@ -7,10 +7,10 @@
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 16.935385383
+  seconds: 10.139468271
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-02 15:02:34.357064217 Z
+  when: 2025-06-02 16:01:24.800825449 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6301,31 +6301,50 @@
   where: github
   who: 41443370
   why: Reviewed code in cqfn/aibolit#797
-- _id: 2052
-  _time: 2025-06-02 16:00:27.147964038 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
+- _id: 2060
+  _job: 23283
+  _time:
+  - 2025-06-02 16:01:23.341023176 Z
+  - 2025-06-02 16:01:16.854445792 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 21
+  details: It's time to reward @antonprokopyev for the code contributed in cqfn/aibolit#797,
+    the reward amount is 21.
+  href: https://github.com/cqfn/aibolit/issues/797/#issuecomment-2931391108
+  is_human: 1
+  issue: 797
+  receipt: 0
   repository: 237167507
-  what: labels-were-scanned
+  what: code-contribution-was-rewarded
+  when: 2025-06-02 16:01:16.858768494 Z
   where: github
-- _id: 2057
-  _time: 2025-06-02 16:00:46.020969726 Z
+  who: 13173649
+  why: Contributed code in cqfn/aibolit#797
+- _id: 2076
+  _time: 2025-06-02 17:09:55.357351439 Z
   _version: 0.10.2/0.45.0/
-  latest: 50408691611
+  latest: 50410444155
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 2058
-  _time: 2025-06-02 16:00:51.546979739 Z
-  _version: 0.10.2/0.45.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 2059
-  _time: 2025-06-02 16:00:53.035877058 Z
+- _id: 2077
+  _time: 2025-06-02 17:09:57.675250291 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 2078
+  _time: 2025-06-02 17:10:06.161329015 Z
+  _version: 0.10.2/0.45.0/
+  latest: 776
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 2079
+  _time: 2025-06-02 17:10:11.887983000 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
   where: github
