@@ -3,14 +3,17 @@
   cycles: 2
   deleted: 8
   error:
-  - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 797): 490, 491,
-    492, 493, 494, 495, 496, 497, 498, and 499...'
-  - A few (7) facts were found with missing openings, in cqfn/aibolit
+  - 'GET https://api.github.com/repositories/237167507: 403 - API rate limit exceeded
+    for 54.88.216.143. (But here''s the good news: Authenticated requests get a higher
+    rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting'
+  - 'GET https://api.github.com/users/yegor256: 403 - API rate limit exceeded for
+    54.88.216.143. (But here''s the good news: Authenticated requests get a higher
+    rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting'
   inserted: 8
-  seconds: 3.651650906
+  seconds: 181.579570396
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-01 23:00:50.709624703 Z
+  when: 2025-06-02 00:03:50.975823761 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6049,29 +6052,35 @@
   when: 2025-06-01 18:00:00.908514817 Z
   where: github
   who: 13173649
-- _id: 1782
-  _time: 2025-06-02 00:00:21.265131168 Z
+- _id: 1788
+  _job: 23182
+  _time: 2025-06-02 00:04:11.703111955 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  what: learn-eva
+  when: 2025-06-02 00:04:11.692073710 Z
+- _id: 1801
+  _time: 2025-06-02 02:42:44.444614545 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50383128024
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 1802
+  _time: 2025-06-02 02:42:50.771082797 Z
   _version: 0.10.2/0.45.0/
   latest: 776
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 1785
-  _time: 2025-06-02 00:00:26.387049387 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50382380737
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 1786
-  _time: 2025-06-02 00:00:33.404136748 Z
+- _id: 1803
+  _time: 2025-06-02 02:42:56.409376335 Z
   _version: 0.10.2/0.45.0/
   latest: 743
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 1787
-  _time: 2025-06-02 00:00:34.145075244 Z
+- _id: 1804
+  _time: 2025-06-02 02:42:57.693278949 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
