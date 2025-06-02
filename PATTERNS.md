@@ -690,3 +690,23 @@ class Foo {
 ```
 
 ***
+
+*Title*: Incomplete For
+
+*Code*: **P33**
+
+*Description*: When a `for` loop is missing at least one control part (e.g. initialization, condition, or increment/decrement) it's a pattern.
+
+*Example*:
+
+```java
+class Foo {
+  void foo() {
+    for (int i = 0; i<10;) { // here
+      ++i;
+    }
+  }
+}
+```
+
+***

@@ -31,6 +31,7 @@ from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import
     ForceTypeCastingFinder as P5
 from aibolit.patterns.if_return_if_detection.if_detection import CountIfReturn as P6
 from aibolit.patterns.implements_multi.implements_multi import ImplementsMultiFinder as P7
+from aibolit.patterns.incomplete_for.incomplete_for import IncompleteFor as P33
 from aibolit.patterns.instanceof.instance_of import InstanceOf as P8
 from aibolit.patterns.joined_validation.joined_validation import JoinedValidation as P23
 from aibolit.patterns.many_primary_ctors.many_primary_ctors import ManyPrimaryCtors as P9
@@ -159,7 +160,8 @@ class Config(metaclass=Singleton):
                 {"name": "Nested Loop", "code": "P32",
                  "make": lambda: P32(2, ASTNodeType.DO_STATEMENT,
                                      ASTNodeType.FOR_STATEMENT,
-                                     ASTNodeType.WHILE_STATEMENT)}
+                                     ASTNodeType.WHILE_STATEMENT)},
+                {"name": "Incomplete For", "code": "P33", "make": P33},
             ],
             "metrics": [
                 {"name": "Entropy", "code": "M1", "make": M1},
