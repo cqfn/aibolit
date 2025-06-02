@@ -6,11 +6,20 @@
   - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 799): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
+  - 'GET https://api.github.com/user/41443370: 403 - API rate limit exceeded for 18.208.163.245.
+    (But here''s the good news: Authenticated requests get a higher rate limit. Check
+    out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting'
+  - 'GET https://api.github.com/users/yegor256: 403 - API rate limit exceeded for
+    18.208.163.245. (But here''s the good news: Authenticated requests get a higher
+    rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting'
+  - 'GET https://api.github.com/repositories/237167507: 403 - API rate limit exceeded
+    for 18.208.163.245. (But here''s the good news: Authenticated requests get a higher
+    rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting'
   inserted: 8
-  seconds: 3.673353558
+  seconds: 188.065030682
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-02 13:25:38.212352242 Z
+  when: 2025-06-02 14:04:02.516765521 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6194,29 +6203,76 @@
   when: *80
   where: github
   who: 526301
-- _id: 2016
-  _time: 2025-06-02 14:00:32.850281799 Z
+- _id: 2021
+  _time: 2025-06-02 15:00:45.682508124 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#743 has been closed by @rultor.
+  event_id: 50406625505
+  event_type: IssuesEvent
+  is_human: 0
+  issue: 743
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-06-02 12:42:13.000000000 Z
+  where: github
+  who: 8086956
+- _id: 2022
+  _time: 2025-06-02 15:00:45.710207456 Z
+  _version: 0.10.2/0.45.0/
+  branch: implement-147-mutable-index
+  comments: 15
+  comments_appreciated: 7
+  comments_by_author: 2
+  comments_by_reviewers: 12
+  comments_resolved: 0
+  comments_to_code: 4
+  details: The pull request cqfn/aibolit#797 has been closed by @rultor, with 102
+    HoC and 15 comments.
+  event_id: 50406625401
+  event_type: PullRequestEvent
+  failed_builds: 0
+  hoc: 102
+  is_human: 0
+  issue: 797
+  repository: 237167507
+  review_comments: 6
+  succeeded_builds: 16
+  what: pull-was-merged
+  when: 2025-06-02 12:42:13.000000000 Z
+  where: github
+  who: 8086956
+- _id: 2025
+  _time: 2025-06-02 15:01:10.417995646 Z
+  _version: 0.10.2/0.45.0/
+  is_human: 0
+  name: rultor
+  what: who-has-name
+  when: 2025-06-02 15:01:10.418222513 Z
+  where: github
+  who: 8086956
+- _id: 2035
+  _time: 2025-06-02 15:01:48.146228348 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 2017
-  _time: 2025-06-02 14:00:33.246573832 Z
+- _id: 2036
+  _time: 2025-06-02 15:01:56.332867451 Z
   _version: 0.10.2/0.45.0/
-  latest: 0
+  latest: 776
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 2019
-  _time: 2025-06-02 14:00:35.932973983 Z
+- _id: 2037
+  _time: 2025-06-02 15:01:58.191590630 Z
   _version: 0.10.2/0.45.0/
-  latest: 50405920670
+  latest: 50406992981
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 2020
-  _time: 2025-06-02 14:00:36.585594524 Z
+- _id: 2038
+  _time: 2025-06-02 15:01:59.902730345 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507

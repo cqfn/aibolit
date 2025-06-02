@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="135579">
+<fb version="0.10.2" size="137377">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
@@ -7,12 +7,15 @@
     <error>
       <v t="S">Many (222) issues are missing in cqfn/aibolit (between 485 and 799): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
+      <v t="S">GET https://api.github.com/user/41443370: 403 - API rate limit exceeded for 18.208.163.245. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting</v>
+      <v t="S">GET https://api.github.com/users/yegor256: 403 - API rate limit exceeded for 18.208.163.245. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting</v>
+      <v t="S">GET https://api.github.com/repositories/237167507: 403 - API rate limit exceeded for 18.208.163.245. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">3.673353558</seconds>
+    <seconds t="F">188.065030682</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-02T13:25:38Z</when>
+    <when t="T">2025-06-02T14:04:02Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -6890,8 +6893,60 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">2016</_id>
-    <_time t="T">2025-06-02T14:00:32Z</_time>
+    <_id t="I">2021</_id>
+    <_time t="T">2025-06-02T15:00:45Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <details t="S">The issue cqfn/aibolit#743 has been closed by @rultor.</details>
+    <event_id t="I">50406625505</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">743</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-02T12:42:13Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">2022</_id>
+    <_time t="T">2025-06-02T15:00:45Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">implement-147-mutable-index</branch>
+    <comments t="I">15</comments>
+    <comments_appreciated t="I">7</comments_appreciated>
+    <comments_by_author t="I">2</comments_by_author>
+    <comments_by_reviewers t="I">12</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">4</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#797 has been closed by @rultor, with 102 HoC and 15 comments.</details>
+    <event_id t="I">50406625401</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">102</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">797</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">6</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-02T12:42:13Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">2025</_id>
+    <_time t="T">2025-06-02T15:01:10Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <is_human t="I">0</is_human>
+    <name t="S">rultor</name>
+    <what t="S">who-has-name</what>
+    <when t="T">2025-06-02T15:01:10Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">2035</_id>
+    <_time t="T">2025-06-02T15:01:48Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -6899,26 +6954,26 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2017</_id>
-    <_time t="T">2025-06-02T14:00:33Z</_time>
+    <_id t="I">2036</_id>
+    <_time t="T">2025-06-02T15:01:56Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">776</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2019</_id>
-    <_time t="T">2025-06-02T14:00:35Z</_time>
+    <_id t="I">2037</_id>
+    <_time t="T">2025-06-02T15:01:58Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50405920670</latest>
+    <latest t="I">50406992981</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2020</_id>
-    <_time t="T">2025-06-02T14:00:36Z</_time>
+    <_id t="I">2038</_id>
+    <_time t="T">2025-06-02T15:01:59Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
