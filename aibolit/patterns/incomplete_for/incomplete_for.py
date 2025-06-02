@@ -14,8 +14,7 @@ class IncompleteFor:
 
     def value(self, ast: AST) -> List[LineNumber]:
         lines: set[int] = set()
-        for for_statement in ast.get_proxy_nodes(ASTNodeType.FOR_STATEMENT):
-            for_control = for_statement.control
+        for for_control in ast.get_proxy_nodes(ASTNodeType.FOR_CONTROL):
             if not all((for_control.init, for_control.update, for_control.condition)):
-                lines.add(for_statement.line)
+                lines.add(for_control.parent.line)
         return sorted(lines)
