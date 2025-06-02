@@ -16,5 +16,8 @@ class IncompleteFor:
         lines: set[int] = set()
         for for_control in ast.get_proxy_nodes(ASTNodeType.FOR_CONTROL):
             if not all((for_control.init, for_control.update, for_control.condition)):
-                lines.add(for_control.parent.line)
+                parent = for_control.parent
+                if parent is None:
+                    raise RuntimeError("For control without For statement parent")
+                lines.add(parent.line)
         return sorted(lines)
