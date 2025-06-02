@@ -7,10 +7,10 @@
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.514197492
+  seconds: 3.759461742
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-02 05:02:31.505424203 Z
+  when: 2025-06-02 06:01:23.542021044 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6071,32 +6071,50 @@
   repository: 237167507
   review_comments: 6
   what: pull-was-reviewed
-  when: 2025-06-02 05:35:58.000000000 Z
+  when: &79 2025-06-02 05:35:58.000000000 Z
   where: github
   who: 41443370
-- _id: 1873
-  _time: 2025-06-02 06:00:49.289593639 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50390402611
+- _id: 1877
+  _job: 23211
+  _time: 2025-06-02 06:01:21.503379938 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  author: 13173649
+  comments: 12
+  details: The pull request cqfn/aibolit#797 with 102 HoC created by @antonprokopyev
+    was reviewed by @ivanovmg after 14h57m and 12 comments.
+  hoc: 102
+  is_human: 1
+  issue: 797
   repository: 237167507
-  what: events-were-scanned
+  review_comments: 6
+  seconds: 53844
+  what: code-was-reviewed
+  when: *79
   where: github
-- _id: 1874
-  _time: 2025-06-02 06:00:59.392889278 Z
+  who: 41443370
+- _id: 1889
+  _time: 2025-06-02 07:01:28.716155552 Z
   _version: 0.10.2/0.45.0/
   latest: 743
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 1875
-  _time: 2025-06-02 06:01:04.702766944 Z
+- _id: 1890
+  _time: 2025-06-02 07:01:34.392808668 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 1876
-  _time: 2025-06-02 06:01:05.701525144 Z
+- _id: 1892
+  _time: 2025-06-02 07:01:37.961135191 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50390506937
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 1893
+  _time: 2025-06-02 07:01:39.300963482 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
