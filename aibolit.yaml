@@ -1,25 +1,16 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 3
   deleted: 8
   error:
   - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 799): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
-  - 'GET https://api.github.com/user/41443370: 403 - API rate limit exceeded for 18.208.163.245.
-    (But here''s the good news: Authenticated requests get a higher rate limit. Check
-    out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting'
-  - 'GET https://api.github.com/users/yegor256: 403 - API rate limit exceeded for
-    18.208.163.245. (But here''s the good news: Authenticated requests get a higher
-    rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting'
-  - 'GET https://api.github.com/repositories/237167507: 403 - API rate limit exceeded
-    for 18.208.163.245. (But here''s the good news: Authenticated requests get a higher
-    rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting'
   inserted: 8
-  seconds: 188.065030682
+  seconds: 16.935385383
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-02 14:04:02.516765521 Z
+  when: 2025-06-02 15:02:34.357064217 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6238,7 +6229,7 @@
   review_comments: 6
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-06-02 12:42:13.000000000 Z
+  when: &81 2025-06-02 12:42:13.000000000 Z
   where: github
   who: 8086956
 - _id: 2025
@@ -6250,29 +6241,89 @@
   when: 2025-06-02 15:01:10.418222513 Z
   where: github
   who: 8086956
-- _id: 2035
-  _time: 2025-06-02 15:01:48.146228348 Z
-  _version: 0.10.2/0.45.0/
-  latest: 0
+- _id: 2041
+  _job: 23276
+  _time: 2025-06-02 15:02:28.492398935 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 15
+  details: The pull request cqfn/aibolit#797 with 102 HoC created by @antonprokopyev
+    was merged by @rultor after 22h3m of being in review and 15 comments.
+  hoc: 102
+  is_human: 1
+  issue: 797
+  merger: 8086956
   repository: 237167507
-  what: labels-were-scanned
+  review_comments: 6
+  seconds: 79419
+  what: code-was-contributed
+  when: *81
   where: github
-- _id: 2036
-  _time: 2025-06-02 15:01:56.332867451 Z
+  who: 13173649
+- _id:
+  - 2042
+  - 2039
+  _job: 23276
+  _time:
+  - 2025-06-02 15:02:32.921814015 Z
+  - 2025-06-02 15:02:19.211643007 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 12
+  details: It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#798,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/798/#issuecomment-2931156226
+  is_human: 1
+  issue: 798
+  receipt: 0
+  repository: 237167507
+  what: bug-report-was-rewarded
+  when: 2025-06-02 15:02:19.213691808 Z
+  where: github
+  who: 41443370
+  why: Reported bug in cqfn/aibolit#798
+- _id:
+  - 2043
+  - 2040
+  _job: 23276
+  _time:
+  - 2025-06-02 15:02:32.925844343 Z
+  - 2025-06-02 15:02:23.411859580 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 12
+  details: It's time to reward @ivanovmg for the code review in cqfn/aibolit#797,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/797/#issuecomment-2931156286
+  is_human: 1
+  issue: 797
+  receipt: 0
+  repository: 237167507
+  what: code-review-was-rewarded
+  when: 2025-06-02 15:02:23.418545066 Z
+  where: github
+  who: 41443370
+  why: Reviewed code in cqfn/aibolit#797
+- _id: 2052
+  _time: 2025-06-02 16:00:27.147964038 Z
   _version: 0.10.2/0.45.0/
   latest: 776
   repository: 237167507
-  what: types-were-scanned
+  what: labels-were-scanned
   where: github
-- _id: 2037
-  _time: 2025-06-02 15:01:58.191590630 Z
+- _id: 2057
+  _time: 2025-06-02 16:00:46.020969726 Z
   _version: 0.10.2/0.45.0/
-  latest: 50406992981
+  latest: 50408691611
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 2038
-  _time: 2025-06-02 15:01:59.902730345 Z
+- _id: 2058
+  _time: 2025-06-02 16:00:51.546979739 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 2059
+  _time: 2025-06-02 16:00:53.035877058 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507

@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="137377">
+<fb version="0.10.2" size="137786">
   <f>
     <added t="I">8</added>
-    <cycles t="I">2</cycles>
+    <cycles t="I">3</cycles>
     <deleted t="I">8</deleted>
     <error>
       <v t="S">Many (222) issues are missing in cqfn/aibolit (between 485 and 799): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
-      <v t="S">GET https://api.github.com/user/41443370: 403 - API rate limit exceeded for 18.208.163.245. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting</v>
-      <v t="S">GET https://api.github.com/users/yegor256: 403 - API rate limit exceeded for 18.208.163.245. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting</v>
-      <v t="S">GET https://api.github.com/repositories/237167507: 403 - API rate limit exceeded for 18.208.163.245. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">188.065030682</seconds>
+    <seconds t="F">16.935385383</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-02T14:04:02Z</when>
+    <when t="T">2025-06-02T15:02:34Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -6945,35 +6942,102 @@
     <who t="I">8086956</who>
   </f>
   <f>
-    <_id t="I">2035</_id>
-    <_time t="T">2025-06-02T15:01:48Z</_time>
+    <_id t="I">2041</_id>
+    <_job t="I">23276</_job>
+    <_time t="T">2025-06-02T15:02:28Z</_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <comments t="I">15</comments>
+    <details t="S">The pull request cqfn/aibolit#797 with 102 HoC created by @antonprokopyev was merged by @rultor after 22h3m of being in review and 15 comments.</details>
+    <hoc t="I">102</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">797</issue>
+    <merger t="I">8086956</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">6</review_comments>
+    <seconds t="I">79419</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-06-02T12:42:13Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id>
+      <v t="I">2042</v>
+      <v t="I">2039</v>
+    </_id>
+    <_job t="I">23276</_job>
+    <_time>
+      <v t="T">2025-06-02T15:02:32Z</v>
+      <v t="T">2025-06-02T15:02:19Z</v>
+    </_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <award t="I">12</award>
+    <details t="S">It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#798, the reward amount is 12.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/798/#issuecomment-2931156226</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">798</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-report-was-rewarded</what>
+    <when t="T">2025-06-02T15:02:19Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Reported bug in cqfn/aibolit#798</why>
+  </f>
+  <f>
+    <_id>
+      <v t="I">2043</v>
+      <v t="I">2040</v>
+    </_id>
+    <_job t="I">23276</_job>
+    <_time>
+      <v t="T">2025-06-02T15:02:32Z</v>
+      <v t="T">2025-06-02T15:02:23Z</v>
+    </_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <award t="I">12</award>
+    <details t="S">It's time to reward @ivanovmg for the code review in cqfn/aibolit#797, the reward amount is 12.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/797/#issuecomment-2931156286</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">797</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">code-review-was-rewarded</what>
+    <when t="T">2025-06-02T15:02:23Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Reviewed code in cqfn/aibolit#797</why>
+  </f>
+  <f>
+    <_id t="I">2052</_id>
+    <_time t="T">2025-06-02T16:00:27Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">776</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2036</_id>
-    <_time t="T">2025-06-02T15:01:56Z</_time>
+    <_id t="I">2057</_id>
+    <_time t="T">2025-06-02T16:00:46Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">776</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">2037</_id>
-    <_time t="T">2025-06-02T15:01:58Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50406992981</latest>
+    <latest t="I">50408691611</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2038</_id>
-    <_time t="T">2025-06-02T15:01:59Z</_time>
+    <_id t="I">2058</_id>
+    <_time t="T">2025-06-02T16:00:51Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">2059</_id>
+    <_time t="T">2025-06-02T16:00:53Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
