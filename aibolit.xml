@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="134997">
+<fb version="0.10.2" size="134956">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
@@ -7,13 +7,12 @@
     <error>
       <v t="S">Many (222) issues are missing in cqfn/aibolit (between 485 and 799): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
-      <v t="S">Judge quality-of-service stopped by timeout after 3m0s: execution expired</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">3.675418606</seconds>
+    <seconds t="F">3.830369399</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-02T09:05:29Z</when>
+    <when t="T">2025-06-02T10:04:21Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -6835,10 +6834,13 @@
     <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">1935</_id>
-    <_time t="T">2025-06-02T10:00:00Z</_time>
+    <_id t="I">1952</_id>
+    <_time t="T">2025-06-02T11:02:19Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <average_backlog_size t="F">16.25</average_backlog_size>
+    <average_build_duration t="F">75.814</average_build_duration>
+    <average_build_mttr t="I">-15091</average_build_mttr>
+    <average_build_success_rate t="F">0.982</average_build_success_rate>
     <average_issue_lifetime t="F">19891868.589743588</average_issue_lifetime>
     <average_pull_files_size t="F">1.7857142857142858</average_pull_files_size>
     <average_pull_hoc_size t="F">513.8571428571429</average_pull_hoc_size>
@@ -6857,26 +6859,17 @@
     <when t="T">2025-06-02T08:00:47Z</when>
   </f>
   <f>
-    <_id t="I">1947</_id>
-    <_time t="T">2025-06-02T10:00:45Z</_time>
+    <_id t="I">1965</_id>
+    <_time t="T">2025-06-02T11:03:03Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50397516994</latest>
+    <latest t="I">50400081732</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1948</_id>
-    <_time t="T">2025-06-02T10:00:53Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">776</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">1949</_id>
-    <_time t="T">2025-06-02T10:01:00Z</_time>
+    <_id t="I">1966</_id>
+    <_time t="T">2025-06-02T11:03:10Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">743</latest>
     <repository t="I">237167507</repository>
@@ -6884,8 +6877,17 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1950</_id>
-    <_time t="T">2025-06-02T10:04:03Z</_time>
+    <_id t="I">1967</_id>
+    <_time t="T">2025-06-02T11:03:15Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1968</_id>
+    <_time t="T">2025-06-02T11:03:16Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>

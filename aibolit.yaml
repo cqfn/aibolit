@@ -6,12 +6,11 @@
   - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 799): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
-  - 'Judge quality-of-service stopped by timeout after 3m0s: execution expired'
   inserted: 8
-  seconds: 3.675418606
+  seconds: 3.830369399
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-02 09:05:29.338648233 Z
+  when: 2025-06-02 10:04:21.876842526 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6144,10 +6143,13 @@
   when: 2025-06-02 08:25:16.000000000 Z
   where: github
   who: 41443370
-- _id: 1935
-  _time: 2025-06-02 10:00:00.205987605 Z
+- _id: 1952
+  _time: 2025-06-02 11:02:19.441821726 Z
   _version: 0.10.2/0.45.0/
   average_backlog_size: 16.25
+  average_build_duration: 75.814
+  average_build_mttr: -15091
+  average_build_success_rate: 0.982
   average_issue_lifetime: 19891868.589743588
   average_pull_files_size: 1.7857142857142858
   average_pull_hoc_size: 513.8571428571429
@@ -6164,29 +6166,29 @@
   since: 2025-05-26 08:00:47.238933298 Z
   what: quality-of-service
   when: 2025-06-02 08:00:47.238889987 Z
-- _id: 1947
-  _time: 2025-06-02 10:00:45.804138084 Z
+- _id: 1965
+  _time: 2025-06-02 11:03:03.727756686 Z
   _version: 0.10.2/0.45.0/
-  latest: 50397516994
+  latest: 50400081732
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 1948
-  _time: 2025-06-02 10:00:53.129623165 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 1949
-  _time: 2025-06-02 10:01:00.158121407 Z
+- _id: 1966
+  _time: 2025-06-02 11:03:10.398428423 Z
   _version: 0.10.2/0.45.0/
   latest: 743
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 1950
-  _time: 2025-06-02 10:04:03.295298581 Z
+- _id: 1967
+  _time: 2025-06-02 11:03:15.006628562 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 1968
+  _time: 2025-06-02 11:03:16.437247911 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
