@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="135328">
+<fb version="0.10.2" size="134997">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <error>
-      <v t="S">GET https://api.github.com/repositories/237167507: 403 - API rate limit exceeded for 44.197.119.220. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting</v>
-      <v t="S">GET https://api.github.com/users/yegor256: 403 - API rate limit exceeded for 44.197.119.220. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting</v>
+      <v t="S">Many (222) issues are missing in cqfn/aibolit (between 485 and 799): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
+      <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
       <v t="S">Judge quality-of-service stopped by timeout after 3m0s: execution expired</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">181.437059199</seconds>
+    <seconds t="F">3.675418606</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-02T08:08:09Z</when>
+    <when t="T">2025-06-02T09:05:29Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -6835,52 +6835,57 @@
     <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">1927</_id>
-    <_time t="T">2025-06-02T09:01:43Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">1928</_id>
-    <_time t="T">2025-06-02T09:01:57Z</_time>
+    <_id t="I">1935</_id>
+    <_time t="T">2025-06-02T10:00:00Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <average_backlog_size t="F">16.25</average_backlog_size>
     <average_issue_lifetime t="F">19891868.589743588</average_issue_lifetime>
     <average_pull_files_size t="F">1.7857142857142858</average_pull_files_size>
     <average_pull_hoc_size t="F">513.8571428571429</average_pull_hoc_size>
     <average_pull_lifetime t="F">15774.035714285714</average_pull_lifetime>
+    <average_pull_rejection_rate t="F">0.0</average_pull_rejection_rate>
     <average_release_commits_size t="I">0</average_release_commits_size>
     <average_release_hoc_size t="I">0</average_release_hoc_size>
     <average_release_interval t="I">0</average_release_interval>
+    <average_review_size t="F">0.21428571428571427</average_review_size>
+    <average_review_time t="F">24724.5</average_review_time>
+    <average_reviewers_per_pull t="F">0.14285714285714285</average_reviewers_per_pull>
+    <average_reviews_per_pull t="F">0.21428571428571427</average_reviews_per_pull>
     <average_triage_time t="F">17008.242424242424</average_triage_time>
     <since t="T">2025-05-26T08:00:47Z</since>
     <what t="S">quality-of-service</what>
     <when t="T">2025-06-02T08:00:47Z</when>
   </f>
   <f>
-    <_id t="I">1929</_id>
-    <_time t="T">2025-06-02T09:01:59Z</_time>
+    <_id t="I">1947</_id>
+    <_time t="T">2025-06-02T10:00:45Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50397010715</latest>
+    <latest t="I">50397516994</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1930</_id>
-    <_time t="T">2025-06-02T09:02:05Z</_time>
+    <_id t="I">1948</_id>
+    <_time t="T">2025-06-02T10:00:53Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">776</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">1931</_id>
-    <_time t="T">2025-06-02T09:02:05Z</_time>
+    <_id t="I">1949</_id>
+    <_time t="T">2025-06-02T10:01:00Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">743</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1950</_id>
+    <_time t="T">2025-06-02T10:04:03Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
