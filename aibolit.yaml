@@ -6,11 +6,12 @@
   - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 797): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
+  - 'Judge quality-of-service stopped by timeout after 3m0s: execution expired'
   inserted: 8
-  seconds: 3.759461742
+  seconds: 3.748872102
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-02 06:01:23.542021044 Z
+  when: 2025-06-02 07:01:58.275723714 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6092,31 +6093,62 @@
   when: *79
   where: github
   who: 41443370
-- _id: 1889
-  _time: 2025-06-02 07:01:28.716155552 Z
+- _id: 1896
+  _time: 2025-06-02 08:00:28.823606137 Z
   _version: 0.10.2/0.45.0/
-  latest: 743
+  since: 2025-05-26 07:59:58.302190513 Z
+  total_builds_ran: 1718
+  total_issues_created: 14
+  total_pulls_submitted: 1
+  total_releases_published: 0
+  what: quantity-of-deliverables
+  when: 2025-06-02 07:59:58.302144688 Z
+- _id: 1901
+  _time: 2025-06-02 08:00:47.238763892 Z
+  _version: 0.10.2/0.45.0/
+  since: 2025-05-26 08:00:47.238933298 Z
+  what: quality-of-service
+  when: 2025-06-02 08:00:47.238889987 Z
+- _id: 1906
+  _time: 2025-06-02 08:01:22.795959621 Z
+  _version: 0.10.2/0.45.0/
+  latest: 710
   repository: 237167507
-  what: labels-were-scanned
+  what: min-issue-was-found
   where: github
-- _id: 1890
-  _time: 2025-06-02 07:01:34.392808668 Z
+- _id: 1907
+  _time: 2025-06-02 08:01:25.803121182 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50392489107
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 1908
+  _time: 2025-06-02 08:01:31.930682298 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 1892
-  _time: 2025-06-02 07:01:37.961135191 Z
+- _id: 1909
+  _time: 2025-06-02 08:04:41.773507111 Z
   _version: 0.10.2/0.45.0/
-  latest: 50390506937
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 1893
-  _time: 2025-06-02 07:01:39.300963482 Z
+  total_active_contributors: 5
+  total_commits: 2376
+  total_contributors: 18
+  total_files: 1042
+  total_forks: 25
+  total_issues: 397
+  total_pulls: 400
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 69
+  what: dimensions-of-terrain
+  when: 2025-06-02 08:01:03.372167431 Z
+- _id: 1910
+  _time: 2025-06-02 08:04:51.769684530 Z
   _version: 0.10.2/0.45.0/
-  latest: 710
+  latest: 743
   repository: 237167507
-  what: min-issue-was-found
+  what: labels-were-scanned
   where: github
