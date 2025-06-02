@@ -134,6 +134,50 @@ class TestMvnFreeNPathMetric:
         ).strip()
         assert self._value(content) == 4
 
+    def test_if_with_if_else_inside_outer_else(self) -> None:
+        content = dedent(
+            """\
+            class WithOneIf {
+                public void print(bool flag, bool ok) {
+                    if (flag) {
+                        System.out.println("Flag is true");
+                    } else {
+                        if (ok) {
+                            System.out.println("OK");
+                        } else {
+                            System.out.println("Not OK");
+                        }
+                    }
+                }
+            }
+            """
+        ).strip()
+        assert self._value(content) == 4
+
+    def test_complex_with_if_else_inside_if_else_blocks(self) -> None:
+        content = dedent(
+            """\
+            class ComplexIfElse {
+                public void checkValues(int a, int b) {
+                    if (a > 0) {
+                        if (b > 0) {
+                            System.out.println("Both a and b are greater than 0");
+                        } else {
+                            System.out.println("a is greater than 0, but b is not");
+                        }
+                    } else {
+                        if (b > 0) {
+                            System.out.println("a is not greater than 0, but b is");
+                        } else {
+                            System.out.println("Neither a nor b is greater than 0");
+                        }
+                    }
+                }
+            }
+            """
+        ).strip()
+        assert self._value(content) == 6
+
     def _value(self, content: str) -> int:
         return MvnFreeNPathMetric(
             AST.build_from_javalang(
