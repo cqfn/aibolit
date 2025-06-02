@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="134225">
+<fb version="0.10.2" size="135328">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <error>
-      <v t="S">Many (222) issues are missing in cqfn/aibolit (between 485 and 797): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
-      <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
+      <v t="S">GET https://api.github.com/repositories/237167507: 403 - API rate limit exceeded for 44.197.119.220. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting</v>
+      <v t="S">GET https://api.github.com/users/yegor256: 403 - API rate limit exceeded for 44.197.119.220. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting</v>
       <v t="S">Judge quality-of-service stopped by timeout after 3m0s: execution expired</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">3.748872102</seconds>
+    <seconds t="F">181.437059199</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-02T07:01:58Z</when>
+    <when t="T">2025-06-02T08:08:09Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -6788,41 +6788,6 @@
     <when t="T">2025-06-02T07:59:58Z</when>
   </f>
   <f>
-    <_id t="I">1901</_id>
-    <_time t="T">2025-06-02T08:00:47Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <since t="T">2025-05-26T08:00:47Z</since>
-    <what t="S">quality-of-service</what>
-    <when t="T">2025-06-02T08:00:47Z</when>
-  </f>
-  <f>
-    <_id t="I">1906</_id>
-    <_time t="T">2025-06-02T08:01:22Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">710</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">1907</_id>
-    <_time t="T">2025-06-02T08:01:25Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50392489107</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">1908</_id>
-    <_time t="T">2025-06-02T08:01:31Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">1909</_id>
     <_time t="T">2025-06-02T08:04:41Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
@@ -6840,12 +6805,86 @@
     <when t="T">2025-06-02T08:01:03Z</when>
   </f>
   <f>
-    <_id t="I">1910</_id>
-    <_time t="T">2025-06-02T08:04:51Z</_time>
+    <_id t="I">1911</_id>
+    <_time t="T">2025-06-02T09:00:35Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">743</latest>
+    <details t="S">The issue cqfn/aibolit#799 has been opened by @ivanovmg.</details>
+    <event_id t="I">50395971061</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">799</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-06-02T08:28:44Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">1912</_id>
+    <_time t="T">2025-06-02T09:00:35Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <details t="S">The issue cqfn/aibolit#798 has been opened by @ivanovmg.</details>
+    <event_id t="I">50395827663</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">798</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-06-02T08:25:16Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">1927</_id>
+    <_time t="T">2025-06-02T09:01:43Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1928</_id>
+    <_time t="T">2025-06-02T09:01:57Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <average_backlog_size t="F">16.25</average_backlog_size>
+    <average_issue_lifetime t="F">19891868.589743588</average_issue_lifetime>
+    <average_pull_files_size t="F">1.7857142857142858</average_pull_files_size>
+    <average_pull_hoc_size t="F">513.8571428571429</average_pull_hoc_size>
+    <average_pull_lifetime t="F">15774.035714285714</average_pull_lifetime>
+    <average_release_commits_size t="I">0</average_release_commits_size>
+    <average_release_hoc_size t="I">0</average_release_hoc_size>
+    <average_release_interval t="I">0</average_release_interval>
+    <average_triage_time t="F">17008.242424242424</average_triage_time>
+    <since t="T">2025-05-26T08:00:47Z</since>
+    <what t="S">quality-of-service</what>
+    <when t="T">2025-06-02T08:00:47Z</when>
+  </f>
+  <f>
+    <_id t="I">1929</_id>
+    <_time t="T">2025-06-02T09:01:59Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50397010715</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1930</_id>
+    <_time t="T">2025-06-02T09:02:05Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">0</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">1931</_id>
+    <_time t="T">2025-06-02T09:02:05Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
     <where t="S">github</where>
   </f>
 </fb>
