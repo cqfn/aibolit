@@ -131,5 +131,4 @@ class MvnFreeNPathMetric:
             return math.prod((self._node_npath(case) for case in case_group.children))
 
         case_paths = sum(_group_npath(case_group) for case_group in node.cases)
-        npath = self._node_npath(node.expression)
-        return npath * max(case_paths, 1)
+        return self._node_npath(node.expression) * max(case_paths, 1)
