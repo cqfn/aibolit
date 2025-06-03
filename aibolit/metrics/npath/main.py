@@ -129,7 +129,6 @@ class MvnFreeNPathMetric:
         npath = self._node_npath(node.expression)
         case_paths = 0
         for case_group in node.cases:
-            # Each case group contributes to NPath
             group_npath = 1
             for case in case_group.children:
                 group_npath *= self._node_npath(case)
@@ -139,6 +138,6 @@ class MvnFreeNPathMetric:
         if hasattr(node, 'default_case') and node.default_case:
             case_paths += self._node_npath(node.default_case)
         elif not node.cases:
-            case_paths = 1  # Empty switch
+            case_paths = 1
 
-        return npath * max(case_paths, 1)  # At least 1 path
+        return npath * max(case_paths, 1)
