@@ -7,10 +7,10 @@
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 4.106260316
+  seconds: 64.775472843
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-03 05:01:08.054451256 Z
+  when: 2025-06-03 06:02:04.134795219 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6334,31 +6334,58 @@
   when: 2025-06-02 21:06:06.000000000 Z
   where: github
   who: 13173649
-- _id: 2274
-  _time: 2025-06-03 06:00:26.425440727 Z
+- _id: 2283
+  _time: 2025-06-03 07:00:52.190183101 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#792 has been closed by @ivanovmg.
+  event_id: 50434995611
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 792
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-06-03 03:03:38.000000000 Z
+  where: github
+  who: 41443370
+- _id: 2284
+  _time: 2025-06-03 07:00:52.238203025 Z
+  _version: 0.10.2/0.45.0/
+  branch: '798'
+  details: The pull request cqfn/aibolit#801 has been opened by @ivanovmg.
+  event_id: 50434572141
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 801
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-03 02:43:30.000000000 Z
+  where: github
+  who: 41443370
+- _id: 2299
+  _time: 2025-06-03 07:01:39.542257637 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50435732158
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 2300
+  _time: 2025-06-03 07:01:40.243158414 Z
+  _version: 0.10.2/0.45.0/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 2301
+  _time: 2025-06-03 07:01:47.197298885 Z
   _version: 0.10.2/0.45.0/
   latest: 776
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 2279
-  _time: 2025-06-03 06:00:41.062695669 Z
+- _id: 2302
+  _time: 2025-06-03 07:01:52.138966175 Z
   _version: 0.10.2/0.45.0/
-  latest: 743
+  latest: 0
   repository: 237167507
   what: labels-were-scanned
-  where: github
-- _id: 2281
-  _time: 2025-06-03 06:00:44.272779819 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50431493393
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 2282
-  _time: 2025-06-03 06:00:45.040690094 Z
-  _version: 0.10.2/0.45.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
   where: github

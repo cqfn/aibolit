@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="138619">
+<fb version="0.10.2" size="139171">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
@@ -9,10 +9,10 @@
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">4.106260316</seconds>
+    <seconds t="F">64.775472843</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-03T05:01:08Z</when>
+    <when t="T">2025-06-03T06:02:04Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -7046,8 +7046,57 @@
     <who t="I">13173649</who>
   </f>
   <f>
-    <_id t="I">2274</_id>
-    <_time t="T">2025-06-03T06:00:26Z</_time>
+    <_id t="I">2283</_id>
+    <_time t="T">2025-06-03T07:00:52Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <details t="S">The issue cqfn/aibolit#792 has been closed by @ivanovmg.</details>
+    <event_id t="I">50434995611</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">792</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-03T03:03:38Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">2284</_id>
+    <_time t="T">2025-06-03T07:00:52Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">798</branch>
+    <details t="S">The pull request cqfn/aibolit#801 has been opened by @ivanovmg.</details>
+    <event_id t="I">50434572141</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">801</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-06-03T02:43:30Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">2299</_id>
+    <_time t="T">2025-06-03T07:01:39Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50435732158</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">2300</_id>
+    <_time t="T">2025-06-03T07:01:40Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">2301</_id>
+    <_time t="T">2025-06-03T07:01:47Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">776</latest>
     <repository t="I">237167507</repository>
@@ -7055,30 +7104,12 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2279</_id>
-    <_time t="T">2025-06-03T06:00:41Z</_time>
+    <_id t="I">2302</_id>
+    <_time t="T">2025-06-03T07:01:52Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">743</latest>
+    <latest t="I">0</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">2281</_id>
-    <_time t="T">2025-06-03T06:00:44Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50431493393</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">2282</_id>
-    <_time t="T">2025-06-03T06:00:45Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">710</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
     <where t="S">github</where>
   </f>
 </fb>
