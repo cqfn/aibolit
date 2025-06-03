@@ -7,10 +7,10 @@
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.794580162
+  seconds: 3.676161075
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-02 23:01:01.403325121 Z
+  when: 2025-06-03 00:01:52.846611702 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6320,29 +6320,43 @@
   where: github
   who: 13173649
   why: Contributed code in cqfn/aibolit#797
-- _id: 2195
-  _time: 2025-06-03 00:01:24.269377918 Z
+- _id: 2199
+  _time: 2025-06-03 02:30:04.982963025 Z
   _version: 0.10.2/0.45.0/
-  latest: 50422978266
+  branch: 140-incomplete-for-pattern
+  details: The pull request cqfn/aibolit#800 has been opened by @antonprokopyev.
+  event_id: 50427279687
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 800
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-02 21:06:06.000000000 Z
+  where: github
+  who: 13173649
+- _id: 2213
+  _time: 2025-06-03 02:30:35.050328753 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50427279687
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 2196
-  _time: 2025-06-03 00:01:29.886468468 Z
-  _version: 0.10.2/0.45.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 2197
-  _time: 2025-06-03 00:01:32.564083811 Z
+- _id: 2214
+  _time: 2025-06-03 02:30:39.674273128 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 2198
-  _time: 2025-06-03 00:01:33.482751597 Z
+- _id: 2215
+  _time: 2025-06-03 02:30:45.339924861 Z
+  _version: 0.10.2/0.45.0/
+  latest: 743
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 2216
+  _time: 2025-06-03 02:30:46.106623405 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
