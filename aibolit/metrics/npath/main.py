@@ -6,7 +6,6 @@ import shutil
 import subprocess
 import tempfile
 import uuid
-from typing import Iterator
 
 from bs4 import BeautifulSoup
 
