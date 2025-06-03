@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="140139">
+<fb version="0.10.2" size="140439">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <error>
       <v t="S">Many (222) issues are missing in cqfn/aibolit (between 485 and 801): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
-      <v t="S">A few (8) facts were found with missing openings, in cqfn/aibolit</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">3.912834951</seconds>
+    <seconds t="F">3.911420775</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-03T07:02:10Z</when>
+    <when t="T">2025-06-03T08:01:45Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -7119,33 +7118,6 @@
     <who t="I">8086956</who>
   </f>
   <f>
-    <_id t="I">2318</_id>
-    <_time t="T">2025-06-03T08:01:14Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50437923222</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">2319</_id>
-    <_time t="T">2025-06-03T08:01:18Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">2320</_id>
-    <_time t="T">2025-06-03T08:01:19Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">2321</_id>
     <_time t="T">2025-06-03T08:01:24Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
@@ -7163,12 +7135,58 @@
     <when t="T">2025-06-03T08:01:10Z</when>
   </f>
   <f>
-    <_id t="I">2322</_id>
-    <_time t="T">2025-06-03T08:01:25Z</_time>
+    <_id t="I">2323</_id>
+    <_job t="I">23434</_job>
+    <_time t="T">2025-06-03T08:01:42Z</_time>
+    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#801 with 142 HoC created by @ivanovmg was merged by @rultor after 1h55m of being in review and 4 comments.</details>
+    <hoc t="I">142</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">801</issue>
+    <merger t="I">8086956</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">6905</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-06-03T04:38:35Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">2337</_id>
+    <_time t="T">2025-06-03T09:01:51Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50438899689</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">2338</_id>
+    <_time t="T">2025-06-03T09:01:56Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">2339</_id>
+    <_time t="T">2025-06-03T09:01:58Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">2340</_id>
+    <_time t="T">2025-06-03T09:02:05Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">743</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>

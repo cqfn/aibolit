@@ -5,13 +5,12 @@
   error:
   - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 801): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
-  - A few (8) facts were found with missing openings, in cqfn/aibolit
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.912834951
+  seconds: 3.911420775
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-03 07:02:10.226133213 Z
+  when: 2025-06-03 08:01:45.154875745 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6397,30 +6396,9 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-06-03 04:38:35.000000000 Z
+  when: &82 2025-06-03 04:38:35.000000000 Z
   where: github
   who: 8086956
-- _id: 2318
-  _time: 2025-06-03 08:01:14.222443367 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50437923222
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 2319
-  _time: 2025-06-03 08:01:18.765811012 Z
-  _version: 0.10.2/0.45.0/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 2320
-  _time: 2025-06-03 08:01:19.215979549 Z
-  _version: 0.10.2/0.45.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 2321
   _time: 2025-06-03 08:01:24.174381981 Z
   _version: 0.10.2/0.45.0/
@@ -6436,10 +6414,49 @@
   total_stars: 70
   what: dimensions-of-terrain
   when: 2025-06-03 08:01:10.273093409 Z
-- _id: 2322
-  _time: 2025-06-03 08:01:25.354772138 Z
+- _id: 2323
+  _job: 23434
+  _time: 2025-06-03 08:01:42.575719071 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  comments: 4
+  details: The pull request cqfn/aibolit#801 with 142 HoC created by @ivanovmg was
+    merged by @rultor after 1h55m of being in review and 4 comments.
+  hoc: 142
+  is_human: 1
+  issue: 801
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 6905
+  what: code-was-contributed
+  when: *82
+  where: github
+  who: 41443370
+- _id: 2337
+  _time: 2025-06-03 09:01:51.602018813 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50438899689
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 2338
+  _time: 2025-06-03 09:01:56.338771899 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 2339
+  _time: 2025-06-03 09:01:58.004373058 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 2340
+  _time: 2025-06-03 09:02:05.666623001 Z
+  _version: 0.10.2/0.45.0/
+  latest: 743
+  repository: 237167507
+  what: labels-were-scanned
   where: github
