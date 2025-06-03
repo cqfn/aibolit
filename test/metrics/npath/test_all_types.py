@@ -112,7 +112,7 @@ class TestMvnFreeNPathMetric:
             }
             """
         ).strip()
-        assert self._value(content) == 4
+        assert self._value(content) == 3
 
     def test_if_with_if_else_inside_outer_else(self) -> None:
         content = dedent(
@@ -132,7 +132,7 @@ class TestMvnFreeNPathMetric:
             }
             """
         ).strip()
-        assert self._value(content) == 4
+        assert self._value(content) == 3
 
     def test_complex_with_if_else_inside_if_else_blocks(self) -> None:
         content = dedent(
@@ -156,7 +156,7 @@ class TestMvnFreeNPathMetric:
             }
             """
         ).strip()
-        assert self._value(content) == 6
+        assert self._value(content) == 4
 
     def test_switch_simple(self):
         content = dedent(
