@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 3
   deleted: 8
   error:
   - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 801): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.911420775
+  seconds: 9.790480149
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-03 08:01:45.154875745 Z
+  when: 2025-06-03 09:02:33.262185439 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6432,31 +6432,50 @@
   when: *82
   where: github
   who: 41443370
-- _id: 2337
-  _time: 2025-06-03 09:01:51.602018813 Z
+- _id: 2341
+  _job: 23441
+  _time:
+  - 2025-06-03 09:02:30.555179853 Z
+  - 2025-06-03 09:02:24.645401572 Z
+  _version: 0.10.2/0.45.0/0.9.0
+  award: 7
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#801,
+    the reward amount is 7.
+  href: https://github.com/cqfn/aibolit/issues/801/#issuecomment-2934243578
+  is_human: 1
+  issue: 801
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-03 09:02:24.649236861 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#801
+- _id: 2356
+  _time: 2025-06-03 10:00:38.407473888 Z
   _version: 0.10.2/0.45.0/
-  latest: 50438899689
+  latest: 50441005643
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 2338
-  _time: 2025-06-03 09:01:56.338771899 Z
+- _id: 2357
+  _time: 2025-06-03 10:00:44.983676515 Z
   _version: 0.10.2/0.45.0/
-  latest: 0
+  latest: 743
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 2339
-  _time: 2025-06-03 09:01:58.004373058 Z
+- _id: 2358
+  _time: 2025-06-03 10:00:46.457919528 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 2340
-  _time: 2025-06-03 09:02:05.666623001 Z
+- _id: 2359
+  _time: 2025-06-03 10:00:54.170681312 Z
   _version: 0.10.2/0.45.0/
-  latest: 743
+  latest: 776
   repository: 237167507
   what: labels-were-scanned
   where: github
