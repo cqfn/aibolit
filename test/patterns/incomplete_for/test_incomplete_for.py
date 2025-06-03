@@ -47,3 +47,21 @@ class IncompleteForTestCase(TestCase):
             IncompleteFor().value(ast),
             "Should match empty for",
         )
+
+    def test_incomplete_for_nested_for(self):
+        filepath = self.dir_path / "NestedFor.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        self.assertEqual(
+            [6, 7],
+            IncompleteFor().value(ast),
+            "Should match nested for loops",
+        )
+
+    def test_incomplete_for_complete_for(self):
+        filepath = self.dir_path / "CompleteFor.java"
+        ast = AST.build_from_javalang(build_ast(filepath))
+        self.assertEqual(
+            [],
+            IncompleteFor().value(ast),
+            "Should not match complete for loop",
+        )
