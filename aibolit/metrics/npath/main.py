@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import tempfile
 import uuid
+from typing import Iterable
 
 from bs4 import BeautifulSoup
 
@@ -108,7 +109,7 @@ class MvnFreeNPathMetric:
         else:
             return self._sequence_npath(node.children)
 
-    def _sequence_npath(self, nodes: list[ASTNode]) -> int:
+    def _sequence_npath(self, nodes: Iterable[ASTNode]) -> int:
         npath = 1
         for child in nodes:
             npath *= self._node_npath(child)
