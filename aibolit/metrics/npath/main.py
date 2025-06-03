@@ -111,10 +111,7 @@ class MvnFreeNPathMetric:
             return self._sequence_npath(node.children)
 
     def _sequence_npath(self, nodes: Iterable[ASTNode]) -> int:
-        npath = 1
-        for child in nodes:
-            npath *= self._node_npath(child)
-        return npath
+        return math.prod((self._node_npath(child) for child in nodes))
 
     def _if_npath(self, node: ASTNode) -> int:
         condition_npath = self._node_npath(node.condition)
