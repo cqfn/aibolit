@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
+import math
 import os
 import shutil
 import subprocess
@@ -126,11 +127,9 @@ class MvnFreeNPathMetric:
         return condition_npath * (then_npath + else_npath)
 
     def _switch_npath(self, node: ASTNode) -> int:
+        def _group_npath(case_group: ASTNode) -> int:
+            return math.prod((self._node_npath(case) for case in case_group.children))
+
+        case_paths = sum(_group_npath(case_group) for case_group in node.cases)
         npath = self._node_npath(node.expression)
-        case_paths = 0
-        for case_group in node.cases:
-            group_npath = 1
-            for case in case_group.children:
-                group_npath *= self._node_npath(case)
-            case_paths += group_npath
         return npath * max(case_paths, 1)

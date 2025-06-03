@@ -212,7 +212,7 @@ class TestMvnFreeNPathMetric:
             """\
             class Test {
                 void foo(int x) {
-                    switch (x) {} 
+                    switch (x) {}
                 }
             }
             """,
