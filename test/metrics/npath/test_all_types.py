@@ -191,7 +191,7 @@ class TestMvnFreeNPathMetric:
         ).strip()
         assert self._value(content) == 5
 
-    def test_switch_simple(self):
+    def test_switch_simple_with_default(self):
         content = dedent(
             """\
             class Test {
@@ -206,6 +206,33 @@ class TestMvnFreeNPathMetric:
             """,
         ).strip()
         assert self._value(content) == 3
+
+    def test_switch_empty(self):
+        content = dedent(
+            """\
+            class Test {
+                void foo(int x) {
+                    switch (x) {} 
+                }
+            }
+            """,
+        ).strip()
+        assert self._value(content) == 1
+
+    def test_switch_simple_without_default(self):
+        content = dedent(
+            """\
+            class Test {
+                void foo(int x) {
+                    switch (x) {
+                        case 1: System.out.println("1"); break;
+                        case 2: System.out.println("2"); break;
+                    }
+                }
+            }
+            """,
+        ).strip()
+        assert self._value(content) == 2
 
     def test_switch_with_fallthrough(self):
         content = dedent(
