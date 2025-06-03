@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="139171">
+<fb version="0.10.2" size="140139">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <error>
-      <v t="S">Many (222) issues are missing in cqfn/aibolit (between 485 and 800): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
+      <v t="S">Many (222) issues are missing in cqfn/aibolit (between 485 and 801): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
+      <v t="S">A few (8) facts were found with missing openings, in cqfn/aibolit</v>
       <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">64.775472843</seconds>
+    <seconds t="F">3.912834951</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-03T06:02:04Z</when>
+    <when t="T">2025-06-03T07:02:10Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -7077,39 +7078,97 @@
     <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">2299</_id>
-    <_time t="T">2025-06-03T07:01:39Z</_time>
+    <_id t="I">2303</_id>
+    <_time t="T">2025-06-03T08:00:04Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50435732158</latest>
+    <details t="S">The issue cqfn/aibolit#798 has been closed by @rultor.</details>
+    <event_id t="I">50436898059</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">798</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-03T04:38:35Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">2304</_id>
+    <_time t="T">2025-06-03T08:00:04Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <branch t="S">798</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">2</comments_by_author>
+    <comments_by_reviewers t="I">3</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#801 has been closed by @rultor, with 142 HoC and 4 comments.</details>
+    <event_id t="I">50436897823</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">142</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">801</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-03T04:38:35Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">2318</_id>
+    <_time t="T">2025-06-03T08:01:14Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50437923222</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2300</_id>
-    <_time t="T">2025-06-03T07:01:40Z</_time>
+    <_id t="I">2319</_id>
+    <_time t="T">2025-06-03T08:01:18Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">710</latest>
+    <latest t="I">0</latest>
     <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2301</_id>
-    <_time t="T">2025-06-03T07:01:47Z</_time>
+    <_id t="I">2320</_id>
+    <_time t="T">2025-06-03T08:01:19Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">776</latest>
+    <latest t="I">0</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2302</_id>
-    <_time t="T">2025-06-03T07:01:52Z</_time>
+    <_id t="I">2321</_id>
+    <_time t="T">2025-06-03T08:01:24Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
+    <total_active_contributors t="I">6</total_active_contributors>
+    <total_commits t="I">2388</total_commits>
+    <total_contributors t="I">19</total_contributors>
+    <total_files t="I">1042</total_files>
+    <total_forks t="I">25</total_forks>
+    <total_issues t="I">399</total_issues>
+    <total_pulls t="I">402</total_pulls>
+    <total_releases t="I">28</total_releases>
+    <total_repositories t="I">1</total_repositories>
+    <total_stars t="I">70</total_stars>
+    <what t="S">dimensions-of-terrain</what>
+    <when t="T">2025-06-03T08:01:10Z</when>
+  </f>
+  <f>
+    <_id t="I">2322</_id>
+    <_time t="T">2025-06-03T08:01:25Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">710</latest>
     <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
+    <what t="S">min-issue-was-found</what>
     <where t="S">github</where>
   </f>
 </fb>

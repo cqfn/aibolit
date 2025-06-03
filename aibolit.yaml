@@ -3,14 +3,15 @@
   cycles: 2
   deleted: 8
   error:
-  - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 800): 490, 491,
+  - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 801): 490, 491,
     492, 493, 494, 495, 496, 497, 498, and 499...'
+  - A few (8) facts were found with missing openings, in cqfn/aibolit
   - A few (7) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 64.775472843
+  seconds: 3.912834951
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-03 06:02:04.134795219 Z
+  when: 2025-06-03 07:02:10.226133213 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6361,31 +6362,84 @@
   when: 2025-06-03 02:43:30.000000000 Z
   where: github
   who: 41443370
-- _id: 2299
-  _time: 2025-06-03 07:01:39.542257637 Z
+- _id: 2303
+  _time: 2025-06-03 08:00:04.338709697 Z
   _version: 0.10.2/0.45.0/
-  latest: 50435732158
+  details: The issue cqfn/aibolit#798 has been closed by @rultor.
+  event_id: 50436898059
+  event_type: IssuesEvent
+  is_human: 0
+  issue: 798
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-06-03 04:38:35.000000000 Z
+  where: github
+  who: 8086956
+- _id: 2304
+  _time: 2025-06-03 08:00:04.366415694 Z
+  _version: 0.10.2/0.45.0/
+  branch: '798'
+  comments: 4
+  comments_appreciated: 1
+  comments_by_author: 2
+  comments_by_reviewers: 3
+  comments_resolved: 0
+  comments_to_code: 0
+  details: The pull request cqfn/aibolit#801 has been closed by @rultor, with 142
+    HoC and 4 comments.
+  event_id: 50436897823
+  event_type: PullRequestEvent
+  failed_builds: 0
+  hoc: 142
+  is_human: 0
+  issue: 801
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 16
+  what: pull-was-merged
+  when: 2025-06-03 04:38:35.000000000 Z
+  where: github
+  who: 8086956
+- _id: 2318
+  _time: 2025-06-03 08:01:14.222443367 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50437923222
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 2300
-  _time: 2025-06-03 07:01:40.243158414 Z
-  _version: 0.10.2/0.45.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 2301
-  _time: 2025-06-03 07:01:47.197298885 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 2302
-  _time: 2025-06-03 07:01:52.138966175 Z
+- _id: 2319
+  _time: 2025-06-03 08:01:18.765811012 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
   what: labels-were-scanned
+  where: github
+- _id: 2320
+  _time: 2025-06-03 08:01:19.215979549 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 2321
+  _time: 2025-06-03 08:01:24.174381981 Z
+  _version: 0.10.2/0.45.0/
+  total_active_contributors: 6
+  total_commits: 2388
+  total_contributors: 19
+  total_files: 1042
+  total_forks: 25
+  total_issues: 399
+  total_pulls: 402
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 70
+  what: dimensions-of-terrain
+  when: 2025-06-03 08:01:10.273093409 Z
+- _id: 2322
+  _time: 2025-06-03 08:01:25.354772138 Z
+  _version: 0.10.2/0.45.0/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
   where: github
