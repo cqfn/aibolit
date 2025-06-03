@@ -99,7 +99,7 @@ class TestMvnFreeNPathMetric:
     def test_if_with_inner_if_else(self) -> None:
         content = dedent(
             """\
-            class WithOneIf {
+            class WithOneIfWithInnerIfElse {
                 public void print(bool flag, bool ok) {
                     if (flag) {
                         if (ok) {
@@ -117,27 +117,7 @@ class TestMvnFreeNPathMetric:
     def test_if_with_if_else_inside_outer_else(self) -> None:
         content = dedent(
             """\
-            class WithOneIf {
-                public void print(bool flag, bool ok) {
-                    if (flag) {
-                        System.out.println("Flag is true");
-                    } else {
-                        if (ok) {
-                            System.out.println("OK");
-                        } else {
-                            System.out.println("Not OK");
-                        }
-                    }
-                }
-            }
-            """
-        ).strip()
-        assert self._value(content) == 4
-
-    def test_if_with_if_else_inside_outer_else(self) -> None:
-        content = dedent(
-            """\
-            class WithOneIf {
+            class WithOneIfWithIfElseInElseClause {
                 public void print(bool flag, bool ok) {
                     if (flag) {
                         System.out.println("Flag is true");
