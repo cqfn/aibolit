@@ -6491,29 +6491,48 @@
   when: *83
   where: github
   who: 526301
-- _id: 2465
-  _time: 2025-06-03 16:00:35.684253144 Z
+- _id: 2452
+  _time: 2025-06-03 18:00:06.184838706 Z
   _version: 0.10.2/0.45.0/
-  latest: 50452001159
+  comments: 17
+  commits: 4
+  details: The pull request cqfn/aibolit#800 has been reviewed by @yegor256 with 181
+    HoC and 17 comments.
+  event_id: 50454241209
+  event_type: PullRequestReviewEvent
+  files: 12
+  hoc: 181
+  is_human: 1
+  issue: 800
+  repository: 237167507
+  review_comments: 9
+  what: pull-was-reviewed
+  when: 2025-06-03 12:04:59.000000000 Z
+  where: github
+  who: 526301
+- _id: 2465
+  _time: 2025-06-03 18:00:35.833246286 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50454373138
   repository: 237167507
   what: events-were-scanned
   where: github
 - _id: 2466
-  _time: 2025-06-03 16:00:46.328409490 Z
-  _version: 0.10.2/0.45.0/
-  latest: 743
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 2467
-  _time: 2025-06-03 16:00:52.946686685 Z
+  _time: 2025-06-03 18:00:40.671424285 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
+- _id: 2467
+  _time: 2025-06-03 18:00:42.296641529 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
 - _id: 2468
-  _time: 2025-06-03 16:00:53.866921096 Z
+  _time: 2025-06-03 18:00:43.439457686 Z
   _version: 0.10.2/0.45.0/
   latest: 710
   repository: 237167507
