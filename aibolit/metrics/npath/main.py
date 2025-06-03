@@ -83,6 +83,9 @@ class NPathMetric():
 
 
 class MvnFreeNPathMetric:
+    """
+    NPathMetric class, which computes NPathMetric without use of `mvn` process.
+    """
     def __init__(self, ast: AST) -> None:
         self.ast = ast
 
