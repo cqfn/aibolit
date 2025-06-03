@@ -158,6 +158,40 @@ class TestMvnFreeNPathMetric:
         ).strip()
         assert self._value(content) == 6
 
+    def test_switch_simple(self):
+        content = dedent(
+            """\
+            class Test {
+                void foo(int x) {
+                    switch (x) {
+                        case 1: System.out.println("1"); break;
+                        case 2: System.out.println("2"); break;
+                        default: System.out.println("other");
+                    }
+                }
+            }
+            """,
+        ).strip()
+        assert self._value(content) == 3
+
+    def test_switch_with_fallthrough(self):
+        content = dedent(
+            """\
+            class Test {
+                void foo(int x) {
+                    switch (x) {
+                        case 1:
+                        case 2: System.out.println("1 or 2"); break;
+                        case 3: System.out.println("3"); // fallthrough
+                        case 4: System.out.println("3 or 4"); break;
+                        default: System.out.println("other");
+                    }
+                }
+            }
+            """,
+        )
+        assert self._value(content) == 4
+
     def _value(self, content: str) -> int:
         return MvnFreeNPathMetric(
             AST.build_from_javalang(
