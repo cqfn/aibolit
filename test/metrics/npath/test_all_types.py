@@ -112,7 +112,7 @@ class TestMvnFreeNPathMetric:
             }
             """
         ).strip()
-        assert self._value(content) == 4
+        assert self._value(content) == 3
 
     def test_if_with_if_else_inside_outer_else(self) -> None:
         content = dedent(
@@ -132,9 +132,16 @@ class TestMvnFreeNPathMetric:
             }
             """
         ).strip()
-        assert self._value(content) == 4
+        assert self._value(content) == 3
 
     def test_complex_with_if_else_inside_if_else_blocks(self) -> None:
+        """
+        The four paths are:
+        1. a > 0 and b > 0
+        2. a > 0 and b <= 0
+        3. a <= 0 and b > 0
+        4. a <= 0 and b <= 0
+        """
         content = dedent(
             """\
             class ComplexIfElse {
@@ -156,7 +163,117 @@ class TestMvnFreeNPathMetric:
             }
             """
         ).strip()
-        assert self._value(content) == 6
+        assert self._value(content) == 4
+
+    def test_complex_if_else_with_npath_complexity_of_5(self) -> None:
+        content = dedent(
+            """\
+            public class NPath5Example {
+                public void checkValues(int a, int b) {
+                    if (a > 0) { // Branch 1 (2 paths: true/false)
+                        if (b > 0) { // Branch 2 (2 paths)
+                            System.out.println("a > 0 and b > 0");
+                        } else {
+                            System.out.println("a > 0 but b <= 0");
+                        }
+                    } else { // Branch 3 (1 path, but 3 sub-paths)
+                        if (b > 0) {
+                            System.out.println("a <= 0 but b > 0");
+                        } else if (b == 0) {
+                            System.out.println("a <= 0 and b == 0");
+                        } else {
+                            System.out.println("a <= 0 and b < 0");
+                        }
+                    }
+                }
+            }
+            """
+        ).strip()
+        assert self._value(content) == 5
+
+    def test_switch_simple_with_default(self):
+        content = dedent(
+            """\
+            class Test {
+                void foo(int x) {
+                    switch (x) {
+                        case 1: System.out.println("1"); break;
+                        case 2: System.out.println("2"); break;
+                        default: System.out.println("other");
+                    }
+                }
+            }
+            """,
+        ).strip()
+        assert self._value(content) == 3
+
+    def test_switch_empty(self):
+        content = dedent(
+            """\
+            class Test {
+                void foo(int x) {
+                    switch (x) {}
+                }
+            }
+            """,
+        ).strip()
+        assert self._value(content) == 1
+
+    def test_switch_simple_without_default(self):
+        content = dedent(
+            """\
+            class Test {
+                void foo(int x) {
+                    switch (x) {
+                        case 1: System.out.println("1"); break;
+                        case 2: System.out.println("2"); break;
+                    }
+                }
+            }
+            """,
+        ).strip()
+        assert self._value(content) == 2
+
+    def test_switch_with_fallthrough(self):
+        content = dedent(
+            """\
+            class Test {
+                void foo(int x) {
+                    switch (x) {
+                        case 1:
+                        case 2: System.out.println("1 or 2"); break;
+                        case 3: System.out.println("3"); // fallthrough
+                        case 4: System.out.println("3 or 4"); break;
+                        default: System.out.println("other");
+                    }
+                }
+            }
+            """,
+        )
+        assert self._value(content) == 4
+
+    def test_nested_switch_statements(self) -> None:
+        content = dedent(
+            """\
+            class NestedSwitchStatements {
+                public void process(int x, int y) {
+                    switch (x) { // 1 path through case and 4 - default
+                        case 1:
+                            System.out.println("X=1");
+                            break;
+                        default:
+                            switch (y) {
+                                case 1: System.out.println("Y=1"); break;
+                                case 2: System.out.println("Y=2"); break;
+                                case 3: System.out.println("Y=3"); break;
+                                default: System.out.println("Y=default"); break;
+                            }
+                    }
+                }
+            }
+            """
+        ).strip()
+        assert self._value(content) == 5
 
     def _value(self, content: str) -> int:
         return MvnFreeNPathMetric(
