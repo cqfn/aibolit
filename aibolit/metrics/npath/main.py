@@ -133,11 +133,4 @@ class MvnFreeNPathMetric:
             for case in case_group.children:
                 group_npath *= self._node_npath(case)
             case_paths += group_npath
-
-        # Default case if present
-        if hasattr(node, 'default_case') and node.default_case:
-            case_paths += self._node_npath(node.default_case)
-        elif not node.cases:
-            case_paths = 1
-
         return npath * max(case_paths, 1)
