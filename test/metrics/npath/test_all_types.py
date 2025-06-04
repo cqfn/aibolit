@@ -275,6 +275,110 @@ class TestMvnFreeNPathMetric:
         ).strip()
         assert self._value(content) == 5
 
+    def test_simple_for_loop(self) -> None:
+        content = dedent("""
+        class Test {
+            void foo(int n) {
+                for (int i = 0; i < n; i++) {
+                    System.out.println(i);
+                }
+            }
+        }
+        """).strip()
+        assert self._value(content) == 2
+
+    def test_for_with_if_inside(self) -> None:
+        content = dedent("""
+        class Test {
+            void bar(int n) {
+                for (int i = 0; i < n; i++) {
+                    if (i % 2 == 0) {
+                        System.out.println("even");
+                    }
+                }
+            }
+        }
+        """).strip()
+        assert self._value(content) == 3
+
+    def test_nested_for_loops(self) -> None:
+        content = dedent("""
+        class Test {
+            void matrix(int n) {
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        System.out.println(i * j);
+                    }
+                }
+            }
+        }
+        """).strip()
+        assert self._value(content) == 3
+
+    def test_for_with_switch(self) -> None:
+        content = dedent("""
+        class Test {
+            void process(int[] data) {
+                for (int x : data) {
+                    switch (x) {
+                        case 1: System.out.println("1");
+                        case 2: System.out.println("2");
+                        case 3: System.out.println("3");
+                        default: break;
+                    }
+                }
+            }
+        }
+        """).strip()
+        assert self._value(content) == 5
+
+    def test_complex_for_with_multiple_constructs(self) -> None:
+        content = dedent("""
+        class Test {
+            void analyze(int[] values) {
+                for (int val : values) {
+                    if (val > 0) {
+                        switch (val) {
+                            case 1: System.out.println("1");
+                            default: break;
+                        }
+                    } else {
+                        System.out.println("negative");
+                    }
+                }
+            }
+        }
+        """).strip()
+        assert self._value(content) == 4
+
+    def test_empty_infinite_for_loop(self) -> None:
+        content = dedent("""
+        class Test {
+            void empty(int n) {
+                for (;;);
+            }
+        }
+        """).strip()
+        assert self._value(content) == 2
+
+    def test_for_with_break_continue(self) -> None:
+        content = dedent("""
+        class Test {
+            void search(int[] arr, int target) {
+                for (int x : arr) {
+                    if (x == target) {
+                        break;
+                    }
+                    if (x < 0) {
+                        continue;
+                    }
+                    System.out.println(x);
+                }
+            }
+        }
+        """).strip()
+        assert self._value(content) == 5
+
     def _value(self, content: str) -> int:
         return MvnFreeNPathMetric(
             AST.build_from_javalang(
