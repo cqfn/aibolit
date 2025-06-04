@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="144946">
+<fb version="0.10.2" size="146840">
   <f>
     <added t="I">8</added>
-    <cycles t="I">2</cycles>
+    <cycles t="I">3</cycles>
     <deleted t="I">8</deleted>
     <error>
-      <v t="S">Many (222) issues are missing in cqfn/aibolit (between 485 and 802): 490, 491, 492, 493, 494, 495, 496, 497, 498, and 499...</v>
-      <v t="S">A few (7) facts were found with missing openings, in cqfn/aibolit</v>
+      <v t="S">Many (566) issues are missing in cqfn/aibolit (between 140 and 803): 141, 142, 143, 144, 145, 146, 147, 148, 149, and 150...</v>
+      <v t="S">A few (8) facts were found with missing openings, in cqfn/aibolit</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">3.960601212</seconds>
+    <seconds t="F">12.157022547</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-03T15:01:19Z</when>
+    <when t="T">2025-06-04T17:04:51Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -7362,24 +7362,6 @@
     <when t="T">2025-06-04T17:00:38Z</when>
   </f>
   <f>
-    <_id t="I">2476</_id>
-    <_time t="T">2025-06-04T17:04:00Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">50487981235</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">2477</_id>
-    <_time t="T">2025-06-04T17:04:01Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">710</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">2478</_id>
     <_time t="T">2025-06-04T17:04:07Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
@@ -7392,15 +7374,6 @@
     <when t="T">2025-06-04T05:15:10Z</when>
     <where t="S">github</where>
     <who t="I">526301</who>
-  </f>
-  <f>
-    <_id t="I">2479</_id>
-    <_time t="T">2025-06-04T17:04:07Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
   </f>
   <f>
     <_id t="I">2480</_id>
@@ -7423,17 +7396,141 @@
     <average_reviewers_per_pull t="F">0.2727272727272727</average_reviewers_per_pull>
     <average_reviews_per_pull t="F">0.7272727272727273</average_reviews_per_pull>
     <average_triage_time t="F">36434.42857142857</average_triage_time>
+    <composite t="F">0.451</composite>
+    <ffact t="I">136</ffact>
     <since t="T">2025-05-28T17:00:34Z</since>
     <what t="S">quality-of-service</what>
     <when t="T">2025-06-04T17:00:34Z</when>
   </f>
   <f>
-    <_id t="I">2481</_id>
-    <_time t="T">2025-06-04T17:04:21Z</_time>
+    <_id t="I">2483</_id>
+    <_job t="I">23552</_job>
+    <_time t="T">2025-06-04T17:04:46Z</_time>
+    <_version t="S">0.11.0/0.45.0/0.9.0</_version>
+    <author t="I">13173649</author>
+    <comments t="I">17</comments>
+    <details t="S">The pull request cqfn/aibolit#800 with 181 HoC created by @antonprokopyev was reviewed by @yegor256 after 14h58m and 17 comments.</details>
+    <hoc t="I">181</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">800</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">9</review_comments>
+    <seconds t="I">53933</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2025-06-03T12:04:59Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">2484</_id>
+    <_job t="I">23552</_job>
+    <_time t="T">2025-06-04T17:04:47Z</_time>
+    <_version t="S">0.11.0/0.45.0/0.9.0</_version>
+    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#803 reported by @ivanovmg; this means that a bug was accepted as valid, by the project team.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">803</issue>
+    <reporter t="I">41443370</reporter>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-was-accepted</what>
+    <when t="T">2025-06-04T05:15:10Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">2485</_id>
+    <_job t="I">23552</_job>
+    <_time t="T">2025-06-04T17:04:47Z</_time>
+    <_version t="S">0.11.0/0.45.0/0.9.0</_version>
+    <comments t="I">5</comments>
+    <details t="S">The pull request cqfn/aibolit#802 with 169 HoC created by @ivanovmg was merged by @rultor after 8h39m of being in review and 5 comments.</details>
+    <hoc t="I">169</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">802</issue>
+    <merger t="I">8086956</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">2</review_comments>
+    <seconds t="I">31191</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-06-03T17:58:18Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">2486</_id>
+    <_job t="I">23552</_job>
+    <_time t="T">2025-06-04T17:04:47Z</_time>
+    <_version t="S">0.11.0/0.45.0/0.9.0</_version>
+    <comments t="I">15</comments>
+    <details t="S">The pull request cqfn/aibolit#800 with 181 HoC created by @antonprokopyev was merged by @rultor after 15h17m of being in review and 15 comments.</details>
+    <hoc t="I">181</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">800</issue>
+    <merger t="I">8086956</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">9</review_comments>
+    <seconds t="I">55074</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-06-03T12:24:00Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id>
+      <v t="I">2487</v>
+      <v t="I">2482</v>
+    </_id>
+    <_job t="I">23552</_job>
+    <_time>
+      <v t="T">2025-06-04T17:04:47Z</v>
+      <v t="T">2025-06-04T17:04:40Z</v>
+    </_time>
+    <_version t="S">0.11.0/0.45.0/0.9.0</_version>
+    <award t="I">12</award>
+    <details t="S">It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#799, the reward amount is 12.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/799/#issuecomment-2940715799</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">799</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-report-was-rewarded</what>
+    <when t="T">2025-06-04T17:04:40Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Reported bug in cqfn/aibolit#799</why>
+  </f>
+  <f>
+    <_id t="I">2503</_id>
+    <_time t="T">2025-06-04T18:00:57Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">50487981235</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">2504</_id>
+    <_time t="T">2025-06-04T18:01:03Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">2505</_id>
+    <_time t="T">2025-06-04T18:01:11Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">743</latest>
     <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">2506</_id>
+    <_time t="T">2025-06-04T18:01:12Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
     <where t="S">github</where>
   </f>
 </fb>

@@ -1,16 +1,16 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 3
   deleted: 8
   error:
-  - 'Many (222) issues are missing in cqfn/aibolit (between 485 and 802): 490, 491,
-    492, 493, 494, 495, 496, 497, 498, and 499...'
-  - A few (7) facts were found with missing openings, in cqfn/aibolit
+  - 'Many (566) issues are missing in cqfn/aibolit (between 140 and 803): 141, 142,
+    143, 144, 145, 146, 147, 148, 149, and 150...'
+  - A few (8) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 3.960601212
+  seconds: 12.157022547
   version: 0.45.0
   what: judges-summary
-  when: 2025-06-03 15:01:19.996359826 Z
+  when: 2025-06-04 17:04:51.181416724 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -6539,7 +6539,7 @@
   review_comments: 2
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-06-03 17:58:18.000000000 Z
+  when: &86 2025-06-03 17:58:18.000000000 Z
   where: github
   who: 8086956
 - _id: 2455
@@ -6577,7 +6577,7 @@
   review_comments: 9
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-06-03 12:24:00.000000000 Z
+  when: &87 2025-06-03 12:24:00.000000000 Z
   where: github
   who: 8086956
 - _id: 2457
@@ -6596,7 +6596,7 @@
   repository: 237167507
   review_comments: 9
   what: pull-was-reviewed
-  when: 2025-06-03 12:04:59.000000000 Z
+  when: &84 2025-06-03 12:04:59.000000000 Z
   where: github
   who: 526301
 - _id: 2461
@@ -6620,20 +6620,6 @@
   total_stars: 78
   what: dimensions-of-terrain
   when: 2025-06-04 17:00:38.592374622 Z
-- _id: 2476
-  _time: 2025-06-04 17:04:00.665220648 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50487981235
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 2477
-  _time: 2025-06-04 17:04:01.757544692 Z
-  _version: 0.10.2/0.45.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
 - _id: 2478
   _time: 2025-06-04 17:04:07.245047354 Z
   _version: 0.10.2/0.45.0/
@@ -6643,16 +6629,9 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-06-04 05:15:10.000000000 Z
+  when: &85 2025-06-04 05:15:10.000000000 Z
   where: github
   who: 526301
-- _id: 2479
-  _time: 2025-06-04 17:04:07.275637316 Z
-  _version: 0.10.2/0.45.0/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
 - _id: 2480
   _time: 2025-06-04 17:04:15.307084519 Z
   _version: 0.10.2/0.45.0/
@@ -6673,13 +6652,124 @@
   average_reviewers_per_pull: 0.2727272727272727
   average_reviews_per_pull: 0.7272727272727273
   average_triage_time: 36434.42857142857
+  composite: 0.451
+  ffact: 136
   since: 2025-05-28 17:00:34.967479591 Z
   what: quality-of-service
   when: 2025-06-04 17:00:34.967433935 Z
-- _id: 2481
-  _time: 2025-06-04 17:04:21.403368459 Z
+- _id: 2483
+  _job: 23552
+  _time: 2025-06-04 17:04:46.880954632 Z
+  _version: 0.11.0/0.45.0/0.9.0
+  author: 13173649
+  comments: 17
+  details: The pull request cqfn/aibolit#800 with 181 HoC created by @antonprokopyev
+    was reviewed by @yegor256 after 14h58m and 17 comments.
+  hoc: 181
+  is_human: 1
+  issue: 800
+  repository: 237167507
+  review_comments: 9
+  seconds: 53933
+  what: code-was-reviewed
+  when: *84
+  where: github
+  who: 526301
+- _id: 2484
+  _job: 23552
+  _time: 2025-06-04 17:04:47.018529187 Z
+  _version: 0.11.0/0.45.0/0.9.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#803 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 803
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *85
+  where: github
+  who: 526301
+- _id: 2485
+  _job: 23552
+  _time: 2025-06-04 17:04:47.200005941 Z
+  _version: 0.11.0/0.45.0/0.9.0
+  comments: 5
+  details: The pull request cqfn/aibolit#802 with 169 HoC created by @ivanovmg was
+    merged by @rultor after 8h39m of being in review and 5 comments.
+  hoc: 169
+  is_human: 1
+  issue: 802
+  merger: 8086956
+  repository: 237167507
+  review_comments: 2
+  seconds: 31191
+  what: code-was-contributed
+  when: *86
+  where: github
+  who: 41443370
+- _id: 2486
+  _job: 23552
+  _time: 2025-06-04 17:04:47.244148501 Z
+  _version: 0.11.0/0.45.0/0.9.0
+  comments: 15
+  details: The pull request cqfn/aibolit#800 with 181 HoC created by @antonprokopyev
+    was merged by @rultor after 15h17m of being in review and 15 comments.
+  hoc: 181
+  is_human: 1
+  issue: 800
+  merger: 8086956
+  repository: 237167507
+  review_comments: 9
+  seconds: 55074
+  what: code-was-contributed
+  when: *87
+  where: github
+  who: 13173649
+- _id:
+  - 2487
+  - 2482
+  _job: 23552
+  _time:
+  - 2025-06-04 17:04:47.602234252 Z
+  - 2025-06-04 17:04:40.790632861 Z
+  _version: 0.11.0/0.45.0/0.9.0
+  award: 12
+  details: It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#799,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/799/#issuecomment-2940715799
+  is_human: 1
+  issue: 799
+  repository: 237167507
+  what: bug-report-was-rewarded
+  when: 2025-06-04 17:04:40.799456626 Z
+  where: github
+  who: 41443370
+  why: Reported bug in cqfn/aibolit#799
+- _id: 2503
+  _time: 2025-06-04 18:00:57.522653149 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50487981235
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 2504
+  _time: 2025-06-04 18:01:03.433803250 Z
+  _version: 0.10.2/0.45.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 2505
+  _time: 2025-06-04 18:01:11.470934066 Z
   _version: 0.10.2/0.45.0/
   latest: 743
   repository: 237167507
-  what: types-were-scanned
+  what: labels-were-scanned
+  where: github
+- _id: 2506
+  _time: 2025-06-04 18:01:12.501971682 Z
+  _version: 0.10.2/0.45.0/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
   where: github
