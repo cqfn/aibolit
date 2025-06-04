@@ -287,6 +287,27 @@ class TestMvnFreeNPathMetric:
         """).strip()
         assert self._value(content) == 2
 
+    @pytest.mark.xfail(
+        reason='Incomplete implementation for binary conditions',
+        strict=True,
+    )
+    def test_for_with_condition(self) -> None:
+        # TODO #803:30min/DEV Extend MvnFreeNPathMetric to cover binary conditions,
+        #  including `&&` and `||`.
+        #  Refer to https://checkstyle.org/checks/metrics/npathcomplexity.html
+        #  for details on NPath metric.
+        #  Once implemented, remove `xfail` mark from this test.
+        content = """
+        class Test {
+            void foo(int n) {
+                for (int i = 0; i < n && n > 0; i++) {
+                    System.out.println(i);
+                }
+            }
+        }
+        """
+        assert self._value(content) == 3
+
     def test_for_with_if_inside(self) -> None:
         content = dedent("""
         class Test {
