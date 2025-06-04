@@ -6492,7 +6492,96 @@
   where: github
   who: 526301
 - _id: 2452
-  _time: 2025-06-03 18:00:06.184838706 Z
+  _time: 2025-06-04 17:00:05.439046862 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#803 has been opened by @ivanovmg.
+  event_id: 50487333465
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 803
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-04 04:47:49.000000000 Z
+  where: github
+  who: 41443370
+- _id: 2453
+  _time: 2025-06-04 17:00:05.715924780 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#799 has been closed by @rultor.
+  event_id: 50470381457
+  event_type: IssuesEvent
+  is_human: 0
+  issue: 799
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-06-03 17:58:18.000000000 Z
+  where: github
+  who: 8086956
+- _id: 2454
+  _time: 2025-06-04 17:00:05.743776717 Z
+  _version: 0.10.2/0.45.0/
+  branch: '799'
+  comments: 5
+  comments_appreciated: 1
+  comments_by_author: 3
+  comments_by_reviewers: 3
+  comments_resolved: 0
+  comments_to_code: 2
+  details: The pull request cqfn/aibolit#802 has been closed by @rultor, with 169
+    HoC and 5 comments.
+  event_id: 50470380901
+  event_type: PullRequestEvent
+  failed_builds: 0
+  hoc: 169
+  is_human: 0
+  issue: 802
+  repository: 237167507
+  review_comments: 2
+  succeeded_builds: 16
+  what: pull-was-merged
+  when: 2025-06-03 17:58:18.000000000 Z
+  where: github
+  who: 8086956
+- _id: 2455
+  _time: 2025-06-04 17:00:19.269805650 Z
+  _version: 0.10.2/0.45.0/
+  details: The issue cqfn/aibolit#140 has been closed by @rultor.
+  event_id: 50455105581
+  event_type: IssuesEvent
+  is_human: 0
+  issue: 140
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-06-03 12:24:05.000000000 Z
+  where: github
+  who: 8086956
+- _id: 2456
+  _time: 2025-06-04 17:00:19.298249623 Z
+  _version: 0.10.2/0.45.0/
+  branch: 140-incomplete-for-pattern
+  comments: 15
+  comments_appreciated: 8
+  comments_by_author: 3
+  comments_by_reviewers: 14
+  comments_resolved: 0
+  comments_to_code: 9
+  details: The pull request cqfn/aibolit#800 has been closed by @rultor, with 181
+    HoC and 15 comments.
+  event_id: 50455097517
+  event_type: PullRequestEvent
+  failed_builds: 0
+  hoc: 181
+  is_human: 0
+  issue: 800
+  repository: 237167507
+  review_comments: 9
+  succeeded_builds: 16
+  what: pull-was-merged
+  when: 2025-06-03 12:24:00.000000000 Z
+  where: github
+  who: 8086956
+- _id: 2457
+  _time: 2025-06-04 17:00:27.986236961 Z
   _version: 0.10.2/0.45.0/
   comments: 17
   commits: 4
@@ -6510,31 +6599,87 @@
   when: 2025-06-03 12:04:59.000000000 Z
   where: github
   who: 526301
-- _id: 2465
-  _time: 2025-06-03 18:00:35.833246286 Z
+- _id: 2461
+  _time: 2025-06-04 17:00:37.106377697 Z
   _version: 0.10.2/0.45.0/
-  latest: 50454373138
+  since: 2025-05-28 17:00:37.106532967 Z
+  what: quantity-of-deliverables
+  when: 2025-06-04 17:00:37.106490828 Z
+- _id: 2464
+  _time: 2025-06-04 17:00:41.705776272 Z
+  _version: 0.10.2/0.45.0/
+  total_active_contributors: 7
+  total_commits: 2407
+  total_contributors: 19
+  total_files: 1052
+  total_forks: 26
+  total_issues: 400
+  total_pulls: 404
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 78
+  what: dimensions-of-terrain
+  when: 2025-06-04 17:00:38.592374622 Z
+- _id: 2476
+  _time: 2025-06-04 17:04:00.665220648 Z
+  _version: 0.10.2/0.45.0/
+  latest: 50487981235
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 2466
-  _time: 2025-06-03 18:00:40.671424285 Z
+- _id: 2477
+  _time: 2025-06-04 17:04:01.757544692 Z
+  _version: 0.10.2/0.45.0/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 2478
+  _time: 2025-06-04 17:04:07.245047354 Z
+  _version: 0.10.2/0.45.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#803.
+  is_human: 1
+  issue: 803
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-06-04 05:15:10.000000000 Z
+  where: github
+  who: 526301
+- _id: 2479
+  _time: 2025-06-04 17:04:07.275637316 Z
   _version: 0.10.2/0.45.0/
   latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 2467
-  _time: 2025-06-03 18:00:42.296641529 Z
+- _id: 2480
+  _time: 2025-06-04 17:04:15.307084519 Z
   _version: 0.10.2/0.45.0/
-  latest: 0
+  average_backlog_size: 4.75
+  average_build_duration: 72.218
+  average_build_mttr: -25454
+  average_build_success_rate: 0.963
+  average_issue_lifetime: 5995882.75
+  average_pull_files_size: 2.0454545454545454
+  average_pull_hoc_size: 421.77272727272725
+  average_pull_lifetime: 22539.727272727272
+  average_pull_rejection_rate: 0.0
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
+  average_release_interval: 0
+  average_review_size: 0.6818181818181818
+  average_review_time: 48621.0
+  average_reviewers_per_pull: 0.2727272727272727
+  average_reviews_per_pull: 0.7272727272727273
+  average_triage_time: 36434.42857142857
+  since: 2025-05-28 17:00:34.967479591 Z
+  what: quality-of-service
+  when: 2025-06-04 17:00:34.967433935 Z
+- _id: 2481
+  _time: 2025-06-04 17:04:21.403368459 Z
+  _version: 0.10.2/0.45.0/
+  latest: 743
   repository: 237167507
   what: types-were-scanned
-  where: github
-- _id: 2468
-  _time: 2025-06-03 18:00:43.439457686 Z
-  _version: 0.10.2/0.45.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
   where: github
