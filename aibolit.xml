@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="149087">
+<fb version="0.10.2" size="149408">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <error>
-      <v t="S">Many (566) issues are missing in cqfn/aibolit (between 140 and 804): 141, 142, 143, 144, 145, 146, 147, 148, 149, and 150...</v>
+      <v t="S">GET https://api.github.com/repositories/237167507: 403 - API rate limit exceeded for 13.217.170.86. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.) // See: https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting</v>
       <v t="S">A few (8) facts were found with missing openings, in cqfn/aibolit</v>
+      <v t="S">Many (566) issues are missing in cqfn/aibolit (between 140 and 804): 141, 142, 143, 144, 145, 146, 147, 148, 149, and 150...</v>
     </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">3.80471696</seconds>
+    <seconds t="F">124.123335379</seconds>
     <version t="S">0.45.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-05T05:01:22Z</when>
+    <when t="T">2025-06-05T06:03:26Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -7610,8 +7611,8 @@
     <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">2705</_id>
-    <_time t="T">2025-06-05T06:00:56Z</_time>
+    <_id t="I">2719</_id>
+    <_time t="T">2025-06-05T07:01:47Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -7619,8 +7620,8 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2706</_id>
-    <_time t="T">2025-06-05T06:00:58Z</_time>
+    <_id t="I">2721</_id>
+    <_time t="T">2025-06-05T07:01:50Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">50495521229</latest>
     <repository t="I">237167507</repository>
@@ -7628,21 +7629,21 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2707</_id>
-    <_time t="T">2025-06-05T06:01:01Z</_time>
+    <_id t="I">2722</_id>
+    <_time t="T">2025-06-05T07:01:56Z</_time>
+    <_version t="S">0.10.2/0.45.0/</_version>
+    <latest t="I">776</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">2723</_id>
+    <_time t="T">2025-06-05T07:01:59Z</_time>
     <_version t="S">0.10.2/0.45.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">2708</_id>
-    <_time t="T">2025-06-05T06:01:06Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
