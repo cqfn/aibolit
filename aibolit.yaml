@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 91.543563258
+  seconds: 106.847373398
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-05 14:01:30.555230710 Z
+  when: 2025-06-05 15:01:26.670727356 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7268,29 +7268,61 @@
   when: *93
   where: github
   who: 41443370
-- _id: 2876
-  _time: 2025-06-05 14:01:11.265990400 Z
+- _id: 2881
+  _job: 23772
+  _time:
+  - 2025-06-05 14:02:02.261850038 Z
+  - 2025-06-05 14:01:52.974371876 Z
+  _version: 0.11.0/0.45.0/0.10.0!0.11.0
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#806,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/806/#issuecomment-2944554916
+  is_human: 1
+  issue: 806
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-05 14:01:52.977998904 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#806
+- _id: 2882
+  _time: 2025-06-05 14:59:43.072603943 Z
   _version: 0.11.0/0.46.0/
-  latest: 732
+  details: The issue cqfn/aibolit#805 has been closed by @yegor256.
+  event_id: 50554956658
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 805
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-06-05 12:33:41.000000000 Z
+  where: github
+  who: 526301
+- _id: 2892
+  _time: 2025-06-05 15:00:39.500292842 Z
+  _version: 0.11.0/0.46.0/
+  latest: 799
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 2877
-  _time: 2025-06-05 14:01:24.933889784 Z
+- _id: 2895
+  _time: 2025-06-05 15:01:08.709052237 Z
   _version: 0.11.0/0.46.0/
   latest: 732
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 2879
-  _time: 2025-06-05 14:01:27.868919635 Z
+- _id: 2897
+  _time: 2025-06-05 15:01:24.837378959 Z
   _version: 0.11.0/0.46.0/
-  latest: 50553542608
+  latest: 50555228609
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 2880
-  _time: 2025-06-05 14:01:28.835479278 Z
+- _id: 2898
+  _time: 2025-06-05 15:01:26.487998336 Z
   _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507
