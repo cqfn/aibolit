@@ -107,6 +107,8 @@ class MvnFreeNPathMetric:
             return self._if_npath(node)
         elif node.node_type == ASTNodeType.SWITCH_STATEMENT:
             return self._switch_npath(node)
+        elif node.node_type == ASTNodeType.FOR_STATEMENT:
+            return self._for_loop_npath(node)
         else:
             return self._sequence_npath(node.children)
 
@@ -129,3 +131,7 @@ class MvnFreeNPathMetric:
 
         case_paths = sum(_group_npath(case_group) for case_group in node.cases)
         return self._node_npath(node.expression) * max(case_paths, 1)
+
+    def _for_loop_npath(self, node: ASTNode) -> int:
+        body_npath = self._node_npath(node.body)
+        return body_npath + 1
