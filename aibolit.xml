@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="157309">
+<fb version="0.10.2" size="157691">
   <f>
     <added t="I">8</added>
     <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">142.191300169</seconds>
+    <seconds t="F">91.543563258</seconds>
     <version t="S">0.46.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-05T13:26:30Z</when>
+    <when t="T">2025-06-05T14:01:30Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -8074,17 +8074,36 @@
     <who t="I">24456188</who>
   </f>
   <f>
-    <_id t="I">2858</_id>
-    <_time t="T">2025-06-05T13:26:17Z</_time>
-    <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">50553542608</latest>
+    <_id t="I">2862</_id>
+    <_job t="I">23766</_job>
+    <_time t="T">2025-06-05T13:26:51Z</_time>
+    <_version t="S">0.11.0/0.45.0/0.10.0!0.11.0</_version>
+    <comments t="I">2</comments>
+    <details t="S">The pull request cqfn/aibolit#806 with 49 HoC created by @ivanovmg was merged by @yegor256 after 52m16s of being in review and 2 comments.</details>
+    <hoc t="I">49</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">806</issue>
+    <merger t="I">526301</merger>
     <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">3137</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-06-05T12:33:39Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">2876</_id>
+    <_time t="T">2025-06-05T14:01:11Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <latest t="I">732</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2859</_id>
-    <_time t="T">2025-06-05T13:26:25Z</_time>
+    <_id t="I">2877</_id>
+    <_time t="T">2025-06-05T14:01:24Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
     <latest t="I">732</latest>
     <repository t="I">237167507</repository>
@@ -8092,21 +8111,21 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2860</_id>
-    <_time t="T">2025-06-05T13:26:28Z</_time>
+    <_id t="I">2879</_id>
+    <_time t="T">2025-06-05T14:01:27Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <latest t="I">50553542608</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">2880</_id>
+    <_time t="T">2025-06-05T14:01:28Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">2861</_id>
-    <_time t="T">2025-06-05T13:26:30Z</_time>
-    <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">732</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>

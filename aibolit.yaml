@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 142.191300169
+  seconds: 91.543563258
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-05 13:26:30.263464276 Z
+  when: 2025-06-05 14:01:30.555230710 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7217,7 +7217,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-06-05 12:33:39.000000000 Z
+  when: &93 2025-06-05 12:33:39.000000000 Z
   where: github
   who: 526301
 - _id: 2842
@@ -7250,31 +7250,49 @@
   when: 2025-06-05 12:33:48.000000000 Z
   where: github
   who: 24456188
-- _id: 2858
-  _time: 2025-06-05 13:26:17.113501026 Z
-  _version: 0.11.0/0.46.0/
-  latest: 50553542608
+- _id: 2862
+  _job: 23766
+  _time: 2025-06-05 13:26:51.201800489 Z
+  _version: 0.11.0/0.45.0/0.10.0!0.11.0
+  comments: 2
+  details: The pull request cqfn/aibolit#806 with 49 HoC created by @ivanovmg was
+    merged by @yegor256 after 52m16s of being in review and 2 comments.
+  hoc: 49
+  is_human: 1
+  issue: 806
+  merger: 526301
   repository: 237167507
-  what: events-were-scanned
+  review_comments: 0
+  seconds: 3137
+  what: code-was-contributed
+  when: *93
   where: github
-- _id: 2859
-  _time: 2025-06-05 13:26:25.815145715 Z
+  who: 41443370
+- _id: 2876
+  _time: 2025-06-05 14:01:11.265990400 Z
+  _version: 0.11.0/0.46.0/
+  latest: 732
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 2877
+  _time: 2025-06-05 14:01:24.933889784 Z
   _version: 0.11.0/0.46.0/
   latest: 732
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 2860
-  _time: 2025-06-05 13:26:28.290870095 Z
+- _id: 2879
+  _time: 2025-06-05 14:01:27.868919635 Z
+  _version: 0.11.0/0.46.0/
+  latest: 50553542608
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 2880
+  _time: 2025-06-05 14:01:28.835479278 Z
   _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
-  where: github
-- _id: 2861
-  _time: 2025-06-05 13:26:30.245722586 Z
-  _version: 0.11.0/0.46.0/
-  latest: 732
-  repository: 237167507
-  what: types-were-scanned
   where: github
