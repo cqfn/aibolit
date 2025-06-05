@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="152157">
+<fb version="0.10.2" size="154056">
   <f>
     <added t="I">8</added>
     <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">139.145773309</seconds>
+    <seconds t="F">143.844155115</seconds>
     <version t="S">0.46.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-05T10:02:19Z</when>
+    <when t="T">2025-06-05T11:02:04Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -7801,17 +7801,94 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">2785</_id>
-    <_time t="T">2025-06-05T10:01:54Z</_time>
-    <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">756</latest>
+    <_id t="I">2791</_id>
+    <_job t="I">23729</_job>
+    <_time t="T">2025-06-05T10:02:37Z</_time>
+    <_version t="S">0.11.0/0.45.0/0.10.0</_version>
+    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#709 reported by @ivanovmg; this means that a bug was accepted as valid, by the project team.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">709</issue>
+    <reporter t="I">41443370</reporter>
     <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
+    <what t="S">bug-was-accepted</what>
+    <when t="T">2025-05-24T07:29:19Z</when>
     <where t="S">github</where>
+    <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">2788</_id>
-    <_time t="T">2025-06-05T10:02:07Z</_time>
+    <_id t="I">2792</_id>
+    <_job t="I">23729</_job>
+    <_time t="T">2025-06-05T10:02:38Z</_time>
+    <_version t="S">0.11.0/0.45.0/0.10.0</_version>
+    <closer t="I">8086956</closer>
+    <details t="S">The bug/feature in the issue cqfn/aibolit#798 opened @ivanovmg by was resolved, after 16h13m of waiting, because it was closed by @rultor and earlier it was assigned to @ivanovmg and the label '#bug' was attached.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">798</issue>
+    <label t="S">bug</label>
+    <opener t="I">41443370</opener>
+    <repository t="I">237167507</repository>
+    <seconds t="I">58424</seconds>
+    <what t="S">bug-was-resolved</what>
+    <when t="T">2025-06-03T04:38:35Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">2793</_id>
+    <_job t="I">23729</_job>
+    <_time t="T">2025-06-05T10:02:38Z</_time>
+    <_version t="S">0.11.0/0.45.0/0.10.0</_version>
+    <closer t="I">8086956</closer>
+    <details t="S">In the repository #237167507, the user #526301 submitted the issue #140 which was later closed by the user #8086956 not becoming a bug or enhancement; this means that the issue was not valid, maybe a duplicate or simply a mistake.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">140</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">dud-was-closed</what>
+    <when t="T">2020-04-01T21:02:48Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">2794</_id>
+    <_job t="I">23729</_job>
+    <_time t="T">2025-06-05T10:02:38Z</_time>
+    <_version t="S">0.11.0/0.45.0/0.10.0</_version>
+    <comments t="I">8</comments>
+    <details t="S">The pull request cqfn/aibolit#717 with 111 HoC created by @ivanovmg was merged by @yegor256 after 1h56m of being in review and 8 comments.</details>
+    <hoc t="I">111</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">717</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">4</review_comments>
+    <seconds t="I">6982</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-23T14:16:48Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">2795</_id>
+    <_job t="I">23729</_job>
+    <_time t="T">2025-06-05T10:02:38Z</_time>
+    <_version t="S">0.11.0/0.45.0/0.10.0</_version>
+    <comments t="I">2</comments>
+    <details t="S">The pull request cqfn/aibolit#804 with 131 HoC created by @ivanovmg was merged by @yegor256 after 1d1h of being in review and 2 comments.</details>
+    <hoc t="I">131</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">804</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">90889</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-06-05T09:24:19Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">2808</_id>
+    <_time t="T">2025-06-05T11:01:36Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
     <latest t="I">50517723351</latest>
     <repository t="I">237167507</repository>
@@ -7819,21 +7896,30 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2789</_id>
-    <_time t="T">2025-06-05T10:02:16Z</_time>
+    <_id t="I">2809</_id>
+    <_time t="T">2025-06-05T11:01:38Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">732</latest>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">2810</_id>
+    <_time t="T">2025-06-05T11:01:55Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <latest t="I">0</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">2790</_id>
-    <_time t="T">2025-06-05T10:02:18Z</_time>
+    <_id t="I">2811</_id>
+    <_time t="T">2025-06-05T11:02:03Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">710</latest>
+    <latest t="I">732</latest>
     <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>

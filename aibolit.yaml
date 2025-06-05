@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 139.145773309
+  seconds: 143.844155115
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-05 10:02:19.603502253 Z
+  when: 2025-06-05 11:02:04.439747162 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -1480,7 +1480,7 @@
   review_comments: 4
   succeeded_builds: 15
   what: pull-was-merged
-  when: 2025-05-23 14:16:48.000000000 Z
+  when: &91 2025-05-23 14:16:48.000000000 Z
   where: github
   who: 526301
 - _id: 96
@@ -6360,7 +6360,7 @@
   issue: 798
   repository: 237167507
   what: issue-was-closed
-  when: 2025-06-03 04:38:35.000000000 Z
+  when: &89 2025-06-03 04:38:35.000000000 Z
   where: github
   who: 8086956
 - _id: 2304
@@ -6935,7 +6935,7 @@
   issue: 140
   repository: 237167507
   what: issue-was-opened
-  when: 2020-04-01 21:02:48.000000000 Z
+  when: &90 2020-04-01 21:02:48.000000000 Z
   where: github
   who: 526301
 - _id: 2773
@@ -6992,7 +6992,7 @@
   review_comments: 0
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-06-05 09:24:19.000000000 Z
+  when: &92 2025-06-05 09:24:19.000000000 Z
   where: github
   who: 526301
 - _id: 2781
@@ -7004,34 +7004,117 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-24 07:29:19.000000000 Z
+  when: &88 2025-05-24 07:29:19.000000000 Z
   where: github
   who: 526301
-- _id: 2785
-  _time: 2025-06-05 10:01:54.575163661 Z
-  _version: 0.11.0/0.46.0/
-  latest: 756
+- _id: 2791
+  _job: 23729
+  _time: 2025-06-05 10:02:37.659135300 Z
+  _version: 0.11.0/0.45.0/0.10.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#709 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 709
+  reporter: 41443370
   repository: 237167507
-  what: labels-were-scanned
+  what: bug-was-accepted
+  when: *88
   where: github
-- _id: 2788
-  _time: 2025-06-05 10:02:07.383908930 Z
+  who: 526301
+- _id: 2792
+  _job: 23729
+  _time: 2025-06-05 10:02:38.128696792 Z
+  _version: 0.11.0/0.45.0/0.10.0
+  closer: 8086956
+  details: The bug/feature in the issue cqfn/aibolit#798 opened @ivanovmg by was resolved,
+    after 16h13m of waiting, because it was closed by @rultor and earlier it was assigned
+    to @ivanovmg and the label '#bug' was attached.
+  is_human: 1
+  issue: 798
+  label: bug
+  opener: 41443370
+  repository: 237167507
+  seconds: 58424
+  what: bug-was-resolved
+  when: *89
+  where: github
+  who: 41443370
+- _id: 2793
+  _job: 23729
+  _time: 2025-06-05 10:02:38.252106413 Z
+  _version: 0.11.0/0.45.0/0.10.0
+  closer: 8086956
+  details: 'In the repository #237167507, the user #526301 submitted the issue #140
+    which was later closed by the user #8086956 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 1
+  issue: 140
+  repository: 237167507
+  what: dud-was-closed
+  when: *90
+  where: github
+  who: 526301
+- _id: 2794
+  _job: 23729
+  _time: 2025-06-05 10:02:38.381933702 Z
+  _version: 0.11.0/0.45.0/0.10.0
+  comments: 8
+  details: The pull request cqfn/aibolit#717 with 111 HoC created by @ivanovmg was
+    merged by @yegor256 after 1h56m of being in review and 8 comments.
+  hoc: 111
+  is_human: 1
+  issue: 717
+  merger: 526301
+  repository: 237167507
+  review_comments: 4
+  seconds: 6982
+  what: code-was-contributed
+  when: *91
+  where: github
+  who: 41443370
+- _id: 2795
+  _job: 23729
+  _time: 2025-06-05 10:02:38.388940721 Z
+  _version: 0.11.0/0.45.0/0.10.0
+  comments: 2
+  details: The pull request cqfn/aibolit#804 with 131 HoC created by @ivanovmg was
+    merged by @yegor256 after 1d1h of being in review and 2 comments.
+  hoc: 131
+  is_human: 1
+  issue: 804
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 90889
+  what: code-was-contributed
+  when: *92
+  where: github
+  who: 41443370
+- _id: 2808
+  _time: 2025-06-05 11:01:36.503863004 Z
   _version: 0.11.0/0.46.0/
   latest: 50517723351
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 2789
-  _time: 2025-06-05 10:02:16.702978728 Z
-  _version: 0.11.0/0.46.0/
-  latest: 732
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 2790
-  _time: 2025-06-05 10:02:18.691213264 Z
+- _id: 2809
+  _time: 2025-06-05 11:01:38.756291156 Z
   _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 2810
+  _time: 2025-06-05 11:01:55.129361112 Z
+  _version: 0.11.0/0.46.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 2811
+  _time: 2025-06-05 11:02:03.979398731 Z
+  _version: 0.11.0/0.46.0/
+  latest: 732
+  repository: 237167507
+  what: labels-were-scanned
   where: github
