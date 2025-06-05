@@ -287,12 +287,7 @@ class TestMvnFreeNPathMetric:
         """).strip()
         assert self._value(content) == 2
 
-    def test_for_with_condition(self) -> None:
-        # TODO #803:30min/DEV Extend MvnFreeNPathMetric to cover binary conditions,
-        #  including `&&` and `||`.
-        #  Refer to https://checkstyle.org/checks/metrics/npathcomplexity.html
-        #  for details on NPath metric.
-        #  Once implemented, remove `xfail` mark from this test.
+    def test_for_with_and_condition(self) -> None:
         content = """
         class Test {
             void foo(int n) {
@@ -303,6 +298,20 @@ class TestMvnFreeNPathMetric:
         }
         """
         assert self._value(content) == 3
+
+    def test_for_with_or_condition(self) -> None:
+        content = dedent(
+            """\
+            class Test {
+                void process(int a, int b) {
+                    for (int i = 0; a > 0 || b < 10; i++) {
+                        System.out.println("Processing: " + i);
+                    }
+                }
+            }
+            """,
+        ).strip()
+        assert self._value(content) == 4
 
     def test_for_with_if_inside(self) -> None:
         content = dedent("""
