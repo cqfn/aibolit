@@ -143,8 +143,7 @@ class MvnFreeNPathMetric:
         return body_npath + condition_npath
 
     def _binary_expression_npath(self, node: ASTNode) -> int:
-        operator = node.operator
-        if operator not in {'&&', '||'}:
+        if node.operator not in {'&&', '||'}:
             return 1
         left_npath = self._node_npath(node.operandl)
         right_npath = self._node_npath(node.operandr)
