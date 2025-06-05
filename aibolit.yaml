@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 143.844155115
+  seconds: 99.446528924
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-05 11:02:04.439747162 Z
+  when: 2025-06-05 12:01:43.195513409 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7090,31 +7090,134 @@
   when: *92
   where: github
   who: 41443370
-- _id: 2808
-  _time: 2025-06-05 11:01:36.503863004 Z
+- _id: 2812
+  _job: 23738
+  _time: 2025-06-05 11:02:24.483844768 Z
+  _version: 0.11.0/0.45.0/0.10.0
+  award: 12
+  details: It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#709,
+    the reward amount is 12.
+  greeting: "\U0001F389 Awesome bug report! You've earned +12 points, bringing your
+    total to [+211](https://cqfn.github.io/aibolit/aibolit-vitals.html). Your keen
+    eye helps elevate our project's quality. Keep an eye out for anything that [seems
+    off](https://www.yegor256.com/2018/02/06/where-to-find-more-bugs.html) and [don't
+    hold back](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html) - [report
+    it](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html)! Your contributions
+    are invaluable to our success. \U0001F41B\U0001F50D\n\n<!-- Thanks for reporting
+    a new bug! You've earned +12 points. By reporting bugs, you help our project improve
+    its quality. If you find anything else in the repository that [doesn't look](https://www.yegor256.com/2018/02/06/where-to-find-more-bugs.html)
+    as good as you might expect, [do not hesitate](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html)
+    to [report](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html)
+    it. Your running balance is [+211](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  is_human: 1
+  issue: 709
+  repository: 237167507
+  what: bug-report-was-rewarded
+  when: 2025-06-05 11:02:24.485746362 Z
+  where: github
+  who: 41443370
+  why: Reported bug in cqfn/aibolit#709
+- _id: 2813
+  _job: 23738
+  _time: 2025-06-05 11:02:29.686527432 Z
+  _version: 0.11.0/0.45.0/0.10.0
+  award: 12
+  details: It's time to reward @ivanovmg for the bug resolved in cqfn/aibolit#798
+    in 16 hours, the reward amount is 12.
+  greeting: "Hey there, bug-squasher extraordinaire! \U0001F41B\U0001F4AA Awesome
+    job closing that issue so quickly! You've racked up a sweet +12 points for this
+    one: +8 for the base reward, and an extra +4 for knocking it out in under 24 hours.
+    That's some speedy problem-solving! Your running balance is now sitting pretty
+    at [+223](https://cqfn.github.io/aibolit/aibolit-vitals.html). Keep up the great
+    work, and remember, the quicker you squash those bugs, the more points you can
+    earn. Just don't report your own bugs for extra points - that's a no-no! \U0001F609
+    Looking forward to seeing more of your coding magic!\n\n<!-- Thanks for closing
+    this issue! You've earned +12 points for this: +8 as a basis; +4 for resolving
+    it in less than 24 hours. Your running balance is [+223](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  is_human: 1
+  issue: 798
+  repository: 237167507
+  what: resolved-bug-was-rewarded
+  when: 2025-06-05 11:02:29.689699222 Z
+  where: github
+  who: 41443370
+  why: Resolved bug in cqfn/aibolit#798
+- _id: 2814
+  _job: 23738
+  _time: 2025-06-05 11:02:35.521117025 Z
+  _version: 0.11.0/0.45.0/0.10.0
+  award: 6
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#717,
+    the reward amount is 6.
+  greeting: "Thanks for your contribution! \U0001F680 Your effort has earned you +6
+    points: +16 base, +5 for 111 [hits-of-code](https://www.yegor256.com/2014/11/14/hits-of-code.html),
+    but -16 for missing code review. Remember, code reviews are crucial and can boost
+    your points! Your balance is now [+235](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    Keep up the great work and aim for that max 24-point reward by following our [policy](https://www.yegor256.com/2018/03/06/speed-vs-quality.html)!\n\n<!--
+    Thanks for the contribution! You've earned +6 points for this: +16 as a basis;
+    +5 for the 111 hits-of-code that you wrote; -16 for the lack of code review. Please,
+    [keep](https://www.yegor256.com/2018/03/06/speed-vs-quality.html) them coming.
+    Your running balance is [+235](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  is_human: 1
+  issue: 717
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-05 11:02:35.525196245 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#717
+- _id: 2815
+  _job: 23738
+  _time: 2025-06-05 11:02:41.253631153 Z
+  _version: 0.11.0/0.45.0/0.10.0
+  award: 7
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#804,
+    the reward amount is 7.
+  greeting: "\U0001F389 Fantastic contribution! You've earned **+7 points** for your
+    efforts: +16 base, +6 for 131 hits-of-code, -16 for missed code review. [Keep
+    up](https://www.yegor256.com/2018/03/06/speed-vs-quality.html) the great work!
+    Your balance now stands at [+235](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    We're excited to see your next contribution!\n\n<!-- Thanks for the contribution!
+    You've earned +7 points for this: +16 as a basis; +6 for the 131 hits-of-code
+    that you wrote; -16 for the lack of code review. Please, [keep](https://www.yegor256.com/2018/03/06/speed-vs-quality.html)
+    them coming. Your running balance is [+235](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  is_human: 1
+  issue: 804
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-05 11:02:41.257740475 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#804
+- _id: 2829
+  _time: 2025-06-05 12:01:30.190260949 Z
   _version: 0.11.0/0.46.0/
-  latest: 50517723351
+  latest: 50551139033
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 2809
-  _time: 2025-06-05 11:01:38.756291156 Z
-  _version: 0.11.0/0.46.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 2810
-  _time: 2025-06-05 11:01:55.129361112 Z
+- _id: 2830
+  _time: 2025-06-05 12:01:31.835167857 Z
   _version: 0.11.0/0.46.0/
   latest: 0
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 2811
-  _time: 2025-06-05 11:02:03.979398731 Z
+- _id: 2831
+  _time: 2025-06-05 12:01:42.403584874 Z
   _version: 0.11.0/0.46.0/
-  latest: 732
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 2832
+  _time: 2025-06-05 12:01:43.188064367 Z
+  _version: 0.11.0/0.46.0/
+  latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
