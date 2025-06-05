@@ -1,16 +1,12 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 5
   deleted: 8
-  error:
-  - 'Many (566) issues are missing in cqfn/aibolit (between 140 and 804): 141, 142,
-    143, 144, 145, 146, 147, 148, 149, and 150...'
-  - A few (8) facts were found with missing openings, in cqfn/aibolit
   inserted: 8
-  seconds: 4.344667062
-  version: 0.45.0
+  seconds: 139.145773309
+  version: 0.46.0
   what: judges-summary
-  when: 2025-06-05 08:01:06.902426985 Z
+  when: 2025-06-05 10:02:19.603502253 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -5624,13 +5620,6 @@
   when: 2025-05-31 17:06:56.000000000 Z
   where: github
   who: 41443370
-- _id: 1295
-  _time: 2025-05-31 18:00:22.138749497 Z
-  _version: 0.10.2/0.45.0/
-  latest: 737
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
 - _id: 1428
   _time: 2025-06-01 04:25:53.394275819 Z
   _version: 0.10.2/0.45.0/
@@ -6843,30 +6832,205 @@
   when: 2025-06-04 08:09:30.000000000 Z
   where: github
   who: 41443370
-- _id: 2754
-  _time: 2025-06-05 09:01:12.107358476 Z
-  _version: 0.10.2/0.45.0/
-  latest: 0
+- _id: 2761
+  _time: 2025-06-05 10:00:14.565813880 Z
+  _version: 0.11.0/0.46.0/
+  details: The issue cqfn/aibolit#805 has been opened by @0pdd.
+  is_human: 0
+  issue: 805
   repository: 237167507
-  what: types-were-scanned
+  what: issue-was-opened
+  when: 2025-06-05 09:24:26.000000000 Z
   where: github
-- _id: 2756
-  _time: 2025-06-05 09:01:22.998712113 Z
-  _version: 0.10.2/0.45.0/
-  latest: 776
+  who: 24456188
+- _id: 2763
+  _time: 2025-06-05 10:00:15.134371765 Z
+  _version: 0.11.0/0.46.0/
+  latest: 739
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 2765
+  _time: 2025-06-05 10:00:18.879057934 Z
+  _version: 0.11.0/0.46.0/
+  details: The issue cqfn/aibolit#489 has been opened by @0pdd.
+  is_human: 0
+  issue: 489
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-06 14:37:31.000000000 Z
+  where: github
+  who: 24456188
+- _id: 2766
+  _time: 2025-06-05 10:00:19.139922289 Z
+  _version: 0.11.0/0.46.0/
+  details: The issue cqfn/aibolit#488 has been opened by @0pdd.
+  is_human: 0
+  issue: 488
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-06 14:37:17.000000000 Z
+  where: github
+  who: 24456188
+- _id: 2767
+  _time: 2025-06-05 10:00:19.406363439 Z
+  _version: 0.11.0/0.46.0/
+  details: The issue cqfn/aibolit#487 has been opened by @0pdd.
+  is_human: 0
+  issue: 487
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-06 14:37:03.000000000 Z
+  where: github
+  who: 24456188
+- _id: 2768
+  _time: 2025-06-05 10:00:19.651565178 Z
+  _version: 0.11.0/0.46.0/
+  details: The issue cqfn/aibolit#486 has been opened by @0pdd.
+  is_human: 0
+  issue: 486
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-06 14:36:48.000000000 Z
+  where: github
+  who: 24456188
+- _id: 2769
+  _time: 2025-06-05 10:00:19.951813718 Z
+  _version: 0.11.0/0.46.0/
+  details: The issue cqfn/aibolit#485 has been opened by @0pdd.
+  is_human: 0
+  issue: 485
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-06 14:36:34.000000000 Z
+  where: github
+  who: 24456188
+- _id: 2770
+  _time: 2025-06-05 10:00:20.225528023 Z
+  _version: 0.11.0/0.46.0/
+  details: The issue cqfn/aibolit#709 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 709
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-22 12:28:11.000000000 Z
+  where: github
+  who: 41443370
+- _id: 2771
+  _time: 2025-06-05 10:00:20.557627780 Z
+  _version: 0.11.0/0.46.0/
+  details: The pull cqfn/aibolit#717 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 717
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-23 12:20:26.000000000 Z
+  where: github
+  who: 41443370
+- _id: 2772
+  _time: 2025-06-05 10:00:20.836973524 Z
+  _version: 0.11.0/0.46.0/
+  details: The issue cqfn/aibolit#140 has been opened by @yegor256.
+  is_human: 1
+  issue: 140
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-04-01 21:02:48.000000000 Z
+  where: github
+  who: 526301
+- _id: 2773
+  _time: 2025-06-05 10:00:35.105296223 Z
+  _version: 0.11.0/0.46.0/
+  assigner: 526301
+  is_human: 1
+  issue: 798
+  repository: 237167507
+  what: issue-was-assigned
+  when: 2025-06-02 12:24:51.000000000 Z
+  where: github
+  who: 41443370
+- _id: 2774
+  _time: 2025-06-05 10:00:35.359693520 Z
+  _version: 0.11.0/0.46.0/
+  assigner: 526301
+  is_human: 1
+  issue: 803
+  repository: 237167507
+  what: issue-was-assigned
+  when: 2025-06-04 05:15:12.000000000 Z
+  where: github
+  who: 41443370
+- _id: 2775
+  _time: 2025-06-05 10:00:44.211100529 Z
+  _version: 0.11.0/0.46.0/
+  details: The '#bug' label was attached by @0pdd to the issue cqfn/aibolit#805.
+  is_human: 0
+  issue: 805
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-06-05 09:24:27.000000000 Z
+  where: github
+  who: 24456188
+- _id: 2779
+  _time: 2025-06-05 10:01:05.656038824 Z
+  _version: 0.11.0/0.46.0/
+  branch: '803'
+  comments: 2
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 1
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#804 has been merged by @yegor256,
+    with 131 HoC and 2 comments.
+  failed_builds: 0
+  hoc: 131
+  is_human: 1
+  issue: 804
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 16
+  what: pull-was-merged
+  when: 2025-06-05 09:24:19.000000000 Z
+  where: github
+  who: 526301
+- _id: 2781
+  _time: 2025-06-05 10:01:36.090464614 Z
+  _version: 0.11.0/0.46.0/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#709.
+  is_human: 1
+  issue: 709
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-24 07:29:19.000000000 Z
+  where: github
+  who: 526301
+- _id: 2785
+  _time: 2025-06-05 10:01:54.575163661 Z
+  _version: 0.11.0/0.46.0/
+  latest: 756
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 2757
-  _time: 2025-06-05 09:01:25.037147168 Z
-  _version: 0.10.2/0.45.0/
-  latest: 50516697698
+- _id: 2788
+  _time: 2025-06-05 10:02:07.383908930 Z
+  _version: 0.11.0/0.46.0/
+  latest: 50517723351
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 2758
-  _time: 2025-06-05 09:01:27.663572709 Z
-  _version: 0.10.2/0.45.0/
+- _id: 2789
+  _time: 2025-06-05 10:02:16.702978728 Z
+  _version: 0.11.0/0.46.0/
+  latest: 732
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 2790
+  _time: 2025-06-05 10:02:18.691213264 Z
+  _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
