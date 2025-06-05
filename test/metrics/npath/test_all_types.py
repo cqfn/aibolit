@@ -299,10 +299,6 @@ class TestMvnFreeNPathMetric:
         """
         assert self._value(content) == 3
 
-    @pytest.mark.xfail(
-        reason='Incomplete implementation of binary conditions',
-        strict=True,
-    )
     def test_for_with_or_condition(self) -> None:
         # TODO #805:30min/DEV Extend MvnFreeNPathMetric to cover binary condition OR.
         #  Refer to https://checkstyle.org/checks/metrics/npathcomplexity.html
