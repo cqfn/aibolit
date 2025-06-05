@@ -148,7 +148,4 @@ class MvnFreeNPathMetric:
             return 1
         left_npath = self._node_npath(node.operandl)
         right_npath = self._node_npath(node.operandr)
-        if operator == '&&':
-            return left_npath + right_npath
-        else:
-            return left_npath + right_npath + 1
+        return left_npath + right_npath
