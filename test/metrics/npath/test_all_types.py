@@ -287,10 +287,6 @@ class TestMvnFreeNPathMetric:
         """).strip()
         assert self._value(content) == 2
 
-    @pytest.mark.xfail(
-        reason='Incomplete implementation for binary conditions',
-        strict=True,
-    )
     def test_for_with_condition(self) -> None:
         # TODO #803:30min/DEV Extend MvnFreeNPathMetric to cover binary conditions,
         #  including `&&` and `||`.

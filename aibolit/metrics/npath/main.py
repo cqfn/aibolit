@@ -109,6 +109,8 @@ class MvnFreeNPathMetric:
             return self._switch_npath(node)
         elif node.node_type == ASTNodeType.FOR_STATEMENT:
             return self._for_loop_npath(node)
+        elif node.node_type == ASTNodeType.BINARY_OPERATION:
+            return self._binary_expression_npath(node)
         else:
             return self._sequence_npath(node.children)
 
@@ -134,4 +136,16 @@ class MvnFreeNPathMetric:
 
     def _for_loop_npath(self, node: ASTNode) -> int:
         body_npath = self._node_npath(node.body)
-        return body_npath + 1
+        if hasattr(node.control, 'condition') and node.control.condition:
+            condition_npath = max(1, self._node_npath(node.control.condition))
+        else:
+            condition_npath = 1
+        return body_npath + condition_npath
+
+    def _binary_expression_npath(self, node: ASTNode) -> int:
+        operator = node.operator
+        if operator != '&&':
+            return 1
+        left_npath = self._node_npath(node.operandl)
+        right_npath = self._node_npath(node.operandr)
+        return left_npath + right_npath
