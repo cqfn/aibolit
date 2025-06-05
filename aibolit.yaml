@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 127.554677414
+  seconds: 153.931527148
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-05 22:02:04.024356182 Z
+  when: 2025-06-05 23:02:17.100773858 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7333,31 +7333,50 @@
   when: 2025-06-05 15:11:43.000000000 Z
   where: github
   who: 526301
-- _id: 3006
-  _time: 2025-06-05 22:01:35.158167457 Z
+- _id: 3010
+  _job: 23833
+  _time:
+  - 2025-06-05 22:02:23.519835378 Z
+  - 2025-06-05 22:02:21.311495745 Z
+  _version: 0.11.0/0.45.0/0.11.0!0.11.1
+  award: -16
+  commit: af71ba7bbb723f69bae582dcb372e5f31d9adc36
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  href: https://github.com/cqfn/aibolit/commit/af71ba7bbb723f69bae582dcb372e5f31d9adc36/#commitcomment-159240612
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-06-05 22:02:21.313560037 Z
+  where: github
+  who: 526301
+  why: Pushed af71ba7bb to the default branch 'master' in cqfn/aibolit
+- _id: 3027
+  _time: 2025-06-05 23:01:44.298838347 Z
   _version: 0.11.0/0.46.0/
   latest: 50563057905
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 3007
-  _time: 2025-06-05 22:02:02.108076865 Z
+- _id: 3028
+  _time: 2025-06-05 23:02:14.163642087 Z
   _version: 0.11.0/0.46.0/
-  latest: 732
+  latest: 756
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 3029
+  _time: 2025-06-05 23:02:15.268006375 Z
+  _version: 0.11.0/0.46.0/
+  latest: 756
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 3008
-  _time: 2025-06-05 22:02:02.949040843 Z
+- _id: 3030
+  _time: 2025-06-05 23:02:16.297856333 Z
   _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
-  where: github
-- _id: 3009
-  _time: 2025-06-05 22:02:04.015827962 Z
-  _version: 0.11.0/0.46.0/
-  latest: 732
-  repository: 237167507
-  what: types-were-scanned
   where: github

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="159166">
+<fb version="0.10.2" size="159759">
   <f>
     <added t="I">8</added>
     <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">127.554677414</seconds>
+    <seconds t="F">153.931527148</seconds>
     <version t="S">0.46.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-05T22:02:04Z</when>
+    <when t="T">2025-06-05T23:02:17Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -8165,8 +8165,29 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">3006</_id>
-    <_time t="T">2025-06-05T22:01:35Z</_time>
+    <_id t="I">3010</_id>
+    <_job t="I">23833</_job>
+    <_time>
+      <v t="T">2025-06-05T22:02:23Z</v>
+      <v t="T">2025-06-05T22:02:21Z</v>
+    </_time>
+    <_version t="S">0.11.0/0.45.0/0.11.0!0.11.1</_version>
+    <award t="I">-16</award>
+    <commit t="S">af71ba7bbb723f69bae582dcb372e5f31d9adc36</commit>
+    <default_branch t="S">master</default_branch>
+    <details t="S">It's time to punish @yegor256 for pushing to the default branch 'master' in cqfn/aibolit, the penalty amount is -16.</details>
+    <href t="S">https://github.com/cqfn/aibolit/commit/af71ba7bbb723f69bae582dcb372e5f31d9adc36/#commitcomment-159240612</href>
+    <is_human t="I">1</is_human>
+    <repository t="I">237167507</repository>
+    <what t="S">push-to-master-was-punished</what>
+    <when t="T">2025-06-05T22:02:21Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+    <why t="S">Pushed af71ba7bb to the default branch 'master' in cqfn/aibolit</why>
+  </f>
+  <f>
+    <_id t="I">3027</_id>
+    <_time t="T">2025-06-05T23:01:44Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
     <latest t="I">50563057905</latest>
     <repository t="I">237167507</repository>
@@ -8174,30 +8195,30 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">3007</_id>
-    <_time t="T">2025-06-05T22:02:02Z</_time>
+    <_id t="I">3028</_id>
+    <_time t="T">2025-06-05T23:02:14Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">732</latest>
+    <latest t="I">756</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">3029</_id>
+    <_time t="T">2025-06-05T23:02:15Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <latest t="I">756</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">3008</_id>
-    <_time t="T">2025-06-05T22:02:02Z</_time>
+    <_id t="I">3030</_id>
+    <_time t="T">2025-06-05T23:02:16Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">3009</_id>
-    <_time t="T">2025-06-05T22:02:04Z</_time>
-    <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">732</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
