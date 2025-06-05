@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 106.778531945
+  seconds: 127.554677414
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-05 21:01:27.507922021 Z
+  when: 2025-06-05 22:02:04.024356182 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7315,31 +7315,49 @@
   total_stars: 79
   what: dimensions-of-terrain
   when: 2025-06-05 17:00:41.765208823 Z
-- _id: 2987
-  _time: 2025-06-05 21:01:11.609879110 Z
+- _id: 2991
+  _time: 2025-06-05 21:59:59.689647437 Z
   _version: 0.11.0/0.46.0/
-  latest: 756
+  commit: af71ba7bbb723f69bae582dcb372e5f31d9adc36
+  default_branch: master
+  details: 'A new Git push #24724309581 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is ''master''), not associated with any pull request.'
+  event_id: 50562757258
+  event_type: PushEvent
+  is_human: 1
+  push_id: 24724309581
+  ref: refs/heads/master
   repository: 237167507
-  what: types-were-scanned
+  to_master: 1
+  what: git-was-pushed
+  when: 2025-06-05 15:11:43.000000000 Z
   where: github
-- _id: 2988
-  _time: 2025-06-05 21:01:13.876863400 Z
+  who: 526301
+- _id: 3006
+  _time: 2025-06-05 22:01:35.158167457 Z
   _version: 0.11.0/0.46.0/
-  latest: 50562270973
+  latest: 50563057905
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 2989
-  _time: 2025-06-05 21:01:25.809072417 Z
+- _id: 3007
+  _time: 2025-06-05 22:02:02.108076865 Z
   _version: 0.11.0/0.46.0/
-  latest: 0
+  latest: 732
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 2990
-  _time: 2025-06-05 21:01:27.442221880 Z
+- _id: 3008
+  _time: 2025-06-05 22:02:02.949040843 Z
   _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 3009
+  _time: 2025-06-05 22:02:04.015827962 Z
+  _version: 0.11.0/0.46.0/
+  latest: 732
+  repository: 237167507
+  what: types-were-scanned
   where: github
