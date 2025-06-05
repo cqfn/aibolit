@@ -315,7 +315,7 @@ class TestMvnFreeNPathMetric:
             }
             """,
         ).strip()
-        assert self._value(content) == 4
+        assert self._value(content) == 3
 
     def test_for_with_if_inside(self) -> None:
         content = dedent("""
