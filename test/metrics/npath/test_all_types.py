@@ -344,10 +344,6 @@ class TestMvnFreeNPathMetric:
         assert self._value(content) == 3
 
     def test_for_with_or_condition(self) -> None:
-        # TODO #805:30min/DEV Extend MvnFreeNPathMetric to cover binary condition OR.
-        #  Refer to https://checkstyle.org/checks/metrics/npathcomplexity.html
-        #  for details on NPath metric.
-        #  Once implemented, remove `xfail` mark from this test.
         content = dedent(
             """\
             class Test {
