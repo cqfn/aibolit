@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="160719">
+<fb version="0.10.2" size="162474">
   <f>
     <added t="I">8</added>
     <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
+    <error t="S">Judge quality-of-service stopped by timeout after 3m0s: execution expired</error>
     <inserted t="I">8</inserted>
-    <seconds t="F">183.85236371</seconds>
+    <seconds t="F">300.154378165</seconds>
     <version t="S">0.46.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-06T09:02:59Z</when>
+    <when t="T">2025-06-06T20:04:52Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -8240,39 +8241,137 @@
     <who t="I">24456188</who>
   </f>
   <f>
-    <_id t="I">3189</_id>
-    <_time t="T">2025-06-06T09:02:23Z</_time>
+    <_id t="I">3193</_id>
+    <_time t="T">2025-06-06T19:59:56Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">50575384156</latest>
+    <details t="S">The issue cqfn/aibolit#807 has been closed by @yegor256.</details>
+    <event_id t="I">50585822032</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">807</issue>
     <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-06T05:24:00Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">3194</_id>
+    <_time t="T">2025-06-06T19:59:56Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <branch t="S">807</branch>
+    <comments t="I">2</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">2</comments_by_author>
+    <comments_by_reviewers t="I">1</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">1</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#808 has been closed by @yegor256, with 57 HoC and 2 comments.</details>
+    <event_id t="I">50585821689</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">57</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">808</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">1</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-06T05:23:59Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">3195</_id>
+    <_time t="T">2025-06-06T20:00:12Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <branch t="S">807</branch>
+    <details t="S">The pull request cqfn/aibolit#808 has been opened by @ivanovmg.</details>
+    <event_id t="I">50584367025</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">808</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-06-06T04:10:31Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">3198</_id>
+    <_time t="T">2025-06-06T20:00:16Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <since t="T">2025-05-30T20:00:16Z</since>
+    <what t="S">quantity-of-deliverables</what>
+    <when t="T">2025-06-06T20:00:16Z</when>
+  </f>
+  <f>
+    <_id t="I">3203</_id>
+    <_time t="T">2025-06-06T20:00:49Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">3190</_id>
-    <_time t="T">2025-06-06T09:02:26Z</_time>
+    <_id t="I">3205</_id>
+    <_time t="T">2025-06-06T20:01:06Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
+    <total_active_contributors t="I">7</total_active_contributors>
+    <total_commits t="I">2425</total_commits>
+    <total_contributors t="I">19</total_contributors>
+    <total_files t="I">1053</total_files>
+    <total_forks t="I">26</total_forks>
+    <total_issues t="I">404</total_issues>
+    <total_pulls t="I">406</total_pulls>
+    <total_releases t="I">28</total_releases>
+    <total_repositories t="I">1</total_repositories>
+    <total_stars t="I">84</total_stars>
+    <what t="S">dimensions-of-terrain</what>
+    <when t="T">2025-06-06T20:00:13Z</when>
   </f>
   <f>
-    <_id t="I">3191</_id>
-    <_time t="T">2025-06-06T09:02:36Z</_time>
+    <_id t="I">3209</_id>
+    <_time t="T">2025-06-06T20:04:30Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">799</latest>
+    <latest t="I">756</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">3192</_id>
-    <_time t="T">2025-06-06T09:02:59Z</_time>
+    <_id t="I">3211</_id>
+    <_time t="T">2025-06-06T20:04:43Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">710</latest>
+    <average_issue_lifetime t="F">13827512.916666666</average_issue_lifetime>
+    <average_pull_files_size t="F">2.9</average_pull_files_size>
+    <average_pull_hoc_size t="F">84.3</average_pull_hoc_size>
+    <average_pull_lifetime t="F">38997.7</average_pull_lifetime>
+    <average_review_size t="F">1.6</average_review_size>
+    <average_review_time t="F">37550.0</average_review_time>
+    <average_reviewers_per_pull t="F">0.7</average_reviewers_per_pull>
+    <average_reviews_per_pull t="F">1.7</average_reviews_per_pull>
+    <since t="T">2025-05-30T20:00:16Z</since>
+    <what t="S">quality-of-service</what>
+    <when t="T">2025-06-06T20:00:16Z</when>
+  </f>
+  <f>
+    <_id t="I">3212</_id>
+    <_time t="T">2025-06-06T20:04:47Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <latest t="I">50590346909</latest>
     <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">3213</_id>
+    <_time t="T">2025-06-06T20:04:52Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
