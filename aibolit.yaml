@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 252.328127229
+  seconds: 147.431639567
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-06 21:04:10.877134430 Z
+  when: 2025-06-06 22:02:03.910086298 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7509,34 +7509,55 @@
   average_reviewers_per_pull: 0.7
   average_reviews_per_pull: 1.7
   average_triage_time: 22718.0
+  composite: 0.447
+  ffact: 136
   since: 2025-05-30 20:00:16.351863706 Z
   what: quality-of-service
   when: 2025-06-06 20:00:16.351821918 Z
-- _id: 3232
-  _time: 2025-06-06 21:03:46.501832890 Z
+- _id: 3236
+  _job: 23934
+  _time:
+  - 2025-06-06 21:04:41.659819395 Z
+  - 2025-06-06 21:04:29.092973258 Z
+  _version: 0.11.0/0.45.0/0.11.0!0.11.1
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#808,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/808/#issuecomment-2950793862
+  is_human: 1
+  issue: 808
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-06 21:04:29.096704751 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#808
+- _id: 3253
+  _time: 2025-06-06 22:01:34.949037517 Z
   _version: 0.11.0/0.46.0/
-  latest: 50591561536
+  latest: 50592572947
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 3233
-  _time: 2025-06-06 21:03:47.207715857 Z
+- _id: 3254
+  _time: 2025-06-06 22:01:41.746438456 Z
+  _version: 0.11.0/0.46.0/
+  latest: 756
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 3255
+  _time: 2025-06-06 22:02:01.961851134 Z
+  _version: 0.11.0/0.46.0/
+  latest: 799
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 3256
+  _time: 2025-06-06 22:02:03.901403145 Z
   _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
-  where: github
-- _id: 3234
-  _time: 2025-06-06 21:04:04.860242449 Z
-  _version: 0.11.0/0.46.0/
-  latest: 756
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 3235
-  _time: 2025-06-06 21:04:10.850600740 Z
-  _version: 0.11.0/0.46.0/
-  latest: 732
-  repository: 237167507
-  what: labels-were-scanned
   where: github

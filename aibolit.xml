@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="162882">
+<fb version="0.10.2" size="163411">
   <f>
     <added t="I">8</added>
     <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">252.328127229</seconds>
+    <seconds t="F">147.431639567</seconds>
     <version t="S">0.46.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-06T21:04:10Z</when>
+    <when t="T">2025-06-06T22:02:03Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -8361,44 +8361,67 @@
     <average_reviewers_per_pull t="F">0.7</average_reviewers_per_pull>
     <average_reviews_per_pull t="F">1.7</average_reviews_per_pull>
     <average_triage_time t="F">22718.0</average_triage_time>
+    <composite t="F">0.447</composite>
+    <ffact t="I">136</ffact>
     <since t="T">2025-05-30T20:00:16Z</since>
     <what t="S">quality-of-service</what>
     <when t="T">2025-06-06T20:00:16Z</when>
   </f>
   <f>
-    <_id t="I">3232</_id>
-    <_time t="T">2025-06-06T21:03:46Z</_time>
+    <_id t="I">3236</_id>
+    <_job t="I">23934</_job>
+    <_time>
+      <v t="T">2025-06-06T21:04:41Z</v>
+      <v t="T">2025-06-06T21:04:29Z</v>
+    </_time>
+    <_version t="S">0.11.0/0.45.0/0.11.0!0.11.1</_version>
+    <award t="I">4</award>
+    <details t="S">It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#808, the reward amount is 4.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/808/#issuecomment-2950793862</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">808</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">code-contribution-was-rewarded</what>
+    <when t="T">2025-06-06T21:04:29Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Contributed code in cqfn/aibolit#808</why>
+  </f>
+  <f>
+    <_id t="I">3253</_id>
+    <_time t="T">2025-06-06T22:01:34Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">50591561536</latest>
+    <latest t="I">50592572947</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">3233</_id>
-    <_time t="T">2025-06-06T21:03:47Z</_time>
+    <_id t="I">3254</_id>
+    <_time t="T">2025-06-06T22:01:41Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">710</latest>
+    <latest t="I">756</latest>
     <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">3234</_id>
-    <_time t="T">2025-06-06T21:04:04Z</_time>
+    <_id t="I">3255</_id>
+    <_time t="T">2025-06-06T22:02:01Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">756</latest>
+    <latest t="I">799</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">3235</_id>
-    <_time t="T">2025-06-06T21:04:10Z</_time>
+    <_id t="I">3256</_id>
+    <_time t="T">2025-06-06T22:02:03Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">732</latest>
+    <latest t="I">710</latest>
     <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
+    <what t="S">min-issue-was-found</what>
     <where t="S">github</where>
   </f>
 </fb>
