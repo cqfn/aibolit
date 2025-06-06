@@ -2,12 +2,11 @@
 - added: 8
   cycles: 5
   deleted: 8
-  error: 'Judge quality-of-service stopped by timeout after 3m0s: execution expired'
   inserted: 8
-  seconds: 300.154378165
+  seconds: 252.328127229
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-06 20:04:52.390081612 Z
+  when: 2025-06-06 21:04:10.877134430 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7434,7 +7433,7 @@
   review_comments: 1
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-06-06 05:23:59.000000000 Z
+  when: &94 2025-06-06 05:23:59.000000000 Z
   where: github
   who: 526301
 - _id: 3195
@@ -7457,13 +7456,6 @@
   since: 2025-05-30 20:00:16.343869582 Z
   what: quantity-of-deliverables
   when: 2025-06-06 20:00:16.343827544 Z
-- _id: 3203
-  _time: 2025-06-06 20:00:49.652932945 Z
-  _version: 0.11.0/0.46.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
 - _id: 3205
   _time: 2025-06-06 20:01:06.846040571 Z
   _version: 0.11.0/0.46.0/
@@ -7479,38 +7471,72 @@
   total_stars: 84
   what: dimensions-of-terrain
   when: 2025-06-06 20:00:13.587114409 Z
-- _id: 3209
-  _time: 2025-06-06 20:04:30.724939701 Z
+- _id: 3214
+  _job: 23924
+  _time: 2025-06-06 20:05:14.237852944 Z
+  _version: 0.11.0/0.45.0/0.11.0!0.11.1
+  comments: 2
+  details: The pull request cqfn/aibolit#808 with 57 HoC created by @ivanovmg was
+    merged by @yegor256 after 1h13m of being in review and 2 comments.
+  hoc: 57
+  is_human: 1
+  issue: 808
+  merger: 526301
+  repository: 237167507
+  review_comments: 1
+  seconds: 4408
+  what: code-was-contributed
+  when: *94
+  where: github
+  who: 41443370
+- _id: 3224
+  _time: 2025-06-06 21:03:03.812060435 Z
+  _version: 0.11.0/0.46.0/
+  average_backlog_size: 3.875
+  average_build_duration: 75.71504237288136
+  average_build_mttr: -29520
+  average_build_success_rate: 0.9523305084745762
+  average_issue_lifetime: 13827512.916666666
+  average_pull_files_size: 2.9
+  average_pull_hoc_size: 84.3
+  average_pull_lifetime: 38997.7
+  average_pull_rejection_rate: 0.0
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
+  average_release_interval: 0
+  average_review_size: 1.6
+  average_review_time: 37550.0
+  average_reviewers_per_pull: 0.7
+  average_reviews_per_pull: 1.7
+  average_triage_time: 22718.0
+  since: 2025-05-30 20:00:16.351863706 Z
+  what: quality-of-service
+  when: 2025-06-06 20:00:16.351821918 Z
+- _id: 3232
+  _time: 2025-06-06 21:03:46.501832890 Z
+  _version: 0.11.0/0.46.0/
+  latest: 50591561536
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 3233
+  _time: 2025-06-06 21:03:47.207715857 Z
+  _version: 0.11.0/0.46.0/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 3234
+  _time: 2025-06-06 21:04:04.860242449 Z
   _version: 0.11.0/0.46.0/
   latest: 756
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 3211
-  _time: 2025-06-06 20:04:43.104194563 Z
+- _id: 3235
+  _time: 2025-06-06 21:04:10.850600740 Z
   _version: 0.11.0/0.46.0/
-  average_issue_lifetime: 13827512.916666666
-  average_pull_files_size: 2.9
-  average_pull_hoc_size: 84.3
-  average_pull_lifetime: 38997.7
-  average_review_size: 1.6
-  average_review_time: 37550.0
-  average_reviewers_per_pull: 0.7
-  average_reviews_per_pull: 1.7
-  since: 2025-05-30 20:00:16.351863706 Z
-  what: quality-of-service
-  when: 2025-06-06 20:00:16.351821918 Z
-- _id: 3212
-  _time: 2025-06-06 20:04:47.673965035 Z
-  _version: 0.11.0/0.46.0/
-  latest: 50590346909
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 3213
-  _time: 2025-06-06 20:04:52.371108809 Z
-  _version: 0.11.0/0.46.0/
-  latest: 0
+  latest: 732
   repository: 237167507
   what: labels-were-scanned
   where: github

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="162474">
+<fb version="0.10.2" size="162882">
   <f>
     <added t="I">8</added>
     <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
-    <error t="S">Judge quality-of-service stopped by timeout after 3m0s: execution expired</error>
     <inserted t="I">8</inserted>
-    <seconds t="F">300.154378165</seconds>
+    <seconds t="F">252.328127229</seconds>
     <version t="S">0.46.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-06T20:04:52Z</when>
+    <when t="T">2025-06-06T21:04:10Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -8306,15 +8305,6 @@
     <when t="T">2025-06-06T20:00:16Z</when>
   </f>
   <f>
-    <_id t="I">3203</_id>
-    <_time t="T">2025-06-06T20:00:49Z</_time>
-    <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">710</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">3205</_id>
     <_time t="T">2025-06-06T20:01:06Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
@@ -8332,8 +8322,70 @@
     <when t="T">2025-06-06T20:00:13Z</when>
   </f>
   <f>
-    <_id t="I">3209</_id>
-    <_time t="T">2025-06-06T20:04:30Z</_time>
+    <_id t="I">3214</_id>
+    <_job t="I">23924</_job>
+    <_time t="T">2025-06-06T20:05:14Z</_time>
+    <_version t="S">0.11.0/0.45.0/0.11.0!0.11.1</_version>
+    <comments t="I">2</comments>
+    <details t="S">The pull request cqfn/aibolit#808 with 57 HoC created by @ivanovmg was merged by @yegor256 after 1h13m of being in review and 2 comments.</details>
+    <hoc t="I">57</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">808</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">1</review_comments>
+    <seconds t="I">4408</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-06-06T05:23:59Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">3224</_id>
+    <_time t="T">2025-06-06T21:03:03Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <average_backlog_size t="F">3.875</average_backlog_size>
+    <average_build_duration t="F">75.71504237288136</average_build_duration>
+    <average_build_mttr t="I">-29520</average_build_mttr>
+    <average_build_success_rate t="F">0.9523305084745762</average_build_success_rate>
+    <average_issue_lifetime t="F">13827512.916666666</average_issue_lifetime>
+    <average_pull_files_size t="F">2.9</average_pull_files_size>
+    <average_pull_hoc_size t="F">84.3</average_pull_hoc_size>
+    <average_pull_lifetime t="F">38997.7</average_pull_lifetime>
+    <average_pull_rejection_rate t="F">0.0</average_pull_rejection_rate>
+    <average_release_commits_size t="I">0</average_release_commits_size>
+    <average_release_hoc_size t="I">0</average_release_hoc_size>
+    <average_release_interval t="I">0</average_release_interval>
+    <average_review_size t="F">1.6</average_review_size>
+    <average_review_time t="F">37550.0</average_review_time>
+    <average_reviewers_per_pull t="F">0.7</average_reviewers_per_pull>
+    <average_reviews_per_pull t="F">1.7</average_reviews_per_pull>
+    <average_triage_time t="F">22718.0</average_triage_time>
+    <since t="T">2025-05-30T20:00:16Z</since>
+    <what t="S">quality-of-service</what>
+    <when t="T">2025-06-06T20:00:16Z</when>
+  </f>
+  <f>
+    <_id t="I">3232</_id>
+    <_time t="T">2025-06-06T21:03:46Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <latest t="I">50591561536</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">3233</_id>
+    <_time t="T">2025-06-06T21:03:47Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">3234</_id>
+    <_time t="T">2025-06-06T21:04:04Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
     <latest t="I">756</latest>
     <repository t="I">237167507</repository>
@@ -8341,35 +8393,10 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">3211</_id>
-    <_time t="T">2025-06-06T20:04:43Z</_time>
+    <_id t="I">3235</_id>
+    <_time t="T">2025-06-06T21:04:10Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <average_issue_lifetime t="F">13827512.916666666</average_issue_lifetime>
-    <average_pull_files_size t="F">2.9</average_pull_files_size>
-    <average_pull_hoc_size t="F">84.3</average_pull_hoc_size>
-    <average_pull_lifetime t="F">38997.7</average_pull_lifetime>
-    <average_review_size t="F">1.6</average_review_size>
-    <average_review_time t="F">37550.0</average_review_time>
-    <average_reviewers_per_pull t="F">0.7</average_reviewers_per_pull>
-    <average_reviews_per_pull t="F">1.7</average_reviews_per_pull>
-    <since t="T">2025-05-30T20:00:16Z</since>
-    <what t="S">quality-of-service</what>
-    <when t="T">2025-06-06T20:00:16Z</when>
-  </f>
-  <f>
-    <_id t="I">3212</_id>
-    <_time t="T">2025-06-06T20:04:47Z</_time>
-    <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">50590346909</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">3213</_id>
-    <_time t="T">2025-06-06T20:04:52Z</_time>
-    <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">732</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
