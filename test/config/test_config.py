@@ -26,7 +26,7 @@ def test_each_metric_in_config_accepts_ast():
         metric = metric_config["make"]()
         metric_signature = inspect.signature(metric.value)
         assert "ast" in metric_signature.parameters
-        assert isinstance(metric_signature.parameters["ast"].annotation, type(AST))
+        assert metric_signature.parameters["ast"].annotation is AST
 
 
 @pytest.mark.xfail
@@ -48,7 +48,7 @@ def test_each_pattern_in_config_accepts_ast():
         pattern = pattern_config["make"]()
         pattern_signature = inspect.signature(pattern.value)
         assert "ast" in pattern_signature.parameters
-        assert isinstance(pattern_signature.parameters["ast"].annotation, type(AST))
+        assert pattern_signature.parameters["ast"].annotation is AST
 
 
 def test_ncss_metric_in_config_accepts_ast():
@@ -59,7 +59,7 @@ def test_ncss_metric_in_config_accepts_ast():
     metric = metric_config["make"]()
     metric_signature = inspect.signature(metric.value)
     assert "ast" in metric_signature.parameters
-    assert isinstance(metric_signature.parameters["ast"].annotation, type(AST))
+    assert metric_signature.parameters["ast"].annotation is AST
 
 
 def test_asserts_pattern_in_config_accepts_ast():
@@ -68,4 +68,4 @@ def test_asserts_pattern_in_config_accepts_ast():
     pattern = pattern_config["make"]()
     pattern_signature = inspect.signature(pattern.value)
     assert "ast" in pattern_signature.parameters
-    assert isinstance(pattern_signature.parameters["ast"].annotation, type(AST))
+    assert pattern_signature.parameters["ast"].annotation is AST
