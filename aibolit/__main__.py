@@ -33,7 +33,7 @@ from packaging.version import parse as parse_version
 from aibolit import __version__
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
-from aibolit.config import Config
+from aibolit.config import Config, Metric
 from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
 from aibolit.utils.ast_builder import build_ast
@@ -296,6 +296,7 @@ def calculate_patterns_and_metrics_with_decomposition(
 
                 for metric_info in metrics_info:
                     metric = metric_info["make"]()
+                    assert isinstance(metric, Metric)
                     metric_result = metric.value(component_ast)
                     input_params[metric_info["code"]] = metric_result
 
