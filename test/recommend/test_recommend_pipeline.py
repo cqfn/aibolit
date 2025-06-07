@@ -157,6 +157,11 @@ class TestRecommendPipeline(TestCase):
         mock_cmd = self.__create_mock_cmd()
         create_xml_tree([], full_report=True, cmd=mock_cmd, exit_code=0)
 
+    def test_xml_format(self):
+        mock_input = self.__create_mock_input()
+        mock_cmd = self.__create_mock_cmd()
+        create_xml_tree(mock_input, full_report=False, cmd=mock_cmd, exit_code=2)
+
     @expectedFailure
     def test_xml(self):
         mock_input = self.__create_mock_input()
