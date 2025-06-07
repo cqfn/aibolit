@@ -179,7 +179,9 @@ class PatternRankingModel(BaseEstimator):
 
     @no_type_check
     def test(self, files: List[str]) -> List[List[Union[str, List[str], List[float]]]]:
-        """Make predict for list of java files using current model."""
+        """Make predict for list of java files using current model.
+        TODO #813:30min/DEV Remove PatternRankingModel.test method or ensure it works
+        """
 
         config = Config.get_patterns_config()
         patterns_config = config['patterns']

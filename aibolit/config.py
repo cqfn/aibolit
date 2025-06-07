@@ -144,7 +144,7 @@ class Config(metaclass=Singleton):
     @staticmethod
     def get_patterns_config() -> PatternsConfig:
         """Get the patterns configuration dictionary."""
-        return {  # ty: ignore[invalid-return-type]
+        return {  # ty: ignore[invalid-return-type] until https://github.com/astral-sh/ty/issues/154
             "patterns": [
                 {"name": "Asserts", "code": "P1", "make": P1},
                 {"name": "Setters", "code": "P2", "make": P2},
