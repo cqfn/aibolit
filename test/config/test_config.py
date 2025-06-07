@@ -12,13 +12,11 @@ def test_each_metric_in_config_accepts_ast():
     """
     TODO #813:30min/DEV Ensure All Metrics Accept `ast: AST` Parameter with Type Hints
     Verify that all metrics in the config accept an AST parameter with proper type hints.
-
     Probable solutions:
     1. Every metric factory in patterns_config["metrics"] produces a metric with:
        - A parameter named "ast" in its call signature
        - The "ast" parameter properly annotated as `aibolit.ast_framework.ast.AST` or a subclass
     2. Remove any metrics that cannot comply with this interface.
-
     Once all metrics meet requirements, remove the decorator.
     """
     patterns_config = Config.get_patterns_config()
@@ -34,13 +32,11 @@ def test_each_pattern_in_config_accepts_ast():
     """
     TODO #813:30min/DEV Ensure All Patterns Accept `ast: AST` Parameter with Type Hints
     Verify that all patterns in the config accept an AST parameter with proper type hints.
-
     Probable solutions:
     1. Every pattern factory in patterns_config["patterns"] produces a pattern with:
        - A parameter named "ast" in its call signature
        - The "ast" parameter properly annotated as `aibolit.ast_framework.ast.AST` or a subclass
     2. Remove any patterns that cannot comply with this interface.
-
     Once all patterns meet requirements, remove the decorator.
     """
     patterns_config = Config.get_patterns_config()
