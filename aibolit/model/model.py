@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 from decimal import localcontext, ROUND_DOWN, Decimal
-from typing import Dict, Any, Tuple, List, Union
+from typing import Dict, Any, Tuple, List, Union, no_type_check
 from numpy.typing import NDArray
 
 import numpy as np
@@ -177,6 +177,7 @@ class PatternRankingModel(BaseEstimator):
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
+    @no_type_check
     def test(self, files: List[str]) -> List[List[Union[str, List[str], List[float]]]]:
         """Make predict for list of java files using current model."""
 
