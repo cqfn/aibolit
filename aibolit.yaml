@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 88.688423748
+  seconds: 171.130316492
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-07 17:01:02.356901260 Z
+  when: 2025-06-07 18:02:47.439119802 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7537,38 +7537,49 @@
   when: 2025-06-07 13:34:12.000000000 Z
   where: github
   who: 13173649
-- _id: 3508
-  _time: 2025-06-07 14:00:06.723838956 Z
+- _id: 3572
+  _time: 2025-06-07 18:00:27.812776843 Z
   _version: 0.11.0/0.46.0/
-  latest: 763
+  details: The issue cqfn/aibolit#813 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 813
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-07 17:41:47.000000000 Z
+  where: github
+  who: 13173649
+- _id: 3574
+  _time: 2025-06-07 18:00:28.390509689 Z
+  _version: 0.11.0/0.46.0/
+  latest: 765
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 3565
-  _time: 2025-06-07 17:00:29.798329566 Z
+- _id: 3584
+  _time: 2025-06-07 18:02:06.594912184 Z
   _version: 0.11.0/0.46.0/
-  latest: 756
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 3567
-  _time: 2025-06-07 17:00:43.747845225 Z
-  _version: 0.11.0/0.46.0/
-  latest: 50622932208
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 3568
-  _time: 2025-06-07 17:01:00.557170276 Z
-  _version: 0.11.0/0.46.0/
-  latest: 756
+  latest: 732
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 3569
-  _time: 2025-06-07 17:01:01.904309397 Z
+- _id: 3587
+  _time: 2025-06-07 18:02:19.297236113 Z
+  _version: 0.11.0/0.46.0/
+  latest: 50625856755
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 3588
+  _time: 2025-06-07 18:02:20.247333487 Z
   _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 3589
+  _time: 2025-06-07 18:02:47.320828751 Z
+  _version: 0.11.0/0.46.0/
+  latest: 799
+  repository: 237167507
+  what: types-were-scanned
   where: github
