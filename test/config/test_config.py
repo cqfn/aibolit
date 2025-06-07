@@ -9,7 +9,8 @@ from aibolit.config import Config
 
 @pytest.mark.xfail
 def test_each_metric_in_config_accepts_ast():
-    """TODO #813:30min/DEV Ensure All Metrics Accept `ast: AST` Parameter with Type Hints
+    """
+    TODO #813:30min/DEV Ensure All Metrics Accept `ast: AST` Parameter with Type Hints
     Verify that all metrics in the config accept an AST parameter with proper type hints.
 
     Probable solutions:
@@ -30,7 +31,8 @@ def test_each_metric_in_config_accepts_ast():
 
 @pytest.mark.xfail
 def test_each_pattern_in_config_accepts_ast():
-    """TODO #813:30min/DEV Ensure All Patterns Accept `ast: AST` Parameter with Type Hints
+    """
+    TODO #813:30min/DEV Ensure All Patterns Accept `ast: AST` Parameter with Type Hints
     Verify that all patterns in the config accept an AST parameter with proper type hints.
 
     Probable solutions:
