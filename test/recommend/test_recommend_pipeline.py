@@ -3,7 +3,7 @@
 import os
 from hashlib import md5
 from pathlib import Path
-from unittest import TestCase, skip
+from unittest import TestCase, skip, expectedFailure
 
 import javalang
 import javalang.tree
@@ -64,7 +64,8 @@ class TestRecommendPipeline(TestCase):
         error_file = {
             'exception': str(ex),
             'filename': 'hdd/home/Error.java',
-            'results': []
+            'results': [],
+            'ncss': 0
         }
         mock_input = [item, another_item, error_file]
         return mock_input
@@ -155,6 +156,12 @@ class TestRecommendPipeline(TestCase):
     def test_xml_empty_results(self):
         mock_cmd = self.__create_mock_cmd()
         create_xml_tree([], full_report=True, cmd=mock_cmd, exit_code=0)
+
+    @expectedFailure
+    def test_xml(self):
+        mock_input = self.__create_mock_input()
+        mock_cmd = self.__create_mock_cmd()
+        create_xml_tree(mock_input, cmd=mock_cmd, exit_code=2)
 
     def test_text_format(self):
         mock_input = self.__create_mock_input()
