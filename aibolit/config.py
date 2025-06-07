@@ -142,9 +142,9 @@ class Config(metaclass=Singleton):
         return os.environ.get('HOME_TEST_DATASET')
 
     @staticmethod
-    def get_patterns_config() -> PatternsConfig:  # ty: ignore[invalid-return-type]
+    def get_patterns_config() -> PatternsConfig:
         """Get the patterns configuration dictionary."""
-        return {
+        return {  # ty: ignore[invalid-return-type]
             "patterns": [
                 {"name": "Asserts", "code": "P1", "make": P1},
                 {"name": "Setters", "code": "P2", "make": P2},

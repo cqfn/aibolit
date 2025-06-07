@@ -51,7 +51,8 @@ def test_each_pattern_in_config_accepts_ast():
         assert isinstance(pattern_signature.parameters["ast"].annotation, type(AST))
 
 
-def test_ncss_metric_in_config_accepts_ast(patterns_config):
+def test_ncss_metric_in_config_accepts_ast():
+    patterns_config = Config.get_patterns_config()
     metric_config = next(
         mc for mc in patterns_config["metrics"] if mc["name"] == "NCSS lightweight"
     )
@@ -61,7 +62,8 @@ def test_ncss_metric_in_config_accepts_ast(patterns_config):
     assert isinstance(metric_signature.parameters["ast"].annotation, type(AST))
 
 
-def test_asserts_pattern_in_config_accepts_ast(patterns_config):
+def test_asserts_pattern_in_config_accepts_ast():
+    patterns_config = Config.get_patterns_config()
     pattern_config = next(pt for pt in patterns_config["patterns"] if pt["name"] == "Asserts")
     pattern = pattern_config["make"]()
     pattern_signature = inspect.signature(pattern.value)
