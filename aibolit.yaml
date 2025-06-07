@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 126.463930197
+  seconds: 126.122007741
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-07 22:01:47.659869079 Z
+  when: 2025-06-07 23:01:50.873157518 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7585,29 +7585,44 @@
   when: 2025-06-07 13:57:45.000000000 Z
   where: github
   who: 13173649
-- _id: 3664
-  _time: 2025-06-07 22:01:35.308602538 Z
+- _id: 3671
+  _time: 2025-06-07 22:59:50.530871933 Z
   _version: 0.11.0/0.46.0/
-  latest: 732
+  branch: improve-typings
+  details: The pull request cqfn/aibolit#814 has been opened by @antonprokopyev.
+  event_id: 50633806685
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 814
+  not_merged: 2025-06-07 22:59:50.110495497 Z
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-07 17:56:11.000000000 Z
+  where: github
+  who: 13173649
+- _id: 3681
+  _time: 2025-06-07 23:01:06.413494525 Z
+  _version: 0.11.0/0.46.0/
+  latest: 799
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 3666
-  _time: 2025-06-07 22:01:38.368360220 Z
+- _id: 3682
+  _time: 2025-06-07 23:01:09.474499661 Z
   _version: 0.11.0/0.46.0/
-  latest: 50633638119
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 3667
-  _time: 2025-06-07 22:01:46.851919775 Z
-  _version: 0.11.0/0.46.0/
-  latest: 732
+  latest: 0
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 3668
-  _time: 2025-06-07 22:01:47.613554123 Z
+- _id: 3684
+  _time: 2025-06-07 23:01:32.091250696 Z
+  _version: 0.11.0/0.46.0/
+  latest: 50634585962
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 3685
+  _time: 2025-06-07 23:01:50.755442502 Z
   _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507
