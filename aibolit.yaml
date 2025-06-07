@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 132.498670292
+  seconds: 189.625775713
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-07 20:02:02.207724678 Z
+  when: 2025-06-07 21:03:04.178259660 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7555,44 +7555,61 @@
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 3621
-  _time: 2025-06-07 20:01:23.525786479 Z
-  _version: 0.11.0/0.46.0/
-  latest: 799
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 3623
-  _time: 2025-06-07 20:01:35.054484957 Z
+- _id: 3630
+  _time: 2025-06-07 21:00:24.999675628 Z
   _version: 0.11.0/0.46.0/
   total_active_contributors: 7
   total_commits: 2425
   total_contributors: 19
   total_files: 1053
   total_forks: 28
+  total_issues: 406
+  total_pulls: 408
   total_releases: 28
   total_repositories: 1
   total_stars: 85
   what: dimensions-of-terrain
   when: 2025-06-07 20:00:41.956033493 Z
-- _id: 3624
-  _time: 2025-06-07 20:01:37.682125868 Z
+- _id: 3631
+  _time: 2025-06-07 21:00:25.774095546 Z
   _version: 0.11.0/0.46.0/
-  latest: 50630457392
+  branch: 811-add-test
+  details: The pull request cqfn/aibolit#812 has been opened by @antonprokopyev.
+  event_id: 50630737366
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 812
+  not_merged: 2025-06-07 21:00:25.408549039 Z
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-07 13:57:45.000000000 Z
+  where: github
+  who: 13173649
+- _id: 3646
+  _time: 2025-06-07 21:02:31.835191111 Z
+  _version: 0.11.0/0.46.0/
+  latest: 50632375685
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 3625
-  _time: 2025-06-07 20:01:42.315767342 Z
+- _id: 3647
+  _time: 2025-06-07 21:02:53.910869677 Z
   _version: 0.11.0/0.46.0/
   latest: 0
   repository: 237167507
-  what: labels-were-scanned
+  what: types-were-scanned
   where: github
-- _id: 3626
-  _time: 2025-06-07 20:02:02.145356143 Z
+- _id: 3648
+  _time: 2025-06-07 21:02:55.714716469 Z
   _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 3649
+  _time: 2025-06-07 21:03:04.167874460 Z
+  _version: 0.11.0/0.46.0/
+  latest: 732
+  repository: 237167507
+  what: labels-were-scanned
   where: github
