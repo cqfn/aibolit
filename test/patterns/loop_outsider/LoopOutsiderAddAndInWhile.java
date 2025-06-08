@@ -8,7 +8,7 @@ public class LoopOutsiderAddAndInWhile {
             x += 1; // here
             x++;
             Integer a = 0;
-
+            i++;
             a &=1;
             a ^=1;
 

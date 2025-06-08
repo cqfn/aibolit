@@ -41,6 +41,15 @@ class LoopOutsider:
                     loop_vars_declarations.add(node.names[0])  # pick only one
                     # the looking variables which affected by any operation
 
+                if loop_type == ASTNodeType.FOR_STATEMENT:
+                    for node_for in subtree.get_proxy_nodes(
+                            ASTNodeType.VARIABLE_DECLARATION):
+
+                        loop_vars_declarations.add(node_for.names[0])
+
+
+
+
                 # MEMBER_REFERENCE (++ --)&& ASSIGNMENT
                 for node in ast.get_proxy_nodes(ASTNodeType.MEMBER_REFERENCE):
                     if self.variableIsAffected(node):
