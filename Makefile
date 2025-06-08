@@ -7,7 +7,7 @@
 .SHELLFLAGS := -e -o pipefail -c
 .SECONDARY:
 SHELL := bash
-.PHONY: all clean requirements test it install xcop flake8 pylint sphinx mypy lint
+.PHONY: all clean requirements test it e2e install xcop flake8 pylint sphinx mypy lint
 
 all: requirements install test it lint xcop sphinx
 
@@ -27,6 +27,9 @@ it:
 	uv run python -m test.integration.test_patterns_and_metrics
 	uv run python -m test.integration.test_model > /dev/null
 	./test/integration/test_recommend.sh
+
+e2e:
+	./test/e2e/test_e2e_release.sh
 
 xcop:
 	while IFS= read -r f; do
