@@ -46,9 +46,6 @@ build-backend = "setuptools.build_meta"
 [tool.mypy]
 mypy_path = "stubs"
 
-[tool.ruff.format]
-quote-style = "single"
-
 [tool.ruff.lint]
 extend-select = [
   "D207",
@@ -60,3 +57,14 @@ extend-select = [
 docstring-quotes = "double"
 inline-quotes = "single"
 multiline-quotes = "single"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=6.0",
+    "pytest-cov>=2.10",
+    "flake8>=3.8",
+    "pylint>=2.6",
+    "mypy>=0.812",
+    "ruff>=0.1.0",
+    "sphinx>=3.0"
+]
