@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 125.086624433
+  seconds: 108.235642491
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-08 00:01:46.232604099 Z
+  when: 2025-06-08 02:48:02.755541961 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7619,29 +7619,53 @@
   where: github
   who: 13173649
   why: Wrongly named a branch in cqfn/aibolit#814
-- _id: 3699
-  _time: 2025-06-08 00:01:08.132904173 Z
+- _id: 3707
+  _time: 2025-06-08 02:46:25.482312376 Z
   _version: 0.11.0/0.46.0/
-  latest: 50636584296
-  repository: 237167507
-  what: events-were-scanned
+  is_human: 1
+  name: newspec
+  what: who-has-name
+  when: 2025-06-08 02:46:25.483192817 Z
   where: github
-- _id: 3700
-  _time: 2025-06-08 00:01:18.709397436 Z
+  who: 150796108
+- _id: 3709
+  _time: 2025-06-08 02:46:38.720053258 Z
+  _version: 0.11.0/0.46.0/
+  branch: '584'
+  details: The pull request cqfn/aibolit#815 has been opened by @newspec.
+  event_id: 50637400863
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 815
+  not_merged: 2025-06-08 02:46:38.414349443 Z
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-07 23:26:39.000000000 Z
+  where: github
+  who: 150796108
+- _id: 3719
+  _time: 2025-06-08 02:47:45.711927956 Z
   _version: 0.11.0/0.46.0/
   latest: 756
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 3701
-  _time: 2025-06-08 00:01:44.722672793 Z
+- _id: 3722
+  _time: 2025-06-08 02:47:56.969226902 Z
   _version: 0.11.0/0.46.0/
-  latest: 799
+  latest: 50637723898
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 3723
+  _time: 2025-06-08 02:47:59.791421830 Z
+  _version: 0.11.0/0.46.0/
+  latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 3702
-  _time: 2025-06-08 00:01:46.200679759 Z
+- _id: 3724
+  _time: 2025-06-08 02:48:02.662071840 Z
   _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507

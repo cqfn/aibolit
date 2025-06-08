@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="165403">
+<fb version="0.10.2" size="165910">
   <f>
     <added t="I">8</added>
     <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">125.086624433</seconds>
+    <seconds t="F">108.235642491</seconds>
     <version t="S">0.46.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-08T00:01:46Z</when>
+    <when t="T">2025-06-08T02:48:02Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -8487,17 +8487,36 @@
     <why t="S">Wrongly named a branch in cqfn/aibolit#814</why>
   </f>
   <f>
-    <_id t="I">3699</_id>
-    <_time t="T">2025-06-08T00:01:08Z</_time>
+    <_id t="I">3707</_id>
+    <_time t="T">2025-06-08T02:46:25Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">50636584296</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
+    <is_human t="I">1</is_human>
+    <name t="S">newspec</name>
+    <what t="S">who-has-name</what>
+    <when t="T">2025-06-08T02:46:25Z</when>
     <where t="S">github</where>
+    <who t="I">150796108</who>
   </f>
   <f>
-    <_id t="I">3700</_id>
-    <_time t="T">2025-06-08T00:01:18Z</_time>
+    <_id t="I">3709</_id>
+    <_time t="T">2025-06-08T02:46:38Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <branch t="S">584</branch>
+    <details t="S">The pull request cqfn/aibolit#815 has been opened by @newspec.</details>
+    <event_id t="I">50637400863</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">815</issue>
+    <not_merged t="T">2025-06-08T02:46:38Z</not_merged>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-06-07T23:26:39Z</when>
+    <where t="S">github</where>
+    <who t="I">150796108</who>
+  </f>
+  <f>
+    <_id t="I">3719</_id>
+    <_time t="T">2025-06-08T02:47:45Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
     <latest t="I">756</latest>
     <repository t="I">237167507</repository>
@@ -8505,17 +8524,26 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">3701</_id>
-    <_time t="T">2025-06-08T00:01:44Z</_time>
+    <_id t="I">3722</_id>
+    <_time t="T">2025-06-08T02:47:56Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">799</latest>
+    <latest t="I">50637723898</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">3723</_id>
+    <_time t="T">2025-06-08T02:47:59Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <latest t="I">0</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">3702</_id>
-    <_time t="T">2025-06-08T00:01:46Z</_time>
+    <_id t="I">3724</_id>
+    <_time t="T">2025-06-08T02:48:02Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
