@@ -1,12 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+
+
 from typing import List, Set
-
 from javalang import parse
-
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.types_decl import LineNumber
-
 
 class LoopOutsider:
     """
