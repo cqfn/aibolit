@@ -31,9 +31,11 @@ class LoopOutsider:
 
         for loop_type in loop_types:
             for loop_statement in ast.get_proxy_nodes(loop_type):
-                var_changes = self._find_variable_changes(ast)
+                subtree = ast.get_subtree(loop_statement)
+                var_changes = self._find_variable_changes(subtree)
                 loop_vars_declarations = (
-                    self._find_loop_variable_declarations(ast, loop_statement,
+                    self._find_loop_variable_declarations(subtree,
+                                                          loop_statement,
                                                           loop_type))
 
                 # Check if affected variables are not declared in loop_vars
@@ -55,7 +57,6 @@ class LoopOutsider:
         # Find variables affected by assignments
         for node in ast.get_proxy_nodes(ASTNodeType.ASSIGNMENT):
             var_changes.add(node.expressionl)
-
         return var_changes
 
     def _find_loop_variable_declarations(self, ast: AST, loop_statement,
