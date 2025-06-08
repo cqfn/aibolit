@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 113.601795379
+  seconds: 123.136608956
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-08 10:01:32.059528850 Z
+  when: 2025-06-08 11:02:06.265049199 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7663,31 +7663,55 @@
   _version: 0.11.0/0.45.0/0.11.0!0.12.0
   what: earned-value-prev
   when: *96
-- _id: 3863
-  _time: 2025-06-08 10:01:10.403670452 Z
+- _id: 3875
+  _time: 2025-06-08 11:00:32.626149973 Z
+  _version: 0.11.0/0.46.0/
+  branch: implement_loop_outsider
+  details: The pull request cqfn/aibolit#816 has been opened by @sinbadthesailor2005.
+  event_id: 50644411181
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 816
+  not_merged: 2025-06-08 11:00:32.267790760 Z
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-08 10:58:10.000000000 Z
+  where: github
+  who: 150805542
+- _id: 3876
+  _time: 2025-06-08 11:00:32.652304810 Z
+  _version: 0.11.0/0.46.0/
+  is_human: 1
+  name: sinbadthesailor2005
+  what: who-has-name
+  when: 2025-06-08 11:00:32.652489737 Z
+  where: github
+  who: 150805542
+- _id: 3887
+  _time: 2025-06-08 11:01:37.392865232 Z
+  _version: 0.11.0/0.46.0/
+  latest: 50644412889
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 3888
+  _time: 2025-06-08 11:01:38.233961251 Z
+  _version: 0.11.0/0.46.0/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 3889
+  _time: 2025-06-08 11:01:47.268476616 Z
   _version: 0.11.0/0.46.0/
   latest: 799
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 3867
-  _time: 2025-06-08 10:01:20.916955876 Z
-  _version: 0.11.0/0.46.0/
-  latest: 50643023807
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 3868
-  _time: 2025-06-08 10:01:30.390899532 Z
+- _id: 3890
+  _time: 2025-06-08 11:02:06.255292387 Z
   _version: 0.11.0/0.46.0/
   latest: 756
   repository: 237167507
   what: labels-were-scanned
-  where: github
-- _id: 3869
-  _time: 2025-06-08 10:01:32.015830496 Z
-  _version: 0.11.0/0.46.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
   where: github
