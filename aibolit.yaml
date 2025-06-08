@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 123.136608956
+  seconds: 110.369284014
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-08 11:02:06.265049199 Z
+  when: 2025-06-08 12:01:27.911125747 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7687,31 +7687,50 @@
   when: 2025-06-08 11:00:32.652489737 Z
   where: github
   who: 150805542
-- _id: 3887
-  _time: 2025-06-08 11:01:37.392865232 Z
+- _id: 3891
+  _job: 24181
+  _time:
+  - 2025-06-08 11:02:34.400395673 Z
+  - 2025-06-08 11:02:26.655943502 Z
+  _version: 0.11.0/0.45.0/0.11.0!0.12.1
+  award: -12
+  branch: implement_loop_outsider
+  details: It's time to punish @sinbadthesailor2005 for the branch named as 'implement_loop_outsider',
+    which is wrong in cqfn/aibolit#816, the penalty amount is -12.
+  href: https://github.com/cqfn/aibolit/issues/816/#issuecomment-2953940540
+  is_human: 1
+  issue: 816
+  repository: 237167507
+  what: bad-branch-name-was-punished
+  when: 2025-06-08 11:02:26.658401153 Z
+  where: github
+  who: 150805542
+  why: Wrongly named a branch in cqfn/aibolit#816
+- _id: 3894
+  _time: 2025-06-08 12:00:06.080889383 Z
   _version: 0.11.0/0.46.0/
-  latest: 50644412889
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 3903
+  _time: 2025-06-08 12:01:05.455088821 Z
+  _version: 0.11.0/0.46.0/
+  latest: 50645030845
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 3888
-  _time: 2025-06-08 11:01:38.233961251 Z
+- _id: 3904
+  _time: 2025-06-08 12:01:20.978638265 Z
   _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 3889
-  _time: 2025-06-08 11:01:47.268476616 Z
+- _id: 3905
+  _time: 2025-06-08 12:01:27.901082372 Z
   _version: 0.11.0/0.46.0/
-  latest: 799
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 3890
-  _time: 2025-06-08 11:02:06.255292387 Z
-  _version: 0.11.0/0.46.0/
-  latest: 756
+  latest: 732
   repository: 237167507
   what: labels-were-scanned
   where: github

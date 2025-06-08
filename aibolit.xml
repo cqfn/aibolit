@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.10.2" size="166887">
+<fb version="0.10.2" size="167462">
   <f>
     <added t="I">8</added>
     <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">123.136608956</seconds>
+    <seconds t="F">110.369284014</seconds>
     <version t="S">0.46.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-08T11:02:06Z</when>
+    <when t="T">2025-06-08T12:01:27Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -8567,17 +8567,47 @@
     <who t="I">150805542</who>
   </f>
   <f>
-    <_id t="I">3887</_id>
-    <_time t="T">2025-06-08T11:01:37Z</_time>
+    <_id t="I">3891</_id>
+    <_job t="I">24181</_job>
+    <_time>
+      <v t="T">2025-06-08T11:02:34Z</v>
+      <v t="T">2025-06-08T11:02:26Z</v>
+    </_time>
+    <_version t="S">0.11.0/0.45.0/0.11.0!0.12.1</_version>
+    <award t="I">-12</award>
+    <branch t="S">implement_loop_outsider</branch>
+    <details t="S">It's time to punish @sinbadthesailor2005 for the branch named as 'implement_loop_outsider', which is wrong in cqfn/aibolit#816, the penalty amount is -12.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/816/#issuecomment-2953940540</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">816</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">bad-branch-name-was-punished</what>
+    <when t="T">2025-06-08T11:02:26Z</when>
+    <where t="S">github</where>
+    <who t="I">150805542</who>
+    <why t="S">Wrongly named a branch in cqfn/aibolit#816</why>
+  </f>
+  <f>
+    <_id t="I">3894</_id>
+    <_time t="T">2025-06-08T12:00:06Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">50644412889</latest>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">3903</_id>
+    <_time t="T">2025-06-08T12:01:05Z</_time>
+    <_version t="S">0.11.0/0.46.0/</_version>
+    <latest t="I">50645030845</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">3888</_id>
-    <_time t="T">2025-06-08T11:01:38Z</_time>
+    <_id t="I">3904</_id>
+    <_time t="T">2025-06-08T12:01:20Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
@@ -8585,19 +8615,10 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">3889</_id>
-    <_time t="T">2025-06-08T11:01:47Z</_time>
+    <_id t="I">3905</_id>
+    <_time t="T">2025-06-08T12:01:27Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">799</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">3890</_id>
-    <_time t="T">2025-06-08T11:02:06Z</_time>
-    <_version t="S">0.11.0/0.46.0/</_version>
-    <latest t="I">756</latest>
+    <latest t="I">732</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
