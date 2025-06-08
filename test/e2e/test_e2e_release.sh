@@ -25,6 +25,7 @@ trap cleanup EXIT
 echo "Creating fresh virtual environment with Python 3.11..."
 cd "$TEMP_VENV"
 uv venv --python 3.11 test-env
+# shellcheck disable=SC1091
 source test-env/bin/activate
 
 echo "Installing built package..."
