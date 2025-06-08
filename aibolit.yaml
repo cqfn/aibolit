@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 92.029924047
+  seconds: 101.347851946
   version: 0.46.0
   what: judges-summary
-  when: 2025-06-08 08:01:14.298416258 Z
+  when: 2025-06-08 09:01:42.678218709 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -2334,7 +2334,7 @@
   qod: 0
   qod_per_day: 0.5127168367874803
   qod_per_sec: 0
-  start: 2025-05-29 07:01:48.877523876 Z
+  start: &95 2025-05-29 07:01:48.877523876 Z
   what: earned-value
   when: 2025-05-29 07:02:58.047187099 Z
 - _id: 181
@@ -7643,31 +7643,51 @@
   when: 2025-06-07 23:26:39.000000000 Z
   where: github
   who: 150796108
-- _id: 3834
-  _time: 2025-06-08 08:00:53.060987459 Z
+- _id: 3838
+  _job: 24111
+  _time: 2025-06-08 08:01:55.568112635 Z
+  _version: 0.11.0/0.45.0/0.11.0!0.12.0
+  ac: 141
+  cost_of_qod: 8.103470504434954
+  ev: 1247
+  pv: 278
+  qod: 154
+  qod_per_day: 3.4276469520764423
+  qod_per_sec: 0.00017845899472298374
+  start: *95
+  what: earned-value
+  when: &96 2025-06-08 08:01:55.568412829 Z
+- _id: 3839
+  _job: 24111
+  _time: 2025-06-08 08:01:55.604870131 Z
+  _version: 0.11.0/0.45.0/0.11.0!0.12.0
+  what: earned-value-prev
+  when: *96
+- _id: 3850
+  _time: 2025-06-08 09:01:10.403795536 Z
   _version: 0.11.0/0.46.0/
-  latest: 50641696655
+  latest: 799
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 3852
+  _time: 2025-06-08 09:01:28.584849895 Z
+  _version: 0.11.0/0.46.0/
+  latest: 732
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 3853
+  _time: 2025-06-08 09:01:30.328881495 Z
+  _version: 0.11.0/0.46.0/
+  latest: 50642335069
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 3835
-  _time: 2025-06-08 08:01:04.705027922 Z
+- _id: 3854
+  _time: 2025-06-08 09:01:31.152701325 Z
   _version: 0.11.0/0.46.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
-  where: github
-- _id: 3836
-  _time: 2025-06-08 08:01:11.804169600 Z
-  _version: 0.11.0/0.46.0/
-  latest: 799
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 3837
-  _time: 2025-06-08 08:01:14.287788712 Z
-  _version: 0.11.0/0.46.0/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
   where: github
