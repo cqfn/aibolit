@@ -7,7 +7,6 @@ from unittest import TestCase
 from aibolit.patterns.loop_outsider.loop_outsider import LoopOutsider
 
 
-
 class LoopOutsiderTestCase(TestCase):
     """
     @todo #138:30min Continue to implement loop_outsider
