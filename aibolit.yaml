@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 322.308000772
+  seconds: 70.638415251
   version: 0.47.0
   what: judges-summary
-  when: 2025-06-08 20:05:12.706455092 Z
+  when: 2025-06-08 21:01:05.888435501 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7570,21 +7570,6 @@
   total_stars: 85
   what: dimensions-of-terrain
   when: 2025-06-07 20:00:41.956033493 Z
-- _id: 3631
-  _time: 2025-06-07 21:00:25.774095546 Z
-  _version: 0.11.0/0.46.0/
-  branch: 811-add-test
-  details: The pull request cqfn/aibolit#812 has been opened by @antonprokopyev.
-  event_id: 50630737366
-  event_type: PullRequestEvent
-  is_human: 1
-  issue: 812
-  not_merged: 2025-06-07 21:00:25.408549039 Z
-  repository: 237167507
-  what: pull-was-opened
-  when: 2025-06-07 13:57:45.000000000 Z
-  where: github
-  who: 13173649
 - _id: 3671
   _time: 2025-06-07 22:59:50.530871933 Z
   _version: 0.11.0/0.46.0/
@@ -7724,27 +7709,6 @@
   when: 2025-06-08 15:57:36.000000000 Z
   where: github
   who: 526301
-- _id: 4037
-  _time: 2025-06-08 20:00:21.892286994 Z
-  _version: 0.11.0/0.47.0/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 4038
-  _time: 2025-06-08 20:00:28.549081989 Z
-  _version: 0.11.0/0.47.0/
-  latest: 732
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 4039
-  _time: 2025-06-08 20:00:29.425149523 Z
-  _version: 0.11.0/0.47.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
 - _id: 4040
   _time: 2025-06-08 20:02:22.517849748 Z
   _version: 0.11.0/0.47.0/
@@ -7752,25 +7716,84 @@
   total_reviews_submitted: 25
   what: quantity-of-deliverables
   when: 2025-06-08 20:00:29.482173101 Z
-- _id: 4041
-  _time: 2025-06-08 20:02:24.474247170 Z
+- _id: 4055
+  _time: 2025-06-08 21:00:40.842027809 Z
   _version: 0.11.0/0.47.0/
-  latest: 50650728579
+  branch: 811-add-test
+  details: The pull request cqfn/aibolit#812 has been opened by @antonprokopyev.
+  event_id: 50630737366
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 812
+  not_merged: 2025-06-08 21:00:40.563529111 Z
   repository: 237167507
-  what: events-were-scanned
+  what: pull-was-opened
+  when: 2025-06-07 13:57:45.000000000 Z
   where: github
-- _id: 4042
-  _time: 2025-06-08 20:05:12.668067364 Z
+  who: 13173649
+- _id: 4056
+  _time: 2025-06-08 21:00:49.345034681 Z
   _version: 0.11.0/0.47.0/
+  total_active_contributors: 7
+  total_commits: 2426
+  total_contributors: 19
+  total_files: 1053
+  total_forks: 28
+  total_issues: 406
+  total_pulls: 410
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 85
+  what: dimensions-of-terrain
+  when: 2025-06-08 21:00:18.899166648 Z
+- _id: 4059
+  _time: 2025-06-08 21:00:55.456949508 Z
+  _version: 0.11.0/0.47.0/
+  average_backlog_size: 2.375
   average_build_duration: 77.344
   average_build_mttr: -33657
   average_build_success_rate: 0.929
+  average_issue_lifetime: 20535676.75
   average_pull_files_size: 3.7142857142857144
   average_pull_hoc_size: 118.71428571428571
+  average_pull_lifetime: 38718.42857142857
   average_pull_rejection_rate: 0.0
   average_release_commits_size: 0
   average_release_hoc_size: 0
+  average_release_interval: 0
+  average_review_size: 2.2857142857142856
+  average_review_time: 37550.0
+  average_reviewers_per_pull: 1.0
+  average_reviews_per_pull: 2.4285714285714284
   average_triage_time: 17850.0
   since: 2025-06-01 20:00:21.084009081 Z
   what: quality-of-service
   when: 2025-06-08 20:00:21.083945983 Z
+- _id: 4063
+  _time: 2025-06-08 21:01:02.090949736 Z
+  _version: 0.11.0/0.47.0/
+  latest: 50651486852
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 4064
+  _time: 2025-06-08 21:01:03.591182461 Z
+  _version: 0.11.0/0.47.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 4065
+  _time: 2025-06-08 21:01:04.240702404 Z
+  _version: 0.11.0/0.47.0/
+  latest: 732
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 4066
+  _time: 2025-06-08 21:01:05.791711441 Z
+  _version: 0.11.0/0.47.0/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
