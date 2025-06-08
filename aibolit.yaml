@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 51.448007693
+  seconds: 322.308000772
   version: 0.47.0
   what: judges-summary
-  when: 2025-06-08 19:00:34.925925760 Z
+  when: 2025-06-08 20:05:12.706455092 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7724,31 +7724,53 @@
   when: 2025-06-08 15:57:36.000000000 Z
   where: github
   who: 526301
-- _id: 4018
-  _time: 2025-06-08 19:00:03.277722701 Z
+- _id: 4037
+  _time: 2025-06-08 20:00:21.892286994 Z
   _version: 0.11.0/0.47.0/
-  latest: 799
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 4025
-  _time: 2025-06-08 19:00:28.967665843 Z
-  _version: 0.11.0/0.47.0/
-  latest: 756
+  latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 4027
-  _time: 2025-06-08 19:00:31.855755110 Z
+- _id: 4038
+  _time: 2025-06-08 20:00:28.549081989 Z
   _version: 0.11.0/0.47.0/
-  latest: 50650336503
+  latest: 732
   repository: 237167507
-  what: events-were-scanned
+  what: types-were-scanned
   where: github
-- _id: 4028
-  _time: 2025-06-08 19:00:33.945668570 Z
+- _id: 4039
+  _time: 2025-06-08 20:00:29.425149523 Z
   _version: 0.11.0/0.47.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
+- _id: 4040
+  _time: 2025-06-08 20:02:22.517849748 Z
+  _version: 0.11.0/0.47.0/
+  since: 2025-06-01 20:00:29.482215961 Z
+  total_reviews_submitted: 25
+  what: quantity-of-deliverables
+  when: 2025-06-08 20:00:29.482173101 Z
+- _id: 4041
+  _time: 2025-06-08 20:02:24.474247170 Z
+  _version: 0.11.0/0.47.0/
+  latest: 50650728579
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 4042
+  _time: 2025-06-08 20:05:12.668067364 Z
+  _version: 0.11.0/0.47.0/
+  average_build_duration: 77.344
+  average_build_mttr: -33657
+  average_build_success_rate: 0.929
+  average_pull_files_size: 3.7142857142857144
+  average_pull_hoc_size: 118.71428571428571
+  average_pull_rejection_rate: 0.0
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
+  average_triage_time: 17850.0
+  since: 2025-06-01 20:00:21.084009081 Z
+  what: quality-of-service
+  when: 2025-06-08 20:00:21.083945983 Z
