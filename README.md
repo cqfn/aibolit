@@ -10,11 +10,16 @@
 Learn how Aibolit works in our [White Paper].
 
 First, you install it (you must have
-[Python 3.7.7](https://www.python.org/downloads/)
-and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
+[Python 3.11+](https://www.python.org/downloads/) installed):
 
 ```bash
 pip3 install aibolit==1.3.0
+```
+
+Or using [uv](https://docs.astral.sh/uv/) (recommended for faster installation):
+
+```bash
+uv pip install aibolit==1.3.0
 ```
 
 To analyze your Java sources, located at `src/java` (for example), run:
@@ -314,30 +319,62 @@ aibolit train --java_folder=src/java --skip_collect_dataset
 
 ## How to contribute?
 
-First, you need to install:
+### Prerequisites
 
-* [Python 3+](https://www.python.org/downloads/)
-* [Pip](https://pip.pypa.io/en/stable/installing/)
+* [Python 3.11+](https://www.python.org/downloads/)
+* [uv](https://docs.astral.sh/uv/) (recommended) or [Pip](https://pip.pypa.io/en/stable/installing/)
 * Ruby 2.6+
 * [Xcop](https://github.com/yegor256/xcop)
 
-Install the following packages if you don't have:
+Install system packages if you don't have them:
 
 ```bash
 apt-get install ruby-dev libz-dev libxml2
 ```
 
-This project does not include a virtual environment by default.
-If you're using one (e.g., .venv, venv), update the .xcop file to exclude it:
+### Development Setup
+
+**Using uv (recommended):**
 
 ```bash
---exclude=.venv/**
+# Clone the repository
+git clone https://github.com/cqfn/aibolit.git
+cd aibolit
+
+# Install dependencies and setup development environment
+uv sync
+uv pip install -e .
+
+# Verify installation
+python aibolit --version
 ```
+
+**Using traditional pip:**
+
+```bash
+# Install dependencies
+pip3 install -r requirements.txt
+pip3 install -e .
+```
+
+### Running Tests and Checks
 
 After forking and editing the repo, verify the build is clean by running:
 
 ```bash
 make
+```
+
+Individual commands:
+
+```bash
+# Run tests
+make test          # or: uv run pytest --cov=aibolit/ test/
+make it           # integration tests
+
+# Run linting
+make lint         # or: uv run flake8/pylint/mypy/ruff
+make xcop         # XML validation
 ```
 
 To build white paper:
