@@ -4,8 +4,17 @@
 public class LoopOutsiderAddAndInWhile {
     public void loopOutsiderAddAndInWhile() {
         int x = 0;
-        while (true) {
+         for (int i = 0 ; i< 10; i++){
             x += 1; // here
+            x++;
+            Integer a = 0;
+
+            a &=1;
+            a ^=1;
+
+            a++;
+            ++a;
+
         }
     }
 }
