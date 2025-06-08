@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 104.166682334
-  version: 0.46.0
+  seconds: 62.411304448
+  version: 0.47.0
   what: judges-summary
-  when: 2025-06-08 15:01:23.192253077 Z
+  when: 2025-06-08 16:00:45.110682047 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7706,31 +7706,49 @@
   where: github
   who: 150805542
   why: Wrongly named a branch in cqfn/aibolit#816
-- _id: 3954
-  _time: 2025-06-08 15:01:02.388044602 Z
-  _version: 0.11.0/0.46.0/
-  latest: 50647610393
+- _id: 3958
+  _time: 2025-06-08 15:59:45.098416080 Z
+  _version: 0.11.0/0.47.0/
+  commit: f6b6682d5a16e742eb4a6859b391993574cb41e4
+  default_branch: master
+  details: 'A new Git push #24770389034 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is ''master''), not associated with any pull request.'
+  event_id: 50648395480
+  event_type: PushEvent
+  is_human: 1
+  push_id: 24770389034
+  ref: refs/heads/master
+  repository: 237167507
+  to_master: 1
+  what: git-was-pushed
+  when: 2025-06-08 15:57:36.000000000 Z
+  where: github
+  who: 526301
+- _id: 3974
+  _time: 2025-06-08 16:00:40.940096644 Z
+  _version: 0.11.0/0.47.0/
+  latest: 50648402849
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 3955
-  _time: 2025-06-08 15:01:04.732666972 Z
-  _version: 0.11.0/0.46.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 3956
-  _time: 2025-06-08 15:01:07.242595738 Z
-  _version: 0.11.0/0.46.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 3957
-  _time: 2025-06-08 15:01:23.183502651 Z
-  _version: 0.11.0/0.46.0/
+- _id: 3975
+  _time: 2025-06-08 16:00:42.884327639 Z
+  _version: 0.11.0/0.47.0/
   latest: 799
   repository: 237167507
   what: labels-were-scanned
+  where: github
+- _id: 3976
+  _time: 2025-06-08 16:00:43.692466501 Z
+  _version: 0.11.0/0.47.0/
+  latest: 732
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 3977
+  _time: 2025-06-08 16:00:44.744721455 Z
+  _version: 0.11.0/0.47.0/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
   where: github
