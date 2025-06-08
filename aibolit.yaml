@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 70.638415251
+  seconds: 58.285653421
   version: 0.47.0
   what: judges-summary
-  when: 2025-06-08 21:01:05.888435501 Z
+  when: 2025-06-08 22:00:59.762859888 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7766,32 +7766,34 @@
   average_reviewers_per_pull: 1.0
   average_reviews_per_pull: 2.4285714285714284
   average_triage_time: 17850.0
+  composite: 0.441
+  ffact: 136
   since: 2025-06-01 20:00:21.084009081 Z
   what: quality-of-service
   when: 2025-06-08 20:00:21.083945983 Z
-- _id: 4063
-  _time: 2025-06-08 21:01:02.090949736 Z
+- _id: 4076
+  _time: 2025-06-08 22:00:55.222914345 Z
   _version: 0.11.0/0.47.0/
-  latest: 50651486852
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 4064
-  _time: 2025-06-08 21:01:03.591182461 Z
-  _version: 0.11.0/0.47.0/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 4065
-  _time: 2025-06-08 21:01:04.240702404 Z
-  _version: 0.11.0/0.47.0/
-  latest: 732
+  latest: 799
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 4066
-  _time: 2025-06-08 21:01:05.791711441 Z
+- _id: 4077
+  _time: 2025-06-08 22:00:56.866426840 Z
+  _version: 0.11.0/0.47.0/
+  latest: 756
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 4079
+  _time: 2025-06-08 22:00:58.448594161 Z
+  _version: 0.11.0/0.47.0/
+  latest: 50652116285
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 4080
+  _time: 2025-06-08 22:00:59.590963189 Z
   _version: 0.11.0/0.47.0/
   latest: 710
   repository: 237167507
