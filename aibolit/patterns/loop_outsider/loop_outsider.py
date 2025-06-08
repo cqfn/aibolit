@@ -7,6 +7,7 @@ from javalang import parse
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.types_decl import LineNumber
 
+
 class LoopOutsider:
     """
     Pattern which matches loop outsiders: when we modify a variable which is declared outside of the
