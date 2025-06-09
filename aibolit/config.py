@@ -59,6 +59,7 @@ from aibolit.patterns.hybrid_constructor.hybrid_constructor import HybridConstru
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
 from aibolit.patterns.var_middle.var_middle import VarMiddle as P21
 from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
+from aibolit.types_decl import LineNumber
 
 
 class Singleton(type):
@@ -74,7 +75,7 @@ class Singleton(type):
 
 @typing.runtime_checkable
 class Pattern(typing.Protocol):
-    def value(self, ast: AST) -> list[int]:
+    def value(self, ast: AST) -> list[LineNumber]:
         ...
 
 
