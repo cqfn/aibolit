@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="171052">
+<fb version="0.11.0" size="171808">
   <f>
     <added t="I">8</added>
     <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">109.752385641</seconds>
+    <seconds t="F">110.223208118</seconds>
     <version t="S">0.47.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-09T13:26:02Z</when>
+    <when t="T">2025-06-09T14:01:31Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -8774,17 +8774,72 @@
     <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">4212</_id>
-    <_time t="T">2025-06-09T13:25:32Z</_time>
+    <_id t="I">4216</_id>
+    <_time t="T">2025-06-09T13:59:44Z</_time>
     <_version t="S">0.11.0/0.47.0/</_version>
-    <latest t="I">50670350229</latest>
+    <branch t="S">584</branch>
+    <comments t="I">12</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">4</comments_by_author>
+    <comments_by_reviewers t="I">9</comments_by_reviewers>
+    <comments_resolved t="I">2</comments_resolved>
+    <comments_to_code t="I">4</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#815 has been closed by @yegor256, with 118 HoC and 12 comments.</details>
+    <event_id t="I">50671968431</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">118</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">815</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">4</review_comments>
+    <succeeded_builds t="I">17</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-09T11:24:35Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">4217</_id>
+    <_time t="T">2025-06-09T13:59:57Z</_time>
+    <_version t="S">0.11.0/0.47.0/</_version>
+    <comments t="I">13</comments>
+    <commits t="I">8</commits>
+    <details t="S">The pull request cqfn/aibolit#815 has been reviewed by @yegor256 with 118 HoC and 13 comments.</details>
+    <event_id t="I">50671964303</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">2</files>
+    <hoc t="I">118</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">815</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">4</review_comments>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2025-06-09T11:24:28Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">4231</_id>
+    <_time t="T">2025-06-09T14:01:14Z</_time>
+    <_version t="S">0.11.0/0.47.0/</_version>
+    <latest t="I">50672186626</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">4213</_id>
-    <_time t="T">2025-06-09T13:25:40Z</_time>
+    <_id t="I">4232</_id>
+    <_time t="T">2025-06-09T14:01:15Z</_time>
+    <_version t="S">0.11.0/0.47.0/</_version>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">4233</_id>
+    <_time t="T">2025-06-09T14:01:24Z</_time>
     <_version t="S">0.11.0/0.47.0/</_version>
     <latest t="I">756</latest>
     <repository t="I">237167507</repository>
@@ -8792,21 +8847,12 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">4214</_id>
-    <_time t="T">2025-06-09T13:26:01Z</_time>
+    <_id t="I">4234</_id>
+    <_time t="T">2025-06-09T14:01:30Z</_time>
     <_version t="S">0.11.0/0.47.0/</_version>
-    <latest t="I">756</latest>
+    <latest t="I">732</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">4215</_id>
-    <_time t="T">2025-06-09T13:26:02Z</_time>
-    <_version t="S">0.11.0/0.47.0/</_version>
-    <latest t="I">710</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
     <where t="S">github</where>
   </f>
 </fb>

@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 109.752385641
+  seconds: 110.223208118
   version: 0.47.0
   what: judges-summary
-  when: 2025-06-09 13:26:02.861325608 Z
+  when: 2025-06-09 14:01:31.824004839 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7878,31 +7878,75 @@
   when: *98
   where: github
   who: 41443370
-- _id: 4212
-  _time: 2025-06-09 13:25:32.373896891 Z
+- _id: 4216
+  _time: 2025-06-09 13:59:44.405723683 Z
   _version: 0.11.0/0.47.0/
-  latest: 50670350229
+  branch: '584'
+  comments: 12
+  comments_appreciated: 0
+  comments_by_author: 4
+  comments_by_reviewers: 9
+  comments_resolved: 2
+  comments_to_code: 4
+  details: The pull request cqfn/aibolit#815 has been closed by @yegor256, with 118
+    HoC and 12 comments.
+  event_id: 50671968431
+  event_type: PullRequestEvent
+  failed_builds: 0
+  hoc: 118
+  is_human: 1
+  issue: 815
+  repository: 237167507
+  review_comments: 4
+  succeeded_builds: 17
+  what: pull-was-merged
+  when: 2025-06-09 11:24:35.000000000 Z
+  where: github
+  who: 526301
+- _id: 4217
+  _time: 2025-06-09 13:59:57.124206103 Z
+  _version: 0.11.0/0.47.0/
+  comments: 13
+  commits: 8
+  details: The pull request cqfn/aibolit#815 has been reviewed by @yegor256 with 118
+    HoC and 13 comments.
+  event_id: 50671964303
+  event_type: PullRequestReviewEvent
+  files: 2
+  hoc: 118
+  is_human: 1
+  issue: 815
+  repository: 237167507
+  review_comments: 4
+  what: pull-was-reviewed
+  when: 2025-06-09 11:24:28.000000000 Z
+  where: github
+  who: 526301
+- _id: 4231
+  _time: 2025-06-09 14:01:14.900011977 Z
+  _version: 0.11.0/0.47.0/
+  latest: 50672186626
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 4213
-  _time: 2025-06-09 13:25:40.970279093 Z
+- _id: 4232
+  _time: 2025-06-09 14:01:15.541383409 Z
+  _version: 0.11.0/0.47.0/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 4233
+  _time: 2025-06-09 14:01:24.013716105 Z
   _version: 0.11.0/0.47.0/
   latest: 756
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 4214
-  _time: 2025-06-09 13:26:01.665894759 Z
+- _id: 4234
+  _time: 2025-06-09 14:01:30.766513721 Z
   _version: 0.11.0/0.47.0/
-  latest: 756
+  latest: 732
   repository: 237167507
   what: labels-were-scanned
-  where: github
-- _id: 4215
-  _time: 2025-06-09 13:26:02.548895050 Z
-  _version: 0.11.0/0.47.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
   where: github
