@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 110.223208118
+  seconds: 147.478241654
   version: 0.47.0
   what: judges-summary
-  when: 2025-06-09 14:01:31.824004839 Z
+  when: 2025-06-09 15:03:23.910199803 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7900,7 +7900,7 @@
   review_comments: 4
   succeeded_builds: 17
   what: pull-was-merged
-  when: 2025-06-09 11:24:35.000000000 Z
+  when: &100 2025-06-09 11:24:35.000000000 Z
   where: github
   who: 526301
 - _id: 4217
@@ -7919,32 +7919,68 @@
   repository: 237167507
   review_comments: 4
   what: pull-was-reviewed
-  when: 2025-06-09 11:24:28.000000000 Z
+  when: &99 2025-06-09 11:24:28.000000000 Z
   where: github
   who: 526301
-- _id: 4231
-  _time: 2025-06-09 14:01:14.900011977 Z
+- _id: 4235
+  _job: 24284
+  _time: 2025-06-09 14:01:53.107943315 Z
+  _version: 0.11.0/0.45.0/0.13.1
+  author: 150796108
+  comments: 13
+  details: The pull request cqfn/aibolit#815 with 118 HoC created by @newspec was
+    reviewed by @yegor256 after 1d11h and 13 comments.
+  hoc: 118
+  is_human: 1
+  issue: 815
+  repository: 237167507
+  review_comments: 4
+  seconds: 129469
+  what: code-was-reviewed
+  when: *99
+  where: github
+  who: 526301
+- _id: 4236
+  _job: 24284
+  _time: 2025-06-09 14:01:54.079942386 Z
+  _version: 0.11.0/0.45.0/0.13.1
+  comments: 12
+  details: The pull request cqfn/aibolit#815 with 118 HoC created by @newspec was
+    merged by @yegor256 after 1d11h of being in review and 12 comments.
+  hoc: 118
+  is_human: 1
+  issue: 815
+  merger: 526301
+  repository: 237167507
+  review_comments: 4
+  seconds: 129476
+  what: code-was-contributed
+  when: *100
+  where: github
+  who: 150796108
+- _id: 4251
+  _time: 2025-06-09 15:02:44.599573171 Z
   _version: 0.11.0/0.47.0/
-  latest: 50672186626
+  latest: 50673305187
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 4232
-  _time: 2025-06-09 14:01:15.541383409 Z
-  _version: 0.11.0/0.47.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 4233
-  _time: 2025-06-09 14:01:24.013716105 Z
+- _id: 4252
+  _time: 2025-06-09 15:02:53.957562641 Z
   _version: 0.11.0/0.47.0/
   latest: 756
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 4234
-  _time: 2025-06-09 14:01:30.766513721 Z
+- _id: 4253
+  _time: 2025-06-09 15:03:13.666255182 Z
+  _version: 0.11.0/0.47.0/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 4254
+  _time: 2025-06-09 15:03:23.901251525 Z
   _version: 0.11.0/0.47.0/
   latest: 732
   repository: 237167507
