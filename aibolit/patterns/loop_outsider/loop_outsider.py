@@ -3,7 +3,6 @@
 
 
 from typing import List, Set
-from javalang import parse
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.types_decl import LineNumber
 from aibolit.utils.ast_builder import build_ast
