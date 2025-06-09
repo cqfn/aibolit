@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 176.418008573
+  seconds: 109.752385641
   version: 0.47.0
   what: judges-summary
-  when: 2025-06-09 12:02:49.765538894 Z
+  when: 2025-06-09 13:26:02.861325608 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7787,7 +7787,7 @@
   repository: 237167507
   review_comments: 11
   what: pull-was-reviewed
-  when: 2025-06-09 09:54:46.000000000 Z
+  when: &97 2025-06-09 09:54:46.000000000 Z
   where: github
   who: 41443370
 - _id: 4174
@@ -7824,7 +7824,7 @@
   repository: 237167507
   review_comments: 22
   what: pull-was-reviewed
-  when: 2025-06-09 07:38:19.000000000 Z
+  when: &98 2025-06-09 07:38:19.000000000 Z
   where: github
   who: 41443370
 - _id: 4181
@@ -7842,29 +7842,65 @@
   when: 2025-06-08 10:58:10.000000000 Z
   where: github
   who: 150805542
-- _id: 4193
-  _time: 2025-06-09 12:02:35.148685775 Z
+- _id: 4197
+  _job: 24276
+  _time: 2025-06-09 12:03:10.332983268 Z
+  _version: 0.11.0/0.45.0/0.13.1
+  author: 13173649
+  comments: 17
+  details: The pull request cqfn/aibolit#814 with 141 HoC created by @antonprokopyev
+    was reviewed by @ivanovmg after 1d15h and 17 comments.
+  hoc: 141
+  is_human: 1
+  issue: 814
+  repository: 237167507
+  review_comments: 11
+  seconds: 143915
+  what: code-was-reviewed
+  when: *97
+  where: github
+  who: 41443370
+- _id: 4198
+  _job: 24276
+  _time: 2025-06-09 12:03:10.458336066 Z
+  _version: 0.11.0/0.45.0/0.13.1
+  author: 150805542
+  comments: 27
+  details: The pull request cqfn/aibolit#816 with 133 HoC created by @sinbadthesailor2005
+    was reviewed by @ivanovmg after 20h40m and 27 comments.
+  hoc: 133
+  is_human: 1
+  issue: 816
+  repository: 237167507
+  review_comments: 22
+  seconds: 74409
+  what: code-was-reviewed
+  when: *98
+  where: github
+  who: 41443370
+- _id: 4212
+  _time: 2025-06-09 13:25:32.373896891 Z
   _version: 0.11.0/0.47.0/
-  latest: 50668815672
+  latest: 50670350229
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 4194
-  _time: 2025-06-09 12:02:43.824447032 Z
+- _id: 4213
+  _time: 2025-06-09 13:25:40.970279093 Z
   _version: 0.11.0/0.47.0/
-  latest: 732
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 4195
-  _time: 2025-06-09 12:02:47.201427841 Z
-  _version: 0.11.0/0.47.0/
-  latest: 0
+  latest: 756
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 4196
-  _time: 2025-06-09 12:02:48.377796045 Z
+- _id: 4214
+  _time: 2025-06-09 13:26:01.665894759 Z
+  _version: 0.11.0/0.47.0/
+  latest: 756
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 4215
+  _time: 2025-06-09 13:26:02.548895050 Z
   _version: 0.11.0/0.47.0/
   latest: 710
   repository: 237167507
