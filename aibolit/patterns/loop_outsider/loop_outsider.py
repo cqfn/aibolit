@@ -6,6 +6,7 @@ from typing import List, Set
 from javalang import parse
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.types_decl import LineNumber
+from aibolit.utils.ast_builder import build_ast
 
 
 class LoopOutsider:
@@ -22,10 +23,7 @@ class LoopOutsider:
         Returns the line number of loop outsiders found in file.
         """
         res = []
-        with open(filename, 'r', encoding='utf-8') as f:
-            content = f.read()
-        javalang_parsed = parse.parse(content)
-        ast = AST.build_from_javalang(javalang_parsed)
+        ast = AST.build_from_javalang(build_ast(filename))
         loop_types = [ASTNodeType.WHILE_STATEMENT, ASTNodeType.FOR_STATEMENT,
                       ASTNodeType.DO_STATEMENT]
 
@@ -51,7 +49,7 @@ class LoopOutsider:
 
         # Find variables affected by increment/decrement operations
         for node in ast.get_proxy_nodes(ASTNodeType.MEMBER_REFERENCE):
-            if self.variableIsAffected(node):
+            if self._variable_is_affected(node):
                 var_changes.add(node)
 
         # Find variables affected by assignments
@@ -78,7 +76,7 @@ class LoopOutsider:
 
         return loop_vars_declarations
 
-    def variableIsAffected(self, node):
+    def _variable_is_affected(self, node):
         return ('--' in node.prefix_operators or '--' in
                 node.postfix_operators or
                 '++' in node.prefix_operators or '++' in

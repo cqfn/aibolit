@@ -120,3 +120,14 @@ class LoopOutsiderTestCase(TestCase):
             [8],
             "Could not find loop outsider with bitwise exclusive OR in while loop",
         )
+
+    def test_should_not_detect_loop_outsider_when_variable_never_modified_outside_loop(self):
+        self.assertEqual(LoopOutsider().value(Path(self.dir_path,
+                                                 "NoLoopOutsider.java")), [],
+                         "Found unexisted loop outsider")
+
+    def test_should_not_detect_loop_outsider_when_incrementing_outside_loop(
+            self):
+        self.assertEqual(LoopOutsider().value(Path(self.dir_path,
+                                                   "NoLoopOutsiderFakeIncrementing.java")), [],
+                         "Found unexisted loop outsider")
