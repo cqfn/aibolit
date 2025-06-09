@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="169191">
+<fb version="0.11.0" size="170349">
   <f>
     <added t="I">8</added>
     <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">119.872085385</seconds>
+    <seconds t="F">176.418008573</seconds>
     <version t="S">0.47.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-09T04:23:05Z</when>
+    <when t="T">2025-06-09T12:02:49Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -8488,23 +8488,6 @@
     <when t="T">2025-06-08T08:01:55Z</when>
   </f>
   <f>
-    <_id t="I">3875</_id>
-    <_time t="T">2025-06-08T11:00:32Z</_time>
-    <_version t="S">0.11.0/0.46.0/</_version>
-    <branch t="S">implement_loop_outsider</branch>
-    <details t="S">The pull request cqfn/aibolit#816 has been opened by @sinbadthesailor2005.</details>
-    <event_id t="I">50644411181</event_id>
-    <event_type t="S">PullRequestEvent</event_type>
-    <is_human t="I">1</is_human>
-    <issue t="I">816</issue>
-    <not_merged t="T">2025-06-08T11:00:32Z</not_merged>
-    <repository t="I">237167507</repository>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2025-06-08T10:58:10Z</when>
-    <where t="S">github</where>
-    <who t="I">150805542</who>
-  </f>
-  <f>
     <_id t="I">3876</_id>
     <_time t="T">2025-06-08T11:00:32Z</_time>
     <_version t="S">0.11.0/0.46.0/</_version>
@@ -8677,35 +8660,111 @@
     <who t="I">150796108</who>
   </f>
   <f>
-    <_id t="I">4169</_id>
-    <_time t="T">2025-06-09T04:22:57Z</_time>
+    <_id t="I">4173</_id>
+    <_time t="T">2025-06-09T11:59:56Z</_time>
     <_version t="S">0.11.0/0.47.0/</_version>
-    <latest t="I">50657909178</latest>
+    <comments t="I">17</comments>
+    <commits t="I">11</commits>
+    <details t="S">The pull request cqfn/aibolit#814 has been reviewed by @ivanovmg with 141 HoC and 17 comments.</details>
+    <event_id t="I">50668701381</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">4</files>
+    <hoc t="I">141</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">814</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">11</review_comments>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2025-06-09T09:54:46Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">4174</_id>
+    <_time t="T">2025-06-09T11:59:57Z</_time>
+    <_version t="S">0.11.0/0.47.0/</_version>
+    <commit t="S">670453b52befdaffdad96e86d81cc457f701c14c</commit>
+    <default_branch t="S">master</default_branch>
+    <details t="S">A new Git push #24780972284 has arrived to cqfn/aibolit, made by @yegor256 (default branch is 'master'), not associated with any pull request.</details>
+    <event_id t="I">50667747758</event_id>
+    <event_type t="S">PushEvent</event_type>
+    <is_human t="I">1</is_human>
+    <push_id t="I">24780972284</push_id>
+    <ref t="S">refs/heads/master</ref>
+    <repository t="I">237167507</repository>
+    <to_master t="I">1</to_master>
+    <what t="S">git-was-pushed</what>
+    <when t="T">2025-06-09T09:29:26Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">4175</_id>
+    <_time t="T">2025-06-09T11:59:58Z</_time>
+    <_version t="S">0.11.0/0.47.0/</_version>
+    <comments t="I">27</comments>
+    <commits t="I">11</commits>
+    <details t="S">The pull request cqfn/aibolit#816 has been reviewed by @ivanovmg with 133 HoC and 27 comments.</details>
+    <event_id t="I">50663696173</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">5</files>
+    <hoc t="I">133</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">816</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">22</review_comments>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2025-06-09T07:38:19Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">4181</_id>
+    <_time t="T">2025-06-09T12:00:35Z</_time>
+    <_version t="S">0.11.0/0.47.0/</_version>
+    <branch t="S">implement_loop_outsider</branch>
+    <details t="S">The pull request cqfn/aibolit#816 has been opened by @sinbadthesailor2005.</details>
+    <event_id t="I">50644411181</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">816</issue>
+    <not_merged t="T">2025-06-09T12:00:35Z</not_merged>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-06-08T10:58:10Z</when>
+    <where t="S">github</where>
+    <who t="I">150805542</who>
+  </f>
+  <f>
+    <_id t="I">4193</_id>
+    <_time t="T">2025-06-09T12:02:35Z</_time>
+    <_version t="S">0.11.0/0.47.0/</_version>
+    <latest t="I">50668815672</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">4170</_id>
-    <_time t="T">2025-06-09T04:23:00Z</_time>
+    <_id t="I">4194</_id>
+    <_time t="T">2025-06-09T12:02:43Z</_time>
     <_version t="S">0.11.0/0.47.0/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">732</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">4171</_id>
-    <_time t="T">2025-06-09T04:23:02Z</_time>
+    <_id t="I">4195</_id>
+    <_time t="T">2025-06-09T12:02:47Z</_time>
     <_version t="S">0.11.0/0.47.0/</_version>
-    <latest t="I">799</latest>
+    <latest t="I">0</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">4172</_id>
-    <_time t="T">2025-06-09T04:23:02Z</_time>
+    <_id t="I">4196</_id>
+    <_time t="T">2025-06-09T12:02:48Z</_time>
     <_version t="S">0.11.0/0.47.0/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
