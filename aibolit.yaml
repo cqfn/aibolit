@@ -1,12 +1,12 @@
 ---
 - added: 8
-  cycles: 5
+  cycles: 3
   deleted: 8
   inserted: 8
-  seconds: 98.803346618
+  seconds: 367.069455539
   version: 0.47.0
   what: judges-summary
-  when: 2025-06-10 19:01:40.069000544 Z
+  when: 2025-06-10 20:05:58.182629081 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -8038,31 +8038,56 @@
   when: 2020-07-31 04:34:15.000000000 Z
   where: github
   who: 526301
-- _id: 4738
-  _time: 2025-06-10 19:01:12.832460682 Z
+- _id: 4745
+  _time: 2025-06-10 20:00:07.318684022 Z
   _version: 0.11.0/0.47.0/
-  latest: 798
+  latest: 0
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 4739
-  _time: 2025-06-10 19:01:31.741632549 Z
-  _version: 0.11.0/0.47.0/
-  latest: 730
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 4741
-  _time: 2025-06-10 19:01:35.857412160 Z
-  _version: 0.11.0/0.47.0/
-  latest: 50716581962
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 4742
-  _time: 2025-06-10 19:01:39.518502115 Z
+- _id: 4746
+  _time: 2025-06-10 20:00:08.117084019 Z
   _version: 0.11.0/0.47.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
+- _id: 4747
+  _time: 2025-06-10 20:00:25.208888284 Z
+  _version: 0.11.0/0.47.0/
+  latest: 50716581962
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 4748
+  _time: 2025-06-10 20:00:33.603703512 Z
+  _version: 0.11.0/0.47.0/
+  latest: 798
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 4749
+  _time: 2025-06-10 20:03:19.687419151 Z
+  _version: 0.11.0/0.47.0/
+  since: 2025-06-03 20:00:37.101029580 Z
+  total_builds_ran: 1231
+  total_commits_pushed: 29
+  total_hoc_committed: 876
+  total_issues_created: 8
+  total_pulls_submitted: 4
+  total_releases_published: 0
+  total_reviews_submitted: 32
+  what: quantity-of-deliverables
+  when: 2025-06-10 20:00:37.100982201 Z
+- _id: 4750
+  _time: 2025-06-10 20:05:58.134044766 Z
+  _version: 0.11.0/0.47.0/
+  average_build_duration: 77.282
+  average_build_mttr: -31821
+  average_build_success_rate: 0.92
+  average_issue_lifetime: 38387321.5
+  average_pull_lifetime: 56979.0
+  average_release_interval: 0
+  since: 2025-06-03 20:03:20.601710155 Z
+  what: quality-of-service
+  when: 2025-06-10 20:03:20.601665722 Z
