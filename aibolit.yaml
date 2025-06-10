@@ -1,12 +1,12 @@
 ---
 - added: 8
-  cycles: 3
+  cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 367.069455539
+  seconds: 156.83172922
   version: 0.47.0
   what: judges-summary
-  when: 2025-06-10 20:05:58.182629081 Z
+  when: 2025-06-10 21:02:32.945633424 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7939,21 +7939,6 @@
   where: github
   who: 150796108
   why: Contributed code in cqfn/aibolit#815
-- _id: 4368
-  _time: 2025-06-09 21:01:20.697030910 Z
-  _version: 0.11.0/0.47.0/
-  branch: 811-add-test
-  details: The pull request cqfn/aibolit#812 has been opened by @antonprokopyev.
-  event_id: 50630737366
-  event_type: PullRequestEvent
-  is_human: 1
-  issue: 812
-  not_merged: 2025-06-09 21:01:20.449925372 Z
-  repository: 237167507
-  what: pull-was-opened
-  when: 2025-06-07 13:57:45.000000000 Z
-  where: github
-  who: 13173649
 - _id: 4370
   _time: 2025-06-09 21:01:34.045025316 Z
   _version: 0.11.0/0.47.0/
@@ -8038,37 +8023,11 @@
   when: 2020-07-31 04:34:15.000000000 Z
   where: github
   who: 526301
-- _id: 4745
-  _time: 2025-06-10 20:00:07.318684022 Z
-  _version: 0.11.0/0.47.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 4746
-  _time: 2025-06-10 20:00:08.117084019 Z
-  _version: 0.11.0/0.47.0/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 4747
-  _time: 2025-06-10 20:00:25.208888284 Z
-  _version: 0.11.0/0.47.0/
-  latest: 50716581962
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 4748
-  _time: 2025-06-10 20:00:33.603703512 Z
-  _version: 0.11.0/0.47.0/
-  latest: 798
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
 - _id: 4749
   _time: 2025-06-10 20:03:19.687419151 Z
   _version: 0.11.0/0.47.0/
+  composite: 11.55
+  ffact: 137
   since: 2025-06-03 20:00:37.101029580 Z
   total_builds_ran: 1231
   total_commits_pushed: 29
@@ -8079,15 +8038,84 @@
   total_reviews_submitted: 32
   what: quantity-of-deliverables
   when: 2025-06-10 20:00:37.100982201 Z
-- _id: 4750
-  _time: 2025-06-10 20:05:58.134044766 Z
+- _id: 4764
+  _time: 2025-06-10 21:01:01.109287018 Z
   _version: 0.11.0/0.47.0/
+  total_active_contributors: 8
+  total_commits: 2436
+  total_contributors: 20
+  total_files: 1054
+  total_forks: 29
+  total_issues: 406
+  total_pulls: 411
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 86
+  what: dimensions-of-terrain
+  when: 2025-06-10 21:00:29.654461870 Z
+- _id: 4765
+  _time: 2025-06-10 21:01:04.643481745 Z
+  _version: 0.11.0/0.47.0/
+  average_backlog_size: 2.875
   average_build_duration: 77.282
   average_build_mttr: -31821
   average_build_success_rate: 0.92
   average_issue_lifetime: 38387321.5
+  average_pull_files_size: 2.0
+  average_pull_hoc_size: 88.75
   average_pull_lifetime: 56979.0
+  average_pull_rejection_rate: 0.0
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
   average_release_interval: 0
+  average_review_size: 1.25
+  average_review_time: 66837.5
+  average_reviewers_per_pull: 0.75
+  average_reviews_per_pull: 1.25
+  average_triage_time: 329.2
   since: 2025-06-03 20:03:20.601710155 Z
   what: quality-of-service
   when: 2025-06-10 20:03:20.601665722 Z
+- _id: 4770
+  _time: 2025-06-10 21:02:00.131080874 Z
+  _version: 0.11.0/0.47.0/
+  branch: 811-add-test
+  details: The pull request cqfn/aibolit#812 has been opened by @antonprokopyev.
+  event_id: 50630737366
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 812
+  not_merged: 2025-06-10 21:01:59.800832868 Z
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-07 13:57:45.000000000 Z
+  where: github
+  who: 13173649
+- _id: 4772
+  _time: 2025-06-10 21:02:04.742446254 Z
+  _version: 0.11.0/0.47.0/
+  latest: 50719145648
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 4773
+  _time: 2025-06-10 21:02:05.451368146 Z
+  _version: 0.11.0/0.47.0/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 4774
+  _time: 2025-06-10 21:02:23.168582719 Z
+  _version: 0.11.0/0.47.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 4775
+  _time: 2025-06-10 21:02:30.586306777 Z
+  _version: 0.11.0/0.47.0/
+  latest: 730
+  repository: 237167507
+  what: types-were-scanned
+  where: github
