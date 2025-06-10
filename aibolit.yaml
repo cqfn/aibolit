@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 108.536350774
+  seconds: 87.034192387
   version: 0.47.0
   what: judges-summary
-  when: 2025-06-10 11:01:23.484689840 Z
+  when: 2025-06-10 12:01:28.046466540 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7782,21 +7782,6 @@
   when: &98 2025-06-09 07:38:19.000000000 Z
   where: github
   who: 41443370
-- _id: 4181
-  _time: 2025-06-09 12:00:35.085144850 Z
-  _version: 0.11.0/0.47.0/
-  branch: implement_loop_outsider
-  details: The pull request cqfn/aibolit#816 has been opened by @sinbadthesailor2005.
-  event_id: 50644411181
-  event_type: PullRequestEvent
-  is_human: 1
-  issue: 816
-  not_merged: 2025-06-09 12:00:35.076838742 Z
-  repository: 237167507
-  what: pull-was-opened
-  when: 2025-06-08 10:58:10.000000000 Z
-  where: github
-  who: 150805542
 - _id: 4197
   _job: 24276
   _time: 2025-06-09 12:03:10.332983268 Z
@@ -8014,31 +7999,46 @@
   when: 2025-06-08 22:26:29.000000000 Z
   where: github
   who: 13173649
-- _id: 4597
-  _time: 2025-06-10 11:00:53.067187826 Z
-  _version: 0.11.0/0.47.0/
-  latest: 50704020267
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 4598
-  _time: 2025-06-10 11:01:02.599880923 Z
+- _id: 4612
+  _time: 2025-06-10 12:01:02.251094010 Z
   _version: 0.11.0/0.47.0/
   latest: 756
   repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 4599
-  _time: 2025-06-10 11:01:22.219899876 Z
-  _version: 0.11.0/0.47.0/
-  latest: 799
-  repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 4600
-  _time: 2025-06-10 11:01:23.170619237 Z
+- _id: 4613
+  _time: 2025-06-10 12:01:03.213958753 Z
+  _version: 0.11.0/0.47.0/
+  branch: implement_loop_outsider
+  details: The pull request cqfn/aibolit#816 has been opened by @sinbadthesailor2005.
+  event_id: 50644411181
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 816
+  not_merged: 2025-06-10 12:01:02.741139304 Z
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-08 10:58:10.000000000 Z
+  where: github
+  who: 150805542
+- _id: 4615
+  _time: 2025-06-10 12:01:05.456075454 Z
+  _version: 0.11.0/0.47.0/
+  latest: 50704959671
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 4616
+  _time: 2025-06-10 12:01:08.625909742 Z
   _version: 0.11.0/0.47.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 4617
+  _time: 2025-06-10 12:01:28.035461009 Z
+  _version: 0.11.0/0.47.0/
+  latest: 732
+  repository: 237167507
+  what: labels-were-scanned
   where: github
