@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 208.346084654
+  seconds: 151.682279992
   version: 0.47.0
   what: judges-summary
-  when: 2025-06-10 15:03:24.130030988 Z
+  when: 2025-06-10 16:02:37.522720695 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -8014,31 +8014,55 @@
   when: 2025-06-08 10:58:10.000000000 Z
   where: github
   who: 150805542
-- _id: 4666
-  _time: 2025-06-10 15:02:44.076129241 Z
+- _id: 4670
+  _time: 2025-06-10 16:00:09.073090785 Z
   _version: 0.11.0/0.47.0/
-  latest: 50711049912
+  details: The issue cqfn/aibolit#584 has been closed by @yegor256.
+  event_id: 50712440111
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 584
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-06-10 08:33:02.000000000 Z
+  where: github
+  who: 526301
+- _id: 4674
+  _time: 2025-06-10 16:00:39.947762762 Z
+  _version: 0.11.0/0.47.0/
+  details: The issue cqfn/aibolit#584 has been opened by @yegor256.
+  is_human: 1
+  issue: 584
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-31 04:34:15.000000000 Z
+  where: github
+  who: 526301
+- _id: 4687
+  _time: 2025-06-10 16:02:03.112177238 Z
+  _version: 0.11.0/0.47.0/
+  latest: 50712472441
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 4667
-  _time: 2025-06-10 15:02:47.971425335 Z
-  _version: 0.11.0/0.47.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 4668
-  _time: 2025-06-10 15:02:48.723913947 Z
+- _id: 4688
+  _time: 2025-06-10 16:02:03.780377148 Z
   _version: 0.11.0/0.47.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 4669
-  _time: 2025-06-10 15:03:23.817267607 Z
+- _id: 4689
+  _time: 2025-06-10 16:02:11.873889182 Z
   _version: 0.11.0/0.47.0/
-  latest: 732
+  latest: 730
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 4690
+  _time: 2025-06-10 16:02:19.670543823 Z
+  _version: 0.11.0/0.47.0/
+  latest: 730
   repository: 237167507
   what: labels-were-scanned
   where: github
