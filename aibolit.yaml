@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 110.695904155
+  seconds: 199.693326183
   version: 0.48.0
   what: judges-summary
-  when: 2025-06-11 21:01:47.830055790 Z
+  when: 2025-06-11 22:03:40.254029227 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -8033,21 +8033,6 @@
   since: 2025-06-03 20:03:20.601710155 Z
   what: quality-of-service
   when: 2025-06-10 20:03:20.601665722 Z
-- _id: 4770
-  _time: 2025-06-10 21:02:00.131080874 Z
-  _version: 0.11.0/0.47.0/
-  branch: 811-add-test
-  details: The pull request cqfn/aibolit#812 has been opened by @antonprokopyev.
-  event_id: 50630737366
-  event_type: PullRequestEvent
-  is_human: 1
-  issue: 812
-  not_merged: 2025-06-10 21:01:59.800832868 Z
-  repository: 237167507
-  what: pull-was-opened
-  when: 2025-06-07 13:57:45.000000000 Z
-  where: github
-  who: 13173649
 - _id: 4797
   _time: 2025-06-10 23:00:34.906647547 Z
   _version: 0.11.0/0.47.0/
@@ -8093,31 +8078,46 @@
   when: 2025-06-08 10:58:10.000000000 Z
   where: github
   who: 150805542
-- _id: 5087
-  _time: 2025-06-11 21:01:27.624561001 Z
+- _id: 5093
+  _time: 2025-06-11 22:01:00.857355421 Z
+  _version: 0.11.0/0.48.0/
+  branch: 811-add-test
+  details: The pull request cqfn/aibolit#812 has been opened by @antonprokopyev.
+  event_id: 50630737366
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 812
+  not_merged: 2025-06-11 22:01:00.444308735 Z
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-07 13:57:45.000000000 Z
+  where: github
+  who: 13173649
+- _id: 5106
+  _time: 2025-06-11 22:03:00.403958813 Z
   _version: 0.11.0/0.48.0/
   latest: 50787902327
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 5088
-  _time: 2025-06-11 21:01:33.720235995 Z
+- _id: 5107
+  _time: 2025-06-11 22:03:09.406210162 Z
   _version: 0.11.0/0.48.0/
-  latest: 710
+  latest: 755
   repository: 237167507
-  what: min-issue-was-found
+  what: labels-were-scanned
   where: github
-- _id: 5089
-  _time: 2025-06-11 21:01:41.220329998 Z
+- _id: 5108
+  _time: 2025-06-11 22:03:19.367313830 Z
   _version: 0.11.0/0.48.0/
   latest: 798
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 5090
-  _time: 2025-06-11 21:01:47.819426908 Z
+- _id: 5109
+  _time: 2025-06-11 22:03:40.219670913 Z
   _version: 0.11.0/0.48.0/
-  latest: 755
+  latest: 710
   repository: 237167507
-  what: labels-were-scanned
+  what: min-issue-was-found
   where: github
