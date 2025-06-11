@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 114.807558147
-  version: 0.47.0
+  seconds: 105.218524538
+  version: 0.48.0
   what: judges-summary
-  when: 2025-06-11 09:03:14.554644356 Z
+  when: 2025-06-11 15:01:59.878447389 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7954,21 +7954,6 @@
   total_stars: 85
   what: dimensions-of-terrain
   when: 2025-06-09 21:00:27.143913701 Z
-- _id: 4613
-  _time: 2025-06-10 12:01:03.213958753 Z
-  _version: 0.11.0/0.47.0/
-  branch: implement_loop_outsider
-  details: The pull request cqfn/aibolit#816 has been opened by @sinbadthesailor2005.
-  event_id: 50644411181
-  event_type: PullRequestEvent
-  is_human: 1
-  issue: 816
-  not_merged: 2025-06-10 12:01:02.741139304 Z
-  repository: 237167507
-  what: pull-was-opened
-  when: 2025-06-08 10:58:10.000000000 Z
-  where: github
-  who: 150805542
 - _id: 4670
   _time: 2025-06-10 16:00:09.073090785 Z
   _version: 0.11.0/0.47.0/
@@ -8093,30 +8078,45 @@
   when: 2025-06-08 22:26:29.000000000 Z
   where: github
   who: 13173649
-- _id: 4957
-  _time: 2025-06-11 09:02:25.149364603 Z
-  _version: 0.11.0/0.47.0/
-  latest: 798
+- _id: 4966
+  _time: 2025-06-11 15:00:39.871944833 Z
+  _version: 0.11.0/0.48.0/
+  branch: implement_loop_outsider
+  details: The pull request cqfn/aibolit#816 has been opened by @sinbadthesailor2005.
+  event_id: 50644411181
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 816
+  not_merged: 2025-06-11 15:00:39.514811208 Z
   repository: 237167507
-  what: types-were-scanned
+  what: pull-was-opened
+  when: 2025-06-08 10:58:10.000000000 Z
   where: github
-- _id: 4961
-  _time: 2025-06-11 09:02:51.262414619 Z
-  _version: 0.11.0/0.47.0/
-  latest: 50738027696
+  who: 150805542
+- _id: 4977
+  _time: 2025-06-11 15:01:29.069719594 Z
+  _version: 0.11.0/0.48.0/
+  latest: 50778666679
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 4962
-  _time: 2025-06-11 09:02:59.397575232 Z
-  _version: 0.11.0/0.47.0/
+- _id: 4978
+  _time: 2025-06-11 15:01:39.307572317 Z
+  _version: 0.11.0/0.48.0/
   latest: 755
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 4979
+  _time: 2025-06-11 15:01:46.258743262 Z
+  _version: 0.11.0/0.48.0/
+  latest: 730
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 4963
-  _time: 2025-06-11 09:03:11.270889242 Z
-  _version: 0.11.0/0.47.0/
+- _id: 4980
+  _time: 2025-06-11 15:01:58.644320518 Z
+  _version: 0.11.0/0.48.0/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
