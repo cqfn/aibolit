@@ -9,6 +9,7 @@ import argparse
 import concurrent.futures
 import json
 import multiprocessing
+import signal
 import operator
 import os
 import pickle
@@ -878,6 +879,8 @@ def run_thread(files, args):
     :param files: list of java files to analyze
 
     """
+    signal.signal(signal.SIGINT, signal.SIG_DFL)
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
         future_results = [executor.submit(run_recommend_for_file, file, args) for file in files]
         concurrent.futures.wait(future_results)
