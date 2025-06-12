@@ -5,12 +5,17 @@ import time
 import signal
 
 
-def test_absence_traceback():
+def test_quiet_exiting():
     proc = subprocess.Popen(
-        ["python", "aibolit"], stdout=subprocess.PIPE, stderr=subprocess.PIPE
+        ["python", "aibolit"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
     )
     time.sleep(2)
     proc.send_signal(signal.SIGINT)
-    stdout, _ = proc.communicate(timeout=3)
 
-    assert b"Traceback" not in stdout
+    stdout, stderr = proc.communicate(timeout=3)
+    combined = stdout + stderr
+
+    assert b"Traceback" not in combined
+    assert b"KeyboardInterrupt" not in combined
