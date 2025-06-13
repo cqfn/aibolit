@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: e2e-release
+'on':
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  e2e-test:
+    timeout-minutes: 20
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: Build package
+        run: |
+          make build
+          ls -la dist/
+
+      - name: Run e2e tests
+        run: make e2e
