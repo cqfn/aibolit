@@ -38,13 +38,13 @@ writer.writerow(['filename', 'readability'])
 
 
 def log_result(result):
-    """ Save result to csv file. """
+    ''' Save result to csv file. '''
     writer.writerow(result)
     csv_file.flush()
 
 
 def call_proc(cmd, file_path):
-    """ This runs in a separate thread. """
+    ''' This runs in a separate thread. '''
     print('Running ', ' '.join(cmd))
     p = subprocess.Popen(
         cmd,

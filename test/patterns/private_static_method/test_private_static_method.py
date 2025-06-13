@@ -13,7 +13,7 @@ class PrivateStaticMethodTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
     def test_find_private_static_methods(self):
-        filepath = self.current_directory / "PrivateStaticMethod.java"
+        filepath = self.current_directory / 'PrivateStaticMethod.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = PrivateStaticMethod()
         lines = pattern.value(ast)

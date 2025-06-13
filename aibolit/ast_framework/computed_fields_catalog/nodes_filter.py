@@ -22,8 +22,8 @@ def nodes_filter_factory(
                     yield node
         else:
             raise RuntimeError(
-                f"Failed computing ASTNode field based on {base_field_name} field. "
-                f"Expected list, but got {base_field} of type {type(base_field)}."
+                f'Failed computing ASTNode field based on {base_field_name} field. '
+                f'Expected list, but got {base_field} of type {type(base_field)}.'
             )
 
     return filter

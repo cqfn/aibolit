@@ -8,7 +8,7 @@ from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 class HybridConstructor:
 
     def is_statement_ctor_inv(self, node: ASTNode) -> bool:
-        """Is statement explicit constructor invocation."""
+        '''Is statement explicit constructor invocation.'''
 
         return node.expression.node_type == ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION
 
@@ -17,8 +17,8 @@ class HybridConstructor:
             val: ASTNode,
             exp_ctrs_decls: List[ASTNode],
             other_statements: List[ASTNode]) -> None:
-        """Traverse over if condition recursively to find
-        explicit constructor invocation."""
+        '''Traverse over if condition recursively to find
+        explicit constructor invocation.'''
         if hasattr(val, 'statements'):
             children = list(val.statements)
             for i in children:
@@ -36,8 +36,8 @@ class HybridConstructor:
             statement: ASTNode,
             exp_ctrs_decls: List[ASTNode],
             other_statements: List[ASTNode]) -> None:
-        """Traverse over AST recursively to find all explicit
-        constructor invocations and other statements."""
+        '''Traverse over AST recursively to find all explicit
+        constructor invocations and other statements.'''
 
         if statement.node_type == ASTNodeType.STATEMENT_EXPRESSION:
             is_ctor_inv = self.is_statement_ctor_inv(statement)
@@ -68,7 +68,7 @@ class HybridConstructor:
             exp_ctrs_decls: List[ASTNode],
             other_statements: List[ASTNode],
             statement: ASTNode) -> None:
-        """Check try statements and find different statements."""
+        '''Check try statements and find different statements.'''
         if (statement.resources is not None) or \
                 (statement.catches is not None and statement.catches[0].block != []) or \
                 (statement.finally_block is not None):

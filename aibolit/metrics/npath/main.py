@@ -15,18 +15,18 @@ from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
 class NPathMetric():
-    """Main NPath Complexity class."""
+    '''Main NPath Complexity class.'''
 
     input = ''
 
     def __init__(self, input):
-        """Initialize class."""
+        '''Initialize class.'''
         if len(input) == 0:
             raise ValueError('Empty file for analysis')
         self.input = input
 
     def value(self, showoutput=False):
-        """Run NPath Complexity analaysis"""
+        '''Run NPath Complexity analaysis'''
         try:
             root = os.path.join(tempfile.gettempdir(), uuid.uuid4().hex)
             dirName = os.path.join(root, 'src/main/java')
@@ -84,9 +84,9 @@ class NPathMetric():
 
 
 class MvnFreeNPathMetric:
-    """
+    '''
     NPathMetric class, which computes NPathMetric without use of `mvn` process.
-    """
+    '''
     def __init__(self, ast: AST) -> None:
         self.ast = ast
 

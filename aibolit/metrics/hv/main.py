@@ -6,18 +6,18 @@ import os
 
 
 class HVMetric():
-    """Main Halstead Volume class."""
+    '''Main Halstead Volume class.'''
 
     input = ''
 
     def __init__(self, input):
-        """Initialize class."""
+        '''Initialize class.'''
         if len(input) == 0:
             raise ValueError('Empty file for analysis')
         self.input = input
 
     def value(self):
-        """Run Halstead Volume analaysis"""
+        '''Run Halstead Volume analaysis'''
         path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..',
                                'halsteadvolume/target/java-project-1.0-SNAPSHOT.jar'))
         if not os.path.isfile(path):

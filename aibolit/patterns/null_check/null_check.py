@@ -22,6 +22,6 @@ class NullCheck():
         return lines
 
     def _check_null(self, bin_operation: ASTNode) -> bool:
-        return (bin_operation.operator in ["==", "!="] and
+        return (bin_operation.operator in ['==', '!='] and
                 bin_operation.operandr.node_type == ASTNodeType.LITERAL and
-                bin_operation.operandr.value == "null")
+                bin_operation.operandr.value == 'null')

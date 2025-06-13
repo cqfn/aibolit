@@ -10,9 +10,9 @@ from aibolit.utils.ast_builder import build_ast
 
 
 class ExternalMethodsCalled:
-    """
+    '''
     Measure the number of external methods called by the class.
-    """
+    '''
 
     def __init__(self):
         pass

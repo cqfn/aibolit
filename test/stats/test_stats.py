@@ -72,7 +72,7 @@ class TestStats(TestCase):
 
         return PatternRankingModel()
 
-    @skip("Skipping test due to np.bool_ assertion issue in CI")
+    @skip('Skipping test due to np.bool_ assertion issue in CI')
     def test_stat_aibolit_pipeline(self):
         model = self.__load_mock_model()
         test_df = generate_fake_dataset()

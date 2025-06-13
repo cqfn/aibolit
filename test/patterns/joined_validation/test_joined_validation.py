@@ -13,64 +13,64 @@ class JoinedValidationTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
     def test_canFindSimpleJoinedValidation(self):
-        filepath = self.current_directory / "SimpleJoinedValidation.java"
+        filepath = self.current_directory / 'SimpleJoinedValidation.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = JoinedValidation()
         lines = pattern.value(ast)
-        self.assertEqual([6], lines, "Could not find simple joined validation")
+        self.assertEqual([6], lines, 'Could not find simple joined validation')
 
     def test_canFindJoinedValidationAndOr(self):
-        filepath = self.current_directory / "JoinedValidationAndOr.java"
+        filepath = self.current_directory / 'JoinedValidationAndOr.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = JoinedValidation()
         lines = pattern.value(ast)
-        self.assertEqual([6], lines, "Could not find joined validation in AndOr condition")
+        self.assertEqual([6], lines, 'Could not find joined validation in AndOr condition')
 
     def test_canFindJoinedValidationOrAnd(self):
-        filepath = self.current_directory / "JoinedValidationOrAnd.java"
+        filepath = self.current_directory / 'JoinedValidationOrAnd.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = JoinedValidation()
         lines = pattern.value(ast)
-        self.assertEqual([6], lines, "Could not find joined validation in OrAnd condition")
+        self.assertEqual([6], lines, 'Could not find joined validation in OrAnd condition')
 
     def test_canFindJoinedValidationOrOr(self):
-        filepath = self.current_directory / "JoinedValidationOrOr.java"
+        filepath = self.current_directory / 'JoinedValidationOrOr.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = JoinedValidation()
         lines = pattern.value(ast)
-        self.assertEqual([6], lines, "Could not find joined validation in OrOr condition")
+        self.assertEqual([6], lines, 'Could not find joined validation in OrOr condition')
 
     def test_canFindJoinedValidationOrFunctionCall(self):
-        filepath = self.current_directory / "JoinedValidationOrFunctionCall.java"
+        filepath = self.current_directory / 'JoinedValidationOrFunctionCall.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = JoinedValidation()
         lines = pattern.value(ast)
-        self.assertEqual([11], lines, "Could not find joined validation in function call")
+        self.assertEqual([11], lines, 'Could not find joined validation in function call')
 
     def test_canFindJoinedValidationOrFieldAccess(self):
-        filepath = self.current_directory / "JoinedValidationOrFieldAccess.java"
+        filepath = self.current_directory / 'JoinedValidationOrFieldAccess.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = JoinedValidation()
         lines = pattern.value(ast)
-        self.assertEqual([9], lines, "Could not find joined validation in field access")
+        self.assertEqual([9], lines, 'Could not find joined validation in field access')
 
     def test_canFindNoBracketsJoinedValidation(self):
-        filepath = self.current_directory / "NoBracketsJoinedValidation.java"
+        filepath = self.current_directory / 'NoBracketsJoinedValidation.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = JoinedValidation()
         lines = pattern.value(ast)
-        self.assertEqual([6], lines, "Could not find joined validation when using no brackets")
+        self.assertEqual([6], lines, 'Could not find joined validation when using no brackets')
 
     def test_canSkipEmptyJoinedValidation(self):
-        filepath = self.current_directory / "EmptyJoinedValidation.java"
+        filepath = self.current_directory / 'EmptyJoinedValidation.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = JoinedValidation()
         lines = pattern.value(ast)
-        self.assertEqual([], lines, "Could not skip empty joined validation")
+        self.assertEqual([], lines, 'Could not skip empty joined validation')
 
     def test_canSkipNoJoinedValidation(self):
-        filepath = self.current_directory / "NoJoinedValidation.java"
+        filepath = self.current_directory / 'NoJoinedValidation.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = JoinedValidation()
         lines = pattern.value(ast)
-        self.assertEqual([], lines, "Could not skip when there is no joined validation")
+        self.assertEqual([], lines, 'Could not skip when there is no joined validation')

@@ -12,14 +12,14 @@ class _MethodInvocationParams(NamedTuple):
 
 
 class RFC:
-    """
+    '''
     The Response For a Class (RFC) is an object-oriented metric
     that shows the interaction of the class methods with other methods.
     This implementation accept arbitrary AST and
     return sum of RFC for all class declaration in it.
     To calculate RFC of a class we count number of public methods and
     number of distinct methods invocation in those methods.
-    """
+    '''
 
     def value(self, ast: AST) -> int:
         rfc = 0
@@ -38,7 +38,7 @@ class RFC:
         for method_ast in java_class.get_subtrees(ASTNodeType.METHOD_DECLARATION):
             method_declaration = method_ast.get_root()
             local_methods_names.add(method_declaration.name)
-            if "public" in method_declaration.modifiers:
+            if 'public' in method_declaration.modifiers:
                 rfc += 1
                 invoked_methods |= self._get_all_method_invocation_params(method_ast)
 

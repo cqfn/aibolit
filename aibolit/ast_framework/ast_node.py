@@ -21,12 +21,12 @@ class ASTNode:
         self._node_index = node_index
 
     @property
-    def children(self) -> Iterator["ASTNode"]:
+    def children(self) -> Iterator['ASTNode']:
         for child_index in self._graph.succ[self._node_index]:
             yield ASTNode(self._graph, child_index)
 
     @property
-    def parent(self) -> Optional["ASTNode"]:
+    def parent(self) -> Optional['ASTNode']:
         try:
             parent_index = next(self._graph.predecessors(self._node_index))
             return ASTNode(self._graph, parent_index)
@@ -63,9 +63,9 @@ class ASTNode:
             return line
 
         raise RuntimeError(
-            f"Failed to retrieve source code line information for {repr(self)} node. "
-            "All nodes in a path from root to it and all nodes, reachable from it, "
-            "does not have any source code line information either."
+            f'Failed to retrieve source code line information for {repr(self)} node. '
+            'All nodes in a path from root to it and all nodes, reachable from it, '
+            'does not have any source code line information either.'
         )
 
     def __getattr__(self, attribute_name: str):
@@ -103,7 +103,7 @@ class ASTNode:
             list(computed_fields_registry.get_fields(node_type).keys())
 
     def __str__(self) -> str:
-        text_representation = f"node index: {self._node_index}"
+        text_representation = f'node index: {self._node_index}'
         node_type = self._get_type(self._node_index)
         for attribute_name in sorted(
             common_attributes | attributes_by_node_type[node_type]
@@ -112,25 +112,25 @@ class ASTNode:
 
             if isinstance(attribute_value, ASTNode):
                 attribute_representation = repr(attribute_value)
-            elif isinstance(attribute_value, str) and "\n" in attribute_value:
-                attribute_representation = "\n\t" + attribute_value.replace(
-                    "\n", "\n\t"
+            elif isinstance(attribute_value, str) and '\n' in attribute_value:
+                attribute_representation = '\n\t' + attribute_value.replace(
+                    '\n', '\n\t'
                 )
             else:
                 attribute_representation = str(attribute_value)
 
-            text_representation += f"\n{attribute_name}: {attribute_representation}"
+            text_representation += f'\n{attribute_name}: {attribute_representation}'
 
         return text_representation
 
     def __repr__(self) -> str:
         node_type = self._get_type(self._node_index)
-        return f"<ASTNode node_type: {node_type}, node_index: {self._node_index}>"
+        return f'<ASTNode node_type: {node_type}, node_index: {self._node_index}>'
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, ASTNode):
-            msg = "ASTNode support comparison only with themselves, "
-            msg += f"but {type(other)} was provided."
+            msg = 'ASTNode support comparison only with themselves, '
+            msg += f'but {type(other)} was provided.'
             raise NotImplementedError(msg)
         return self._graph == other._graph and self._node_index == other._node_index
 
@@ -150,25 +150,25 @@ class ASTNode:
                 list_with_nodes.append(item)
             else:
                 raise RuntimeError(
-                    "Failed parsing attribute.\n"
-                    f"An {item} with {type(item)} was found.\n"
-                    "Expected: int, str, ASNodeReference of list of them."
+                    'Failed parsing attribute.\n'
+                    f'An {item} with {type(item)} was found.\n'
+                    'Expected: int, str, ASNodeReference of list of them.'
                 )
 
         return list_with_nodes
 
-    def _create_node_from_reference(self, reference: ASTNodeReference) -> "ASTNode":
+    def _create_node_from_reference(self, reference: ASTNodeReference) -> 'ASTNode':
         return ASTNode(self._graph, reference.node_index)
 
     def _get_type(self, node_index: int) -> ASTNodeType:
-        return self._graph.nodes[node_index]["node_type"]
+        return self._graph.nodes[node_index]['node_type']
 
     def _get_line(self, node_index: int) -> Optional[int]:
-        return self._graph.nodes[node_index]["line"]
+        return self._graph.nodes[node_index]['line']
 
     def _get_parent(self, node_index: int) -> Optional[int]:
         # there is maximum one parent in a tree
         return next(self._graph.predecessors(node_index), None)
 
     # names of methods and properties, which is not generated dynamically
-    _public_fixed_interface = ["children", "node_index", "line"]
+    _public_fixed_interface = ['children', 'node_index', 'line']

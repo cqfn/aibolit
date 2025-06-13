@@ -40,7 +40,7 @@ class VarDeclarationDistance:
             # Filter items for current method to avoid cell-var-from-loop issue
             method_filtered_items = [item for item in items if item[0].method_line == method]
             method_items = map(
-                lambda v: {"line": v[0].line, "name": v[1], "ntype": type(v[0].node)},
+                lambda v: {'line': v[0].line, 'name': v[1], 'ntype': type(v[0].node)},
                 method_filtered_items
             )
             vars = {}

@@ -8,7 +8,7 @@ from aibolit.ast_framework import ASTNode
 
 
 def chain_field_getter_factory(*steps: Union[str, int]) -> Callable[[ASTNode], Any]:
-    """
+    '''
     A chained field is a field of some other field and so on.
     For example name of class field is retrieved like `field_decl.declarators[0].name`
     using javalang fields. To automate this chain fields can be used.
@@ -17,7 +17,7 @@ def chain_field_getter_factory(*steps: Union[str, int]) -> Callable[[ASTNode], A
     then we get that field from every node in list.
     If we get list of lists, it gets flatten.
     List with single items is unwrapped.
-    """
+    '''
 
     def get_chain_field(node: ASTNode) -> Any:
         field = node
@@ -36,7 +36,7 @@ def chain_field_getter_factory(*steps: Union[str, int]) -> Callable[[ASTNode], A
             elif isinstance(field, ASTNode) and isinstance(step, str):
                 field = getattr(field, step)
             else:
-                raise RuntimeError(f"Failed to apply step {step} to field {field}.")
+                raise RuntimeError(f'Failed to apply step {step} to field {field}.')
 
         return field
 

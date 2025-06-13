@@ -13,12 +13,12 @@ class NonFinalArgument:
         pass
 
     def value(self, filename: str | os.PathLike) -> list[LineNumber]:
-        """
+        '''
         Returns the line numbers of the file name which contains no final arguments
 
         :param filename: name of the file
         :return: number of the lines with non-final arguments
-        """
+        '''
         return sorted(_offending_lines(AST.build_from_javalang(build_ast(filename))))
 
 

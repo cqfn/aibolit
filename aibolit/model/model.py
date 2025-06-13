@@ -140,7 +140,7 @@ class PatternRankingModel(BaseEstimator):
         return np.vstack(res).T
 
     def calculate_score(self, X, quantity_func='log', th=1.0, feature_importances=None):
-        """
+        '''
         Args:
             X: np.array with shape ( number of patterns).
             quantity_func: str, type of function that will be applied to
@@ -153,7 +153,7 @@ class PatternRankingModel(BaseEstimator):
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for each snippet of
                 code.
-        """
+        '''
 
         X = X.copy()
         X = np.expand_dims(X, axis=0)
@@ -173,17 +173,17 @@ class PatternRankingModel(BaseEstimator):
         except Exception:
             import traceback
             traceback.print_exc()
-            raise Exception("Unknown func")
+            raise Exception('Unknown func')
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
     @no_type_check
     def test(self, files: List[str]) -> List[List[Union[str, List[str], List[float]]]]:
-        """Make predict for list of java files using current model.
+        '''Make predict for list of java files using current model.
         TODO #813:30min/DEV Remove PatternRankingModel.test method or ensure it works
         Code below is probably dead and should be removed.
         Another option is to fix the code and cover it with tests.
-        """
+        '''
 
         config = Config.get_patterns_config()
         patterns_config = config['patterns']
@@ -226,7 +226,7 @@ class PatternRankingModel(BaseEstimator):
         return result_array  # type: ignore[return-value]
 
     def rank(self, snippet, scale=True):
-        """
+        '''
         Args:
             snippet: np.array with shape (number of snippets, number of patterns + 1),
             because last column is ncss
@@ -234,7 +234,7 @@ class PatternRankingModel(BaseEstimator):
             ranked: np.array with shape (number of snippets, number of patterns)
                 of sorted patterns in non-increasing order for each snippet of
                 code.
-        """
+        '''
 
         # remember it, since we will use `log` function for non-normalized input value
         patterns_orig = np.array(snippet[:-1])

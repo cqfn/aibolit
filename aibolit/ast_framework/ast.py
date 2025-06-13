@@ -109,9 +109,9 @@ class AST:
             source_node = self.get_root()
 
         for _, destination, edge_type in dfs_labeled_edges(traverse_graph, source_node.node_index):
-            if edge_type == "forward":
+            if edge_type == 'forward':
                 on_node_entering(ASTNode(self.tree, destination))
-            elif edge_type == "reverse":
+            elif edge_type == 'reverse':
                 on_node_leaving(ASTNode(self.tree, destination))
 
     @deprecated(reason='Use ASTNode functionality instead.')
@@ -297,19 +297,19 @@ class AST:
     def _post_process_javalang_attributes(
         tree: DiGraph, node_type: ASTNodeType, attributes: Dict[str, Any]
     ) -> None:
-        """
+        '''
         Replace some attributes with more appropriate values for convenient work
-        """
+        '''
 
-        if node_type == ASTNodeType.METHOD_DECLARATION and attributes["body"] is None:
-            attributes["body"] = []
+        if node_type == ASTNodeType.METHOD_DECLARATION and attributes['body'] is None:
+            attributes['body'] = []
 
-        if node_type == ASTNodeType.LAMBDA_EXPRESSION and isinstance(attributes["body"], Node):
-            attributes["body"] = [attributes["body"]]
+        if node_type == ASTNodeType.LAMBDA_EXPRESSION and isinstance(attributes['body'], Node):
+            attributes['body'] = [attributes['body']]
 
         if node_type in {ASTNodeType.METHOD_INVOCATION, ASTNodeType.MEMBER_REFERENCE} and \
-                attributes["qualifier"] == "":
-            attributes["qualifier"] = None
+                attributes['qualifier'] == '':
+            attributes['qualifier'] = None
 
     @staticmethod
     def _add_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:

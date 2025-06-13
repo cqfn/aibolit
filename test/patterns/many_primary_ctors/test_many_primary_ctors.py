@@ -13,7 +13,7 @@ class ManyPrimaryCtorsTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
     def test_many_primary_ctors(self):
-        filepath = self.current_directory / "Book.java"
+        filepath = self.current_directory / 'Book.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ManyPrimaryCtors()
         lines = pattern.value(ast)

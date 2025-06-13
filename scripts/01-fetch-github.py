@@ -32,5 +32,5 @@ def downloadrepos():
                            cwd=os.path.join(repos, path[len(path) - 2]), check=False)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     downloadrepos()

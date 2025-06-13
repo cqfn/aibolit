@@ -7,9 +7,9 @@ from aibolit.ast_framework import AST, ASTNodeType
 
 
 class InstanceOf:
-    """
+    '''
     Finds instance_of operator and .isInstance() method call.
-    """
+    '''
 
     def value(self, ast: AST):
         lines: List[int] = []

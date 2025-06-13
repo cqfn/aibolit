@@ -7,9 +7,9 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 
 class MethodChainFind:
-    """
+    '''
     Finds chained methods, i.e. foo().bar()
-    """
+    '''
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
@@ -23,7 +23,7 @@ class MethodChainFind:
         return lines
 
     def _get_selectors_qty(self, node: ASTNode) -> int:
-        if not hasattr(node, "selectors") or node.selectors is None:
+        if not hasattr(node, 'selectors') or node.selectors is None:
             return 0
 
         return len(node.selectors)

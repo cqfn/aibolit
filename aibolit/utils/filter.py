@@ -21,12 +21,12 @@ class Filters:
         pass
 
     def filter_node_lvl(self, node: Node, javalang_class: Type[Node]) -> List[Nodes]:
-        """Filters nodes by desired javalang class.
+        '''Filters nodes by desired javalang class.
 
         Gets node(node) of any javalang.Tree type and filters it by
         desired type(javalang_class).
         Returns a generator with (path, node) inside.
-        """
+        '''
         temp_list = []
         for filtered_path, filtered_node in node.filter(javalang_class):
             if self.get_class_depth(filtered_path) == 1:
@@ -35,13 +35,13 @@ class Filters:
 
     @staticmethod
     def filter_getters_setters(method_node_list: List[MthNodes]) -> List[MthNodes]:
-        """Filters nodes by name.
+        '''Filters nodes by name.
 
         Gets list of nodes of "MethodDeclaration" type and filters it by
         name, so that no methods with name starting with "set" or "get"
         go to return list.
         Returns a generator with (path, node) inside.
-        """
+        '''
 
         # To-Fix: implement get/set detection with .body
         temp_list = []
@@ -68,11 +68,11 @@ class Filters:
 
     @staticmethod
     def exhaust_method(method_node: MethodDeclaration) -> MthExh:
-        """ Exhausts name and input vars, types for given MethodDeclaration node.
+        ''' Exhausts name and input vars, types for given MethodDeclaration node.
 
         Returns a tuple containing name and all parameters
         that given method gets as an input.
-        """
+        '''
 
         parameter_list = []
         name: str = method_node.name  # type: ignore[unresolved-attribute]
@@ -83,26 +83,26 @@ class Filters:
 
     @staticmethod
     def exhaust_field(field_node: AnyField) -> FldExh:
-        """ Exhausts name and type for given FieldDeclaration or LocalVariableDeclaration node.
+        ''' Exhausts name and type for given FieldDeclaration or LocalVariableDeclaration node.
 
         Returns a tuple containing name and type of field.
-        """
+        '''
 
         # To-Fix: get rid of'type' in parameter_tuple
         name = field_node.declarators[0].name
         try:
             parameter_tuple: Tuple[str, str] = ('type', field_node.type.name)
         except AttributeError:
-            return "", ("", "")
+            return '', ('', '')
         return name, parameter_tuple
 
     @staticmethod
     def get_arguments(invocation_node: MethodInvocation) -> Tuple[List[str], List[str]]:
-        """Gets arguments passed to given MethodInvocation node.
+        '''Gets arguments passed to given MethodInvocation node.
 
         Returns two tuples containing all arguments and methods passed
         to given MethodInvocation node.
-        """
+        '''
 
         list_of_funcs = []
         list_of_fields = []
@@ -115,10 +115,10 @@ class Filters:
 
     @staticmethod
     def clean_for_repetitions(list_of_exhaust: List[Any]) -> List[Any]:
-        """Gets any list and removes all repetitions.
+        '''Gets any list and removes all repetitions.
 
         Returns list with no repetitive objects.
-        """
+        '''
 
         list_of_exhaust = list(dict.fromkeys(list_of_exhaust))
         return list_of_exhaust

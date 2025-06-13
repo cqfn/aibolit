@@ -11,14 +11,14 @@ if TYPE_CHECKING:
 
 class _ComputedFieldsRegistry:
     def __init__(self) -> None:
-        RegistryType = Dict["ASTNodeType", Dict[str, Callable[["ASTNode"], Any]]]
+        RegistryType = Dict['ASTNodeType', Dict[str, Callable[['ASTNode'], Any]]]
         self._registry: RegistryType = defaultdict(dict)
 
     def register(
         self,
-        compute_field: Callable[["ASTNode"], Any],
+        compute_field: Callable[['ASTNode'], Any],
         name: str,
-        *node_types: "ASTNodeType",
+        *node_types: 'ASTNodeType',
     ) -> None:
         for node_type in node_types:
             computed_fields = self._registry[node_type]
@@ -32,8 +32,8 @@ class _ComputedFieldsRegistry:
             computed_fields[name] = compute_field
 
     def get_fields(
-        self, node_type: "ASTNodeType"
-    ) -> Dict[str, Callable[["ASTNode"], Any]]:
+        self, node_type: 'ASTNodeType'
+    ) -> Dict[str, Callable[['ASTNode'], Any]]:
         return self._registry[node_type]
 
     def clear(self) -> None:
@@ -41,10 +41,10 @@ class _ComputedFieldsRegistry:
 
     @staticmethod
     def _is_in_interactive_shell() -> bool:
-        """
+        '''
         Taken from comments to this answer https://stackoverflow.com/a/6879085/2129920
-        """
-        return bool(getattr(sys, "ps1", sys.flags.interactive))
+        '''
+        return bool(getattr(sys, 'ps1', sys.flags.interactive))
 
 
 computed_fields_registry = _ComputedFieldsRegistry()

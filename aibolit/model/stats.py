@@ -21,7 +21,7 @@ class Stats(object):
                 model = pickle.load(fid)
                 print('Model has been loaded successfully')
 
-        scaled_dataset = scale_dataset(test_csv, model.features_conf, "M4")
+        scaled_dataset = scale_dataset(test_csv, model.features_conf, 'M4')
         cleaned_dataset = scaled_dataset[model.features_conf['features_order'] + ['M2']]
         ranked, _, acts_complexity, acts = Stats.check_impact(
             cleaned_dataset.values,
@@ -59,7 +59,7 @@ class Stats(object):
                 only_patterns.append(x['name'])
                 patterns_code.append(x['code'])
         features_number = len(only_patterns)
-        print("Number of features: ", features_number)
+        print('Number of features: ', features_number)
         patterns = {x['code']: x['name'] for x in config['patterns']}
         metrics = {x['code']: x['name'] for x in config['metrics']}
         replace_dict = dict(patterns, **metrics)
@@ -71,7 +71,7 @@ class Stats(object):
             m: NDArray[np.float64],
             p: NDArray[np.float64],
             acts_complexity) -> pd.DataFrame:
-        """
+        '''
         Prints results, given with `check_impact`.
 
 
@@ -82,7 +82,7 @@ class Stats(object):
         if we increase pattern by 1/ncss
         :param acts_complexity:
 
-        """
+        '''
 
         df = pd.DataFrame(columns=[
             'pattern', ' -1(top1)', '+1(top1)',
@@ -112,14 +112,14 @@ class Stats(object):
     def split_dataset_by_pattern_value(
             X: NDArray[np.float64],
             pattern_idx: int) -> Tuple[NDArray[np.float64], NDArray[np.float64]]:
-        """ Divide dataset.
+        ''' Divide dataset.
 
         :param X: dataset
         :param pattern_idx: pattern index
         :return:
         1st is dataset with pattern where pattern can be null,
         2nd is dataset with pattern where pattern is not null,
-        """
+        '''
         nulls = []
         not_nulls = []
         for snipp in X:
@@ -136,7 +136,7 @@ class Stats(object):
             mask: NDArray[np.bool_],
             i: int,
             incr: NDArray[np.float64]) -> NDArray[np.float64]:
-        """
+        '''
         Args:
             X: np.array with shape (number of snippets, number of patterns).
             mask: np.array with shape (number of snippets, number of patterns).
@@ -145,7 +145,7 @@ class Stats(object):
             mask: matrix of bools
         Returns:
             X1: modified np.array with shape (number of snippets, number of patterns).
-        """
+        '''
 
         X1 = arr.copy()
         X1[:, i] += incr[mask[:, i]]

@@ -16,12 +16,12 @@ class IndentationCounter:
         self.max_right = max_right
 
     def __file_to_tokens(self, filename: str):
-        """
+        '''
         Takes path to java class file and returns tokens
 
         :param filename: file name
         :return: list of counted spaces
-        """
+        '''
         source_code = read_text_with_autodetected_encoding(filename)
         source_code = RemoveComments.remove_comments(source_code)
         return [line.replace('\t', '    ') for line in source_code.splitlines()

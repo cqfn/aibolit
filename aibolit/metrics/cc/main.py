@@ -11,18 +11,18 @@ from bs4 import BeautifulSoup
 
 
 class CCMetric():
-    """Main Cyclical Complexity class."""
+    '''Main Cyclical Complexity class.'''
 
     input = ''
 
     def __init__(self, input):
-        """Initialize class."""
+        '''Initialize class.'''
         if len(input) == 0:
             raise ValueError('Empty file for analysis')
         self.input = input
 
     def value(self, showoutput=False):
-        """Run Cyclical Complexity analaysis"""
+        '''Run Cyclical Complexity analaysis'''
         try:
             root = os.path.join(tempfile.gettempdir(), uuid.uuid4().hex)
             dirName = os.path.join(root, 'src/main/java')
@@ -57,7 +57,7 @@ class CCMetric():
         with open(root + '/target/pmd.xml', 'r', encoding='utf-8') as file:
             content = file.read()
             soup = BeautifulSoup(content, 'lxml')
-            files = soup.find_all("file")
+            files = soup.find_all('file')
             for file in files:
                 out = file.violation.string
                 name = file['name']
@@ -70,7 +70,7 @@ class CCMetric():
                 pos2 = out.find('(', pos1)
                 complexity = int(out[pos1:pos2 - 1])
                 result['data'].append({'file': name, 'complexity': complexity})
-            errors = soup.find_all("error")
+            errors = soup.find_all('error')
             for error in errors:
                 name = error['filename']
                 pos1 = name.find(root + '/src/main/java/')

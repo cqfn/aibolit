@@ -7,9 +7,9 @@ from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
 class MaxDiameter:
-    """
+    '''
     Max diameter of class methods.
-    """
+    '''
 
     def value(self, ast: AST) -> int:
         method_diameters: List[int] = [

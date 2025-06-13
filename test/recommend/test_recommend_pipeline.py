@@ -23,7 +23,7 @@ class TestRecommendPipeline(TestCase):
         self.config = Config.get_patterns_config()
 
     def __create_mock_input(self):
-        ex = Exception("Error occurred")
+        ex = Exception('Error occurred')
         item = {
             'filename': '1.java',
             'ncss': 100,
@@ -70,7 +70,7 @@ class TestRecommendPipeline(TestCase):
         return mock_input
 
     def __create_input_for_xml(self):
-        ex = Exception("Smth happened")
+        ex = Exception('Smth happened')
         return [
             {'filename': 'D:\\target\\0001\\fast\\Configuration.java',
              'ncss': 100,

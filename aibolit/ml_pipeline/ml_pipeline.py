@@ -12,9 +12,9 @@ from aibolit.config import Config
 
 
 def collect_dataset(args):
-    """
+    '''
     Run bash scripts to collect metrics and patterns for java files
-    """
+    '''
 
     def make_patterns(args, cur_work_dir):
         print('Compute patterns...')
@@ -75,10 +75,10 @@ def collect_dataset(args):
     run_cmd(split_cmd, cur_work_dir)
 
 
-def train_process(target_metric_code="M4"):
-    """
+def train_process(target_metric_code='M4'):
+    '''
     Define needed columns for dataset and run model training
-    """
+    '''
     config = Config.get_patterns_config()
     only_patterns = [
         x['code'] for x in list(config['patterns'])
@@ -90,7 +90,7 @@ def train_process(target_metric_code="M4"):
         + ['halstead volume']
     columns_features = only_metrics + only_patterns
     features_number = len(columns_features)
-    print("General number of features in config: ", features_number)
+    print('General number of features in config: ', features_number)
 
     train_dataset = pd.read_csv(Config.train_csv(), index_col=None)
     model = PatternRankingModel()
@@ -98,8 +98,8 @@ def train_process(target_metric_code="M4"):
     # but in future features can be also some metrics.
     # We should differ them for any purpose (scaling, etc.)
     features_conf = {
-        "features_order": only_patterns,
-        "patterns_only": only_patterns
+        'features_order': only_patterns,
+        'patterns_only': only_patterns
     }
     model.features_conf = features_conf
     print('Scaling features...')

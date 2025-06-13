@@ -32,10 +32,10 @@ def _mk_cfg_graph(node: ASTNodeType) -> DiGraph:
 
 
 def _compose_two_graphs(g1: DiGraph, g2: DiGraph) -> DiGraph:
-    """Compose two graphs by creating edge between last of fist graph & fist of second.
+    '''Compose two graphs by creating edge between last of fist graph & fist of second.
 
     We assume that node in the each graph G has order from 0 to len(G)-1
-    """
+    '''
     g = disjoint_union(g1, g2)
     g.add_edge(len(g1) - 1, len(g1))
     return g
