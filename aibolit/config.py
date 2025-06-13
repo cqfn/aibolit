@@ -7,10 +7,12 @@ This module defines configuration factories and providers for patterns and metri
 providing a central registry for all available code analysis tools.
 """
 import os
+import typing
 from pathlib import Path
 
 from aibolit.ast_framework import ASTNodeType
 
+from aibolit.ast_framework.ast import AST
 from aibolit.metrics.number_variables.numVariables import NumVars as M7
 from aibolit.metrics.cognitiveC.cognitive_c import CognitiveComplexity as M4
 from aibolit.metrics.entropy.entropy import Entropy as M1
@@ -57,6 +59,7 @@ from aibolit.patterns.hybrid_constructor.hybrid_constructor import HybridConstru
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
 from aibolit.patterns.var_middle.var_middle import VarMiddle as P21
 from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
+from aibolit.types_decl import LineNumber
 
 
 class Singleton(type):
@@ -68,6 +71,38 @@ class Singleton(type):
         if cls not in cls._instances:
             cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
         return cls._instances[cls]
+
+
+@typing.runtime_checkable
+class Pattern(typing.Protocol):
+    def value(self, ast: AST) -> list[LineNumber]:
+        ...
+
+
+class PatternsConfigEntry(typing.TypedDict):
+    name: str
+    code: str
+    make: typing.Callable[[], Pattern]
+
+
+@typing.runtime_checkable
+class Metric(typing.Protocol):
+    def value(self, ast: AST) -> int:
+        ...
+
+
+class MetricsConfigEntry(typing.TypedDict):
+    name: str
+    code: str
+    make: typing.Callable[[], Metric]
+
+
+class PatternsConfig(typing.TypedDict):
+    patterns: list[PatternsConfigEntry]
+    metrics: list[MetricsConfigEntry]
+    patterns_exclude: list[str]
+    metrics_exclude: list[str]
+    target: dict
 
 
 class Config(metaclass=Singleton):
@@ -108,9 +143,9 @@ class Config(metaclass=Singleton):
         return os.environ.get('HOME_TEST_DATASET')
 
     @staticmethod
-    def get_patterns_config():
+    def get_patterns_config() -> PatternsConfig:
         """Get the patterns configuration dictionary."""
-        return {
+        return {  # ty: ignore[invalid-return-type] until https://github.com/astral-sh/ty/issues/154
             "patterns": [
                 {"name": "Asserts", "code": "P1", "make": P1},
                 {"name": "Setters", "code": "P2", "make": P2},
@@ -134,17 +169,17 @@ class Config(metaclass=Singleton):
                 {
                     "name": "Var declaration distance for 5 lines",
                     "code": "P20_5",
-                    "make": lambda: P20(5)
+                    "make": lambda: P20(5)  # type: ignore
                 },
                 {
                     "name": "Var declaration distance for 7 lines",
                     "code": "P20_7",
-                    "make": lambda: P20(7)
+                    "make": lambda: P20(7)  # type: ignore
                 },
                 {
                     "name": "Var declaration distance for 11 lines",
                     "code": "P20_11",
-                    "make": lambda: P20(11)
+                    "make": lambda: P20(11)  # type: ignore
                 },
                 {"name": "Var in the middle", "code": "P21", "make": P21},
                 {"name": "Array as function argument", "code": "P22", "make": P22},
@@ -153,7 +188,7 @@ class Config(metaclass=Singleton):
                 {"name": "Private static method", "code": "P25", "make": P25},
                 {"name": "Public static method", "code": "P26", "make": P26},
                 {"name": "Var siblings", "code": "P27", "make": P27},
-                {"name": "Null Assignment", "code": "P28", "make": P28},
+                {"name": "Null Assignment", "code": "P28", "make": P28},  # type: ignore
                 {"name": "Multiple While", "code": "P29", "make": P29},
                 {"name": "Protected Method", "code": "P30", "make": P30},
                 {"name": "Send Null", "code": "P31", "make": P31},
@@ -164,32 +199,32 @@ class Config(metaclass=Singleton):
                 {"name": "Incomplete For", "code": "P33", "make": P33},
             ],
             "metrics": [
-                {"name": "Entropy", "code": "M1", "make": M1},
+                {"name": "Entropy", "code": "M1", "make": M1},  # type: ignore
                 {"name": "NCSS lightweight", "code": "M2", "make": M2},
                 {
                     "name": "Indentation counter: Right total variance",
                     "code": "M3_1",
-                    "make": lambda: M3(right_var=True)
+                    "make": lambda: M3(right_var=True)  # type: ignore
                 },
                 {
                     "name": "Indentation counter: Left total variance",
                     "code": "M3_2",
-                    "make": lambda: M3(left_var=True)
+                    "make": lambda: M3(left_var=True)  # type: ignore
                 },
                 {
                     "name": "Indentation counter: Right max variance",
                     "code": "M3_3",
-                    "make": lambda: M3(max_right=True)
+                    "make": lambda: M3(max_right=True)  # type: ignore
                 },
                 {
                     "name": "Indentation counter: Left max variance",
                     "code": "M3_4",
-                    "make": lambda: M3(max_left=True)
+                    "make": lambda: M3(max_left=True)  # type: ignore
                 },
                 {"name": "Cognitive Complexity", "code": "M4", "make": M4},
-                {"name": "LCOM4", "code": "M5", "make": M5},
+                {"name": "LCOM4", "code": "M5", "make": M5},  # type: ignore
                 {"name": "Max diameter of AST", "code": "M6", "make": M6},
-                {"name": "Number of variables", "code": "M7", "make": M7},
+                {"name": "Number of variables", "code": "M7", "make": M7},  # type: ignore
                 {"name": "Number of methods", "code": "M8", "make": M8},
                 {"name": "Responce for class", "code": "M9", "make": M9},
                 {"name": "Fan out", "code": "M10", "make": M10},

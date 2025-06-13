@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 from decimal import localcontext, ROUND_DOWN, Decimal
-from typing import Dict, Any, Tuple, List, Union
+from typing import Dict, Any, Tuple, List, Union, no_type_check
 from numpy.typing import NDArray
 
 import numpy as np
@@ -177,8 +177,13 @@ class PatternRankingModel(BaseEstimator):
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
+    @no_type_check
     def test(self, files: List[str]) -> List[List[Union[str, List[str], List[float]]]]:
-        """Make predict for list of java files using current model."""
+        """Make predict for list of java files using current model.
+        TODO #813:30min/DEV Remove PatternRankingModel.test method or ensure it works
+        Code below is probably dead and should be removed.
+        Another option is to fix the code and cover it with tests.
+        """
 
         config = Config.get_patterns_config()
         patterns_config = config['patterns']
