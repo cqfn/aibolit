@@ -50,7 +50,7 @@ sphinx:
 mypy:
 	python3 -m mypy aibolit
 
-build:
+build: requirements
 	python3 -m build
 
 e2e: build
