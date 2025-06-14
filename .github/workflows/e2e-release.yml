@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: pylint
-"on":
+name: e2e-release
+'on':
   push:
     branches:
       - master
@@ -11,17 +11,27 @@ name: pylint
     branches:
       - master
 jobs:
-  pylint:
-    timeout-minutes: 15
+  e2e-test:
+    timeout-minutes: 20
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: 3.11
+
       - name: Install uv
         run: |
           curl -LsSf https://astral.sh/uv/install.sh | sh
           echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
-      - run: make requirements
-      - run: make pylint
+
+      - name: Build package
+        run: |
+          uv build
+          ls -la dist/
+
+      - name: Run e2e tests
+        run: ./test/e2e/test_e2e_release.sh
