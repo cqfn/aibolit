@@ -7,10 +7,10 @@ from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
 class ReturnNull:
-    '''
+    """
     FInds all return statements that returns null directly or by ternary operator.
     NOTICE: nested ternary operators are not checked.
-    '''
+    """
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []

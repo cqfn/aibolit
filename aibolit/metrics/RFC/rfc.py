@@ -12,14 +12,14 @@ class _MethodInvocationParams(NamedTuple):
 
 
 class RFC:
-    '''
+    """
     The Response For a Class (RFC) is an object-oriented metric
     that shows the interaction of the class methods with other methods.
     This implementation accept arbitrary AST and
     return sum of RFC for all class declaration in it.
     To calculate RFC of a class we count number of public methods and
     number of distinct methods invocation in those methods.
-    '''
+    """
 
     def value(self, ast: AST) -> int:
         rfc = 0

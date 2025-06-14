@@ -90,10 +90,10 @@ class MethodChainTestCase(TestCase):
         self.assertEqual(lines, [18, 19])
 
     def test_nested_chain_complicated_structure(self):
-        '''
+        """
         Several nested structures are checked: nested method chaining
         with nested anonymous classes
-        '''
+        """
         filepath = self.current_directory / 'HolyMolyNestedChain.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = MethodChainFind()

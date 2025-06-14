@@ -5,14 +5,14 @@ from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
 class NCSSMetric:
-    '''
+    """
     NCSS metric counts non-commenting source statements.
 
     It counts:
     - keywords from _keyword_node_types
     - declarations from _declarations_node_types
     - local variable declarations and statement expressions
-    '''
+    """
 
     def value(self, ast: AST) -> int:
         metric = 0

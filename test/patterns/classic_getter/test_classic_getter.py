@@ -70,7 +70,7 @@ def test_getSomething_method_that_does_not_return() -> None:
 
 
 def _offending_lines(content: str) -> list[int]:
-    '''Return a list of lines offending ClassicGetter pattern.'''
+    """Return a list of lines offending ClassicGetter pattern."""
     ast = AST.build_from_javalang(build_ast_from_string(content))
     pattern = ClassicGetter()
     return pattern.value(ast)

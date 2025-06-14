@@ -297,7 +297,7 @@ def test_null_in_ternary_expression_comparison_with_class_creator() -> None:
 
 
 def _offending_lines(content: str) -> list[int]:
-    '''Return a list of lines offending SendNull pattern.'''
+    """Return a list of lines offending SendNull pattern."""
     ast = AST.build_from_javalang(build_ast_from_string(content))
     pattern = SendNull()
     return pattern.value(ast)

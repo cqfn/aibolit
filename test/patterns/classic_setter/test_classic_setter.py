@@ -229,7 +229,7 @@ def test_update_attribute_in_method_is_not_a_setter() -> None:
 
 
 def _offending_lines(content: str) -> list[int]:
-    '''Return a list of lines matching ClassicSetter pattern.'''
+    """Return a list of lines matching ClassicSetter pattern."""
     ast = AST.build_from_javalang(build_ast_from_string(content))
     pattern = ClassicSetter()
     return pattern.value(ast)

@@ -14,11 +14,11 @@ class MutableIndex:
         pass
 
     def value(self, filename: str | os.PathLike) -> list[LineNumber]:
-        '''
+        """
         Traverse over AST tree and finds loops with mutable index
 
         :return: List of line number of loops with mutable index
-        '''
+        """
         result = set()
         ast = AST.build_from_javalang(build_ast(filename))
         for node in ast.get_proxy_nodes(ASTNodeType.FOR_STATEMENT):

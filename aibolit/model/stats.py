@@ -71,7 +71,7 @@ class Stats(object):
             m: NDArray[np.float64],
             p: NDArray[np.float64],
             acts_complexity) -> pd.DataFrame:
-        '''
+        """
         Prints results, given with `check_impact`.
 
 
@@ -82,7 +82,7 @@ class Stats(object):
         if we increase pattern by 1/ncss
         :param acts_complexity:
 
-        '''
+        """
 
         df = pd.DataFrame(columns=[
             'pattern', ' -1(top1)', '+1(top1)',
@@ -112,14 +112,14 @@ class Stats(object):
     def split_dataset_by_pattern_value(
             X: NDArray[np.float64],
             pattern_idx: int) -> Tuple[NDArray[np.float64], NDArray[np.float64]]:
-        ''' Divide dataset.
+        """ Divide dataset.
 
         :param X: dataset
         :param pattern_idx: pattern index
         :return:
         1st is dataset with pattern where pattern can be null,
         2nd is dataset with pattern where pattern is not null,
-        '''
+        """
         nulls = []
         not_nulls = []
         for snipp in X:
@@ -136,7 +136,7 @@ class Stats(object):
             mask: NDArray[np.bool_],
             i: int,
             incr: NDArray[np.float64]) -> NDArray[np.float64]:
-        '''
+        """
         Args:
             X: np.array with shape (number of snippets, number of patterns).
             mask: np.array with shape (number of snippets, number of patterns).
@@ -145,7 +145,7 @@ class Stats(object):
             mask: matrix of bools
         Returns:
             X1: modified np.array with shape (number of snippets, number of patterns).
-        '''
+        """
 
         X1 = arr.copy()
         X1[:, i] += incr[mask[:, i]]

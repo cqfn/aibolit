@@ -7,9 +7,9 @@ from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
 class FanOut:
-    '''
+    """
     Fan Out metric is defined as the number of other classes referenced by a class.
-    '''
+    """
 
     def value(self, ast: AST) -> int:
         fan_out = 0

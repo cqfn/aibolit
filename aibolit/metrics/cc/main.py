@@ -11,18 +11,18 @@ from bs4 import BeautifulSoup
 
 
 class CCMetric():
-    '''Main Cyclical Complexity class.'''
+    """Main Cyclical Complexity class."""
 
     input = ''
 
     def __init__(self, input):
-        '''Initialize class.'''
+        """Initialize class."""
         if len(input) == 0:
             raise ValueError('Empty file for analysis')
         self.input = input
 
     def value(self, showoutput=False):
-        '''Run Cyclical Complexity analaysis'''
+        """Run Cyclical Complexity analaysis"""
         try:
             root = os.path.join(tempfile.gettempdir(), uuid.uuid4().hex)
             dirName = os.path.join(root, 'src/main/java')

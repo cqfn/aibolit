@@ -8,11 +8,11 @@ from aibolit.patterns.loop_outsider.loop_outsider import LoopOutsider
 
 
 class LoopOutsiderTestCase(TestCase):
-    '''
+    """
     @todo #138:30min Continue to implement loop_outsider
      Implement loop_outsider tests regarding for and do-while loops. Then implement
      loop_outsider pattern itself.
-    '''
+    """
 
     dir_path = Path(os.path.realpath(__file__)).parent
 

@@ -13,7 +13,7 @@ NODE_TYPES = [
 
 
 def build_cfg(tree: AST) -> DiGraph:
-    '''Create Control Flow Graph'''
+    """Create Control Flow Graph"""
     g = DiGraph()
     g.add_node(0)
     for node in tree:
@@ -25,17 +25,17 @@ def build_cfg(tree: AST) -> DiGraph:
 
 
 def _mk_cfg_graph(node: ASTNodeType) -> DiGraph:
-    '''Takes in Javalang statement and returns corresponding CFG'''
+    """Takes in Javalang statement and returns corresponding CFG"""
     g = DiGraph()
     g.add_node(0)
     return g
 
 
 def _compose_two_graphs(g1: DiGraph, g2: DiGraph) -> DiGraph:
-    '''Compose two graphs by creating edge between last of fist graph & fist of second.
+    """Compose two graphs by creating edge between last of fist graph & fist of second.
 
     We assume that node in the each graph G has order from 0 to len(G)-1
-    '''
+    """
     g = disjoint_union(g1, g2)
     g.add_edge(len(g1) - 1, len(g1))
     return g

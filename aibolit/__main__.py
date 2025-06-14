@@ -127,7 +127,7 @@ def train():
 
 
 def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_metric=False):
-    '''
+    """
     Count value for input dict
 
     :param value_dict: Pattern item or Metric item from CONFIG
@@ -136,7 +136,7 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
     :param java_file: full path for java file
     :is_metric: is item metric?
     :return: None, it has side-effect
-    '''
+    """
     acronym = value_dict['code']
     try:
         ast = AST.build_from_javalang(build_ast(java_file))
@@ -159,13 +159,13 @@ def add_pattern_if_ignored(
         dct: Dict[str, Any],
         pattern_item: Dict[Any, Any],
         results_list: List[Any]) -> None:
-    ''' If pattern code is not ignored, add it to the result list
+    """ If pattern code is not ignored, add it to the result list
 
     :param dct: dict, where key is pattern, value is list of lines range to ignore
     :param pattern_item: pattern dict which was get after `inference` function
     :param results_list: result list to add
 
-    '''
+    """
     ignored_lines = dct.get(pattern_item['pattern_code'])
     if ignored_lines:
         for place in ignored_lines:
@@ -188,13 +188,13 @@ def add_pattern_if_ignored(
 def find_annotation_by_node_type(
         tree: javalang.tree.CompilationUnit,
         node_type) -> Dict[Any, Any]:
-    '''Search nodes with annotations.
+    """Search nodes with annotations.
 
     :param tree: javalang.tree
     :param node_type: Node type of javalang.tree
     :return
     dict with annotations, where key is node, value is list of string annotations;
-    '''
+    """
     annonations = defaultdict(list)
     for _, node in tree.filter(node_type):
         if node.annotations:
@@ -338,7 +338,7 @@ def inference(
         input_params: Dict[Any, Any],
         code_lines_dict,
         args):
-    '''
+    """
     Find a pattern which has the largest impact on target
 
     :param input_params: list if calculated patterns/metrics
@@ -346,7 +346,7 @@ def inference(
     :param file: filename
 
     :return: list of results with code_lies for each pattern and its name
-    '''
+    """
     model_path = args.model
     do_full_report = args.full
     results = []
@@ -405,7 +405,7 @@ def create_results(
 
 
 def _extract_patterns_ignored(tree):
-    '''Extract patterns that should be ignored from annotations.'''
+    """Extract patterns that should be ignored from annotations."""
     classes_with_annonations = find_annotation_by_node_type(
         tree, javalang.tree.ClassDeclaration)
     functions_with_annotations = find_annotation_by_node_type(
@@ -430,7 +430,7 @@ def _extract_patterns_ignored(tree):
 
 
 def _process_components(components, args, classes_with_patterns_ignored, patterns_ignored):
-    '''Process components to create results.'''
+    """Process components to create results."""
     results_list = []
     for lcom_component in components:
         code_lines_dict = lcom_component.get('code_lines_dict')
@@ -448,12 +448,12 @@ def _process_components(components, args, classes_with_patterns_ignored, pattern
 
 
 def run_recommend_for_file(file: str, args):  # flake8: noqa
-    '''
+    """
     Calculate patterns and metrics, pass values to model and suggest pattern to change
     :param file: file to analyze
     :param args: different command line arguments
     :return: dict with code lines, filename and pattern name
-    '''
+    """
     java_file = str(Path(os.getcwd(), file))
     ncss = 0
     try:
@@ -485,7 +485,7 @@ def run_recommend_for_file(file: str, args):  # flake8: noqa
 
 
 def _process_pattern(patterns_tag, pattern, i, patterns_number):
-    '''Process a single pattern and add it to the XML.'''
+    """Process a single pattern and add it to the XML."""
     pattern_item = etree.SubElement(patterns_tag, 'pattern')
     pattern_name_str = pattern.get('pattern_name')
     details = etree.SubElement(pattern_item, 'details')
@@ -508,7 +508,7 @@ def _process_pattern(patterns_tag, pattern, i, patterns_number):
 
 
 def _process_file_result(file, result_for_file):
-    '''Process a single file result and add it to the XML.'''
+    """Process a single file result and add it to the XML."""
     filename = result_for_file.get('filename')
     name = etree.SubElement(file, 'path')
     output_string_tag = etree.SubElement(file, 'summary')
@@ -544,7 +544,7 @@ def _process_file_result(file, result_for_file):
 
 
 def _create_xml_header(top, results, cmd, exit_code):
-    '''Create XML header with metadata.'''
+    """Create XML header with metadata."""
     header_tag = etree.SubElement(top, 'header')
     importances_for_all_classes_tag = etree.SubElement(header_tag, 'score')
     datetime_tag = etree.SubElement(header_tag, 'datetime')
@@ -569,11 +569,11 @@ def _create_xml_header(top, results, cmd, exit_code):
 
 
 def create_xml_tree(results, full_report, cmd, exit_code):
-    '''
+    """
     Creates xml from output of `check` function
     :param results: output of `check` function
     :return: xml string
-    '''
+    """
     importances_for_all_classes = []
     top = etree.Element('report')
     importances_tag, patterns_number_tag = _create_xml_header(top, results, cmd, exit_code)
@@ -600,9 +600,9 @@ def create_xml_tree(results, full_report, cmd, exit_code):
 
 
 def get_exit_code(results):
-    '''
+    """
     Analyzed recommendation results and generate exit_code for pipeline
-    '''
+    """
 
     files_analyzed = len(results)
     errors_number = 0
@@ -709,7 +709,7 @@ def print_total_score_for_file(
 
 
 def check():
-    '''Run check pipeline.'''
+    """Run check pipeline."""
 
     parser = argparse.ArgumentParser(
         description='Get recommendations for Java code',
@@ -813,11 +813,11 @@ def handle_exclude_command_line(args: Any) -> List[str]:
 
 
 def format_converter_for_pattern(results, sorted_by=None):
-    '''
+    """
     Reformat data where data are sorted by patterns importance
     (it is already sorted in the input).
     Then lines are sorted in ascending order.
-    '''
+    """
     total_patterns_list = []
     for file in results:
         components = file.get('results')
@@ -861,9 +861,9 @@ def format_converter_for_pattern(results, sorted_by=None):
 
 
 def version():
-    '''
+    """
     Parses arguments and shows current version of program.
-    '''
+    """
 
     parser = argparse.ArgumentParser(
         description='Show version')
@@ -874,11 +874,11 @@ def version():
 
 
 def run_thread(files, args):
-    '''
+    """
     Parallel patterns/metrics calculation
     :param files: list of java files to analyze
 
-    '''
+    """
     with concurrent.futures.ThreadPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
         future_results = [executor.submit(run_recommend_for_file, file, args) for file in files]
         concurrent.futures.wait(future_results)

@@ -14,12 +14,12 @@ from aibolit.patterns.classic_getter.classic_getter import ClassicGetter as gett
 
 
 def find_patterns(tree: AST, patterns: List[Any]) -> Set[str]:
-    '''
+    """
     Searches all setters in a component
     :param patterns: list of patterns to check
     :param tree: ast tree
     :return: list of method name which are setters
-    '''
+    """
 
     patterns_method_names: Set[str] = set()
     for method_declaration in tree.get_root().methods:
@@ -32,12 +32,12 @@ def find_patterns(tree: AST, patterns: List[Any]) -> Set[str]:
 
 
 def is_ast_pattern(class_ast: AST, Pattern) -> bool:
-    '''
+    """
     Checks whether ast is some pattern
     :param Pattern: pattern class
     :param class_ast: ast tree
     :return: True if it is setter, otherwise - False
-    '''
+    """
     return len(Pattern().value(class_ast)) > 0
 
 

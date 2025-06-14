@@ -1,11 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-'''Configuration module for aibolit.
+"""Configuration module for aibolit.
 
 This module defines configuration factories and providers for patterns and metrics,
 providing a central registry for all available code analysis tools.
-'''
+"""
 import os
 import typing
 from pathlib import Path
@@ -63,11 +63,11 @@ from aibolit.types_decl import LineNumber
 
 
 class Singleton(type):
-    '''Metaclass for implementing the Singleton pattern.'''
+    """Metaclass for implementing the Singleton pattern."""
     _instances = {}  # type: ignore
 
     def __call__(cls, *args, **kwargs):
-        '''Create or return the singleton instance.'''
+        """Create or return the singleton instance."""
         if cls not in cls._instances:
             cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
         return cls._instances[cls]
@@ -106,45 +106,45 @@ class PatternsConfig(typing.TypedDict):
 
 
 class Config(metaclass=Singleton):
-    '''Central configuration for patterns and metrics discovery.'''
+    """Central configuration for patterns and metrics discovery."""
 
     @staticmethod
     def home_aibolit_folder():
-        '''Get the home folder for aibolit.'''
+        """Get the home folder for aibolit."""
         return os.environ.get('HOME_AIBOLIT') or '/home/jovyan/aibolit'
 
     @staticmethod
     def folder_to_save_model_data():
-        '''Get the folder path for saving model data.'''
+        """Get the folder path for saving model data."""
         model_folder = Path(Config().home_aibolit_folder(), 'aibolit', 'binary_files')
         return os.environ.get('SAVE_MODEL_FOLDER') or model_folder
 
     @staticmethod
     def folder_model_data():
-        '''Get the folder path for model data.'''
+        """Get the folder path for model data."""
         dir_path = os.path.dirname(os.path.realpath(__file__))
         model_file = Path(Path(dir_path), 'binary_files', 'model.pkl')
         return os.environ.get('HOME_MODEL_FOLDER') or model_file
 
     @staticmethod
     def dataset_file():
-        '''Get the dataset file path.'''
+        """Get the dataset file path."""
         dataset_path = Path(Config().home_aibolit_folder(), 'scripts', 'target', 'dataset.csv')
         return os.environ.get('HOME_DATASET_CSV') or dataset_path
 
     @staticmethod
     def train_csv():
-        '''Get the training CSV file path.'''
+        """Get the training CSV file path."""
         return os.environ.get('HOME_TRAIN_DATASET')
 
     @staticmethod
     def test_csv():
-        '''Get the test CSV file path.'''
+        """Get the test CSV file path."""
         return os.environ.get('HOME_TEST_DATASET')
 
     @staticmethod
     def get_patterns_config() -> PatternsConfig:
-        '''Get the patterns configuration dictionary.'''
+        """Get the patterns configuration dictionary."""
         return {  # ty: ignore[invalid-return-type] until https://github.com/astral-sh/ty/issues/154
             'patterns': [
                 {'name': 'Asserts', 'code': 'P1', 'make': P1},

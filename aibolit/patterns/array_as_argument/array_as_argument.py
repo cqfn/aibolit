@@ -7,9 +7,9 @@ from aibolit.ast_framework import AST, ASTNodeType
 
 
 class ArrayAsArgument:
-    '''
+    """
     Finds all methods declarations, which accept arrays as parameters.
-    '''
+    """
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []

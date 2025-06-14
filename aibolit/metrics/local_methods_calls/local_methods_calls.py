@@ -9,9 +9,9 @@ from aibolit.utils.ast_builder import build_ast
 
 
 class LocalMethodsCalls:
-    '''
+    """
     Measure the number of local methods called by the class.
-    '''
+    """
 
     def __init__(self):
         pass

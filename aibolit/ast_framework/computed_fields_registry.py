@@ -41,9 +41,9 @@ class _ComputedFieldsRegistry:
 
     @staticmethod
     def _is_in_interactive_shell() -> bool:
-        '''
+        """
         Taken from comments to this answer https://stackoverflow.com/a/6879085/2129920
-        '''
+        """
         return bool(getattr(sys, 'ps1', sys.flags.interactive))
 
 

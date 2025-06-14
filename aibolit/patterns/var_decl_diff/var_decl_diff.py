@@ -11,10 +11,10 @@ from aibolit.utils.java_parser import JavalangImproved, ASTNode
 
 
 class VarDeclarationDistance:
-    '''
+    """
     Returns lines where variable first time used but declared more than
     specific number of lined before
-    '''
+    """
 
     def __init__(self, lines_th: int):
         self.__lines_th = lines_th
@@ -26,10 +26,10 @@ class VarDeclarationDistance:
         return qualifier or member or name
 
     def __group_vars_by_method(self, items: List[Tuple[ASTNode, Optional[str]]]) -> List[Dict]:
-        '''
+        """
         Group variables by method scope and calculate for each the declaration
         line and first usage line
-        '''
+        """
         var_scopes: List[Dict] = []
         vars: Dict = {}
         unique_methods = list(set(
@@ -65,15 +65,15 @@ class VarDeclarationDistance:
         return var_scopes
 
     def __line_diff(self, usage_line: int, declaration_line: int, empty_lines: List[int]) -> int:
-        '''
+        """
         Calculate line difference between variable declaration and first usage
         taking into account empty lines
-        '''
+        """
         lines_range = set(range(declaration_line + 1, usage_line))
         return len(lines_range.difference(empty_lines))
 
     def value(self, filename: str) -> List[int]:
-        '''Find variables declared far from their first usage.'''
+        """Find variables declared far from their first usage."""
         tree = JavalangImproved(filename)
         empty_lines = tree.get_empty_lines()
         items = list(

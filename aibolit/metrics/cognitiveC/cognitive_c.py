@@ -39,7 +39,7 @@ class CognitiveComplexity:
         return complexity
 
     def _check_if_statement(self, ast, expr, nested_level: int) -> int:
-        '''function to work with IfStatement block'''
+        """function to work with IfStatement block"""
         complexity = 0
         all_childs = list([i for i in ast.tree.succ[expr]])
         complexity += self._get_complexity(ast, all_childs[0], 0)

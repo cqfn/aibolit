@@ -7,9 +7,9 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 
 class MethodChainFind:
-    '''
+    """
     Finds chained methods, i.e. foo().bar()
-    '''
+    """
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []

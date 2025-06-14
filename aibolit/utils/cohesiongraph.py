@@ -227,13 +227,13 @@ class CohesionGraph:
     def add_vertices_edges(
         self, G, edge_type: str, first_node: EdgeNode, second_node: EdgeNode
     ) -> None:
-        '''Adds nodes to graph G
+        """Adds nodes to graph G
 
         Gets two objects as input and
         adds nodes and an edge between.
         If nodes already exist:
         creates an edge between
-        '''
+        """
 
         G.add_node(first_node[0] + str(hash(first_node[1])))
         G.add_node((second_node[0]) + str(hash(second_node[1])))

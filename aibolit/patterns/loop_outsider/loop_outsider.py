@@ -9,18 +9,18 @@ from aibolit.utils.ast_builder import build_ast
 
 
 class LoopOutsider:
-    '''
+    """
     Pattern which matches loop outsiders: when we modify a variable which is declared outside of the
     scope of the loop.
-    '''
+    """
 
     def __init__(self):
         pass
 
     def value(self, filename) -> List[LineNumber]:
-        '''
+        """
         Returns the line number of loop outsiders found in file.
-        '''
+        """
         res = []
         ast = AST.build_from_javalang(build_ast(filename))
         loop_types = [ASTNodeType.WHILE_STATEMENT, ASTNodeType.FOR_STATEMENT,
@@ -43,7 +43,7 @@ class LoopOutsider:
         return sorted(res)
 
     def _find_variable_changes(self, ast: AST) -> Set:
-        '''Find all variables that are modified in the code.'''
+        """Find all variables that are modified in the code."""
         var_changes = set()
 
         # Find variables affected by increment/decrement operations
@@ -58,7 +58,7 @@ class LoopOutsider:
 
     def _find_loop_variable_declarations(self, ast: AST, loop_statement,
                                          loop_type) -> Set:
-        '''Find all variable declarations within the loop scope.'''
+        """Find all variable declarations within the loop scope."""
         loop_vars_declarations = set()
         subtree = ast.get_subtree(loop_statement)
 

@@ -7,9 +7,9 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 
 class EmptyRethrow:
-    '''
+    """
     Check if we throw the same exception as it was caught
-    '''
+    """
     def _process_catch(self, ast: AST, catch_clauses: List[ASTNode]):
         lines: List[int] = []
         for catch_clause in catch_clauses:

@@ -135,13 +135,13 @@ class TestMvnFreeNPathMetric:
         assert self._value(content) == 3
 
     def test_complex_with_if_else_inside_if_else_blocks(self) -> None:
-        '''
+        """
         The four paths are:
         1. a > 0 and b > 0
         2. a > 0 and b <= 0
         3. a <= 0 and b > 0
         4. a <= 0 and b <= 0
-        '''
+        """
         content = dedent(
             '''\
             class ComplexIfElse {

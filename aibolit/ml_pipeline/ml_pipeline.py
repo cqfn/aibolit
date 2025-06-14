@@ -12,9 +12,9 @@ from aibolit.config import Config
 
 
 def collect_dataset(args):
-    '''
+    """
     Run bash scripts to collect metrics and patterns for java files
-    '''
+    """
 
     def make_patterns(args, cur_work_dir):
         print('Compute patterns...')
@@ -76,9 +76,9 @@ def collect_dataset(args):
 
 
 def train_process(target_metric_code='M4'):
-    '''
+    """
     Define needed columns for dataset and run model training
-    '''
+    """
     config = Config.get_patterns_config()
     only_patterns = [
         x['code'] for x in list(config['patterns'])
