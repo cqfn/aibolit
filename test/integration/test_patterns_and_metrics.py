@@ -11,13 +11,7 @@ from aibolit.config import Config
 from aibolit.ast_framework import AST
 from aibolit.utils.ast_builder import build_ast
 
-# TO-FIX: refactor or delete following patterns and metrics
-PATTERNS_ACCEPT_FILE_PATH = {
-    'P20_5',
-    'P20_7',
-    'P20_11',  # P20* wasn't refactored yet
-    'P28',  # patterns based on text cannot accept arbitrary AST
-}
+# TO-FIX: refactor or delete following metrics
 METRICS_ACCEPT_FILE_PATH = {'M1', 'M3_1', 'M3_2', 'M3_3', 'M3_4', 'M5', 'M7'}
 
 samples_path = Path(__file__).absolute().parent / 'samples'
@@ -26,11 +20,8 @@ samples_path = Path(__file__).absolute().parent / 'samples'
 def _check_pattern(p_info, filepath):
     try:
         pattern = p_info['make']()
-        if p_info['code'] in PATTERNS_ACCEPT_FILE_PATH:
-            pattern_result = pattern.value(filepath)
-        else:
-            ast = AST.build_from_javalang(build_ast(filepath))
-            pattern_result = pattern.value(ast)
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern_result = pattern.value(ast)
 
         assert isinstance(pattern_result, list) and all(
             isinstance(item, int) for item in pattern_result

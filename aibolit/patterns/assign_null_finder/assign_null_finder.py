@@ -1,15 +1,23 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-
-import re
 from typing import List
 
-from aibolit.utils.encoding_detector import read_text_with_autodetected_encoding
+from aibolit.ast_framework.ast import AST
+from aibolit.ast_framework.ast_node import ASTNode
+from aibolit.ast_framework.ast_node_type import ASTNodeType
+from aibolit.types_decl import LineNumber
 
 
 class NullAssignment:
-    def value(self, filename: str) -> List:
-        source_code = read_text_with_autodetected_encoding(filename)
-        pattern = r'[^=!><]=(\s)*null(\s)*;'
-        return [lineIndex + 1 for lineIndex, line in
-                enumerate(source_code.split('\n')) if re.search(pattern, line)]
+    def value(self, ast: AST) -> List[LineNumber]:
+        lines = set()
+        for assignment in ast.get_proxy_nodes(ASTNodeType.ASSIGNMENT):
+            if self._is_null_literal(assignment.value):
+                lines.add(assignment.line)
+        for declarator in ast.get_proxy_nodes(ASTNodeType.VARIABLE_DECLARATOR):
+            if self._is_null_literal(declarator.initializer):
+                lines.add(declarator.line)
+        return sorted(lines)
+
+    def _is_null_literal(self, node: ASTNode | None) -> bool:
+        return node is not None and node.node_type == ASTNodeType.LITERAL and node.value == 'null'
