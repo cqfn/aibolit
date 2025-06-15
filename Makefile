@@ -18,7 +18,7 @@ requirements:
 
 install:
 	uv pip install -e .
-	uv run aibolit check --help > /dev/null
+	uv run aibolit --version
 
 test:
 	uv run pytest --cov=aibolit/ test/
@@ -51,10 +51,10 @@ mypy:
 	uv run mypy aibolit
 
 build: requirements
-	python3 -m build
+	uv build
 
 e2e: build
-	./test/e2e/test_e2e_release.sh
+	./test/e2e/test_e2e_release.sh dist
 
 clean:
 	rm -rf build
