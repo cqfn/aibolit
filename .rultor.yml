@@ -24,4 +24,4 @@ release:
     uv --version
     make
     make e2e
-    python3 -m twine upload dist/* -u __token__ -p $(cat ../twine_token)
+    uv run twine upload dist/* -u __token__ -p $(cat ../twine_token)
