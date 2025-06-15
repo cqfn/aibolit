@@ -329,6 +329,7 @@ apt-get install ruby-dev libz-dev libxml2
 
 This project does not include a virtual environment by default.
 If you're using one (e.g., .venv, venv), update the .xcop file to exclude it:
+
 ```bash
 --exclude=.venv/**
 ```
