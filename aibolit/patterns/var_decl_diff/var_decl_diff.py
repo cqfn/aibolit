@@ -54,8 +54,8 @@ class VarDeclarationDistance:
                 if node.node_type == ASTNodeType.VARIABLE_DECLARATOR:
                     name_to_declaration_line[node_name] = node.line
                 elif (
-                    node_name in name_to_declaration_line
-                    and node_name not in name_to_first_usage_line
+                    node_name in name_to_declaration_line and
+                    node_name not in name_to_first_usage_line
                 ):
                     name_to_first_usage_line[node_name] = node.line
 
