@@ -20,7 +20,7 @@ jobs:
 
       - name: Install uv (from Astral)
         run: |
-          curl -LsSf https://github.com/astral-sh/uv/releases/download/0.7.13/uv-installer.sh | bash
+          curl -LsSf https://astral.sh/uv/0.7.13/install.sh | bash
           echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
 
       - name: Install aibolit dependencies
@@ -29,5 +29,4 @@ jobs:
 
       - name: Run Ty
         run: |
-          source .venv/bin/activate
           uvx ty==0.0.1-alpha.8 check
