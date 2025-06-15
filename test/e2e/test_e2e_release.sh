@@ -4,9 +4,11 @@
 
 set -euo pipefail
 
+DIST_DIR=${1:-dist}
+
 echo "Starting e2e release test..."
 
-TEMP_VENV=$(mktemp -d)
+TEMP_VENV=$(mktemp -d --suffix=test-env)
 echo "Testing in temporary environment: $TEMP_VENV"
 
 cleanup() {
@@ -15,15 +17,13 @@ cleanup() {
 
 trap cleanup EXIT
 
-echo "Creating fresh virtual environment"
-pushd "$TEMP_VENV"
-python3 -m venv test-env
+echo "Creating fresh virtual environment with Python 3.11..."
+uv venv --seed --python 3.11 "$TEMP_VENV"
 # shellcheck disable=SC1091
-source test-env/bin/activate
+source "$TEMP_VENV/bin/activate"
 
 echo "Installing built package..."
-popd > /dev/null
-python3 -m pip install dist/*.whl
+python3 -m pip install "$DIST_DIR"/*.whl
 
 echo "Verifying aibolit command..."
 which aibolit > /dev/null
