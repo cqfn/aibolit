@@ -232,6 +232,8 @@ class Config(metaclass=Singleton):
             'target': {
 
             },
-            'patterns_exclude': [],
+            'patterns_exclude': [
+                'P9',  # patterns based on text cannot accept arbitrary AST
+            ],
             'metrics_exclude': ['M1', 'M3_1', 'M3_2', 'M3_3', 'M3_4', 'M5', 'M7', 'M8']
         }
