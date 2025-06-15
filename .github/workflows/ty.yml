@@ -29,7 +29,7 @@ jobs:
 
       - name: Install uv (from Astral)
         run: |
-          curl -LsSf https://astral.sh/uv/install.sh | bash
+          curl -LsSf https://github.com/astral-sh/uv/releases/download/0.7.13/uv-installer.sh | bash
           echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
 
       - name: Run Ty
