@@ -23,7 +23,7 @@ class VarDeclarationDistance:
         name = node.name if hasattr(node, 'name') else None
         return qualifier or member or name
 
-    def __line_diff(self, usage_line: int, declaration_line: int, empty_lines: List[int]) -> int:
+    def __line_diff(self, usage_line: int, declaration_line: int, empty_lines: set[int]) -> int:
         """
         Calculate line difference between variable declaration and first usage
         taking into account empty lines
