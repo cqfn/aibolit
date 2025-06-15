@@ -169,17 +169,17 @@ class Config(metaclass=Singleton):
                 {
                     'name': 'Var declaration distance for 5 lines',
                     'code': 'P20_5',
-                    'make': lambda: P20(5)  # type: ignore
+                    'make': lambda: P20(5)
                 },
                 {
                     'name': 'Var declaration distance for 7 lines',
                     'code': 'P20_7',
-                    'make': lambda: P20(7)  # type: ignore
+                    'make': lambda: P20(7)
                 },
                 {
                     'name': 'Var declaration distance for 11 lines',
                     'code': 'P20_11',
-                    'make': lambda: P20(11)  # type: ignore
+                    'make': lambda: P20(11)
                 },
                 {'name': 'Var in the middle', 'code': 'P21', 'make': P21},
                 {'name': 'Array as function argument', 'code': 'P22', 'make': P22},
@@ -234,7 +234,6 @@ class Config(metaclass=Singleton):
             },
             'patterns_exclude': [
                 'P27',  # empty implementation
-                'P20_5', 'P20_7', 'P20_11',  # wasn't refactored yet
                 'P9',  # patterns based on text cannot accept arbitrary AST
             ],
             'metrics_exclude': ['M1', 'M3_1', 'M3_2', 'M3_3', 'M3_4', 'M5', 'M7', 'M8']
