@@ -7,7 +7,7 @@
 .SHELLFLAGS := -e -o pipefail -c
 .SECONDARY:
 SHELL := bash
-.PHONY: all clean requirements test it install xcop flake8 pylint sphinx mypy lint
+.PHONY: all clean requirements test it install xcop flake8 pylint sphinx mypy lint e2e build
 
 all: requirements install test it lint xcop sphinx
 
@@ -49,6 +49,12 @@ sphinx:
 
 mypy:
 	python3 -m mypy aibolit
+
+build: requirements
+	python3 -m build
+
+e2e: build
+	./test/e2e/test_e2e_release.sh
 
 clean:
 	rm -rf build
