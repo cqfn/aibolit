@@ -15,11 +15,9 @@ install: |
   uv tool install twine
 merge:
   script: |
-    export PATH="$HOME/.local/bin:$PATH"
     make
 release:
   script: |-
-    export PATH="$HOME/.local/bin:$PATH"
     sed -i "s/0\.0\.0/${tag}/g" aibolit/__init__.py
     git add aibolit/__init__.py
     git commit -am "${tag}"
