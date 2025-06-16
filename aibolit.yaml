@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 126.221300628
+  seconds: 108.117699789
   version: 0.50.3
   what: judges-summary
-  when: 2025-06-16 14:57:54.679684741 Z
+  when: 2025-06-16 15:58:58.068150490 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -8835,51 +8835,6 @@
   when: *106
   where: github
   who: 526301
-- _id: 5216
-  _job: 24870
-  _time: 2025-06-16 14:04:09.668919498 Z
-  _version: 0.11.0/0.50.3/0.14.5
-  award: 18
-  details: It's time to reward @ivanovmg for the code review in cqfn/aibolit#816,
-    the reward amount is 18.
-  greeting: "\U0001F389 Great job on your review! You've earned an impressive **18
-    points**: 12 base points plus 5 bonus points for your 22 insightful comments.
-    Your dedication is paying off – your total balance is now [256 points](https://cqfn.github.io/aibolit/aibolit-vitals.html).
-    Keep up the excellent work! \U0001F4AA\n\n<!-- Thanks for the review! You've earned
-    +18 points for this: +12 as a basis; +5 for the 22 comment(s) that you have made.
-    \ Your running balance is [+256](https://cqfn.github.io/aibolit/aibolit-vitals.html).
-    \ -->"
-  is_human: 1
-  issue: 816
-  receipt: 0
-  repository: 237167507
-  what: code-review-was-rewarded
-  when: 2025-06-16 14:04:09.672525970 Z
-  where: github
-  who: 41443370
-  why: Reviewed code in cqfn/aibolit#816
-- _id: 5217
-  _job: 24870
-  _time: 2025-06-16 14:04:15.640319450 Z
-  _version: 0.11.0/0.50.3/0.14.5
-  award: -16
-  commit: 2dbf23c563bf95119b39fad87d7801b9ccea416d
-  default_branch: master
-  details: It's time to punish @yegor256 for pushing to the default branch 'master'
-    in cqfn/aibolit, the penalty amount is -16.
-  greeting: 'It is [not a good idea](https://www.yegor256.com/2014/07/21/read-only-master-branch.html)
-    to push directly to the default branch `master`. You''ve earned -16 points. Next
-    time, create a new branch, push your changes over there, then make a pull request
-    and merge it. Even if you are flying solo, contributing via pull requests is a
-    [good practice](https://www.yegor256.com/2020/07/29/open-source-etiquette.html).
-    Your running balance is [-144](https://cqfn.github.io/aibolit/aibolit-vitals.html). '
-  is_human: 1
-  repository: 237167507
-  what: push-to-master-was-punished
-  when: 2025-06-16 14:04:15.642684697 Z
-  where: github
-  who: 526301
-  why: Pushed 2dbf23c56 to the default branch 'master' in cqfn/aibolit
 - _id: 5218
   _job: 24870
   _time: 2025-06-16 14:04:15.731070137 Z
@@ -9054,31 +9009,388 @@
   where: github
   who: 41443370
   why: Reviewed code in cqfn/aibolit#814
-- _id: 5240
-  _time: 2025-06-16 14:57:10.308529498 Z
-  _version: 0.11.0/0.50.3/
-  latest: 785
+- _id: 5253
+  _job: 24875
+  _time: 2025-06-16 14:59:03.542012150 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: -16
+  details: It's time to punish @antonprokopyev for the dud submitted in cqfn/aibolit#831,
+    the fee amount is -16.
+  greeting: "Hey there! \U0001F44B Sorry to hear your ticket didn't make the cut this
+    time. As per our policy, that's a -16 point deduction. But don't sweat it! Your
+    balance is still a solid [+91](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    Keep those bug reports and ideas coming – they're crucial for improving our project.
+    Just aim for a bit more precision next time. Remember, [bugs are welcome](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html),
+    and here's a tip on [how to report them effectively](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html).
+    You're doing great, keep it up! \U0001F4AA\n\n<!-- Thanks for submitting this
+    ticket! However, as you see, it was not accepted by the team, which is sad. You've
+    earned -16 points. By reporting bugs or suggesting enhancements, you help our
+    project improve its quality. Please, don't be discouraged. Instead, try to be
+    more careful next time, and [do not hesitate](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html)
+    to [report](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html)
+    bugs. Your running balance is [+91](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  is_human: 1
+  issue: 831
   repository: 237167507
-  what: types-were-scanned
+  what: dud-was-punished
+  when: 2025-06-16 14:59:03.544783639 Z
   where: github
-- _id: 5243
-  _time: 2025-06-16 14:57:34.156910283 Z
+  who: 13173649
+  why: Submitted dud in cqfn/aibolit#831
+- _id: 5254
+  _job: 24875
+  _time: 2025-06-16 14:59:08.723499765 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: -16
+  details: It's time to punish @antonprokopyev for the dud submitted in cqfn/aibolit#826,
+    the fee amount is -16.
+  greeting: "Thank you for your contribution! While this ticket wasn't accepted, your
+    effort is valuable. You've earned -16 points, but don't be discouraged. Your input
+    helps improve our project's quality. Keep [reporting](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html)
+    bugs and [suggesting enhancements](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html)
+    – your insights are crucial. Your current balance is [+91](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    Keep up the great work! \U0001F44D\n\n<!-- Thanks for submitting this ticket!
+    However, as you see, it was not accepted by the team, which is sad. You've earned
+    -16 points. By reporting bugs or suggesting enhancements, you help our project
+    improve its quality. Please, don't be discouraged. Instead, try to be more careful
+    next time, and [do not hesitate](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html)
+    to [report](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html)
+    bugs. Your running balance is [+91](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  is_human: 1
+  issue: 826
+  repository: 237167507
+  what: dud-was-punished
+  when: 2025-06-16 14:59:08.725445858 Z
+  where: github
+  who: 13173649
+  why: Submitted dud in cqfn/aibolit#826
+- _id: 5255
+  _job: 24875
+  _time: 2025-06-16 14:59:13.367966401 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: -16
+  details: It's time to punish @antonprokopyev for the dud submitted in cqfn/aibolit#824,
+    the fee amount is -16.
+  greeting: |-
+    Thank you for your submission. Unfortunately, the team has not accepted this ticket. As per our policy, there is a deduction of **-16** points for rejected submissions. While this may be disappointing, please remember that your contributions are valuable in improving our project's quality. We encourage you to continue [reporting](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html) issues, but do take extra care in future submissions. Your current balance stands at [+91](https://cqfn.github.io/aibolit/aibolit-vitals.html). Keep up the good work and [don't hesitate](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html) to submit more tickets!
+
+    <!-- Thanks for submitting this ticket! However, as you see, it was not accepted by the team, which is sad. You've earned -16 points. By reporting bugs or suggesting enhancements, you help our project improve its quality. Please, don't be discouraged. Instead, try to be more careful next time, and [do not hesitate](https://www.yegor256.com/2014/04/13/bugs-are-welcome.html) to [report](https://www.yegor256.com/2018/04/24/right-way-to-report-bugs.html) bugs. Your running balance is [+91](https://cqfn.github.io/aibolit/aibolit-vitals.html).  -->
+  is_human: 1
+  issue: 824
+  repository: 237167507
+  what: dud-was-punished
+  when: 2025-06-16 14:59:13.370338103 Z
+  where: github
+  who: 13173649
+  why: Submitted dud in cqfn/aibolit#824
+- _id: 5256
+  _job: 24875
+  _time: 2025-06-16 14:59:18.262007585 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#828,
+    the reward amount is 4.
+  greeting: 'Thanks for the review! You''ve earned +4 points for this: +12 as a basis;
+    -10 for very few (2) comments; -8 for too few (4) hits-of-code; +10 to give you
+    at least something.  Your running balance is [-160](https://cqfn.github.io/aibolit/aibolit-vitals.html). '
+  is_human: 1
+  issue: 828
+  repository: 237167507
+  what: code-review-was-rewarded
+  when: 2025-06-16 14:59:18.265956615 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#828
+- _id: 5257
+  _job: 24875
+  _time: 2025-06-16 14:59:24.928308933 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 4
+  details: It's time to reward @ivanovmg for the code review in cqfn/aibolit#828,
+    the reward amount is 4.
+  greeting: "Great job on the review! \U0001F31F You've earned +4 points: +12 base,
+    with adjustments for comments (-10) and hits-of-code (-8), plus a +10 bonus. Your
+    dedication is appreciated! Your current balance stands at [+286](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    Keep up the excellent work!\n\n<!-- Thanks for the review! You've earned +4 points
+    for this: +12 as a basis; -10 for very few (2) comments; -8 for too few (4) hits-of-code;
+    +10 to give you at least something.  Your running balance is [+286](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  is_human: 1
+  issue: 828
+  repository: 237167507
+  what: code-review-was-rewarded
+  when: 2025-06-16 14:59:24.932343705 Z
+  where: github
+  who: 41443370
+  why: Reviewed code in cqfn/aibolit#828
+- _id: 5258
+  _job: 24875
+  _time: 2025-06-16 14:59:28.091406649 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 4
+  details: It's time to reward @ivanovmg for the code review in cqfn/aibolit#825,
+    the reward amount is 4.
+  greeting: "Hey there, code review superstar! \U0001F31F You've just snagged +4 points
+    for your latest review. Here's the breakdown: +12 for being awesome, -10 because
+    we were hoping for a bit more chatter (only 3 comments), but hey, we added +2
+    to keep you motivated. Remember, more comments could boost your score next time!
+    Your running balance is now a cool [+286](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    Keep up the great work!\n\n<!-- Thanks for the review! You've earned +4 points
+    for this: +12 as a basis; -10 for very few (3) comments; +2 to give you at least
+    something.  Your running balance is [+286](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  is_human: 1
+  issue: 825
+  repository: 237167507
+  what: code-review-was-rewarded
+  when: 2025-06-16 14:59:28.098568914 Z
+  where: github
+  who: 41443370
+  why: Reviewed code in cqfn/aibolit#825
+- _id: 5259
+  _job: 24875
+  _time: 2025-06-16 14:59:33.324165604 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 18
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#823,
+    the reward amount is 18.
+  greeting: "Hello! Thank you for your code review. According to our policy, you've
+    earned +24 points for this review: +12 as a base, +16 for reviewing 2499 hits-of-code
+    (capped at 16), and -4 for having only 5 comments (which is less than the required
+    6). Remember, more detailed feedback can lead to higher rewards in future reviews.
+    Your updated running balance is now [-154](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    Keep up the good work! \U0001F44D\n\n<!-- Thanks for the review! You've earned
+    +18 points for this: +12 as a basis; +16 for the 2499 hits-of-code that you reviewed;
+    -10 for very few (5) comments.  Your running balance is [-160](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  is_human: 1
+  issue: 823
+  repository: 237167507
+  what: code-review-was-rewarded
+  when: 2025-06-16 14:59:33.327539851 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#823
+- _id:
+  - 5260
+  - 5216
+  _job:
+  - 24875
+  - 24870
+  _time:
+  - 2025-06-16 14:59:38.798856425 Z
+  - 2025-06-16 14:04:09.668919498 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 18
+  details: It's time to reward @ivanovmg for the code review in cqfn/aibolit#816,
+    the reward amount is 18.
+  href: https://github.com/cqfn/aibolit/issues/816/#issuecomment-2976996790
+  is_human: 1
+  issue: 816
+  receipt: 0
+  repository: 237167507
+  what: code-review-was-rewarded
+  when: 2025-06-16 14:04:09.672525970 Z
+  where: github
+  who: 41443370
+  why: Reviewed code in cqfn/aibolit#816
+- _id:
+  - 5261
+  - 5217
+  _job:
+  - 24875
+  - 24870
+  _time:
+  - 2025-06-16 14:59:38.805880695 Z
+  - 2025-06-16 14:04:15.640319450 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: -16
+  commit: 2dbf23c563bf95119b39fad87d7801b9ccea416d
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  href: https://github.com/cqfn/aibolit/commit/2dbf23c563bf95119b39fad87d7801b9ccea416d/#commitcomment-160159570
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-06-16 14:04:15.642684697 Z
+  where: github
+  who: 526301
+  why: Pushed 2dbf23c56 to the default branch 'master' in cqfn/aibolit
+- _id:
+  - 5262
+  - 5246
+  _job: 24875
+  _time:
+  - 2025-06-16 14:59:38.810999574 Z
+  - 2025-06-16 14:58:17.696353728 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 12
+  details: It's time to reward @alchemmist for the bug reported in cqfn/aibolit#819,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/819/#issuecomment-2976996846
+  is_human: 1
+  issue: 819
+  receipt: 0
+  repository: 237167507
+  what: bug-report-was-rewarded
+  when: 2025-06-16 14:58:17.698846698 Z
+  where: github
+  who: 104511335
+  why: Reported bug in cqfn/aibolit#819
+- _id:
+  - 5263
+  - 5247
+  _job: 24875
+  _time:
+  - 2025-06-16 14:59:38.815621592 Z
+  - 2025-06-16 14:58:25.072897319 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 8
+  details: It's time to reward @antonprokopyev for the code contributed in cqfn/aibolit#828,
+    the reward amount is 8.
+  href: https://github.com/cqfn/aibolit/issues/828/#issuecomment-2976996903
+  is_human: 1
+  issue: 828
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-16 14:58:25.099502602 Z
+  where: github
+  who: 13173649
+  why: Contributed code in cqfn/aibolit#828
+- _id:
+  - 5264
+  - 5248
+  _job: 24875
+  _time:
+  - 2025-06-16 14:59:38.825030913 Z
+  - 2025-06-16 14:58:28.857289076 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 23
+  details: It's time to reward @antonprokopyev for the code contributed in cqfn/aibolit#825,
+    the reward amount is 23.
+  href: https://github.com/cqfn/aibolit/issues/825/#issuecomment-2976996972
+  is_human: 1
+  issue: 825
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-16 14:58:28.863604871 Z
+  where: github
+  who: 13173649
+  why: Contributed code in cqfn/aibolit#825
+- _id:
+  - 5265
+  - 5249
+  _job: 24875
+  _time:
+  - 2025-06-16 14:59:38.830878407 Z
+  - 2025-06-16 14:58:33.734524809 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 4
+  details: It's time to reward @antonprokopyev for the code contributed in cqfn/aibolit#823,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/823/#issuecomment-2976997021
+  is_human: 1
+  issue: 823
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-16 14:58:33.740953244 Z
+  where: github
+  who: 13173649
+  why: Contributed code in cqfn/aibolit#823
+- _id:
+  - 5266
+  - 5250
+  _job: 24875
+  _time:
+  - 2025-06-16 14:59:38.835112780 Z
+  - 2025-06-16 14:58:38.664428310 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 4
+  details: It's time to reward @antonprokopyev for the code contributed in cqfn/aibolit#827,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/827/#issuecomment-2976997082
+  is_human: 1
+  issue: 827
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-16 14:58:38.671163642 Z
+  where: github
+  who: 13173649
+  why: Contributed code in cqfn/aibolit#827
+- _id:
+  - 5267
+  - 5251
+  _job: 24875
+  _time:
+  - 2025-06-16 14:59:38.839217858 Z
+  - 2025-06-16 14:58:42.790426564 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 19
+  details: It's time to reward @antonprokopyev for the code contributed in cqfn/aibolit#814,
+    the reward amount is 19.
+  href: https://github.com/cqfn/aibolit/issues/814/#issuecomment-2976997138
+  is_human: 1
+  issue: 814
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-16 14:58:42.797257232 Z
+  where: github
+  who: 13173649
+  why: Contributed code in cqfn/aibolit#814
+- _id:
+  - 5268
+  - 5252
+  _job: 24875
+  _time:
+  - 2025-06-16 14:59:38.849995810 Z
+  - 2025-06-16 14:58:48.172255440 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 16
+  details: It's time to reward @sinbadthesailor2005 for the code contributed in cqfn/aibolit#816,
+    the reward amount is 16.
+  href: https://github.com/cqfn/aibolit/issues/816/#issuecomment-2976997197
+  is_human: 1
+  issue: 816
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-16 14:58:48.179559134 Z
+  where: github
+  who: 150805542
+  why: Contributed code in cqfn/aibolit#816
+- _id: 5285
+  _time: 2025-06-16 15:58:35.556560533 Z
   _version: 0.11.0/0.50.3/
   latest: 50939145606
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 5244
-  _time: 2025-06-16 14:57:37.422281208 Z
+- _id: 5286
+  _time: 2025-06-16 15:58:40.105631895 Z
+  _version: 0.11.0/0.50.3/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 5287
+  _time: 2025-06-16 15:58:57.230801302 Z
+  _version: 0.11.0/0.50.3/
+  latest: 831
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 5288
+  _time: 2025-06-16 15:58:58.033741367 Z
   _version: 0.11.0/0.50.3/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
-  where: github
-- _id: 5245
-  _time: 2025-06-16 14:57:54.607904970 Z
-  _version: 0.11.0/0.50.3/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
   where: github
