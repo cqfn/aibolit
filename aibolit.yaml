@@ -3,10 +3,10 @@
   cycles: 5
   deleted: 8
   inserted: 8
-  seconds: 300.638249374
+  seconds: 126.221300628
   version: 0.50.3
   what: judges-summary
-  when: 2025-06-16 14:03:38.166632022 Z
+  when: 2025-06-16 14:57:54.679684741 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -8079,7 +8079,7 @@
   repository: 237167507
   review_comments: 10
   what: pull-was-reviewed
-  when: 2025-06-16 07:43:53.000000000 Z
+  when: &101 2025-06-16 07:43:53.000000000 Z
   where: github
   who: 41443370
 - _id: 5148
@@ -8104,7 +8104,7 @@
   review_comments: 2
   succeeded_builds: 17
   what: pull-was-merged
-  when: 2025-06-16 07:15:36.000000000 Z
+  when: &107 2025-06-16 07:15:36.000000000 Z
   where: github
   who: 8086956
 - _id: 5149
@@ -8123,7 +8123,7 @@
   repository: 237167507
   review_comments: 2
   what: pull-was-reviewed
-  when: 2025-06-16 06:54:03.000000000 Z
+  when: &102 2025-06-16 06:54:03.000000000 Z
   where: github
   who: 526301
 - _id: 5150
@@ -8142,7 +8142,7 @@
   repository: 237167507
   review_comments: 2
   what: pull-was-reviewed
-  when: 2025-06-16 04:22:00.000000000 Z
+  when: &103 2025-06-16 04:22:00.000000000 Z
   where: github
   who: 41443370
 - _id: 5152
@@ -8186,7 +8186,7 @@
   issue: 831
   repository: 237167507
   what: issue-was-opened
-  when: 2025-06-15 07:31:43.000000000 Z
+  when: &113 2025-06-15 07:31:43.000000000 Z
   where: github
   who: 13173649
 - _id: 5155
@@ -8224,7 +8224,7 @@
   review_comments: 3
   succeeded_builds: 18
   what: pull-was-merged
-  when: 2025-06-15 06:05:06.000000000 Z
+  when: &108 2025-06-15 06:05:06.000000000 Z
   where: github
   who: 526301
 - _id: 5157
@@ -8243,7 +8243,7 @@
   repository: 237167507
   review_comments: 3
   what: pull-was-reviewed
-  when: 2025-06-15 05:04:26.000000000 Z
+  when: &104 2025-06-15 05:04:26.000000000 Z
   where: github
   who: 41443370
 - _id: 5158
@@ -8333,7 +8333,7 @@
   review_comments: 5
   succeeded_builds: 17
   what: pull-was-merged
-  when: 2025-06-14 07:00:36.000000000 Z
+  when: &109 2025-06-14 07:00:36.000000000 Z
   where: github
   who: 8086956
 - _id: 5164
@@ -8352,7 +8352,7 @@
   repository: 237167507
   review_comments: 5
   what: pull-was-reviewed
-  when: 2025-06-14 06:37:24.000000000 Z
+  when: &105 2025-06-14 06:37:24.000000000 Z
   where: github
   who: 526301
 - _id: 5165
@@ -8390,7 +8390,7 @@
   review_comments: 0
   succeeded_builds: 17
   what: pull-was-merged
-  when: 2025-06-14 03:50:49.000000000 Z
+  when: &110 2025-06-14 03:50:49.000000000 Z
   where: github
   who: 526301
 - _id: 5167
@@ -8431,7 +8431,7 @@
   issue: 826
   repository: 237167507
   what: issue-was-opened
-  when: 2025-06-13 11:45:53.000000000 Z
+  when: &114 2025-06-13 11:45:53.000000000 Z
   where: github
   who: 13173649
 - _id: 5170
@@ -8458,7 +8458,7 @@
   issue: 824
   repository: 237167507
   what: issue-was-opened
-  when: 2025-06-13 10:52:32.000000000 Z
+  when: &115 2025-06-13 10:52:32.000000000 Z
   where: github
   who: 13173649
 - _id: 5172
@@ -8536,7 +8536,7 @@
   review_comments: 11
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-06-13 07:12:02.000000000 Z
+  when: &111 2025-06-13 07:12:02.000000000 Z
   where: github
   who: 8086956
 - _id: 5177
@@ -8574,7 +8574,7 @@
   review_comments: 23
   succeeded_builds: 16
   what: pull-was-merged
-  when: 2025-06-12 14:56:54.000000000 Z
+  when: &112 2025-06-12 14:56:54.000000000 Z
   where: github
   who: 8086956
 - _id: 5179
@@ -8599,7 +8599,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-06-13 06:50:38.000000000 Z
+  when: &106 2025-06-13 06:50:38.000000000 Z
   where: github
   who: 526301
 - _id: 5183
@@ -8731,31 +8731,354 @@
   when: 2025-06-14 07:00:46.000000000 Z
   where: github
   who: 24456188
-- _id: 5205
-  _time: 2025-06-16 14:02:50.545254742 Z
-  _version: 0.11.0/0.50.3/
-  latest: 488
+- _id: 5209
+  _job: 24870
+  _time: 2025-06-16 14:04:05.222079137 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  author: 13173649
+  comments: 12
+  details: The pull request cqfn/aibolit#832 with 217 HoC created by @antonprokopyev
+    was reviewed by @ivanovmg after 16h24m and 12 comments.
+  hoc: 217
+  is_human: 1
+  issue: 832
   repository: 237167507
-  what: labels-were-scanned
+  review_comments: 10
+  seconds: 59044
+  what: code-was-reviewed
+  when: *101
   where: github
-- _id: 5206
-  _time: 2025-06-16 14:02:51.554362490 Z
+  who: 41443370
+- _id: 5210
+  _job: 24870
+  _time: 2025-06-16 14:04:05.334258696 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  author: 13173649
+  comments: 6
+  details: The pull request cqfn/aibolit#828 with 4 HoC created by @antonprokopyev
+    was reviewed by @yegor256 after 2d17h and 6 comments.
+  hoc: 4
+  is_human: 1
+  issue: 828
+  repository: 237167507
+  review_comments: 2
+  seconds: 237249
+  what: code-was-reviewed
+  when: *102
+  where: github
+  who: 526301
+- _id: 5211
+  _job: 24870
+  _time: 2025-06-16 14:04:05.392529988 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  author: 13173649
+  comments: 6
+  details: The pull request cqfn/aibolit#828 with 4 HoC created by @antonprokopyev
+    was reviewed by @ivanovmg after 2d15h and 6 comments.
+  hoc: 4
+  is_human: 1
+  issue: 828
+  repository: 237167507
+  review_comments: 2
+  seconds: 228126
+  what: code-was-reviewed
+  when: *103
+  where: github
+  who: 41443370
+- _id: 5212
+  _job: 24870
+  _time: 2025-06-16 14:04:05.402983791 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  author: 13173649
+  comments: 8
+  details: The pull request cqfn/aibolit#825 with 132 HoC created by @antonprokopyev
+    was reviewed by @ivanovmg after 1d17h and 8 comments.
+  hoc: 132
+  is_human: 1
+  issue: 825
+  repository: 237167507
+  review_comments: 3
+  seconds: 149417
+  what: code-was-reviewed
+  when: *104
+  where: github
+  who: 41443370
+- _id: 5213
+  _job: 24870
+  _time: 2025-06-16 14:04:05.411018106 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  author: 13173649
+  comments: 10
+  details: The pull request cqfn/aibolit#823 with 2499 HoC created by @antonprokopyev
+    was reviewed by @yegor256 after 20h4m and 10 comments.
+  hoc: 2499
+  is_human: 1
+  issue: 823
+  repository: 237167507
+  review_comments: 5
+  seconds: 72292
+  what: code-was-reviewed
+  when: *105
+  where: github
+  who: 526301
+- _id: 5214
+  _job: 24870
+  _time: 2025-06-16 14:04:05.503313497 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#819 reported by @alchemmist;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 819
+  reporter: 104511335
+  repository: 237167507
+  what: bug-was-accepted
+  when: *106
+  where: github
+  who: 526301
+- _id: 5216
+  _job: 24870
+  _time: 2025-06-16 14:04:09.668919498 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 18
+  details: It's time to reward @ivanovmg for the code review in cqfn/aibolit#816,
+    the reward amount is 18.
+  greeting: "\U0001F389 Great job on your review! You've earned an impressive **18
+    points**: 12 base points plus 5 bonus points for your 22 insightful comments.
+    Your dedication is paying off – your total balance is now [256 points](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    Keep up the excellent work! \U0001F4AA\n\n<!-- Thanks for the review! You've earned
+    +18 points for this: +12 as a basis; +5 for the 22 comment(s) that you have made.
+    \ Your running balance is [+256](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  is_human: 1
+  issue: 816
+  receipt: 0
+  repository: 237167507
+  what: code-review-was-rewarded
+  when: 2025-06-16 14:04:09.672525970 Z
+  where: github
+  who: 41443370
+  why: Reviewed code in cqfn/aibolit#816
+- _id: 5217
+  _job: 24870
+  _time: 2025-06-16 14:04:15.640319450 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: -16
+  commit: 2dbf23c563bf95119b39fad87d7801b9ccea416d
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  greeting: 'It is [not a good idea](https://www.yegor256.com/2014/07/21/read-only-master-branch.html)
+    to push directly to the default branch `master`. You''ve earned -16 points. Next
+    time, create a new branch, push your changes over there, then make a pull request
+    and merge it. Even if you are flying solo, contributing via pull requests is a
+    [good practice](https://www.yegor256.com/2020/07/29/open-source-etiquette.html).
+    Your running balance is [-144](https://cqfn.github.io/aibolit/aibolit-vitals.html). '
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-06-16 14:04:15.642684697 Z
+  where: github
+  who: 526301
+  why: Pushed 2dbf23c56 to the default branch 'master' in cqfn/aibolit
+- _id: 5218
+  _job: 24870
+  _time: 2025-06-16 14:04:15.731070137 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  comments: 5
+  details: The pull request cqfn/aibolit#828 with 4 HoC created by @antonprokopyev
+    was merged by @rultor after 2d18h of being in review and 5 comments.
+  hoc: 4
+  is_human: 1
+  issue: 828
+  merger: 8086956
+  repository: 237167507
+  review_comments: 2
+  seconds: 238542
+  what: code-was-contributed
+  when: *107
+  where: github
+  who: 13173649
+- _id: 5219
+  _job: 24870
+  _time: 2025-06-16 14:04:15.795414488 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  comments: 7
+  details: The pull request cqfn/aibolit#825 with 132 HoC created by @antonprokopyev
+    was merged by @yegor256 after 1d18h of being in review and 7 comments.
+  hoc: 132
+  is_human: 1
+  issue: 825
+  merger: 526301
+  repository: 237167507
+  review_comments: 3
+  seconds: 153057
+  what: code-was-contributed
+  when: *108
+  where: github
+  who: 13173649
+- _id: 5220
+  _job: 24870
+  _time: 2025-06-16 14:04:15.802350128 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  comments: 9
+  details: The pull request cqfn/aibolit#823 with 2499 HoC created by @antonprokopyev
+    was merged by @rultor after 20h28m of being in review and 9 comments.
+  hoc: 2499
+  is_human: 1
+  issue: 823
+  merger: 8086956
+  repository: 237167507
+  review_comments: 5
+  seconds: 73684
+  what: code-was-contributed
+  when: *109
+  where: github
+  who: 13173649
+- _id: 5221
+  _job: 24870
+  _time: 2025-06-16 14:04:15.808754802 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  comments: 2
+  details: The pull request cqfn/aibolit#827 with 2 HoC created by @antonprokopyev
+    was merged by @yegor256 after 16h2m of being in review and 2 comments.
+  hoc: 2
+  is_human: 1
+  issue: 827
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 57769
+  what: code-was-contributed
+  when: *110
+  where: github
+  who: 13173649
+- _id: 5222
+  _job: 24870
+  _time: 2025-06-16 14:04:15.815776199 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  comments: 20
+  details: The pull request cqfn/aibolit#814 with 141 HoC created by @antonprokopyev
+    was merged by @rultor after 5d13h of being in review and 20 comments.
+  hoc: 141
+  is_human: 1
+  issue: 814
+  merger: 8086956
+  repository: 237167507
+  review_comments: 11
+  seconds: 479751
+  what: code-was-contributed
+  when: *111
+  where: github
+  who: 13173649
+- _id: 5223
+  _job: 24870
+  _time: 2025-06-16 14:04:15.821728435 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  comments: 33
+  details: The pull request cqfn/aibolit#816 with 133 HoC created by @sinbadthesailor2005
+    was merged by @rultor after 4d3h of being in review and 33 comments.
+  hoc: 133
+  is_human: 1
+  issue: 816
+  merger: 8086956
+  repository: 237167507
+  review_comments: 23
+  seconds: 359924
+  what: code-was-contributed
+  when: *112
+  where: github
+  who: 150805542
+- _id: 5224
+  _job: 24870
+  _time: 2025-06-16 14:04:15.951457794 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  closer: 526301
+  details: 'In the repository #237167507, the user #13173649 submitted the issue #831
+    which was later closed by the user #526301 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 1
+  issue: 831
+  repository: 237167507
+  what: dud-was-closed
+  when: *113
+  where: github
+  who: 13173649
+- _id: 5225
+  _job: 24870
+  _time: 2025-06-16 14:04:15.953326641 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  closer: 526301
+  details: 'In the repository #237167507, the user #13173649 submitted the issue #826
+    which was later closed by the user #526301 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 1
+  issue: 826
+  repository: 237167507
+  what: dud-was-closed
+  when: *114
+  where: github
+  who: 13173649
+- _id: 5226
+  _job: 24870
+  _time: 2025-06-16 14:04:15.954769714 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  closer: 526301
+  details: 'In the repository #237167507, the user #13173649 submitted the issue #824
+    which was later closed by the user #526301 not becoming a bug or enhancement;
+    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
+  is_human: 1
+  issue: 824
+  repository: 237167507
+  what: dud-was-closed
+  when: *115
+  where: github
+  who: 13173649
+- _id:
+  - 5227
+  - 5215
+  _job: 24870
+  _time:
+  - 2025-06-16 14:04:19.795654494 Z
+  - 2025-06-16 14:04:05.797764067 Z
+  _version: 0.11.0/0.50.3/0.14.5
+  award: 12
+  details: It's time to reward @ivanovmg for the code review in cqfn/aibolit#814,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/814/#issuecomment-2976794962
+  is_human: 1
+  issue: 814
+  receipt: 0
+  repository: 237167507
+  what: code-review-was-rewarded
+  when: 2025-06-16 14:04:05.802247953 Z
+  where: github
+  who: 41443370
+  why: Reviewed code in cqfn/aibolit#814
+- _id: 5240
+  _time: 2025-06-16 14:57:10.308529498 Z
+  _version: 0.11.0/0.50.3/
+  latest: 785
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 5243
+  _time: 2025-06-16 14:57:34.156910283 Z
+  _version: 0.11.0/0.50.3/
+  latest: 50939145606
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 5244
+  _time: 2025-06-16 14:57:37.422281208 Z
   _version: 0.11.0/0.50.3/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 5207
-  _time: 2025-06-16 14:03:14.575842337 Z
+- _id: 5245
+  _time: 2025-06-16 14:57:54.607904970 Z
   _version: 0.11.0/0.50.3/
-  latest: 755
+  latest: 0
   repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 5208
-  _time: 2025-06-16 14:03:17.567852698 Z
-  _version: 0.11.0/0.50.3/
-  latest: 50939145606
-  repository: 237167507
-  what: events-were-scanned
+  what: labels-were-scanned
   where: github
