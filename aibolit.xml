@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="175132">
+<fb version="0.11.0" size="187281">
   <f>
     <added t="I">8</added>
     <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">150.9186447</seconds>
-    <version t="S">0.48.0</version>
+    <seconds t="F">300.638249374</seconds>
+    <version t="S">0.50.3</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-12T00:02:45Z</when>
+    <when t="T">2025-06-16T14:03:38Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -8960,23 +8960,6 @@
     <who t="I">150805542</who>
   </f>
   <f>
-    <_id t="I">5093</_id>
-    <_time t="T">2025-06-11T22:01:00Z</_time>
-    <_version t="S">0.11.0/0.48.0/</_version>
-    <branch t="S">811-add-test</branch>
-    <details t="S">The pull request cqfn/aibolit#812 has been opened by @antonprokopyev.</details>
-    <event_id t="I">50630737366</event_id>
-    <event_type t="S">PullRequestEvent</event_type>
-    <is_human t="I">1</is_human>
-    <issue t="I">812</issue>
-    <not_merged t="T">2025-06-11T22:01:00Z</not_merged>
-    <repository t="I">237167507</repository>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2025-06-07T13:57:45Z</when>
-    <where t="S">github</where>
-    <who t="I">13173649</who>
-  </f>
-  <f>
     <_id t="I">5115</_id>
     <_time t="T">2025-06-11T23:00:56Z</_time>
     <_version t="S">0.11.0/0.48.0/</_version>
@@ -8994,16 +8977,654 @@
     <who t="I">13173649</who>
   </f>
   <f>
-    <_id t="I">5116</_id>
-    <_time t="T">2025-06-11T23:00:56Z</_time>
-    <_version t="S">0.11.0/0.48.0/</_version>
+    <_id t="I">5147</_id>
+    <_time t="T">2025-06-16T13:58:41Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <comments t="I">12</comments>
+    <commits t="I">9</commits>
+    <details t="S">The pull request cqfn/aibolit#832 has been reviewed by @ivanovmg with 217 HoC and 12 comments.</details>
+    <event_id t="I">50938807645</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">7</files>
+    <hoc t="I">217</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">832</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">10</review_comments>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2025-06-16T07:43:53Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">5148</_id>
+    <_time t="T">2025-06-16T13:58:42Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">696-add-pytest-testmon-plugin</branch>
+    <comments t="I">5</comments>
+    <comments_appreciated t="I">2</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">5</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">2</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#828 has been closed by @rultor, with 4 HoC and 5 comments.</details>
+    <event_id t="I">50937649979</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">4</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">828</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">2</review_comments>
+    <succeeded_builds t="I">17</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-16T07:15:36Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">5149</_id>
+    <_time t="T">2025-06-16T13:59:00Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <comments t="I">6</comments>
+    <commits t="I">1</commits>
+    <details t="S">The pull request cqfn/aibolit#828 has been reviewed by @yegor256 with 4 HoC and 6 comments.</details>
+    <event_id t="I">50936823967</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">3</files>
+    <hoc t="I">4</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">828</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">2</review_comments>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2025-06-16T06:54:03Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">5150</_id>
+    <_time t="T">2025-06-16T13:59:00Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <comments t="I">6</comments>
+    <commits t="I">1</commits>
+    <details t="S">The pull request cqfn/aibolit#828 has been reviewed by @ivanovmg with 4 HoC and 6 comments.</details>
+    <event_id t="I">50932624049</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">3</files>
+    <hoc t="I">4</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">828</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">2</review_comments>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2025-06-16T04:22:00Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">5152</_id>
+    <_time t="T">2025-06-16T13:59:01Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#831 has been closed by @yegor256.</details>
+    <event_id t="I">50919984544</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">831</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-15T14:26:09Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">5153</_id>
+    <_time t="T">2025-06-16T13:59:01Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <commit t="S">2dbf23c563bf95119b39fad87d7801b9ccea416d</commit>
+    <default_branch t="S">master</default_branch>
+    <details t="S">A new Git push #24905770101 has arrived to cqfn/aibolit, made by @yegor256 (default branch is 'master'), not associated with any pull request.</details>
+    <event_id t="I">50917293333</event_id>
+    <event_type t="S">PushEvent</event_type>
+    <is_human t="I">1</is_human>
+    <push_id t="I">24905770101</push_id>
+    <ref t="S">refs/heads/master</ref>
+    <repository t="I">237167507</repository>
+    <to_master t="I">1</to_master>
+    <what t="S">git-was-pushed</what>
+    <when t="T">2025-06-15T11:20:50Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">5154</_id>
+    <_time t="T">2025-06-16T13:59:01Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#831 has been opened by @antonprokopyev.</details>
+    <event_id t="I">50914444731</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">831</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-06-15T07:31:43Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">5155</_id>
+    <_time t="T">2025-06-16T13:59:02Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#824 has been closed by @yegor256.</details>
+    <event_id t="I">50913495527</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">824</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-15T06:05:07Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">5156</_id>
+    <_time t="T">2025-06-16T13:59:02Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">824-add-e2e-package-tests</branch>
+    <comments t="I">7</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">7</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">3</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#825 has been closed by @yegor256, with 132 HoC and 7 comments.</details>
+    <event_id t="I">50913495422</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">132</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">825</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">3</review_comments>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-15T06:05:06Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">5157</_id>
+    <_time t="T">2025-06-16T13:59:16Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <comments t="I">8</comments>
+    <commits t="I">2</commits>
+    <details t="S">The pull request cqfn/aibolit#825 has been reviewed by @ivanovmg with 132 HoC and 8 comments.</details>
+    <event_id t="I">50912861258</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">5</files>
+    <hoc t="I">132</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">825</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">3</review_comments>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2025-06-15T05:04:26Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">5158</_id>
+    <_time t="T">2025-06-16T13:59:17Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#830 has been opened by @0pdd.</details>
+    <event_id t="I">50896726733</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">830</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-06-14T07:00:47Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">5159</_id>
+    <_time t="T">2025-06-16T13:59:17Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#829 has been opened by @0pdd.</details>
+    <event_id t="I">50896726482</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">829</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-06-14T07:00:46Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">5160</_id>
+    <_time t="T">2025-06-16T13:59:17Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#822 has been closed by @0pdd.</details>
+    <event_id t="I">50896725550</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">822</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-14T07:00:43Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">5161</_id>
+    <_time t="T">2025-06-16T13:59:17Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#821 has been closed by @0pdd.</details>
+    <event_id t="I">50896725054</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">821</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-14T07:00:41Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">5162</_id>
+    <_time t="T">2025-06-16T13:59:17Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#819 has been closed by @rultor.</details>
+    <event_id t="I">50896723566</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">819</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-14T07:00:36Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">5163</_id>
+    <_time t="T">2025-06-16T13:59:17Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">819-enforce-single-quotes</branch>
+    <comments t="I">9</comments>
+    <comments_appreciated t="I">2</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">9</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">5</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#823 has been closed by @rultor, with 2499 HoC and 9 comments.</details>
+    <event_id t="I">50896723414</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">2499</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">823</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">5</review_comments>
+    <succeeded_builds t="I">17</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-14T07:00:36Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">5164</_id>
+    <_time t="T">2025-06-16T14:00:11Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <comments t="I">10</comments>
+    <commits t="I">3</commits>
+    <details t="S">The pull request cqfn/aibolit#823 has been reviewed by @yegor256 with 2499 HoC and 10 comments.</details>
+    <event_id t="I">50896448295</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">110</files>
+    <hoc t="I">2499</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">823</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">5</review_comments>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2025-06-14T06:37:24Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">5165</_id>
+    <_time t="T">2025-06-16T14:00:12Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#826 has been closed by @yegor256.</details>
+    <event_id t="I">50894611466</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">826</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-14T03:50:49Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">5166</_id>
+    <_time t="T">2025-06-16T14:00:12Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">826-bind-ty-version</branch>
+    <comments t="I">2</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">2</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#827 has been closed by @yegor256, with 2 HoC and 2 comments.</details>
+    <event_id t="I">50894611368</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">827</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <succeeded_builds t="I">17</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-14T03:50:49Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">5167</_id>
+    <_time t="T">2025-06-16T14:00:25Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">696-add-pytest-testmon-plugin</branch>
+    <details t="S">The pull request cqfn/aibolit#828 has been opened by @antonprokopyev.</details>
+    <event_id t="I">50871002972</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">828</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-06-13T12:59:54Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">5168</_id>
+    <_time t="T">2025-06-16T14:00:25Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">826-bind-ty-version</branch>
+    <details t="S">The pull request cqfn/aibolit#827 has been opened by @antonprokopyev.</details>
+    <event_id t="I">50868145525</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">827</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-06-13T11:48:00Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">5169</_id>
+    <_time t="T">2025-06-16T14:00:25Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#826 has been opened by @antonprokopyev.</details>
+    <event_id t="I">50868069237</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">826</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-06-13T11:45:53Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">5170</_id>
+    <_time t="T">2025-06-16T14:00:25Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">824-add-e2e-package-tests</branch>
+    <details t="S">The pull request cqfn/aibolit#825 has been opened by @antonprokopyev.</details>
+    <event_id t="I">50867654539</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">825</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-06-13T11:34:09Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">5171</_id>
+    <_time t="T">2025-06-16T14:00:25Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#824 has been opened by @antonprokopyev.</details>
+    <event_id t="I">50866127059</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">824</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-06-13T10:52:32Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">5172</_id>
+    <_time t="T">2025-06-16T14:00:25Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">819-enforce-single-quotes</branch>
+    <details t="S">The pull request cqfn/aibolit#823 has been opened by @antonprokopyev.</details>
+    <event_id t="I">50865372344</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">823</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-06-13T10:32:32Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">5173</_id>
+    <_time t="T">2025-06-16T14:00:26Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#822 has been opened by @0pdd.</details>
+    <event_id t="I">50857403360</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">822</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-06-13T07:12:12Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">5174</_id>
+    <_time t="T">2025-06-16T14:00:26Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#821 has been opened by @0pdd.</details>
+    <event_id t="I">50857402291</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">821</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-06-13T07:12:10Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">5175</_id>
+    <_time t="T">2025-06-16T14:00:26Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#820 has been opened by @0pdd.</details>
+    <event_id t="I">50857400994</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">820</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-06-13T07:12:08Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">5176</_id>
+    <_time t="T">2025-06-16T14:00:26Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">improve-typings</branch>
+    <comments t="I">20</comments>
+    <comments_appreciated t="I">6</comments_appreciated>
+    <comments_by_author t="I">6</comments_by_author>
+    <comments_by_reviewers t="I">15</comments_by_reviewers>
+    <comments_resolved t="I">6</comments_resolved>
+    <comments_to_code t="I">11</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#814 has been closed by @rultor, with 141 HoC and 20 comments.</details>
+    <event_id t="I">50857397145</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">141</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">814</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">11</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-13T07:12:02Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">5177</_id>
+    <_time t="T">2025-06-16T14:00:43Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#759 has been closed by @rultor.</details>
+    <event_id t="I">50830422331</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">0</is_human>
+    <issue t="I">759</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-06-12T14:56:54Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">5178</_id>
+    <_time t="T">2025-06-16T14:00:43Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">implement_loop_outsider</branch>
+    <comments t="I">33</comments>
+    <comments_appreciated t="I">5</comments_appreciated>
+    <comments_by_author t="I">4</comments_by_author>
+    <comments_by_reviewers t="I">32</comments_by_reviewers>
+    <comments_resolved t="I">7</comments_resolved>
+    <comments_to_code t="I">23</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#816 has been closed by @rultor, with 133 HoC and 33 comments.</details>
+    <event_id t="I">50830421671</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">133</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">816</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">23</review_comments>
+    <succeeded_builds t="I">16</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-06-12T14:56:54Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">5179</_id>
+    <_time t="T">2025-06-16T14:01:03Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The issue cqfn/aibolit#819 has been opened by @alchemmist.</details>
+    <event_id t="I">50815587293</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">819</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-06-12T09:39:54Z</when>
+    <where t="S">github</where>
+    <who t="I">104511335</who>
+  </f>
+  <f>
+    <_id t="I">5182</_id>
+    <_time t="T">2025-06-16T14:01:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#819.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">819</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2025-06-13T06:50:38Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">5183</_id>
+    <_time t="T">2025-06-16T14:01:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The '#bug' label was attached by @0pdd to the issue cqfn/aibolit#820.</details>
+    <is_human t="I">0</is_human>
+    <issue t="I">820</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2025-06-13T07:12:07Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">5184</_id>
+    <_time t="T">2025-06-16T14:01:06Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The '#bug' label was attached by @0pdd to the issue cqfn/aibolit#821.</details>
+    <is_human t="I">0</is_human>
+    <issue t="I">821</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2025-06-13T07:12:09Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">5186</_id>
+    <_time t="T">2025-06-16T14:01:27Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">811-add-test</branch>
+    <details t="S">The pull request cqfn/aibolit#812 has been opened by @antonprokopyev.</details>
+    <event_id t="I">50630737366</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">812</issue>
+    <not_merged t="T">2025-06-16T14:01:27Z</not_merged>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-06-07T13:57:45Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">5187</_id>
+    <_time t="T">2025-06-16T14:01:28Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
     <branch t="S">682-support-uv</branch>
     <details t="S">The pull request cqfn/aibolit#817 has been opened by @antonprokopyev.</details>
     <event_id t="I">50653047987</event_id>
     <event_type t="S">PullRequestEvent</event_type>
     <is_human t="I">1</is_human>
     <issue t="I">817</issue>
-    <not_merged t="T">2025-06-11T23:00:56Z</not_merged>
+    <not_merged t="T">2025-06-16T14:01:27Z</not_merged>
     <repository t="I">237167507</repository>
     <what t="S">pull-was-opened</what>
     <when t="T">2025-06-08T22:26:29Z</when>
@@ -9011,39 +9632,126 @@
     <who t="I">13173649</who>
   </f>
   <f>
-    <_id t="I">5143</_id>
-    <_time t="T">2025-06-12T00:02:23Z</_time>
-    <_version t="S">0.11.0/0.48.0/</_version>
-    <latest t="I">50792184010</latest>
+    <_id t="I">5188</_id>
+    <_time t="T">2025-06-16T14:01:28Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">830-ast-patterns</branch>
+    <details t="S">The pull request cqfn/aibolit#832 has been opened by @antonprokopyev.</details>
+    <event_id t="I">50920812850</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">832</issue>
+    <not_merged t="T">2025-06-16T14:01:28Z</not_merged>
     <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-06-15T15:19:49Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">5189</_id>
+    <_time t="T">2025-06-16T14:01:29Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">567</branch>
+    <details t="S">The pull request cqfn/aibolit#818 has been opened by @alchemmist.</details>
+    <event_id t="I">50813334371</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">818</issue>
+    <not_merged t="T">2025-06-16T14:01:28Z</not_merged>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-06-12T08:51:09Z</when>
+    <where t="S">github</where>
+    <who t="I">104511335</who>
+  </f>
+  <f>
+    <_id t="I">5192</_id>
+    <_time t="T">2025-06-16T14:01:36Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <is_human t="I">1</is_human>
+    <name t="S">alchemmist</name>
+    <what t="S">who-has-name</what>
+    <when t="T">2025-06-16T14:01:36Z</when>
+    <where t="S">github</where>
+    <who t="I">104511335</who>
+  </f>
+  <f>
+    <_id t="I">5196</_id>
+    <_time t="T">2025-06-16T14:01:46Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The '#bug' label was attached by @0pdd to the issue cqfn/aibolit#822.</details>
+    <is_human t="I">0</is_human>
+    <issue t="I">822</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2025-06-13T07:12:11Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">5197</_id>
+    <_time t="T">2025-06-16T14:01:47Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The '#bug' label was attached by @0pdd to the issue cqfn/aibolit#829.</details>
+    <is_human t="I">0</is_human>
+    <issue t="I">829</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2025-06-14T07:00:45Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">5198</_id>
+    <_time t="T">2025-06-16T14:01:47Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <details t="S">The '#bug' label was attached by @0pdd to the issue cqfn/aibolit#830.</details>
+    <is_human t="I">0</is_human>
+    <issue t="I">830</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2025-06-14T07:00:46Z</when>
+    <where t="S">github</where>
+    <who t="I">24456188</who>
+  </f>
+  <f>
+    <_id t="I">5205</_id>
+    <_time t="T">2025-06-16T14:02:50Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <latest t="I">488</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">5144</_id>
-    <_time t="T">2025-06-12T00:02:31Z</_time>
-    <_version t="S">0.11.0/0.48.0/</_version>
-    <latest t="I">730</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">5145</_id>
-    <_time t="T">2025-06-12T00:02:32Z</_time>
-    <_version t="S">0.11.0/0.48.0/</_version>
+    <_id t="I">5206</_id>
+    <_time t="T">2025-06-16T14:02:51Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-issue-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">5146</_id>
-    <_time t="T">2025-06-12T00:02:44Z</_time>
-    <_version t="S">0.11.0/0.48.0/</_version>
-    <latest t="I">798</latest>
+    <_id t="I">5207</_id>
+    <_time t="T">2025-06-16T14:03:14Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <latest t="I">755</latest>
     <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">5208</_id>
+    <_time t="T">2025-06-16T14:03:17Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <latest t="I">50939145606</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
