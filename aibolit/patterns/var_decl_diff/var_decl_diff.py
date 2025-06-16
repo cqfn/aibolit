@@ -33,9 +33,10 @@ class VarDeclarationDistance:
 
     def __find_empty_lines_in_ast(self, ast: AST) -> set[LineNumber]:
         """Figure out lines that are either empty or multiline statements"""
-
         lines_with_nodes = set()
         ast.traverse(lambda node: lines_with_nodes.add(node.line))
+        if not lines_with_nodes:
+            return set()
         max_line = max(lines_with_nodes)
         all_lines = set(range(1, max_line + 1))
         return all_lines.difference(lines_with_nodes)

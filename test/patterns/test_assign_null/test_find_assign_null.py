@@ -12,16 +12,19 @@ class NullAssignmentTestCase(TestCase):
     cur_dir = os.path.dirname(os.path.realpath(__file__))
 
     def test_several(self):
-        ast = AST.build_from_javalang(build_ast(self.cur_dir + '/several.java'))
+        test_file = os.path.join(self.cur_dir, 'several.java')
+        ast = AST.build_from_javalang(build_ast(test_file))
         lines = NullAssignment().value(ast)
         self.assertEqual(lines, [8, 9, 14, 18, 24, 25])
 
     def test_one(self):
-        ast = AST.build_from_javalang(build_ast(self.cur_dir + '/one.java'))
+        test_file = os.path.join(self.cur_dir, 'one.java')
+        ast = AST.build_from_javalang(build_ast(test_file))
         lines = NullAssignment().value(ast)
         self.assertEqual(lines, [11])
 
     def test_not_null(self):
-        ast = AST.build_from_javalang(build_ast(self.cur_dir + '/not_null.java'))
+        test_file = os.path.join(self.cur_dir, 'not_null.java')
+        ast = AST.build_from_javalang(build_ast(test_file))
         lines = NullAssignment().value(ast)
         self.assertEqual(lines, [])

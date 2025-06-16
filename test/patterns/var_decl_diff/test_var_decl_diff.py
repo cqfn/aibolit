@@ -12,25 +12,29 @@ class VarDeclarationDiffTestCase(TestCase):
     cur_dir = os.path.dirname(os.path.realpath(__file__))
 
     def test_good_class(self):
-        ast = AST.build_from_javalang(build_ast(self.cur_dir + '/1.java'))
+        test_file = os.path.join(self.cur_dir, '1.java')
+        ast = AST.build_from_javalang(build_ast(test_file))
         pattern = VarDeclarationDistance(lines_th=2)
         lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_bad_class(self):
-        ast = AST.build_from_javalang(build_ast(self.cur_dir + '/2.java'))
+        test_file = os.path.join(self.cur_dir, '2.java')
+        ast = AST.build_from_javalang(build_ast(test_file))
         pattern = VarDeclarationDistance(lines_th=2)
         lines = pattern.value(ast)
         self.assertEqual(lines, [16])
 
     def test_bad_class2(self):
-        ast = AST.build_from_javalang(build_ast(self.cur_dir + '/3.java'))
+        test_file = os.path.join(self.cur_dir, '3.java')
+        ast = AST.build_from_javalang(build_ast(test_file))
         pattern = VarDeclarationDistance(lines_th=5)
         lines = pattern.value(ast)
         self.assertEqual(sorted(lines), [216, 785, 971])
 
     def test_case_with_multiline_function_arguments(self):
-        ast = AST.build_from_javalang(build_ast(self.cur_dir + '/4.java'))
+        test_file = os.path.join(self.cur_dir, '4.java')
+        ast = AST.build_from_javalang(build_ast(test_file))
         pattern = VarDeclarationDistance(lines_th=2)
         lines = pattern.value(ast)
         self.assertEqual(lines, [17, 21])
