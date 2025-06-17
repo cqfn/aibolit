@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 from decimal import localcontext, ROUND_DOWN, Decimal
-from typing import Dict, Any, Tuple, List, Union, no_type_check
+from typing import Dict, Any, Tuple, List
 from numpy.typing import NDArray
 
 import numpy as np
@@ -176,54 +176,6 @@ class PatternRankingModel(BaseEstimator):
             raise Exception('Unknown func')
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
-
-    @no_type_check
-    def test(self, files: List[str]) -> List[List[Union[str, List[str], List[float]]]]:
-        """Make predict for list of java files using current model.
-        TODO #813:30min/DEV Remove PatternRankingModel.test method or ensure it works
-        Code below is probably dead and should be removed.
-        Another option is to fix the code and cover it with tests.
-        """
-
-        config = Config.get_patterns_config()
-        patterns_config = config['patterns']
-        metrics_config = config['metrics']
-        patterns_codes = [x['code'] for x in patterns_config]
-        metrics_codes = [x['code'] for x in metrics_config]
-        features = self.features_conf['features_order']
-        results = []
-        for file in files:
-            row = {}
-            for feature in features:
-                # we need for test to scale snippet
-                # we will calculate it if we do not have M2 in feature_conf
-                found_feature = [x for x in metrics_config if x['code'] == 'M2']
-                if feature == 'M2':
-                    continue
-                row['filename'] = file
-                ncss_val = found_feature[0]['make']().value(file)
-                row['M2'] = ncss_val
-
-                if feature in patterns_codes:
-                    found_feature = [x for x in patterns_config if x['code'] == feature]
-                    lines = found_feature[0]['make']().value(file)
-                    row[feature] = float(len(lines))  # type: ignore[assignment]
-                    results.append(row)
-                elif feature in metrics_codes:
-                    found_feature = [x for x in metrics_config if x['code'] == feature]
-                    val = found_feature[0]['make']().value(file)
-                    if val:
-                        row[feature] = val
-                    results.append(row)
-                else:
-                    continue
-
-        result_array = []
-        for file_for_file in results:
-            sorted_result, importances = self.predict(file_for_file)
-            result_array.append([file_for_file['filename'], list(sorted_result.keys()), importances])
-
-        return result_array  # type: ignore[return-value]
 
     def rank(self, snippet, scale=True):
         """
