@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="201295">
+<fb version="0.11.0" size="201463">
   <f>
     <added t="I">8</added>
-    <cycles t="I">5</cycles>
+    <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
+    <error t="S">no such column: touched_at:
+CREATE INDEX IF NOT EXISTS cache_touched_at_idx ON cache(touched_at);
+                                                         ^</error>
     <inserted t="I">8</inserted>
-    <seconds t="F">100.445034794</seconds>
+    <seconds t="F">0.709629656</seconds>
     <version t="S">0.50.3</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-17T13:25:13Z</when>
+    <when t="T">2025-06-17T13:57:37Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
