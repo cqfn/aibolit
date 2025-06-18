@@ -1,12 +1,12 @@
 ---
 - added: 8
-  cycles: 3
+  cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 322.919871925
+  seconds: 345.025030629
   version: 0.50.3
   what: judges-summary
-  when: 2025-06-18 08:00:17.482204666 Z
+  when: 2025-06-18 09:06:10.684727600 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -16458,7 +16458,7 @@
   review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
-  when: 2020-04-02 17:10:03.000000000 Z
+  when: &118 2020-04-02 17:10:03.000000000 Z
   where: github
   who: 8086956
 - _id: 6297
@@ -16481,7 +16481,7 @@
   review_comments: 1
   succeeded_builds: 0
   what: pull-was-merged
-  when: 2020-04-03 14:42:11.000000000 Z
+  when: &119 2020-04-03 14:42:11.000000000 Z
   where: github
   who: 8086956
 - _id: 6298
@@ -16504,7 +16504,7 @@
   review_comments: 9
   succeeded_builds: 0
   what: pull-was-merged
-  when: 2020-04-08 05:45:22.000000000 Z
+  when: &120 2020-04-08 05:45:22.000000000 Z
   where: github
   who: 8086956
 - _id: 6299
@@ -16527,7 +16527,7 @@
   review_comments: 2
   succeeded_builds: 0
   what: pull-was-merged
-  when: 2020-04-06 12:50:47.000000000 Z
+  when: &121 2020-04-06 12:50:47.000000000 Z
   where: github
   who: 8086956
 - _id: 6300
@@ -16550,7 +16550,7 @@
   review_comments: 4
   succeeded_builds: 0
   what: pull-was-merged
-  when: 2020-04-07 08:22:04.000000000 Z
+  when: &122 2020-04-07 08:22:04.000000000 Z
   where: github
   who: 8086956
 - _id: 6301
@@ -16573,7 +16573,7 @@
   review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
-  when: 2020-04-06 17:13:49.000000000 Z
+  when: &123 2020-04-06 17:13:49.000000000 Z
   where: github
   who: 8086956
 - _id: 6302
@@ -16618,7 +16618,7 @@
   review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
-  when: 2020-04-08 10:23:01.000000000 Z
+  when: &124 2020-04-08 10:23:01.000000000 Z
   where: github
   who: 526301
 - _id: 6304
@@ -16641,7 +16641,7 @@
   review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
-  when: 2020-04-08 11:31:56.000000000 Z
+  when: &125 2020-04-08 11:31:56.000000000 Z
   where: github
   who: 8086956
 - _id: 6305
@@ -16664,7 +16664,7 @@
   review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
-  when: 2020-04-08 10:42:58.000000000 Z
+  when: &126 2020-04-08 10:42:58.000000000 Z
   where: github
   who: 526301
 - _id: 6308
@@ -16952,8 +16952,10 @@
     1313 HoC and 13 comments.
   failed_builds: 0
   hoc: 1313
+  is_human: 0
   issue: 176
   repository: 237167507
+  review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-09 08:41:03.000000000 Z
@@ -16973,8 +16975,10 @@
     2 HoC and 9 comments.
   failed_builds: 0
   hoc: 2
+  is_human: 0
   issue: 178
   repository: 237167507
+  review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-08 14:47:44.000000000 Z
@@ -16994,6 +16998,7 @@
     with 278 HoC and 4 comments.
   failed_builds: 0
   hoc: 278
+  is_human: 1
   issue: 179
   repository: 237167507
   succeeded_builds: 0
@@ -17015,8 +17020,10 @@
     946 HoC and 15 comments.
   failed_builds: 0
   hoc: 946
+  is_human: 0
   issue: 181
   repository: 237167507
+  review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-09 11:57:49.000000000 Z
@@ -17036,6 +17043,7 @@
     with 29 HoC and 13 comments.
   failed_builds: 0
   hoc: 29
+  is_human: 1
   issue: 185
   repository: 237167507
   succeeded_builds: 0
@@ -17057,8 +17065,10 @@
     325 HoC and 11 comments.
   failed_builds: 0
   hoc: 325
+  is_human: 0
   issue: 186
   repository: 237167507
+  review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-10 10:06:19.000000000 Z
@@ -17078,6 +17088,7 @@
     with 9017 HoC and 7 comments.
   failed_builds: 0
   hoc: 9017
+  is_human: 1
   issue: 187
   repository: 237167507
   succeeded_builds: 0
@@ -17099,8 +17110,10 @@
     73 HoC and 10 comments.
   failed_builds: 0
   hoc: 73
+  is_human: 0
   issue: 188
   repository: 237167507
+  review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-10 13:51:14.000000000 Z
@@ -17120,8 +17133,10 @@
     177 HoC and 6 comments.
   failed_builds: 0
   hoc: 177
+  is_human: 0
   issue: 189
   repository: 237167507
+  review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-09 16:53:33.000000000 Z
@@ -17141,8 +17156,10 @@
     3349 HoC and 10 comments.
   failed_builds: 0
   hoc: 3349
+  is_human: 0
   issue: 191
   repository: 237167507
+  review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-10 09:30:06.000000000 Z
@@ -17162,8 +17179,10 @@
     215 HoC and 8 comments.
   failed_builds: 0
   hoc: 215
+  is_human: 0
   issue: 193
   repository: 237167507
+  review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-10 09:21:23.000000000 Z
@@ -17183,8 +17202,10 @@
     8995 HoC and 18 comments.
   failed_builds: 0
   hoc: 8995
+  is_human: 0
   issue: 197
   repository: 237167507
+  review_comments: 4
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-15 16:34:38.000000000 Z
@@ -17204,8 +17225,10 @@
     308 HoC and 14 comments.
   failed_builds: 0
   hoc: 308
+  is_human: 0
   issue: 198
   repository: 237167507
+  review_comments: 4
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-10 15:27:04.000000000 Z
@@ -17225,8 +17248,10 @@
     427 HoC and 22 comments.
   failed_builds: 0
   hoc: 427
+  is_human: 0
   issue: 200
   repository: 237167507
+  review_comments: 0
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-10 15:49:13.000000000 Z
@@ -17246,8 +17271,10 @@
     120 HoC and 9 comments.
   failed_builds: 0
   hoc: 120
+  is_human: 0
   issue: 201
   repository: 237167507
+  review_comments: 1
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-13 09:39:48.000000000 Z
@@ -17267,38 +17294,20 @@
     197 HoC and 12 comments.
   failed_builds: 0
   hoc: 197
+  is_human: 0
   issue: 203
   repository: 237167507
+  review_comments: 3
   succeeded_builds: 0
   what: pull-was-merged
   when: 2020-04-14 14:40:52.000000000 Z
   where: github
   who: 8086956
-- _id: 6357
-  _time: 2025-06-18 07:59:13.365293794 Z
-  _version: 0.11.0/0.50.3/
-  latest: 166
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 6358
-  _time: 2025-06-18 07:59:14.770359569 Z
-  _version: 0.11.0/0.50.3/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 6359
-  _time: 2025-06-18 07:59:17.170642917 Z
-  _version: 0.11.0/0.50.3/
-  latest: 51018903698
-  repository: 237167507
-  what: events-were-scanned
-  where: github
 - _id: 6360
   _time: 2025-06-18 08:00:11.745605075 Z
   _version: 0.11.0/0.50.3/
   assigner: 231433
+  is_human: 1
   issue: 458
   repository: 237167507
   what: issue-was-assigned
@@ -17309,6 +17318,7 @@
   _time: 2025-06-18 08:00:12.101464452 Z
   _version: 0.11.0/0.50.3/
   assigner: 231433
+  is_human: 1
   issue: 459
   repository: 237167507
   what: issue-was-assigned
@@ -17319,6 +17329,7 @@
   _time: 2025-06-18 08:00:12.454711926 Z
   _version: 0.11.0/0.50.3/
   assigner: 20803206
+  is_human: 1
   issue: 461
   repository: 237167507
   what: issue-was-assigned
@@ -17329,6 +17340,7 @@
   _time: 2025-06-18 08:00:12.811817784 Z
   _version: 0.11.0/0.50.3/
   assigner: 20803206
+  is_human: 1
   issue: 462
   repository: 237167507
   what: issue-was-assigned
@@ -17339,6 +17351,7 @@
   _time: 2025-06-18 08:00:13.525809370 Z
   _version: 0.11.0/0.50.3/
   assigner: 1987026
+  is_human: 1
   issue: 466
   repository: 237167507
   what: issue-was-assigned
@@ -17349,6 +17362,7 @@
   _time: 2025-06-18 08:00:13.817094301 Z
   _version: 0.11.0/0.50.3/
   assigner: 1987026
+  is_human: 1
   issue: 467
   repository: 237167507
   what: issue-was-assigned
@@ -17359,6 +17373,7 @@
   _time: 2025-06-18 08:00:14.258304429 Z
   _version: 0.11.0/0.50.3/
   assigner: 1987026
+  is_human: 1
   issue: 468
   repository: 237167507
   what: issue-was-assigned
@@ -17369,6 +17384,7 @@
   _time: 2025-06-18 08:00:14.582434937 Z
   _version: 0.11.0/0.50.3/
   assigner: 1987026
+  is_human: 1
   issue: 469
   repository: 237167507
   what: issue-was-assigned
@@ -17379,6 +17395,7 @@
   _time: 2025-06-18 08:00:15.267581447 Z
   _version: 0.11.0/0.50.3/
   assigner: 20803206
+  is_human: 1
   issue: 476
   repository: 237167507
   what: issue-was-assigned
@@ -17389,6 +17406,7 @@
   _time: 2025-06-18 08:00:15.619510882 Z
   _version: 0.11.0/0.50.3/
   assigner: 20803206
+  is_human: 1
   issue: 480
   repository: 237167507
   what: issue-was-assigned
@@ -17399,6 +17417,7 @@
   _time: 2025-06-18 08:00:15.899242059 Z
   _version: 0.11.0/0.50.3/
   assigner: 231433
+  is_human: 1
   issue: 491
   repository: 237167507
   what: issue-was-assigned
@@ -17409,9 +17428,415 @@
   _time: 2025-06-18 08:00:16.235844891 Z
   _version: 0.11.0/0.50.3/
   assigner: 20803206
+  is_human: 1
   issue: 495
   repository: 237167507
   what: issue-was-assigned
   when: 2020-07-07 14:52:28.000000000 Z
   where: github
   who: 20803206
+- _id: 6372
+  _job: 25194
+  _time: 2025-06-18 08:00:40.742573280 Z
+  _version: 0.11.0/0.50.3/0.14.7
+  comments: 9
+  details: The pull request cqfn/aibolit#152 with 38 HoC created by @acheshkov was
+    merged by @rultor after 8h29m of being in review and 9 comments.
+  hoc: 38
+  is_human: 1
+  issue: 152
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 30589
+  what: code-was-contributed
+  when: *118
+  where: github
+  who: 231433
+- _id: 6373
+  _job: 25194
+  _time: 2025-06-18 08:00:41.072334729 Z
+  _version: 0.11.0/0.50.3/0.14.7
+  comments: 15
+  details: The pull request cqfn/aibolit#155 with 242 HoC created by @paulodamaso
+    was merged by @rultor after 1d1h of being in review and 15 comments.
+  hoc: 242
+  is_human: 1
+  issue: 155
+  merger: 8086956
+  repository: 237167507
+  review_comments: 1
+  seconds: 92365
+  what: code-was-contributed
+  when: *119
+  where: github
+  who: 33915433
+- _id: 6374
+  _job: 25194
+  _time: 2025-06-18 08:00:41.156110471 Z
+  _version: 0.11.0/0.50.3/0.14.7
+  comments: 30
+  details: The pull request cqfn/aibolit#156 with 101 HoC created by @tribals was
+    merged by @rultor after 5d13h of being in review and 30 comments.
+  hoc: 101
+  is_human: 1
+  issue: 156
+  merger: 8086956
+  repository: 237167507
+  review_comments: 9
+  seconds: 479404
+  what: code-was-contributed
+  when: *120
+  where: github
+  who: 3613180
+- _id: 6375
+  _job: 25194
+  _time: 2025-06-18 08:00:41.253299848 Z
+  _version: 0.11.0/0.50.3/0.14.7
+  comments: 9
+  details: The pull request cqfn/aibolit#162 with 35 HoC created by @paulodamaso was
+    merged by @rultor after 2d19h of being in review and 9 comments.
+  hoc: 35
+  is_human: 1
+  issue: 162
+  merger: 8086956
+  repository: 237167507
+  review_comments: 2
+  seconds: 241507
+  what: code-was-contributed
+  when: *121
+  where: github
+  who: 33915433
+- _id: 6376
+  _job: 25194
+  _time: 2025-06-18 08:00:41.263806184 Z
+  _version: 0.11.0/0.50.3/0.14.7
+  comments: 16
+  details: The pull request cqfn/aibolit#163 with 54 HoC created by @paulodamaso was
+    merged by @rultor after 3d14h of being in review and 16 comments.
+  hoc: 54
+  is_human: 1
+  issue: 163
+  merger: 8086956
+  repository: 237167507
+  review_comments: 4
+  seconds: 310945
+  what: code-was-contributed
+  when: *122
+  where: github
+  who: 33915433
+- _id: 6377
+  _job: 25194
+  _time: 2025-06-18 08:00:41.272445407 Z
+  _version: 0.11.0/0.50.3/0.14.7
+  comments: 27
+  details: The pull request cqfn/aibolit#165 with 1385 HoC created by @tribals was
+    merged by @rultor after 15h17m of being in review and 27 comments.
+  hoc: 1385
+  is_human: 1
+  issue: 165
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 55077
+  what: code-was-contributed
+  when: *123
+  where: github
+  who: 3613180
+- _id: 6378
+  _job: 25194
+  _time: 2025-06-18 08:00:41.282259345 Z
+  _version: 0.11.0/0.50.3/0.14.7
+  comments: 6
+  details: The pull request cqfn/aibolit#171 with 1980 HoC created by @acheshkov was
+    merged by @yegor256 after 2h54m of being in review and 6 comments.
+  hoc: 1980
+  is_human: 1
+  issue: 171
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 10447
+  what: code-was-contributed
+  when: *124
+  where: github
+  who: 231433
+- _id: 6379
+  _job: 25194
+  _time: 2025-06-18 08:00:41.343432093 Z
+  _version: 0.11.0/0.50.3/0.14.7
+  comments: 13
+  details: The pull request cqfn/aibolit#173 with 1187 HoC created by @lyriccoder
+    was merged by @rultor after 1h12m of being in review and 13 comments.
+  hoc: 1187
+  is_human: 1
+  issue: 173
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 4350
+  what: code-was-contributed
+  when: *125
+  where: github
+  who: 20803206
+- _id: 6380
+  _job: 25194
+  _time: 2025-06-18 08:00:41.421964116 Z
+  _version: 0.11.0/0.50.3/0.14.7
+  comments: 3
+  details: The pull request cqfn/aibolit#174 with 20 HoC created by @acheshkov was
+    merged by @yegor256 after 94s of being in review and 3 comments.
+  hoc: 20
+  is_human: 1
+  issue: 174
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 95
+  what: code-was-contributed
+  when: *126
+  where: github
+  who: 231433
+- _id:
+  - 6383
+  - 6381
+  _job: 25194
+  _time:
+  - 2025-06-18 08:01:04.037311776 Z
+  - 2025-06-18 08:00:41.660909848 Z
+  _version: 0.11.0/0.50.3/0.14.7
+  award: 8
+  details: It's time to reward @antonprokopyev for the code contributed in cqfn/aibolit#832,
+    the reward amount is 8.
+  href: https://github.com/cqfn/aibolit/issues/832/#issuecomment-2983125097
+  is_human: 1
+  issue: 832
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-18 08:00:41.667009884 Z
+  where: github
+  who: 13173649
+  why: Contributed code in cqfn/aibolit#832
+- _id:
+  - 6384
+  - 6382
+  _job: 25194
+  _time:
+  - 2025-06-18 08:01:04.048132238 Z
+  - 2025-06-18 08:00:47.782596101 Z
+  _version: 0.11.0/0.50.3/0.14.7
+  award: 4
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#833,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/833/#issuecomment-2983125179
+  is_human: 1
+  issue: 833
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-06-18 08:00:47.788154402 Z
+  where: github
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#833
+- _id: 6386
+  _time: 2025-06-18 09:00:34.930455588 Z
+  _version: 0.11.0/0.50.3/
+  branch: '136'
+  comments: 11
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 8
+  comments_resolved: 0
+  comments_to_code: 3
+  details: Apparently, pull request cqfn/aibolit#204 has been merged by @rultor, with
+    112 HoC and 11 comments.
+  failed_builds: 0
+  hoc: 112
+  is_human: 0
+  issue: 204
+  repository: 237167507
+  review_comments: 3
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-14 14:32:09.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6387
+  _time: 2025-06-18 09:00:46.068899345 Z
+  _version: 0.11.0/0.50.3/
+  branch: master
+  comments: 8
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#205 has been closed by @acheshkov,
+    with 12844 HoC and 8 comments.
+  failed_builds: 0
+  hoc: 12844
+  is_human: 1
+  issue: 205
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-21 18:13:45.000000000 Z
+  where: github
+  who: 231433
+- _id: 6388
+  _time: 2025-06-18 09:00:51.306552042 Z
+  _version: 0.11.0/0.50.3/
+  branch: cognitive
+  comments: 7
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#207 has been merged by @rultor, with
+    136 HoC and 7 comments.
+  failed_builds: 0
+  hoc: 136
+  is_human: 0
+  issue: 207
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-14 13:47:38.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6389
+  _time: 2025-06-18 09:00:55.788875592 Z
+  _version: 0.11.0/0.50.3/
+  branch: pair_wise
+  comments: 16
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 16
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#209 has been closed by @acheshkov,
+    with 2897 HoC and 16 comments.
+  failed_builds: 0
+  hoc: 2897
+  is_human: 1
+  issue: 209
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-21 18:13:31.000000000 Z
+  where: github
+  who: 231433
+- _id: 6390
+  _time: 2025-06-18 09:01:02.702709818 Z
+  _version: 0.11.0/0.50.3/
+  branch: '141'
+  comments: 6
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#210 has been merged by @rultor, with
+    43 HoC and 6 comments.
+  failed_builds: 0
+  hoc: 43
+  is_human: 0
+  issue: 210
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-16 12:37:16.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6391
+  _time: 2025-06-18 09:01:06.872243375 Z
+  _version: 0.11.0/0.50.3/
+  branch: '148'
+  comments: 8
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#211 has been closed by @acheshkov,
+    with 102 HoC and 8 comments.
+  failed_builds: 0
+  hoc: 102
+  is_human: 1
+  issue: 211
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-15 16:42:31.000000000 Z
+  where: github
+  who: 231433
+- _id: 6392
+  _time: 2025-06-18 09:01:11.562973913 Z
+  _version: 0.11.0/0.50.3/
+  branch: cognitive
+  comments: 42
+  comments_appreciated: 0
+  comments_by_author: 7
+  comments_by_reviewers: 35
+  comments_resolved: 8
+  comments_to_code: 16
+  details: Apparently, pull request cqfn/aibolit#213 has been merged by @rultor, with
+    121 HoC and 42 comments.
+  failed_builds: 0
+  hoc: 121
+  is_human: 0
+  issue: 213
+  repository: 237167507
+  review_comments: 16
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-16 08:43:21.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6393
+  _time: 2025-06-18 09:01:25.025692735 Z
+  _version: 0.11.0/0.50.3/
+  branch: metrics
+  comments: 14
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 12
+  comments_resolved: 2
+  comments_to_code: 6
+  details: Apparently, pull request cqfn/aibolit#214 has been closed by @acheshkov,
+    with 19 HoC and 14 comments.
+  failed_builds: 0
+  hoc: 19
+  is_human: 1
+  issue: 214
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-21 18:12:57.000000000 Z
+  where: github
+  who: 231433
+- _id: 6395
+  _time: 2025-06-18 09:03:49.197251866 Z
+  _version: 0.11.0/0.50.3/
+  latest: 51018903698
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 6396
+  _time: 2025-06-18 09:04:03.719560226 Z
+  _version: 0.11.0/0.50.3/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 6397
+  _time: 2025-06-18 09:05:10.524105847 Z
+  _version: 0.11.0/0.50.3/
+  latest: 175
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
