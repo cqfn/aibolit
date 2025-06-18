@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="402377">
+<fb version="0.11.0" size="408834">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">348.337088698</seconds>
+    <seconds t="F">334.627705161</seconds>
     <version t="S">0.50.3</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-18T17:06:45Z</when>
+    <when t="T">2025-06-18T18:01:06Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -22006,24 +22006,6 @@
     <who t="I">8086956</who>
   </f>
   <f>
-    <_id t="I">6507</_id>
-    <_time t="T">2025-06-18T17:02:18Z</_time>
-    <_version t="S">0.11.0/0.50.3/</_version>
-    <latest t="I">51029644091</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">6508</_id>
-    <_time t="T">2025-06-18T17:02:21Z</_time>
-    <_version t="S">0.11.0/0.50.3/</_version>
-    <latest t="I">710</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">6509</_id>
     <_time t="T">2025-06-18T17:04:29Z</_time>
     <_version t="S">0.11.0/0.50.3/</_version>
@@ -22408,21 +22390,435 @@
     <who t="I">8086956</who>
   </f>
   <f>
-    <_id t="I">6525</_id>
-    <_time t="T">2025-06-18T17:05:27Z</_time>
+    <_id t="I">6531</_id>
+    <_time t="T">2025-06-18T17:58:53Z</_time>
     <_version t="S">0.11.0/0.50.3/</_version>
-    <latest t="I">212</latest>
+    <latest t="I">51067996034</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">6532</_id>
+    <_time t="T">2025-06-18T17:58:57Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <latest t="I">290</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">6533</_id>
+    <_time t="T">2025-06-18T17:58:58Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">6534</_id>
+    <_time t="T">2025-06-18T17:59:03Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <latest t="I">237</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">6526</_id>
-    <_time t="T">2025-06-18T17:05:32Z</_time>
+    <_id t="I">6535</_id>
+    <_time t="T">2025-06-18T17:59:09Z</_time>
     <_version t="S">0.11.0/0.50.3/</_version>
-    <latest t="I">278</latest>
+    <branch t="S">fix_multi_thread</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#348 has been merged by @rultor, with 112 HoC and 4 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">112</hoc>
+    <issue t="I">348</issue>
     <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-05-25T15:31:04Z</when>
     <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6536</_id>
+    <_time t="T">2025-06-18T17:59:18Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">print</branch>
+    <comments t="I">7</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">7</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#350 has been merged by @rultor, with 225 HoC and 7 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">225</hoc>
+    <issue t="I">350</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-05-26T12:14:06Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6537</_id>
+    <_time t="T">2025-06-18T17:59:21Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">print</branch>
+    <comments t="I">7</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">7</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#354 has been merged by @rultor, with 125 HoC and 7 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">125</hoc>
+    <issue t="I">354</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-05-26T14:16:49Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6538</_id>
+    <_time t="T">2025-06-18T17:59:24Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">package_info</branch>
+    <comments t="I">5</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">5</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#361 has been merged by @rultor, with 4 HoC and 5 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">4</hoc>
+    <issue t="I">361</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-05-28T12:14:17Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6539</_id>
+    <_time t="T">2025-06-18T17:59:26Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">remove_redundant_log</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#362 has been merged by @rultor, with 22 HoC and 4 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">22</hoc>
+    <issue t="I">362</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-05-28T12:32:11Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6540</_id>
+    <_time t="T">2025-06-18T17:59:29Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">fix_docs</branch>
+    <comments t="I">5</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">5</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#367 has been merged by @rultor, with 2 HoC and 5 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">2</hoc>
+    <issue t="I">367</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-05-28T13:58:15Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6541</_id>
+    <_time t="T">2025-06-18T17:59:31Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">check_rename</branch>
+    <comments t="I">7</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">6</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#374 has been merged by @rultor, with 23 HoC and 7 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">23</hoc>
+    <issue t="I">374</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-05-29T13:01:19Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6542</_id>
+    <_time t="T">2025-06-18T17:59:34Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">model_name</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#375 has been merged by @rultor, with 8 HoC and 4 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">8</hoc>
+    <issue t="I">375</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-05-29T14:01:34Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6543</_id>
+    <_time t="T">2025-06-18T17:59:36Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">patterns_docs</branch>
+    <comments t="I">6</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">5</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#377 has been merged by @rultor, with 667 HoC and 6 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">667</hoc>
+    <issue t="I">377</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-06-01T15:02:37Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6544</_id>
+    <_time t="T">2025-06-18T17:59:38Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">issue-360</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#378 has been merged by @rultor, with 149 HoC and 4 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">149</hoc>
+    <issue t="I">378</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-06-01T16:24:52Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6545</_id>
+    <_time t="T">2025-06-18T17:59:41Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">fix_docs</branch>
+    <comments t="I">6</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">6</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#379 has been merged by @rultor, with 86 HoC and 6 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">86</hoc>
+    <issue t="I">379</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-06-02T14:58:55Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6546</_id>
+    <_time t="T">2025-06-18T17:59:43Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">suppress</branch>
+    <comments t="I">13</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">12</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#380 has been merged by @rultor, with 52 HoC and 13 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">52</hoc>
+    <issue t="I">380</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-06-04T07:56:09Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6547</_id>
+    <_time t="T">2025-06-18T17:59:47Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">method_informative</branch>
+    <comments t="I">16</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">6</comments_by_author>
+    <comments_by_reviewers t="I">10</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">8</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#381 has been merged by @rultor, with 125 HoC and 16 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">125</hoc>
+    <issue t="I">381</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-06-08T10:36:55Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6548</_id>
+    <_time t="T">2025-06-18T17:59:51Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">weight</branch>
+    <comments t="I">8</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">2</comments_by_author>
+    <comments_by_reviewers t="I">6</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">1</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#382 has been closed by @lyriccoder, with 89 HoC and 8 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">89</hoc>
+    <issue t="I">382</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-closed</what>
+    <when t="T">2020-06-15T13:44:47Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">6549</_id>
+    <_time t="T">2025-06-18T17:59:55Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">format_long</branch>
+    <comments t="I">5</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">5</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#386 has been merged by @rultor, with 8 HoC and 5 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">8</hoc>
+    <issue t="I">386</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-06-03T15:14:53Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6550</_id>
+    <_time t="T">2025-06-18T17:59:57Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">issue-340</branch>
+    <comments t="I">5</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#387 has been closed by @aravij, with 327 HoC and 5 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">327</hoc>
+    <issue t="I">387</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-closed</what>
+    <when t="T">2020-06-04T18:10:45Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">6551</_id>
+    <_time t="T">2025-06-18T17:59:59Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">fix_xml</branch>
+    <comments t="I">10</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">9</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#389 has been merged by @rultor, with 41 HoC and 10 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">41</hoc>
+    <issue t="I">389</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-06-05T13:33:40Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">6552</_id>
+    <_time t="T">2025-06-18T18:00:03Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <branch t="S">issue-390</branch>
+    <comments t="I">9</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">8</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, pull request cqfn/aibolit#391 has been merged by @rultor, with 924 HoC and 9 comments.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">924</hoc>
+    <issue t="I">391</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">0</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2020-06-05T18:40:04Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
   </f>
 </fb>

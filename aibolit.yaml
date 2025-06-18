@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 348.337088698
+  seconds: 334.627705161
   version: 0.50.3
   what: judges-summary
-  when: 2025-06-18 17:06:45.438656533 Z
+  when: 2025-06-18 18:01:06.029537880 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -19470,20 +19470,6 @@
   when: 2020-05-14 16:35:02.000000000 Z
   where: github
   who: 8086956
-- _id: 6507
-  _time: 2025-06-18 17:02:18.804203511 Z
-  _version: 0.11.0/0.50.3/
-  latest: 51029644091
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 6508
-  _time: 2025-06-18 17:02:21.166924500 Z
-  _version: 0.11.0/0.50.3/
-  latest: 710
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
 - _id: 6509
   _time: 2025-06-18 17:04:29.024740473 Z
   _version: 0.11.0/0.50.3/
@@ -19852,17 +19838,409 @@
   when: 2020-06-26 12:11:45.000000000 Z
   where: github
   who: 8086956
-- _id: 6525
-  _time: 2025-06-18 17:05:27.647144099 Z
+- _id: 6531
+  _time: 2025-06-18 17:58:53.559861305 Z
   _version: 0.11.0/0.50.3/
-  latest: 212
+  latest: 51067996034
   repository: 237167507
-  what: types-were-scanned
+  what: events-were-scanned
   where: github
-- _id: 6526
-  _time: 2025-06-18 17:05:32.444340823 Z
+- _id: 6532
+  _time: 2025-06-18 17:58:57.138051811 Z
   _version: 0.11.0/0.50.3/
-  latest: 278
+  latest: 290
   repository: 237167507
   what: labels-were-scanned
   where: github
+- _id: 6533
+  _time: 2025-06-18 17:58:58.672858913 Z
+  _version: 0.11.0/0.50.3/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 6534
+  _time: 2025-06-18 17:59:03.599171127 Z
+  _version: 0.11.0/0.50.3/
+  latest: 237
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 6535
+  _time: 2025-06-18 17:59:09.771656343 Z
+  _version: 0.11.0/0.50.3/
+  branch: fix_multi_thread
+  comments: 4
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#348 has been merged by @rultor, with
+    112 HoC and 4 comments.
+  failed_builds: 0
+  hoc: 112
+  issue: 348
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-05-25 15:31:04.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6536
+  _time: 2025-06-18 17:59:18.520952337 Z
+  _version: 0.11.0/0.50.3/
+  branch: print
+  comments: 7
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#350 has been merged by @rultor, with
+    225 HoC and 7 comments.
+  failed_builds: 0
+  hoc: 225
+  issue: 350
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-05-26 12:14:06.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6537
+  _time: 2025-06-18 17:59:21.625235217 Z
+  _version: 0.11.0/0.50.3/
+  branch: print
+  comments: 7
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#354 has been merged by @rultor, with
+    125 HoC and 7 comments.
+  failed_builds: 0
+  hoc: 125
+  issue: 354
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-05-26 14:16:49.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6538
+  _time: 2025-06-18 17:59:24.435983656 Z
+  _version: 0.11.0/0.50.3/
+  branch: package_info
+  comments: 5
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 5
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#361 has been merged by @rultor, with
+    4 HoC and 5 comments.
+  failed_builds: 0
+  hoc: 4
+  issue: 361
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-05-28 12:14:17.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6539
+  _time: 2025-06-18 17:59:26.922647940 Z
+  _version: 0.11.0/0.50.3/
+  branch: remove_redundant_log
+  comments: 4
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#362 has been merged by @rultor, with
+    22 HoC and 4 comments.
+  failed_builds: 0
+  hoc: 22
+  issue: 362
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-05-28 12:32:11.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6540
+  _time: 2025-06-18 17:59:29.096609413 Z
+  _version: 0.11.0/0.50.3/
+  branch: fix_docs
+  comments: 5
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 5
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#367 has been merged by @rultor, with
+    2 HoC and 5 comments.
+  failed_builds: 0
+  hoc: 2
+  issue: 367
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-05-28 13:58:15.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6541
+  _time: 2025-06-18 17:59:31.509535800 Z
+  _version: 0.11.0/0.50.3/
+  branch: check_rename
+  comments: 7
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#374 has been merged by @rultor, with
+    23 HoC and 7 comments.
+  failed_builds: 0
+  hoc: 23
+  issue: 374
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-05-29 13:01:19.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6542
+  _time: 2025-06-18 17:59:34.173696583 Z
+  _version: 0.11.0/0.50.3/
+  branch: model_name
+  comments: 4
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#375 has been merged by @rultor, with
+    8 HoC and 4 comments.
+  failed_builds: 0
+  hoc: 8
+  issue: 375
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-05-29 14:01:34.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6543
+  _time: 2025-06-18 17:59:36.241232164 Z
+  _version: 0.11.0/0.50.3/
+  branch: patterns_docs
+  comments: 6
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 5
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#377 has been merged by @rultor, with
+    667 HoC and 6 comments.
+  failed_builds: 0
+  hoc: 667
+  issue: 377
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-06-01 15:02:37.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6544
+  _time: 2025-06-18 17:59:38.800384220 Z
+  _version: 0.11.0/0.50.3/
+  branch: issue-360
+  comments: 4
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#378 has been merged by @rultor, with
+    149 HoC and 4 comments.
+  failed_builds: 0
+  hoc: 149
+  issue: 378
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-06-01 16:24:52.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6545
+  _time: 2025-06-18 17:59:41.113084394 Z
+  _version: 0.11.0/0.50.3/
+  branch: fix_docs
+  comments: 6
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#379 has been merged by @rultor, with
+    86 HoC and 6 comments.
+  failed_builds: 0
+  hoc: 86
+  issue: 379
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-06-02 14:58:55.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6546
+  _time: 2025-06-18 17:59:43.603748511 Z
+  _version: 0.11.0/0.50.3/
+  branch: suppress
+  comments: 13
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 12
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#380 has been merged by @rultor, with
+    52 HoC and 13 comments.
+  failed_builds: 0
+  hoc: 52
+  issue: 380
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-06-04 07:56:09.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6547
+  _time: 2025-06-18 17:59:47.782905774 Z
+  _version: 0.11.0/0.50.3/
+  branch: method_informative
+  comments: 16
+  comments_appreciated: 0
+  comments_by_author: 6
+  comments_by_reviewers: 10
+  comments_resolved: 0
+  comments_to_code: 8
+  details: Apparently, pull request cqfn/aibolit#381 has been merged by @rultor, with
+    125 HoC and 16 comments.
+  failed_builds: 0
+  hoc: 125
+  issue: 381
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-06-08 10:36:55.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6548
+  _time: 2025-06-18 17:59:51.694118336 Z
+  _version: 0.11.0/0.50.3/
+  branch: weight
+  comments: 8
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 1
+  details: Apparently, pull request cqfn/aibolit#382 has been closed by @lyriccoder,
+    with 89 HoC and 8 comments.
+  failed_builds: 0
+  hoc: 89
+  issue: 382
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-06-15 13:44:47.000000000 Z
+  where: github
+  who: 20803206
+- _id: 6549
+  _time: 2025-06-18 17:59:55.065544863 Z
+  _version: 0.11.0/0.50.3/
+  branch: format_long
+  comments: 5
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 5
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#386 has been merged by @rultor, with
+    8 HoC and 5 comments.
+  failed_builds: 0
+  hoc: 8
+  issue: 386
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-06-03 15:14:53.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6550
+  _time: 2025-06-18 17:59:57.292866400 Z
+  _version: 0.11.0/0.50.3/
+  branch: issue-340
+  comments: 5
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#387 has been closed by @aravij, with
+    327 HoC and 5 comments.
+  failed_builds: 0
+  hoc: 327
+  issue: 387
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-06-04 18:10:45.000000000 Z
+  where: github
+  who: 1987026
+- _id: 6551
+  _time: 2025-06-18 17:59:59.704641925 Z
+  _version: 0.11.0/0.50.3/
+  branch: fix_xml
+  comments: 10
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 9
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#389 has been merged by @rultor, with
+    41 HoC and 10 comments.
+  failed_builds: 0
+  hoc: 41
+  issue: 389
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-06-05 13:33:40.000000000 Z
+  where: github
+  who: 8086956
+- _id: 6552
+  _time: 2025-06-18 18:00:03.221899288 Z
+  _version: 0.11.0/0.50.3/
+  branch: issue-390
+  comments: 9
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 8
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, pull request cqfn/aibolit#391 has been merged by @rultor, with
+    924 HoC and 9 comments.
+  failed_builds: 0
+  hoc: 924
+  issue: 391
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-06-05 18:40:04.000000000 Z
+  where: github
+  who: 8086956
