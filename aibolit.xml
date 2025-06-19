@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="533765">
+<fb version="0.11.0" size="541580">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">356.187402797</seconds>
+    <seconds t="F">334.083366267</seconds>
     <version t="S">0.50.3</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-19T03:46:34Z</when>
+    <when t="T">2025-06-19T04:22:28Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -30167,33 +30167,6 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">6938</_id>
-    <_time t="T">2025-06-19T03:42:02Z</_time>
-    <_version t="S">0.11.0/0.50.3/</_version>
-    <latest t="I">363</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">6939</_id>
-    <_time t="T">2025-06-19T03:43:04Z</_time>
-    <_version t="S">0.11.0/0.50.3/</_version>
-    <latest t="I">710</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">6940</_id>
-    <_time t="T">2025-06-19T03:43:28Z</_time>
-    <_version t="S">0.11.0/0.50.3/</_version>
-    <latest t="I">305</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">6941</_id>
     <_time t="T">2025-06-19T03:44:37Z</_time>
     <_version t="S">0.11.0/0.50.3/</_version>
@@ -30207,8 +30180,10 @@
     <details t="S">Apparently, pull request cqfn/aibolit#711 has been merged by @yegor256, with 11 HoC and 1 comments.</details>
     <failed_builds t="I">2</failed_builds>
     <hoc t="I">11</hoc>
+    <is_human t="I">1</is_human>
     <issue t="I">711</issue>
     <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
     <succeeded_builds t="I">14</succeeded_builds>
     <what t="S">pull-was-merged</what>
     <when t="T">2025-05-23T08:01:05Z</when>
@@ -30229,8 +30204,10 @@
     <details t="S">Apparently, pull request cqfn/aibolit#714 has been merged by @yegor256, with 38 HoC and 2 comments.</details>
     <failed_builds t="I">2</failed_builds>
     <hoc t="I">38</hoc>
+    <is_human t="I">1</is_human>
     <issue t="I">714</issue>
     <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
     <succeeded_builds t="I">14</succeeded_builds>
     <what t="S">pull-was-merged</what>
     <when t="T">2025-05-23T09:59:23Z</when>
@@ -30251,8 +30228,10 @@
     <details t="S">Apparently, pull request cqfn/aibolit#716 has been merged by @yegor256, with 9 HoC and 2 comments.</details>
     <failed_builds t="I">2</failed_builds>
     <hoc t="I">9</hoc>
+    <is_human t="I">1</is_human>
     <issue t="I">716</issue>
     <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
     <succeeded_builds t="I">14</succeeded_builds>
     <what t="S">pull-was-merged</what>
     <when t="T">2025-05-23T12:42:46Z</when>
@@ -30260,12 +30239,469 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">6944</_id>
-    <_time t="T">2025-06-19T03:45:24Z</_time>
+    <_id t="I">6945</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">3</comments>
+    <details t="S">The pull request cqfn/aibolit#631 with 12 HoC created by @aravij was merged by @rultor after 1d13h of being in review and 3 comments.</details>
+    <hoc t="I">12</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">631</issue>
+    <merger t="I">8086956</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">133346</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2020-08-27T07:51:27Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">6946</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">8</comments>
+    <details t="S">The pull request cqfn/aibolit#633 with 65 HoC created by @aravij was merged by @rultor after 1d21h of being in review and 8 comments.</details>
+    <hoc t="I">65</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">633</issue>
+    <merger t="I">8086956</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">4</review_comments>
+    <seconds t="I">164126</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2020-08-28T13:16:33Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">6947</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">6</comments>
+    <details t="S">The pull request cqfn/aibolit#635 with 232 HoC created by @aravij was merged by @rultor after 22h27m of being in review and 6 comments.</details>
+    <hoc t="I">232</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">635</issue>
+    <merger t="I">8086956</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">3</review_comments>
+    <seconds t="I">80825</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2020-09-16T07:36:39Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">6948</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">30</comments>
+    <details t="S">The pull request cqfn/aibolit#641 with 243 HoC created by @vitaly-protasov was merged by @acheshkov after 5d11h of being in review and 30 comments.</details>
+    <hoc t="I">243</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">641</issue>
+    <merger t="I">231433</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">29</review_comments>
+    <seconds t="I">474496</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2020-09-21T07:36:45Z</when>
+    <where t="S">github</where>
+    <who t="I">43099602</who>
+  </f>
+  <f>
+    <_id t="I">6949</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">3</comments>
+    <details t="S">The pull request cqfn/aibolit#643 with 341 HoC created by @aravij was merged by @rultor after 1h22m of being in review and 3 comments.</details>
+    <hoc t="I">341</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">643</issue>
+    <merger t="I">8086956</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">4966</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2020-09-16T09:35:42Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">6950</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#644 with 149 HoC created by @aravij was merged by @rultor after 3h5m of being in review and 4 comments.</details>
+    <hoc t="I">149</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">644</issue>
+    <merger t="I">8086956</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">11138</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2020-09-16T12:51:56Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">6951</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">3</comments>
+    <details t="S">The pull request cqfn/aibolit#647 with 102 HoC created by @aravij was merged by @rultor after 17h23m of being in review and 3 comments.</details>
+    <hoc t="I">102</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">647</issue>
+    <merger t="I">8086956</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">62636</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2020-09-18T09:42:58Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">6952</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">3</comments>
+    <details t="S">The pull request cqfn/aibolit#650 with 140 HoC created by @aravij was merged by @rultor after 2d22h of being in review and 3 comments.</details>
+    <hoc t="I">140</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">650</issue>
+    <merger t="I">8086956</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">252763</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2020-09-21T08:27:14Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">6953</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">0</comments>
+    <details t="S">The pull request cqfn/aibolit#655 with 945 HoC created by @aravij was merged by @aravij after 1h38m of being in review and 0 comments.</details>
+    <hoc t="I">945</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">655</issue>
+    <merger t="I">1987026</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">5910</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2020-10-27T11:22:20Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">6954</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">2</comments>
+    <details t="S">The pull request cqfn/aibolit#675 with 7363 HoC created by @yegor256 was merged by @yegor256 after 20h48m of being in review and 2 comments.</details>
+    <hoc t="I">7363</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">675</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">74925</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-15T10:20:23Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">6955</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">0</comments>
+    <details t="S">The pull request cqfn/aibolit#678 with 2 HoC created by @github-actions[bot] was merged by @yegor256 after 27m27s of being in review and 0 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">678</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">1648</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-15T11:54:50Z</when>
+    <where t="S">github</where>
+    <who t="I">41898282</who>
+  </f>
+  <f>
+    <_id t="I">6956</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:05Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">0</comments>
+    <details t="S">The pull request cqfn/aibolit#679 with 2 HoC created by @dependabot[bot] was merged by @yegor256 after 20h18m of being in review and 0 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">679</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">73096</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-16T07:46:16Z</when>
+    <where t="S">github</where>
+    <who t="I">49699333</who>
+  </f>
+  <f>
+    <_id t="I">6957</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:06Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">0</comments>
+    <details t="S">The pull request cqfn/aibolit#681 with 2 HoC created by @github-actions[bot] was merged by @yegor256 after 9m42s of being in review and 0 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">681</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">583</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-15T14:55:46Z</when>
+    <where t="S">github</where>
+    <who t="I">41898282</who>
+  </f>
+  <f>
+    <_id t="I">6958</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:06Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">5</comments>
+    <details t="S">The pull request cqfn/aibolit#686 with 12 HoC created by @literally-bug-creator was merged by @yegor256 after 1d23h of being in review and 5 comments.</details>
+    <hoc t="I">12</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">686</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">2</review_comments>
+    <seconds t="I">171780</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-20T11:58:34Z</when>
+    <where t="S">github</where>
+    <who t="I">84927447</who>
+  </f>
+  <f>
+    <_id t="I">6959</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:06Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#690 with 57 HoC created by @literally-bug-creator was merged by @yegor256 after 3h33m of being in review and 4 comments.</details>
+    <hoc t="I">57</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">690</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">12814</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-20T15:16:29Z</when>
+    <where t="S">github</where>
+    <who t="I">84927447</who>
+  </f>
+  <f>
+    <_id t="I">6960</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:06Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">1</comments>
+    <details t="S">The pull request cqfn/aibolit#693 with 2 HoC created by @ivanovmg was merged by @yegor256 after 2h49m of being in review and 1 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">693</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">10160</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-21T09:37:12Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">6961</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:06Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">1</comments>
+    <details t="S">The pull request cqfn/aibolit#695 with 599 HoC created by @ivanovmg was merged by @yegor256 after 1h54m of being in review and 1 comments.</details>
+    <hoc t="I">599</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">695</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">6895</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-21T09:36:32Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">6962</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:06Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">1</comments>
+    <details t="S">The pull request cqfn/aibolit#698 with 194 HoC created by @literally-bug-creator was merged by @yegor256 after 25m20s of being in review and 1 comments.</details>
+    <hoc t="I">194</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">698</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">1521</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-21T13:05:37Z</when>
+    <where t="S">github</where>
+    <who t="I">84927447</who>
+  </f>
+  <f>
+    <_id t="I">6963</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:06Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#701 with 17 HoC created by @ivanovmg was merged by @yegor256 after 2h22m of being in review and 4 comments.</details>
+    <hoc t="I">17</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">701</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">8562</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-22T10:05:55Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">6964</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:06Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">2</comments>
+    <details t="S">The pull request cqfn/aibolit#704 with 3 HoC created by @ivanovmg was merged by @yegor256 after 52m27s of being in review and 2 comments.</details>
+    <hoc t="I">3</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">704</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">3148</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-22T09:39:52Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">6965</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:06Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">1</comments>
+    <details t="S">The pull request cqfn/aibolit#706 with 76 HoC created by @ivanovmg was merged by @yegor256 after 21h20m of being in review and 1 comments.</details>
+    <hoc t="I">76</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">706</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">76819</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-23T07:32:48Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">6966</_id>
+    <_job t="I">25289</_job>
+    <_time t="T">2025-06-19T03:47:06Z</_time>
+    <_version t="S">0.11.0/0.50.3/0.14.7</_version>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#708 with 4035 HoC created by @ivanovmg was merged by @yegor256 after 19h16m of being in review and 4 comments.</details>
+    <hoc t="I">4035</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">708</issue>
+    <merger t="I">526301</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">69372</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-05-23T07:31:25Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">6968</_id>
+    <_time t="T">2025-06-19T04:17:00Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <latest t="I">369</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">6971</_id>
+    <_time t="T">2025-06-19T04:19:22Z</_time>
     <_version t="S">0.11.0/0.50.3/</_version>
     <latest t="I">51080759581</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">6972</_id>
+    <_time t="T">2025-06-19T04:20:23Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">6973</_id>
+    <_time t="T">2025-06-19T04:20:27Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <latest t="I">324</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">6974</_id>
+    <_time t="T">2025-06-19T04:22:27Z</_time>
+    <_version t="S">0.11.0/0.50.3/</_version>
+    <assigner t="I">1987026</assigner>
+    <issue t="I">520</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-assigned</what>
+    <when t="T">2020-07-15T09:55:01Z</when>
+    <where t="S">github</where>
+    <who t="I">43099602</who>
   </f>
 </fb>
