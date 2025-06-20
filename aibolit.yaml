@@ -1,15 +1,13 @@
 ---
 - added: 8
-  cycles: 5
+  cycles: 4
   deleted: 8
-  error:
-  - 'We are off-quota (remaining: 29)'
-  - 'We are off-quota (remaining: 28)'
+  error: 'We are off-quota (remaining: 29)'
   inserted: 8
-  seconds: 300.853544979
+  seconds: 348.534880993
   version: 0.50.3
   what: judges-summary
-  when: 2025-06-20 12:00:20.350883027 Z
+  when: 2025-06-20 13:27:52.707867461 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -28396,31 +28394,49 @@
   when: 2020-09-15 11:58:46.000000000 Z
   where: github
   who: 1987026
-- _id: 7043
-  _time: 2025-06-20 11:59:58.338621965 Z
+- _id: 7047
+  _time: 2025-06-20 13:22:07.355351728 Z
+  _version: 0.11.0/0.50.3/
+  commit: 1e873e36b7139c4f3df82429ff9fcf42cfdfe61b
+  default_branch: master
+  details: 'A new Git push #25017748891 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is ''master''), not associated with any pull request.'
+  event_id: 51143712202
+  event_type: PushEvent
+  is_human: 1
+  push_id: 25017748891
+  ref: refs/heads/master
+  repository: 237167507
+  to_master: 1
+  what: git-was-pushed
+  when: 2025-06-20 11:40:37.000000000 Z
+  where: github
+  who: 526301
+- _id: 7053
+  _time: 2025-06-20 13:24:37.974827955 Z
+  _version: 0.11.0/0.50.3/
+  latest: 446
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 7054
+  _time: 2025-06-20 13:24:45.686119129 Z
+  _version: 0.11.0/0.50.3/
+  latest: 376
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 7055
+  _time: 2025-06-20 13:25:47.259453508 Z
   _version: 0.11.0/0.50.3/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 7044
-  _time: 2025-06-20 12:00:03.375178790 Z
+- _id: 7056
+  _time: 2025-06-20 13:25:51.571635809 Z
   _version: 0.11.0/0.50.3/
-  latest: 51088823012
+  latest: 51143913111
   repository: 237167507
   what: events-were-scanned
-  where: github
-- _id: 7045
-  _time: 2025-06-20 12:00:11.774287554 Z
-  _version: 0.11.0/0.50.3/
-  latest: 369
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 7046
-  _time: 2025-06-20 12:00:20.319298342 Z
-  _version: 0.11.0/0.50.3/
-  latest: 438
-  repository: 237167507
-  what: labels-were-scanned
   where: github
