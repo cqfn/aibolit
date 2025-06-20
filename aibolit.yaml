@@ -1,13 +1,15 @@
 ---
 - added: 8
-  cycles: 4
+  cycles: 5
   deleted: 8
-  error: 'We are off-quota (remaining: 29)'
+  error:
+  - 'We are off-quota (remaining: 29)'
+  - 'We are off-quota (remaining: 28)'
   inserted: 8
-  seconds: 302.896026572
-  version: 0.50.3
+  seconds: 154.529146822
+  version: 0.50.4
   what: judges-summary
-  when: 2025-06-20 17:03:57.547727793 Z
+  when: 2025-06-20 17:57:45.907386341 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -28412,31 +28414,108 @@
   when: 2025-06-20 11:40:37.000000000 Z
   where: github
   who: 526301
-- _id: 7073
-  _time: 2025-06-20 17:02:35.252318296 Z
-  _version: 0.11.0/0.50.3/
-  latest: 414
+- _id: 7078
+  _time: 2025-06-20 17:55:48.138724717 Z
+  _version: 0.11.0/0.50.4/
+  assigner: 1987026
+  is_human: 1
+  issue: 638
   repository: 237167507
-  what: types-were-scanned
+  what: issue-was-assigned
+  when: 2020-09-15 14:15:52.000000000 Z
   where: github
-- _id: 7074
-  _time: 2025-06-20 17:02:39.557388065 Z
-  _version: 0.11.0/0.50.3/
-  latest: 710
+  who: 1987026
+- _id: 7079
+  _time: 2025-06-20 17:55:48.792885709 Z
+  _version: 0.11.0/0.50.4/
+  assigner: 1987026
+  is_human: 1
+  issue: 645
   repository: 237167507
-  what: min-issue-was-found
+  what: issue-was-assigned
+  when: 2020-09-17 13:19:45.000000000 Z
   where: github
-- _id: 7075
-  _time: 2025-06-20 17:02:43.700331478 Z
-  _version: 0.11.0/0.50.3/
-  latest: 51147845896
+  who: 1987026
+- _id: 7080
+  _time: 2025-06-20 17:55:48.964027752 Z
+  _version: 0.11.0/0.50.4/
+  assigner: 1987026
+  is_human: 1
+  issue: 646
+  repository: 237167507
+  what: issue-was-assigned
+  when: 2020-09-17 15:27:02.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7081
+  _time: 2025-06-20 17:55:49.307260091 Z
+  _version: 0.11.0/0.50.4/
+  assigner: 1987026
+  is_human: 1
+  issue: 649
+  repository: 237167507
+  what: issue-was-assigned
+  when: 2020-09-18 08:30:52.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7082
+  _time: 2025-06-20 17:55:49.467616277 Z
+  _version: 0.11.0/0.50.4/
+  assigner: 1987026
+  is_human: 1
+  issue: 652
+  repository: 237167507
+  what: issue-was-assigned
+  when: 2020-10-27 08:58:54.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7083
+  _time: 2025-06-20 17:55:49.656589606 Z
+  _version: 0.11.0/0.50.4/
+  assigner: 1987026
+  is_human: 1
+  issue: 654
+  repository: 237167507
+  what: issue-was-assigned
+  when: 2020-10-27 09:37:28.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7084
+  _time: 2025-06-20 17:55:50.502163500 Z
+  _version: 0.11.0/0.50.4/
+  assigner: 526301
+  is_human: 1
+  issue: 674
+  repository: 237167507
+  what: issue-was-assigned
+  when: 2025-05-14 13:28:31.000000000 Z
+  where: github
+  who: 526301
+- _id: 7095
+  _time: 2025-06-20 17:57:37.855973660 Z
+  _version: 0.11.0/0.50.4/
+  latest: 500
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 7097
+  _time: 2025-06-20 17:57:40.347511353 Z
+  _version: 0.11.0/0.50.4/
+  latest: 51151646142
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 7076
-  _time: 2025-06-20 17:03:57.515104405 Z
-  _version: 0.11.0/0.50.3/
-  latest: 476
+- _id: 7098
+  _time: 2025-06-20 17:57:44.257671446 Z
+  _version: 0.11.0/0.50.4/
+  latest: 446
   repository: 237167507
-  what: labels-were-scanned
+  what: types-were-scanned
+  where: github
+- _id: 7099
+  _time: 2025-06-20 17:57:45.078771722 Z
+  _version: 0.11.0/0.50.4/
+  latest: 710
+  repository: 237167507
+  what: min-issue-was-found
   where: github

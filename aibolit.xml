@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="554681">
+<fb version="0.11.0" size="555824">
   <f>
     <added t="I">8</added>
-    <cycles t="I">4</cycles>
+    <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
-    <error t="S">We are off-quota (remaining: 29)</error>
+    <error>
+      <v t="S">We are off-quota (remaining: 29)</v>
+      <v t="S">We are off-quota (remaining: 28)</v>
+    </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">302.896026572</seconds>
-    <version t="S">0.50.3</version>
+    <seconds t="F">154.529146822</seconds>
+    <version t="S">0.50.4</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-20T17:03:57Z</when>
+    <when t="T">2025-06-20T17:57:45Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -31415,39 +31418,130 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">7073</_id>
-    <_time t="T">2025-06-20T17:02:35Z</_time>
-    <_version t="S">0.11.0/0.50.3/</_version>
-    <latest t="I">414</latest>
+    <_id t="I">7078</_id>
+    <_time t="T">2025-06-20T17:55:48Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <assigner t="I">1987026</assigner>
+    <is_human t="I">1</is_human>
+    <issue t="I">638</issue>
     <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
+    <what t="S">issue-was-assigned</what>
+    <when t="T">2020-09-15T14:15:52Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">7079</_id>
+    <_time t="T">2025-06-20T17:55:48Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <assigner t="I">1987026</assigner>
+    <is_human t="I">1</is_human>
+    <issue t="I">645</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-assigned</what>
+    <when t="T">2020-09-17T13:19:45Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">7080</_id>
+    <_time t="T">2025-06-20T17:55:48Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <assigner t="I">1987026</assigner>
+    <is_human t="I">1</is_human>
+    <issue t="I">646</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-assigned</what>
+    <when t="T">2020-09-17T15:27:02Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">7081</_id>
+    <_time t="T">2025-06-20T17:55:49Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <assigner t="I">1987026</assigner>
+    <is_human t="I">1</is_human>
+    <issue t="I">649</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-assigned</what>
+    <when t="T">2020-09-18T08:30:52Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">7082</_id>
+    <_time t="T">2025-06-20T17:55:49Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <assigner t="I">1987026</assigner>
+    <is_human t="I">1</is_human>
+    <issue t="I">652</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-assigned</what>
+    <when t="T">2020-10-27T08:58:54Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">7083</_id>
+    <_time t="T">2025-06-20T17:55:49Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <assigner t="I">1987026</assigner>
+    <is_human t="I">1</is_human>
+    <issue t="I">654</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-assigned</what>
+    <when t="T">2020-10-27T09:37:28Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">7084</_id>
+    <_time t="T">2025-06-20T17:55:50Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <assigner t="I">526301</assigner>
+    <is_human t="I">1</is_human>
+    <issue t="I">674</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-assigned</what>
+    <when t="T">2025-05-14T13:28:31Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">7095</_id>
+    <_time t="T">2025-06-20T17:57:37Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">500</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7074</_id>
-    <_time t="T">2025-06-20T17:02:39Z</_time>
-    <_version t="S">0.11.0/0.50.3/</_version>
-    <latest t="I">710</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">7075</_id>
-    <_time t="T">2025-06-20T17:02:43Z</_time>
-    <_version t="S">0.11.0/0.50.3/</_version>
-    <latest t="I">51147845896</latest>
+    <_id t="I">7097</_id>
+    <_time t="T">2025-06-20T17:57:40Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">51151646142</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7076</_id>
-    <_time t="T">2025-06-20T17:03:57Z</_time>
-    <_version t="S">0.11.0/0.50.3/</_version>
-    <latest t="I">476</latest>
+    <_id t="I">7098</_id>
+    <_time t="T">2025-06-20T17:57:44Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">446</latest>
     <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">7099</_id>
+    <_time t="T">2025-06-20T17:57:45Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
     <where t="S">github</where>
   </f>
 </fb>
