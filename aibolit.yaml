@@ -1,13 +1,15 @@
 ---
 - added: 8
-  cycles: 3
+  cycles: 4
   deleted: 8
-  error: 'We are off-quota (remaining: 29)'
+  error:
+  - 'We are off-quota (remaining: 28)'
+  - 'We are off-quota (remaining: 29)'
   inserted: 8
-  seconds: 347.616666817
+  seconds: 326.796338999
   version: 0.50.4
   what: judges-summary
-  when: 2025-06-20 22:01:12.753477860 Z
+  when: 2025-06-20 23:00:43.260137733 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -28567,13 +28569,6 @@
   when: 2020-07-20 09:49:30.000000000 Z
   where: github
   who: 1987026
-- _id: 7125
-  _time: 2025-06-20 21:56:49.344063493 Z
-  _version: 0.11.0/0.50.4/
-  latest: 537
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
 - _id: 7126
   _time: 2025-06-20 21:56:54.132344310 Z
   _version: 0.11.0/0.50.4/
@@ -28581,15 +28576,77 @@
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 7127
-  _time: 2025-06-20 22:00:07.086584135 Z
+- _id: 7129
+  _job: 25609
+  _time:
+  - 2025-06-20 22:01:47.953757686 Z
+  - 2025-06-20 22:01:42.263518401 Z
+  _version: 0.11.0/0.50.4/0.14.11
+  award: -16
+  commit: 7ff142a985861dde13384233a664b743359ca3fa
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  href: https://github.com/cqfn/aibolit/commit/7ff142a985861dde13384233a664b743359ca3fa/#commitcomment-160554980
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-06-20 22:01:42.268128651 Z
+  where: github
+  who: 526301
+  why: Pushed 7ff142a98 to the default branch 'master' in cqfn/aibolit
+- _id: 7131
+  _time: 2025-06-20 22:55:19.633788736 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#question' label was attached by @aravij to the issue cqfn/aibolit#538.
+  is_human: 1
+  issue: 538
+  label: question
+  repository: 237167507
+  what: label-was-attached
+  when: 2020-07-20 10:18:20.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7132
+  _time: 2025-06-20 22:55:20.695774148 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#enhancement' label was attached by @aravij to the issue cqfn/aibolit#540.
+  is_human: 1
+  issue: 540
+  label: enhancement
+  repository: 237167507
+  what: label-was-attached
+  when: 2020-07-20 10:44:13.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7133
+  _time: 2025-06-20 22:55:21.307355373 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#enhancement' label was attached by @aravij to the issue cqfn/aibolit#550.
+  is_human: 1
+  issue: 550
+  label: enhancement
+  repository: 237167507
+  what: label-was-attached
+  when: 2020-07-20 16:00:10.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7134
+  _time: 2025-06-20 22:55:21.791494729 Z
+  _version: 0.11.0/0.50.4/
+  latest: 551
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 7139
+  _time: 2025-06-20 22:58:37.933283484 Z
   _version: 0.11.0/0.50.4/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 7128
-  _time: 2025-06-20 22:00:10.223045211 Z
+- _id: 7140
+  _time: 2025-06-20 22:58:42.085200148 Z
   _version: 0.11.0/0.50.4/
   latest: 51157541198
   repository: 237167507
