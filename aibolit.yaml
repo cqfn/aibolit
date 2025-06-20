@@ -1,12 +1,16 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 5
   deleted: 8
+  error:
+  - 'We are off-quota (remaining: 29)'
+  - 'We are off-quota (remaining: 28)'
+  - 'We are off-quota (remaining: 27)'
   inserted: 8
-  seconds: 320.438506119
+  seconds: 342.078214083
   version: 0.50.4
   what: judges-summary
-  when: 2025-06-20 20:00:29.087999597 Z
+  when: 2025-06-20 21:00:55.814423319 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -28488,31 +28492,42 @@
   when: 2025-05-14 13:28:31.000000000 Z
   where: github
   who: 526301
-- _id: 7101
-  _time: 2025-06-20 19:57:21.118547136 Z
+- _id: 7112
+  _time: 2025-06-20 20:57:46.348509408 Z
   _version: 0.11.0/0.50.4/
-  latest: 458
+  latest: 476
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 7102
-  _time: 2025-06-20 19:58:24.531946365 Z
+- _id: 7113
+  _time: 2025-06-20 20:57:48.716297658 Z
   _version: 0.11.0/0.50.4/
-  latest: 512
+  details: The '#enhancement' label was attached by @aravij to the issue cqfn/aibolit#520.
+  issue: 520
+  label: enhancement
+  repository: 237167507
+  what: label-was-attached
+  when: 2020-07-15 09:55:01.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7114
+  _time: 2025-06-20 20:57:50.000976098 Z
+  _version: 0.11.0/0.50.4/
+  latest: 524
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 7103
-  _time: 2025-06-20 19:58:26.071273651 Z
+- _id: 7115
+  _time: 2025-06-20 20:59:53.293686713 Z
   _version: 0.11.0/0.50.4/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 7104
-  _time: 2025-06-20 19:58:28.408688713 Z
+- _id: 7116
+  _time: 2025-06-20 20:59:55.664931124 Z
   _version: 0.11.0/0.50.4/
-  latest: 51153857798
+  latest: 51155923649
   repository: 237167507
   what: events-were-scanned
   where: github
