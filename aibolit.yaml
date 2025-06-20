@@ -1,16 +1,13 @@
 ---
 - added: 8
-  cycles: 5
+  cycles: 3
   deleted: 8
-  error:
-  - 'We are off-quota (remaining: 29)'
-  - 'We are off-quota (remaining: 28)'
-  - 'We are off-quota (remaining: 27)'
+  error: 'We are off-quota (remaining: 29)'
   inserted: 8
-  seconds: 342.078214083
+  seconds: 347.616666817
   version: 0.50.4
   what: judges-summary
-  when: 2025-06-20 21:00:55.814423319 Z
+  when: 2025-06-20 22:01:12.753477860 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -28492,17 +28489,11 @@
   when: 2025-05-14 13:28:31.000000000 Z
   where: github
   who: 526301
-- _id: 7112
-  _time: 2025-06-20 20:57:46.348509408 Z
-  _version: 0.11.0/0.50.4/
-  latest: 476
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 7113
   _time: 2025-06-20 20:57:48.716297658 Z
   _version: 0.11.0/0.50.4/
   details: The '#enhancement' label was attached by @aravij to the issue cqfn/aibolit#520.
+  is_human: 1
   issue: 520
   label: enhancement
   repository: 237167507
@@ -28510,24 +28501,97 @@
   when: 2020-07-15 09:55:01.000000000 Z
   where: github
   who: 1987026
-- _id: 7114
-  _time: 2025-06-20 20:57:50.000976098 Z
+- _id: 7116
+  _time: 2025-06-20 21:55:29.768260704 Z
   _version: 0.11.0/0.50.4/
-  latest: 524
+  commit: 7ff142a985861dde13384233a664b743359ca3fa
+  default_branch: master
+  details: 'A new Git push #25024235716 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is ''master''), not associated with any pull request.'
+  event_id: 51156898412
+  event_type: PushEvent
+  is_human: 1
+  push_id: 25024235716
+  ref: refs/heads/master
+  repository: 237167507
+  to_master: 1
+  what: git-was-pushed
+  when: 2025-06-20 17:35:55.000000000 Z
+  where: github
+  who: 526301
+- _id: 7118
+  _time: 2025-06-20 21:56:34.098367754 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#bug' label was attached by @aravij to the issue cqfn/aibolit#530.
+  is_human: 1
+  issue: 530
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2020-07-20 09:39:47.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7119
+  _time: 2025-06-20 21:56:35.965862052 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#enhancement' label was attached by @aravij to the issue cqfn/aibolit#532.
+  is_human: 1
+  issue: 532
+  label: enhancement
+  repository: 237167507
+  what: label-was-attached
+  when: 2020-07-20 09:44:54.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7123
+  _time: 2025-06-20 21:56:46.053175667 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#bug' label was attached by @aravij to the issue cqfn/aibolit#533.
+  is_human: 1
+  issue: 533
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2020-07-20 09:48:47.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7124
+  _time: 2025-06-20 21:56:47.014169214 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#enhancement' label was attached by @aravij to the issue cqfn/aibolit#534.
+  is_human: 1
+  issue: 534
+  label: enhancement
+  repository: 237167507
+  what: label-was-attached
+  when: 2020-07-20 09:49:30.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7125
+  _time: 2025-06-20 21:56:49.344063493 Z
+  _version: 0.11.0/0.50.4/
+  latest: 537
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 7115
-  _time: 2025-06-20 20:59:53.293686713 Z
+- _id: 7126
+  _time: 2025-06-20 21:56:54.132344310 Z
+  _version: 0.11.0/0.50.4/
+  latest: 488
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 7127
+  _time: 2025-06-20 22:00:07.086584135 Z
   _version: 0.11.0/0.50.4/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 7116
-  _time: 2025-06-20 20:59:55.664931124 Z
+- _id: 7128
+  _time: 2025-06-20 22:00:10.223045211 Z
   _version: 0.11.0/0.50.4/
-  latest: 51155923649
+  latest: 51157541198
   repository: 237167507
   what: events-were-scanned
   where: github

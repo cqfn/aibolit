@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="556134">
+<fb version="0.11.0" size="557574">
   <f>
     <added t="I">8</added>
-    <cycles t="I">5</cycles>
+    <cycles t="I">3</cycles>
     <deleted t="I">8</deleted>
-    <error>
-      <v t="S">We are off-quota (remaining: 29)</v>
-      <v t="S">We are off-quota (remaining: 28)</v>
-      <v t="S">We are off-quota (remaining: 27)</v>
-    </error>
+    <error t="S">We are off-quota (remaining: 29)</error>
     <inserted t="I">8</inserted>
-    <seconds t="F">342.078214083</seconds>
+    <seconds t="F">347.616666817</seconds>
     <version t="S">0.50.4</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-20T21:00:55Z</when>
+    <when t="T">2025-06-20T22:01:12Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -31510,19 +31506,11 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">7112</_id>
-    <_time t="T">2025-06-20T20:57:46Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">476</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">7113</_id>
     <_time t="T">2025-06-20T20:57:48Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
     <details t="S">The '#enhancement' label was attached by @aravij to the issue cqfn/aibolit#520.</details>
+    <is_human t="I">1</is_human>
     <issue t="I">520</issue>
     <label t="S">enhancement</label>
     <repository t="I">237167507</repository>
@@ -31532,17 +31520,101 @@
     <who t="I">1987026</who>
   </f>
   <f>
-    <_id t="I">7114</_id>
-    <_time t="T">2025-06-20T20:57:50Z</_time>
+    <_id t="I">7116</_id>
+    <_time t="T">2025-06-20T21:55:29Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">524</latest>
+    <commit t="S">7ff142a985861dde13384233a664b743359ca3fa</commit>
+    <default_branch t="S">master</default_branch>
+    <details t="S">A new Git push #25024235716 has arrived to cqfn/aibolit, made by @yegor256 (default branch is 'master'), not associated with any pull request.</details>
+    <event_id t="I">51156898412</event_id>
+    <event_type t="S">PushEvent</event_type>
+    <is_human t="I">1</is_human>
+    <push_id t="I">25024235716</push_id>
+    <ref t="S">refs/heads/master</ref>
+    <repository t="I">237167507</repository>
+    <to_master t="I">1</to_master>
+    <what t="S">git-was-pushed</what>
+    <when t="T">2025-06-20T17:35:55Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">7118</_id>
+    <_time t="T">2025-06-20T21:56:34Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The '#bug' label was attached by @aravij to the issue cqfn/aibolit#530.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">530</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2020-07-20T09:39:47Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">7119</_id>
+    <_time t="T">2025-06-20T21:56:35Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The '#enhancement' label was attached by @aravij to the issue cqfn/aibolit#532.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">532</issue>
+    <label t="S">enhancement</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2020-07-20T09:44:54Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">7123</_id>
+    <_time t="T">2025-06-20T21:56:46Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The '#bug' label was attached by @aravij to the issue cqfn/aibolit#533.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">533</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2020-07-20T09:48:47Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">7124</_id>
+    <_time t="T">2025-06-20T21:56:47Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The '#enhancement' label was attached by @aravij to the issue cqfn/aibolit#534.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">534</issue>
+    <label t="S">enhancement</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2020-07-20T09:49:30Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">7125</_id>
+    <_time t="T">2025-06-20T21:56:49Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">537</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7115</_id>
-    <_time t="T">2025-06-20T20:59:53Z</_time>
+    <_id t="I">7126</_id>
+    <_time t="T">2025-06-20T21:56:54Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">488</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">7127</_id>
+    <_time t="T">2025-06-20T22:00:07Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
@@ -31550,10 +31622,10 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7116</_id>
-    <_time t="T">2025-06-20T20:59:55Z</_time>
+    <_id t="I">7128</_id>
+    <_time t="T">2025-06-20T22:00:10Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">51155923649</latest>
+    <latest t="I">51157541198</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
