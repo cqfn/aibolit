@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="565499">
+<fb version="0.11.0" size="565601">
   <f>
     <added t="I">8</added>
-    <cycles t="I">2</cycles>
+    <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
+    <error>
+      <v t="S">We are off-quota (remaining: 29)</v>
+      <v t="S">We are off-quota (remaining: 28)</v>
+    </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">325.089756546</seconds>
+    <seconds t="F">341.846183981</seconds>
     <version t="S">0.50.4</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-21T11:00:35Z</when>
+    <when t="T">2025-06-21T12:00:38Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -31988,8 +31992,17 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">7273</_id>
-    <_time t="T">2025-06-21T10:58:25Z</_time>
+    <_id t="I">7276</_id>
+    <_time t="T">2025-06-21T10:58:34Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">745</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">7285</_id>
+    <_time t="T">2025-06-21T11:58:25Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
@@ -31997,30 +32010,21 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7274</_id>
-    <_time t="T">2025-06-21T10:58:27Z</_time>
+    <_id t="I">7286</_id>
+    <_time t="T">2025-06-21T11:58:30Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">51172357856</latest>
+    <latest t="I">51173042872</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7275</_id>
-    <_time t="T">2025-06-21T10:58:32Z</_time>
+    <_id t="I">7287</_id>
+    <_time t="T">2025-06-21T11:58:34Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">158</latest>
+    <latest t="I">175</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">7276</_id>
-    <_time t="T">2025-06-21T10:58:34Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">745</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
