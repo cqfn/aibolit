@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="560886">
+<fb version="0.11.0" size="562461">
   <f>
     <added t="I">8</added>
-    <cycles t="I">4</cycles>
+    <cycles t="I">3</cycles>
     <deleted t="I">8</deleted>
     <error t="S">We are off-quota (remaining: 29)</error>
     <inserted t="I">8</inserted>
-    <seconds t="F">342.709540331</seconds>
+    <seconds t="F">332.033188355</seconds>
     <version t="S">0.50.4</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-21T05:02:37Z</when>
+    <when t="T">2025-06-21T06:00:55Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -31743,24 +31743,6 @@
     <who t="I">1987026</who>
   </f>
   <f>
-    <_id t="I">7198</_id>
-    <_time t="T">2025-06-21T05:01:25Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">710</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">7199</_id>
-    <_time t="T">2025-06-21T05:01:27Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">51165731579</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">7200</_id>
     <_time t="T">2025-06-21T05:01:30Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
@@ -31775,21 +31757,119 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">7201</_id>
-    <_time t="T">2025-06-21T05:01:30Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">673</latest>
+    <_id t="I">7203</_id>
+    <_job t="I">25640</_job>
+    <_time t="T">2025-06-21T05:03:04Z</_time>
+    <_version t="S">0.11.0/0.50.4/0.14.11</_version>
+    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#673 reported by @iliyasone; this means that a bug was accepted as valid, by the project team.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">673</issue>
+    <reporter t="I">77161424</reporter>
     <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
+    <what t="S">bug-was-accepted</what>
+    <when t="T">2025-05-02T13:09:39Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">7208</_id>
+    <_time t="T">2025-06-21T05:57:40Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">638</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7202</_id>
-    <_time t="T">2025-06-21T05:01:37Z</_time>
+    <_id t="I">7209</_id>
+    <_time t="T">2025-06-21T05:57:41Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">617</latest>
+    <details t="S">The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#674.</details>
+    <issue t="I">674</issue>
+    <label t="S">bug</label>
     <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
+    <what t="S">label-was-attached</what>
+    <when t="T">2025-05-14T13:28:32Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">7210</_id>
+    <_time t="T">2025-06-21T05:57:42Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#682.</details>
+    <issue t="I">682</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2025-05-17T05:15:28Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">7211</_id>
+    <_time t="T">2025-06-21T05:57:43Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#683.</details>
+    <issue t="I">683</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2025-05-17T05:11:53Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">7212</_id>
+    <_time t="T">2025-06-21T05:57:43Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#684.</details>
+    <issue t="I">684</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2025-05-17T05:11:18Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">7214</_id>
+    <_time t="T">2025-06-21T05:59:48Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">710</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">7215</_id>
+    <_time t="T">2025-06-21T05:59:50Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">51169096469</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">7216</_id>
+    <_time t="T">2025-06-21T05:59:53Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#692.</details>
+    <issue t="I">692</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2025-05-26T07:56:53Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">7217</_id>
+    <_time t="T">2025-06-21T05:59:54Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">694</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
