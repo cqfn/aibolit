@@ -1,15 +1,13 @@
 ---
 - added: 8
-  cycles: 4
+  cycles: 3
   deleted: 8
-  error:
-  - 'We are off-quota (remaining: 28)'
-  - 'We are off-quota (remaining: 29)'
+  error: 'We are off-quota (remaining: 29)'
   inserted: 8
-  seconds: 326.796338999
+  seconds: 340.309296475
   version: 0.50.4
   what: judges-summary
-  when: 2025-06-20 23:00:43.260137733 Z
+  when: 2025-06-21 00:00:32.695356070 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -28569,13 +28567,6 @@
   when: 2020-07-20 09:49:30.000000000 Z
   where: github
   who: 1987026
-- _id: 7126
-  _time: 2025-06-20 21:56:54.132344310 Z
-  _version: 0.11.0/0.50.4/
-  latest: 488
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 7129
   _job: 25609
   _time:
@@ -28631,24 +28622,75 @@
   when: 2020-07-20 16:00:10.000000000 Z
   where: github
   who: 1987026
-- _id: 7134
-  _time: 2025-06-20 22:55:21.791494729 Z
+- _id: 7145
+  _time: 2025-06-20 23:58:13.216793970 Z
   _version: 0.11.0/0.50.4/
-  latest: 551
+  latest: 512
   repository: 237167507
-  what: labels-were-scanned
+  what: types-were-scanned
   where: github
-- _id: 7139
-  _time: 2025-06-20 22:58:37.933283484 Z
+- _id: 7146
+  _time: 2025-06-20 23:58:14.119755858 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#bug' label was attached by @lyriccoder to the issue cqfn/aibolit#565.
+  issue: 565
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2020-07-24 11:37:18.000000000 Z
+  where: github
+  who: 20803206
+- _id: 7147
+  _time: 2025-06-20 23:58:14.832703150 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#bug' label was attached by @aravij to the issue cqfn/aibolit#566.
+  issue: 566
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2020-07-24 11:29:16.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7148
+  _time: 2025-06-20 23:58:16.330920124 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#enhancement' label was attached by @aravij to the issue cqfn/aibolit#570.
+  issue: 570
+  label: enhancement
+  repository: 237167507
+  what: label-was-attached
+  when: 2020-07-25 09:01:25.000000000 Z
+  where: github
+  who: 1987026
+- _id: 7150
+  _time: 2025-06-20 23:58:21.580724247 Z
   _version: 0.11.0/0.50.4/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 7140
-  _time: 2025-06-20 22:58:42.085200148 Z
+- _id: 7151
+  _time: 2025-06-20 23:58:24.258088597 Z
   _version: 0.11.0/0.50.4/
-  latest: 51157541198
+  latest: 51160990636
   repository: 237167507
   what: events-were-scanned
+  where: github
+- _id: 7152
+  _time: 2025-06-20 23:58:25.335889091 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#enhancement' label was attached by @KatGarmash to the issue cqfn/aibolit#574.
+  issue: 574
+  label: enhancement
+  repository: 237167507
+  what: label-was-attached
+  when: 2020-07-28 14:18:38.000000000 Z
+  where: github
+  who: 13572815
+- _id: 7153
+  _time: 2025-06-20 23:58:28.146865373 Z
+  _version: 0.11.0/0.50.4/
+  latest: 585
+  repository: 237167507
+  what: labels-were-scanned
   where: github
