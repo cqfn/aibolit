@@ -2,15 +2,12 @@
 - added: 8
   cycles: 4
   deleted: 8
-  error:
-  - 'We are off-quota (remaining: 29)'
-  - 'We are off-quota (remaining: 28)'
-  - 'We are off-quota (remaining: 27)'
+  error: 'We are off-quota (remaining: 29)'
   inserted: 8
-  seconds: 300.675948922
+  seconds: 337.01235015
   version: 0.50.4
   what: judges-summary
-  when: 2025-06-21 03:42:03.500966572 Z
+  when: 2025-06-21 04:08:17.413178237 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -28646,7 +28643,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2020-07-24 11:29:16.000000000 Z
+  when: &360 2020-07-24 11:29:16.000000000 Z
   where: github
   who: 1987026
 - _id: 7148
@@ -28685,31 +28682,45 @@
   when: 2020-08-06 11:07:57.000000000 Z
   where: github
   who: 13572815
-- _id: 7177
-  _time: 2025-06-21 03:38:44.910594364 Z
-  _version: 0.11.0/0.50.4/
-  latest: 51165731579
+- _id: 7181
+  _job: 25632
+  _time: 2025-06-21 03:42:31.347113137 Z
+  _version: 0.11.0/0.50.4/0.14.11
+  details: "@aravij attached the '#bug' label to cqfn/aibolit#566 reported by @lyriccoder;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 566
+  reporter: 20803206
   repository: 237167507
-  what: events-were-scanned
+  what: bug-was-accepted
+  when: *360
   where: github
-- _id: 7178
-  _time: 2025-06-21 03:39:49.433103749 Z
+  who: 1987026
+- _id: 7188
+  _time: 2025-06-21 04:05:07.558554071 Z
   _version: 0.11.0/0.50.4/
-  latest: 628
+  latest: 638
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 7179
-  _time: 2025-06-21 03:40:53.295400699 Z
+- _id: 7189
+  _time: 2025-06-21 04:06:11.109932605 Z
   _version: 0.11.0/0.50.4/
-  latest: 571
+  latest: 598
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 7180
-  _time: 2025-06-21 03:42:01.836869744 Z
+- _id: 7190
+  _time: 2025-06-21 04:06:13.880745047 Z
   _version: 0.11.0/0.50.4/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 7191
+  _time: 2025-06-21 04:06:16.706756358 Z
+  _version: 0.11.0/0.50.4/
+  latest: 51165731579
+  repository: 237167507
+  what: events-were-scanned
   where: github

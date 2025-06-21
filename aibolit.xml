@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="560374">
+<fb version="0.11.0" size="560623">
   <f>
     <added t="I">8</added>
     <cycles t="I">4</cycles>
     <deleted t="I">8</deleted>
-    <error>
-      <v t="S">We are off-quota (remaining: 29)</v>
-      <v t="S">We are off-quota (remaining: 28)</v>
-      <v t="S">We are off-quota (remaining: 27)</v>
-    </error>
+    <error t="S">We are off-quota (remaining: 29)</error>
     <inserted t="I">8</inserted>
-    <seconds t="F">300.675948922</seconds>
+    <seconds t="F">337.01235015</seconds>
     <version t="S">0.50.4</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-21T03:42:03Z</when>
+    <when t="T">2025-06-21T04:08:17Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -31732,39 +31728,54 @@
     <who t="I">13572815</who>
   </f>
   <f>
-    <_id t="I">7177</_id>
-    <_time t="T">2025-06-21T03:38:44Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">51165731579</latest>
+    <_id t="I">7181</_id>
+    <_job t="I">25632</_job>
+    <_time t="T">2025-06-21T03:42:31Z</_time>
+    <_version t="S">0.11.0/0.50.4/0.14.11</_version>
+    <details t="S">@aravij attached the '#bug' label to cqfn/aibolit#566 reported by @lyriccoder; this means that a bug was accepted as valid, by the project team.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">566</issue>
+    <reporter t="I">20803206</reporter>
     <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
+    <what t="S">bug-was-accepted</what>
+    <when t="T">2020-07-24T11:29:16Z</when>
     <where t="S">github</where>
+    <who t="I">1987026</who>
   </f>
   <f>
-    <_id t="I">7178</_id>
-    <_time t="T">2025-06-21T03:39:49Z</_time>
+    <_id t="I">7188</_id>
+    <_time t="T">2025-06-21T04:05:07Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">628</latest>
+    <latest t="I">638</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7179</_id>
-    <_time t="T">2025-06-21T03:40:53Z</_time>
+    <_id t="I">7189</_id>
+    <_time t="T">2025-06-21T04:06:11Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">571</latest>
+    <latest t="I">598</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7180</_id>
-    <_time t="T">2025-06-21T03:42:01Z</_time>
+    <_id t="I">7190</_id>
+    <_time t="T">2025-06-21T04:06:13Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">7191</_id>
+    <_time t="T">2025-06-21T04:06:16Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">51165731579</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
