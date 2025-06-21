@@ -4,10 +4,10 @@
   deleted: 8
   error: 'We are off-quota (remaining: 29)'
   inserted: 8
-  seconds: 337.01235015
+  seconds: 342.709540331
   version: 0.50.4
   what: judges-summary
-  when: 2025-06-21 04:08:17.413178237 Z
+  when: 2025-06-21 05:02:37.688042051 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -28696,31 +28696,43 @@
   when: *360
   where: github
   who: 1987026
-- _id: 7188
-  _time: 2025-06-21 04:05:07.558554071 Z
-  _version: 0.11.0/0.50.4/
-  latest: 638
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 7189
-  _time: 2025-06-21 04:06:11.109932605 Z
-  _version: 0.11.0/0.50.4/
-  latest: 598
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 7190
-  _time: 2025-06-21 04:06:13.880745047 Z
+- _id: 7198
+  _time: 2025-06-21 05:01:25.394197793 Z
   _version: 0.11.0/0.50.4/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 7191
-  _time: 2025-06-21 04:06:16.706756358 Z
+- _id: 7199
+  _time: 2025-06-21 05:01:27.706900128 Z
   _version: 0.11.0/0.50.4/
   latest: 51165731579
   repository: 237167507
   what: events-were-scanned
+  where: github
+- _id: 7200
+  _time: 2025-06-21 05:01:30.577459080 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#673.
+  is_human: 1
+  issue: 673
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-02 13:09:39.000000000 Z
+  where: github
+  who: 526301
+- _id: 7201
+  _time: 2025-06-21 05:01:30.779232335 Z
+  _version: 0.11.0/0.50.4/
+  latest: 673
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 7202
+  _time: 2025-06-21 05:01:37.324549026 Z
+  _version: 0.11.0/0.50.4/
+  latest: 617
+  repository: 237167507
+  what: types-were-scanned
   where: github
