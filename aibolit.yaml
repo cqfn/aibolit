@@ -6,10 +6,10 @@
   - 'We are off-quota (remaining: 29)'
   - 'We are off-quota (remaining: 28)'
   inserted: 8
-  seconds: 341.846183981
+  seconds: 298.129117274
   version: 0.50.4
   what: judges-summary
-  when: 2025-06-21 12:00:38.481499013 Z
+  when: 2025-06-21 13:21:45.705083469 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -28285,51 +28285,6 @@
   when: 2025-05-14 21:05:35.000000000 Z
   where: github
   who: 71025204
-- _id: 7024
-  _time: 2025-06-20 11:57:33.301366195 Z
-  _version: 0.11.0/0.50.3/
-  branch: 811-add-test
-  details: The pull request cqfn/aibolit#812 has been opened by @antonprokopyev.
-  event_id: 50630737366
-  event_type: PullRequestEvent
-  is_human: 1
-  issue: 812
-  not_merged: 2025-06-20 11:57:32.907960156 Z
-  repository: 237167507
-  what: pull-was-opened
-  when: 2025-06-07 13:57:45.000000000 Z
-  where: github
-  who: 13173649
-- _id: 7025
-  _time: 2025-06-20 11:57:33.651114263 Z
-  _version: 0.11.0/0.50.3/
-  branch: 682-support-uv
-  details: The pull request cqfn/aibolit#817 has been opened by @antonprokopyev.
-  event_id: 50653047987
-  event_type: PullRequestEvent
-  is_human: 1
-  issue: 817
-  not_merged: 2025-06-20 11:57:33.301858632 Z
-  repository: 237167507
-  what: pull-was-opened
-  when: 2025-06-08 22:26:29.000000000 Z
-  where: github
-  who: 13173649
-- _id: 7026
-  _time: 2025-06-20 11:57:34.109346717 Z
-  _version: 0.11.0/0.50.3/
-  branch: '567'
-  details: The pull request cqfn/aibolit#818 has been opened by @alchemmist.
-  event_id: 50813334371
-  event_type: PullRequestEvent
-  is_human: 1
-  issue: 818
-  not_merged: 2025-06-20 11:57:33.651578006 Z
-  repository: 237167507
-  what: pull-was-opened
-  when: 2025-06-12 08:51:09.000000000 Z
-  where: github
-  who: 104511335
 - _id: 7034
   _time: 2025-06-20 11:59:18.117155915 Z
   _version: 0.11.0/0.50.3/
@@ -28918,31 +28873,76 @@
   when: *368
   where: github
   who: 526301
-- _id: 7276
-  _time: 2025-06-21 10:58:34.851320519 Z
+- _id: 7298
+  _time: 2025-06-21 13:21:25.949856682 Z
   _version: 0.11.0/0.50.4/
-  latest: 745
+  branch: 811-add-test
+  details: The pull request cqfn/aibolit#812 has been opened by @antonprokopyev.
+  event_id: 50630737366
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 812
+  not_merged: 2025-06-21 13:21:25.503229614 Z
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-07 13:57:45.000000000 Z
+  where: github
+  who: 13173649
+- _id: 7299
+  _time: 2025-06-21 13:21:26.393331816 Z
+  _version: 0.11.0/0.50.4/
+  branch: 682-support-uv
+  details: The pull request cqfn/aibolit#817 has been opened by @antonprokopyev.
+  event_id: 50653047987
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 817
+  not_merged: 2025-06-21 13:21:25.950461590 Z
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-08 22:26:29.000000000 Z
+  where: github
+  who: 13173649
+- _id: 7300
+  _time: 2025-06-21 13:21:26.766005663 Z
+  _version: 0.11.0/0.50.4/
+  branch: '567'
+  details: The pull request cqfn/aibolit#818 has been opened by @alchemmist.
+  event_id: 50813334371
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 818
+  not_merged: 2025-06-21 13:21:26.393815067 Z
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-12 08:51:09.000000000 Z
+  where: github
+  who: 104511335
+- _id: 7301
+  _time: 2025-06-21 13:21:29.941488885 Z
+  _version: 0.11.0/0.50.4/
+  latest: 212
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 7303
+  _time: 2025-06-21 13:21:35.987957250 Z
+  _version: 0.11.0/0.50.4/
+  latest: 51173707960
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 7304
+  _time: 2025-06-21 13:21:41.792906767 Z
+  _version: 0.11.0/0.50.4/
+  latest: 755
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 7285
-  _time: 2025-06-21 11:58:25.220098321 Z
+- _id: 7305
+  _time: 2025-06-21 13:21:44.619658772 Z
   _version: 0.11.0/0.50.4/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
-  where: github
-- _id: 7286
-  _time: 2025-06-21 11:58:30.383864395 Z
-  _version: 0.11.0/0.50.4/
-  latest: 51173042872
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 7287
-  _time: 2025-06-21 11:58:34.415208742 Z
-  _version: 0.11.0/0.50.4/
-  latest: 175
-  repository: 237167507
-  what: labels-were-scanned
   where: github
