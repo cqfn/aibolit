@@ -1,15 +1,12 @@
 ---
 - added: 8
-  cycles: 5
+  cycles: 2
   deleted: 8
-  error:
-  - 'We are off-quota (remaining: 29)'
-  - 'We are off-quota (remaining: 28)'
   inserted: 8
-  seconds: 300.059421154
+  seconds: 338.463521225
   version: 0.50.4
   what: judges-summary
-  when: 2025-06-21 08:00:13.186981162 Z
+  when: 2025-06-21 09:03:27.459143870 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -28918,31 +28915,31 @@
   when: *368
   where: github
   who: 526301
-- _id: 7248
-  _time: 2025-06-21 07:57:55.408593336 Z
+- _id: 7254
+  _time: 2025-06-21 08:59:04.137193395 Z
   _version: 0.11.0/0.50.4/
-  latest: 51170361488
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 7249
-  _time: 2025-06-21 08:00:05.696093622 Z
-  _version: 0.11.0/0.50.4/
-  latest: 788
+  latest: 831
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 7250
-  _time: 2025-06-21 08:00:11.031205882 Z
-  _version: 0.11.0/0.50.4/
-  latest: 685
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 7251
-  _time: 2025-06-21 08:00:13.078622311 Z
+- _id: 7255
+  _time: 2025-06-21 09:01:12.962005907 Z
   _version: 0.11.0/0.50.4/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 7256
+  _time: 2025-06-21 09:01:15.945068022 Z
+  _version: 0.11.0/0.50.4/
+  latest: 51171001229
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 7257
+  _time: 2025-06-21 09:01:27.358375898 Z
+  _version: 0.11.0/0.50.4/
+  latest: 703
+  repository: 237167507
+  what: types-were-scanned
   where: github
