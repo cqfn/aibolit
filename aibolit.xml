@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="564569">
+<fb version="0.11.0" size="565594">
   <f>
     <added t="I">8</added>
-    <cycles t="I">4</cycles>
+    <cycles t="I">5</cycles>
     <deleted t="I">8</deleted>
-    <error t="S">We are off-quota (remaining: 28)</error>
+    <error>
+      <v t="S">We are off-quota (remaining: 29)</v>
+      <v t="S">We are off-quota (remaining: 28)</v>
+    </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">304.898627736</seconds>
+    <seconds t="F">300.059421154</seconds>
     <version t="S">0.50.4</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-21T07:02:20Z</when>
+    <when t="T">2025-06-21T08:00:13Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -31944,39 +31947,84 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">7230</_id>
-    <_time t="T">2025-06-21T06:58:56Z</_time>
+    <_id t="I">7236</_id>
+    <_job t="I">25650</_job>
+    <_time t="T">2025-06-21T07:02:49Z</_time>
+    <_version t="S">0.11.0/0.50.4/0.14.11</_version>
+    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#696 reported by @ivanovmg; this means that a bug was accepted as valid, by the project team.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">696</issue>
+    <reporter t="I">41443370</reporter>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-was-accepted</what>
+    <when t="T">2025-05-22T10:06:31Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">7237</_id>
+    <_job t="I">25650</_job>
+    <_time t="T">2025-06-21T07:02:49Z</_time>
+    <_version t="S">0.11.0/0.50.4/0.14.11</_version>
+    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#697 reported by @literally-bug-creator; this means that a bug was accepted as valid, by the project team.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">697</issue>
+    <reporter t="I">84927447</reporter>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-was-accepted</what>
+    <when t="T">2025-05-27T11:57:06Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">7238</_id>
+    <_job t="I">25650</_job>
+    <_time t="T">2025-06-21T07:02:49Z</_time>
+    <_version t="S">0.11.0/0.50.4/0.14.11</_version>
+    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#702 reported by @ivanovmg; this means that a bug was accepted as valid, by the project team.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">702</issue>
+    <reporter t="I">41443370</reporter>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-was-accepted</what>
+    <when t="T">2025-05-27T11:57:07Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">7248</_id>
+    <_time t="T">2025-06-21T07:57:55Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">718</latest>
+    <latest t="I">51170361488</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">7249</_id>
+    <_time t="T">2025-06-21T08:00:05Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">788</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7231</_id>
-    <_time t="T">2025-06-21T07:01:02Z</_time>
+    <_id t="I">7250</_id>
+    <_time t="T">2025-06-21T08:00:11Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">673</latest>
+    <latest t="I">685</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7234</_id>
-    <_time t="T">2025-06-21T07:01:12Z</_time>
+    <_id t="I">7251</_id>
+    <_time t="T">2025-06-21T08:00:13Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">7235</_id>
-    <_time t="T">2025-06-21T07:01:16Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">51169703018</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>

@@ -1,13 +1,15 @@
 ---
 - added: 8
-  cycles: 4
+  cycles: 5
   deleted: 8
-  error: 'We are off-quota (remaining: 28)'
+  error:
+  - 'We are off-quota (remaining: 29)'
+  - 'We are off-quota (remaining: 28)'
   inserted: 8
-  seconds: 304.898627736
+  seconds: 300.059421154
   version: 0.50.4
   what: judges-summary
-  when: 2025-06-21 07:02:20.051019041 Z
+  when: 2025-06-21 08:00:13.186981162 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -28847,7 +28849,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-22 10:06:31.000000000 Z
+  when: &366 2025-05-22 10:06:31.000000000 Z
   where: github
   who: 526301
 - _id: 7225
@@ -28859,7 +28861,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-27 11:57:06.000000000 Z
+  when: &367 2025-05-27 11:57:06.000000000 Z
   where: github
   who: 526301
 - _id: 7226
@@ -28871,34 +28873,76 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-27 11:57:07.000000000 Z
+  when: &368 2025-05-27 11:57:07.000000000 Z
   where: github
   who: 526301
-- _id: 7230
-  _time: 2025-06-21 06:58:56.789504296 Z
+- _id: 7236
+  _job: 25650
+  _time: 2025-06-21 07:02:49.740275988 Z
+  _version: 0.11.0/0.50.4/0.14.11
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#696 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 696
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *366
+  where: github
+  who: 526301
+- _id: 7237
+  _job: 25650
+  _time: 2025-06-21 07:02:49.864332286 Z
+  _version: 0.11.0/0.50.4/0.14.11
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#697 reported by @literally-bug-creator;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 697
+  reporter: 84927447
+  repository: 237167507
+  what: bug-was-accepted
+  when: *367
+  where: github
+  who: 526301
+- _id: 7238
+  _job: 25650
+  _time: 2025-06-21 07:02:49.933909280 Z
+  _version: 0.11.0/0.50.4/0.14.11
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#702 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 702
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *368
+  where: github
+  who: 526301
+- _id: 7248
+  _time: 2025-06-21 07:57:55.408593336 Z
   _version: 0.11.0/0.50.4/
-  latest: 718
+  latest: 51170361488
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 7249
+  _time: 2025-06-21 08:00:05.696093622 Z
+  _version: 0.11.0/0.50.4/
+  latest: 788
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 7231
-  _time: 2025-06-21 07:01:02.899165971 Z
+- _id: 7250
+  _time: 2025-06-21 08:00:11.031205882 Z
   _version: 0.11.0/0.50.4/
-  latest: 673
+  latest: 685
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 7234
-  _time: 2025-06-21 07:01:12.771154591 Z
+- _id: 7251
+  _time: 2025-06-21 08:00:13.078622311 Z
   _version: 0.11.0/0.50.4/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
-  where: github
-- _id: 7235
-  _time: 2025-06-21 07:01:16.472127574 Z
-  _version: 0.11.0/0.50.4/
-  latest: 51169703018
-  repository: 237167507
-  what: events-were-scanned
   where: github
