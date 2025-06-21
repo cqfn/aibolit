@@ -1,13 +1,13 @@
 ---
 - added: 8
-  cycles: 3
+  cycles: 4
   deleted: 8
-  error: 'We are off-quota (remaining: 29)'
+  error: 'We are off-quota (remaining: 28)'
   inserted: 8
-  seconds: 332.033188355
+  seconds: 304.898627736
   version: 0.50.4
   what: judges-summary
-  when: 2025-06-21 06:00:55.058585297 Z
+  when: 2025-06-21 07:02:20.051019041 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -28722,17 +28722,11 @@
   when: *361
   where: github
   who: 526301
-- _id: 7208
-  _time: 2025-06-21 05:57:40.325440694 Z
-  _version: 0.11.0/0.50.4/
-  latest: 638
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 7209
   _time: 2025-06-21 05:57:41.724739676 Z
   _version: 0.11.0/0.50.4/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#674.
+  is_human: 1
   issue: 674
   label: bug
   repository: 237167507
@@ -28744,64 +28738,167 @@
   _time: 2025-06-21 05:57:42.409584292 Z
   _version: 0.11.0/0.50.4/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#682.
+  is_human: 1
   issue: 682
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-17 05:15:28.000000000 Z
+  when: &362 2025-05-17 05:15:28.000000000 Z
   where: github
   who: 526301
 - _id: 7211
   _time: 2025-06-21 05:57:43.039194155 Z
   _version: 0.11.0/0.50.4/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#683.
+  is_human: 1
   issue: 683
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-17 05:11:53.000000000 Z
+  when: &363 2025-05-17 05:11:53.000000000 Z
   where: github
   who: 526301
 - _id: 7212
   _time: 2025-06-21 05:57:43.674210004 Z
   _version: 0.11.0/0.50.4/
   details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#684.
+  is_human: 1
   issue: 684
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-05-17 05:11:18.000000000 Z
+  when: &364 2025-05-17 05:11:18.000000000 Z
   where: github
   who: 526301
-- _id: 7214
-  _time: 2025-06-21 05:59:48.021158796 Z
+- _id: 7216
+  _time: 2025-06-21 05:59:53.738867908 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#692.
+  is_human: 1
+  issue: 692
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: &365 2025-05-26 07:56:53.000000000 Z
+  where: github
+  who: 526301
+- _id: 7218
+  _job: 25645
+  _time: 2025-06-21 06:01:25.436151390 Z
+  _version: 0.11.0/0.50.4/0.14.11
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#682 reported by @literally-bug-creator;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 682
+  reporter: 84927447
+  repository: 237167507
+  what: bug-was-accepted
+  when: *362
+  where: github
+  who: 526301
+- _id: 7219
+  _job: 25645
+  _time: 2025-06-21 06:01:25.583832920 Z
+  _version: 0.11.0/0.50.4/0.14.11
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#683 reported by @literally-bug-creator;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 683
+  reporter: 84927447
+  repository: 237167507
+  what: bug-was-accepted
+  when: *363
+  where: github
+  who: 526301
+- _id: 7220
+  _job: 25645
+  _time: 2025-06-21 06:01:25.594895421 Z
+  _version: 0.11.0/0.50.4/0.14.11
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#684 reported by @literally-bug-creator;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 684
+  reporter: 84927447
+  repository: 237167507
+  what: bug-was-accepted
+  when: *364
+  where: github
+  who: 526301
+- _id: 7221
+  _job: 25645
+  _time: 2025-06-21 06:01:25.603915723 Z
+  _version: 0.11.0/0.50.4/0.14.11
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#692 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 692
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *365
+  where: github
+  who: 526301
+- _id: 7224
+  _time: 2025-06-21 06:58:32.486773509 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#696.
+  is_human: 1
+  issue: 696
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-22 10:06:31.000000000 Z
+  where: github
+  who: 526301
+- _id: 7225
+  _time: 2025-06-21 06:58:33.678534616 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#697.
+  is_human: 1
+  issue: 697
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:06.000000000 Z
+  where: github
+  who: 526301
+- _id: 7226
+  _time: 2025-06-21 06:58:35.315343450 Z
+  _version: 0.11.0/0.50.4/
+  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#702.
+  is_human: 1
+  issue: 702
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-05-27 11:57:07.000000000 Z
+  where: github
+  who: 526301
+- _id: 7230
+  _time: 2025-06-21 06:58:56.789504296 Z
+  _version: 0.11.0/0.50.4/
+  latest: 718
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 7231
+  _time: 2025-06-21 07:01:02.899165971 Z
+  _version: 0.11.0/0.50.4/
+  latest: 673
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 7234
+  _time: 2025-06-21 07:01:12.771154591 Z
   _version: 0.11.0/0.50.4/
   latest: 710
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 7215
-  _time: 2025-06-21 05:59:50.001414074 Z
+- _id: 7235
+  _time: 2025-06-21 07:01:16.472127574 Z
   _version: 0.11.0/0.50.4/
-  latest: 51169096469
+  latest: 51169703018
   repository: 237167507
   what: events-were-scanned
-  where: github
-- _id: 7216
-  _time: 2025-06-21 05:59:53.738867908 Z
-  _version: 0.11.0/0.50.4/
-  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#692.
-  issue: 692
-  label: bug
-  repository: 237167507
-  what: label-was-attached
-  when: 2025-05-26 07:56:53.000000000 Z
-  where: github
-  who: 526301
-- _id: 7217
-  _time: 2025-06-21 05:59:54.755609930 Z
-  _version: 0.11.0/0.50.4/
-  latest: 694
-  repository: 237167507
-  what: labels-were-scanned
   where: github
