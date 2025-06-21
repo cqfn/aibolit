@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="565593">
+<fb version="0.11.0" size="565550">
   <f>
     <added t="I">8</added>
-    <cycles t="I">5</cycles>
+    <cycles t="I">3</cycles>
     <deleted t="I">8</deleted>
-    <error>
-      <v t="S">We are off-quota (remaining: 29)</v>
-      <v t="S">We are off-quota (remaining: 28)</v>
-    </error>
+    <error t="S">We are off-quota (remaining: 29)</error>
     <inserted t="I">8</inserted>
-    <seconds t="F">298.129117274</seconds>
+    <seconds t="F">328.881065721</seconds>
     <version t="S">0.50.4</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-21T13:21:45Z</when>
+    <when t="T">2025-06-21T14:00:23Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -31992,39 +31989,39 @@
     <who t="I">104511335</who>
   </f>
   <f>
-    <_id t="I">7301</_id>
-    <_time t="T">2025-06-21T13:21:29Z</_time>
+    <_id t="I">7309</_id>
+    <_time t="T">2025-06-21T13:56:06Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">212</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">7303</_id>
-    <_time t="T">2025-06-21T13:21:35Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">51173707960</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">7304</_id>
-    <_time t="T">2025-06-21T13:21:41Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">755</latest>
+    <latest t="I">762</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7305</_id>
-    <_time t="T">2025-06-21T13:21:44Z</_time>
+    <_id t="I">7310</_id>
+    <_time t="T">2025-06-21T13:58:11Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">7311</_id>
+    <_time t="T">2025-06-21T13:58:15Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">51174748514</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">7312</_id>
+    <_time t="T">2025-06-21T13:58:18Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">225</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
