@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="511224">
+<fb version="0.11.0" size="522420">
   <f>
     <added t="I">8</added>
-    <cycles t="I">3</cycles>
+    <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
+    <error t="S">We are off-quota (remaining: 29)</error>
     <inserted t="I">8</inserted>
-    <seconds t="F">300.599821992</seconds>
+    <seconds t="F">339.573109003</seconds>
     <version t="S">0.50.4</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-22T14:00:03Z</when>
+    <when t="T">2025-06-22T15:00:50Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -27911,60 +27912,6 @@
     <who t="I">104511335</who>
   </f>
   <f>
-    <_id t="I">7881</_id>
-    <_time t="T">2025-06-22T13:56:13Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <details t="S">The pull cqfn/aibolit#653 has been opened by @aravij.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">653</issue>
-    <not_merged t="T">2025-06-22T13:56:12Z</not_merged>
-    <repository t="I">237167507</repository>
-    <stale t="S">branch #653</stale>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2020-10-27T09:31:17Z</when>
-    <where t="S">github</where>
-    <who t="I">1987026</who>
-  </f>
-  <f>
-    <_id t="I">7882</_id>
-    <_time t="T">2025-06-22T13:56:13Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <details t="S">The pull cqfn/aibolit#676 has been opened by @vitalo-bit.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">676</issue>
-    <not_merged t="T">2025-06-22T13:56:13Z</not_merged>
-    <repository t="I">237167507</repository>
-    <stale t="S">branch #676</stale>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2025-05-14T20:58:27Z</when>
-    <where t="S">github</where>
-    <who t="I">71025204</who>
-  </f>
-  <f>
-    <_id t="I">7883</_id>
-    <_time t="T">2025-06-22T13:56:14Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <details t="S">The pull cqfn/aibolit#677 has been opened by @vitalo-bit.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">677</issue>
-    <not_merged t="T">2025-06-22T13:56:13Z</not_merged>
-    <repository t="I">237167507</repository>
-    <stale t="S">branch #677</stale>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2025-05-14T21:05:35Z</when>
-    <where t="S">github</where>
-    <who t="I">71025204</who>
-  </f>
-  <f>
-    <_id t="I">7888</_id>
-    <_time t="T">2025-06-22T13:57:34Z</_time>
-    <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">264</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">7889</_id>
     <_time t="T">2025-06-22T13:58:41Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
@@ -29053,8 +29000,17 @@
     <who t="I">20803206</who>
   </f>
   <f>
-    <_id t="I">7973</_id>
-    <_time t="T">2025-06-22T13:59:57Z</_time>
+    <_id t="I">7975</_id>
+    <_time t="T">2025-06-22T14:55:22Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <latest t="I">278</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">7976</_id>
+    <_time t="T">2025-06-22T14:56:25Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
     <latest t="I">710</latest>
     <repository t="I">237167507</repository>
@@ -29062,12 +29018,654 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">7974</_id>
-    <_time t="T">2025-06-22T13:59:59Z</_time>
+    <_id t="I">7977</_id>
+    <_time t="T">2025-06-22T14:56:32Z</_time>
     <_version t="S">0.11.0/0.50.4/</_version>
-    <latest t="I">51190633627</latest>
+    <latest t="I">51191156124</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">7981</_id>
+    <_time t="T">2025-06-22T14:59:47Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#653 has been opened by @aravij.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">653</issue>
+    <not_merged t="T">2025-06-22T14:59:47Z</not_merged>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-10-27T09:31:17Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">7982</_id>
+    <_time t="T">2025-06-22T14:59:48Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#676 has been opened by @vitalo-bit.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">676</issue>
+    <not_merged t="T">2025-06-22T14:59:47Z</not_merged>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-05-14T20:58:27Z</when>
+    <where t="S">github</where>
+    <who t="I">71025204</who>
+  </f>
+  <f>
+    <_id t="I">7983</_id>
+    <_time t="T">2025-06-22T14:59:49Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#677 has been opened by @vitalo-bit.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">677</issue>
+    <not_merged t="T">2025-06-22T14:59:48Z</not_merged>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-05-14T21:05:35Z</when>
+    <where t="S">github</where>
+    <who t="I">71025204</who>
+  </f>
+  <f>
+    <_id t="I">7984</_id>
+    <_time t="T">2025-06-22T14:59:51Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#308 has been opened by @acheshkov.</details>
+    <issue t="I">308</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-14T15:27:30Z</when>
+    <where t="S">github</where>
+    <who t="I">231433</who>
+  </f>
+  <f>
+    <_id t="I">7985</_id>
+    <_time t="T">2025-06-22T14:59:52Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#309 has been opened by @acheshkov.</details>
+    <issue t="I">309</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-14T18:49:53Z</when>
+    <where t="S">github</where>
+    <who t="I">231433</who>
+  </f>
+  <f>
+    <_id t="I">7986</_id>
+    <_time t="T">2025-06-22T14:59:53Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#311 has been opened by @acheshkov.</details>
+    <issue t="I">311</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-15T07:05:31Z</when>
+    <where t="S">github</where>
+    <who t="I">231433</who>
+  </f>
+  <f>
+    <_id t="I">7987</_id>
+    <_time t="T">2025-06-22T14:59:54Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#312 has been opened by @acheshkov.</details>
+    <issue t="I">312</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-15T10:44:06Z</when>
+    <where t="S">github</where>
+    <who t="I">231433</who>
+  </f>
+  <f>
+    <_id t="I">7988</_id>
+    <_time t="T">2025-06-22T14:59:55Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#313 has been opened by @lyriccoder.</details>
+    <issue t="I">313</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-15T13:49:27Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">7989</_id>
+    <_time t="T">2025-06-22T14:59:56Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#314 has been opened by @lukyanoffpashok.</details>
+    <issue t="I">314</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-15T14:10:31Z</when>
+    <where t="S">github</where>
+    <who t="I">46167437</who>
+  </f>
+  <f>
+    <_id t="I">7990</_id>
+    <_time t="T">2025-06-22T14:59:57Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#317 has been opened by @lyriccoder.</details>
+    <issue t="I">317</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-16T11:21:13Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">7991</_id>
+    <_time t="T">2025-06-22T14:59:59Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#321 has been opened by @lyriccoder.</details>
+    <issue t="I">321</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-18T15:01:33Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">7992</_id>
+    <_time t="T">2025-06-22T15:00:00Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#325 has been opened by @lyriccoder.</details>
+    <issue t="I">325</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-19T16:40:10Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">7993</_id>
+    <_time t="T">2025-06-22T15:00:01Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#326 has been opened by @lyriccoder.</details>
+    <issue t="I">326</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-19T16:44:35Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">7994</_id>
+    <_time t="T">2025-06-22T15:00:02Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#328 has been opened by @lyriccoder.</details>
+    <issue t="I">328</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-19T17:47:57Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">7995</_id>
+    <_time t="T">2025-06-22T15:00:03Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#332 has been opened by @lyriccoder.</details>
+    <issue t="I">332</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-20T14:49:47Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">7996</_id>
+    <_time t="T">2025-06-22T15:00:04Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#334 has been opened by @lyriccoder.</details>
+    <issue t="I">334</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-21T09:53:43Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">7997</_id>
+    <_time t="T">2025-06-22T15:00:06Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#335 has been opened by @lyriccoder.</details>
+    <issue t="I">335</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-22T10:41:33Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">7998</_id>
+    <_time t="T">2025-06-22T15:00:07Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#345 has been opened by @lyriccoder.</details>
+    <issue t="I">345</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-22T14:14:20Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">7999</_id>
+    <_time t="T">2025-06-22T15:00:08Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#346 has been opened by @paulodamaso.</details>
+    <issue t="I">346</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-25T03:44:35Z</when>
+    <where t="S">github</where>
+    <who t="I">33915433</who>
+  </f>
+  <f>
+    <_id t="I">8000</_id>
+    <_time t="T">2025-06-22T15:00:09Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#347 has been opened by @paulodamaso.</details>
+    <issue t="I">347</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-25T04:02:21Z</when>
+    <where t="S">github</where>
+    <who t="I">33915433</who>
+  </f>
+  <f>
+    <_id t="I">8001</_id>
+    <_time t="T">2025-06-22T15:00:11Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#382 has been opened by @lyriccoder.</details>
+    <issue t="I">382</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-03T10:18:04Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8002</_id>
+    <_time t="T">2025-06-22T15:00:12Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#387 has been opened by @aravij.</details>
+    <issue t="I">387</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-03T15:36:49Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">8003</_id>
+    <_time t="T">2025-06-22T15:00:13Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#348 has been opened by @lyriccoder.</details>
+    <issue t="I">348</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-25T14:53:12Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8004</_id>
+    <_time t="T">2025-06-22T15:00:14Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#350 has been opened by @lyriccoder.</details>
+    <issue t="I">350</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-26T11:22:02Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8005</_id>
+    <_time t="T">2025-06-22T15:00:15Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#354 has been opened by @lyriccoder.</details>
+    <issue t="I">354</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-26T13:50:51Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8006</_id>
+    <_time t="T">2025-06-22T15:00:17Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#361 has been opened by @lyriccoder.</details>
+    <issue t="I">361</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-28T11:23:10Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8007</_id>
+    <_time t="T">2025-06-22T15:00:18Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#362 has been opened by @lyriccoder.</details>
+    <issue t="I">362</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-28T11:31:32Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8008</_id>
+    <_time t="T">2025-06-22T15:00:19Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#367 has been opened by @lyriccoder.</details>
+    <issue t="I">367</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-28T13:34:53Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8009</_id>
+    <_time t="T">2025-06-22T15:00:20Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#374 has been opened by @lyriccoder.</details>
+    <issue t="I">374</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-29T10:09:41Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8010</_id>
+    <_time t="T">2025-06-22T15:00:21Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#375 has been opened by @lyriccoder.</details>
+    <issue t="I">375</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-05-29T10:18:22Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8011</_id>
+    <_time t="T">2025-06-22T15:00:22Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#377 has been opened by @lyriccoder.</details>
+    <issue t="I">377</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-01T11:06:24Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8012</_id>
+    <_time t="T">2025-06-22T15:00:24Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#378 has been opened by @lyriccoder.</details>
+    <issue t="I">378</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-01T15:52:44Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8013</_id>
+    <_time t="T">2025-06-22T15:00:25Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#379 has been opened by @lyriccoder.</details>
+    <issue t="I">379</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-02T09:51:48Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8014</_id>
+    <_time t="T">2025-06-22T15:00:26Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#380 has been opened by @lyriccoder.</details>
+    <issue t="I">380</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-02T14:52:58Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8015</_id>
+    <_time t="T">2025-06-22T15:00:27Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#381 has been opened by @lukyanoffpashok.</details>
+    <issue t="I">381</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-03T09:55:25Z</when>
+    <where t="S">github</where>
+    <who t="I">46167437</who>
+  </f>
+  <f>
+    <_id t="I">8016</_id>
+    <_time t="T">2025-06-22T15:00:28Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#386 has been opened by @lyriccoder.</details>
+    <issue t="I">386</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-03T14:18:21Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8017</_id>
+    <_time t="T">2025-06-22T15:00:29Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#389 has been opened by @lyriccoder.</details>
+    <issue t="I">389</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-04T13:56:21Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8018</_id>
+    <_time t="T">2025-06-22T15:00:31Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#391 has been opened by @aravij.</details>
+    <issue t="I">391</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-04T18:26:14Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">8019</_id>
+    <_time t="T">2025-06-22T15:00:32Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#409 has been opened by @lukyanoffpashok.</details>
+    <issue t="I">409</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-15T08:56:12Z</when>
+    <where t="S">github</where>
+    <who t="I">46167437</who>
+  </f>
+  <f>
+    <_id t="I">8020</_id>
+    <_time t="T">2025-06-22T15:00:33Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#392 has been opened by @aravij.</details>
+    <issue t="I">392</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-04T18:41:06Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">8021</_id>
+    <_time t="T">2025-06-22T15:00:34Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#393 has been opened by @aravij.</details>
+    <issue t="I">393</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-08T08:48:56Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">8022</_id>
+    <_time t="T">2025-06-22T15:00:35Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#394 has been opened by @lyriccoder.</details>
+    <issue t="I">394</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-08T09:05:24Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8023</_id>
+    <_time t="T">2025-06-22T15:00:36Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#396 has been opened by @vitaly-protasov.</details>
+    <issue t="I">396</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-08T13:57:02Z</when>
+    <where t="S">github</where>
+    <who t="I">43099602</who>
+  </f>
+  <f>
+    <_id t="I">8024</_id>
+    <_time t="T">2025-06-22T15:00:38Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#398 has been opened by @lyriccoder.</details>
+    <issue t="I">398</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-08T14:49:55Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8025</_id>
+    <_time t="T">2025-06-22T15:00:40Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#400 has been opened by @lyriccoder.</details>
+    <issue t="I">400</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-09T13:29:06Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8026</_id>
+    <_time t="T">2025-06-22T15:00:41Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#402 has been opened by @lyriccoder.</details>
+    <issue t="I">402</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-10T11:28:21Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8027</_id>
+    <_time t="T">2025-06-22T15:00:42Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#403 has been opened by @paulodamaso.</details>
+    <issue t="I">403</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-10T13:34:56Z</when>
+    <where t="S">github</where>
+    <who t="I">33915433</who>
+  </f>
+  <f>
+    <_id t="I">8028</_id>
+    <_time t="T">2025-06-22T15:00:43Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#405 has been opened by @aravij.</details>
+    <issue t="I">405</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-10T16:29:55Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
+  </f>
+  <f>
+    <_id t="I">8029</_id>
+    <_time t="T">2025-06-22T15:00:44Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#408 has been opened by @lyriccoder.</details>
+    <issue t="I">408</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-11T14:31:23Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8030</_id>
+    <_time t="T">2025-06-22T15:00:46Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#410 has been opened by @lyriccoder.</details>
+    <issue t="I">410</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-16T10:16:13Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8031</_id>
+    <_time t="T">2025-06-22T15:00:47Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#412 has been opened by @lyriccoder.</details>
+    <issue t="I">412</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-16T13:16:57Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8032</_id>
+    <_time t="T">2025-06-22T15:00:48Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#415 has been opened by @lyriccoder.</details>
+    <issue t="I">415</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-17T14:51:38Z</when>
+    <where t="S">github</where>
+    <who t="I">20803206</who>
+  </f>
+  <f>
+    <_id t="I">8033</_id>
+    <_time t="T">2025-06-22T15:00:49Z</_time>
+    <_version t="S">0.11.0/0.50.4/</_version>
+    <details t="S">The pull cqfn/aibolit#417 has been opened by @aravij.</details>
+    <issue t="I">417</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-06-17T17:05:08Z</when>
+    <where t="S">github</where>
+    <who t="I">1987026</who>
   </f>
 </fb>
