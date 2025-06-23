@@ -20,6 +20,7 @@ jobs:
       - uses: zerocracy/judges-action@0.14.12
         with:
           token: ${{ secrets.ZEROCRACY_TOKEN }}
+          github-token: ${{ secrets.PAT }}
           repositories: cqfn/aibolit
           factbase: aibolit.fb
       - uses: zerocracy/pages-action@0.2.0
