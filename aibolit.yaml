@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 356.381387935
+  seconds: 332.236995418
   version: 0.50.5
   what: judges-summary
-  when: 2025-06-23 14:04:18.930141680 Z
+  when: 2025-06-23 15:02:18.192679862 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -44242,20 +44242,6 @@
   when: 2025-06-13 07:12:06.000000000 Z
   where: github
   who: 24456188
-- _id: 11046
-  _time: 2025-06-23 14:02:05.898132030 Z
-  _version: 0.11.1/0.50.5/
-  latest: 137
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 11047
-  _time: 2025-06-23 14:02:07.946296521 Z
-  _version: 0.11.1/0.50.5/
-  latest: 51216071773
-  repository: 237167507
-  what: events-were-scanned
-  where: github
 - _id: 11048
   _time: 2025-06-23 14:02:17.752044665 Z
   _version: 0.11.1/0.50.5/
@@ -44957,6 +44943,7 @@
   issue: 653
   not_merged: 2025-06-23 14:03:11.605848701 Z
   repository: 237167507
+  stale: 'branch #653'
   what: pull-was-opened
   when: 2020-10-27 09:31:17.000000000 Z
   where: github
@@ -44969,6 +44956,7 @@
   issue: 676
   not_merged: 2025-06-23 14:03:12.080132327 Z
   repository: 237167507
+  stale: 'branch #676'
   what: pull-was-opened
   when: 2025-05-14 20:58:27.000000000 Z
   where: github
@@ -44981,14 +44969,1910 @@
   issue: 677
   not_merged: 2025-06-23 14:03:12.624614453 Z
   repository: 237167507
+  stale: 'branch #677'
   what: pull-was-opened
   when: 2025-05-14 21:05:35.000000000 Z
   where: github
   who: 71025204
-- _id: 11114
-  _time: 2025-06-23 14:03:18.788844457 Z
+- _id: 11116
+  _time: 2025-06-23 14:56:53.530616396 Z
   _version: 0.11.1/0.50.5/
-  latest: 707
+  branch: '764'
+  details: cqfn/aibolit#765 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 765
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-28 07:08:41.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11117
+  _time: 2025-06-23 14:56:54.261694023 Z
+  _version: 0.11.1/0.50.5/
+  branch: '762'
+  details: cqfn/aibolit#763 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 763
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-28 02:24:30.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11118
+  _time: 2025-06-23 14:56:54.839735695 Z
+  _version: 0.11.1/0.50.5/
+  branch: '724'
+  details: cqfn/aibolit#761 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 761
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-27 14:51:32.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11119
+  _time: 2025-06-23 14:56:55.513297326 Z
+  _version: 0.11.1/0.50.5/
+  branch: '758'
+  details: cqfn/aibolit#760 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 760
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-27 10:29:56.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11120
+  _time: 2025-06-23 14:56:56.117664476 Z
+  _version: 0.11.1/0.50.5/
+  branch: '736'
+  details: cqfn/aibolit#737 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 737
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-27 07:20:51.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11121
+  _time: 2025-06-23 14:56:56.683558377 Z
+  _version: 0.11.1/0.50.5/
+  branch: '738'
+  details: cqfn/aibolit#739 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 739
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-27 09:01:25.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11122
+  _time: 2025-06-23 14:56:57.262542714 Z
+  _version: 0.11.1/0.50.5/
+  branch: '728'
+  details: cqfn/aibolit#729 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 729
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-27 04:48:16.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11123
+  _time: 2025-06-23 14:56:57.910169322 Z
+  _version: 0.11.1/0.50.5/
+  branch: '732'
+  details: cqfn/aibolit#733 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 733
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-27 06:46:40.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11124
+  _time: 2025-06-23 14:56:58.589294011 Z
+  _version: 0.11.1/0.50.5/
+  branch: '730'
+  details: cqfn/aibolit#731 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 731
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-27 05:55:07.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11125
+  _time: 2025-06-23 14:56:59.172895956 Z
+  _version: 0.11.1/0.50.5/
+  branch: '734'
+  details: cqfn/aibolit#735 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 735
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-27 06:53:10.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11126
+  _time: 2025-06-23 14:56:59.684213431 Z
+  _version: 0.11.1/0.50.5/
+  branch: '725'
+  details: cqfn/aibolit#727 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 727
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-26 05:14:24.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11127
+  _time: 2025-06-23 14:57:00.316250309 Z
+  _version: 0.11.1/0.50.5/
+  branch: '709'
+  details: cqfn/aibolit#726 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 726
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-25 16:00:17.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11128
+  _time: 2025-06-23 14:57:00.893907888 Z
+  _version: 0.11.1/0.50.5/
+  branch: '719'
+  details: cqfn/aibolit#721 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 721
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-25 08:07:02.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11129
+  _time: 2025-06-23 14:57:01.537775641 Z
+  _version: 0.11.1/0.50.5/
+  branch: '722'
+  details: cqfn/aibolit#723 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 723
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-25 08:32:16.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11130
+  _time: 2025-06-23 14:57:02.068793632 Z
+  _version: 0.11.1/0.50.5/
+  branch: '712'
+  details: cqfn/aibolit#717 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 717
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-23 12:20:26.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11131
+  _time: 2025-06-23 14:57:02.634636229 Z
+  _version: 0.11.1/0.50.5/
+  branch: '754'
+  details: cqfn/aibolit#766 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 766
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-28 14:38:30.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11132
+  _time: 2025-06-23 14:57:03.212767368 Z
+  _version: 0.11.1/0.50.5/
+  branch: '750'
+  details: cqfn/aibolit#767 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 767
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-28 14:44:03.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11133
+  _time: 2025-06-23 14:57:03.791385472 Z
+  _version: 0.11.1/0.50.5/
+  branch: '485'
+  details: cqfn/aibolit#769 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 769
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 04:54:43.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11134
+  _time: 2025-06-23 14:57:04.415497818 Z
+  _version: 0.11.1/0.50.5/
+  branch: '741'
+  details: cqfn/aibolit#768 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 768
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 04:50:45.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11135
+  _time: 2025-06-23 14:57:05.069299513 Z
+  _version: 0.11.1/0.50.5/
+  branch: '756'
+  details: cqfn/aibolit#771 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 771
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 09:32:16.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11136
+  _time: 2025-06-23 14:57:05.802605209 Z
+  _version: 0.11.1/0.50.5/
+  branch: '740'
+  details: cqfn/aibolit#770 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 770
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 09:15:20.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11137
+  _time: 2025-06-23 14:57:06.391273928 Z
+  _version: 0.11.1/0.50.5/
+  branch: '753'
+  details: cqfn/aibolit#773 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 773
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 09:54:42.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11138
+  _time: 2025-06-23 14:57:06.978736534 Z
+  _version: 0.11.1/0.50.5/
+  branch: '772'
+  details: cqfn/aibolit#774 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 774
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 10:46:10.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11139
+  _time: 2025-06-23 14:57:07.546286523 Z
+  _version: 0.11.1/0.50.5/
+  branch: '757'
+  details: cqfn/aibolit#775 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 775
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 11:27:47.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11140
+  _time: 2025-06-23 14:57:08.167393598 Z
+  _version: 0.11.1/0.50.5/
+  branch: '777'
+  details: cqfn/aibolit#778 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 778
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 16:51:51.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11141
+  _time: 2025-06-23 14:57:08.727341339 Z
+  _version: 0.11.1/0.50.5/
+  branch: '776'
+  details: cqfn/aibolit#784 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 784
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-29 17:54:03.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11142
+  _time: 2025-06-23 14:57:09.374468848 Z
+  _version: 0.11.1/0.50.5/
+  branch: '785'
+  details: cqfn/aibolit#787 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 787
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-30 03:57:01.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11143
+  _time: 2025-06-23 14:57:10.002287928 Z
+  _version: 0.11.1/0.50.5/
+  branch: '779'
+  details: cqfn/aibolit#789 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 789
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-30 09:02:47.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11144
+  _time: 2025-06-23 14:57:10.719354845 Z
+  _version: 0.11.1/0.50.5/
+  branch: '780'
+  details: cqfn/aibolit#790 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 790
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-30 14:03:48.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11145
+  _time: 2025-06-23 14:57:11.331752362 Z
+  _version: 0.11.1/0.50.5/
+  branch: '755'
+  details: cqfn/aibolit#791 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 791
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-30 14:07:53.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11146
+  _time: 2025-06-23 14:57:11.896611099 Z
+  _version: 0.11.1/0.50.5/
+  branch: '746'
+  details: cqfn/aibolit#793 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 793
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-31 16:54:31.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11147
+  _time: 2025-06-23 14:57:12.454677923 Z
+  _version: 0.11.1/0.50.5/
+  branch: '748'
+  details: cqfn/aibolit#794 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 794
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-31 16:57:33.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11148
+  _time: 2025-06-23 14:57:13.045230744 Z
+  _version: 0.11.1/0.50.5/
+  branch: '749'
+  details: cqfn/aibolit#795 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 795
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-31 17:02:04.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11149
+  _time: 2025-06-23 14:57:13.626814341 Z
+  _version: 0.11.1/0.50.5/
+  branch: implement-147-mutable-index
+  details: cqfn/aibolit#797 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 797
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-01 14:38:33.000000000 Z
+  where: github
+  who: 13173649
+- _id: 11150
+  _time: 2025-06-23 14:57:14.331897570 Z
+  _version: 0.11.1/0.50.5/
+  branch: '798'
+  details: cqfn/aibolit#801 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 801
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-03 02:43:28.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11151
+  _time: 2025-06-23 14:57:14.936345431 Z
+  _version: 0.11.1/0.50.5/
+  branch: '799'
+  details: cqfn/aibolit#802 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 802
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-03 09:18:25.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11152
+  _time: 2025-06-23 14:57:15.460341728 Z
+  _version: 0.11.1/0.50.5/
+  branch: 140-incomplete-for-pattern
+  details: cqfn/aibolit#800 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 800
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-02 21:06:04.000000000 Z
+  where: github
+  who: 13173649
+- _id: 11153
+  _time: 2025-06-23 14:57:16.059742880 Z
+  _version: 0.11.1/0.50.5/
+  branch: '803'
+  details: cqfn/aibolit#804 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 804
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-04 08:09:28.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11154
+  _time: 2025-06-23 14:57:16.548666451 Z
+  _version: 0.11.1/0.50.5/
+  branch: '805'
+  details: cqfn/aibolit#806 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 806
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-05 11:41:20.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11155
+  _time: 2025-06-23 14:57:17.048677032 Z
+  _version: 0.11.1/0.50.5/
+  branch: '807'
+  details: cqfn/aibolit#808 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 808
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-06 04:10:30.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11156
+  _time: 2025-06-23 14:57:17.618983596 Z
+  _version: 0.11.1/0.50.5/
+  branch: '584'
+  details: cqfn/aibolit#815 has been opened by @newspec.
+  is_human: 1
+  issue: 815
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-07 23:26:36.000000000 Z
+  where: github
+  who: 150796108
+- _id: 11157
+  _time: 2025-06-23 14:57:18.109435922 Z
+  _version: 0.11.1/0.50.5/
+  branch: 696-add-pytest-testmon-plugin
+  details: cqfn/aibolit#828 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 828
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-13 12:59:53.000000000 Z
+  where: github
+  who: 13173649
+- _id: 11158
+  _time: 2025-06-23 14:57:18.610274389 Z
+  _version: 0.11.1/0.50.5/
+  branch: 824-add-e2e-package-tests
+  details: cqfn/aibolit#825 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 825
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-13 11:34:07.000000000 Z
+  where: github
+  who: 13173649
+- _id: 11159
+  _time: 2025-06-23 14:57:19.159038089 Z
+  _version: 0.11.1/0.50.5/
+  branch: 819-enforce-single-quotes
+  details: cqfn/aibolit#823 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 823
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-13 10:32:31.000000000 Z
+  where: github
+  who: 13173649
+- _id: 11160
+  _time: 2025-06-23 14:57:19.745428874 Z
+  _version: 0.11.1/0.50.5/
+  branch: 826-bind-ty-version
+  details: cqfn/aibolit#827 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 827
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-13 11:47:59.000000000 Z
+  where: github
+  who: 13173649
+- _id: 11161
+  _time: 2025-06-23 14:57:20.260825228 Z
+  _version: 0.11.1/0.50.5/
+  branch: improve-typings
+  details: cqfn/aibolit#814 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 814
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-07 17:56:08.000000000 Z
+  where: github
+  who: 13173649
+- _id: 11162
+  _time: 2025-06-23 14:57:20.740745382 Z
+  _version: 0.11.1/0.50.5/
+  branch: implement_loop_outsider
+  details: cqfn/aibolit#816 has been opened by @sinbadthesailor2005.
+  is_human: 1
+  issue: 816
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-08 10:58:08.000000000 Z
+  where: github
+  who: 150805542
+- _id: 11163
+  _time: 2025-06-23 14:57:21.291268923 Z
+  _version: 0.11.1/0.50.5/
+  branch: 830-ast-patterns
+  details: cqfn/aibolit#832 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 832
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-15 15:19:47.000000000 Z
+  where: github
+  who: 13173649
+- _id: 11164
+  _time: 2025-06-23 14:57:21.791874135 Z
+  _version: 0.11.1/0.50.5/
+  branch: '820'
+  details: cqfn/aibolit#833 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 833
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-17 09:59:39.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11165
+  _time: 2025-06-23 14:57:22.311156349 Z
+  _version: 0.11.1/0.50.5/
+  branch: master
+  details: cqfn/aibolit#151 has been opened by @cringoleg.
+  is_human: 1
+  issue: 151
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-02 03:13:40.000000000 Z
+  where: github
+  who: 57872461
+- _id: 11166
+  _time: 2025-06-23 14:57:22.997565136 Z
+  _version: 0.11.1/0.50.5/
+  branch: Pavel
+  details: cqfn/aibolit#168 has been opened by @lukyanoffpashok.
+  is_human: 1
+  issue: 168
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-07 12:41:15.000000000 Z
+  where: github
+  who: 46167437
+- _id: 11167
+  _time: 2025-06-23 14:57:23.772922014 Z
+  _version: 0.11.1/0.50.5/
+  branch: scope_april_2020
+  details: cqfn/aibolit#152 has been opened by @acheshkov.
+  is_human: 1
+  issue: 152
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-02 08:40:14.000000000 Z
+  where: github
+  who: 231433
+- _id: 11168
+  _time: 2025-06-23 14:57:24.381617114 Z
+  _version: 0.11.1/0.50.5/
+  branch: '131'
+  details: cqfn/aibolit#155 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 155
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-02 13:02:46.000000000 Z
+  where: github
+  who: 33915433
+- _id: 11169
+  _time: 2025-06-23 14:57:25.010151472 Z
+  _version: 0.11.1/0.50.5/
+  branch: '116'
+  details: cqfn/aibolit#156 has been opened by @tribals.
+  is_human: 1
+  issue: 156
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-02 16:35:18.000000000 Z
+  where: github
+  who: 3613180
+- _id: 11170
+  _time: 2025-06-23 14:57:25.653560584 Z
+  _version: 0.11.1/0.50.5/
+  branch: '126'
+  details: cqfn/aibolit#162 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 162
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-03 17:45:40.000000000 Z
+  where: github
+  who: 33915433
+- _id: 11171
+  _time: 2025-06-23 14:57:26.218502332 Z
+  _version: 0.11.1/0.50.5/
+  branch: '127'
+  details: cqfn/aibolit#163 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 163
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-03 17:59:39.000000000 Z
+  where: github
+  who: 33915433
+- _id: 11172
+  _time: 2025-06-23 14:57:26.785153565 Z
+  _version: 0.11.1/0.50.5/
+  branch: '130'
+  details: cqfn/aibolit#165 has been opened by @tribals.
+  is_human: 1
+  issue: 165
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-06 01:55:52.000000000 Z
+  where: github
+  who: 3613180
+- _id: 11173
+  _time: 2025-06-23 14:57:27.389400917 Z
+  _version: 0.11.1/0.50.5/
+  branch: wp
+  details: cqfn/aibolit#171 has been opened by @acheshkov.
+  is_human: 1
+  issue: 171
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 07:28:54.000000000 Z
+  where: github
+  who: 231433
+- _id: 11174
+  _time: 2025-06-23 14:57:27.909885104 Z
+  _version: 0.11.1/0.50.5/
+  branch: red_catch_fix
+  details: cqfn/aibolit#173 has been opened by @lyriccoder.
+  is_human: 1
+  issue: 173
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 10:19:26.000000000 Z
+  where: github
+  who: 20803206
+- _id: 11175
+  _time: 2025-06-23 14:57:28.462544680 Z
+  _version: 0.11.1/0.50.5/
+  branch: wp
+  details: cqfn/aibolit#174 has been opened by @acheshkov.
+  is_human: 1
+  issue: 174
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 10:41:23.000000000 Z
+  where: github
+  who: 231433
+- _id: 11176
+  _time: 2025-06-23 14:57:28.993084192 Z
+  _version: 0.11.1/0.50.5/
+  branch: master
+  details: cqfn/aibolit#179 has been opened by @vitaly-protasov.
+  is_human: 1
+  issue: 179
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 14:06:31.000000000 Z
+  where: github
+  who: 43099602
+- _id: 11177
+  _time: 2025-06-23 14:57:29.523028314 Z
+  _version: 0.11.1/0.50.5/
+  branch: unittest
+  details: cqfn/aibolit#185 has been opened by @vitaly-protasov.
+  is_human: 1
+  issue: 185
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 15:50:36.000000000 Z
+  where: github
+  who: 43099602
+- _id: 11178
+  _time: 2025-06-23 14:57:30.093657096 Z
+  _version: 0.11.1/0.50.5/
+  branch: master
+  details: cqfn/aibolit#187 has been opened by @cringoleg.
+  is_human: 1
+  issue: 187
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-09 12:08:34.000000000 Z
+  where: github
+  who: 57872461
+- _id: 11179
+  _time: 2025-06-23 14:57:30.672044267 Z
+  _version: 0.11.1/0.50.5/
+  branch: master
+  details: cqfn/aibolit#205 has been opened by @angusev.
+  is_human: 1
+  issue: 205
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-13 11:19:15.000000000 Z
+  where: github
+  who: 44449418
+- _id: 11180
+  _time: 2025-06-23 14:57:31.243976421 Z
+  _version: 0.11.1/0.50.5/
+  branch: pair_wise
+  details: cqfn/aibolit#209 has been opened by @lyriccoder.
+  is_human: 1
+  issue: 209
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-13 16:06:10.000000000 Z
+  where: github
+  who: 20803206
+- _id: 11181
+  _time: 2025-06-23 14:57:31.873739666 Z
+  _version: 0.11.1/0.50.5/
+  branch: '148'
+  details: cqfn/aibolit#211 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 211
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-14 17:54:21.000000000 Z
+  where: github
+  who: 33915433
+- _id: 11182
+  _time: 2025-06-23 14:57:32.411730400 Z
+  _version: 0.11.1/0.50.5/
+  branch: metrics
+  details: cqfn/aibolit#214 has been opened by @cringoleg.
+  is_human: 1
+  issue: 214
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-15 15:41:12.000000000 Z
+  where: github
+  who: 57872461
+- _id: 11183
+  _time: 2025-06-23 14:57:32.995167221 Z
+  _version: 0.11.1/0.50.5/
+  branch: log_errors_red_catch
+  details: cqfn/aibolit#176 has been opened by @lyriccoder.
+  is_human: 1
+  issue: 176
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 13:50:54.000000000 Z
+  where: github
+  who: 20803206
+- _id: 11184
+  _time: 2025-06-23 14:57:33.825666692 Z
+  _version: 0.11.1/0.50.5/
+  branch: issue-177
+  details: cqfn/aibolit#178 has been opened by @acheshkov.
+  is_human: 1
+  issue: 178
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 14:04:11.000000000 Z
+  where: github
+  who: 231433
+- _id: 11185
+  _time: 2025-06-23 14:57:34.444025781 Z
+  _version: 0.11.1/0.50.5/
+  branch: empty_rethrow_fix
+  details: cqfn/aibolit#181 has been opened by @lyriccoder.
+  is_human: 1
+  issue: 181
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 14:44:35.000000000 Z
+  where: github
+  who: 20803206
+- _id: 11186
+  _time: 2025-06-23 14:57:35.075693817 Z
+  _version: 0.11.1/0.50.5/
+  branch: diameter
+  details: cqfn/aibolit#186 has been opened by @vitaly-protasov.
+  is_human: 1
+  issue: 186
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 15:58:01.000000000 Z
+  where: github
+  who: 43099602
+- _id: 11187
+  _time: 2025-06-23 14:57:35.677132056 Z
+  _version: 0.11.1/0.50.5/
+  branch: issue-143
+  details: cqfn/aibolit#188 has been opened by @acheshkov.
+  is_human: 1
+  issue: 188
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-09 13:54:48.000000000 Z
+  where: github
+  who: 231433
+- _id: 11188
+  _time: 2025-06-23 14:57:36.277329417 Z
+  _version: 0.11.1/0.50.5/
+  branch: issue-137
+  details: cqfn/aibolit#189 has been opened by @acheshkov.
+  is_human: 1
+  issue: 189
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-09 15:44:46.000000000 Z
+  where: github
+  who: 231433
+- _id: 11189
+  _time: 2025-06-23 14:57:36.811067050 Z
+  _version: 0.11.1/0.50.5/
+  branch: fix_string_conat
+  details: cqfn/aibolit#191 has been opened by @lyriccoder.
+  is_human: 1
+  issue: 191
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-09 16:28:12.000000000 Z
+  where: github
+  who: 20803206
+- _id: 11190
+  _time: 2025-06-23 14:57:37.423670693 Z
+  _version: 0.11.1/0.50.5/
+  branch: spaces_counter_fix
+  details: cqfn/aibolit#193 has been opened by @lyriccoder.
+  is_human: 1
+  issue: 193
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-10 09:10:16.000000000 Z
+  where: github
+  who: 20803206
+- _id: 11191
+  _time: 2025-06-23 14:57:38.016222766 Z
+  _version: 0.11.1/0.50.5/
+  branch: patterns
+  details: cqfn/aibolit#197 has been opened by @cringoleg.
+  is_human: 1
+  issue: 197
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-10 12:09:47.000000000 Z
+  where: github
+  who: 57872461
+- _id: 11192
+  _time: 2025-06-23 14:57:38.640431407 Z
+  _version: 0.11.1/0.50.5/
+  branch: leave
+  details: cqfn/aibolit#198 has been opened by @vitaly-protasov.
+  is_human: 1
+  issue: 198
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-10 13:40:11.000000000 Z
+  where: github
+  who: 43099602
+- _id: 11193
+  _time: 2025-06-23 14:57:39.179854486 Z
+  _version: 0.11.1/0.50.5/
+  branch: patterns_calc
+  details: cqfn/aibolit#200 has been opened by @lyriccoder.
+  is_human: 1
+  issue: 200
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-10 14:23:45.000000000 Z
+  where: github
+  who: 20803206
+- _id: 11194
+  _time: 2025-06-23 14:57:39.887869713 Z
+  _version: 0.11.1/0.50.5/
+  branch: metrics
+  details: cqfn/aibolit#201 has been opened by @cringoleg.
+  is_human: 1
+  issue: 201
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-10 15:01:31.000000000 Z
+  where: github
+  who: 57872461
+- _id: 11195
+  _time: 2025-06-23 14:57:40.462493579 Z
+  _version: 0.11.1/0.50.5/
+  branch: '128'
+  details: cqfn/aibolit#203 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 203
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-11 04:19:19.000000000 Z
+  where: github
+  who: 33915433
+- _id: 11196
+  _time: 2025-06-23 14:57:41.048001239 Z
+  _version: 0.11.1/0.50.5/
+  branch: '136'
+  details: cqfn/aibolit#204 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 204
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-12 02:59:12.000000000 Z
+  where: github
+  who: 33915433
+- _id: 11197
+  _time: 2025-06-23 14:57:41.610803872 Z
+  _version: 0.11.1/0.50.5/
+  branch: cognitive
+  details: cqfn/aibolit#207 has been opened by @vitaly-protasov.
+  is_human: 1
+  issue: 207
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-13 15:40:27.000000000 Z
+  where: github
+  who: 43099602
+- _id: 11198
+  _time: 2025-06-23 14:57:42.168103636 Z
+  _version: 0.11.1/0.50.5/
+  branch: '141'
+  details: cqfn/aibolit#210 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 210
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-14 16:59:44.000000000 Z
+  where: github
+  who: 33915433
+- _id: 11199
+  _time: 2025-06-23 14:57:42.763475854 Z
+  _version: 0.11.1/0.50.5/
+  branch: cognitive
+  details: cqfn/aibolit#213 has been opened by @vitaly-protasov.
+  is_human: 1
+  issue: 213
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-15 11:14:41.000000000 Z
+  where: github
+  who: 43099602
+- _id: 11200
+  _time: 2025-06-23 14:57:43.305323554 Z
+  _version: 0.11.1/0.50.5/
+  branch: master
+  details: cqfn/aibolit#234 has been opened by @vitaly-protasov.
+  is_human: 1
+  issue: 234
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-22 06:58:12.000000000 Z
+  where: github
+  who: 43099602
+- _id: 11201
+  _time: 2025-06-23 14:57:43.824891998 Z
+  _version: 0.11.1/0.50.5/
+  branch: cognitive
+  details: cqfn/aibolit#217 has been opened by @vitaly-protasov.
+  is_human: 1
+  issue: 217
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-16 15:06:02.000000000 Z
+  where: github
+  who: 43099602
+- _id: 11202
+  _time: 2025-06-23 14:57:44.420905178 Z
+  _version: 0.11.1/0.50.5/
+  branch: LCOM4
+  details: cqfn/aibolit#218 has been opened by @cringoleg.
+  is_human: 1
+  issue: 218
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-16 16:54:36.000000000 Z
+  where: github
+  who: 57872461
+- _id: 11203
+  _time: 2025-06-23 14:57:44.957093928 Z
+  _version: 0.11.1/0.50.5/
+  branch: cognitive
+  details: cqfn/aibolit#220 has been opened by @vitaly-protasov.
+  is_human: 1
+  issue: 220
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-17 11:53:47.000000000 Z
+  where: github
+  who: 43099602
+- _id: 11204
+  _time: 2025-06-23 14:57:45.610146895 Z
+  _version: 0.11.1/0.50.5/
+  branch: leave
+  details: cqfn/aibolit#222 has been opened by @vitaly-protasov.
+  is_human: 1
+  issue: 222
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-17 14:21:12.000000000 Z
+  where: github
+  who: 43099602
+- _id: 11205
+  _time: 2025-06-23 14:57:46.162212409 Z
+  _version: 0.11.1/0.50.5/
+  branch: '159'
+  details: cqfn/aibolit#223 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 223
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-17 16:03:11.000000000 Z
+  where: github
+  who: 33915433
+- _id: 11206
+  _time: 2025-06-23 14:57:46.716957711 Z
+  _version: 0.11.1/0.50.5/
+  branch: '160'
+  details: cqfn/aibolit#224 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 224
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-17 16:39:29.000000000 Z
+  where: github
+  who: 33915433
+- _id: 11207
+  _time: 2025-06-23 14:57:47.500438290 Z
+  _version: 0.11.1/0.50.5/
+  branch: '158'
+  details: cqfn/aibolit#227 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 227
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-19 21:50:05.000000000 Z
+  where: github
+  who: 33915433
+- _id: 11208
+  _time: 2025-06-23 14:57:48.064630244 Z
+  _version: 0.11.1/0.50.5/
+  branch: fix_error_log
+  details: cqfn/aibolit#230 has been opened by @lyriccoder.
+  is_human: 1
+  issue: 230
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-20 14:32:34.000000000 Z
+  where: github
+  who: 20803206
+- _id: 11209
+  _time: 2025-06-23 14:57:49.184688246 Z
+  _version: 0.11.1/0.50.5/
+  branch: LCOM4
+  details: cqfn/aibolit#231 has been opened by @cringoleg.
+  is_human: 1
+  issue: 231
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-20 16:07:56.000000000 Z
+  where: github
+  who: 57872461
+- _id: 11210
+  _time: 2025-06-23 14:57:49.806930482 Z
+  _version: 0.11.1/0.50.5/
+  branch: issue-228
+  details: cqfn/aibolit#232 has been opened by @acheshkov.
+  is_human: 1
+  issue: 232
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-21 10:27:56.000000000 Z
+  where: github
+  who: 231433
+- _id: 11211
+  _time: 2025-06-23 14:57:50.932371020 Z
+  _version: 0.11.1/0.50.5/
+  branch: cognitive
+  details: cqfn/aibolit#233 has been opened by @vitaly-protasov.
+  is_human: 1
+  issue: 233
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-22 06:49:23.000000000 Z
+  where: github
+  who: 43099602
+- _id: 11212
+  _time: 2025-06-23 14:57:51.630576755 Z
+  _version: 0.11.1/0.50.5/
+  branch: diameter
+  details: cqfn/aibolit#236 has been opened by @vitaly-protasov.
+  is_human: 1
+  issue: 236
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-22 10:09:35.000000000 Z
+  where: github
+  who: 43099602
+- _id: 11213
+  _time: 2025-06-23 14:57:52.285268354 Z
+  _version: 0.11.1/0.50.5/
+  branch: ML_pipeline
+  details: cqfn/aibolit#238 has been opened by @lyriccoder.
+  is_human: 1
+  issue: 238
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-22 15:51:44.000000000 Z
+  where: github
+  who: 20803206
+- _id: 11214
+  _time: 2025-06-23 14:57:53.016235696 Z
+  _version: 0.11.1/0.50.5/
+  branch: '195'
+  details: cqfn/aibolit#249 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 249
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-27 23:26:26.000000000 Z
+  where: github
+  who: 33915433
+- _id: 11215
+  _time: 2025-06-23 14:59:53.419152707 Z
+  _version: 0.11.1/0.50.5/
+  latest: 138
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 11216
+  _time: 2025-06-23 14:59:55.627290037 Z
+  _version: 0.11.1/0.50.5/
+  latest: 51218779059
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 11217
+  _time: 2025-06-23 14:59:55.770899152 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#744 has been opened by @0pdd.
+  is_human: 0
+  issue: 744
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:45:50.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11218
+  _time: 2025-06-23 14:59:56.139627218 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#764 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 764
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-28 07:03:14.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11219
+  _time: 2025-06-23 14:59:56.478874830 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#736 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 736
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 07:14:05.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11220
+  _time: 2025-06-23 14:59:56.675491529 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#762 has been opened by @0pdd.
+  is_human: 0
+  issue: 762
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 18:04:25.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11221
+  _time: 2025-06-23 14:59:57.008739989 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#724 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 724
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-25 11:21:27.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11222
+  _time: 2025-06-23 14:59:57.246849912 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#758 has been opened by @0pdd.
+  is_human: 0
+  issue: 758
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:46:05.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11223
+  _time: 2025-06-23 14:59:57.432893922 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#489 has been opened by @0pdd.
+  is_human: 0
+  issue: 489
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-06 14:37:31.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11224
+  _time: 2025-06-23 14:59:57.619657688 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#488 has been opened by @0pdd.
+  is_human: 0
+  issue: 488
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-06 14:37:17.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11225
+  _time: 2025-06-23 14:59:57.813735459 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#487 has been opened by @0pdd.
+  is_human: 0
+  issue: 487
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-06 14:37:03.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11226
+  _time: 2025-06-23 14:59:57.995554158 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#486 has been opened by @0pdd.
+  is_human: 0
+  issue: 486
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-06 14:36:48.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11227
+  _time: 2025-06-23 14:59:58.180582772 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#485 has been opened by @0pdd.
+  is_human: 0
+  issue: 485
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-06 14:36:34.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11228
+  _time: 2025-06-23 14:59:58.380585732 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#738 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 738
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:00:26.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11229
+  _time: 2025-06-23 14:59:58.568091022 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#728 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 728
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-26 14:13:44.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11230
+  _time: 2025-06-23 14:59:58.759515567 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#732 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 732
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 06:41:09.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11231
+  _time: 2025-06-23 14:59:59.003795977 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#730 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 730
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 05:38:54.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11232
+  _time: 2025-06-23 14:59:59.232924191 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#734 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 734
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 06:50:32.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11233
+  _time: 2025-06-23 14:59:59.443998847 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#725 has been opened by @yegor256.
+  is_human: 1
+  issue: 725
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-25 15:14:51.000000000 Z
+  where: github
+  who: 526301
+- _id: 11234
+  _time: 2025-06-23 14:59:59.780543783 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#709 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 709
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-22 12:28:11.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11235
+  _time: 2025-06-23 15:00:00.011725875 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#719 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 719
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-23 13:30:21.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11236
+  _time: 2025-06-23 15:00:00.227358632 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#722 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 722
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-25 08:24:32.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11237
+  _time: 2025-06-23 15:00:00.436554020 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#720 has been opened by @literally-bug-creator.
+  is_human: 1
+  issue: 720
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-23 16:59:56.000000000 Z
+  where: github
+  who: 84927447
+- _id: 11238
+  _time: 2025-06-23 15:00:00.734867075 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#718 has been opened by @literally-bug-creator.
+  is_human: 1
+  issue: 718
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-23 13:28:12.000000000 Z
+  where: github
+  who: 84927447
+- _id: 11239
+  _time: 2025-06-23 15:00:00.902535886 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#712 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 712
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-23 07:49:15.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11240
+  _time: 2025-06-23 15:00:01.122478505 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#754 has been opened by @0pdd.
+  is_human: 0
+  issue: 754
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:46:00.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11241
+  _time: 2025-06-23 15:00:01.330670663 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#751 has been opened by @0pdd.
+  is_human: 0
+  issue: 751
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:45:57.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11242
+  _time: 2025-06-23 15:00:01.564992368 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#750 has been opened by @0pdd.
+  is_human: 0
+  issue: 750
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:45:56.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11243
+  _time: 2025-06-23 15:00:01.812129246 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#741 has been opened by @0pdd.
+  is_human: 0
+  issue: 741
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:45:47.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11244
+  _time: 2025-06-23 15:00:02.037947285 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#756 has been opened by @0pdd.
+  is_human: 0
+  issue: 756
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:46:03.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11245
+  _time: 2025-06-23 15:00:02.311875954 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#740 has been opened by @0pdd.
+  is_human: 0
+  issue: 740
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:45:46.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11246
+  _time: 2025-06-23 15:00:02.581623076 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#753 has been opened by @0pdd.
+  is_human: 0
+  issue: 753
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:45:59.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11247
+  _time: 2025-06-23 15:00:02.840276515 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#772 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 772
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 09:43:20.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11248
+  _time: 2025-06-23 15:00:03.086364450 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#757 has been opened by @0pdd.
+  is_human: 0
+  issue: 757
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:46:04.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11249
+  _time: 2025-06-23 15:00:03.313262057 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#777 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 777
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 12:25:10.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11250
+  _time: 2025-06-23 15:00:03.521534516 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#776 has been opened by @0pdd.
+  is_human: 0
+  issue: 776
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 11:33:10.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11251
+  _time: 2025-06-23 15:00:03.721122034 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#786 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 786
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-30 01:56:50.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11252
+  _time: 2025-06-23 15:00:03.960083620 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#785 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 785
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 17:59:36.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11253
+  _time: 2025-06-23 15:00:04.285918224 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#783 has been opened by @0pdd.
+  is_human: 0
+  issue: 783
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 17:23:42.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11254
+  _time: 2025-06-23 15:00:04.476951858 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#782 has been opened by @0pdd.
+  is_human: 0
+  issue: 782
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 17:23:41.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11255
+  _time: 2025-06-23 15:00:04.678674179 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#779 has been opened by @0pdd.
+  is_human: 0
+  issue: 779
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 17:23:38.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11256
+  _time: 2025-06-23 15:00:04.872070046 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#781 has been opened by @0pdd.
+  is_human: 0
+  issue: 781
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 17:23:40.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11257
+  _time: 2025-06-23 15:00:05.046412840 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#780 has been opened by @0pdd.
+  is_human: 0
+  issue: 780
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-29 17:23:39.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11258
+  _time: 2025-06-23 15:00:05.293838717 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#755 has been opened by @0pdd.
+  is_human: 0
+  issue: 755
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:46:01.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11259
+  _time: 2025-06-23 15:00:05.527910646 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#746 has been opened by @0pdd.
+  is_human: 0
+  issue: 746
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:45:52.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11260
+  _time: 2025-06-23 15:00:05.728294346 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#745 has been opened by @0pdd.
+  is_human: 0
+  issue: 745
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:45:51.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11261
+  _time: 2025-06-23 15:00:05.910057890 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#748 has been opened by @0pdd.
+  is_human: 0
+  issue: 748
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:45:54.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11262
+  _time: 2025-06-23 15:00:06.120703411 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#749 has been opened by @0pdd.
+  is_human: 0
+  issue: 749
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:45:55.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11263
+  _time: 2025-06-23 15:00:06.345420992 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#743 has been opened by @0pdd.
+  is_human: 0
+  issue: 743
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:45:49.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11264
+  _time: 2025-06-23 15:00:06.579312977 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#792 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 792
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-31 16:49:53.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11265
+  _time: 2025-06-23 15:00:06.797153803 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#798 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 798
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-02 08:25:15.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11266
+  _time: 2025-06-23 15:00:06.978001534 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#799 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 799
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-02 08:28:42.000000000 Z
+  where: github
+  who: 41443370
+- _id: 11267
+  _time: 2025-06-23 15:00:07.180213973 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#140 has been opened by @yegor256.
+  is_human: 1
+  issue: 140
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-04-01 21:02:48.000000000 Z
+  where: github
+  who: 526301
+- _id: 11268
+  _time: 2025-06-23 15:00:07.378535895 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#805 has been opened by @0pdd.
+  is_human: 0
+  issue: 805
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-05 09:24:26.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11269
+  _time: 2025-06-23 15:00:07.670218095 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#807 has been opened by @0pdd.
+  is_human: 0
+  issue: 807
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-05 12:33:47.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11270
+  _time: 2025-06-23 15:00:07.865762709 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#584 has been opened by @yegor256.
+  is_human: 1
+  issue: 584
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-31 04:34:15.000000000 Z
+  where: github
+  who: 526301
+- _id: 11271
+  _time: 2025-06-23 15:00:08.067066635 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#831 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 831
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-15 07:31:42.000000000 Z
+  where: github
+  who: 13173649
+- _id: 11272
+  _time: 2025-06-23 15:00:08.380725357 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#824 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 824
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-13 10:52:30.000000000 Z
+  where: github
+  who: 13173649
+- _id: 11273
+  _time: 2025-06-23 15:00:08.566224767 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#822 has been opened by @0pdd.
+  is_human: 0
+  issue: 822
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-13 07:12:10.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11274
+  _time: 2025-06-23 15:00:08.753245662 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#821 has been opened by @0pdd.
+  is_human: 0
+  issue: 821
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-13 07:12:08.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11275
+  _time: 2025-06-23 15:00:08.925704450 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#819 has been opened by @alchemmist.
+  is_human: 1
+  issue: 819
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-12 09:39:52.000000000 Z
+  where: github
+  who: 104511335
+- _id: 11276
+  _time: 2025-06-23 15:00:09.238197668 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#826 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 826
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-13 11:45:52.000000000 Z
+  where: github
+  who: 13173649
+- _id: 11277
+  _time: 2025-06-23 15:00:09.535753862 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#759 has been opened by @0pdd.
+  is_human: 0
+  issue: 759
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-05-27 09:46:06.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11278
+  _time: 2025-06-23 15:00:09.757515038 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#830 has been opened by @0pdd.
+  is_human: 0
+  issue: 830
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-14 07:00:46.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11279
+  _time: 2025-06-23 15:00:10.014582131 Z
+  _version: 0.11.1/0.50.5/
+  details: cqfn/aibolit#820 has been opened by @0pdd.
+  is_human: 0
+  issue: 820
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-06-13 07:12:06.000000000 Z
+  where: github
+  who: 24456188
+- _id: 11280
+  _time: 2025-06-23 15:00:13.328800369 Z
+  _version: 0.11.1/0.50.5/
+  latest: 722
   repository: 237167507
   what: labels-were-scanned
   where: github
