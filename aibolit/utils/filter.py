@@ -35,13 +35,13 @@ class Filters:
 
     @staticmethod
     def filter_getters_setters(method_node_list: List[MthNodes]) -> List[MthNodes]:
-        """Filters nodes by name.
+        '''Filters nodes by name.
 
         Gets list of nodes of "MethodDeclaration" type and filters it by
         name, so that no methods with name starting with "set" or "get"
         go to return list.
         Returns a generator with (path, node) inside.
-        """
+        '''
 
         # To-Fix: implement get/set detection with .body
         temp_list = []
@@ -93,7 +93,7 @@ class Filters:
         try:
             parameter_tuple: Tuple[str, str] = ('type', field_node.type.name)
         except AttributeError:
-            return "", ("", "")
+            return '', ('', '')
         return name, parameter_tuple
 
     @staticmethod

@@ -7,9 +7,9 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 
 class PublicStaticMethod:
-    '''
+    """
     Check method with 'public static'
-    '''
+    """
     def _check_public_static(self, node: ASTNode):
         if all(type in node.modifiers for type in ['public', 'static']):
             return True

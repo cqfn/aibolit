@@ -50,7 +50,7 @@ class MutableIndex:
         for op in for_body.get_proxy_nodes(ASTNodeType.STATEMENT_EXPRESSION):
             expr = op.expression
             if expr.node_type != ASTNodeType.ASSIGNMENT and expr.member in index_names:
-                unary_operators = ("++", "--")
+                unary_operators = ('++', '--')
                 for operator in expr.prefix_operators:
                     if operator in unary_operators:
                         result.add(expr.line)

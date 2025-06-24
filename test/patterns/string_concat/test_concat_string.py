@@ -14,56 +14,56 @@ class ConcatStringTestCase(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
 
     def test_concat_strings_in_print(self):
-        filepath = Path(self.dir_path, "ConcatInPrint.java")
+        filepath = Path(self.dir_path, 'ConcatInPrint.java')
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
         self.assertEqual(lines, [17])
 
     def test_member_plus_string(self):
-        filepath = Path(self.dir_path, "MemberPlusString.java")
+        filepath = Path(self.dir_path, 'MemberPlusString.java')
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
         self.assertEqual(lines, [101, 113])
 
     def test_empty_case(self):
-        filepath = Path(self.dir_path, "Nothing.java")
+        filepath = Path(self.dir_path, 'Nothing.java')
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_string_plus_member(self):
-        filepath = Path(self.dir_path, "StringPlusMember.java")
+        filepath = Path(self.dir_path, 'StringPlusMember.java')
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
         self.assertEqual(len(lines), 1)
 
     def test_many_concats(self):
-        filepath = Path(self.dir_path, "ManyConcats.java")
+        filepath = Path(self.dir_path, 'ManyConcats.java')
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
         self.assertEqual(lines, [15, 16, 17, 18])
 
     def test_concat_in_different_methods(self):
-        filepath = Path(self.dir_path, "DifferentMethods.java")
+        filepath = Path(self.dir_path, 'DifferentMethods.java')
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
         self.assertEqual(lines, [16, 30])
 
     def test_fake_operator_plus(self):
-        filepath = Path(self.dir_path, "FakePlusOperator.java")
+        filepath = Path(self.dir_path, 'FakePlusOperator.java')
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_string_with_quotes(self):
-        filepath = Path(self.dir_path, "RustServerCodegen.java")
+        filepath = Path(self.dir_path, 'RustServerCodegen.java')
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
@@ -112,14 +112,14 @@ class ConcatStringTestCase(TestCase):
         )
 
     def test_comment_inside_line(self):
-        filepath = Path(self.dir_path, "XMLDataObject.java")
+        filepath = Path(self.dir_path, 'XMLDataObject.java')
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)
         self.assertEqual(lines, [162, 167, 179, 194, 220, 281])
 
     def test_fake1(self):
-        filepath = Path(self.dir_path, "Chain.java")
+        filepath = Path(self.dir_path, 'Chain.java')
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = StringConcatFinder()
         lines = pattern.value(ast)

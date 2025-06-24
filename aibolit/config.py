@@ -7,10 +7,12 @@ This module defines configuration factories and providers for patterns and metri
 providing a central registry for all available code analysis tools.
 """
 import os
+import typing
 from pathlib import Path
 
 from aibolit.ast_framework import ASTNodeType
 
+from aibolit.ast_framework.ast import AST
 from aibolit.metrics.number_variables.numVariables import NumVars as M7
 from aibolit.metrics.cognitiveC.cognitive_c import CognitiveComplexity as M4
 from aibolit.metrics.entropy.entropy import Entropy as M1
@@ -57,6 +59,7 @@ from aibolit.patterns.hybrid_constructor.hybrid_constructor import HybridConstru
 from aibolit.patterns.var_decl_diff.var_decl_diff import VarDeclarationDistance as P20
 from aibolit.patterns.var_middle.var_middle import VarMiddle as P21
 from aibolit.patterns.var_siblings.var_siblings import VarSiblings as P27
+from aibolit.types_decl import LineNumber
 
 
 class Singleton(type):
@@ -68,6 +71,38 @@ class Singleton(type):
         if cls not in cls._instances:
             cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
         return cls._instances[cls]
+
+
+@typing.runtime_checkable
+class Pattern(typing.Protocol):
+    def value(self, ast: AST) -> list[LineNumber]:
+        ...
+
+
+class PatternsConfigEntry(typing.TypedDict):
+    name: str
+    code: str
+    make: typing.Callable[[], Pattern]
+
+
+@typing.runtime_checkable
+class Metric(typing.Protocol):
+    def value(self, ast: AST) -> int:
+        ...
+
+
+class MetricsConfigEntry(typing.TypedDict):
+    name: str
+    code: str
+    make: typing.Callable[[], Metric]
+
+
+class PatternsConfig(typing.TypedDict):
+    patterns: list[PatternsConfigEntry]
+    metrics: list[MetricsConfigEntry]
+    patterns_exclude: list[str]
+    metrics_exclude: list[str]
+    target: dict
 
 
 class Config(metaclass=Singleton):
@@ -108,99 +143,97 @@ class Config(metaclass=Singleton):
         return os.environ.get('HOME_TEST_DATASET')
 
     @staticmethod
-    def get_patterns_config():
+    def get_patterns_config() -> PatternsConfig:
         """Get the patterns configuration dictionary."""
-        return {
-            "patterns": [
-                {"name": "Asserts", "code": "P1", "make": P1},
-                {"name": "Setters", "code": "P2", "make": P2},
-                {"name": "Empty Rethrow", "code": "P3", "make": P3},
-                {"name": "Prohibited class name", "code": "P4", "make": P4},
-                {"name": "Force Type Casting", "code": "P5", "make": P5},
-                {"name": "Count If Return", "code": "P6", "make": P6},
-                {"name": "Implements Multi", "code": "P7", "make": P7},
-                {"name": "Instance of", "code": "P8", "make": P8},
-                {"name": "Many primary constructors", "code": "P9", "make": P9},
-                {"name": "Method chain", "code": "P10", "make": P10},
-                {"name": "Multiple try", "code": "P11", "make": P11},
-                {"name": "Non final attribute", "code": "P12", "make": P12},
-                {"name": "Null check", "code": "P13", "make": P13},
-                {"name": "Partial synchronized", "code": "P14", "make": P14},
-                {"name": "Redundant catch", "code": "P15", "make": P15},
-                {"name": "Return null", "code": "P16", "make": P16},
-                {"name": "String concat", "code": "P17", "make": P17},
-                {"name": "Super Method", "code": "P18", "make": P18},
-                {"name": "This in constructor", "code": "P19", "make": P19},
+        return {  # ty: ignore[invalid-return-type] until https://github.com/astral-sh/ty/issues/154
+            'patterns': [
+                {'name': 'Asserts', 'code': 'P1', 'make': P1},
+                {'name': 'Setters', 'code': 'P2', 'make': P2},
+                {'name': 'Empty Rethrow', 'code': 'P3', 'make': P3},
+                {'name': 'Prohibited class name', 'code': 'P4', 'make': P4},
+                {'name': 'Force Type Casting', 'code': 'P5', 'make': P5},
+                {'name': 'Count If Return', 'code': 'P6', 'make': P6},
+                {'name': 'Implements Multi', 'code': 'P7', 'make': P7},
+                {'name': 'Instance of', 'code': 'P8', 'make': P8},
+                {'name': 'Many primary constructors', 'code': 'P9', 'make': P9},
+                {'name': 'Method chain', 'code': 'P10', 'make': P10},
+                {'name': 'Multiple try', 'code': 'P11', 'make': P11},
+                {'name': 'Non final attribute', 'code': 'P12', 'make': P12},
+                {'name': 'Null check', 'code': 'P13', 'make': P13},
+                {'name': 'Partial synchronized', 'code': 'P14', 'make': P14},
+                {'name': 'Redundant catch', 'code': 'P15', 'make': P15},
+                {'name': 'Return null', 'code': 'P16', 'make': P16},
+                {'name': 'String concat', 'code': 'P17', 'make': P17},
+                {'name': 'Super Method', 'code': 'P18', 'make': P18},
+                {'name': 'This in constructor', 'code': 'P19', 'make': P19},
                 {
-                    "name": "Var declaration distance for 5 lines",
-                    "code": "P20_5",
-                    "make": lambda: P20(5)
+                    'name': 'Var declaration distance for 5 lines',
+                    'code': 'P20_5',
+                    'make': lambda: P20(5)
                 },
                 {
-                    "name": "Var declaration distance for 7 lines",
-                    "code": "P20_7",
-                    "make": lambda: P20(7)
+                    'name': 'Var declaration distance for 7 lines',
+                    'code': 'P20_7',
+                    'make': lambda: P20(7)
                 },
                 {
-                    "name": "Var declaration distance for 11 lines",
-                    "code": "P20_11",
-                    "make": lambda: P20(11)
+                    'name': 'Var declaration distance for 11 lines',
+                    'code': 'P20_11',
+                    'make': lambda: P20(11)
                 },
-                {"name": "Var in the middle", "code": "P21", "make": P21},
-                {"name": "Array as function argument", "code": "P22", "make": P22},
-                {"name": "Joined validation", "code": "P23", "make": P23},
-                {"name": "Non final class", "code": "P24", "make": P24},
-                {"name": "Private static method", "code": "P25", "make": P25},
-                {"name": "Public static method", "code": "P26", "make": P26},
-                {"name": "Var siblings", "code": "P27", "make": P27},
-                {"name": "Null Assignment", "code": "P28", "make": P28},
-                {"name": "Multiple While", "code": "P29", "make": P29},
-                {"name": "Protected Method", "code": "P30", "make": P30},
-                {"name": "Send Null", "code": "P31", "make": P31},
-                {"name": "Nested Loop", "code": "P32",
-                 "make": lambda: P32(2, ASTNodeType.DO_STATEMENT,
+                {'name': 'Var in the middle', 'code': 'P21', 'make': P21},
+                {'name': 'Array as function argument', 'code': 'P22', 'make': P22},
+                {'name': 'Joined validation', 'code': 'P23', 'make': P23},
+                {'name': 'Non final class', 'code': 'P24', 'make': P24},
+                {'name': 'Private static method', 'code': 'P25', 'make': P25},
+                {'name': 'Public static method', 'code': 'P26', 'make': P26},
+                {'name': 'Var siblings', 'code': 'P27', 'make': P27},
+                {'name': 'Null Assignment', 'code': 'P28', 'make': P28},
+                {'name': 'Multiple While', 'code': 'P29', 'make': P29},
+                {'name': 'Protected Method', 'code': 'P30', 'make': P30},
+                {'name': 'Send Null', 'code': 'P31', 'make': P31},
+                {'name': 'Nested Loop', 'code': 'P32',
+                 'make': lambda: P32(2, ASTNodeType.DO_STATEMENT,
                                      ASTNodeType.FOR_STATEMENT,
                                      ASTNodeType.WHILE_STATEMENT)},
-                {"name": "Incomplete For", "code": "P33", "make": P33},
+                {'name': 'Incomplete For', 'code': 'P33', 'make': P33},
             ],
-            "metrics": [
-                {"name": "Entropy", "code": "M1", "make": M1},
-                {"name": "NCSS lightweight", "code": "M2", "make": M2},
+            'metrics': [
+                {'name': 'Entropy', 'code': 'M1', 'make': M1},  # type: ignore
+                {'name': 'NCSS lightweight', 'code': 'M2', 'make': M2},
                 {
-                    "name": "Indentation counter: Right total variance",
-                    "code": "M3_1",
-                    "make": lambda: M3(right_var=True)
+                    'name': 'Indentation counter: Right total variance',
+                    'code': 'M3_1',
+                    'make': lambda: M3(right_var=True)  # type: ignore
                 },
                 {
-                    "name": "Indentation counter: Left total variance",
-                    "code": "M3_2",
-                    "make": lambda: M3(left_var=True)
+                    'name': 'Indentation counter: Left total variance',
+                    'code': 'M3_2',
+                    'make': lambda: M3(left_var=True)  # type: ignore
                 },
                 {
-                    "name": "Indentation counter: Right max variance",
-                    "code": "M3_3",
-                    "make": lambda: M3(max_right=True)
+                    'name': 'Indentation counter: Right max variance',
+                    'code': 'M3_3',
+                    'make': lambda: M3(max_right=True)  # type: ignore
                 },
                 {
-                    "name": "Indentation counter: Left max variance",
-                    "code": "M3_4",
-                    "make": lambda: M3(max_left=True)
+                    'name': 'Indentation counter: Left max variance',
+                    'code': 'M3_4',
+                    'make': lambda: M3(max_left=True)  # type: ignore
                 },
-                {"name": "Cognitive Complexity", "code": "M4", "make": M4},
-                {"name": "LCOM4", "code": "M5", "make": M5},
-                {"name": "Max diameter of AST", "code": "M6", "make": M6},
-                {"name": "Number of variables", "code": "M7", "make": M7},
-                {"name": "Number of methods", "code": "M8", "make": M8},
-                {"name": "Responce for class", "code": "M9", "make": M9},
-                {"name": "Fan out", "code": "M10", "make": M10},
+                {'name': 'Cognitive Complexity', 'code': 'M4', 'make': M4},
+                {'name': 'LCOM4', 'code': 'M5', 'make': M5},  # type: ignore
+                {'name': 'Max diameter of AST', 'code': 'M6', 'make': M6},
+                {'name': 'Number of variables', 'code': 'M7', 'make': M7},  # type: ignore
+                {'name': 'Number of methods', 'code': 'M8', 'make': M8},
+                {'name': 'Responce for class', 'code': 'M9', 'make': M9},
+                {'name': 'Fan out', 'code': 'M10', 'make': M10},
             ],
-            "target": {
+            'target': {
 
             },
-            "patterns_exclude": [
-                "P27",  # empty implementation
-                "P20_5", "P20_7", "P20_11",  # wasn't refactored yet
-                "P28", "P9",  # patterns based on text cannot accept arbitrary AST
+            'patterns_exclude': [
+                'P9',  # patterns based on text cannot accept arbitrary AST
             ],
-            "metrics_exclude": ["M1", "M3_1", "M3_2", "M3_3", "M3_4", "M5", "M7", "M8"]
+            'metrics_exclude': ['M1', 'M3_1', 'M3_2', 'M3_3', 'M3_4', 'M5', 'M7', 'M8']
         }

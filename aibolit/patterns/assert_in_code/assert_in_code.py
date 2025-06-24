@@ -7,9 +7,9 @@ from aibolit.ast_framework import AST, ASTNodeType
 
 
 class AssertInCode:
-    '''
+    """
     Finds use of all asserts.
-    '''
+    """
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []

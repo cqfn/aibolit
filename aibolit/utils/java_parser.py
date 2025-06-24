@@ -57,12 +57,12 @@ class JavalangImproved:
         self.lines = lines
 
     def __find_keyword(self, lines, keyword, start):
-        '''
+        """
         Args:
             lines (List[str]): List of lines from parsed source code file
             keyword (str): keyword to find
             start (int): Line number to start search
-        '''
+        """
         for i in range(start - 1, len(lines)):
             if keyword in lines[i]:
                 return i + 1
@@ -91,7 +91,7 @@ class JavalangImproved:
         parent_method_line=None,
         scope=0
     ) -> List[ASTNode]:
-        '''
+        """
         Return AST nodes with line numbers sorted by line number
 
         Args:
@@ -99,7 +99,7 @@ class JavalangImproved:
             line (int): Supposed line number of processed AST node in the file
             parent_method_line (int): Nearest line number of the method this node located
             scope (int): ID of scope processed AST node located
-        '''
+        """
 
         if hasattr(tree, 'position') and tree.position:
             line = tree.position.line
@@ -130,7 +130,7 @@ class JavalangImproved:
         return [ASTNode(line, parent_method_line, tree, scope)] + res
 
     def tree_to_nodes(self) -> List[ASTNode]:
-        '''Return AST nodes as list with line numbers sorted by line number'''
+        """Return AST nodes as list with line numbers sorted by line number"""
         nodes = self.__tree_to_nodes(self.tree)
         return sorted(nodes, key=lambda v: v.line)
 
@@ -141,11 +141,11 @@ class JavalangImproved:
         )
 
     def get_empty_lines(self) -> List[int]:
-        '''Figure out lines that are either empty or multiline statements'''
+        """Figure out lines that are either empty or multiline statements"""
         lines_with_nodes = self.get_non_empty_lines()
         max_line = max(lines_with_nodes)
         return list(set(range(1, max_line + 1)).difference(lines_with_nodes))
 
     def get_non_empty_lines(self) -> List[int]:
-        '''Figure out file lines that contains statements'''
+        """Figure out file lines that contains statements"""
         return list(map(lambda v: v.line, self.tree_to_nodes()))

@@ -26,19 +26,19 @@ class ScopeStatus:
         try:
             return self._scope_stack[-1]
         except IndexError:
-            raise RuntimeError("No scopes registered.")
+            raise RuntimeError('No scopes registered.')
 
     def add_flag(self, flag: ScopeStatusFlags) -> None:
         try:
             self._scope_stack[-1].add(flag)
         except IndexError:
-            raise RuntimeError("No scopes registered.")
+            raise RuntimeError('No scopes registered.')
 
     def remove_flag(self, flag: ScopeStatusFlags) -> None:
         try:
             self._scope_stack[-1].discard(flag)
         except IndexError:
-            raise RuntimeError("No scopes registered.")
+            raise RuntimeError('No scopes registered.')
 
     def enter_new_scope(
         self, new_scope_status: Optional[Set[ScopeStatusFlags]] = None
@@ -52,4 +52,4 @@ class ScopeStatus:
         try:
             self._scope_stack.pop()
         except IndexError:
-            raise RuntimeError("No scopes registered.")
+            raise RuntimeError('No scopes registered.')

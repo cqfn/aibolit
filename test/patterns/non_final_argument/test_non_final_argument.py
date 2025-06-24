@@ -13,10 +13,10 @@ class NonFinalArgumentTestCase(TestCase):
 
     def test_find_non_final_argument_in_ctor(self):
         self.assertEqual(
-            NonFinalArgument().value(Path(self.dir_path, "NonFinalArgumentCtor.java")), [10]
+            NonFinalArgument().value(Path(self.dir_path, 'NonFinalArgumentCtor.java')), [10]
         )
 
     def test_find_non_final_argument_in_method(self):
         self.assertEqual(
-            NonFinalArgument().value(Path(self.dir_path, "NonFinalArgumentMethod.java")), [14]
+            NonFinalArgument().value(Path(self.dir_path, 'NonFinalArgumentMethod.java')), [14]
         )

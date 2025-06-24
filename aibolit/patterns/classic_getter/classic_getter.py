@@ -6,16 +6,16 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 
 class ClassicGetter:
-    '''
+    """
     The method's name starts with get. Return statement is the only statement,
     excepting asserts.
-    '''
+    """
 
     def _check_body_nodes(self, check_getter_body: List[ASTNode]) -> bool:
-        '''
+        """
         Check whether nodes are agree with the following types
         (in self.suitable_nodes) or not.
-        '''
+        """
         for node in check_getter_body:
             if not hasattr(node, 'expression'):
                 return False

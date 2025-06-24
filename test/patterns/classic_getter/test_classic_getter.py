@@ -14,28 +14,28 @@ class ClassicGetterTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
     def test_no_getters(self):
-        filepath = self.current_directory / "NoGetters.java"
+        filepath = self.current_directory / 'NoGetters.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ClassicGetter()
         lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_fake_getter(self):
-        filepath = self.current_directory / "FakeGetter.java"
+        filepath = self.current_directory / 'FakeGetter.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ClassicGetter()
         lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_long_fake_getter(self):
-        filepath = self.current_directory / "LongFake.java"
+        filepath = self.current_directory / 'LongFake.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ClassicGetter()
         lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_simple(self):
-        filepath = self.current_directory / "SimpleGetter.java"
+        filepath = self.current_directory / 'SimpleGetter.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ClassicGetter()
         lines = pattern.value(ast)
@@ -44,27 +44,27 @@ class ClassicGetterTestCase(TestCase):
 
 def test_getter_using_this_reference() -> None:
     content = dedent(
-        """\
+        '''\
         class Dummy {
             private int value;
             public int getValue() {
                 return this.value;
             }
         }
-        """
+        '''
     ).strip()
     assert _offending_lines(content) == [3]
 
 
 def test_getSomething_method_that_does_not_return() -> None:
     content = dedent(
-        """\
+        '''\
         class Dummy {
             public void getProudOfThisCode() {
                 System.out.println('This code does not have getters');
             }
         }
-        """
+        '''
     ).strip()
     assert not _offending_lines(content)
 

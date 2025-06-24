@@ -13,7 +13,7 @@ class SuperMethodTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
     def test_empty(self):
-        filepath = self.current_directory / "Empty.java"
+        filepath = self.current_directory / 'Empty.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SuperMethod()
         lines = pattern.value(ast)
@@ -21,14 +21,14 @@ class SuperMethodTestCase(TestCase):
 
     def test_instance_of(self):
         # It has 2 matches in anonymous class!
-        filepath = self.current_directory / "Anonymous.java"
+        filepath = self.current_directory / 'Anonymous.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SuperMethod()
         lines = pattern.value(ast)
         self.assertEqual(len(lines), 1)
 
     def test_instance(self):
-        filepath = self.current_directory / "Simple.java"
+        filepath = self.current_directory / 'Simple.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SuperMethod()
         lines = pattern.value(ast)
@@ -36,28 +36,28 @@ class SuperMethodTestCase(TestCase):
 
     def test_several(self):
         # It has 2 matches in anonymous class!
-        filepath = self.current_directory / "Several.java"
+        filepath = self.current_directory / 'Several.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SuperMethod()
         lines = pattern.value(ast)
         self.assertEqual(len(lines), 6)
 
     def test_nested_class(self):
-        filepath = self.current_directory / "NestedClass.java"
+        filepath = self.current_directory / 'NestedClass.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SuperMethod()
         lines = pattern.value(ast)
         self.assertEqual(len(lines), 1)
 
     def test_constructor(self):
-        filepath = self.current_directory / "Constructor.java"
+        filepath = self.current_directory / 'Constructor.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SuperMethod()
         lines = pattern.value(ast)
         self.assertEqual(len(lines), 3)
 
     def test_complicated_constructor(self):
-        filepath = self.current_directory / "ComplicatedChainConstructor.java"
+        filepath = self.current_directory / 'ComplicatedChainConstructor.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = SuperMethod()
         lines = pattern.value(ast)

@@ -17,16 +17,16 @@ class JavaClassDecompositionTestSuite(TestCase):
 
     def test_strong_decomposition(self):
         class_ast = self._get_class_ast(
-            "MethodUseOtherMethodExample.java", "MethodUseOtherMethod"
+            'MethodUseOtherMethodExample.java', 'MethodUseOtherMethod'
         )
-        class_components = decompose_java_class(class_ast, "strong")
+        class_components = decompose_java_class(class_ast, 'strong')
         self.assertEqual(len(class_components), 7)
 
     def test_weak_decomposition(self):
         class_ast = self._get_class_ast(
-            "MethodUseOtherMethodExample.java", "MethodUseOtherMethod"
+            'MethodUseOtherMethodExample.java', 'MethodUseOtherMethod'
         )
-        class_components = decompose_java_class(class_ast, "weak")
+        class_components = decompose_java_class(class_ast, 'weak')
         self.assertEqual(len(class_components), 5)
 
     def _get_class_ast(self, filename: str, class_name: str) -> AST:
@@ -57,7 +57,7 @@ class JavaClassDecompositionTestSuite(TestCase):
         ]
         components = list(decompose_java_class(
             classes_ast[0],
-            "strong",
+            'strong',
             ignore_setters=ignore_setters,
             ignore_getters=ignore_getters))
         function_names = flatten([
@@ -87,9 +87,9 @@ class JavaClassDecompositionTestSuite(TestCase):
 class TestDecomposeJavaClass:
     def test_empty_class(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {}
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,
@@ -102,11 +102,11 @@ class TestDecomposeJavaClass:
 
     def test_class_with_ctor_ignored(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {
                 public Dummy() {};
             }
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,
@@ -119,14 +119,14 @@ class TestDecomposeJavaClass:
 
     def test_class_with_ctor_and_one_attribute(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {
                 private int value;
                 public Dummy(int value) {
                     this.value = value;
                 };
             }
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,
@@ -139,11 +139,11 @@ class TestDecomposeJavaClass:
 
     def test_class_with_one_attribute(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {
                 private int i;
             }
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,
@@ -156,11 +156,11 @@ class TestDecomposeJavaClass:
 
     def test_class_with_two_attributes_defined_on_one_line(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {
                 private int i, j;
             }
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,
@@ -173,12 +173,12 @@ class TestDecomposeJavaClass:
 
     def test_class_with_two_attributes_defined_on_two_lines(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {
                 private int first;
                 public double second;
             }
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,
@@ -191,14 +191,14 @@ class TestDecomposeJavaClass:
 
     def test_class_with_one_attribute_and_one_method(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {
                 private int i;
                 public void print(String inputString) {
                     System.out.println(inputString);
                 };
             }
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,
@@ -211,7 +211,7 @@ class TestDecomposeJavaClass:
 
     def test_class_with_two_methods(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {
                 public void printOk() {
                     System.out.println("OK");
@@ -220,7 +220,7 @@ class TestDecomposeJavaClass:
                     System.out.println("Not OK");
                 };
             }
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,
@@ -233,7 +233,7 @@ class TestDecomposeJavaClass:
 
     def test_class_with_two_attributes_and_setter(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {
                 private int i;
                 private int value;
@@ -241,7 +241,7 @@ class TestDecomposeJavaClass:
                     this.value = value;
                 };
             }
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,
@@ -254,7 +254,7 @@ class TestDecomposeJavaClass:
 
     def test_class_with_two_attributes_and_setter_ignored(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {
                 private int i;
                 private int value;
@@ -262,7 +262,7 @@ class TestDecomposeJavaClass:
                     this.value = value;
                 };
             }
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,
@@ -276,14 +276,14 @@ class TestDecomposeJavaClass:
 
     def test_class_with_one_attribute_and_getter(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {
                 private int value;
                 public int getValue() {
                     return value;
                 };
             }
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,
@@ -296,14 +296,14 @@ class TestDecomposeJavaClass:
 
     def test_class_with_one_attribute_and_getter_ignored(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {
                 private int value;
                 public int getValue() {
                     return value;
                 };
             }
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,
@@ -317,13 +317,13 @@ class TestDecomposeJavaClass:
 
     def test_class_with_local_variable_declaration(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy {
                 public void doNothing() {
                     String empty = "";
                 };
             }
-            """
+            '''
         ).strip()
         assert _decompose_java_class_from_string(
             content=content,

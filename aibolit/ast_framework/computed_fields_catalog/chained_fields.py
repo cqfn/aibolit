@@ -36,7 +36,7 @@ def chain_field_getter_factory(*steps: Union[str, int]) -> Callable[[ASTNode], A
             elif isinstance(field, ASTNode) and isinstance(step, str):
                 field = getattr(field, step)
             else:
-                raise RuntimeError(f"Failed to apply step {step} to field {field}.")
+                raise RuntimeError(f'Failed to apply step {step} to field {field}.')
 
         return field
 
