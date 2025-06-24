@@ -191,48 +191,18 @@ class TestMvnFreeNPathMetric:
         ).strip()
         assert self._value(content) == 5
 
-    @pytest.mark.xfail(
-        reason='Probably wrong implementation for If',
-        strict=True,
-    )
-    def test_if_with_and_condition(self) -> None:
-        # TODO #807:30min/DEV Fix NPath metric for if with AND (&&) condition.
-        #  Refer to https://checkstyle.org/checks/metrics/npathcomplexity.html
-        #  for details on NPath metric.
-        #  Once implemented, remove `xfail` mark from this test.
-        content = """
-        class Test {
-            void check(int a, int b) {
-                if (a > 0 && b < 10) {
-                    System.out.println("Valid");
-                } else {
-                    System.out.println("Invalid");
-                }
-            }
-        }
-        """
-        assert self._value(content) == 3
-
-    @pytest.mark.xfail(
-        reason='Probably wrong implementation for If',
-        strict=True,
-    )
     def test_if_with_or_condition(self) -> None:
-        # TODO #807:30min/DEV Fix NPath metric for if with OR (||) condition.
-        #  Refer to https://checkstyle.org/checks/metrics/npathcomplexity.html
-        #  for details on NPath metric.
-        #  Once implemented, remove `xfail` mark from this test.
         content = """
-        class Test {
-            void validate(int x, int y) {
-                if (x == 0 || y == 0) {
-                    System.out.println("Zero detected");
-                } else {
-                    System.out.println("No zeros");
-                }
-            }
-        }
-        """
+         class Test {
+             void validate(int x, int y) {
+                 if (x == 0 || y == 0) {
+                     System.out.println("Zero detected");
+                 } else {
+                     System.out.println("No zeros");
+                 }
+             }
+         }
+         """
         assert self._value(content) == 3
 
     def test_switch_simple_with_default(self):

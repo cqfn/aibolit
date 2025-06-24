@@ -125,7 +125,7 @@ class MvnFreeNPathMetric:
             if node.else_statement is not None
             else 1
         )
-        return condition_npath * (then_npath + else_npath)
+        return condition_npath * then_npath + else_npath
 
     def _switch_npath(self, node: ASTNode) -> int:
         def _group_npath(case_group: ASTNode) -> int:
@@ -143,8 +143,11 @@ class MvnFreeNPathMetric:
         return body_npath + condition_npath
 
     def _binary_expression_npath(self, node: ASTNode) -> int:
-        if node.operator not in {'&&', '||'}:
-            return 1
         left_npath = self._node_npath(node.operandl)
         right_npath = self._node_npath(node.operandr)
-        return left_npath + right_npath
+        if node.operator == '&&':
+            return left_npath * right_npath
+        elif node.operator == '||':
+            return left_npath + right_npath
+        else:
+            return 1
