@@ -13,28 +13,28 @@ class MultipleWhilePatternTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
     def test_simple(self):
-        filepath = self.current_directory / "Simple.java"
+        filepath = self.current_directory / 'Simple.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = MultipleWhile()
         lines = pattern.value(ast)
         self.assertEqual(lines, [5])
 
     def test_one_while(self):
-        filepath = self.current_directory / "OneWhile.java"
+        filepath = self.current_directory / 'OneWhile.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = MultipleWhile()
         lines = pattern.value(ast)
         self.assertEqual(lines, [])
 
     def test_if_while(self):
-        filepath = self.current_directory / "IfWhile.java"
+        filepath = self.current_directory / 'IfWhile.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = MultipleWhile()
         lines = pattern.value(ast)
         self.assertEqual(lines, [5])
 
     def test_multiple_while(self):
-        filepath = self.current_directory / "MultipleWhile.java"
+        filepath = self.current_directory / 'MultipleWhile.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = MultipleWhile()
         lines = pattern.value(ast)

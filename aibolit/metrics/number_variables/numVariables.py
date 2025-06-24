@@ -6,11 +6,11 @@ from aibolit.utils.ast_builder import build_ast
 
 
 class NumVars:
-    '''
+    """
     This class count number variables in class
     input: filename
     output: number of variables
-    '''
+    """
     def __init__(self):
         pass
 

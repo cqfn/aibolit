@@ -8,10 +8,10 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 
 class VarSiblings:
-    '''
+    """
     Find those variables, which have complex
     names and start with the same word
-    '''
+    """
     def _collect_method_variables_names(self, ast: AST, node: ASTNode) -> Dict[str, int]:
         assert node.node_type == ASTNodeType.METHOD_DECLARATION
         vars_lines: Dict[str, int] = {}

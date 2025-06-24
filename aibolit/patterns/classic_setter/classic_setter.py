@@ -6,10 +6,10 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 
 class ClassicSetter:
-    '''
+    """
     The method's name starts with set. There are attributes
     assigning in the method. Also, asserts are ignored.
-    '''
+    """
     def value(self, ast: AST) -> List[int]:
         return sorted(set(node.line for node in _setter_nodes(ast)))
 

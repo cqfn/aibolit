@@ -11,11 +11,11 @@ from aibolit.utils.ast_builder import build_ast
 
 
 class CountNumberOfLeaves:
-    '''
+    """
     Returns number of leaves in class (sum by each method).
     input: file_path
     output: sum of leaves in class by each method
-    '''
+    """
     def __init__(self):
         pass
 

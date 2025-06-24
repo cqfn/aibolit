@@ -8,10 +8,10 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 
 class RedundantCatch:
-    '''
+    """
     To check wether the method throws same as it does inside the
     try -> catch structure in this method
-    '''
+    """
 
     def _is_redundant(self, method_throw_name: List[str], try_node: ASTNode) -> bool:
         assert try_node.node_type == ASTNodeType.TRY_STATEMENT

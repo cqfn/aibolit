@@ -30,7 +30,7 @@ from aibolit.utils.ast_builder import build_ast
 
 class FileProcessingError(RuntimeError):
     def __init__(self, filepath: str, pattern_name: str, cause: Exception):
-        super().__init__(f"Failed calculating {pattern_name} on file {filepath}.\nReason: {cause}")
+        super().__init__(f'Failed calculating {pattern_name} on file {filepath}.\nReason: {cause}')
 
         self.filepath = filepath
         self.pattern_name = pattern_name
@@ -45,14 +45,14 @@ def _calculate_patterns_and_metrics(
     config = Config.get_patterns_config()
     patterns_info = [
         pattern_info
-        for pattern_info in config["patterns"]
-        if pattern_info["code"] not in config["patterns_exclude"]
+        for pattern_info in config['patterns']
+        if pattern_info['code'] not in config['patterns_exclude']
     ]
 
     metrics_info = [
         metric_info
-        for metric_info in config["metrics"]
-        if metric_info["code"] not in config["metrics_exclude"]
+        for metric_info in config['metrics']
+        if metric_info['code'] not in config['metrics_exclude']
     ]
 
     ast = AST.build_from_javalang(build_ast(file_path))
@@ -64,33 +64,33 @@ def _calculate_patterns_and_metrics(
 
     for class_ast in classes_ast:
         components = (
-            decompose_java_class(class_ast, "strong", ignore_getters=True, ignore_setters=True)
+            decompose_java_class(class_ast, 'strong', ignore_getters=True, ignore_setters=True)
             if is_decomposition_requested
             else [class_ast]
         )
         for index, component_ast in enumerate(components):
             calculation_result = {
-                "filepath": file_path,
-                "class_name": class_ast.get_root().name,
-                "component_index": index,
+                'filepath': file_path,
+                'class_name': class_ast.get_root().name,
+                'component_index': index,
             }
 
             for pattern_info in patterns_info:
                 try:
-                    pattern = pattern_info["make"]()
+                    pattern = pattern_info['make']()
                     pattern_result = pattern.value(component_ast)
-                    calculation_result[pattern_info["code"]] = len(pattern_result)
-                    calculation_result["lines_" + pattern_info["code"]] = pattern_result
+                    calculation_result[pattern_info['code']] = len(pattern_result)
+                    calculation_result['lines_' + pattern_info['code']] = pattern_result
                 except Exception as cause:
-                    raise FileProcessingError(file_path, pattern_info["name"], cause)
+                    raise FileProcessingError(file_path, pattern_info['name'], cause)
 
             for metric_info in metrics_info:
                 try:
-                    metric = metric_info["make"]()
+                    metric = metric_info['make']()
                     metric_result = metric.value(component_ast)
-                    calculation_result[metric_info["code"]] = metric_result
+                    calculation_result[metric_info['code']] = metric_result
                 except Exception as cause:
-                    raise FileProcessingError(file_path, metric_info["name"], cause)
+                    raise FileProcessingError(file_path, metric_info['name'], cause)
 
             results.append(calculation_result)
 
@@ -101,97 +101,97 @@ def _create_dataset_writer(file):
     config = Config.get_patterns_config()
 
     patterns_codes = [
-        pattern["code"] for pattern in config["patterns"]
-        if pattern["code"] not in config["patterns_exclude"]
+        pattern['code'] for pattern in config['patterns']
+        if pattern['code'] not in config['patterns_exclude']
     ]
 
     metrics_codes = [
-        metric["code"] for metric in config["metrics"]
-        if metric["code"] not in config["metrics_exclude"]
+        metric['code'] for metric in config['metrics']
+        if metric['code'] not in config['metrics_exclude']
     ]
 
     fields = \
         patterns_codes + \
         metrics_codes + \
-        ["lines_" + code for code in patterns_codes] + \
-        ["filepath", "class_name", "component_index"]
+        ['lines_' + code for code in patterns_codes] + \
+        ['filepath', 'class_name', 'component_index']
 
-    return DictWriter(file, delimiter=";", quotechar='"', quoting=QUOTE_MINIMAL, fieldnames=fields)
+    return DictWriter(file, delimiter=';', quotechar='"', quoting=QUOTE_MINIMAL, fieldnames=fields)
 
 
 def _parse_args():
     allowed_cores_qty = _allowed_cores_qty()
     system_cores_qty = _system_cores_qty()
 
-    parser = ArgumentParser(description="Creates dataset")
-    parser.add_argument("file", help="Path for file with a list of Java files.")
+    parser = ArgumentParser(description='Creates dataset')
+    parser.add_argument('file', help='Path for file with a list of Java files.')
 
     parser.add_argument(
-        "--jobs",
-        "-j",
+        '--jobs',
+        '-j',
         type=int,
         default=min(allowed_cores_qty, system_cores_qty),
-        help="Number of processes to spawn. "
-        "By default one less than number of cores. "
-        "Be carefull to raise it above, machine may stop responding while creating dataset.",
+        help='Number of processes to spawn. '
+        'By default one less than number of cores. '
+        'Be carefull to raise it above, machine may stop responding while creating dataset.',
     )
 
     parser.add_argument(
-        "--timeout",
-        "-t",
+        '--timeout',
+        '-t',
         type=float,
         default=60,
-        help="Maximum time (in seconds) for single file proccessing. Default is 60 seconds. "
-        "If 0, no timout is set.",
+        help='Maximum time (in seconds) for single file proccessing. Default is 60 seconds. '
+        'If 0, no timout is set.',
     )
 
     parser.add_argument(
-        "--log",
-        "-l",
-        default="pattern_calculation.log",
-        help="Path for log file. pattern_calculation.log is default.",
+        '--log',
+        '-l',
+        default='pattern_calculation.log',
+        help='Path for log file. pattern_calculation.log is default.',
     )
 
     parser.add_argument(
-        "--errors-log",
-        "-el",
-        default="calculation_errors.json",
-        help="Path for errors log file. All errors grouped by patterns. "
-             "calculation_errors.log is default.",
+        '--errors-log',
+        '-el',
+        default='calculation_errors.json',
+        help='Path for errors log file. All errors grouped by patterns. '
+             'calculation_errors.log is default.',
     )
 
     parsed_args = parser.parse_args()
 
     if parsed_args.jobs >= system_cores_qty:
         print(
-            f"WARNING: You have ordered to spawn {parsed_args.jobs} jobs, "
-            f"while system has only {system_cores_qty} cores. "
-            "Machine may badly respond, while calculating dataset.",
+            f'WARNING: You have ordered to spawn {parsed_args.jobs} jobs, '
+            f'while system has only {system_cores_qty} cores. '
+            'Machine may badly respond, while calculating dataset.',
             file=stderr,
         )
 
     if parsed_args.jobs > allowed_cores_qty:
         print(
-            f"WARNING: You have ordered to spawn {parsed_args.jobs} jobs, "
-            f"while process only allowed to occupy {allowed_cores_qty} cores."
-            "You may have a slowdown due to large number of processes.",
+            f'WARNING: You have ordered to spawn {parsed_args.jobs} jobs, '
+            f'while process only allowed to occupy {allowed_cores_qty} cores.'
+            'You may have a slowdown due to large number of processes.',
             file=stderr,
         )
 
     if parsed_args.timeout == 0:
         parsed_args.timeout = None
 
-    basicConfig(filename=parsed_args.log, filemode="w", level=INFO)
+    basicConfig(filename=parsed_args.log, filemode='w', level=INFO)
 
-    default_dataset_directory = Path(".", "target", "04").absolute()
-    dataset_directory = Path(getenv("TARGET_FOLDER") or default_dataset_directory)
+    default_dataset_directory = Path('.', 'target', '04').absolute()
+    dataset_directory = Path(getenv('TARGET_FOLDER') or default_dataset_directory)
     makedirs(dataset_directory, exist_ok=True)
-    parsed_args.csv_file = Path(dataset_directory, "04-find-patterns.csv")
+    parsed_args.csv_file = Path(dataset_directory, '04-find-patterns.csv')
 
-    is_decomposition_requested = getenv("LCOM_DECOMPOSITION", "True")
-    if is_decomposition_requested in {"True", "1"}:
+    is_decomposition_requested = getenv('LCOM_DECOMPOSITION', 'True')
+    if is_decomposition_requested in {'True', '1'}:
         parsed_args.is_decomposition_requested = True
-    elif is_decomposition_requested in {"False", "0"}:
+    elif is_decomposition_requested in {'False', '0'}:
         parsed_args.is_decomposition_requested = False
     else:
         print(
@@ -222,7 +222,7 @@ def _cpu_count() -> int:
     return 1  # fallback
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     args = _parse_args()
 
     errors: List[FileProcessingError] = []
@@ -234,7 +234,7 @@ if __name__ == "__main__":
     )
 
     with (open(args.file, encoding='utf-8') as input,
-          open(args.csv_file, "w", encoding='utf-8') as output,
+          open(args.csv_file, 'w', encoding='utf-8') as output,
           ProcessPool(args.jobs) as executor):
         dataset_writer = _create_dataset_writer(output)
         dataset_writer.writeheader()
@@ -249,8 +249,8 @@ if __name__ == "__main__":
                     dataset_features)
                 dataset_writer.writerows(single_file_features)
             except TimeoutError:
-                warning(f"Processing {filename} is aborted due to "
-                        f"timeout in {args.timeout} seconds.")
+                warning(f'Processing {filename} is aborted due to '
+                        f'timeout in {args.timeout} seconds.')
                 timeout_errors_qty += 1
             except Exception as e:
                 warning(e)
@@ -260,9 +260,9 @@ if __name__ == "__main__":
 
     if timeout_errors_qty or parsing_errors_qty:
         print(
-            f"WARNING: There was {timeout_errors_qty} timeouts and "
-            f"{parsing_errors_qty} errors during file processing.\n"
-            f"Check {args.log} for detailed information.",
+            f'WARNING: There was {timeout_errors_qty} timeouts and '
+            f'{parsing_errors_qty} errors during file processing.\n'
+            f'Check {args.log} for detailed information.',
             file=stderr,
         )
 
@@ -271,10 +271,10 @@ if __name__ == "__main__":
         for error in errors:
             errors_by_pattern[error.pattern_name][error.filepath] = str(error.cause)
 
-        with open(args.errors_log, "w", encoding='utf-8') as errors_log:
+        with open(args.errors_log, 'w', encoding='utf-8') as errors_log:
             json.dump(errors_by_pattern, errors_log)
 
         print(
-            f"WARNING: All errors grouped by pattern/metric name ind written to {args.errors_log}",
+            f'WARNING: All errors grouped by pattern/metric name ind written to {args.errors_log}',
             file=stderr,
         )

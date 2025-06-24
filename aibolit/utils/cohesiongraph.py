@@ -109,13 +109,13 @@ class CohesionGraph:
         local_exhaust: List[FldExh],
         full_field_exhaust: List[FldExh]
     ) -> None:
-        """Adds nodes to graph G
+        '''Adds nodes to graph G
 
         Gets list of invocation names as input and
         compares them to existing list of exhausted "MethodDeclarations"
         After successful comparison calls "add_vertices_edges"
         Adding nodes and edges between.
-        """
+        '''
         for invocation_path, invocation_node in invocation_nodes:
             # Check for inv being first in whole statement
             if isinstance(invocation_node.selectors, list):
@@ -144,13 +144,13 @@ class CohesionGraph:
         full_field_exhaust: List[FldExh],
         method_exhaust: MthExh
     ) -> None:
-        """Adds nodes to graph G
+        '''Adds nodes to graph G
 
         Gets a list of invocation field attributes as input and
         compares them to existing list of exhausted "FieldDeclarations"
         After successful comparison calls "add_vertices_edges"
         Adding nodes and edges between.
-        """
+        '''
         for inv_argument in inv_fields:
             if inv_argument not in [x[0] for x in local_exhaust]:
                 for field in full_field_exhaust:
@@ -164,13 +164,13 @@ class CohesionGraph:
         full_method_exhaust: List[MthExh],
         method_exhaust: MthExh
     ) -> None:
-        """Adds nodes to graph G
+        '''Adds nodes to graph G
 
         Gets a list of invocation method attributes as input and
         compares them to existing list of exhausted "MethodDeclarations"
         After successful comparison calls "add_vertices_edges"
         Adding nodes and edges between.
-        """
+        '''
         # To-Fix: make a func for a return type check
         for inv_argument in inv_funcs:
             for method in full_method_exhaust:
@@ -186,13 +186,13 @@ class CohesionGraph:
         full_field_exhaust: List[FldExh],
         method_exhaust: MthExh
     ) -> None:
-        """Adds nodes to graph G
+        '''Adds nodes to graph G
 
         Gets list of "MemberReferences" nodes as input and
         compares them to existing list of exhausted FieldDeclarations.
         After successful comparison calls "add_vertices_edges"
         Adding nodes and edges between.
-        """
+        '''
         for reference_path, reference_node in reference_nodes:
             if isinstance(reference_node.selectors, list):  # Check for node being "alone"
                 if reference_node.member not in [x[0] for x in local_exhaust] and \
@@ -208,13 +208,13 @@ class CohesionGraph:
         full_field_exhaust: List[FldExh],
         method_exhaust: MthExh
     ) -> None:
-        """Adds nodes to graph G
+        '''Adds nodes to graph G
 
         Gets list of "This" nodes as input and
         compares them to existing list of exhausted "FieldDeclarations"
         After successful comparison calls "add_vertices_edges"
         Adding nodes and edges between.
-        """
+        '''
         for this_path, this_node in this_nodes:
             for field in full_field_exhaust:
                 if (
