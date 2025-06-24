@@ -1,12 +1,12 @@
 ---
 - added: 8
-  cycles: 1
+  cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 312.043643885
+  seconds: 362.873787438
   version: 0.50.5
   what: judges-summary
-  when: 2025-06-24 13:29:49.041394605 Z
+  when: 2025-06-24 14:04:31.710448212 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -77061,20 +77061,6 @@
   when: 2020-04-24 21:45:47.000000000 Z
   where: github
   who: 33915433
-- _id: 14022
-  _time: 2025-06-24 11:59:52.137374740 Z
-  _version: 0.11.1/0.50.5/
-  latest: 182
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 14025
-  _time: 2025-06-24 13:24:39.875887042 Z
-  _version: 0.11.1/0.50.5/
-  latest: 51252302480
-  repository: 237167507
-  what: events-were-scanned
-  where: github
 - _id: 14026
   _time: 2025-06-24 13:24:40.942679209 Z
   _version: 0.11.1/0.50.5/
@@ -77082,6 +77068,7 @@
   is_human: 1
   issue: 653
   repository: 237167507
+  stale: 'branch #653'
   what: pull-was-opened
   when: 2020-10-27 09:31:17.000000000 Z
   where: github
@@ -77093,6 +77080,7 @@
   is_human: 1
   issue: 676
   repository: 237167507
+  stale: 'branch #676'
   what: pull-was-opened
   when: 2025-05-14 20:58:27.000000000 Z
   where: github
@@ -77104,6 +77092,7 @@
   is_human: 1
   issue: 677
   repository: 237167507
+  stale: 'branch #677'
   what: pull-was-opened
   when: 2025-05-14 21:05:35.000000000 Z
   where: github
@@ -78987,4 +78976,18 @@
   latest: 265
   repository: 237167507
   what: labels-were-scanned
+  where: github
+- _id: 14199
+  _time: 2025-06-24 14:01:34.328010188 Z
+  _version: 0.11.1/0.50.5/
+  latest: 51253642442
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 14200
+  _time: 2025-06-24 14:01:38.490981124 Z
+  _version: 0.11.1/0.50.5/
+  latest: 184
+  repository: 237167507
+  what: min-issue-was-found
   where: github
