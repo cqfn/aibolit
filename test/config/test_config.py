@@ -23,7 +23,7 @@ def test_each_metric_in_config_accepts_ast():
 
 
 def is_ast_or_subclass(ann):
-    if ann is inspect._empty:
+    if ann is inspect.Signature.empty:
         return False
     if isinstance(ann, str):
         return ann == 'AST' or ann.endswith('.AST')
