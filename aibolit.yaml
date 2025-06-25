@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 330.911999849
+  seconds: 382.061604707
   version: 0.50.5
   what: judges-summary
-  when: 2025-06-24 23:02:47.137347273 Z
+  when: 2025-06-25 00:01:15.997061784 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -82098,13 +82098,6 @@
   when: 2020-04-27 12:32:00.000000000 Z
   where: github
   who: 46167437
-- _id: 14473
-  _time: 2025-06-24 18:02:53.942041152 Z
-  _version: 0.11.1/0.50.5/
-  latest: 285
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
 - _id: 14474
   _time: 2025-06-24 18:02:54.203043909 Z
   _version: 0.11.1/0.50.5/
@@ -82798,13 +82791,6 @@
   when: 2025-06-13 07:12:06.000000000 Z
   where: github
   who: 24456188
-- _id: 14538
-  _time: 2025-06-24 18:59:34.277062819 Z
-  _version: 0.11.2/0.50.5/
-  latest: 720
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 14539
   _time: 2025-06-24 18:59:35.376219728 Z
   _version: 0.11.2/0.50.5/
@@ -84041,50 +84027,1304 @@
   when: 2020-07-09 09:35:13.000000000 Z
   where: github
   who: 20803206
-- _id: 14652
-  _time: 2025-06-24 22:57:19.909143429 Z
+- _id: 14657
+  _time: 2025-06-24 23:54:56.363092958 Z
   _version: 0.11.2/0.50.5/
   latest: 51271267785
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 14653
-  _time: 2025-06-24 22:57:21.276397038 Z
+- _id: 14658
+  _time: 2025-06-24 23:55:05.683909940 Z
+  _version: 0.11.2/0.50.5/
+  latest: 730
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 14659
+  _time: 2025-06-24 23:55:22.694543915 Z
   _version: 0.11.2/0.50.5/
   details: The pull cqfn/aibolit#653 has been opened by @aravij.
   issue: 653
   repository: 237167507
-  stale: 'branch #653'
   what: pull-was-opened
   when: 2020-10-27 09:31:17.000000000 Z
   where: github
   who: 1987026
-- _id: 14654
-  _time: 2025-06-24 22:57:21.853832113 Z
+- _id: 14660
+  _time: 2025-06-24 23:55:22.887324965 Z
   _version: 0.11.2/0.50.5/
   details: The pull cqfn/aibolit#676 has been opened by @vitalo-bit.
   issue: 676
   repository: 237167507
-  stale: 'branch #676'
   what: pull-was-opened
   when: 2025-05-14 20:58:27.000000000 Z
   where: github
   who: 71025204
-- _id: 14655
-  _time: 2025-06-24 22:57:22.483812870 Z
+- _id: 14661
+  _time: 2025-06-24 23:55:23.093356073 Z
   _version: 0.11.2/0.50.5/
   details: The pull cqfn/aibolit#677 has been opened by @vitalo-bit.
   issue: 677
   repository: 237167507
-  stale: 'branch #677'
   what: pull-was-opened
   when: 2025-05-14 21:05:35.000000000 Z
   where: github
   who: 71025204
-- _id: 14656
-  _time: 2025-06-24 22:59:04.555779163 Z
+- _id: 14662
+  _time: 2025-06-24 23:55:28.139970434 Z
   _version: 0.11.2/0.50.5/
-  latest: 206
+  latest: 292
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 14663
+  _time: 2025-06-24 23:55:29.365320131 Z
+  _version: 0.11.2/0.50.5/
+  branch: timeout
+  details: cqfn/aibolit#505 has been opened by @lyriccoder.
+  issue: 505
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-13 09:09:14.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14664
+  _time: 2025-06-24 23:55:29.908290769 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-469
+  details: cqfn/aibolit#506 has been opened by @aravij.
+  issue: 506
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-13 13:05:39.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14665
+  _time: 2025-06-24 23:55:30.377289983 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_508
+  details: cqfn/aibolit#509 has been opened by @vitaly-protasov.
+  issue: 509
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-13 15:57:30.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14666
+  _time: 2025-06-24 23:55:30.951806460 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_510
+  details: cqfn/aibolit#511 has been opened by @vitaly-protasov.
+  issue: 511
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-13 16:13:05.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14667
+  _time: 2025-06-24 23:55:31.463523546 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-514
+  details: cqfn/aibolit#515 has been opened by @lyriccoder.
+  issue: 515
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-14 10:05:12.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14668
+  _time: 2025-06-24 23:55:32.033901808 Z
+  _version: 0.11.2/0.50.5/
+  branch: acheshkov-patch-1
+  details: cqfn/aibolit#516 has been opened by @acheshkov.
+  issue: 516
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-14 12:39:59.000000000 Z
+  where: github
+  who: 231433
+- _id: 14669
+  _time: 2025-06-24 23:55:32.459032844 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-469
+  details: cqfn/aibolit#517 has been opened by @aravij.
+  issue: 517
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-14 13:55:17.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14670
+  _time: 2025-06-24 23:55:32.976916001 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-514
+  details: cqfn/aibolit#518 has been opened by @lyriccoder.
+  issue: 518
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-14 14:21:58.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14671
+  _time: 2025-06-24 23:55:33.509351401 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-469
+  details: cqfn/aibolit#519 has been opened by @aravij.
+  issue: 519
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-15 08:21:39.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14672
+  _time: 2025-06-24 23:55:34.028317039 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-469
+  details: cqfn/aibolit#522 has been opened by @aravij.
+  issue: 522
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-15 15:05:19.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14673
+  _time: 2025-06-24 23:55:34.501890888 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_520
+  details: cqfn/aibolit#523 has been opened by @vitaly-protasov.
+  issue: 523
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-16 14:58:19.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14674
+  _time: 2025-06-24 23:55:35.021457242 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-469
+  details: cqfn/aibolit#525 has been opened by @aravij.
+  issue: 525
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-17 09:13:37.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14675
+  _time: 2025-06-24 23:55:35.538562556 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-526
+  details: cqfn/aibolit#527 has been opened by @aravij.
+  issue: 527
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-17 14:36:33.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14676
+  _time: 2025-06-24 23:55:36.060106385 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_528_1
+  details: cqfn/aibolit#529 has been opened by @vitaly-protasov.
+  issue: 529
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-20 08:38:20.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14677
+  _time: 2025-06-24 23:55:36.561389048 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-530
+  details: cqfn/aibolit#541 has been opened by @aravij.
+  issue: 541
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-20 11:05:20.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14678
+  _time: 2025-06-24 23:55:37.148768825 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_528_3
+  details: cqfn/aibolit#542 has been opened by @vitaly-protasov.
+  issue: 542
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-20 13:34:46.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14679
+  _time: 2025-06-24 23:55:37.609278351 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-585
+  details: cqfn/aibolit#591 has been opened by @lyriccoder.
+  issue: 591
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-04 14:52:00.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14680
+  _time: 2025-06-24 23:55:38.139385591 Z
+  _version: 0.11.2/0.50.5/
+  branch: tiny_model_enhancement
+  details: cqfn/aibolit#595 has been opened by @angusev.
+  issue: 595
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-05 12:43:35.000000000 Z
+  where: github
+  who: 44449418
+- _id: 14681
+  _time: 2025-06-24 23:55:38.709726291 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-533
+  details: cqfn/aibolit#543 has been opened by @aravij.
+  issue: 543
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-20 13:43:31.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14682
+  _time: 2025-06-24 23:55:39.236662470 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-534
+  details: cqfn/aibolit#544 has been opened by @aravij.
+  issue: 544
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-20 14:27:36.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14683
+  _time: 2025-06-24 23:55:39.731155642 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_528_7
+  details: cqfn/aibolit#545 has been opened by @vitaly-protasov.
+  issue: 545
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-20 14:33:00.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14684
+  _time: 2025-06-24 23:55:40.206510469 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-531
+  details: cqfn/aibolit#546 has been opened by @lyriccoder.
+  issue: 546
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-20 14:39:49.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14685
+  _time: 2025-06-24 23:55:40.752250143 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_528_10
+  details: cqfn/aibolit#547 has been opened by @vitaly-protasov.
+  issue: 547
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-20 14:56:20.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14686
+  _time: 2025-06-24 23:55:41.275081475 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_528_11
+  details: cqfn/aibolit#548 has been opened by @vitaly-protasov.
+  issue: 548
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-20 15:06:28.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14687
+  _time: 2025-06-24 23:55:41.762625931 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_528_12
+  details: cqfn/aibolit#549 has been opened by @vitaly-protasov.
+  issue: 549
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-20 15:24:59.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14688
+  _time: 2025-06-24 23:55:42.212609585 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_528_18
+  details: cqfn/aibolit#553 has been opened by @vitaly-protasov.
+  issue: 553
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-21 08:10:38.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14689
+  _time: 2025-06-24 23:55:42.679697278 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-550
+  details: cqfn/aibolit#555 has been opened by @aravij.
+  issue: 555
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-21 11:56:21.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14690
+  _time: 2025-06-24 23:55:43.209596151 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_528_8
+  details: cqfn/aibolit#557 has been opened by @vitaly-protasov.
+  issue: 557
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-21 15:44:05.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14691
+  _time: 2025-06-24 23:55:43.706862181 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-532
+  details: cqfn/aibolit#558 has been opened by @aravij.
+  issue: 558
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-22 14:46:57.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14692
+  _time: 2025-06-24 23:55:44.258013803 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-538
+  details: cqfn/aibolit#559 has been opened by @aravij.
+  issue: 559
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-22 15:13:04.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14693
+  _time: 2025-06-24 23:55:44.799711730 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_528_15
+  details: cqfn/aibolit#560 has been opened by @vitaly-protasov.
+  issue: 560
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-23 06:56:31.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14694
+  _time: 2025-06-24 23:55:45.282007121 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-535
+  details: cqfn/aibolit#563 has been opened by @aravij.
+  issue: 563
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-23 10:56:02.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14695
+  _time: 2025-06-24 23:55:45.775482230 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-537
+  details: cqfn/aibolit#564 has been opened by @aravij.
+  issue: 564
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-23 14:39:23.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14696
+  _time: 2025-06-24 23:55:46.391354306 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_528_2
+  details: cqfn/aibolit#568 has been opened by @vitaly-protasov.
+  issue: 568
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-24 13:26:12.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14697
+  _time: 2025-06-24 23:55:46.891235871 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-561
+  details: cqfn/aibolit#569 has been opened by @lyriccoder.
+  issue: 569
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-24 13:34:51.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14698
+  _time: 2025-06-24 23:55:47.380932544 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_528_4
+  details: cqfn/aibolit#572 has been opened by @vitaly-protasov.
+  issue: 572
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-27 16:24:46.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14699
+  _time: 2025-06-24 23:55:47.830687692 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-528_9
+  details: cqfn/aibolit#573 has been opened by @aravij.
+  issue: 573
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-28 12:41:13.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14700
+  _time: 2025-06-24 23:55:48.328976095 Z
+  _version: 0.11.2/0.50.5/
+  branch: send_null
+  details: cqfn/aibolit#576 has been opened by @lyriccoder.
+  issue: 576
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-28 15:04:42.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14701
+  _time: 2025-06-24 23:55:48.891886778 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_528_13
+  details: cqfn/aibolit#577 has been opened by @vitaly-protasov.
+  issue: 577
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-28 21:00:54.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14702
+  _time: 2025-06-24 23:55:49.405529696 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-528_5
+  details: cqfn/aibolit#578 has been opened by @aravij.
+  issue: 578
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-29 15:14:19.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14703
+  _time: 2025-06-24 23:55:49.940355813 Z
+  _version: 0.11.2/0.50.5/
+  branch: this_finder
+  details: cqfn/aibolit#580 has been opened by @lyriccoder.
+  issue: 580
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-29 15:22:04.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14704
+  _time: 2025-06-24 23:55:50.468767901 Z
+  _version: 0.11.2/0.50.5/
+  branch: wp_update
+  details: cqfn/aibolit#581 has been opened by @acheshkov.
+  issue: 581
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-30 14:29:09.000000000 Z
+  where: github
+  who: 231433
+- _id: 14705
+  _time: 2025-06-24 23:55:50.950297295 Z
+  _version: 0.11.2/0.50.5/
+  branch: acheshkov-patch-2
+  details: cqfn/aibolit#582 has been opened by @acheshkov.
+  issue: 582
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-30 14:49:08.000000000 Z
+  where: github
+  who: 231433
+- _id: 14706
+  _time: 2025-06-24 23:55:51.367804918 Z
+  _version: 0.11.2/0.50.5/
+  branch: style
+  details: cqfn/aibolit#583 has been opened by @yegor256.
+  issue: 583
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-07-30 19:32:54.000000000 Z
+  where: github
+  who: 526301
+- _id: 14707
+  _time: 2025-06-24 23:55:51.831201207 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-585
+  details: cqfn/aibolit#586 has been opened by @lyriccoder.
+  issue: 586
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-03 12:47:00.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14708
+  _time: 2025-06-24 23:55:52.374279116 Z
+  _version: 0.11.2/0.50.5/
+  branch: number_of_methods
+  details: cqfn/aibolit#589 has been opened by @lukyanoffpashok.
+  issue: 589
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-04 13:38:22.000000000 Z
+  where: github
+  who: 46167437
+- _id: 14709
+  _time: 2025-06-24 23:55:52.870833515 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-588
+  details: cqfn/aibolit#590 has been opened by @aravij.
+  issue: 590
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-04 13:38:30.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14710
+  _time: 2025-06-24 23:55:53.377040825 Z
+  _version: 0.11.2/0.50.5/
+  branch: acheshkov-patch-3
+  details: cqfn/aibolit#592 has been opened by @acheshkov.
+  issue: 592
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-05 06:20:25.000000000 Z
+  where: github
+  who: 231433
+- _id: 14711
+  _time: 2025-06-24 23:55:53.856527023 Z
+  _version: 0.11.2/0.50.5/
+  branch: model_katya
+  details: cqfn/aibolit#594 has been opened by @lyriccoder.
+  issue: 594
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-05 10:53:12.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14712
+  _time: 2025-06-24 23:55:54.334241658 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-574
+  details: cqfn/aibolit#597 has been opened by @lyriccoder.
+  issue: 597
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-06 15:03:45.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14713
+  _time: 2025-06-24 23:55:54.989007414 Z
+  _version: 0.11.2/0.50.5/
+  branch: acheshkov-patch-3
+  details: cqfn/aibolit#602 has been opened by @acheshkov.
+  issue: 602
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-07 08:27:00.000000000 Z
+  where: github
+  who: 231433
+- _id: 14714
+  _time: 2025-06-24 23:55:55.648189726 Z
+  _version: 0.11.2/0.50.5/
+  branch: acheshkov-patch-4
+  details: cqfn/aibolit#604 has been opened by @acheshkov.
+  issue: 604
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-07 09:21:18.000000000 Z
+  where: github
+  who: 231433
+- _id: 14715
+  _time: 2025-06-24 23:55:56.132379633 Z
+  _version: 0.11.2/0.50.5/
+  branch: acheshkov-patch-3
+  details: cqfn/aibolit#605 has been opened by @acheshkov.
+  issue: 605
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-07 09:32:40.000000000 Z
+  where: github
+  who: 231433
+- _id: 14716
+  _time: 2025-06-24 23:55:56.617633300 Z
+  _version: 0.11.2/0.50.5/
+  branch: release_1.2.6
+  details: cqfn/aibolit#606 has been opened by @lyriccoder.
+  issue: 606
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-07 09:32:50.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14717
+  _time: 2025-06-24 23:55:57.108050968 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-570
+  details: cqfn/aibolit#607 has been opened by @aravij.
+  issue: 607
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-08 00:09:34.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14718
+  _time: 2025-06-24 23:55:57.671853937 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-608
+  details: cqfn/aibolit#610 has been opened by @lyriccoder.
+  issue: 610
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-11 13:28:34.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14719
+  _time: 2025-06-24 23:55:58.273778932 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-468
+  details: cqfn/aibolit#611 has been opened by @aravij.
+  issue: 611
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-12 11:57:12.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14720
+  _time: 2025-06-24 23:55:58.855601526 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-609
+  details: cqfn/aibolit#612 has been opened by @lyriccoder.
+  issue: 612
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-12 14:16:52.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14721
+  _time: 2025-06-24 23:55:59.350002441 Z
+  _version: 0.11.2/0.50.5/
+  branch: ranked_decomposed
+  details: cqfn/aibolit#616 has been opened by @lyriccoder.
+  issue: 616
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-14 14:02:33.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14722
+  _time: 2025-06-24 23:55:59.876841069 Z
+  _version: 0.11.2/0.50.5/
+  branch: getter_ignore
+  details: cqfn/aibolit#618 has been opened by @lyriccoder.
+  issue: 618
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-17 15:17:37.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14723
+  _time: 2025-06-24 23:56:00.494890305 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-619
+  details: cqfn/aibolit#620 has been opened by @lyriccoder.
+  issue: 620
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-18 14:56:20.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14724
+  _time: 2025-06-24 23:56:01.150113748 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-507
+  details: cqfn/aibolit#621 has been opened by @lyriccoder.
+  issue: 621
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-19 14:49:01.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14725
+  _time: 2025-06-24 23:56:01.624958950 Z
+  _version: 0.11.2/0.50.5/
+  branch: test_for_ncss
+  details: cqfn/aibolit#624 has been opened by @lyriccoder.
+  issue: 624
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-20 13:39:59.000000000 Z
+  where: github
+  who: 20803206
+- _id: 14726
+  _time: 2025-06-24 23:56:02.161136813 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-622
+  details: cqfn/aibolit#625 has been opened by @aravij.
+  issue: 625
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-21 19:00:36.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14727
+  _time: 2025-06-24 23:56:02.683376447 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-626
+  details: cqfn/aibolit#627 has been opened by @aravij.
+  issue: 627
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-24 12:53:24.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14728
+  _time: 2025-06-24 23:56:03.256382790 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-628
+  details: cqfn/aibolit#629 has been opened by @aravij.
+  issue: 629
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-25 10:18:51.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14729
+  _time: 2025-06-24 23:56:03.770741150 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-636
+  details: cqfn/aibolit#637 has been opened by @aravij.
+  issue: 637
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-09-15 14:03:29.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14730
+  _time: 2025-06-24 23:56:04.264348635 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-638
+  details: cqfn/aibolit#639 has been opened by @aravij.
+  issue: 639
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-09-15 15:59:41.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14731
+  _time: 2025-06-24 23:56:04.790993958 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/maven/aibolit/metrics/halsteadvolume/junit-junit-4.13.1
+  details: cqfn/aibolit#651 has been opened by @dependabot[bot].
+  issue: 651
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-10-13 19:21:09.000000000 Z
+  where: github
+  who: 49699333
+- _id: 14732
+  _time: 2025-06-24 23:56:05.315040785 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/numpy-1.19.4
+  details: cqfn/aibolit#656 has been opened by @dependabot-preview[bot].
+  issue: 656
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-12-01 19:40:28.000000000 Z
+  where: github
+  who: 27856297
+- _id: 14733
+  _time: 2025-06-24 23:56:05.865461404 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/pandas-1.1.4
+  details: cqfn/aibolit#657 has been opened by @dependabot-preview[bot].
+  issue: 657
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-12-01 19:40:51.000000000 Z
+  where: github
+  who: 27856297
+- _id: 14734
+  _time: 2025-06-24 23:56:06.354399787 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/lxml-4.6.2
+  details: cqfn/aibolit#658 has been opened by @dependabot-preview[bot].
+  issue: 658
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-12-01 19:41:11.000000000 Z
+  where: github
+  who: 27856297
+- _id: 14735
+  _time: 2025-06-24 23:56:06.790804028 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/coverage-5.3
+  details: cqfn/aibolit#659 has been opened by @dependabot-preview[bot].
+  issue: 659
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-12-01 19:41:33.000000000 Z
+  where: github
+  who: 27856297
+- _id: 14736
+  _time: 2025-06-24 23:56:07.309009278 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/matplotlib-3.3.3
+  details: cqfn/aibolit#660 has been opened by @dependabot-preview[bot].
+  issue: 660
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-12-01 19:42:05.000000000 Z
+  where: github
+  who: 27856297
+- _id: 14737
+  _time: 2025-06-24 23:56:07.765044846 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/aibolit/metrics/cc/lxml-4.6.2
+  details: cqfn/aibolit#661 has been opened by @dependabot[bot].
+  issue: 661
+  repository: 237167507
+  what: pull-was-opened
+  when: 2021-01-07 23:26:35.000000000 Z
+  where: github
+  who: 49699333
+- _id: 14738
+  _time: 2025-06-24 23:56:08.258780777 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/aibolit/metrics/cc/lxml-4.6.3
+  details: cqfn/aibolit#662 has been opened by @dependabot[bot].
+  issue: 662
+  repository: 237167507
+  what: pull-was-opened
+  when: 2021-03-31 19:24:32.000000000 Z
+  where: github
+  who: 49699333
+- _id: 14739
+  _time: 2025-06-24 23:56:08.716666487 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/lxml-4.6.3
+  details: cqfn/aibolit#663 has been opened by @dependabot[bot].
+  issue: 663
+  repository: 237167507
+  what: pull-was-opened
+  when: 2021-03-31 19:37:12.000000000 Z
+  where: github
+  who: 49699333
+- _id: 14740
+  _time: 2025-06-24 23:56:09.205760762 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/aibolit/metrics/cc/lxml-4.6.5
+  details: cqfn/aibolit#664 has been opened by @dependabot[bot].
+  issue: 664
+  repository: 237167507
+  what: pull-was-opened
+  when: 2021-12-13 20:32:39.000000000 Z
+  where: github
+  who: 49699333
+- _id: 14741
+  _time: 2025-06-24 23:56:09.684721641 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/lxml-4.6.5
+  details: cqfn/aibolit#665 has been opened by @dependabot[bot].
+  issue: 665
+  repository: 237167507
+  what: pull-was-opened
+  when: 2021-12-13 20:38:58.000000000 Z
+  where: github
+  who: 49699333
+- _id: 14742
+  _time: 2025-06-24 23:56:10.182496034 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/aibolit/metrics/cc/lxml-4.9.1
+  details: cqfn/aibolit#667 has been opened by @dependabot[bot].
+  issue: 667
+  repository: 237167507
+  what: pull-was-opened
+  when: 2022-07-06 20:26:47.000000000 Z
+  where: github
+  who: 49699333
+- _id: 14743
+  _time: 2025-06-24 23:56:10.613497220 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/lxml-4.9.1
+  details: cqfn/aibolit#668 has been opened by @dependabot[bot].
+  issue: 668
+  repository: 237167507
+  what: pull-was-opened
+  when: 2022-07-06 20:37:33.000000000 Z
+  where: github
+  who: 49699333
+- _id: 14744
+  _time: 2025-06-24 23:56:11.172995321 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/codecov-2.0.16
+  details: cqfn/aibolit#669 has been opened by @dependabot[bot].
+  issue: 669
+  repository: 237167507
+  what: pull-was-opened
+  when: 2022-07-15 18:42:54.000000000 Z
+  where: github
+  who: 49699333
+- _id: 14745
+  _time: 2025-06-24 23:56:11.682963734 Z
+  _version: 0.11.2/0.50.5/
+  branch: probing
+  details: cqfn/aibolit#670 has been opened by @vitaly-protasov.
+  issue: 670
+  repository: 237167507
+  what: pull-was-opened
+  when: 2023-04-19 17:30:14.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14746
+  _time: 2025-06-24 23:56:12.267955431 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/scikit-learn-1.0.1
+  details: cqfn/aibolit#671 has been opened by @dependabot[bot].
+  issue: 671
+  repository: 237167507
+  what: pull-was-opened
+  when: 2024-02-01 20:59:54.000000000 Z
+  where: github
+  who: 49699333
+- _id: 14747
+  _time: 2025-06-24 23:56:12.737621800 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/scipy-1.11.1
+  details: cqfn/aibolit#672 has been opened by @dependabot[bot].
+  issue: 672
+  repository: 237167507
+  what: pull-was-opened
+  when: 2024-04-22 19:44:46.000000000 Z
+  where: github
+  who: 49699333
+- _id: 14748
+  _time: 2025-06-24 23:56:13.176455742 Z
+  _version: 0.11.2/0.50.5/
+  branch: version-up
+  details: cqfn/aibolit#680 has been opened by @github-actions[bot].
+  issue: 680
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-15 11:55:12.000000000 Z
+  where: github
+  who: 41898282
+- _id: 14749
+  _time: 2025-06-24 23:56:13.711276477 Z
+  _version: 0.11.2/0.50.5/
+  branch: legacy/from-setup-to-project
+  details: cqfn/aibolit#688 has been opened by @aagumin.
+  issue: 688
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-20 08:14:13.000000000 Z
+  where: github
+  who: 60981750
+- _id: 14750
+  _time: 2025-06-24 23:56:14.269628859 Z
+  _version: 0.11.2/0.50.5/
+  branch: '697'
+  details: cqfn/aibolit#699 has been opened by @literally-bug-creator.
+  issue: 699
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-21 13:01:27.000000000 Z
+  where: github
+  who: 84927447
+- _id: 14751
+  _time: 2025-06-24 23:56:14.787977531 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-630
+  details: cqfn/aibolit#631 has been opened by @aravij.
+  issue: 631
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-25 18:49:01.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14752
+  _time: 2025-06-24 23:56:15.229240674 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-632
+  details: cqfn/aibolit#633 has been opened by @aravij.
+  issue: 633
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-08-26 15:41:07.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14753
+  _time: 2025-06-24 23:56:15.739597939 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-634
+  details: cqfn/aibolit#635 has been opened by @aravij.
+  issue: 635
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-09-15 09:09:34.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14754
+  _time: 2025-06-24 23:56:16.172328012 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-640
+  details: cqfn/aibolit#641 has been opened by @vitaly-protasov.
+  issue: 641
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-09-15 19:48:29.000000000 Z
+  where: github
+  who: 43099602
+- _id: 14755
+  _time: 2025-06-24 23:56:16.734632095 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-636
+  details: cqfn/aibolit#643 has been opened by @aravij.
+  issue: 643
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-09-16 08:12:56.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14756
+  _time: 2025-06-24 23:56:17.288772161 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-638
+  details: cqfn/aibolit#644 has been opened by @aravij.
+  issue: 644
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-09-16 09:46:18.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14757
+  _time: 2025-06-24 23:56:17.749831136 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-646
+  details: cqfn/aibolit#647 has been opened by @aravij.
+  issue: 647
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-09-17 16:19:02.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14758
+  _time: 2025-06-24 23:56:18.294617765 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-649
+  details: cqfn/aibolit#650 has been opened by @aravij.
+  issue: 650
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-09-18 10:14:31.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14759
+  _time: 2025-06-24 23:56:18.800667397 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue-654
+  details: cqfn/aibolit#655 has been opened by @aravij.
+  issue: 655
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-10-27 09:43:50.000000000 Z
+  where: github
+  who: 1987026
+- _id: 14760
+  _time: 2025-06-24 23:56:19.258087532 Z
+  _version: 0.11.2/0.50.5/
+  branch: '674'
+  details: cqfn/aibolit#675 has been opened by @yegor256.
+  issue: 675
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-14 13:31:38.000000000 Z
+  where: github
+  who: 526301
+- _id: 14761
+  _time: 2025-06-24 23:56:20.038504550 Z
+  _version: 0.11.2/0.50.5/
+  branch: version-up
+  details: cqfn/aibolit#678 has been opened by @github-actions[bot].
+  issue: 678
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-15 11:27:22.000000000 Z
+  where: github
+  who: 41898282
+- _id: 14762
+  _time: 2025-06-24 23:56:20.598121431 Z
+  _version: 0.11.2/0.50.5/
+  branch: dependabot/pip/tqdm-4.66.3
+  details: cqfn/aibolit#679 has been opened by @dependabot[bot].
+  issue: 679
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-15 11:28:00.000000000 Z
+  where: github
+  who: 49699333
+- _id: 14763
+  _time: 2025-06-24 23:56:21.167239132 Z
+  _version: 0.11.2/0.50.5/
+  branch: version-up
+  details: cqfn/aibolit#681 has been opened by @github-actions[bot].
+  issue: 681
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-15 14:46:03.000000000 Z
+  where: github
+  who: 41898282
+- _id: 14764
+  _time: 2025-06-24 23:56:21.671554280 Z
+  _version: 0.11.2/0.50.5/
+  branch: '685'
+  details: cqfn/aibolit#686 has been opened by @literally-bug-creator.
+  issue: 686
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-18 12:15:34.000000000 Z
+  where: github
+  who: 84927447
+- _id: 14765
+  _time: 2025-06-24 23:56:22.198820641 Z
+  _version: 0.11.2/0.50.5/
+  branch: '689'
+  details: cqfn/aibolit#690 has been opened by @literally-bug-creator.
+  issue: 690
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-20 11:42:55.000000000 Z
+  where: github
+  who: 84927447
+- _id: 14766
+  _time: 2025-06-24 23:56:22.720145204 Z
+  _version: 0.11.2/0.50.5/
+  branch: fix/typo
+  details: cqfn/aibolit#693 has been opened by @ivanovmg.
+  issue: 693
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-21 06:47:52.000000000 Z
+  where: github
+  who: 41443370
+- _id: 14767
+  _time: 2025-06-24 23:56:23.280655658 Z
+  _version: 0.11.2/0.50.5/
+  branch: '694'
+  details: cqfn/aibolit#695 has been opened by @ivanovmg.
+  issue: 695
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-21 07:41:37.000000000 Z
+  where: github
+  who: 41443370
+- _id: 14768
+  _time: 2025-06-24 23:56:23.852432551 Z
+  _version: 0.11.2/0.50.5/
+  branch: '691'
+  details: cqfn/aibolit#698 has been opened by @literally-bug-creator.
+  issue: 698
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-21 12:40:16.000000000 Z
+  where: github
+  who: 84927447
+- _id: 14769
+  _time: 2025-06-24 23:56:24.326746664 Z
+  _version: 0.11.2/0.50.5/
+  branch: '684'
+  details: cqfn/aibolit#701 has been opened by @ivanovmg.
+  issue: 701
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-22 07:43:13.000000000 Z
+  where: github
+  who: 41443370
+- _id: 14770
+  _time: 2025-06-24 23:56:24.856795426 Z
+  _version: 0.11.2/0.50.5/
+  branch: '703'
+  details: cqfn/aibolit#704 has been opened by @ivanovmg.
+  issue: 704
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-22 08:47:24.000000000 Z
+  where: github
+  who: 41443370
+- _id: 14771
+  _time: 2025-06-24 23:56:25.379103983 Z
+  _version: 0.11.2/0.50.5/
+  branch: '705'
+  details: cqfn/aibolit#706 has been opened by @ivanovmg.
+  issue: 706
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-22 10:12:29.000000000 Z
+  where: github
+  who: 41443370
+- _id: 14772
+  _time: 2025-06-24 23:56:25.865668755 Z
+  _version: 0.11.2/0.50.5/
+  branch: '707'
+  details: cqfn/aibolit#708 has been opened by @ivanovmg.
+  issue: 708
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-22 12:15:13.000000000 Z
+  where: github
+  who: 41443370
+- _id: 14773
+  _time: 2025-06-24 23:56:26.342707920 Z
+  _version: 0.11.2/0.50.5/
+  branch: '710'
+  details: cqfn/aibolit#711 has been opened by @ivanovmg.
+  issue: 711
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-23 07:47:08.000000000 Z
+  where: github
+  who: 41443370
+- _id: 14774
+  _time: 2025-06-24 23:56:26.854008306 Z
+  _version: 0.11.2/0.50.5/
+  branch: '713'
+  details: cqfn/aibolit#714 has been opened by @ivanovmg.
+  issue: 714
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-23 09:33:14.000000000 Z
+  where: github
+  who: 41443370
+- _id: 14775
+  _time: 2025-06-24 23:56:27.414551454 Z
+  _version: 0.11.2/0.50.5/
+  branch: '715'
+  details: cqfn/aibolit#716 has been opened by @ivanovmg.
+  issue: 716
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-05-23 10:12:28.000000000 Z
+  where: github
+  who: 41443370
+- _id: 14776
+  _time: 2025-06-24 23:57:32.043714760 Z
+  _version: 0.11.2/0.50.5/
+  latest: 208
   repository: 237167507
   what: min-issue-was-found
   where: github
