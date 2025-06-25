@@ -14,7 +14,7 @@ First, you install it (you must have
 and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
 
 ```bash
-pip3 install aibolit==1.3.0
+pip3 install aibolit==
 ```
 
 To analyze your Java sources, located at `src/java` (for example), run:
