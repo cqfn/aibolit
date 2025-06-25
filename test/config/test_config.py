@@ -17,7 +17,8 @@ def test_each_metric_in_config_accepts_ast():
         assert 'ast' in metric_signature.parameters
         ann = metric_signature.parameters['ast'].annotation
         assert is_ast_or_subclass(ann), (
-            f"{metric_config['name']} metric.value 'ast' parameter should be typed as AST or subclass"
+            f"{metric_config['name']} "
+            f"metric.value 'ast' parameter should be typed as AST or subclass"
         )
 
 
@@ -25,7 +26,7 @@ def is_ast_or_subclass(ann):
     if ann is inspect._empty:
         return False
     if isinstance(ann, str):
-        return ann == "AST" or ann.endswith(".AST")
+        return ann == 'AST' or ann.endswith('.AST')
     try:
         return issubclass(ann, AST)
     except TypeError:
