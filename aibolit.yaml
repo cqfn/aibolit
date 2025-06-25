@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 33.817108286
+  seconds: 56.820580882
   version: 0.50.5
   what: judges-summary
-  when: 2025-06-25 19:55:36.621013381 Z
+  when: 2025-06-25 20:57:12.690229788 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29156,6 +29156,7 @@
   issue: 653
   not_merged: 2025-06-25 17:56:18.665536204 Z
   repository: 237167507
+  stale: 'branch #653'
   what: pull-was-opened
   when: 2020-10-27 09:31:17.000000000 Z
   where: github
@@ -29168,6 +29169,7 @@
   issue: 676
   not_merged: 2025-06-25 17:56:19.296614581 Z
   repository: 237167507
+  stale: 'branch #676'
   what: pull-was-opened
   when: 2025-05-14 20:58:27.000000000 Z
   where: github
@@ -29180,6 +29182,7 @@
   issue: 677
   not_merged: 2025-06-25 17:56:19.600668430 Z
   repository: 237167507
+  stale: 'branch #677'
   what: pull-was-opened
   when: 2025-05-14 21:05:35.000000000 Z
   where: github
@@ -29191,24 +29194,70 @@
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 14917
-  _time: 2025-06-25 17:56:47.527069357 Z
+- _id: 14927
+  _time: 2025-06-25 20:56:18.753799572 Z
   _version: 0.11.2/0.50.5/
-  latest: 434
+  branch: issue_829
+  comments: 2
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 2
+  comments_resolved: 1
+  comments_to_code: 1
+  details: The pull request cqfn/aibolit#838 has been closed by @kachanovyev, with
+    34 HoC and 2 comments.
+  event_id: 51343986897
+  event_type: PullRequestEvent
+  failed_builds: 0
+  hoc: 34
+  is_human: 1
+  issue: 838
+  repository: 237167507
+  succeeded_builds: 18
+  what: pull-was-closed
+  when: 2025-06-25 19:08:56.000000000 Z
+  where: github
+  who: 41502249
+- _id: 14929
+  _time: 2025-06-25 20:56:32.806207282 Z
+  _version: 0.11.2/0.50.5/
+  branch: issue_829
+  details: cqfn/aibolit#838 has been opened by @kachanovyev.
+  is_human: 1
+  issue: 838
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-25 13:36:18.000000000 Z
+  where: github
+  who: 41502249
+- _id: 14930
+  _time: 2025-06-25 20:56:52.970942752 Z
+  _version: 0.11.2/0.50.5/
+  latest: 439
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 14925
-  _time: 2025-06-25 19:55:22.526441414 Z
+- _id: 14931
+  _time: 2025-06-25 20:56:53.614635401 Z
   _version: 0.11.2/0.50.5/
-  latest: 51343090445
+  details: The pull cqfn/aibolit#837 has been opened by @ivanovmg.
+  issue: 837
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-06-25 09:16:08.000000000 Z
+  where: github
+  who: 41443370
+- _id: 14933
+  _time: 2025-06-25 20:56:58.824309540 Z
+  _version: 0.11.2/0.50.5/
+  latest: 51343999710
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 14926
-  _time: 2025-06-25 19:55:25.706304800 Z
+- _id: 14934
+  _time: 2025-06-25 20:57:02.413948018 Z
   _version: 0.11.2/0.50.5/
-  latest: 286
+  latest: 289
   repository: 237167507
   what: min-issue-was-found
   where: github
