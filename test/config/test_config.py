@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 import inspect
-import pytest
 
 from aibolit.ast_framework.ast import AST
 from aibolit.config import Config
