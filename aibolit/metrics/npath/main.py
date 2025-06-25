@@ -125,7 +125,7 @@ class MvnFreeNPathMetric:
             if node.else_statement is not None
             else 1
         )
-        return condition_npath * (then_npath + else_npath)
+        return condition_npath * then_npath + else_npath
 
     def _switch_npath(self, node: ASTNode) -> int:
         def _group_npath(case_group: ASTNode) -> int:
