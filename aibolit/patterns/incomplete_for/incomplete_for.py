@@ -18,6 +18,6 @@ class IncompleteFor:
             if not all((for_control.init, for_control.update, for_control.condition)):
                 parent = for_control.parent
                 if parent is None:
-                    raise RuntimeError("For control without For statement parent")
+                    raise RuntimeError('For control without For statement parent')
                 lines.add(parent.line)
         return sorted(lines)

@@ -70,11 +70,11 @@ class AST:
             yield ASTNode(self.tree, node_index)
 
     def get_subtrees(self, *root_type: ASTNodeType) -> Iterator['AST']:
-        '''
+        """
         Yields subtrees with given type of the root.
         If such subtrees are one including the other, only the larger one is
         going to be in resulted sequence.
-        '''
+        """
         is_inside_subtree = False
         current_subtree_root = -1  # all node indexes are positive
         subtree: List[int] = []
@@ -109,16 +109,16 @@ class AST:
             source_node = self.get_root()
 
         for _, destination, edge_type in dfs_labeled_edges(traverse_graph, source_node.node_index):
-            if edge_type == "forward":
+            if edge_type == 'forward':
                 on_node_entering(ASTNode(self.tree, destination))
-            elif edge_type == "reverse":
+            elif edge_type == 'reverse':
                 on_node_leaving(ASTNode(self.tree, destination))
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
-        '''
+        """
         Yields children of node with given type.
-        '''
+        """
         for child in self.tree.succ[node]:
             if self.tree.nodes[child]['node_type'] == child_type:
                 yield child
@@ -134,19 +134,19 @@ class AST:
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def all_children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
-        '''
+        """
         Yields all children of node with given type.
-        '''
+        """
         yield from self.list_all_children_with_type(node, child_type)
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def get_first_n_children_with_type(
         self, node: int, child_type: ASTNodeType, quantity: int
     ) -> List[int]:
-        '''
+        """
         Returns first quantity of children of node with type child_type.
         Resulted list is padded with None to length quantity.
-        '''
+        """
         children_with_type = (
             child for child in self.tree.succ[node] if self.get_type(child) == child_type
         )
@@ -301,15 +301,15 @@ class AST:
         Replace some attributes with more appropriate values for convenient work
         """
 
-        if node_type == ASTNodeType.METHOD_DECLARATION and attributes["body"] is None:
-            attributes["body"] = []
+        if node_type == ASTNodeType.METHOD_DECLARATION and attributes['body'] is None:
+            attributes['body'] = []
 
-        if node_type == ASTNodeType.LAMBDA_EXPRESSION and isinstance(attributes["body"], Node):
-            attributes["body"] = [attributes["body"]]
+        if node_type == ASTNodeType.LAMBDA_EXPRESSION and isinstance(attributes['body'], Node):
+            attributes['body'] = [attributes['body']]
 
         if node_type in {ASTNodeType.METHOD_INVOCATION, ASTNodeType.MEMBER_REFERENCE} and \
-                attributes["qualifier"] == "":
-            attributes["qualifier"] = None
+                attributes['qualifier'] == '':
+            attributes['qualifier'] = None
 
     @staticmethod
     def _add_javalang_collection_node(tree: DiGraph, collection_node: Set[Any]) -> int:
@@ -335,13 +335,13 @@ class AST:
     @staticmethod
     def _replace_javalang_nodes_in_attributes(tree: DiGraph,
                                               javalang_node_to_index_map: Dict[Node, int]) -> None:
-        '''
+        """
         All javalang nodes found in networkx nodes attributes are replaced
         with references to according networkx nodes.
         Supported attributes types:
          - just javalang Node
          - list of javalang Nodes and other such lists (with any depth)
-        '''
+        """
         for node, attributes in tree.nodes.items():
             for attribute_name in attributes:
                 attribute_value = attributes[attribute_name]
@@ -358,11 +358,11 @@ class AST:
     @staticmethod
     def _replace_javalang_nodes_in_list(javalang_nodes_list: List[Any],
                                         javalang_node_to_index_map: Dict[Node, int]) -> List[Any]:
-        '''
+        """
         javalang_nodes_list: list of javalang Nodes or other such lists (with any depth)
         All javalang nodes are replaces with according references
         NOTICE: Any is used, because mypy does not support recurrent type definitions
-        '''
+        """
         node_references_list: List[Any] = []
         for item in javalang_nodes_list:
             if isinstance(item, Node):

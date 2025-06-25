@@ -7,7 +7,7 @@
 .SHELLFLAGS := -e -o pipefail -c
 .SECONDARY:
 SHELL := bash
-.PHONY: all clean requirements test it install xcop flake8 pylint sphinx mypy lint
+.PHONY: all clean requirements test it install xcop flake8 pylint sphinx mypy lint e2e build
 
 all: requirements install test it lint xcop sphinx
 
@@ -21,7 +21,7 @@ install:
 	python3 aibolit --version
 
 test:
-	python3 -m pytest --cov=aibolit/ test/
+	python3 -m pytest --testmon --cov=aibolit/ test/
 
 it:
 	python3 -m test.integration.test_patterns_and_metrics
@@ -49,6 +49,12 @@ sphinx:
 
 mypy:
 	python3 -m mypy aibolit
+
+build: requirements
+	python3 -m build
+
+e2e: build
+	./test/e2e/test_e2e_release.sh
 
 clean:
 	rm -rf build

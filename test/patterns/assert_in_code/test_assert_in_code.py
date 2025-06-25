@@ -14,6 +14,6 @@ class AssertInCodeTestCase(TestCase):
     cur_file_dir = Path(os.path.realpath(__file__)).parent
 
     def test_assert_in_code(self):
-        file = Path(self.cur_file_dir, "Book.java")
+        file = Path(self.cur_file_dir, 'Book.java')
         ast = AST.build_from_javalang(build_ast(file))
         self.assertEqual(AssertInCode().value(ast), [6])

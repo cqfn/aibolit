@@ -46,7 +46,7 @@ def decompose_java_class(
         strength: str,
         ignore_setters=False,
         ignore_getters=False) -> List[AST]:
-    """
+    '''
     Splits java_class fields and methods by their usage and
     construct for each case an AST with only those fields and methods kept.
     :param class_ast: component
@@ -54,14 +54,14 @@ def decompose_java_class(
     :param ignore_setters: should ignore setters
     :param strength: controls splitting criteria. Use "strong" or "weak"
     for splitting fields and methods by strong and weak connectivity.
-    """
+    '''
 
     usage_graph = _create_usage_graph(class_ast)
 
     components: Iterator[Set[int]]
-    if strength == "strong":
+    if strength == 'strong':
         components = strongly_connected_components(usage_graph)
-    elif strength == "weak":
+    elif strength == 'weak':
         components = weakly_connected_components(usage_graph)
     else:
         raise ValueError(
@@ -81,14 +81,14 @@ def decompose_java_class(
     for component in components:
 
         field_names = {
-            usage_graph.nodes[node]["name"]
+            usage_graph.nodes[node]['name']
             for node in component
-            if usage_graph.nodes[node]["type"] == "field"
+            if usage_graph.nodes[node]['type'] == 'field'
         }
         method_names = {
-            usage_graph.nodes[node]["name"]
+            usage_graph.nodes[node]['name']
             for node in component
-            if usage_graph.nodes[node]["type"] == "method"
+            if usage_graph.nodes[node]['type'] == 'method'
         }
 
         if ignore_setters or ignore_getters:
@@ -114,7 +114,7 @@ def _create_usage_graph(class_ast: AST) -> DiGraph:
         # several fields can be declared at one line
         for field_name in field_declaration.names:
             fields_ids[field_name] = len(fields_ids)
-            usage_graph.add_node(fields_ids[field_name], type="field", name=field_name)
+            usage_graph.add_node(fields_ids[field_name], type='field', name=field_name)
 
     for method_declaration in class_declaration.methods:
         method_name = method_declaration.name
@@ -123,7 +123,7 @@ def _create_usage_graph(class_ast: AST) -> DiGraph:
         if method_name not in methods_ids:
             methods_ids[method_name] = len(fields_ids) + 1 + len(methods_ids)
             usage_graph.add_node(
-                methods_ids[method_name], type="method", name=method_name
+                methods_ids[method_name], type='method', name=method_name
             )
 
     for method_declaration in class_declaration.methods:

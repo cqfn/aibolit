@@ -13,7 +13,7 @@ NODE_TYPES = [
 
 
 def build_cfg(tree: AST) -> DiGraph:
-    '''Create Control Flow Graph'''
+    """Create Control Flow Graph"""
     g = DiGraph()
     g.add_node(0)
     for node in tree:
@@ -25,7 +25,7 @@ def build_cfg(tree: AST) -> DiGraph:
 
 
 def _mk_cfg_graph(node: ASTNodeType) -> DiGraph:
-    '''Takes in Javalang statement and returns corresponding CFG'''
+    """Takes in Javalang statement and returns corresponding CFG"""
     g = DiGraph()
     g.add_node(0)
     return g

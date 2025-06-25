@@ -34,7 +34,7 @@ from packaging.version import parse as parse_version
 from aibolit import __version__
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
-from aibolit.config import Config
+from aibolit.config import Config, Metric
 from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
 from aibolit.utils.ast_builder import build_ast
@@ -108,21 +108,21 @@ def train():
         default=False
     )
     parser.add_argument(
-        "--target-metric",
-        choices=["rfc", "fanout", "diameter", "cognitive"],
-        default="cognitive",
-        help="Select target metric. Available metrics: rfc, fanout, diameter, cognitive. "
-             "Default is cognitive."
+        '--target-metric',
+        choices=['rfc', 'fanout', 'diameter', 'cognitive'],
+        default='cognitive',
+        help='Select target metric. Available metrics: rfc, fanout, diameter, cognitive. '
+             'Default is cognitive.'
     )
     args = parser.parse_args(sys.argv[2:])
     if not args.skip_collect_dataset:
         collect_dataset(args)
 
     metric_name_to_code = {
-        "rfc": "M9",
-        "fanout": "M10",
-        "diameter": "M6",
-        "cognitive": "M4",
+        'rfc': 'M9',
+        'fanout': 'M10',
+        'diameter': 'M6',
+        'cognitive': 'M4',
     }
     train_process(metric_name_to_code[args.target_metric])
 
@@ -203,13 +203,13 @@ def find_annotation_by_node_type(
                 if hasattr(a.element, 'value'):
                     if 'aibolit' in a.element.value:
                         annonations[node].append(
-                            a.element.value.split('.')[1].rstrip('\"')
+                            a.element.value.split('.')[1].rstrip('"')
                         )
                 elif hasattr(a.element, 'values'):
                     for j in a.element.values:
                         if 'aibolit' in j.value:
                             annonations[node].append(
-                                j.value.split('.')[1].rstrip('\"')
+                                j.value.split('.')[1].rstrip('"')
                             )
     return annonations
 
@@ -262,14 +262,14 @@ def calculate_patterns_and_metrics_with_decomposition(
         config = Config.get_patterns_config()
         patterns_info = [
             pattern_info
-            for pattern_info in config["patterns"]
-            if pattern_info["code"] not in config["patterns_exclude"]
+            for pattern_info in config['patterns']
+            if pattern_info['code'] not in config['patterns_exclude']
         ]
 
         metrics_info = [
             metric_info
-            for metric_info in config["metrics"]
-            if metric_info["code"] not in config["metrics_exclude"]
+            for metric_info in config['metrics']
+            if metric_info['code'] not in config['metrics_exclude']
         ]
         ast = AST.build_from_javalang(build_ast(file_path))
         classes_ast = [
@@ -278,7 +278,7 @@ def calculate_patterns_and_metrics_with_decomposition(
             if node.node_type == ASTNodeType.CLASS_DECLARATION
         ]
         for class_ast in classes_ast:
-            for index, component_ast in enumerate(decompose_java_class(class_ast, "strong")):
+            for index, component_ast in enumerate(decompose_java_class(class_ast, 'strong')):
                 result_for_component: Dict[Any, Any] = {}
                 code_lines_dict: Dict[Any, Any] = OrderedDict()
                 input_params = OrderedDict()  # type: ignore
@@ -287,18 +287,19 @@ def calculate_patterns_and_metrics_with_decomposition(
                     if pattern_info['code'] in config['patterns_exclude']:
                         continue
                     if pattern_info['code'] in patterns_to_suppress:
-                        input_params[pattern_info["code"]] = 0
-                        code_lines_dict["lines_" + pattern_info["code"]] = []
+                        input_params[pattern_info['code']] = 0
+                        code_lines_dict['lines_' + pattern_info['code']] = []
                     else:
-                        pattern = pattern_info["make"]()
+                        pattern = pattern_info['make']()
                         pattern_result = pattern.value(component_ast)
-                        input_params[pattern_info["code"]] = len(pattern_result)
-                        code_lines_dict["lines_" + pattern_info["code"]] = pattern_result
+                        input_params[pattern_info['code']] = len(pattern_result)
+                        code_lines_dict['lines_' + pattern_info['code']] = pattern_result
 
                 for metric_info in metrics_info:
-                    metric = metric_info["make"]()
+                    metric = metric_info['make']()
+                    assert isinstance(metric, Metric)
                     metric_result = metric.value(component_ast)
-                    input_params[metric_info["code"]] = metric_result
+                    input_params[metric_info['code']] = metric_result
 
                 result_for_component['code_lines_dict'] = code_lines_dict
                 result_for_component['input_params'] = input_params
@@ -518,7 +519,7 @@ def _process_file_result(file, result_for_file):
     errors_string = str(result_for_file.get('exception')) or type(ex).__name__
 
     if not results_item and not errors_string:
-        output_string = 'Your code is perfect in aibolit\'s opinion'
+        output_string = "Your code is perfect in aibolit's opinion"
         output_string_tag.text = output_string
         return None
     elif not results_item and errors_string:
@@ -726,7 +727,7 @@ def check():
     group_exclusive.add_argument(
         '--filenames',
         help='list of Java files',
-        nargs="*",
+        nargs='*',
         default=False
     )
     parser.add_argument(
@@ -808,7 +809,7 @@ def handle_exclude_command_line(args: Any) -> List[str]:
         pattern = glob_p[0]
         files_to_exclude.extend([str(x.absolute())
                                 for x in Path(full_path_to_exclude).glob(pattern)])
-    print("ignore:", files_to_exclude)
+    print('ignore:', files_to_exclude)
     return files_to_exclude
 
 
@@ -907,7 +908,7 @@ def main():
             requests.exceptions.Timeout,
             requests.exceptions.ReadTimeout,
     ):
-        print('Can\'t check aibolit version. Network is not available or PyPI does not respond')
+        print("Can't check aibolit version. Network is not available or PyPI does not respond")
     try:
         commands = {
             'train': train,

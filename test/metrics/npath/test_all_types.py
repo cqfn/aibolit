@@ -51,24 +51,24 @@ def testMediumScore():
 class TestMvnFreeNPathMetric:
     def test_class_definition(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Dummy { }
-            """
+            '''
         ).strip()
         assert self._value(content) == 0
 
     def test_two_classes_definition(self) -> None:
         content = dedent(
-            """\
+            '''\
             class First { }
             class Second { }
-            """
+            '''
         ).strip()
         assert self._value(content) == 0
 
     def test_one_if_statement(self) -> None:
         content = dedent(
-            """\
+            '''\
             class WithOneIf {
                 public void print(bool flag) {
                     if (flag) {
@@ -76,13 +76,13 @@ class TestMvnFreeNPathMetric:
                     }
                 }
             }
-            """
+            '''
         ).strip()
         assert self._value(content) == 2
 
     def test_one_if_else_statement(self) -> None:
         content = dedent(
-            """\
+            '''\
             class WithOneIf {
                 public void print(bool flag) {
                     if (flag) {
@@ -92,13 +92,13 @@ class TestMvnFreeNPathMetric:
                     }
                 }
             }
-            """
+            '''
         ).strip()
         assert self._value(content) == 2
 
     def test_if_with_inner_if_else(self) -> None:
         content = dedent(
-            """\
+            '''\
             class WithOneIfWithInnerIfElse {
                 public void print(bool flag, bool ok) {
                     if (flag) {
@@ -110,13 +110,13 @@ class TestMvnFreeNPathMetric:
                     }
                 }
             }
-            """
+            '''
         ).strip()
         assert self._value(content) == 3
 
     def test_if_with_if_else_inside_outer_else(self) -> None:
         content = dedent(
-            """\
+            '''\
             class WithOneIfWithIfElseInElseClause {
                 public void print(bool flag, bool ok) {
                     if (flag) {
@@ -130,7 +130,7 @@ class TestMvnFreeNPathMetric:
                     }
                 }
             }
-            """
+            '''
         ).strip()
         assert self._value(content) == 3
 
@@ -143,7 +143,7 @@ class TestMvnFreeNPathMetric:
         4. a <= 0 and b <= 0
         """
         content = dedent(
-            """\
+            '''\
             class ComplexIfElse {
                 public void checkValues(int a, int b) {
                     if (a > 0) {
@@ -161,13 +161,13 @@ class TestMvnFreeNPathMetric:
                     }
                 }
             }
-            """
+            '''
         ).strip()
         assert self._value(content) == 4
 
     def test_complex_if_else_with_npath_complexity_of_5(self) -> None:
         content = dedent(
-            """\
+            '''\
             public class NPath5Example {
                 public void checkValues(int a, int b) {
                     if (a > 0) { // Branch 1 (2 paths: true/false)
@@ -187,20 +187,12 @@ class TestMvnFreeNPathMetric:
                     }
                 }
             }
-            """
+            '''
         ).strip()
         assert self._value(content) == 5
 
-    @pytest.mark.xfail(
-        reason='Probably wrong implementation for If',
-        strict=True,
-    )
     def test_if_with_and_condition(self) -> None:
-        # TODO #807:30min/DEV Fix NPath metric for if with AND (&&) condition.
-        #  Refer to https://checkstyle.org/checks/metrics/npathcomplexity.html
-        #  for details on NPath metric.
-        #  Once implemented, remove `xfail` mark from this test.
-        content = """
+        content = '''
         class Test {
             void check(int a, int b) {
                 if (a > 0 && b < 10) {
@@ -210,19 +202,11 @@ class TestMvnFreeNPathMetric:
                 }
             }
         }
-        """
+        '''
         assert self._value(content) == 3
 
-    @pytest.mark.xfail(
-        reason='Probably wrong implementation for If',
-        strict=True,
-    )
     def test_if_with_or_condition(self) -> None:
-        # TODO #807:30min/DEV Fix NPath metric for if with OR (||) condition.
-        #  Refer to https://checkstyle.org/checks/metrics/npathcomplexity.html
-        #  for details on NPath metric.
-        #  Once implemented, remove `xfail` mark from this test.
-        content = """
+        content = '''
         class Test {
             void validate(int x, int y) {
                 if (x == 0 || y == 0) {
@@ -232,12 +216,12 @@ class TestMvnFreeNPathMetric:
                 }
             }
         }
-        """
+        '''
         assert self._value(content) == 3
 
     def test_switch_simple_with_default(self):
         content = dedent(
-            """\
+            '''\
             class Test {
                 void foo(int x) {
                     switch (x) {
@@ -247,25 +231,25 @@ class TestMvnFreeNPathMetric:
                     }
                 }
             }
-            """,
+            ''',
         ).strip()
         assert self._value(content) == 3
 
     def test_switch_empty(self):
         content = dedent(
-            """\
+            '''\
             class Test {
                 void foo(int x) {
                     switch (x) {}
                 }
             }
-            """,
+            ''',
         ).strip()
         assert self._value(content) == 1
 
     def test_switch_simple_without_default(self):
         content = dedent(
-            """\
+            '''\
             class Test {
                 void foo(int x) {
                     switch (x) {
@@ -274,13 +258,13 @@ class TestMvnFreeNPathMetric:
                     }
                 }
             }
-            """,
+            ''',
         ).strip()
         assert self._value(content) == 2
 
     def test_switch_with_fallthrough(self):
         content = dedent(
-            """\
+            '''\
             class Test {
                 void foo(int x) {
                     switch (x) {
@@ -292,13 +276,13 @@ class TestMvnFreeNPathMetric:
                     }
                 }
             }
-            """,
+            ''',
         )
         assert self._value(content) == 4
 
     def test_nested_switch_statements(self) -> None:
         content = dedent(
-            """\
+            '''\
             class NestedSwitchStatements {
                 public void process(int x, int y) {
                     switch (x) { // 1 path through case and 4 - default
@@ -315,12 +299,12 @@ class TestMvnFreeNPathMetric:
                     }
                 }
             }
-            """
+            '''
         ).strip()
         assert self._value(content) == 5
 
     def test_simple_for_loop(self) -> None:
-        content = dedent("""
+        content = dedent('''
         class Test {
             void foo(int n) {
                 for (int i = 0; i < n; i++) {
@@ -328,11 +312,11 @@ class TestMvnFreeNPathMetric:
                 }
             }
         }
-        """).strip()
+        ''').strip()
         assert self._value(content) == 2
 
     def test_for_with_and_condition(self) -> None:
-        content = """
+        content = '''
         class Test {
             void foo(int n) {
                 for (int i = 0; i < n && n > 0; i++) {
@@ -340,12 +324,12 @@ class TestMvnFreeNPathMetric:
                 }
             }
         }
-        """
+        '''
         assert self._value(content) == 3
 
     def test_for_with_or_condition(self) -> None:
         content = dedent(
-            """\
+            '''\
             class Test {
                 void process(int a, int b) {
                     for (int i = 0; a > 0 || b < 10; i++) {
@@ -353,12 +337,12 @@ class TestMvnFreeNPathMetric:
                     }
                 }
             }
-            """,
+            ''',
         ).strip()
         assert self._value(content) == 3
 
     def test_for_with_if_inside(self) -> None:
-        content = dedent("""
+        content = dedent('''
         class Test {
             void bar(int n) {
                 for (int i = 0; i < n; i++) {
@@ -368,11 +352,11 @@ class TestMvnFreeNPathMetric:
                 }
             }
         }
-        """).strip()
+        ''').strip()
         assert self._value(content) == 3
 
     def test_nested_for_loops(self) -> None:
-        content = dedent("""
+        content = dedent('''
         class Test {
             void matrix(int n) {
                 for (int i = 0; i < n; i++) {
@@ -382,11 +366,11 @@ class TestMvnFreeNPathMetric:
                 }
             }
         }
-        """).strip()
+        ''').strip()
         assert self._value(content) == 3
 
     def test_for_with_switch(self) -> None:
-        content = dedent("""
+        content = dedent('''
         class Test {
             void process(int[] data) {
                 for (int x : data) {
@@ -399,11 +383,11 @@ class TestMvnFreeNPathMetric:
                 }
             }
         }
-        """).strip()
+        ''').strip()
         assert self._value(content) == 5
 
     def test_complex_for_with_multiple_constructs(self) -> None:
-        content = dedent("""
+        content = dedent('''
         class Test {
             void analyze(int[] values) {
                 for (int val : values) {
@@ -418,21 +402,21 @@ class TestMvnFreeNPathMetric:
                 }
             }
         }
-        """).strip()
+        ''').strip()
         assert self._value(content) == 4
 
     def test_empty_infinite_for_loop(self) -> None:
-        content = dedent("""
+        content = dedent('''
         class Test {
             void empty(int n) {
                 for (;;);
             }
         }
-        """).strip()
+        ''').strip()
         assert self._value(content) == 2
 
     def test_for_with_break_continue(self) -> None:
-        content = dedent("""
+        content = dedent('''
         class Test {
             void search(int[] arr, int target) {
                 for (int x : arr) {
@@ -446,7 +430,7 @@ class TestMvnFreeNPathMetric:
                 }
             }
         }
-        """).strip()
+        ''').strip()
         assert self._value(content) == 5
 
     def _value(self, content: str) -> int:

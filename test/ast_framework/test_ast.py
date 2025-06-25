@@ -12,13 +12,13 @@ from aibolit.ast_framework.ast import MemberReferenceParams, MethodInvocationPar
 
 class ASTTestSuite(TestCase):
     def test_parsing(self):
-        ast = self._build_ast("SimpleClass.java")
+        ast = self._build_ast('SimpleClass.java')
         actual_node_types = [node.node_type for node in ast]
         self.assertEqual(actual_node_types,
                          ASTTestSuite._java_simple_class_preordered)
 
     def test_subtrees_selection(self):
-        ast = self._build_ast("SimpleClass.java")
+        ast = self._build_ast('SimpleClass.java')
         subtrees = ast.get_subtrees(ASTNodeType.BASIC_TYPE)
         for actual_subtree, expected_subtree in \
                 zip_longest(subtrees, ASTTestSuite._java_simple_class_basic_type_subtrees):
@@ -30,7 +30,7 @@ class ASTTestSuite(TestCase):
         ast = self._build_ast('StaticConstructor.java')
         class_declaration = next((declaration for declaration in ast.get_root().types if
                                  declaration.node_type == ASTNodeType.CLASS_DECLARATION), None)
-        assert class_declaration is not None, "Cannot find class declaration"
+        assert class_declaration is not None, 'Cannot find class declaration'
 
         static_constructor, method_declaration = class_declaration.body
         self.assertEqual([node.node_type for node in static_constructor],
@@ -39,14 +39,14 @@ class ASTTestSuite(TestCase):
 
     @skip('Method "get_member_reference_params" is deprecated')
     def test_member_reference_params(self):
-        ast = self._build_ast("MemberReferencesExample.java")
+        ast = self._build_ast('MemberReferencesExample.java')
         for node, expected_params in zip_longest(ast.get_nodes(ASTNodeType.MEMBER_REFERENCE),
                                                  ASTTestSuite._expected_member_reference_params):
             self.assertEqual(ast.get_member_reference_params(node), expected_params)
 
     @skip('Method "get_method_invocation_params" is deprecated')
     def test_method_invocation_params(self):
-        ast = self._build_ast("MethodInvokeExample.java")
+        ast = self._build_ast('MethodInvokeExample.java')
         for node, expected_params in zip_longest(ast.get_nodes(ASTNodeType.METHOD_INVOCATION),
                                                  ASTTestSuite._expected_method_invocation_params):
             self.assertEqual(ast.get_method_invocation_params(node), expected_params)

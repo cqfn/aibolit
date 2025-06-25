@@ -14,50 +14,50 @@ StatementsTypes = List[ASTNodeType]
 
 class ScopeTestCase(TestCase):
     def test_plain_method(self) -> None:
-        self._test_method("plain_method")
+        self._test_method('plain_method')
 
     def test_lambda_in_assert(self) -> None:
-        self._test_method("lambda_in_assert")
+        self._test_method('lambda_in_assert')
 
     def test_nested_blocks(self) -> None:
-        self._test_method("nested_blocks")
+        self._test_method('nested_blocks')
 
     def test_while_cycle(self) -> None:
-        self._test_method("while_cycle")
+        self._test_method('while_cycle')
 
     def test_for_cycle(self) -> None:
-        self._test_method("for_cycle")
+        self._test_method('for_cycle')
 
     def test_if_branching(self) -> None:
-        self._test_method("if_branching")
+        self._test_method('if_branching')
 
     def test_local_variables(self) -> None:
-        self._test_method("local_variables")
+        self._test_method('local_variables')
 
     def test_statements_with_expressions(self) -> None:
-        self._test_method("statements_with_expressions")
+        self._test_method('statements_with_expressions')
 
     def test_switch_branching(self) -> None:
-        self._test_method("switch_branching")
+        self._test_method('switch_branching')
 
     def test_synchronized_block(self) -> None:
-        self._test_method("synchronized_block")
+        self._test_method('synchronized_block')
 
     def test_try_statement(self) -> None:
-        self._test_method("try_statement")
+        self._test_method('try_statement')
 
     def test_multiline_lambda(self) -> None:
-        self._test_method("multiline_lambda")
+        self._test_method('multiline_lambda')
 
     def test_deep_nesting(self) -> None:
-        self._test_method("deep_nesting")
+        self._test_method('deep_nesting')
 
     def test_lambda_parameters(self) -> None:
-        scope = Scope.build_from_method_ast(self._get_method_ast("multiline_lambda"))
+        scope = Scope.build_from_method_ast(self._get_method_ast('multiline_lambda'))
         lambda_scope = next(scope.nested_scopes)
 
         self.assertEqual(lambda_scope.parent_node.node_type, ASTNodeType.LAMBDA_EXPRESSION)
-        self.assertEqual([parameter.name for parameter in lambda_scope.parameters], ["x", "y"])
+        self.assertEqual([parameter.name for parameter in lambda_scope.parameters], ['x', 'y'])
 
     def _test_method(self, method_name: str) -> None:
         scope = Scope.build_from_method_ast(self._get_method_ast(method_name))
@@ -85,7 +85,7 @@ class ScopeTestCase(TestCase):
         self.assertEqual([statement.node_type for statement in scope.statements], statements)
 
     def _get_method_ast(self, method_name) -> AST:
-        path = str(Path(__file__).absolute().parent / "ScopeTest.java")
+        path = str(Path(__file__).absolute().parent / 'ScopeTest.java')
         ast = AST.build_from_javalang(build_ast(path))
         package_declaration = ast.get_root()
 
@@ -101,21 +101,21 @@ class ScopeTestCase(TestCase):
                 if method_declaration.name == method_name
             )
         except StopIteration:
-            raise ValueError(f"There is no method {method_name} in class {class_declaration.name}")
+            raise ValueError(f'There is no method {method_name} in class {class_declaration.name}')
 
     _scope_statements_in_preorder_by_method = {
-        "plain_method": [
+        'plain_method': [
             [ASTNodeType.LOCAL_VARIABLE_DECLARATION, ASTNodeType.LOCAL_VARIABLE_DECLARATION]
         ],
-        "lambda_in_assert": [
+        'lambda_in_assert': [
             [ASTNodeType.LOCAL_VARIABLE_DECLARATION, ASTNodeType.ASSERT_STATEMENT],
             [ASTNodeType.BINARY_OPERATION],
         ],
-        "nested_blocks": [
+        'nested_blocks': [
             [ASTNodeType.LOCAL_VARIABLE_DECLARATION, ASTNodeType.BLOCK_STATEMENT],
             [ASTNodeType.LOCAL_VARIABLE_DECLARATION],
         ],
-        "while_cycle": [
+        'while_cycle': [
             [
                 ASTNodeType.LOCAL_VARIABLE_DECLARATION,
                 ASTNodeType.DO_STATEMENT,
@@ -129,7 +129,7 @@ class ScopeTestCase(TestCase):
             [ASTNodeType.BINARY_OPERATION],
             [ASTNodeType.STATEMENT_EXPRESSION],
         ],
-        "for_cycle": [
+        'for_cycle': [
             [
                 ASTNodeType.LOCAL_VARIABLE_DECLARATION,
                 ASTNodeType.FOR_STATEMENT,
@@ -146,7 +146,7 @@ class ScopeTestCase(TestCase):
             [ASTNodeType.BINARY_OPERATION],
             [ASTNodeType.STATEMENT_EXPRESSION],
         ],
-        "if_branching": [
+        'if_branching': [
             [
                 ASTNodeType.LOCAL_VARIABLE_DECLARATION,
                 ASTNodeType.IF_STATEMENT,
@@ -168,7 +168,7 @@ class ScopeTestCase(TestCase):
             [ASTNodeType.BINARY_OPERATION],
             [ASTNodeType.STATEMENT_EXPRESSION],
         ],
-        "local_variables": [
+        'local_variables': [
             [
                 ASTNodeType.LOCAL_VARIABLE_DECLARATION,
                 ASTNodeType.LOCAL_VARIABLE_DECLARATION,
@@ -177,7 +177,7 @@ class ScopeTestCase(TestCase):
             [ASTNodeType.BINARY_OPERATION],
             [ASTNodeType.BINARY_OPERATION],
         ],
-        "statements_with_expressions": [
+        'statements_with_expressions': [
             [
                 ASTNodeType.LOCAL_VARIABLE_DECLARATION,
                 ASTNodeType.STATEMENT_EXPRESSION,
@@ -188,7 +188,7 @@ class ScopeTestCase(TestCase):
             [ASTNodeType.MEMBER_REFERENCE],
             [ASTNodeType.BINARY_OPERATION],
         ],
-        "switch_branching": [
+        'switch_branching': [
             [
                 ASTNodeType.LOCAL_VARIABLE_DECLARATION,
                 ASTNodeType.SWITCH_STATEMENT,
@@ -202,7 +202,7 @@ class ScopeTestCase(TestCase):
             [ASTNodeType.BINARY_OPERATION],
             [ASTNodeType.STATEMENT_EXPRESSION],
         ],
-        "synchronized_block": [
+        'synchronized_block': [
             [
                 ASTNodeType.LOCAL_VARIABLE_DECLARATION,
                 ASTNodeType.SYNCHRONIZED_STATEMENT,
@@ -212,7 +212,7 @@ class ScopeTestCase(TestCase):
             [ASTNodeType.CLASS_CREATOR],
             [ASTNodeType.STATEMENT_EXPRESSION],
         ],
-        "try_statement": [
+        'try_statement': [
             [ASTNodeType.TRY_STATEMENT],
             [ASTNodeType.MEMBER_REFERENCE],
             [ASTNodeType.STATEMENT_EXPRESSION],
@@ -220,11 +220,11 @@ class ScopeTestCase(TestCase):
             [ASTNodeType.STATEMENT_EXPRESSION],
             [ASTNodeType.STATEMENT_EXPRESSION],
         ],
-        "multiline_lambda": [
+        'multiline_lambda': [
             [ASTNodeType.LOCAL_VARIABLE_DECLARATION, ASTNodeType.STATEMENT_EXPRESSION],
             [ASTNodeType.STATEMENT_EXPRESSION, ASTNodeType.RETURN_STATEMENT],
         ],
-        "deep_nesting": [
+        'deep_nesting': [
             [ASTNodeType.FOR_STATEMENT],
             [ASTNodeType.IF_STATEMENT],
             [ASTNodeType.ASSERT_STATEMENT],

@@ -7,10 +7,10 @@ from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
 class NestedBlocks:
-    '''
+    """
     Returns lines in the file where
     nested blocks statements are located
-    '''
+    """
 
     def __init__(self, max_depth: int, *block_types: ASTNodeType):
         self._max_depth = max_depth

@@ -13,7 +13,7 @@ class PublicStaticMethodPatternTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
     def test_find_non_final_attributes(self):
-        filepath = self.current_directory / "PublicStaticMethod.java"
+        filepath = self.current_directory / 'PublicStaticMethod.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = PublicStaticMethod()
         lines = pattern.value(ast)

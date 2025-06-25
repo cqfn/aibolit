@@ -10,10 +10,10 @@ from aibolit.utils.scope_status import ScopeStatus, ScopeStatusFlags
 
 
 class VarMiddle:
-    '''
+    """
     Returns lines in the file where variables declared in the middle
     of the method
-    '''
+    """
 
     def value(self, ast: AST):
 

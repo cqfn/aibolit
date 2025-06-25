@@ -7,11 +7,11 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 
 class ManyPrimaryCtors:
-    '''
+    """
     If there is more than one primary
     constructors in a class, it is
     considered a pattern
-    '''
+    """
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
         for class_declaration in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):

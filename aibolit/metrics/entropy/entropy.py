@@ -15,7 +15,7 @@ class Entropy:
         pass
 
     def __file_to_tokens(self, filename: str) -> List[str]:
-        '''Takes path to java class file and returns tokens'''
+        """Takes path to java class file and returns tokens"""
         source_code = read_text_with_autodetected_encoding(filename)
         tokens = javalang.tokenizer.tokenize(source_code)
         return [token.value for token in tokens]

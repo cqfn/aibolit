@@ -21,7 +21,7 @@ class Stats(object):
                 model = pickle.load(fid)
                 print('Model has been loaded successfully')
 
-        scaled_dataset = scale_dataset(test_csv, model.features_conf, "M4")
+        scaled_dataset = scale_dataset(test_csv, model.features_conf, 'M4')
         cleaned_dataset = scaled_dataset[model.features_conf['features_order'] + ['M2']]
         ranked, _, acts_complexity, acts = Stats.check_impact(
             cleaned_dataset.values,
@@ -59,7 +59,7 @@ class Stats(object):
                 only_patterns.append(x['name'])
                 patterns_code.append(x['code'])
         features_number = len(only_patterns)
-        print("Number of features: ", features_number)
+        print('Number of features: ', features_number)
         patterns = {x['code']: x['name'] for x in config['patterns']}
         metrics = {x['code']: x['name'] for x in config['metrics']}
         replace_dict = dict(patterns, **metrics)

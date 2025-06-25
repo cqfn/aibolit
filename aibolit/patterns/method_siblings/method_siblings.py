@@ -8,10 +8,10 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 
 class MethodSiblings:
-    '''
+    """
     Count those methods, which
     start with the same names
-    '''
+    """
     def _is_method_names_close(self, node: ASTNode, new_node: ASTNode) -> bool:
         splited_name = re.split('([A-Z][^A-Z]*)', node.name)
         return len(splited_name) > 1 and new_node.name.startswith(splited_name[0])

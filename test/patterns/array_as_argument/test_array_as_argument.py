@@ -15,44 +15,44 @@ class ArrayAsArgumentTestCase(TestCase):
     pattern = ArrayAsArgument()
 
     def test_NoArgument(self):
-        file = Path(self.dir_path, "NoArgument.java")
+        file = Path(self.dir_path, 'NoArgument.java')
         ast = AST.build_from_javalang(build_ast(file))
-        self.assertEqual([], self.pattern.value(ast), "Should not match no argument method")
+        self.assertEqual([], self.pattern.value(ast), 'Should not match no argument method')
 
     def test_PrimitiveAsArgument(self):
-        file = Path(self.dir_path, "PrimitiveAsArgument.java")
+        file = Path(self.dir_path, 'PrimitiveAsArgument.java')
         ast = AST.build_from_javalang(build_ast(file))
         self.assertEqual(
-            [], self.pattern.value(ast), "Should not match method with primitive as argument"
+            [], self.pattern.value(ast), 'Should not match method with primitive as argument'
         )
 
     def test_ArrayAsArgument(self):
-        file = Path(self.dir_path, "ArrayAsArgument.java")
+        file = Path(self.dir_path, 'ArrayAsArgument.java')
         ast = AST.build_from_javalang(build_ast(file))
-        self.assertEqual([5], self.pattern.value(ast), "Should match method with array as argument")
+        self.assertEqual([5], self.pattern.value(ast), 'Should match method with array as argument')
 
     def test_ObjectAsArgument(self):
-        file = Path(self.dir_path, "ObjectAsArgument.java")
+        file = Path(self.dir_path, 'ObjectAsArgument.java')
         ast = AST.build_from_javalang(build_ast(file))
         self.assertEqual(
-            [], self.pattern.value(ast), "Should not match method with object as argument"
+            [], self.pattern.value(ast), 'Should not match method with object as argument'
         )
 
     def test_PrimitiveAndArrayAsArgument(self):
-        file = Path(self.dir_path, "PrimitiveAndArrayAsArgument.java")
+        file = Path(self.dir_path, 'PrimitiveAndArrayAsArgument.java')
         ast = AST.build_from_javalang(build_ast(file))
-        self.assertEqual([5], self.pattern.value(ast), "Should match method with array as argument")
+        self.assertEqual([5], self.pattern.value(ast), 'Should match method with array as argument')
 
     def test_GenericArrayAsArgument(self):
-        file = Path(self.dir_path, "GenericArrayAsArgument.java")
+        file = Path(self.dir_path, 'GenericArrayAsArgument.java')
         ast = AST.build_from_javalang(build_ast(file))
         self.assertEqual(
-            [5], self.pattern.value(ast), "Should match method with generic array as argument"
+            [5], self.pattern.value(ast), 'Should match method with generic array as argument'
         )
 
     def test_ConstructorWithArrayAsArgument(self):
-        file = Path(self.dir_path, "ConstructorWithArrayAsArgument.java")
+        file = Path(self.dir_path, 'ConstructorWithArrayAsArgument.java')
         ast = AST.build_from_javalang(build_ast(file))
         self.assertEqual(
-            [5], self.pattern.value(ast), "Should match constructor with array as argument"
+            [5], self.pattern.value(ast), 'Should match constructor with array as argument'
         )

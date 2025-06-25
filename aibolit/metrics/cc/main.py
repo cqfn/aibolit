@@ -57,7 +57,7 @@ class CCMetric():
         with open(root + '/target/pmd.xml', 'r', encoding='utf-8') as file:
             content = file.read()
             soup = BeautifulSoup(content, 'lxml')
-            files = soup.find_all("file")
+            files = soup.find_all('file')
             for file in files:
                 out = file.violation.string
                 name = file['name']
@@ -70,7 +70,7 @@ class CCMetric():
                 pos2 = out.find('(', pos1)
                 complexity = int(out[pos1:pos2 - 1])
                 result['data'].append({'file': name, 'complexity': complexity})
-            errors = soup.find_all("error")
+            errors = soup.find_all('error')
             for error in errors:
                 name = error['filename']
                 pos1 = name.find(root + '/src/main/java/')

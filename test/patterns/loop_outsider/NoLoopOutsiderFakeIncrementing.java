@@ -1,11 +1,11 @@
 // SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 // SPDX-License-Identifier: MIT
 
-public class LoopOutsiderAddAndInWhile {
-    public void loopOutsiderAddAndInWhile() {
+public class NoLoopOutsiderFakeIncrementing{
+    public void noLoopOutsiderFakeIncrementing() {
         int x = 0;
         while (true) {
-            x += 1; // here
         }
+        x++;
     }
 }

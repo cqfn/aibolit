@@ -6,9 +6,9 @@ from aibolit.ast_framework import ASTNodeType, AST
 
 
 class ErClass:
-    '''
+    """
     Check if a class name include the forbidden word
-    '''
+    """
     forbiden_words_in_class_names = (
         'manager',
         'controller',

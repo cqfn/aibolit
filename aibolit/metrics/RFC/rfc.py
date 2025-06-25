@@ -38,7 +38,7 @@ class RFC:
         for method_ast in java_class.get_subtrees(ASTNodeType.METHOD_DECLARATION):
             method_declaration = method_ast.get_root()
             local_methods_names.add(method_declaration.name)
-            if "public" in method_declaration.modifiers:
+            if 'public' in method_declaration.modifiers:
                 rfc += 1
                 invoked_methods |= self._get_all_method_invocation_params(method_ast)
 

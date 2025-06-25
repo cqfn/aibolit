@@ -31,11 +31,11 @@ class NCSSMetric:
         return metric
 
     def _has_pure_else_statements(self, if_statement: ASTNode) -> bool:
-        """
+        '''
         Checks is there else branch.
         If else branch appeared to be "else if" construction (not pure "else"),
         returns False.
-        """
+        '''
         assert if_statement.node_type == ASTNodeType.IF_STATEMENT
         return if_statement.else_statement is not None and \
             if_statement.else_statement.node_type != ASTNodeType.IF_STATEMENT

@@ -7,9 +7,9 @@ from aibolit.ast_framework.ast_node import ASTNode
 
 
 class StringConcatFinder:
-    '''
+    """
     Any usage string concatenation using '+' operator is considered as a pattern.
-    '''
+    """
     def _check_left_right_operator(self, node: ASTNode) -> bool:
         assert node.node_type == ASTNodeType.BINARY_OPERATION
         for operator_side in [node.operandr, node.operandl]:

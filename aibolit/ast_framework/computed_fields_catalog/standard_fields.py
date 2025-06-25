@@ -15,46 +15,46 @@ def register_standard_computed_properties() -> None:
 
 def _register_standard_nodes_filters() -> None:
     computed_fields_registry.register(
-        nodes_filter_factory("body", ASTNodeType.CONSTRUCTOR_DECLARATION),
-        "constructors",
+        nodes_filter_factory('body', ASTNodeType.CONSTRUCTOR_DECLARATION),
+        'constructors',
         ASTNodeType.CLASS_DECLARATION,
         ASTNodeType.INTERFACE_DECLARATION,
         ASTNodeType.ANNOTATION_DECLARATION,
     )
 
     computed_fields_registry.register(
-        nodes_filter_factory("body", ASTNodeType.METHOD_DECLARATION),
-        "methods",
+        nodes_filter_factory('body', ASTNodeType.METHOD_DECLARATION),
+        'methods',
         ASTNodeType.CLASS_DECLARATION,
         ASTNodeType.INTERFACE_DECLARATION,
         ASTNodeType.ANNOTATION_DECLARATION,
     )
 
     computed_fields_registry.register(
-        nodes_filter_factory("body", ASTNodeType.FIELD_DECLARATION),
-        "fields",
+        nodes_filter_factory('body', ASTNodeType.FIELD_DECLARATION),
+        'fields',
         ASTNodeType.CLASS_DECLARATION,
         ASTNodeType.INTERFACE_DECLARATION,
         ASTNodeType.ANNOTATION_DECLARATION,
     )
 
     computed_fields_registry.register(
-        nodes_filter_factory("declarations", ASTNodeType.METHOD_DECLARATION),
-        "methods",
+        nodes_filter_factory('declarations', ASTNodeType.METHOD_DECLARATION),
+        'methods',
         ASTNodeType.ENUM_DECLARATION,
     )
 
     computed_fields_registry.register(
-        nodes_filter_factory("declarations", ASTNodeType.FIELD_DECLARATION),
-        "fields",
+        nodes_filter_factory('declarations', ASTNodeType.FIELD_DECLARATION),
+        'fields',
         ASTNodeType.ENUM_DECLARATION,
     )
 
 
 def _register_standard_chain_fields() -> None:
     computed_fields_registry.register(
-        chain_field_getter_factory("declarators", "name"),
-        "names",
+        chain_field_getter_factory('declarators', 'name'),
+        'names',
         ASTNodeType.CONSTANT_DECLARATION,
         ASTNodeType.FIELD_DECLARATION,
         ASTNodeType.LOCAL_VARIABLE_DECLARATION,

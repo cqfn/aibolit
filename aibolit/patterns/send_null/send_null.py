@@ -29,7 +29,7 @@ class SendNull:
         ]
         for node in ast.get_proxy_nodes(*invocatios_types):
             for argument in node.arguments:
-                if (argument.node_type == ASTNodeType.LITERAL) and (argument.value == "null"):
+                if (argument.node_type == ASTNodeType.LITERAL) and (argument.value == 'null'):
                     lines.add(argument.line)
 
         for node in ast.get_proxy_nodes(ASTNodeType.TERNARY_EXPRESSION):

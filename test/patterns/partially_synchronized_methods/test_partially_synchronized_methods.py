@@ -14,19 +14,19 @@ from aibolit.utils.ast_builder import build_ast
 
 class PartiallySynchronizedMethodsTestCase(TestCase):
     def test_no_synchronization(self):
-        self._test_helper("NoSynchronization.java", [])
+        self._test_helper('NoSynchronization.java', [])
 
     def test_partial_synchronization(self):
-        self._test_helper("PartialSynchronization.java", [8, 16, 26])
+        self._test_helper('PartialSynchronization.java', [8, 16, 26])
 
     def test_full_synchronization(self):
-        self._test_helper("FullSynchronization.java", [])
+        self._test_helper('FullSynchronization.java', [])
 
     def test_several_synchronization_statements(self):
-        self._test_helper("SeveralSynchronizationStatements.java", [9, 13, 29, 32])
+        self._test_helper('SeveralSynchronizationStatements.java', [9, 13, 29, 32])
 
     def test_synchronization_in_nested_scopes(self):
-        self._test_helper("SynchronizationInNestedScopes.java", [12, 21, 30])
+        self._test_helper('SynchronizationInNestedScopes.java', [12, 21, 30])
 
     def _test_helper(self, filename: str, lines: List[int]):
         filepath = str(Path(__file__).absolute().parent / filename)

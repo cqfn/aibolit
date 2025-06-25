@@ -23,7 +23,7 @@ class MethodChainFind:
         return lines
 
     def _get_selectors_qty(self, node: ASTNode) -> int:
-        if not hasattr(node, "selectors") or node.selectors is None:
+        if not hasattr(node, 'selectors') or node.selectors is None:
             return 0
 
         return len(node.selectors)

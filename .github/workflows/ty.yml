@@ -35,4 +35,4 @@ jobs:
       - name: Run Ty
         run: |
           source .venv/bin/activate
-          uvx ty check
+          uvx ty==0.0.1-alpha.8 check

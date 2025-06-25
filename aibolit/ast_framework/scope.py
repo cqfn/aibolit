@@ -17,20 +17,20 @@ class Scope:
         self._scope_id = scope_id
 
     @staticmethod
-    def build_from_method_ast(method_ast: AST) -> "Scope":
+    def build_from_method_ast(method_ast: AST) -> 'Scope':
         method_declaration = method_ast.get_root()
         assert (
             method_declaration.node_type == ASTNodeType.METHOD_DECLARATION
-        ), "Building scopes tree supported only for method declaration."
+        ), 'Building scopes tree supported only for method declaration.'
 
         scope_tree = DiGraph()
         root_scopes_id = Scope._create_scopes_from_node(method_declaration, method_ast, scope_tree)
 
-        assert len(root_scopes_id) == 1, "Method declaration must produce a single scope."
+        assert len(root_scopes_id) == 1, 'Method declaration must produce a single scope.'
         return Scope(scope_tree, root_scopes_id[0])
 
     @property
-    def parent_scope(self) -> Optional["Scope"]:
+    def parent_scope(self) -> Optional['Scope']:
         parent_scope_id: Optional[int] = next(self._scope_tree.predecessors(self._scope_id), None)
 
         if parent_scope_id is None:
@@ -39,21 +39,21 @@ class Scope:
         return Scope(self._scope_tree, parent_scope_id)
 
     @property
-    def nested_scopes(self) -> Iterator["Scope"]:
+    def nested_scopes(self) -> Iterator['Scope']:
         for nested_scope_id in self._scope_tree.successors(self._scope_id):
             yield Scope(self._scope_tree, nested_scope_id)
 
     @property
     def statements(self) -> List[ASTNode]:
-        return self._scope_tree.nodes[self._scope_id]["statements"]
+        return self._scope_tree.nodes[self._scope_id]['statements']
 
     @property
     def parent_node(self) -> ASTNode:
-        return self._scope_tree.nodes[self._scope_id]["parent_node"]
+        return self._scope_tree.nodes[self._scope_id]['parent_node']
 
     @property
     def parameters(self) -> List[ASTNode]:
-        return self._scope_tree.nodes[self._scope_id]["parameters"]
+        return self._scope_tree.nodes[self._scope_id]['parameters']
 
     @staticmethod
     def _create_scopes_from_node(node: ASTNode, method_ast: AST, scope_tree: DiGraph) -> List[int]:

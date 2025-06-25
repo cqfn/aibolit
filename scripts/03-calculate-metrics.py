@@ -25,9 +25,9 @@ csv_files = []
 for dir_local in Path(dir_to_analyze).iterdir():
     if dir_local.is_dir():
         print(f'Start metrics calculation for path {dir_local.parts[-1]}')
-        csv_filename = f"./_tmp/{dir_local.parts[-1]}_pmd_out.csv"
+        csv_filename = f'./_tmp/{dir_local.parts[-1]}_pmd_out.csv'
         csv_files.append(csv_filename)
-        f = open(csv_filename, "w", encoding='utf-8')
+        f = open(csv_filename, 'w', encoding='utf-8')
         subprocess.call([
             './_tmp/pmd-bin/bin/run.sh', 'pmd',
             '-cache', './_tmp/cache',
@@ -38,32 +38,32 @@ for dir_local in Path(dir_to_analyze).iterdir():
 
 
 cur_df = pd.DataFrame(
-    [["-555", "com.google.samples",
-      "Fake.java", "3", "11", "The class AdViewIdlingResource", "Design",
-      "NcssCount"]],
-    columns=["Problem", "Package", "File", "Priority", "Line", "Description", "Rule set", "Rule"]
+    [['-555', 'com.google.samples',
+      'Fake.java', '3', '11', 'The class AdViewIdlingResource', 'Design',
+      'NcssCount']],
+    columns=['Problem', 'Package', 'File', 'Priority', 'Line', 'Description', 'Rule set', 'Rule']
 )
-cur_df.set_index("Problem")
+cur_df.set_index('Problem')
 
 frames = []
 for i in csv_files:
     try:
         new_frame = pd.read_csv(i)
-        cur_df.set_index("Problem")
+        cur_df.set_index('Problem')
         frames.append(new_frame)
     except Exception:
         pass
 
-print(f"we have {len(csv_files)} folders, {len(frames)} datasets")
+print(f'we have {len(csv_files)} folders, {len(frames)} datasets')
 df = pd.concat(frames)
 df = df[df.Problem != -555]
-df.set_index("Problem")
+df.set_index('Problem')
 df.to_csv('./_tmp/pmd_out.csv')
 
 df = pd.read_csv('./_tmp/pmd_out.csv')
 df = df.drop(df.columns[[0]], axis=1)
 df['class'] = 0
-df.loc[df['Description'].str.contains("The class"), 'class'] = 1
+df.loc[df['Description'].str.contains('The class'), 'class'] = 1
 rows_to_remove = df[df['class'] == 1][['File', 'class', 'Rule']]\
     .groupby(['File', 'Rule']).filter(lambda x: len(x) > 1)['File']\
     .unique().tolist()

@@ -13,7 +13,7 @@ class MDAMetric:
             return 0
         elif isinstance(tree, (list, set, tuple)):
             children = tree
-        elif not hasattr(tree, "children"):
+        elif not hasattr(tree, 'children'):
             return 0
         else:
             children = tree.children
