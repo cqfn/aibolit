@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 382.061604707
+  seconds: 316.166831026
   version: 0.50.5
   what: judges-summary
-  when: 2025-06-25 00:01:15.997061784 Z
+  when: 2025-06-25 02:37:29.874052778 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -84027,13 +84027,6 @@
   when: 2020-07-09 09:35:13.000000000 Z
   where: github
   who: 20803206
-- _id: 14657
-  _time: 2025-06-24 23:54:56.363092958 Z
-  _version: 0.11.2/0.50.5/
-  latest: 51271267785
-  repository: 237167507
-  what: events-were-scanned
-  where: github
 - _id: 14658
   _time: 2025-06-24 23:55:05.683909940 Z
   _version: 0.11.2/0.50.5/
@@ -84047,6 +84040,7 @@
   details: The pull cqfn/aibolit#653 has been opened by @aravij.
   issue: 653
   repository: 237167507
+  stale: 'branch #653'
   what: pull-was-opened
   when: 2020-10-27 09:31:17.000000000 Z
   where: github
@@ -84057,6 +84051,7 @@
   details: The pull cqfn/aibolit#676 has been opened by @vitalo-bit.
   issue: 676
   repository: 237167507
+  stale: 'branch #676'
   what: pull-was-opened
   when: 2025-05-14 20:58:27.000000000 Z
   where: github
@@ -84067,6 +84062,7 @@
   details: The pull cqfn/aibolit#677 has been opened by @vitalo-bit.
   issue: 677
   repository: 237167507
+  stale: 'branch #677'
   what: pull-was-opened
   when: 2025-05-14 21:05:35.000000000 Z
   where: github
@@ -85327,4 +85323,11 @@
   latest: 208
   repository: 237167507
   what: min-issue-was-found
+  where: github
+- _id: 14777
+  _time: 2025-06-25 02:32:16.749279547 Z
+  _version: 0.11.2/0.50.5/
+  latest: 51278137333
+  repository: 237167507
+  what: events-were-scanned
   where: github
