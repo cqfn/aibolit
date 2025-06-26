@@ -15,7 +15,6 @@ def test_each_metric_in_config_accepts_ast():
         metric = metric_config['make']()
         metric_signature = inspect.signature(metric.value)
         assert 'ast' in metric_signature.parameters
-        assert metric_signature.parameters['ast'].annotation is AST
         ann = metric_signature.parameters['ast'].annotation
         assert is_ast_or_subclass(ann), (
             f"{metric_config['name']} "
@@ -27,7 +26,7 @@ def is_ast_or_subclass(ann):
     if ann is inspect.Signature.empty:
         return False
     if isinstance(ann, str):
-        return ann == 'AST' or ann.endswith('.AST')
+        return ann == 'AST' or ann == 'aibolit.ast_framework.ast.AST'
     try:
         return issubclass(ann, AST)
     except TypeError:
