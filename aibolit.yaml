@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 112.275253162
+  seconds: 77.062536539
   version: 0.50.5
   what: judges-summary
-  when: 2025-06-25 23:56:56.204585123 Z
+  when: 2025-06-26 02:32:30.068730346 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29196,27 +29196,6 @@
   when: 2025-06-25 09:16:08.000000000 Z
   where: github
   who: 41443370
-- _id: 14955
-  _time: 2025-06-25 23:55:35.542311231 Z
-  _version: 0.11.2/0.50.5/
-  latest: 51347777118
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 14959
-  _time: 2025-06-25 23:56:40.260243468 Z
-  _version: 0.11.2/0.50.5/
-  latest: 459
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 14960
-  _time: 2025-06-25 23:56:42.750259176 Z
-  _version: 0.11.2/0.50.5/
-  latest: 159
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 14961
   _time: 2025-06-25 23:56:52.174696030 Z
   _version: 0.11.2/0.50.5/
@@ -29224,6 +29203,7 @@
   issue: 653
   not_merged: 2025-06-25 23:56:51.825190277 Z
   repository: 237167507
+  stale: 'branch #653'
   what: pull-was-opened
   when: 2020-10-27 09:31:17.000000000 Z
   where: github
@@ -29235,6 +29215,7 @@
   issue: 676
   not_merged: 2025-06-25 23:56:52.175181684 Z
   repository: 237167507
+  stale: 'branch #676'
   what: pull-was-opened
   when: 2025-05-14 20:58:27.000000000 Z
   where: github
@@ -29246,14 +29227,36 @@
   issue: 677
   not_merged: 2025-06-25 23:56:52.567581244 Z
   repository: 237167507
+  stale: 'branch #677'
   what: pull-was-opened
   when: 2025-05-14 21:05:35.000000000 Z
   where: github
   who: 71025204
-- _id: 14964
-  _time: 2025-06-25 23:56:55.787965694 Z
+- _id: 14966
+  _time: 2025-06-26 02:31:24.081705756 Z
   _version: 0.11.2/0.50.5/
-  latest: 300
+  latest: 167
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 14967
+  _time: 2025-06-26 02:31:26.108957729 Z
+  _version: 0.11.2/0.50.5/
+  latest: 467
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 14969
+  _time: 2025-06-26 02:32:16.971250644 Z
+  _version: 0.11.2/0.50.5/
+  latest: 51352249217
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 14970
+  _time: 2025-06-26 02:32:20.094424889 Z
+  _version: 0.11.2/0.50.5/
+  latest: 302
   repository: 237167507
   what: min-issue-was-found
   where: github
