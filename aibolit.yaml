@@ -1,12 +1,12 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 302.006669515
+  seconds: 308.101709319
   version: 0.50.5
   what: judges-summary
-  when: 2025-06-27 17:02:41.108126628 Z
+  when: 2025-06-27 18:00:26.152438370 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29346,33 +29346,13 @@
   when: 2025-06-12 08:51:09.000000000 Z
   where: github
   who: 104511335
-- _id: 15334
-  _time: 2025-06-27 16:57:45.898762920 Z
-  _version: 0.12.1/0.50.5/
-  latest: 609
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 15335
-  _time: 2025-06-27 17:00:02.559060543 Z
-  _version: 0.12.1/0.50.5/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 15336
-  _time: 2025-06-27 17:00:03.454082040 Z
-  _version: 0.12.1/0.50.5/
-  latest: 789
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
 - _id: 15338
   _time: 2025-06-27 17:01:27.201811795 Z
   _version: 0.12.1/0.50.5/
   details: The pull cqfn/aibolit#653 has been opened by @aravij.
   issue: 653
   repository: 237167507
+  stale: 'branch #653'
   what: pull-was-opened
   when: 2020-10-27 09:31:17.000000000 Z
   where: github
@@ -29383,6 +29363,7 @@
   details: The pull cqfn/aibolit#676 has been opened by @vitalo-bit.
   issue: 676
   repository: 237167507
+  stale: 'branch #676'
   what: pull-was-opened
   when: 2025-05-14 20:58:27.000000000 Z
   where: github
@@ -29393,21 +29374,43 @@
   details: The pull cqfn/aibolit#677 has been opened by @vitalo-bit.
   issue: 677
   repository: 237167507
+  stale: 'branch #677'
   what: pull-was-opened
   when: 2025-05-14 21:05:35.000000000 Z
   where: github
   who: 71025204
-- _id: 15341
-  _time: 2025-06-27 17:01:30.312475048 Z
+- _id: 15343
+  _time: 2025-06-27 17:55:24.006181890 Z
   _version: 0.12.1/0.50.5/
-  latest: 51407625321
+  latest: 2876296056
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 15342
-  _time: 2025-06-27 17:02:35.035479689 Z
+- _id: 15344
+  _time: 2025-06-27 17:56:15.784055306 Z
   _version: 0.12.1/0.50.5/
-  latest: 319
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 15345
+  _time: 2025-06-27 17:56:18.248489744 Z
+  _version: 0.12.1/0.50.5/
+  latest: 790
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 15346
+  _time: 2025-06-27 17:58:16.041968388 Z
+  _version: 0.12.1/0.50.5/
+  latest: 327
   repository: 237167507
   what: labels-were-scanned
+  where: github
+- _id: 15347
+  _time: 2025-06-27 18:00:25.901855798 Z
+  _version: 0.12.1/0.50.5/
+  latest: 619
+  repository: 237167507
+  what: types-were-scanned
   where: github
