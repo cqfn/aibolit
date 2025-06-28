@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="568792">
+<fb version="0.11.0" size="568866">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">310.77337878</seconds>
+    <seconds t="F">303.134402593</seconds>
     <version t="S">0.50.5</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-06-28T12:00:07Z</when>
+    <when t="T">2025-06-28T13:22:03Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -32474,15 +32474,6 @@
     <when t="T">2025-06-28T10:00:48Z</when>
   </f>
   <f>
-    <_id t="I">15471</_id>
-    <_time t="T">2025-06-28T10:57:17Z</_time>
-    <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">459</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">15474</_id>
     <_time t="T">2025-06-28T10:58:05Z</_time>
     <_version t="S">0.12.1/0.50.5/</_version>
@@ -32534,48 +32525,13 @@
     <who t="I">104511335</who>
   </f>
   <f>
-    <_id t="I">15477</_id>
-    <_time t="T">2025-06-28T11:56:12Z</_time>
-    <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">2876296056</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">15478</_id>
-    <_time t="T">2025-06-28T11:58:58Z</_time>
-    <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">401</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">15479</_id>
-    <_time t="T">2025-06-28T11:58:59Z</_time>
-    <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">818</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-pull-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">15480</_id>
-    <_time t="T">2025-06-28T11:59:04Z</_time>
-    <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">751</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">15481</_id>
     <_time t="T">2025-06-28T11:59:05Z</_time>
     <_version t="S">0.12.1/0.50.5/</_version>
     <details t="S">The pull cqfn/aibolit#653 has been opened by @aravij.</details>
     <issue t="I">653</issue>
     <repository t="I">237167507</repository>
+    <stale t="S">branch #653</stale>
     <what t="S">pull-was-opened</what>
     <when t="T">2020-10-27T09:31:17Z</when>
     <where t="S">github</where>
@@ -32588,6 +32544,7 @@
     <details t="S">The pull cqfn/aibolit#676 has been opened by @vitalo-bit.</details>
     <issue t="I">676</issue>
     <repository t="I">237167507</repository>
+    <stale t="S">branch #676</stale>
     <what t="S">pull-was-opened</what>
     <when t="T">2025-05-14T20:58:27Z</when>
     <where t="S">github</where>
@@ -32600,9 +32557,55 @@
     <details t="S">The pull cqfn/aibolit#677 has been opened by @vitalo-bit.</details>
     <issue t="I">677</issue>
     <repository t="I">237167507</repository>
+    <stale t="S">branch #677</stale>
     <what t="S">pull-was-opened</what>
     <when t="T">2025-05-14T21:05:35Z</when>
     <where t="S">github</where>
     <who t="I">71025204</who>
+  </f>
+  <f>
+    <_id t="I">15484</_id>
+    <_time t="T">2025-06-28T13:18:14Z</_time>
+    <_version t="S">0.12.1/0.50.5/</_version>
+    <latest t="I">2876296056</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">15485</_id>
+    <_time t="T">2025-06-28T13:21:21Z</_time>
+    <_version t="S">0.12.1/0.50.5/</_version>
+    <latest t="I">756</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">15486</_id>
+    <_time t="T">2025-06-28T13:21:26Z</_time>
+    <_version t="S">0.12.1/0.50.5/</_version>
+    <latest t="I">467</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">15487</_id>
+    <_time t="T">2025-06-28T13:22:01Z</_time>
+    <_version t="S">0.12.1/0.50.5/</_version>
+    <latest t="I">401</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">15488</_id>
+    <_time t="T">2025-06-28T13:22:02Z</_time>
+    <_version t="S">0.12.1/0.50.5/</_version>
+    <latest t="I">823</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-pull-was-found</what>
+    <where t="S">github</where>
   </f>
 </fb>
