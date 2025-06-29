@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-
+import dataclasses
 from enum import Enum, auto
 
 from typing import List, Set, Optional
@@ -13,14 +13,15 @@ class ScopeStatusFlags(Enum):
     INSIDE_ANNOTATION_SUBTREE = auto()
 
 
-class ScopeStatus:
-    _default_scope_status: Set[ScopeStatusFlags] = \
-        {ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS_PRESENT}
+class DefaultScopeStatus:
+    def value(self) -> Set[ScopeStatusFlags]:
+        return {ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS_PRESENT}
 
-    def __init__(self):
-        # Copy _default_scope_status to prevent its modification
-        self._scope_stack: List[Set[ScopeStatusFlags]] = \
-            [ScopeStatus._default_scope_status.copy()]
+
+@dataclasses.dataclass(slots=True)
+class ScopeStatus:
+    _scope_stack: List[Set[ScopeStatusFlags]] = \
+        dataclasses.field(default_factory=lambda: [DefaultScopeStatus().value()])
 
     def get_status(self) -> Set[ScopeStatusFlags]:
         try:
@@ -44,7 +45,7 @@ class ScopeStatus:
         self, new_scope_status: Optional[Set[ScopeStatusFlags]] = None
     ) -> None:
         if new_scope_status is None:
-            new_scope_status = ScopeStatus._default_scope_status
+            new_scope_status = DefaultScopeStatus().value()
         # Copy new_scope_status to prevent its modification
         self._scope_stack.append(new_scope_status.copy())
 
