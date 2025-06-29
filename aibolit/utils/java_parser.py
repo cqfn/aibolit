@@ -7,8 +7,6 @@ import javalang
 import javalang.ast
 import javalang.tree
 
-from aibolit.utils.lines import Lines
-
 
 # mapping between javalang node class names and Java keywords
 NODE_KEYWORD_MAP = {
@@ -51,8 +49,7 @@ class JavalangImproved:
     All patterns using it should start traversing the tree manually.
     """
 
-    def __init__(self, filename: str):
-        tree, lines = Lines(filename).value()
+    def __init__(self, tree, lines):
         self.tree = tree
         self.lines = lines
 
