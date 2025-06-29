@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+import dataclasses
 from decimal import localcontext, ROUND_DOWN, Decimal
 from typing import Dict, Any, Tuple, List
 from numpy.typing import NDArray
@@ -77,12 +78,11 @@ def scale_dataset(
     return input
 
 
+@dataclasses.dataclass(slots=True)
 class PatternRankingModel(BaseEstimator):
-
-    def __init__(self):
-        self.do_rename_columns = False
-        self.model = None
-        self.features_conf = {}
+    do_rename_columns: bool = False
+    model: CatBoost | None = None
+    features_conf: Dict[Any, Any] = dataclasses.field(default_factory=dict)
 
     def predict(self, input_params: Dict[Any, Any]) -> Tuple[Dict[Any, int], List[float]]:
         features_order = self.features_conf['features_order']
@@ -127,6 +127,7 @@ class PatternRankingModel(BaseEstimator):
         return 1 / (1 + np.exp(-x))
 
     def __get_pairs(self, item, th: float, feature_importances=None):
+        assert isinstance(self.model, CatBoost)
         if not feature_importances:
             feature_importances = self.model.feature_importances_
         pattern_importances = item * feature_importances
@@ -198,6 +199,7 @@ class PatternRankingModel(BaseEstimator):
             snippet = patterns_orig
 
         k = snippet.size
+        assert isinstance(self.model, CatBoost)
         complexity = self.model.predict(snippet)
         importances = []
         for i in range(k):
