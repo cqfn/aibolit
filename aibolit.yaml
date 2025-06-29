@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 337.583107525
+  seconds: 316.084464933
   version: 0.50.5
   what: judges-summary
-  when: 2025-06-29 02:56:00.773798357 Z
+  when: 2025-06-29 03:55:22.397832353 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29403,20 +29403,6 @@
   when: 2025-06-12 08:51:09.000000000 Z
   where: github
   who: 104511335
-- _id: 15559
-  _time: 2025-06-29 02:51:19.221650144 Z
-  _version: 0.12.1/0.50.5/
-  latest: 603
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 15563
-  _time: 2025-06-29 02:52:26.570770354 Z
-  _version: 0.12.1/0.50.5/
-  latest: 140
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 15564
   _time: 2025-06-29 02:53:44.344945868 Z
   _version: 0.12.1/0.50.5/
@@ -29425,6 +29411,7 @@
   issue: 653
   not_merged: 2025-06-29 02:53:43.684716466 Z
   repository: 237167507
+  stale: 'branch #653'
   what: pull-was-opened
   when: 2020-10-27 09:31:17.000000000 Z
   where: github
@@ -29437,6 +29424,7 @@
   issue: 676
   not_merged: 2025-06-29 02:53:44.411155093 Z
   repository: 237167507
+  stale: 'branch #676'
   what: pull-was-opened
   when: 2025-05-14 20:58:27.000000000 Z
   where: github
@@ -29449,26 +29437,41 @@
   issue: 677
   not_merged: 2025-06-29 02:53:44.967361338 Z
   repository: 237167507
+  stale: 'branch #677'
   what: pull-was-opened
   when: 2025-05-14 21:05:35.000000000 Z
   where: github
   who: 71025204
-- _id: 15567
-  _time: 2025-06-29 02:54:02.338762029 Z
+- _id: 15570
+  _time: 2025-06-29 03:50:55.872527444 Z
+  _version: 0.12.1/0.50.5/
+  latest: 145
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 15571
+  _time: 2025-06-29 03:51:10.521386965 Z
   _version: 0.12.1/0.50.5/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 15568
-  _time: 2025-06-29 02:54:02.828634772 Z
+- _id: 15572
+  _time: 2025-06-29 03:51:11.924743736 Z
   _version: 0.12.1/0.50.5/
-  latest: 0
+  latest: 151
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 15569
-  _time: 2025-06-29 02:56:00.672348721 Z
+- _id: 15573
+  _time: 2025-06-29 03:51:15.244352007 Z
+  _version: 0.12.1/0.50.5/
+  latest: 615
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 15574
+  _time: 2025-06-29 03:55:22.317187658 Z
   _version: 0.12.1/0.50.5/
   latest: 2876296056
   repository: 237167507
