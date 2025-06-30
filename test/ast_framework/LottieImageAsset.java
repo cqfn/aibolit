@@ -60,10 +60,10 @@ public class LottieImageAsset {
     return bitmap;
   }
 
-  /**
-   * TO-FIX
-   */
   public void setBitmap(@Nullable Bitmap bitmap) {
+    if (bitmap == null) {
+      return;
+    }
     this.bitmap = bitmap;
   }
 

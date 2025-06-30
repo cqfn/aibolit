@@ -5,6 +5,7 @@
 */
 class MethodUseOtherMethod {
     private int connectingField = 0;
+    @SuppressWarnings("unused")
     private int redundantField = 0;
 
     public int useOnlyMethods1(int x) {
