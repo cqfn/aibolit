@@ -39,10 +39,13 @@ class BidirectIndex:
         Returns:
             List[int]: Sorted list of line numbers where bidirectional indices are found.
         """
-        with open(filename, encoding='utf-8') as f:
-            lines = f.readlines()
+        try:
+            with open(filename, encoding='utf-8') as f:
+                lines = f.readlines()
+        except (FileNotFoundError, IOError) as e:
+            raise ValueError(f'Failed to read file {filename}: {e}')
 
-        result = []
+        result: list[int] = []
         for m_start, m_end in BidirectIndex.find_methods(lines):
             BidirectIndex.analyze_block(lines, m_start + 1, m_end, result)
         return sorted(result)
@@ -51,12 +54,20 @@ class BidirectIndex:
     def find_methods(lines):
         """
         Find the start and end line indices (0-based) for each Java method in the file.
+
+        Args:
+            lines (list[str]): The lines of the Java source file to analyze.
+
+        Returns:
+            list[tuple[int, int]]: Each tuple is (start_line_idx, end_line_idx) for a method.
         """
         res = []
         brace = 0
         mstart = None
         for idx, line in enumerate(lines):
-            if re.search(r'\bvoid\b\s+\w+\s*\(.*\)\s*{', line):
+            if (re.search(
+                    r'(public|private|protected|static|\s)*([\w<>\[\]]+)\s+\w+\s*\([^)]*\)\s*{',
+                    line)):
                 if mstart is None:
                     mstart = idx
                     brace = 0
