@@ -20,7 +20,7 @@ class BidirectIndex:
 
     Usage:
         idx = BidirectIndex()
-        result = idx.value("MyClass.java")
+        result = idx.value('MyClass.java')
         # result is a list of line numbers matching the described pattern
     """
 
@@ -39,7 +39,7 @@ class BidirectIndex:
         Returns:
             List[int]: Sorted list of line numbers where bidirectional indices are found.
         """
-        with open(filename, encoding="utf-8") as f:
+        with open(filename, encoding='utf-8') as f:
             lines = f.readlines()
 
         result = []
@@ -56,12 +56,12 @@ class BidirectIndex:
         brace = 0
         mstart = None
         for idx, line in enumerate(lines):
-            if re.search(r"\bvoid\b\s+\w+\s*\(.*\)\s*{", line):
+            if re.search(r'\bvoid\b\s+\w+\s*\(.*\)\s*{', line):
                 if mstart is None:
                     mstart = idx
                     brace = 0
-            brace += line.count("{")
-            brace -= line.count("}")
+            brace += line.count('{')
+            brace -= line.count('}')
             if mstart is not None and brace == 0:
                 res.append((mstart, idx))
                 mstart = None
@@ -83,8 +83,8 @@ class BidirectIndex:
             if var:
                 j = i + 1
                 while j <= end:
-                    l = lines[j]
-                    if re.match(r'\s*(int|long|byte|short)\s+' + re.escape(var) + r'\s*=', l):
+                    line_ = lines[j]
+                    if re.match(r'\s*(int|long|byte|short)\s+' + re.escape(var) + r'\s*=', line_):
                         break
                     j += 1
                 for_blocks = BidirectIndex.find_for_blocks(lines, var, i + 1, j)
@@ -96,8 +96,8 @@ class BidirectIndex:
                 brace, block_start = 1, i
                 i += 1
                 while i <= end:
-                    brace += lines[i].count("{")
-                    brace -= lines[i].count("}")
+                    brace += lines[i].count('{')
+                    brace -= lines[i].count('}')
                     if brace == 0:
                         BidirectIndex.analyze_block(lines, block_start + 1, i - 1, result)
                         break
@@ -113,10 +113,10 @@ class BidirectIndex:
         for_blocks = []
         k = start
         while k < end:
-            l = lines[k]
-            for_decl = re.match(r'\s*for\s*\(\s*int\s+' + re.escape(var) + r'\s*=', l)
+            line_ = lines[k]
+            for_decl = re.match(r'\s*for\s*\(\s*int\s+' + re.escape(var) + r'\s*=', line_)
             if for_decl:
-                brace = l.count('{') - l.count('}')
+                brace = line_.count('{') - line_.count('}')
                 bstart = k
                 k += 1
                 while k < end and brace > 0:
@@ -138,16 +138,16 @@ class BidirectIndex:
         while k < end:
             in_for = any(bstart <= k <= bend for (bstart, bend) in for_blocks)
             if not in_for:
-                l = lines[k]
+                line_ = lines[k]
                 if re.search(
                         r'(\+\+' + re.escape(var) + r'|' + re.escape(var) + r'\+\+|' +
                         re.escape(var) + r'\s*\+=\s*1\b|' +
-                        re.escape(var) + r'\s*=\s*' + re.escape(var) + r'\s*\+\s*1\b)', l):
+                        re.escape(var) + r'\s*=\s*' + re.escape(var) + r'\s*\+\s*1\b)', line_):
                     inc_outside += 1
                 if re.search(
                         r'(--' + re.escape(var) + r'|' + re.escape(var) + r'--|' +
                         re.escape(var) + r'\s*-=\s*1\b|' +
-                        re.escape(var) + r'\s*=\s*' + re.escape(var) + r'\s*-\s*1\b)', l):
+                        re.escape(var) + r'\s*=\s*' + re.escape(var) + r'\s*-\s*1\b)', line_):
                     dec_outside += 1
             k += 1
         return inc_outside, dec_outside
