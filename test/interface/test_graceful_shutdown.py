@@ -8,7 +8,7 @@ import signal
 
 def test_quiet_exiting():
     proc = subprocess.Popen(
-        [sys.executable, 'aibolit'],
+        [sys.executable, '-m', 'aibolit'],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
     )
