@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 343.213006088
+  seconds: 305.565792555
   version: 0.50.5
   what: judges-summary
-  when: 2025-07-01 12:01:00.579032471 Z
+  when: 2025-07-01 13:29:05.060647772 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29638,44 +29638,9 @@
   repository: 237167507
   review_comments: 1
   what: pull-was-reviewed
-  when: 2025-07-01 02:34:35.000000000 Z
+  when: &375 2025-07-01 02:34:35.000000000 Z
   where: github
   who: 41443370
-- _id: 15847
-  _time: 2025-07-01 11:55:26.376296104 Z
-  _version: 0.12.1/0.50.5/
-  latest: 434
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 15850
-  _time: 2025-07-01 11:56:09.533380899 Z
-  _version: 0.12.1/0.50.5/
-  latest: 341
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 15854
-  _time: 2025-07-01 11:59:25.658064471 Z
-  _version: 0.12.1/0.50.5/
-  latest: 51533304194
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 15855
-  _time: 2025-07-01 11:59:45.312082285 Z
-  _version: 0.12.1/0.50.5/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 15856
-  _time: 2025-07-01 11:59:46.364938140 Z
-  _version: 0.12.1/0.50.5/
-  latest: 213
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
 - _id: 15857
   _time: 2025-07-01 11:59:59.175574982 Z
   _version: 0.12.1/0.50.5/
@@ -29684,6 +29649,7 @@
   issue: 653
   not_merged: 2025-07-01 11:59:58.690600939 Z
   repository: 237167507
+  stale: 'branch #653'
   what: pull-was-opened
   when: 2020-10-27 09:31:17.000000000 Z
   where: github
@@ -29696,6 +29662,7 @@
   issue: 676
   not_merged: 2025-07-01 11:59:59.253356677 Z
   repository: 237167507
+  stale: 'branch #676'
   what: pull-was-opened
   when: 2025-05-14 20:58:27.000000000 Z
   where: github
@@ -29708,7 +29675,61 @@
   issue: 677
   not_merged: 2025-07-01 11:59:59.820755042 Z
   repository: 237167507
+  stale: 'branch #677'
   what: pull-was-opened
   when: 2025-05-14 21:05:35.000000000 Z
   where: github
   who: 71025204
+- _id: 15860
+  _job: 27221
+  _time: 2025-07-01 12:01:26.416728882 Z
+  _version: 0.12.1/0.51.0/0.14.18!0.14.19
+  author: 41502249
+  comments: 2
+  details: The pull request cqfn/aibolit#841 with 190 HoC created by @kachanovyev
+    was reviewed by @ivanovmg after 14h44m and 2 comments.
+  hoc: 190
+  is_human: 1
+  issue: 841
+  repository: 237167507
+  review_comments: 1
+  seconds: 53092
+  what: code-was-reviewed
+  when: *375
+  where: github
+  who: 41443370
+- _id: 15862
+  _time: 2025-07-01 13:24:07.418611931 Z
+  _version: 0.12.1/0.50.5/
+  latest: 439
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 15863
+  _time: 2025-07-01 13:26:36.855196990 Z
+  _version: 0.12.1/0.50.5/
+  latest: 351
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 15864
+  _time: 2025-07-01 13:26:54.013591840 Z
+  _version: 0.12.1/0.50.5/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 15865
+  _time: 2025-07-01 13:26:54.921010930 Z
+  _version: 0.12.1/0.50.5/
+  latest: 214
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 15866
+  _time: 2025-07-01 13:27:57.834313189 Z
+  _version: 0.12.1/0.50.5/
+  latest: 51534283862
+  repository: 237167507
+  what: events-were-scanned
+  where: github
