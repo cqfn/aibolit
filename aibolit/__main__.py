@@ -898,6 +898,7 @@ def get_versions(pkg_name):
 
 
 def main():
+    print('aibolit has been launched', flush=True)
     try:
         max_available_version = get_versions('aibolit')[0]
         if max_available_version != __version__:
@@ -909,6 +910,8 @@ def main():
             requests.exceptions.ReadTimeout,
     ):
         print("Can't check aibolit version. Network is not available or PyPI does not respond")
+    except KeyboardInterrupt: 
+        sys.exit(0)
     try:
         commands = {
             'train': train,
