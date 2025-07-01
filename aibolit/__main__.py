@@ -910,7 +910,7 @@ def main():
             requests.exceptions.ReadTimeout,
     ):
         print("Can't check aibolit version. Network is not available or PyPI does not respond")
-    except KeyboardInterrupt: 
+    except KeyboardInterrupt:
         sys.exit(0)
     try:
         commands = {

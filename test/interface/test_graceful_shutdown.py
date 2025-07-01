@@ -33,7 +33,7 @@ def test_graceful_shutdown():
 
     if not launched:
         process.kill()
-        assert False, "Process didn't print launch message within timeout"
+        raise AssertionError("Process didn't print launch message within timeout")
 
     process.send_signal(signal.SIGINT)
 
