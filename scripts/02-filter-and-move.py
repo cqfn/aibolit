@@ -4,8 +4,6 @@
 
 import argparse
 from dataclasses import dataclass, field
-from multiprocessing.sharedctypes import Synchronized
-from multiprocessing.synchronize import Lock as LockBase
 import os
 import sys
 import time
@@ -15,6 +13,8 @@ from ctypes import c_bool
 from enum import Enum
 from functools import partial
 from multiprocessing import Value, Manager, cpu_count, Lock
+from multiprocessing.sharedctypes import Synchronized
+from multiprocessing.synchronize import Lock as LockBase
 from pathlib import Path
 
 import chardet
@@ -150,7 +150,7 @@ def scantree(path):
 
 @dataclass(slots=True)
 class SharedCounter:
-    val: Synchronized[int]
+    val: Synchronized
     lock: LockBase = field(default_factory=Lock)
 
     def increment(self):
