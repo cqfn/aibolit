@@ -3,6 +3,9 @@
 
 
 import argparse
+from dataclasses import dataclass, field
+from multiprocessing.sharedctypes import Synchronized
+from multiprocessing.synchronize import Lock as LockBase
 import os
 import sys
 import time
@@ -10,7 +13,7 @@ import traceback
 from concurrent.futures import ThreadPoolExecutor
 from ctypes import c_bool
 from enum import Enum
-from functools import cached_property, partial
+from functools import partial
 from multiprocessing import Value, Manager, cpu_count, Lock
 from pathlib import Path
 
@@ -145,17 +148,11 @@ def scantree(path):
                 yield entry.path
 
 
-class Counter:
-    def __init__(self, initval=0):
-        self._initval = initval
 
-    @cached_property
-    def val(self):
-        return Value('i', self._initval)
-
-    @cached_property
-    def lock(self):
-        return Lock()
+@dataclass(slots=True)
+class SharedCounter:
+    val: Synchronized[int]
+    lock: LockBase = field(default_factory=Lock)
 
     def increment(self):
         with self.lock:
@@ -166,6 +163,14 @@ class Counter:
         return self.val.value
 
 
+class Counter:
+    def __init__(self, initval=0):
+        self._initval = initval
+
+    def shared(self):
+        return SharedCounter(val=Value('i', self._initval))
+
+
 def walk_in_parallel():
     manager = Manager()
     queue = manager.Queue()
@@ -174,7 +179,7 @@ def walk_in_parallel():
         queue.put(Path(i).absolute())
 
     cancel = Value(c_bool, False)
-    counter = Counter(0)
+    counter = Counter(0).shared()
 
     def call_back():
         if counter.value > MAX_CLASSES:
@@ -187,7 +192,7 @@ def walk_in_parallel():
 
     collected_results = []
 
-    counter = Counter(1)
+    counter = Counter(1).shared()
     p = ThreadPoolExecutor(cpu_count())
 
     while not cancel.value and not queue.empty():
