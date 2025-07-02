@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 325.639823964
+  seconds: 322.069545155
   version: 0.50.5
   what: judges-summary
-  when: 2025-07-02 06:02:38.318512420 Z
+  when: 2025-07-02 07:05:18.918718367 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29698,38 +29698,49 @@
   when: *375
   where: github
   who: 41443370
-- _id: 15958
-  _time: 2025-07-02 05:58:22.035490631 Z
+- _id: 15963
+  _time: 2025-07-02 07:00:12.432227931 Z
   _version: 0.12.1/0.50.5/
-  latest: 640
+  latest: 649
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 15959
-  _time: 2025-07-02 06:00:18.795817448 Z
+- _id: 15964
+  _time: 2025-07-02 07:00:16.360016927 Z
+  _version: 0.12.1/0.50.5/
+  details: The issue cqfn/aibolit#846 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 846
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-07-02 06:10:20.000000000 Z
+  where: github
+  who: 13173649
+- _id: 15968
+  _time: 2025-07-02 07:03:54.995894566 Z
+  _version: 0.12.1/0.50.5/
+  latest: 51567200828
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 15969
+  _time: 2025-07-02 07:04:13.476774517 Z
   _version: 0.12.1/0.50.5/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 15960
-  _time: 2025-07-02 06:00:20.233187340 Z
+- _id: 15970
+  _time: 2025-07-02 07:04:14.552665949 Z
   _version: 0.12.1/0.50.5/
-  latest: 242
+  latest: 244
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 15961
-  _time: 2025-07-02 06:01:25.309507803 Z
+- _id: 15971
+  _time: 2025-07-02 07:04:18.618770188 Z
   _version: 0.12.1/0.50.5/
-  latest: 539
+  latest: 579
   repository: 237167507
   what: labels-were-scanned
-  where: github
-- _id: 15962
-  _time: 2025-07-02 06:01:27.488617188 Z
-  _version: 0.12.1/0.50.5/
-  latest: 51563464148
-  repository: 237167507
-  what: events-were-scanned
   where: github
