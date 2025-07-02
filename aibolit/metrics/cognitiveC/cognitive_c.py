@@ -46,10 +46,12 @@ class CognitiveComplexity:
             node_obj = ASTNode(ast.tree, all_childs[2])
             if node_obj.node_type == ASTNodeType.IF_STATEMENT:
                 complexity -= nested_level
-                complexity += self._check_if_statement(ast, all_childs[2], nested_level, method_name)
+                complexity += self._check_if_statement(
+                    ast, all_childs[2], nested_level, method_name)
             else:
                 complexity += 1
-                complexity += self._get_complexity(ast, all_childs[2], nested_level + 1, method_name)
+                complexity += self._get_complexity(
+                    ast, all_childs[2], nested_level + 1, method_name)
         return complexity
 
     def _increment_logical_operators(self, ast: AST, binary_operation_node: int) -> int:
@@ -87,7 +89,8 @@ class CognitiveComplexity:
         method_name = self._get_node_name(ast, node)
         return self._get_complexity(ast, node, nested_level + 1, method_name)
 
-    def _process_not_nested_structure(self, ast: AST, each_block: int, nested_level: int, method_name: str) -> int:
+    def _process_not_nested_structure(
+            self, ast: AST, each_block: int, nested_level: int, method_name: str) -> int:
         complexity = 0
         each_block_obj = ASTNode(ast.tree, each_block)
         each_block_type = each_block_obj.node_type
@@ -109,7 +112,8 @@ class CognitiveComplexity:
 
         return complexity
 
-    def _get_complexity(self, ast: AST, each_block: int, nested_level: int, method_name: str) -> int:
+    def _get_complexity(
+            self, ast: AST, each_block: int, nested_level: int, method_name: str) -> int:
         each_block_name = self._get_node_name(ast, each_block)
         each_block_obj = ASTNode(ast.tree, each_block)
         each_block_type = each_block_obj.node_type
@@ -127,7 +131,8 @@ class CognitiveComplexity:
             complexity += self._traverse_childs(ast, each_block, nested_level + 1, method_name)
 
         elif each_block_type in only_increment_for:
-            complexity += self._process_not_nested_structure(ast, each_block, nested_level, method_name)
+            complexity += self._process_not_nested_structure(
+                ast, each_block, nested_level, method_name)
 
         else:
             complexity += self._traverse_childs(ast, each_block, nested_level, method_name)
