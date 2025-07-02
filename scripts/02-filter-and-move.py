@@ -10,7 +10,7 @@ import traceback
 from concurrent.futures import ThreadPoolExecutor
 from ctypes import c_bool
 from enum import Enum
-from functools import partial
+from functools import cached_property, partial
 from multiprocessing import Value, Manager, cpu_count, Lock
 from pathlib import Path
 
@@ -147,8 +147,15 @@ def scantree(path):
 
 class Counter:
     def __init__(self, initval=0):
-        self.val = Value('i', initval)
-        self.lock = Lock()
+        self._initval = initval
+
+    @cached_property
+    def val(self):
+        return Value('i', self._initval)
+
+    @cached_property
+    def lock(self):
+        return Lock()
 
     def increment(self):
         with self.lock:
