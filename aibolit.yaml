@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 334.142985488
+  seconds: 332.052239497
   version: 0.50.5
   what: judges-summary
-  when: 2025-07-02 20:00:20.183023559 Z
+  when: 2025-07-02 21:01:42.507500571 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29735,38 +29735,57 @@
   when: *376
   where: github
   who: 526301
-- _id: 16054
-  _time: 2025-07-02 19:55:18.884315311 Z
-  _version: 0.12.1/0.50.5/
-  latest: 799
+- _id: 16059
+  _job: 27418
+  _time:
+  - 2025-07-02 20:01:04.292792333 Z
+  - 2025-07-02 20:00:47.826644141 Z
+  _version: 0.12.1/0.51.0/0.14.18!0.14.20
+  award: 12
+  details: It's time to reward @antonprokopyev for the bug reported in cqfn/aibolit#846,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/846/#issuecomment-3029152755
+  is_human: 1
+  issue: 846
+  receipt: 0
   repository: 237167507
-  what: types-were-scanned
+  what: bug-report-was-rewarded
+  when: 2025-07-02 20:00:47.829917099 Z
   where: github
-- _id: 16055
-  _time: 2025-07-02 19:57:26.092590126 Z
+  who: 13173649
+  why: Reported bug in cqfn/aibolit#846
+- _id: 16061
+  _time: 2025-07-02 20:57:21.202467913 Z
   _version: 0.12.1/0.50.5/
-  latest: 140
+  latest: 145
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 16056
-  _time: 2025-07-02 19:58:14.561517907 Z
+- _id: 16062
+  _time: 2025-07-02 20:57:26.430239231 Z
+  _version: 0.12.1/0.50.5/
+  latest: 810
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 16063
+  _time: 2025-07-02 21:00:30.709293889 Z
   _version: 0.12.1/0.50.5/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 16057
-  _time: 2025-07-02 19:58:16.105987506 Z
+- _id: 16064
+  _time: 2025-07-02 21:00:32.138370201 Z
   _version: 0.12.1/0.50.5/
-  latest: 272
+  latest: 274
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 16058
-  _time: 2025-07-02 19:59:19.568415598 Z
+- _id: 16065
+  _time: 2025-07-02 21:00:34.667205174 Z
   _version: 0.12.1/0.50.5/
-  latest: 51585211969
+  latest: 51624935010
   repository: 237167507
   what: events-were-scanned
   where: github
