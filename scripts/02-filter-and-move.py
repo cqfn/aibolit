@@ -165,7 +165,6 @@ class SharedCounter:
 class Counter:
     def __init__(self, initval=0):
         self._initval = initval
-        self._foo = None
 
     def shared(self):
         return SharedCounter(val=Value('i', self._initval))
