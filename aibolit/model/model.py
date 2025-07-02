@@ -78,7 +78,7 @@ def scale_dataset(
     return input
 
 
-@dataclasses.dataclass(slots=True)
+@dataclasses.dataclass()
 class PatternRankingModel(BaseEstimator):
     do_rename_columns: bool = False
     model: CatBoost | None = None
