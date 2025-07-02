@@ -148,7 +148,6 @@ def scantree(path):
                 yield entry.path
 
 
-
 @dataclass(slots=True)
 class SharedCounter:
     val: Synchronized[int]
