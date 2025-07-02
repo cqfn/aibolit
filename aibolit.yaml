@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 358.752489038
+  seconds: 334.142985488
   version: 0.50.5
   what: judges-summary
-  when: 2025-07-02 19:05:16.953849000 Z
+  when: 2025-07-02 20:00:20.183023559 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29709,49 +29709,64 @@
   when: 2025-06-30 11:49:43.000000000 Z
   where: github
   who: 41502249
-- _id: 16045
-  _time: 2025-07-02 18:59:56.043150519 Z
+- _id: 16048
+  _time: 2025-07-02 19:02:33.932171785 Z
+  _version: 0.12.1/0.50.5/
+  details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#846.
+  is_human: 1
+  issue: 846
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: &376 2025-07-02 07:07:25.000000000 Z
+  where: github
+  who: 526301
+- _id: 16052
+  _job: 27413
+  _time: 2025-07-02 19:05:48.604487574 Z
+  _version: 0.12.1/0.51.0/0.14.18!0.14.20
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#846 reported by @antonprokopyev;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 846
+  reporter: 13173649
+  repository: 237167507
+  what: bug-was-accepted
+  when: *376
+  where: github
+  who: 526301
+- _id: 16054
+  _time: 2025-07-02 19:55:18.884315311 Z
+  _version: 0.12.1/0.50.5/
+  latest: 799
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 16055
+  _time: 2025-07-02 19:57:26.092590126 Z
+  _version: 0.12.1/0.50.5/
+  latest: 140
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 16056
+  _time: 2025-07-02 19:58:14.561517907 Z
   _version: 0.12.1/0.50.5/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 16046
-  _time: 2025-07-02 18:59:57.691368934 Z
+- _id: 16057
+  _time: 2025-07-02 19:58:16.105987506 Z
   _version: 0.12.1/0.50.5/
-  latest: 270
+  latest: 272
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 16047
-  _time: 2025-07-02 19:00:03.579384079 Z
-  _version: 0.12.1/0.50.5/
-  latest: 786
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 16048
-  _time: 2025-07-02 19:02:33.932171785 Z
-  _version: 0.12.1/0.50.5/
-  details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#846.
-  issue: 846
-  label: bug
-  repository: 237167507
-  what: label-was-attached
-  when: 2025-07-02 07:07:25.000000000 Z
-  where: github
-  who: 526301
-- _id: 16050
-  _time: 2025-07-02 19:03:51.672309553 Z
+- _id: 16058
+  _time: 2025-07-02 19:59:19.568415598 Z
   _version: 0.12.1/0.50.5/
   latest: 51585211969
   repository: 237167507
   what: events-were-scanned
-  where: github
-- _id: 16051
-  _time: 2025-07-02 19:04:06.117698070 Z
-  _version: 0.12.1/0.50.5/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
   where: github
