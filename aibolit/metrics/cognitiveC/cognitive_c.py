@@ -27,34 +27,31 @@ logical_operators = ['&&', '||']
 
 
 class CognitiveComplexity:
-
-    def __init__(self):
-        # store the name for the considered method declaration
-        self.__method_name = None
-
-    def _traverse_childs(self, ast: AST, node: int, nested_level: int) -> int:
+    def _traverse_childs(self, ast: AST, node: int, nested_level: int, method_name: str) -> int:
         complexity = 0
         for each_child in ast.tree.succ[node]:
-            complexity += self._get_complexity(ast, each_child, nested_level)
+            complexity += self._get_complexity(ast, each_child, nested_level, method_name)
         return complexity
 
-    def _check_if_statement(self, ast, expr, nested_level: int) -> int:
+    def _check_if_statement(self, ast, expr, nested_level: int, method_name: str) -> int:
         """function to work with IfStatement block"""
         complexity = 0
         all_childs = list([i for i in ast.tree.succ[expr]])
-        complexity += self._get_complexity(ast, all_childs[0], 0)
+        complexity += self._get_complexity(ast, all_childs[0], 0, method_name)
         if len(all_childs) >= 2:
             complexity += nested_level + 1
-            complexity += self._get_complexity(ast, all_childs[1], nested_level + 1)
+            complexity += self._get_complexity(ast, all_childs[1], nested_level + 1, method_name)
 
         if len(all_childs) == 3:
             node_obj = ASTNode(ast.tree, all_childs[2])
             if node_obj.node_type == ASTNodeType.IF_STATEMENT:
                 complexity -= nested_level
-                complexity += self._check_if_statement(ast, all_childs[2], nested_level)
+                complexity += self._check_if_statement(
+                    ast, all_childs[2], nested_level, method_name)
             else:
                 complexity += 1
-                complexity += self._get_complexity(ast, all_childs[2], nested_level + 1)
+                complexity += self._get_complexity(
+                    ast, all_childs[2], nested_level + 1, method_name)
         return complexity
 
     def _increment_logical_operators(self, ast: AST, binary_operation_node: int) -> int:
@@ -83,22 +80,17 @@ class CognitiveComplexity:
         right_sequence = self._create_logical_operators_sequence(ast, right_side_node.node_index)
         return left_sequence + [operator] + right_sequence
 
-    def _is_recursion_call(self, ast, node) -> bool:
+    def _is_recursion_call(self, ast, node, method_name: str) -> bool:
         node_obj = ASTNode(ast.tree, node)
         assert node_obj.node_type == ASTNodeType.METHOD_INVOCATION
-        if self.__method_name == self._get_node_name(ast, node):
-            return True
-        return False
+        return method_name == self._get_node_name(ast, node)
 
-    def _nested_methods(self, ast, node, nested_level: int) -> int:
-        complexity = 0
-        original_name = self.__method_name
-        self.__method_name = self._get_node_name(ast, node)
-        complexity += self._get_complexity(ast, node, nested_level + 1)
-        self.__method_name = original_name
-        return complexity
+    def _nested_methods(self, ast, node, nested_level: int, method_name: str) -> int:
+        method_name = self._get_node_name(ast, node)
+        return self._get_complexity(ast, node, nested_level + 1, method_name)
 
-    def _process_not_nested_structure(self, ast: AST, each_block: int, nested_level: int) -> int:
+    def _process_not_nested_structure(
+            self, ast: AST, each_block: int, nested_level: int, method_name: str) -> int:
         complexity = 0
         each_block_obj = ASTNode(ast.tree, each_block)
         each_block_type = each_block_obj.node_type
@@ -111,37 +103,39 @@ class CognitiveComplexity:
                 complexity += self._increment_logical_operators(ast, each_block)
 
         elif each_block_type == ASTNodeType.METHOD_INVOCATION:
-            is_recursion = self._is_recursion_call(ast, each_block)
+            is_recursion = self._is_recursion_call(ast, each_block, method_name)
             complexity += is_recursion
 
         else:
             complexity += 1
-            complexity += self._traverse_childs(ast, each_block, nested_level)
+            complexity += self._traverse_childs(ast, each_block, nested_level, method_name)
 
         return complexity
 
-    def _get_complexity(self, ast: AST, each_block: int, nested_level: int) -> int:
+    def _get_complexity(
+            self, ast: AST, each_block: int, nested_level: int, method_name: str) -> int:
         each_block_name = self._get_node_name(ast, each_block)
         each_block_obj = ASTNode(ast.tree, each_block)
         each_block_type = each_block_obj.node_type
         complexity = 0
 
         if (each_block_type == ASTNodeType.METHOD_DECLARATION and
-                each_block_name != self.__method_name):
-            complexity += self._nested_methods(ast, each_block, nested_level)
+                each_block_name != method_name):
+            complexity += self._nested_methods(ast, each_block, nested_level, method_name)
 
         elif each_block_type == ASTNodeType.IF_STATEMENT:
-            complexity += self._check_if_statement(ast, each_block, nested_level)
+            complexity += self._check_if_statement(ast, each_block, nested_level, method_name)
 
         elif each_block_type in increment_and_nested_for:
             complexity += 1 + nested_level
-            complexity += self._traverse_childs(ast, each_block, nested_level + 1)
+            complexity += self._traverse_childs(ast, each_block, nested_level + 1, method_name)
 
         elif each_block_type in only_increment_for:
-            complexity += self._process_not_nested_structure(ast, each_block, nested_level)
+            complexity += self._process_not_nested_structure(
+                ast, each_block, nested_level, method_name)
 
         else:
-            complexity += self._traverse_childs(ast, each_block, nested_level)
+            complexity += self._traverse_childs(ast, each_block, nested_level, method_name)
         return complexity
 
     def _get_node_name(self, ast, node) -> str:
@@ -163,6 +157,6 @@ class CognitiveComplexity:
         complexity = 0
         for method_ast in ast.get_subtrees(ASTNodeType.METHOD_DECLARATION):
             method_declaration_index = method_ast.get_root().node_index
-            self.__method_name = self._get_node_name(method_ast, method_declaration_index)
-            complexity += self._get_complexity(method_ast, method_declaration_index, 0)
+            method_name = self._get_node_name(method_ast, method_declaration_index)
+            complexity += self._get_complexity(method_ast, method_declaration_index, 0, method_name)
         return complexity

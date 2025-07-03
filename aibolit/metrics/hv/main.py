@@ -11,13 +11,13 @@ class HVMetric():
     input = ''
 
     def __init__(self, input):
-        """Initialize class."""
-        if len(input) == 0:
-            raise ValueError('Empty file for analysis')
         self.input = input
 
     def value(self):
         """Run Halstead Volume analaysis"""
+        if len(self.input) == 0:
+            raise ValueError('Empty file for analysis')
+
         path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..',
                                'halsteadvolume/target/java-project-1.0-SNAPSHOT.jar'))
         if not os.path.isfile(path):

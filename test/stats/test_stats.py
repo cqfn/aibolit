@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+import dataclasses
 import math
 import os
 from pathlib import Path
@@ -14,11 +15,8 @@ from aibolit.model.model import get_minimum, generate_fake_dataset
 
 
 class TestStats(TestCase):
-
-    def __init__(self, *args, **kwargs):
-        super(TestStats, self).__init__(*args, **kwargs)
-        self.cur_file_dir = Path(os.path.realpath(__file__)).parent
-        self.config = Config.get_patterns_config()
+    cur_file_dir = Path(os.path.realpath(__file__)).parent
+    config = Config.get_patterns_config()
 
     def test_get_minimum(self):
         minimum_arr = get_minimum([0, 0.23, 0.45], [0.34, 0.01, 0.37], [0.01, 0.50, 0.2])
@@ -61,14 +59,13 @@ class TestStats(TestCase):
                     results.append(math.sin(radian))
                 return np.array(results)
 
+        @dataclasses.dataclass
         class PatternRankingModel:
-
-            def __init__(self):
-                self.features_conf = {
-                    'features_order': patterns,
-                    'patterns_only': patterns
-                }
-                self.model = MockModel()
+            features_conf: dict = dataclasses.field(default_factory=lambda: {
+                'features_order': patterns,
+                'patterns_only': patterns
+            })
+            model = MockModel()
 
         return PatternRankingModel()
 
