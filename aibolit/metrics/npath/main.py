@@ -20,13 +20,13 @@ class NPathMetric():
     input = ''
 
     def __init__(self, input):
-        """Initialize class."""
-        if len(input) == 0:
-            raise ValueError('Empty file for analysis')
         self.input = input
 
     def value(self, showoutput=False):
         """Run NPath Complexity analaysis"""
+
+        if len(self.input) == 0:
+            raise ValueError('Empty file for analysis')
         try:
             root = os.path.join(tempfile.gettempdir(), uuid.uuid4().hex)
             dirName = os.path.join(root, 'src/main/java')

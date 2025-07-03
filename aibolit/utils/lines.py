@@ -19,10 +19,12 @@ class Lines:
     and does not provide any complex functionality, so should be removed.
     """
     def __init__(self, filename: str | os.PathLike) -> None:
-        source_code = read_text_with_autodetected_encoding(filename)
-
-        self._lines = source_code.splitlines(keepends=True)
-        self._tree: CompilationUnit = parse(source_code)
+        self._filename = filename
 
     def value(self) -> Tuple[Node, List[str]]:
-        return self._tree, self._lines
+        source_code = read_text_with_autodetected_encoding(self._filename)
+
+        lines = source_code.splitlines(keepends=True)
+        tree: CompilationUnit = parse(source_code)
+
+        return tree, lines

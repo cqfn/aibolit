@@ -16,11 +16,8 @@ from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, \
 
 
 class TestRecommendPipeline(TestCase):
-
-    def __init__(self, *args, **kwargs):
-        super(TestRecommendPipeline, self).__init__(*args, **kwargs)
-        self.cur_file_dir = Path(os.path.realpath(__file__)).parent
-        self.config = Config.get_patterns_config()
+    cur_file_dir = Path(os.path.realpath(__file__)).parent
+    config = Config.get_patterns_config()
 
     def __create_mock_input(self):
         ex = Exception('Error occurred')

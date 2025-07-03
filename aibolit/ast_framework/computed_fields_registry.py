@@ -2,17 +2,19 @@
 # SPDX-License-Identifier: MIT
 
 from collections import defaultdict
+import dataclasses
 import sys
 from typing import Dict, Callable, Any, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from aibolit.ast_framework import ASTNode, ASTNodeType  # noqa: F401
 
+RegistryType = Dict['ASTNodeType', Dict[str, Callable[['ASTNode'], Any]]]
 
+
+@dataclasses.dataclass(slots=True)
 class _ComputedFieldsRegistry:
-    def __init__(self) -> None:
-        RegistryType = Dict['ASTNodeType', Dict[str, Callable[['ASTNode'], Any]]]
-        self._registry: RegistryType = defaultdict(dict)
+    _registry: RegistryType = dataclasses.field(default_factory=lambda: defaultdict(dict))
 
     def register(
         self,

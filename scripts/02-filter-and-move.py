@@ -3,6 +3,7 @@
 
 
 import argparse
+from dataclasses import dataclass, field
 import os
 import sys
 import time
@@ -12,6 +13,8 @@ from ctypes import c_bool
 from enum import Enum
 from functools import partial
 from multiprocessing import Value, Manager, cpu_count, Lock
+from multiprocessing.sharedctypes import Synchronized
+from multiprocessing.synchronize import Lock as LockBase
 from pathlib import Path
 
 import chardet
@@ -145,10 +148,10 @@ def scantree(path):
                 yield entry.path
 
 
-class Counter:
-    def __init__(self, initval=0):
-        self.val = Value('i', initval)
-        self.lock = Lock()
+@dataclass(slots=True)
+class SharedCounter:
+    val: Synchronized
+    lock: LockBase = field(default_factory=Lock)
 
     def increment(self):
         with self.lock:
@@ -159,6 +162,14 @@ class Counter:
         return self.val.value
 
 
+class Counter:
+    def __init__(self, initval=0):
+        self._initval = initval
+
+    def shared(self):
+        return SharedCounter(val=Value('i', self._initval))
+
+
 def walk_in_parallel():
     manager = Manager()
     queue = manager.Queue()
@@ -167,7 +178,7 @@ def walk_in_parallel():
         queue.put(Path(i).absolute())
 
     cancel = Value(c_bool, False)
-    counter = Counter(0)
+    counter = Counter(0).shared()
 
     def call_back():
         if counter.value > MAX_CLASSES:
@@ -180,7 +191,7 @@ def walk_in_parallel():
 
     collected_results = []
 
-    counter = Counter(1)
+    counter = Counter(1).shared()
     p = ThreadPoolExecutor(cpu_count())
 
     while not cancel.value and not queue.empty():
