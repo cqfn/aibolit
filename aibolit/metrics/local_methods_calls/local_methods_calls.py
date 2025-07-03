@@ -1,11 +1,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-import os
 from collections import Counter
 from dataclasses import dataclass
 
 from aibolit.ast_framework import AST, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
 
 
 class LocalMethodsCalls:
