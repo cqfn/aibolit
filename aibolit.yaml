@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 301.904398051
+  seconds: 328.702699574
   version: 0.50.5
   what: judges-summary
-  when: 2025-07-03 13:26:59.758373716 Z
+  when: 2025-07-03 14:02:25.059293186 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29881,38 +29881,57 @@
   when: *378
   where: github
   who: 115366324
-- _id: 16171
-  _time: 2025-07-03 13:22:06.394883287 Z
+- _id: 16176
+  _job: 27556
+  _time:
+  - 2025-07-03 13:27:37.887024850 Z
+  - 2025-07-03 13:27:29.120719589 Z
+  _version: 0.12.1/0.51.0/0.14.18!0.14.22
+  award: 4
+  details: It's time to reward @can4red for the code contributed in cqfn/aibolit#844,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/844/#issuecomment-3032269062
+  is_human: 1
+  issue: 844
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-07-03 13:27:29.127806696 Z
+  where: github
+  who: 115366324
+  why: Contributed code in cqfn/aibolit#844
+- _id: 16180
+  _time: 2025-07-03 13:57:34.259330722 Z
   _version: 0.12.1/0.50.5/
-  latest: 265
+  latest: 280
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 16172
-  _time: 2025-07-03 13:22:26.087328443 Z
+- _id: 16181
+  _time: 2025-07-03 13:59:38.997822627 Z
+  _version: 0.12.1/0.50.5/
+  latest: 336
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 16182
+  _time: 2025-07-03 14:00:59.321941067 Z
+  _version: 0.12.1/0.50.5/
+  latest: 51650031253
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 16183
+  _time: 2025-07-03 14:01:23.669379525 Z
   _version: 0.12.1/0.50.5/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 16173
-  _time: 2025-07-03 13:22:27.208121295 Z
+- _id: 16184
+  _time: 2025-07-03 14:01:24.833834740 Z
   _version: 0.12.1/0.50.5/
-  latest: 325
+  latest: 328
   repository: 237167507
   what: min-pull-was-found
-  where: github
-- _id: 16174
-  _time: 2025-07-03 13:22:45.638364525 Z
-  _version: 0.12.1/0.50.5/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 16175
-  _time: 2025-07-03 13:25:59.290510335 Z
-  _version: 0.12.1/0.50.5/
-  latest: 51650031253
-  repository: 237167507
-  what: events-were-scanned
   where: github
