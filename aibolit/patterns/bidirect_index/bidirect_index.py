@@ -12,7 +12,7 @@ class BidirectIndex:
         - is assigned a value (with or without type declaration) within a method or block,
         - is incremented and decremented somewhere in its scope,
         - increments/decrements inside a for-loop with a local variable of the same name
-        are ignored (to avoid "fake" cases).
+    are ignored (to avoid "fake" cases).
 
     The typical use-case: detect patterns like `i = 0; ... ++i; ... --i;`
     in Java code, while ignoring manipulations of `i` inside
