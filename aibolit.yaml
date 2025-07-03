@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 307.379531665
+  seconds: 331.824240765
   version: 0.50.5
   what: judges-summary
-  when: 2025-07-03 11:01:29.347356303 Z
+  when: 2025-07-03 12:00:39.748249352 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29747,13 +29747,6 @@
   where: github
   who: 41502249
   why: Contributed code in cqfn/aibolit#841
-- _id: 16150
-  _time: 2025-07-03 10:57:50.349358167 Z
-  _version: 0.12.1/0.50.5/
-  latest: 306
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
 - _id: 16151
   _time: 2025-07-03 10:58:00.405834447 Z
   _version: 0.12.1/0.50.5/
@@ -29849,6 +29842,7 @@
   is_human: 1
   issue: 844
   repository: 237167507
+  review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
   when: 2025-07-03 09:14:28.000000000 Z
@@ -29869,31 +29863,38 @@
   when: 2025-06-30 13:24:56.000000000 Z
   where: github
   who: 41502249
-- _id: 16159
-  _time: 2025-07-03 11:00:41.344573981 Z
+- _id: 16164
+  _time: 2025-07-03 11:56:42.122951821 Z
   _version: 0.12.1/0.50.5/
-  latest: 51646537935
+  latest: 319
   repository: 237167507
-  what: events-were-scanned
+  what: labels-were-scanned
   where: github
-- _id: 16160
-  _time: 2025-07-03 11:01:08.692362325 Z
+- _id: 16165
+  _time: 2025-07-03 11:57:00.876740521 Z
   _version: 0.12.1/0.50.5/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 16161
-  _time: 2025-07-03 11:01:09.698067609 Z
+- _id: 16166
+  _time: 2025-07-03 11:57:01.961020466 Z
   _version: 0.12.1/0.50.5/
-  latest: 317
+  latest: 321
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 16162
-  _time: 2025-07-03 11:01:19.650136840 Z
+- _id: 16167
+  _time: 2025-07-03 11:58:22.106315787 Z
   _version: 0.12.1/0.50.5/
-  latest: 246
+  latest: 258
   repository: 237167507
   what: types-were-scanned
+  where: github
+- _id: 16168
+  _time: 2025-07-03 11:59:25.994755167 Z
+  _version: 0.12.1/0.50.5/
+  latest: 51648277058
+  repository: 237167507
+  what: events-were-scanned
   where: github
