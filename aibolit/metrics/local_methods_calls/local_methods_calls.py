@@ -16,8 +16,8 @@ class LocalMethodsCalls:
     def __init__(self):
         pass
 
-    def value(self, filepath: str | os.PathLike):
-        return LocalMethodsCallsCount(AST.build_from_javalang(build_ast(filepath))).total()
+    def value(self, ast: AST) -> int:
+        return LocalMethodsCallsCount(ast).total()
 
 
 @dataclass(frozen=True)
