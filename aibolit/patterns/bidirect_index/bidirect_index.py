@@ -1,6 +1,5 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-import os
 import re
 
 
@@ -20,31 +19,25 @@ class BidirectIndex:
 
     Usage:
         idx = BidirectIndex()
-        result = idx.value('MyClass.java')
+        lines = open("MyClass.java", encoding="utf-8").readlines()
+        result = idx.value(lines)
         # result is a list of line numbers matching the described pattern
     """
 
     def __init__(self):
         pass
 
-    @staticmethod
-    def value(filename: str | os.PathLike):
+    def value(self, lines):
         """
-        Analyze the given Java file and return a sorted list of line numbers where a variable
+        Analyze the given Java file lines and return a sorted list of line numbers where a variable
         is used as a bidirectional index as per the definition above.
 
         Args:
-            filename: Path to the Java source file.
+            lines (list[str]): Lines of the Java source file.
 
         Returns:
             List[int]: Sorted list of line numbers where bidirectional indices are found.
         """
-        try:
-            with open(filename, encoding='utf-8') as f:
-                lines = f.readlines()
-        except (FileNotFoundError, IOError) as e:
-            raise ValueError(f'Failed to read file {filename}: {e}')
-
         result: list[int] = []
         for m_start, m_end in BidirectIndex.find_methods(lines):
             BidirectIndex.analyze_block(lines, m_start + 1, m_end, result)
