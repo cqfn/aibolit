@@ -6,6 +6,7 @@ public class ScopeTest {
     /**
      * [Local variable, Local variable]
      */
+    @SuppressWarnings("unused")
     void plain_method() {
         int x = 0;
         int y = 0;
@@ -24,6 +25,7 @@ public class ScopeTest {
      * [Local variable, Block statement]
      * |---[Local variable]
      */
+    @SuppressWarnings("unused")
     void nested_blocks() {
         int x = 0;
 
