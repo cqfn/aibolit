@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 331.824240765
+  seconds: 301.904398051
   version: 0.50.5
   what: judges-summary
-  when: 2025-07-03 12:00:39.748249352 Z
+  when: 2025-07-03 13:26:59.758373716 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29845,7 +29845,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: 2025-07-03 09:14:28.000000000 Z
+  when: &378 2025-07-03 09:14:28.000000000 Z
   where: github
   who: 526301
 - _id: 16157
@@ -29863,38 +29863,56 @@
   when: 2025-06-30 13:24:56.000000000 Z
   where: github
   who: 41502249
-- _id: 16164
-  _time: 2025-07-03 11:56:42.122951821 Z
-  _version: 0.12.1/0.50.5/
-  latest: 319
+- _id: 16169
+  _job: 27551
+  _time: 2025-07-03 12:01:05.205084418 Z
+  _version: 0.12.1/0.51.0/0.14.18!0.14.22
+  comments: 9
+  details: The pull request cqfn/aibolit#844 with 9 HoC created by @can4red was merged
+    by @yegor256 after 2d18h of being in review and 9 comments.
+  hoc: 9
+  is_human: 1
+  issue: 844
+  merger: 526301
   repository: 237167507
-  what: labels-were-scanned
+  review_comments: 0
+  seconds: 239941
+  what: code-was-contributed
+  when: *378
   where: github
-- _id: 16165
-  _time: 2025-07-03 11:57:00.876740521 Z
+  who: 115366324
+- _id: 16171
+  _time: 2025-07-03 13:22:06.394883287 Z
+  _version: 0.12.1/0.50.5/
+  latest: 265
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 16172
+  _time: 2025-07-03 13:22:26.087328443 Z
   _version: 0.12.1/0.50.5/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 16166
-  _time: 2025-07-03 11:57:01.961020466 Z
+- _id: 16173
+  _time: 2025-07-03 13:22:27.208121295 Z
   _version: 0.12.1/0.50.5/
-  latest: 321
+  latest: 325
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 16167
-  _time: 2025-07-03 11:58:22.106315787 Z
+- _id: 16174
+  _time: 2025-07-03 13:22:45.638364525 Z
   _version: 0.12.1/0.50.5/
-  latest: 258
+  latest: 327
   repository: 237167507
-  what: types-were-scanned
+  what: labels-were-scanned
   where: github
-- _id: 16168
-  _time: 2025-07-03 11:59:25.994755167 Z
+- _id: 16175
+  _time: 2025-07-03 13:25:59.290510335 Z
   _version: 0.12.1/0.50.5/
-  latest: 51648277058
+  latest: 51650031253
   repository: 237167507
   what: events-were-scanned
   where: github
