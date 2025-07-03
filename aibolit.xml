@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="575634">
+<fb version="0.11.0" size="576034">
   <f>
     <added t="I">8</added>
-    <cycles t="I">2</cycles>
+    <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">315.659829878</seconds>
+    <seconds t="F">327.958981358</seconds>
     <version t="S">0.50.5</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-03T07:05:54Z</when>
+    <when t="T">2025-07-03T08:00:29Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -32914,35 +32914,43 @@
     <why t="S">Reported bug in cqfn/aibolit#846</why>
   </f>
   <f>
-    <_id t="I">16116</_id>
-    <_time t="T">2025-07-03T07:01:59Z</_time>
+    <_id t="I">16124</_id>
+    <_time t="T">2025-07-03T07:55:12Z</_time>
     <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">177</latest>
+    <branch t="S">issue_834</branch>
+    <comments t="I">5</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">5</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">1</comments_to_code>
+    <details t="S">The pull request cqfn/aibolit#841 has been closed by @yegor256, with 77 HoC and 5 comments.</details>
+    <event_id t="I">51641482214</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">77</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">841</issue>
     <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
+    <review_comments t="I">1</review_comments>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-07-03T07:08:52Z</when>
     <where t="S">github</where>
+    <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">16120</_id>
-    <_time t="T">2025-07-03T07:05:13Z</_time>
+    <_id t="I">16125</_id>
+    <_time t="T">2025-07-03T07:55:42Z</_time>
     <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">51640501670</latest>
+    <latest t="I">51641878524</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">16121</_id>
-    <_time t="T">2025-07-03T07:05:20Z</_time>
-    <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">280</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">16122</_id>
-    <_time t="T">2025-07-03T07:05:53Z</_time>
+    <_id t="I">16126</_id>
+    <_time t="T">2025-07-03T07:56:26Z</_time>
     <_version t="S">0.12.1/0.50.5/</_version>
     <latest t="I">401</latest>
     <repository t="I">237167507</repository>
@@ -32950,12 +32958,30 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">16123</_id>
-    <_time t="T">2025-07-03T07:05:54Z</_time>
+    <_id t="I">16127</_id>
+    <_time t="T">2025-07-03T07:56:29Z</_time>
     <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">308</latest>
+    <latest t="I">309</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">16128</_id>
+    <_time t="T">2025-07-03T07:56:38Z</_time>
+    <_version t="S">0.12.1/0.50.5/</_version>
+    <latest t="I">285</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">16129</_id>
+    <_time t="T">2025-07-03T07:57:28Z</_time>
+    <_version t="S">0.12.1/0.50.5/</_version>
+    <latest t="I">190</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
