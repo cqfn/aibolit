@@ -117,7 +117,7 @@ class CCTestCase(TestCase):
             }
             '''
         ).strip()
-        self.assertEqual(self._cc_metric_for(content), 6)
+        self.assertEqual(self._cc_metric_for(content), 5)
 
     def test_try_catch(self):
         content = dedent(

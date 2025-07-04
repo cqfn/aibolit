@@ -91,7 +91,7 @@ class CCMetric:
         return 1 + self._count_boolean_operators(node.condition)
 
     def _handle_switch_case(self, node: ASTNode) -> int:
-        return 1 if not self._is_default_case(node) else 0
+        return 1 if node.case else 0
 
     def _handle_ternary_expression(self, node: ASTNode) -> int:
         return 1 + self._count_boolean_operators(node.condition)
@@ -116,10 +116,3 @@ class CCMetric:
             nodes_to_check.extend(node.children)
 
         return count
-
-    def _is_default_case(self, case_node: ASTNode) -> bool:
-        return (case_node.case is None or
-                (hasattr(case_node, 'case') and
-                 case_node.case is not None and
-                 any(child.node_type == ASTNodeType.STRING and child.string == 'default'
-                     for child in case_node.children)))
