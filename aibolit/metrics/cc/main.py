@@ -100,9 +100,9 @@ class CCMetric:
         while nodes_to_check:
             node = nodes_to_check.pop()
 
-            if node.node_type == ASTNodeType.BINARY_OPERATION:
-                if node.operator in ['&&', '||']:
-                    count += 1
+            if (node.node_type == ASTNodeType.BINARY_OPERATION and
+                    node.operator in ('&&', '||')):
+                count += 1
 
             nodes_to_check.extend(node.children)
 
