@@ -5,6 +5,17 @@ from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
 class CCMetric:
+    """
+    Calculates cyclomatic complexity by counting
+    decision points in all methods and constructors:
+
+    - Base complexity: 1 per method/constructor
+    - Decision points: if, while, for, do-while,
+                       switch cases, catch, throw,
+                       ternary, break, continue, assert
+    - Boolean operators (&&, ||) add additional complexity paths
+    """
+
     def value(self, ast: AST) -> int:
         total_complexity = 0
 
