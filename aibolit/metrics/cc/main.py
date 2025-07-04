@@ -68,8 +68,6 @@ class CCMetric:
             complexity = self._handle_do_statement(node)
         elif node.node_type == ASTNodeType.TERNARY_EXPRESSION:
             complexity = self._handle_ternary_expression(node)
-        elif node.node_type == ASTNodeType.ASSERT_STATEMENT:
-            complexity = self._handle_assert_statement(node)
 
         return complexity
 
