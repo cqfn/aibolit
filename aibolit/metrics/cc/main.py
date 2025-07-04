@@ -1,80 +1,114 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-import os
-import shutil
-import subprocess
-import tempfile
-import uuid
-
-from bs4 import BeautifulSoup
+from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
-class CCMetric():
-    """Main Cyclical Complexity class."""
+class CCMetric:
+    def value(self, ast: AST) -> int:
+        total_complexity = 0
 
-    input = ''
+        for method in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
+            total_complexity += self._method_complexity(method)
 
-    def __init__(self, input):
-        self.input = input
+        for constructor in ast.get_proxy_nodes(ASTNodeType.CONSTRUCTOR_DECLARATION):
+            total_complexity += self._method_complexity(constructor)
 
-    def value(self, showoutput=False):
-        """Run Cyclical Complexity analaysis"""
+        return total_complexity
 
-        if len(self.input) == 0:
-            raise ValueError('Empty file for analysis')
-        try:
-            root = os.path.join(tempfile.gettempdir(), uuid.uuid4().hex)
-            dirName = os.path.join(root, 'src/main/java')
-            os.makedirs(dirName)
-            if os.path.isdir(self.input):
-                shutil.copytree(self.input, os.path.join(dirName, self.input))
-            elif os.path.isfile(self.input):
-                pos1 = self.input.rfind('/')
-                os.makedirs(dirName + '/' + self.input[0:pos1])
-                shutil.copyfile(self.input, os.path.join(dirName, self.input))
-            else:
-                raise Exception('File ' + self.input + ' does not exist')
-            tmppath = os.path.dirname(os.path.realpath(__file__))
-            shutil.copyfile(os.path.join(tmppath, 'pom.xml'), root + '/pom.xml')
-            shutil.copyfile(os.path.join(tmppath, 'cyclical.xml'), root + '/cyclical.xml')
-            if showoutput:
-                subprocess.run(['mvn', 'pmd:pmd'], cwd=root, check=False)
-            else:
-                subprocess.run(['mvn', 'pmd:pmd'], cwd=root,
-                               stdout=subprocess.DEVNULL,
-                               stderr=subprocess.DEVNULL, check=False)
-            if os.path.isfile(root + '/target/pmd.xml'):
-                res = self.__parseFile(root)
-                return res
-            raise Exception('File ' + self.input + ' analyze failed')
-        finally:
-            shutil.rmtree(root)
+    def _method_complexity(self, method: ASTNode) -> int:
+        complexity = 1
 
-    def __parseFile(self, root):
-        result = {'data': [], 'errors': []}
-        content = []
-        with open(root + '/target/pmd.xml', 'r', encoding='utf-8') as file:
-            content = file.read()
-            soup = BeautifulSoup(content, 'lxml')
-            files = soup.find_all('file')
-            for file in files:
-                out = file.violation.string
-                name = file['name']
-                pos1 = name.find(root + '/src/main/java/')
-                pos1 = pos1 + len(root + '/src/main/java/')
-                name = name[pos1:]
-                pos1 = out.find('has a total cyclomatic complexity')
-                pos1 = out.find('of ', pos1)
-                pos1 = pos1 + 3
-                pos2 = out.find('(', pos1)
-                complexity = int(out[pos1:pos2 - 1])
-                result['data'].append({'file': name, 'complexity': complexity})
-            errors = soup.find_all('error')
-            for error in errors:
-                name = error['filename']
-                pos1 = name.find(root + '/src/main/java/')
-                pos1 = pos1 + len(root + '/src/main/java/')
-                name = name[pos1:]
-                raise Exception(error['msg'])
-        return result
+        for node in self._get_all_nodes(method):
+            complexity += self._get_node_complexity(node)
+
+        return complexity
+
+    def _get_all_nodes(self, root: ASTNode) -> list[ASTNode]:
+        nodes = []
+        stack = [root]
+
+        while stack:
+            node = stack.pop()
+            nodes.append(node)
+            stack.extend(node.children)
+
+        return nodes
+
+    def _get_node_complexity(self, node: ASTNode) -> int:
+        simple_nodes = {
+            ASTNodeType.CATCH_CLAUSE,
+            ASTNodeType.THROW_STATEMENT,
+            ASTNodeType.BREAK_STATEMENT,
+            ASTNodeType.CONTINUE_STATEMENT,
+        }
+
+        complexity = 0
+        if node.node_type in simple_nodes:
+            complexity = 1
+        elif node.node_type == ASTNodeType.IF_STATEMENT:
+            complexity = self._handle_if_statement(node)
+        elif node.node_type == ASTNodeType.FOR_STATEMENT:
+            complexity = self._handle_for_statement(node)
+        elif node.node_type == ASTNodeType.WHILE_STATEMENT:
+            complexity = self._handle_while_statement(node)
+        elif node.node_type == ASTNodeType.DO_STATEMENT:
+            complexity = self._handle_do_statement(node)
+        elif node.node_type == ASTNodeType.SWITCH_STATEMENT_CASE:
+            complexity = self._handle_switch_case(node)
+        elif node.node_type == ASTNodeType.TERNARY_EXPRESSION:
+            complexity = self._handle_ternary_expression(node)
+        elif node.node_type == ASTNodeType.ASSERT_STATEMENT:
+            complexity = self._handle_assert_statement(node)
+
+        return complexity
+
+    def _handle_if_statement(self, node: ASTNode) -> int:
+        return 1 + self._count_boolean_operators(node.condition)
+
+    def _handle_for_statement(self, node: ASTNode) -> int:
+        complexity = 1
+        if (hasattr(node.control, 'condition') and
+                node.control.condition):
+            complexity += self._count_boolean_operators(node.control.condition)
+        return complexity
+
+    def _handle_while_statement(self, node: ASTNode) -> int:
+        return 1 + self._count_boolean_operators(node.condition)
+
+    def _handle_do_statement(self, node: ASTNode) -> int:
+        return 1 + self._count_boolean_operators(node.condition)
+
+    def _handle_switch_case(self, node: ASTNode) -> int:
+        return 1 if not self._is_default_case(node) else 0
+
+    def _handle_ternary_expression(self, node: ASTNode) -> int:
+        return 1 + self._count_boolean_operators(node.condition)
+
+    def _handle_assert_statement(self, node: ASTNode) -> int:
+        return 2 + self._count_boolean_operators(node.condition)
+
+    def _count_boolean_operators(self, expression: ASTNode) -> int:
+        if expression is None:
+            return 0
+
+        count = 0
+        nodes_to_check = [expression]
+
+        while nodes_to_check:
+            node = nodes_to_check.pop()
+
+            if node.node_type == ASTNodeType.BINARY_OPERATION:
+                if node.operator in ['&&', '||']:
+                    count += 1
+
+            nodes_to_check.extend(node.children)
+
+        return count
+
+    def _is_default_case(self, case_node: ASTNode) -> bool:
+        return (case_node.case is None or
+                (hasattr(case_node, 'case') and
+                 case_node.case is not None and
+                 any(child.node_type == ASTNodeType.STRING and child.string == 'default'
+                     for child in case_node.children)))

@@ -23,6 +23,7 @@ from aibolit.metrics.spaces.SpaceCounter import IndentationCounter as M3
 from aibolit.metrics.NumberMethods.NumberMethods import NumberMethods as M8
 from aibolit.metrics.RFC.rfc import RFC as M9
 from aibolit.metrics.fanout.FanOut import FanOut as M10
+from aibolit.metrics.cc.main import CCMetric as M11
 from aibolit.patterns.array_as_argument.array_as_argument import ArrayAsArgument as P22
 from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode as P1
 from aibolit.patterns.assign_null_finder.assign_null_finder import NullAssignment as P28
@@ -228,6 +229,7 @@ class Config(metaclass=Singleton):
                 {'name': 'Number of methods', 'code': 'M8', 'make': M8},
                 {'name': 'Responce for class', 'code': 'M9', 'make': M9},
                 {'name': 'Fan out', 'code': 'M10', 'make': M10},
+                {'name': 'Cyclomatic Complexity', 'code': 'M11', 'make': M11},
             ],
             'target': {
 
