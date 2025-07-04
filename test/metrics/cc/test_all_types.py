@@ -1,37 +1,189 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-import unittest
+from unittest import TestCase
+from pathlib import Path
+from textwrap import dedent
+
+from aibolit.metrics.cc.main import CCMetric
+from aibolit.ast_framework import AST
+from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 
 
-class JavaTestCase(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super(JavaTestCase, cls).setUpClass()
+class CCTestCase(TestCase):
+    current_directory = Path(__file__).absolute().parent
 
-    def runAnalysis(self):
-        super(JavaTestCase, self).setUp()
-        from aibolit.metrics.cc.main import CCMetric
+    @staticmethod
+    def _get_ast(filename: str) -> AST:
+        path = Path(__file__).absolute().parent / filename
+        return AST.build_from_javalang(build_ast(str(path)))
 
-        file = 'test/metrics/cc/Complicated.java'
-        metric = CCMetric(file)
-        res = metric.value(True)
-        self.assertEqual(res['data'][0]['complexity'], 12)
-        self.assertEqual(res['data'][0]['file'], file)
+    def test_complicated_example(self):
+        ast = self._get_ast('Complicated.java')
+        metric = CCMetric()
+        res = metric.value(ast)
+        self.assertEqual(res, 12)
 
-        with self.assertRaises(Exception) as context:
-            file = 'test/metrics/cc/ooo.java'
-            metric = CCMetric(file)
-            res = metric.value(True)
-        self.assertTrue('PMDException' in str(context.exception))
+    def test_other_class_example(self):
+        ast = self._get_ast('OtherClass.java')
+        metric = CCMetric()
+        res = metric.value(ast)
+        self.assertEqual(res, 3)
 
-        with self.assertRaises(Exception) as context:
-            file = 'test/metrics/cc/ooo1.java'
-            metric = CCMetric(file)
-            res = metric.value(True)
-        self.assertTrue('File test/metrics/cc/ooo1.java does not exist' == str(context.exception))
+    def test_empty_method(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              private void empty() {}
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 1)
 
-        file = 'test/metrics/cc/OtherClass.java'
-        metric = CCMetric(file)
-        res = metric.value(True)
-        self.assertEqual(res['data'][0]['complexity'], 3)
+    def test_simple_if_statement(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              private void test(boolean condition) {
+                if (condition) {
+                  System.out.println("true");
+                }
+              }
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 2)
+
+    def test_if_else_statement(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              private void test(boolean condition) {
+                if (condition) {
+                  System.out.println("true");
+                } else {
+                  System.out.println("false");
+                }
+              }
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 2)
+
+    def test_while_loop(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              private void test(int n) {
+                while (n > 0) {
+                  n--;
+                }
+              }
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 2)
+
+    def test_for_loop(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              private void test() {
+                for (int i = 0; i < 10; i++) {
+                  System.out.println(i);
+                }
+              }
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 2)
+
+    def test_switch_statement(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              private void test(int value) {
+                switch (value) {
+                  case 1:
+                    System.out.println("one");
+                    break;
+                  case 2:
+                    System.out.println("two");
+                    break;
+                  default:
+                    System.out.println("other");
+                }
+              }
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 6)
+
+    def test_try_catch(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              private void test() {
+                try {
+                  System.out.println("try");
+                } catch (Exception e) {
+                  System.out.println("catch");
+                }
+              }
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 2)
+
+    def test_ternary_operator(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              private String test(boolean condition) {
+                return condition ? "true" : "false";
+              }
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 2)
+
+    def test_boolean_operators(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              private void test(boolean a, boolean b, boolean c) {
+                if (a && b || c) {
+                  System.out.println("complex condition");
+                }
+              }
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 4)
+
+    def test_multiple_methods(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              private void method1() {
+                if (true) {
+                  System.out.println("method1");
+                }
+              }
+
+              private void method2() {
+                for (int i = 0; i < 5; i++) {
+                  System.out.println("method2");
+                }
+              }
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 4)
+
+    def _cc_metric_for(self, content: str) -> int:
+        return CCMetric().value(
+            AST.build_from_javalang(
+                build_ast_from_string(content),
+            ),
+        )
