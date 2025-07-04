@@ -48,10 +48,11 @@ class CCMetric:
 
     def _get_node_complexity(self, node: ASTNode) -> int:
         simple_nodes = {
-            ASTNodeType.CATCH_CLAUSE,
-            ASTNodeType.THROW_STATEMENT,
             ASTNodeType.BREAK_STATEMENT,
+            ASTNodeType.CATCH_CLAUSE,
             ASTNodeType.CONTINUE_STATEMENT,
+            ASTNodeType.SWITCH_STATEMENT_CASE,
+            ASTNodeType.THROW_STATEMENT,
         }
 
         complexity = 0
@@ -65,8 +66,6 @@ class CCMetric:
             complexity = self._handle_while_statement(node)
         elif node.node_type == ASTNodeType.DO_STATEMENT:
             complexity = self._handle_do_statement(node)
-        elif node.node_type == ASTNodeType.SWITCH_STATEMENT_CASE:
-            complexity = self._handle_switch_case(node)
         elif node.node_type == ASTNodeType.TERNARY_EXPRESSION:
             complexity = self._handle_ternary_expression(node)
         elif node.node_type == ASTNodeType.ASSERT_STATEMENT:
@@ -90,14 +89,8 @@ class CCMetric:
     def _handle_do_statement(self, node: ASTNode) -> int:
         return 1 + self._count_boolean_operators(node.condition)
 
-    def _handle_switch_case(self, node: ASTNode) -> int:
-        return 1 if node.case else 0
-
     def _handle_ternary_expression(self, node: ASTNode) -> int:
         return 1 + self._count_boolean_operators(node.condition)
-
-    def _handle_assert_statement(self, node: ASTNode) -> int:
-        return 2 + self._count_boolean_operators(node.condition)
 
     def _count_boolean_operators(self, expression: ASTNode) -> int:
         if expression is None:
