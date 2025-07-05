@@ -55,23 +55,24 @@ class CCMetric:
             ASTNodeType.THROW_STATEMENT,
         }
 
+        condition_nodes = {
+            ASTNodeType.IF_STATEMENT,
+            ASTNodeType.WHILE_STATEMENT,
+            ASTNodeType.DO_STATEMENT,
+            ASTNodeType.TERNARY_EXPRESSION,
+        }
+
         complexity = 0
         if node.node_type in simple_nodes:
             complexity = 1
-        elif node.node_type == ASTNodeType.IF_STATEMENT:
-            complexity = self._handle_if_statement(node)
+        elif node.node_type in condition_nodes:
+            complexity = self._handle_condition_node(node)
         elif node.node_type == ASTNodeType.FOR_STATEMENT:
             complexity = self._handle_for_statement(node)
-        elif node.node_type == ASTNodeType.WHILE_STATEMENT:
-            complexity = self._handle_while_statement(node)
-        elif node.node_type == ASTNodeType.DO_STATEMENT:
-            complexity = self._handle_do_statement(node)
-        elif node.node_type == ASTNodeType.TERNARY_EXPRESSION:
-            complexity = self._handle_ternary_expression(node)
 
         return complexity
 
-    def _handle_if_statement(self, node: ASTNode) -> int:
+    def _handle_condition_node(self, node: ASTNode) -> int:
         return 1 + self._count_boolean_operators(node.condition)
 
     def _handle_for_statement(self, node: ASTNode) -> int:
@@ -80,15 +81,6 @@ class CCMetric:
                 node.control.condition):
             complexity += self._count_boolean_operators(node.control.condition)
         return complexity
-
-    def _handle_while_statement(self, node: ASTNode) -> int:
-        return 1 + self._count_boolean_operators(node.condition)
-
-    def _handle_do_statement(self, node: ASTNode) -> int:
-        return 1 + self._count_boolean_operators(node.condition)
-
-    def _handle_ternary_expression(self, node: ASTNode) -> int:
-        return 1 + self._count_boolean_operators(node.condition)
 
     def _count_boolean_operators(self, expression: ASTNode) -> int:
         if expression is None:
