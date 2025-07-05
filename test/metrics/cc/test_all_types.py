@@ -181,6 +181,50 @@ class CCTestCase(TestCase):
         ).strip()
         self.assertEqual(self._cc_metric_for(content), 4)
 
+    def test_multiple_nested_statements(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              void test() {                     // CC = 11
+                int x = 0, y = 2;
+                boolean a = false, b = true;
+                if (a && (y == 1 ? b : true)) { // +3
+                  if (y == x) {                 // +1
+                    while (true) {              // +1
+                      if (x++ < 20) {           // +1
+                        break;                  // +1
+                      }
+                    }
+                  } else if (y == t && !d) {    // +2
+                    x = a ? y : x;              // +1
+                  } else {
+                    x = 2;
+                  }
+                }
+              }
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 11)
+
+    def test_multiple_boolean_operators(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              void test() {                       // CC = 8
+                int x=0, y=1;
+                boolean a, b;
+                if (x > 2 || y < 4) {             // +2
+                  while (x++ < 10 && !(y++ < 0)); // +2
+                } else if (a && b || x < 4) {     // +3
+                  return;
+                }
+              }
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 8)
+
     def _cc_metric_for(self, content: str) -> int:
         return CCMetric().value(
             AST.build_from_javalang(

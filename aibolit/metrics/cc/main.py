@@ -17,57 +17,43 @@ class CCMetric:
     """
 
     def value(self, ast: AST) -> int:
-        total_complexity = 0
-
-        for method in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
-            total_complexity += self._method_complexity(ast, method)
-
-        for constructor in ast.get_proxy_nodes(ASTNodeType.CONSTRUCTOR_DECLARATION):
-            total_complexity += self._method_complexity(ast, constructor)
-
-        return total_complexity
+        return sum(
+            self._method_complexity(ast, node)
+            for node in ast.get_proxy_nodes(
+                ASTNodeType.METHOD_DECLARATION, ASTNodeType.CONSTRUCTOR_DECLARATION
+            )
+        )
 
     def _method_complexity(self, ast: AST, method: ASTNode) -> int:
-        complexity = 1
         method_ast = ast.get_subtree(method)
-
-        for node in method_ast.get_proxy_nodes():
-            complexity += self._node_complexity(ast, node)
-
-        return complexity
+        return 1 + sum(self._node_complexity(ast, node) for node in method_ast.get_proxy_nodes())
 
     def _node_complexity(self, ast: AST, node: ASTNode) -> int:
-        complexity = 0
         if node.node_type in _SIMPLE_NODES:
-            complexity = 1
+            return 1
         elif node.node_type in _CONDITION_NODES:
-            complexity = self._condition_complexity(ast, node)
+            return self._condition_complexity(ast, node)
         elif node.node_type == ASTNodeType.FOR_STATEMENT:
-            complexity = self._for_statement_complexity(ast, node)
-
-        return complexity
+            return self._for_statement_complexity(ast, node)
+        return 0
 
     def _condition_complexity(self, ast: AST, node: ASTNode) -> int:
         return 1 + self._expression_complexity(ast, node.condition)
 
     def _for_statement_complexity(self, ast: AST, node: ASTNode) -> int:
-        complexity = 1
         if hasattr(node.control, 'condition'):
-            complexity = self._condition_complexity(ast, node.control)
-        return complexity
+            return self._condition_complexity(ast, node.control)
+        return 1
 
     def _expression_complexity(self, ast: AST, expression: ASTNode | None) -> int:
         if expression is None:
             return 0
-
         expression_ast = ast.get_subtree(expression)
-        count = 0
-
-        for node in expression_ast.get_proxy_nodes(ASTNodeType.BINARY_OPERATION):
-            if node.operator in ('&&', '||'):
-                count += 1
-
-        return count
+        return sum(
+            1
+            for node in expression_ast.get_proxy_nodes(ASTNodeType.BINARY_OPERATION)
+            if node.operator in ('&&', '||')
+        )
 
 
 _SIMPLE_NODES = (
