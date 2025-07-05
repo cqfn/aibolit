@@ -79,7 +79,7 @@ class CCMetric:
         complexity = 1
         if (hasattr(node.control, 'condition') and
                 node.control.condition):
-            complexity += self._count_boolean_operators(node.control.condition)
+            complexity = self._handle_condition_node(node)
         return complexity
 
     def _count_boolean_operators(self, expression: ASTNode) -> int:
