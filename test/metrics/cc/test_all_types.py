@@ -225,6 +225,20 @@ class CCTestCase(TestCase):
         ).strip()
         self.assertEqual(self._cc_metric_for(content), 8)
 
+    def test_constructor_also_counted(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              Dummy() {
+                if (true) {
+                  System.out.println("constructor");
+                }
+              }
+            }
+            '''
+        ).strip()
+        self.assertEqual(self._cc_metric_for(content), 2)
+
     def _cc_metric_for(self, content: str) -> int:
         return CCMetric().value(
             AST.build_from_javalang(
