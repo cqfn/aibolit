@@ -13,7 +13,7 @@ class EmptyRethrow:
     def _process_catch(self, ast: AST, catch_clauses: List[ASTNode]):
         lines: List[int] = []
         for catch_clause in catch_clauses:
-            throw_statements = ast.get_subtree(catch_clause).get_proxy_nodes(
+            throw_statements = ast.subtree(catch_clause).proxy_nodes(
                 ASTNodeType.THROW_STATEMENT)
             for throw_stat in throw_statements:
                 if throw_stat.expression.node_type == ASTNodeType.MEMBER_REFERENCE \
@@ -23,7 +23,7 @@ class EmptyRethrow:
 
     def value(self, ast: AST) -> List[int]:
         total_code_lines: List[int] = []
-        for try_node in ast.get_proxy_nodes(ASTNodeType.TRY_STATEMENT):
+        for try_node in ast.proxy_nodes(ASTNodeType.TRY_STATEMENT):
             catch_clauses = try_node.catches
             if catch_clauses:
                 total_code_lines.extend(self._process_catch(ast, catch_clauses))

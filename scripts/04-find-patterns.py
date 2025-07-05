@@ -57,8 +57,8 @@ def _calculate_patterns_and_metrics(
 
     ast = AST.build_from_javalang(build_ast(file_path))
     classes_ast = [
-        ast.get_subtree(node)
-        for node in ast.get_root().types
+        ast.subtree(node)
+        for node in ast.root().types
         if node.node_type == ASTNodeType.CLASS_DECLARATION
     ]
 
@@ -71,7 +71,7 @@ def _calculate_patterns_and_metrics(
         for index, component_ast in enumerate(components):
             calculation_result = {
                 'filepath': file_path,
-                'class_name': class_ast.get_root().name,
+                'class_name': class_ast.root().name,
                 'component_index': index,
             }
 

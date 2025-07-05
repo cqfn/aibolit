@@ -25,7 +25,7 @@ def extract_scopes(node: ASTNode, ast: AST) -> List[ScopeAttributes]:
 def _extract_scopes_from_assert(assert_node: ASTNode, method_ast: AST) -> List[ScopeAttributes]:
     assert assert_node.node_type == ASTNodeType.ASSERT_STATEMENT
 
-    expression_ast = method_ast.get_subtree(assert_node.condition)
+    expression_ast = method_ast.subtree(assert_node.condition)
     return _find_scopes_in_expressions(expression_ast)
 
 
@@ -44,14 +44,14 @@ def _extract_scopes_from_expression_statement(
         ASTNodeType.THROW_STATEMENT,
     }
 
-    expression_ast = method_ast.get_subtree(expression_statement.expression)
+    expression_ast = method_ast.subtree(expression_statement.expression)
     return _find_scopes_in_expressions(expression_ast)
 
 
 def _extract_scopes_from_for_cycle(for_cycle: ASTNode, method_ast: AST) -> List[ScopeAttributes]:
     assert for_cycle.node_type == ASTNodeType.FOR_STATEMENT
 
-    control_ast = method_ast.get_subtree(for_cycle.control)
+    control_ast = method_ast.subtree(for_cycle.control)
     scopes = _find_scopes_in_expressions(control_ast)
     scopes.append(
         ScopeAttributes(
@@ -65,7 +65,7 @@ def _extract_scopes_from_for_cycle(for_cycle: ASTNode, method_ast: AST) -> List[
 def _extract_scopes_from_if_statement(if_node: ASTNode, method_ast: AST) -> List[ScopeAttributes]:
     assert if_node.node_type == ASTNodeType.IF_STATEMENT
 
-    condition_ast = method_ast.get_subtree(if_node.condition)
+    condition_ast = method_ast.subtree(if_node.condition)
     scopes = _find_scopes_in_expressions(condition_ast)
     scopes.append(
         ScopeAttributes(
@@ -78,7 +78,7 @@ def _extract_scopes_from_if_statement(if_node: ASTNode, method_ast: AST) -> List
         if_node.else_statement.node_type == ASTNodeType.IF_STATEMENT
     ):
         if_node = if_node.else_statement
-        condition_ast = method_ast.get_subtree(if_node.condition)
+        condition_ast = method_ast.subtree(if_node.condition)
         scopes.extend(_find_scopes_in_expressions(condition_ast))
         scopes.append(
             ScopeAttributes(
@@ -103,7 +103,7 @@ def _extract_scopes_from_variable_declaration(
 
     return list(
         chain.from_iterable(
-            _find_scopes_in_expressions(method_ast.get_subtree(declarator.initializer))
+            _find_scopes_in_expressions(method_ast.subtree(declarator.initializer))
             for declarator in variable_declaration.declarators
         )
     )
@@ -120,7 +120,7 @@ def _extract_scopes_from_switch_statement(
 ) -> List[ScopeAttributes]:
     assert switch_statement.node_type == ASTNodeType.SWITCH_STATEMENT
 
-    expression_ast = method_ast.get_subtree(switch_statement.expression)
+    expression_ast = method_ast.subtree(switch_statement.expression)
     scopes = _find_scopes_in_expressions(expression_ast)
 
     # all case statements belong to one scope
@@ -142,7 +142,7 @@ def _extract_scopes_from_synchronized(
 ) -> List[ScopeAttributes]:
     assert synchronized_block.node_type == ASTNodeType.SYNCHRONIZED_STATEMENT
 
-    lock_ast = method_ast.get_subtree(synchronized_block.lock)
+    lock_ast = method_ast.subtree(synchronized_block.lock)
     scopes = _find_scopes_in_expressions(lock_ast)
     scopes.append(
         ScopeAttributes(statements=synchronized_block.block, parent_node=synchronized_block)
@@ -157,7 +157,7 @@ def _extract_scopes_from_try_statement(try_node: ASTNode, method_ast: AST) -> Li
     scopes: List[ScopeAttributes] = []
 
     for resource in try_node.resources:
-        initializer_ast = method_ast.get_subtree(resource.value)
+        initializer_ast = method_ast.subtree(resource.value)
         scopes.extend(_find_scopes_in_expressions(initializer_ast))
 
     scopes.append(ScopeAttributes(statements=try_node.block, parent_node=try_node))
@@ -180,7 +180,7 @@ def _extract_scopes_from_while_cycle(
 ) -> List[ScopeAttributes]:
     assert while_cycle.node_type in {ASTNodeType.DO_STATEMENT, ASTNodeType.WHILE_STATEMENT}
 
-    condition_ast = method_ast.get_subtree(while_cycle.condition)
+    condition_ast = method_ast.subtree(while_cycle.condition)
     scopes = _find_scopes_in_expressions(condition_ast)
     scopes.append(
         ScopeAttributes(
@@ -199,8 +199,8 @@ def _find_scopes_in_expressions(expression_ast: AST) -> List[ScopeAttributes]:
     """
 
     nested_scopes_statements: List[ScopeAttributes] = []
-    for nested_scope in expression_ast.get_subtrees(ASTNodeType.LAMBDA_EXPRESSION):
-        lambda_declaration = nested_scope.get_root()
+    for nested_scope in expression_ast.subtrees(ASTNodeType.LAMBDA_EXPRESSION):
+        lambda_declaration = nested_scope.root()
         nested_scopes_statements.append(
             ScopeAttributes(
                 statements=lambda_declaration.body,

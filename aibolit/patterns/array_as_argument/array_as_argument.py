@@ -13,8 +13,8 @@ class ArrayAsArgument:
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION,
-                                                      ASTNodeType.CONSTRUCTOR_DECLARATION):
+        for method_declaration in ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION,
+                                                  ASTNodeType.CONSTRUCTOR_DECLARATION):
             if any(len(parameter.type.dimensions) > 0
                    for parameter in method_declaration.parameters):
                 lines.append(method_declaration.line)

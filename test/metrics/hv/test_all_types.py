@@ -7,12 +7,7 @@ from aibolit.metrics.hv.main import HVMetric
 
 
 class JavaTestCase(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super(JavaTestCase, cls).setUpClass()
-
     def runAnalysis(self):
-        super(JavaTestCase, self).setUp()
         file = 'test/metrics/cc/Complicated.java'
         metric = HVMetric(file)
         res = metric.value()

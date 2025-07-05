@@ -16,7 +16,7 @@ class NCSSMetric:
 
     def value(self, ast: AST) -> int:
         metric = 0
-        for node in ast.get_proxy_nodes(
+        for node in ast.proxy_nodes(
             *NCSSMetric._keyword_node_types,
             *NCSSMetric._declarations_node_types,
             *NCSSMetric._misc_node_types

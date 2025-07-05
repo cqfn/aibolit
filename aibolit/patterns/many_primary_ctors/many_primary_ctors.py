@@ -14,7 +14,7 @@ class ManyPrimaryCtors:
     """
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for class_declaration in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
+        for class_declaration in ast.proxy_nodes(ASTNodeType.CLASS_DECLARATION):
             primary_lines = self.__find_primary(ast, class_declaration.body)
             if len(primary_lines) > 1:
                 lines.extend(primary_lines)
@@ -29,7 +29,7 @@ class ManyPrimaryCtors:
 
     def __check_primary(self, ast: AST, node: Union[ASTNode, List[ASTNode]]) -> bool:
         if isinstance(node, ASTNode) and node.node_type == ASTNodeType.CONSTRUCTOR_DECLARATION:
-            for assignment in ast.get_subtree(node).get_proxy_nodes(ASTNodeType.ASSIGNMENT):
+            for assignment in ast.subtree(node).proxy_nodes(ASTNodeType.ASSIGNMENT):
                 if assignment.expressionl.node_type == ASTNodeType.THIS:
                     return True
         return False

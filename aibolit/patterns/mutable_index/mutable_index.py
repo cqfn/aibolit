@@ -21,25 +21,25 @@ class MutableIndex:
         """
         result = set()
         ast = AST.build_from_javalang(build_ast(filename))
-        for node in ast.get_proxy_nodes(ASTNodeType.FOR_STATEMENT):
+        for node in ast.proxy_nodes(ASTNodeType.FOR_STATEMENT):
             index_names = self._collect_index_names(ast, node)
-            for_body = ast.get_subtree(node.body)
+            for_body = ast.subtree(node.body)
             result.update(self._handle_assignment(index_names, for_body))
             result.update(self._handle_unary_operations(index_names, for_body))
         return sorted(result)
 
     def _collect_index_names(self, ast: AST, node: ASTNode) -> set[str]:
         result = set()
-        node_control = ast.get_subtree(node.control)
-        for decl in node_control.get_proxy_nodes(ASTNodeType.VARIABLE_DECLARATOR):
+        node_control = ast.subtree(node.control)
+        for decl in node_control.proxy_nodes(ASTNodeType.VARIABLE_DECLARATOR):
             result.add(decl.name)
-        for assignment in node_control.get_proxy_nodes(ASTNodeType.ASSIGNMENT):
+        for assignment in node_control.proxy_nodes(ASTNodeType.ASSIGNMENT):
             result.add(assignment.expressionl.member)
         return result
 
     def _handle_assignment(self, index_names: set[str], for_body: AST) -> set[LineNumber]:
         result = set()
-        for op in for_body.get_proxy_nodes(ASTNodeType.ASSIGNMENT):
+        for op in for_body.proxy_nodes(ASTNodeType.ASSIGNMENT):
             expr = op.expressionl
             if expr.node_type == ASTNodeType.MEMBER_REFERENCE and expr.member in index_names:
                 result.add(expr.line)
@@ -47,7 +47,7 @@ class MutableIndex:
 
     def _handle_unary_operations(self, index_names: set[str], for_body: AST) -> set[LineNumber]:
         result = set()
-        for op in for_body.get_proxy_nodes(ASTNodeType.STATEMENT_EXPRESSION):
+        for op in for_body.proxy_nodes(ASTNodeType.STATEMENT_EXPRESSION):
             expr = op.expression
             if expr.node_type != ASTNodeType.ASSIGNMENT and expr.member in index_names:
                 unary_operators = ('++', '--')
