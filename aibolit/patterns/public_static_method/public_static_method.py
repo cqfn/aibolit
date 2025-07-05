@@ -17,7 +17,7 @@ class PublicStaticMethod:
 
     def value(self, ast: AST):
         lines: List[int] = []
-        for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
+        for method_declaration in ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             if self._check_public_static(method_declaration):
                 lines.append(method_declaration.line)
         return lines

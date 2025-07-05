@@ -32,6 +32,6 @@ def _setter_nodes(ast: AST) -> Iterator[ASTNode]:
 
 
 def _methods_with_parameters(ast: AST) -> Iterator[tuple[ASTNode, list[str]]]:
-    for node in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
+    for node in ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION):
         if node.parameters:
             yield node, node.parameters

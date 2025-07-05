@@ -28,8 +28,8 @@ logical_operators = ('&&', '||')
 class CognitiveComplexity:
     def value(self, ast: AST) -> int:
         complexity = 0
-        for method_ast in ast.get_subtrees(ASTNodeType.METHOD_DECLARATION):
-            method_root = method_ast.get_root()
+        for method_ast in ast.subtrees(ASTNodeType.METHOD_DECLARATION):
+            method_root = method_ast.root()
             method_name = self._method_name(method_root)
             complexity += self._complexity(method_root, 0, method_name)
         return complexity

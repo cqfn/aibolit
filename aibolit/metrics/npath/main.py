@@ -93,7 +93,7 @@ class MvnFreeNPathMetric:
     def value(self) -> int:
         return sum(
             self._method_npath(method)
-            for method in self.ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)
+            for method in self.ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION)
         )
 
     def _method_npath(self, method_node: ASTNode) -> int:

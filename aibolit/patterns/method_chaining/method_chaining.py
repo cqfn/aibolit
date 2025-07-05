@@ -13,9 +13,9 @@ class MethodChainFind:
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for node in ast.get_proxy_nodes(ASTNodeType.CLASS_CREATOR,
-                                        ASTNodeType.METHOD_INVOCATION,
-                                        ASTNodeType.THIS):
+        for node in ast.proxy_nodes(ASTNodeType.CLASS_CREATOR,
+                                    ASTNodeType.METHOD_INVOCATION,
+                                    ASTNodeType.THIS):
             selectors_qty = self._get_selectors_qty(node)
             if selectors_qty > MethodChainFind._allowed_number_of_selectord[node.node_type]:
                 lines.append(node.line)

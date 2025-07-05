@@ -13,9 +13,9 @@ class MultipleWhile:
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for method_declaration in ast.get_subtrees(ASTNodeType.METHOD_DECLARATION):
-            top_level_while_loops = method_declaration.get_subtrees(ASTNodeType.WHILE_STATEMENT)
+        for method_declaration in ast.subtrees(ASTNodeType.METHOD_DECLARATION):
+            top_level_while_loops = method_declaration.subtrees(ASTNodeType.WHILE_STATEMENT)
             if len(list(top_level_while_loops)) > 1:
-                lines.append(method_declaration.get_root().line)
+                lines.append(method_declaration.root().line)
 
         return lines

@@ -11,8 +11,6 @@ from aibolit.utils.ast_builder import read_text_with_autodetected_encoding, buil
 
 
 class CCTestCase(TestCase):
-    current_directory = Path(__file__).absolute().parent
-
     def test_complicated_example(self):
         self.assertEqual(self._cc_metric_for_file('Complicated.java'), 12)
 

@@ -38,11 +38,11 @@ class LocalMethodsCallsCount:
     def _methods_called(self) -> Counter:
         return Counter(
             node.member
-            for node in self.ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION)
+            for node in self.ast.proxy_nodes(ASTNodeType.METHOD_INVOCATION)
         )
 
     def _local_methods_declared(self) -> set[str]:
         return set(
             node.name
-            for node in self.ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)
+            for node in self.ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION)
         )

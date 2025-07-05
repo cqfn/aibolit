@@ -19,11 +19,11 @@ class VarMiddle:
 
         scope_status = ScopeStatus()
         lines_with_error: List[LineNumber] = []
-        for _, destination, edge_type in dfs_labeled_edges(ast.tree, ast.root):
+        for _, destination, edge_type in dfs_labeled_edges(ast._tree, ast._root):
             if edge_type == 'forward':
-                VarMiddle._on_entering_node(destination, ast.tree, scope_status, lines_with_error)
+                VarMiddle._on_entering_node(destination, ast._tree, scope_status, lines_with_error)
             elif edge_type == 'reverse':
-                VarMiddle._on_leaving_node(destination, ast.tree, scope_status)
+                VarMiddle._on_leaving_node(destination, ast._tree, scope_status)
 
         return lines_with_error
 
@@ -35,7 +35,7 @@ class VarMiddle:
         # if the variable is declared mark it and check the scope
         if node_type in VarMiddle._var_declaration_node_types:
             scope_status.add_flag(ScopeStatusFlags.INSIDE_VARIABLE_DECLARATION_SUBTREE)
-            if ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS_PRESENT not in scope_status.get_status():
+            if ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS_PRESENT not in scope_status.status():
                 lines_with_error.append(ast.nodes[node]['line'])
 
         # mark scope for super constructor calling
@@ -52,7 +52,7 @@ class VarMiddle:
         else:
             # if we are not calling super constructor or declaring a variable
             # and node type not in black list spoil the scope
-            if len(scope_status.get_status() & VarMiddle._ignore_scope_statuses) == 0 and \
+            if len(scope_status.status() & VarMiddle._ignore_scope_statuses) == 0 and \
                node_type not in VarMiddle._ignore_node_types:
                 scope_status.remove_flag(ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS_PRESENT)
 

@@ -11,7 +11,7 @@ class NonFinalAttribute:
     """
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for field in ast.get_proxy_nodes(ASTNodeType.FIELD_DECLARATION):
+        for field in ast.proxy_nodes(ASTNodeType.FIELD_DECLARATION):
             if 'final' not in field.modifiers:
                 lines.append(field.line)
         return lines

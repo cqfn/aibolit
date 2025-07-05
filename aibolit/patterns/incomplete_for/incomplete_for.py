@@ -14,7 +14,7 @@ class IncompleteFor:
 
     def value(self, ast: AST) -> List[LineNumber]:
         lines: set[int] = set()
-        for for_control in ast.get_proxy_nodes(ASTNodeType.FOR_CONTROL):
+        for for_control in ast.proxy_nodes(ASTNodeType.FOR_CONTROL):
             if not all((for_control.init, for_control.update, for_control.condition)):
                 parent = for_control.parent
                 if parent is None:

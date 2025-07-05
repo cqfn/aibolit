@@ -33,7 +33,7 @@ class _ComputedFieldsRegistry:
 
             computed_fields[name] = compute_field
 
-    def get_fields(
+    def fields(
         self, node_type: 'ASTNodeType'
     ) -> Dict[str, Callable[['ASTNode'], Any]]:
         return self._registry[node_type]
