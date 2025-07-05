@@ -12,7 +12,7 @@ class CCMetric:
     - Base complexity: 1 per method/constructor
     - Decision points: if, while, for, do-while,
                        switch cases, catch, throw,
-                       ternary, break, continue, assert
+                       ternary, break, continue
     - Boolean operators (&&, ||) add additional complexity paths
     """
 
