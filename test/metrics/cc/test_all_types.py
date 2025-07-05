@@ -7,28 +7,17 @@ from textwrap import dedent
 
 from aibolit.metrics.cc.main import CCMetric
 from aibolit.ast_framework import AST
-from aibolit.utils.ast_builder import build_ast, build_ast_from_string
+from aibolit.utils.ast_builder import read_text_with_autodetected_encoding, build_ast_from_string
 
 
 class CCTestCase(TestCase):
     current_directory = Path(__file__).absolute().parent
 
-    @staticmethod
-    def _get_ast(filename: str) -> AST:
-        path = Path(__file__).absolute().parent / filename
-        return AST.build_from_javalang(build_ast(str(path)))
-
     def test_complicated_example(self):
-        ast = self._get_ast('Complicated.java')
-        metric = CCMetric()
-        res = metric.value(ast)
-        self.assertEqual(res, 12)
+        self.assertEqual(self._cc_metric_for_file('Complicated.java'), 12)
 
     def test_other_class_example(self):
-        ast = self._get_ast('OtherClass.java')
-        metric = CCMetric()
-        res = metric.value(ast)
-        self.assertEqual(res, 3)
+        self.assertEqual(self._cc_metric_for_file('OtherClass.java'), 3)
 
     def test_empty_method(self):
         content = dedent(
@@ -195,7 +184,7 @@ class CCTestCase(TestCase):
                         break;                  // +1
                       }
                     }
-                  } else if (y == t && !d) {    // +2
+                  } else if (y == 1 && !b) {    // +2
                     x = a ? y : x;              // +1
                   } else {
                     x = 2;
@@ -238,6 +227,10 @@ class CCTestCase(TestCase):
             '''
         ).strip()
         self.assertEqual(self._cc_metric_for(content), 2)
+
+    def _cc_metric_for_file(self, filename: str) -> int:
+        path = Path(__file__).absolute().parent / filename
+        return self._cc_metric_for(read_text_with_autodetected_encoding(str(path)))
 
     def _cc_metric_for(self, content: str) -> int:
         return CCMetric().value(
