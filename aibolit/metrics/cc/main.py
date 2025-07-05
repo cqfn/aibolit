@@ -37,25 +37,10 @@ class CCMetric:
         return complexity
 
     def _node_complexity(self, ast: AST, node: ASTNode) -> int:
-        simple_nodes = {
-            ASTNodeType.BREAK_STATEMENT,
-            ASTNodeType.CATCH_CLAUSE,
-            ASTNodeType.CONTINUE_STATEMENT,
-            ASTNodeType.SWITCH_STATEMENT_CASE,
-            ASTNodeType.THROW_STATEMENT,
-        }
-
-        condition_nodes = {
-            ASTNodeType.IF_STATEMENT,
-            ASTNodeType.WHILE_STATEMENT,
-            ASTNodeType.DO_STATEMENT,
-            ASTNodeType.TERNARY_EXPRESSION,
-        }
-
         complexity = 0
-        if node.node_type in simple_nodes:
+        if node.node_type in _SIMPLE_NODES:
             complexity = 1
-        elif node.node_type in condition_nodes:
+        elif node.node_type in _CONDITION_NODES:
             complexity = self._condition_complexity(ast, node)
         elif node.node_type == ASTNodeType.FOR_STATEMENT:
             complexity = self._for_statement_complexity(ast, node)
@@ -83,3 +68,19 @@ class CCMetric:
                 count += 1
 
         return count
+
+
+_SIMPLE_NODES = (
+    ASTNodeType.BREAK_STATEMENT,
+    ASTNodeType.CATCH_CLAUSE,
+    ASTNodeType.CONTINUE_STATEMENT,
+    ASTNodeType.SWITCH_STATEMENT_CASE,
+    ASTNodeType.THROW_STATEMENT,
+)
+
+_CONDITION_NODES = (
+    ASTNodeType.IF_STATEMENT,
+    ASTNodeType.WHILE_STATEMENT,
+    ASTNodeType.DO_STATEMENT,
+    ASTNodeType.TERNARY_EXPRESSION,
+)
