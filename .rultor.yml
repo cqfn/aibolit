@@ -9,7 +9,9 @@ assets:
 architect:
   - yegor256
 install: |
-  python3 -m pip install twine
+  curl -LsSf https://astral.sh/uv/0.7.13/install.sh | sh
+  source $HOME/.local/bin/env
+  uv tool install twine
 merge:
   script: |
     make
@@ -18,8 +20,8 @@ release:
     sed -i "s/0\.0\.0/${tag}/g" aibolit/__init__.py
     git add aibolit/__init__.py
     git commit -am "${tag}"
-    python3 --version
-    python3 -m pip --version
+    uv run python --version
+    uv --version
     make
     make e2e
-    python3 -m twine upload dist/* -u __token__ -p $(cat ../twine_token)
+    uv run twine upload dist/* -u __token__ -p $(cat ../twine_token)

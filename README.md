@@ -10,7 +10,7 @@
 Learn how Aibolit works in our [White Paper].
 
 First, you install it (you must have
-[Python 3.7.7](https://www.python.org/downloads/)
+[Python 3.11+](https://www.python.org/downloads/)
 and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
 
 ```bash
@@ -316,12 +316,12 @@ aibolit train --java_folder=src/java --skip_collect_dataset
 
 First, you need to install:
 
-* [Python 3+](https://www.python.org/downloads/)
-* [Pip](https://pip.pypa.io/en/stable/installing/)
+* [Python 3.11+](https://www.python.org/downloads/)
+* [uv](https://docs.astral.sh/uv/)
 * Ruby 2.6+
 * [Xcop](https://github.com/yegor256/xcop)
 
-Install the following packages if you don't have:
+Install the following packages if you don't have them:
 
 ```bash
 apt-get install ruby-dev libz-dev libxml2

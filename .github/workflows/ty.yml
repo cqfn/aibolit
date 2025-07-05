@@ -18,21 +18,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Create venv
+      - name: Install uv (from Astral)
         run: |
-          python3 -m venv .venv
+          curl -LsSf https://astral.sh/uv/0.7.13/install.sh | bash
+          echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
 
       - name: Install aibolit dependencies
         run: |
-          source .venv/bin/activate
-          python -m pip install -r requirements.txt
-
-      - name: Install uv (from Astral)
-        run: |
-          curl -LsSf https://astral.sh/uv/install.sh | bash
-          echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+          make requirements
 
       - name: Run Ty
         run: |
-          source .venv/bin/activate
           uvx ty==0.0.1-alpha.8 check
