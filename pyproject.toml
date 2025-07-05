@@ -13,10 +13,9 @@ requires-python = ">=3.11"
 dynamic = ["version"]
 dependencies = [
   "beautifulsoup4==4.13.4",
-  "bs4==0.0.1",
   "build==1.2.2.post1",
   "catboost==1.2.8",
-  "chardet>=5.0.0",                  # Replace cchardet with chardet for Python 3.12 compatibility
+  "chardet==5.2.0",                  # Replace cchardet with chardet for Python 3.12 compatibility
   "deprecated==1.2.10",
   "html5lib==1.1",
   "javalang==0.13.0",
@@ -24,14 +23,14 @@ dependencies = [
   "matplotlib==3.10.3",
   "networkx==3.2",                   # Updated to be compatible with NumPy 2.0+
   "numpy==2.2.5",
-  "packaging>=23.0",                 # For version parsing, updated for sphinx compatibility
+  "packaging==25.0",                 # For version parsing, updated for sphinx compatibility
   "pandas==2.2.3",
   "pebble==4.5.3",
   "requests==2.32.4",
   "scikit-learn==1.6.1",
   "scipy==1.15.3",
   "setuptools==80.7.1",
-  "tqdm == 4.66.3",
+  "tqdm==4.66.3",
   "types-requests==2.32.0.20250515",
 ]
 
@@ -85,11 +84,9 @@ multiline-quotes = "single"
 [dependency-groups]
 dev = [
   "codecov==2.1.13",
-  "pytest>=6.0",
-  "pytest-cov>=2.10",
   "flake8==7.2.0",
   "flake8-elegant-objects==1.1.1",
-  "mypy>=1.0.0",                   # Update to a version compatible with Python 3.12
+  "mypy==1.16.1",                   # Update to a version compatible with Python 3.12
   "pylint==3.3.7",
   "pytest==8.3.5",
   "pytest-cov==6.1.1",
