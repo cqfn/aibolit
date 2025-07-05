@@ -23,7 +23,7 @@ class ScopeStatus:
     _scope_stack: List[Set[ScopeStatusFlags]] = \
         dataclasses.field(default_factory=lambda: [DefaultScopeStatus().value()])
 
-    def get_status(self) -> Set[ScopeStatusFlags]:
+    def status(self) -> Set[ScopeStatusFlags]:
         try:
             return self._scope_stack[-1]
         except IndexError:

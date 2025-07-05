@@ -14,13 +14,13 @@ class MaxDiameter:
     def value(self, ast: AST) -> int:
         method_diameters: List[int] = [
             self._calcalute_diameter(method_ast)
-            for method_ast in ast.get_subtrees(ASTNodeType.METHOD_DECLARATION)
+            for method_ast in ast.subtrees(ASTNodeType.METHOD_DECLARATION)
         ]
 
         return max(method_diameters, default=0)
 
     def _calcalute_diameter(self, ast: AST) -> int:
-        distant_node_from_root, _ = self._find_distant_node(ast, ast.get_root(), False)
+        distant_node_from_root, _ = self._find_distant_node(ast, ast.root(), False)
 
         # traverse undirected graph, because we need to be able to traverse from child to parent in
         # general. It's not needed at previous call, as the most distant node of a tree is anyway

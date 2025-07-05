@@ -5,12 +5,7 @@ import unittest
 
 
 class JavaTestCase(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super(JavaTestCase, cls).setUpClass()
-
-    def runAnalysis(self):
-        super(JavaTestCase, self).setUp()
+    def testAllTypes(self):
         from aibolit.metrics.cc.main import CCMetric
 
         file = 'test/metrics/cc/Complicated.java'

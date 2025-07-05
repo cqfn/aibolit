@@ -18,7 +18,7 @@ class Scope:
 
     @staticmethod
     def build_from_method_ast(method_ast: AST) -> 'Scope':
-        method_declaration = method_ast.get_root()
+        method_declaration = method_ast.root()
         assert (
             method_declaration.node_type == ASTNodeType.METHOD_DECLARATION
         ), 'Building scopes tree supported only for method declaration.'

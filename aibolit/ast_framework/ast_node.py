@@ -71,7 +71,7 @@ class ASTNode:
     def __getattr__(self, attribute_name: str):
         node_type = self._get_type(self._node_index)
         javalang_fields = attributes_by_node_type[node_type]
-        computed_fields = computed_fields_registry.get_fields(node_type)
+        computed_fields = computed_fields_registry.fields(node_type)
         if attribute_name not in common_attributes and \
            attribute_name not in javalang_fields and \
            attribute_name not in computed_fields:
@@ -100,7 +100,7 @@ class ASTNode:
         return ASTNode._public_fixed_interface + \
             list(common_attributes) + \
             list(attributes_by_node_type[node_type]) + \
-            list(computed_fields_registry.get_fields(node_type).keys())
+            list(computed_fields_registry.fields(node_type).keys())
 
     def __str__(self) -> str:
         text_representation = f'node index: {self._node_index}'
