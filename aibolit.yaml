@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 901.799536399
+  seconds: 449.682582677
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-06 10:10:08.990889889 Z
+  when: 2025-07-06 11:02:33.945025694 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29943,7 +29943,7 @@
   repository: 237167507
   review_comments: 12
   what: pull-was-reviewed
-  when: 2025-07-05 12:12:47.000000000 Z
+  when: &380 2025-07-05 12:12:47.000000000 Z
   where: github
   who: 41443370
 - _id: 16230
@@ -30024,6 +30024,8 @@
   average_reviewers_per_pull: 1.6666666666666667
   average_reviews_per_pull: 4.0
   average_triage_time: 3425.0
+  composite: 0.582
+  ffact: 136
   since: 2025-06-29 09:56:04.195196286 Z
   what: quality-of-service
   when: 2025-07-06 09:56:04.195150170 Z
@@ -30038,27 +30040,6 @@
   when: 2025-07-02 06:23:23.000000000 Z
   where: github
   who: 13173649
-- _id: 16237
-  _time: 2025-07-06 10:02:32.621602223 Z
-  _version: 0.13.0/0.51.0/
-  latest: 626
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 16238
-  _time: 2025-07-06 10:02:45.054795518 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 16239
-  _time: 2025-07-06 10:02:45.773548520 Z
-  _version: 0.13.0/0.51.0/
-  latest: 361
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
 - _id: 16240
   _time: 2025-07-06 10:04:16.079098726 Z
   _version: 0.13.0/0.51.0/
@@ -30072,21 +30053,15 @@
   details: Apparently, cqfn/aibolit#847 has been 'pull-was-merged'.
   failed_builds: 0
   hoc: 192
+  is_human: 0
   issue: 847
   repository: 237167507
   review_comments: 12
   succeeded_builds: 18
   what: pull-was-merged
-  when: 2025-07-02 14:04:17.000000000 Z
+  when: &379 2025-07-02 14:04:17.000000000 Z
   where: github
   who: 8086956
-- _id: 16241
-  _time: 2025-07-06 10:04:18.047767064 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
 - _id: 16242
   _time: 2025-07-06 10:07:24.343356410 Z
   _version: 0.13.0/0.51.0/
@@ -30095,20 +30070,6 @@
   total_reviews_submitted: 44
   what: quantity-of-deliverables
   when: 2025-07-06 10:04:18.076382929 Z
-- _id: 16243
-  _time: 2025-07-06 10:08:28.920453958 Z
-  _version: 0.13.0/0.51.0/
-  latest: 533
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 16244
-  _time: 2025-07-06 10:09:21.630568193 Z
-  _version: 0.13.0/0.51.0/
-  latest: 440
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
 - _id: 16245
   _time: 2025-07-06 10:09:24.764549645 Z
   _version: 0.13.0/0.51.0/
@@ -30124,10 +30085,121 @@
   total_stars: 87
   what: dimensions-of-terrain
   when: 2025-07-06 10:09:21.658688395 Z
-- _id: 16246
-  _time: 2025-07-06 10:10:08.951626089 Z
+- _id: 16248
+  _job: 27925
+  _time: 2025-07-06 10:10:40.906069046 Z
+  _version: 0.13.0/0.51.0/0.14.25
+  comments: 17
+  details: The pull request cqfn/aibolit#847 with 192 HoC created by @antonprokopyev
+    was merged by @rultor after 7h40m of being in review and 17 comments.
+  hoc: 192
+  is_human: 1
+  issue: 847
+  merger: 8086956
+  repository: 237167507
+  review_comments: 12
+  seconds: 27654
+  what: code-was-contributed
+  when: *379
+  where: github
+  who: 13173649
+- _id: 16249
+  _job: 27925
+  _time: 2025-07-06 10:10:44.757063585 Z
+  _version: 0.13.0/0.51.0/0.14.25
+  author: 13173649
+  comments: 15
+  details: The pull request cqfn/aibolit#849 with 532 HoC created by @antonprokopyev
+    was reviewed by @ivanovmg after 1d4h and 15 comments.
+  hoc: 532
+  is_human: 1
+  issue: 849
+  repository: 237167507
+  review_comments: 12
+  seconds: 102747
+  what: code-was-reviewed
+  when: *380
+  where: github
+  who: 41443370
+- _id:
+  - 16250
+  - 16247
+  _job: 27925
+  _time:
+  - 2025-07-06 10:10:48.047571931 Z
+  - 2025-07-06 10:10:40.281515322 Z
+  _version: 0.13.0/0.51.0/0.14.25
+  award: -16
+  commit: a0df296764cd62d750ada5222dea3f8f52467ad5
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  href: https://github.com/cqfn/aibolit/commit/a0df296764cd62d750ada5222dea3f8f52467ad5/#commitcomment-161536184
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-07-06 10:10:40.286298579 Z
+  where: github
+  who: 526301
+  why: Pushed a0df29676 to the default branch 'master' in cqfn/aibolit
+- _id: 16252
+  _time: 2025-07-06 10:55:27.633972501 Z
   _version: 0.13.0/0.51.0/
-  latest: 51729049548
+  details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#848.
+  is_human: 1
+  issue: 848
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-07-04 08:45:51.000000000 Z
+  where: github
+  who: 526301
+- _id: 16259
+  _time: 2025-07-06 10:58:47.940127571 Z
+  _version: 0.13.0/0.51.0/
+  latest: 51740485803
   repository: 237167507
   what: events-were-scanned
+  where: github
+- _id: 16260
+  _time: 2025-07-06 10:59:01.806579836 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 16261
+  _time: 2025-07-06 11:00:21.684454559 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 16262
+  _time: 2025-07-06 11:00:24.110548221 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 16263
+  _time: 2025-07-06 11:00:24.515157553 Z
+  _version: 0.13.0/0.51.0/
+  latest: 367
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 16264
+  _time: 2025-07-06 11:00:49.712266343 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 16265
+  _time: 2025-07-06 11:01:48.730458483 Z
+  _version: 0.13.0/0.51.0/
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
   where: github
