@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="578674">
+<fb version="0.11.0" size="582580">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">318.94711754</seconds>
-    <version t="S">0.50.5</version>
+    <seconds t="F">901.799536399</seconds>
+    <version t="S">0.51.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-03T21:02:09Z</when>
+    <when t="T">2025-07-06T10:10:08Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -33073,48 +33073,270 @@
     <why t="S">Contributed code in cqfn/aibolit#844</why>
   </f>
   <f>
-    <_id t="I">16221</_id>
-    <_time t="T">2025-07-03T21:00:31Z</_time>
-    <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">395</latest>
+    <_id t="I">16227</_id>
+    <_time t="T">2025-07-06T09:55:11Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <branch t="S">enable-eo007-850</branch>
+    <details t="S">The pull request cqfn/aibolit#851 has been opened by @antonprokopyev.</details>
+    <event_id t="I">51728981937</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">851</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-07-05T16:41:39Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">16228</_id>
+    <_time t="T">2025-07-06T09:55:11Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <details t="S">The issue cqfn/aibolit#850 has been opened by @antonprokopyev.</details>
+    <event_id t="I">51728914530</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">850</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-07-05T16:36:30Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">16229</_id>
+    <_time t="T">2025-07-06T09:55:12Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <comments t="I">15</comments>
+    <commits t="I">17</commits>
+    <details t="S">The pull request cqfn/aibolit#849 has been reviewed by @ivanovmg with 532 HoC and 15 comments.</details>
+    <event_id t="I">51725376050</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">9</files>
+    <hoc t="I">532</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">849</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">12</review_comments>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2025-07-05T12:12:47Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">16230</_id>
+    <_time t="T">2025-07-06T09:55:13Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <details t="S">The issue cqfn/aibolit#845 has been closed by @can4red.</details>
+    <event_id t="I">51711284318</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">845</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-07-04T18:05:17Z</when>
+    <where t="S">github</where>
+    <who t="I">115366324</who>
+  </f>
+  <f>
+    <_id t="I">16231</_id>
+    <_time t="T">2025-07-06T09:55:13Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <commit t="S">a0df296764cd62d750ada5222dea3f8f52467ad5</commit>
+    <default_branch t="S">master</default_branch>
+    <details t="S">A new Git push #25301138866 has arrived to cqfn/aibolit, made by @yegor256 (default branch is 'master'), not associated with any pull request.</details>
+    <event_id t="I">51705445891</event_id>
+    <event_type t="S">PushEvent</event_type>
+    <is_human t="I">1</is_human>
+    <push_id t="I">25301138866</push_id>
+    <ref t="S">refs/heads/master</ref>
+    <repository t="I">237167507</repository>
+    <to_master t="I">1</to_master>
+    <what t="S">git-was-pushed</what>
+    <when t="T">2025-07-04T14:29:56Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">16232</_id>
+    <_time t="T">2025-07-06T09:55:14Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <branch t="S">refine-cc-metric-848</branch>
+    <details t="S">The pull request cqfn/aibolit#849 has been opened by @antonprokopyev.</details>
+    <event_id t="I">51689639337</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">849</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-07-04T07:40:20Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">16233</_id>
+    <_time t="T">2025-07-06T09:55:14Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <details t="S">The issue cqfn/aibolit#848 has been opened by @antonprokopyev.</details>
+    <event_id t="I">51689556910</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">848</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-07-04T07:38:05Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">16235</_id>
+    <_time t="T">2025-07-06T10:01:29Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <average_backlog_size t="F">1.25</average_backlog_size>
+    <average_build_duration t="F">87.063</average_build_duration>
+    <average_build_mttr t="I">-17931</average_build_mttr>
+    <average_build_success_rate t="F">0.901</average_build_success_rate>
+    <average_issue_lifetime t="F">159381.0</average_issue_lifetime>
+    <average_pull_files_size t="F">7.0</average_pull_files_size>
+    <average_pull_hoc_size t="F">92.66666666666667</average_pull_hoc_size>
+    <average_pull_lifetime t="F">127572.0</average_pull_lifetime>
+    <average_pull_rejection_rate t="F">0.25</average_pull_rejection_rate>
+    <average_release_commits_size t="I">0</average_release_commits_size>
+    <average_release_hoc_size t="I">0</average_release_hoc_size>
+    <average_release_interval t="I">0</average_release_interval>
+    <average_review_size t="F">4.333333333333333</average_review_size>
+    <average_review_time t="F">108240.0</average_review_time>
+    <average_reviewers_per_pull t="F">1.6666666666666667</average_reviewers_per_pull>
+    <average_reviews_per_pull t="F">4.0</average_reviews_per_pull>
+    <average_triage_time t="F">3425.0</average_triage_time>
+    <since t="T">2025-06-29T09:56:04Z</since>
+    <what t="S">quality-of-service</what>
+    <when t="T">2025-07-06T09:56:04Z</when>
+  </f>
+  <f>
+    <_id t="I">16236</_id>
+    <_time t="T">2025-07-06T10:01:30Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <details t="S">The pull cqfn/aibolit#847 has been opened by @antonprokopyev.</details>
+    <issue t="I">847</issue>
+    <repository t="I">237167507</repository>
+    <stale t="S">branch #847</stale>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-07-02T06:23:23Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">16237</_id>
+    <_time t="T">2025-07-06T10:02:32Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">626</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">16223</_id>
-    <_time t="T">2025-07-03T21:00:43Z</_time>
-    <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">51662855884</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">16224</_id>
-    <_time t="T">2025-07-03T21:01:03Z</_time>
-    <_version t="S">0.12.1/0.50.5/</_version>
+    <_id t="I">16238</_id>
+    <_time t="T">2025-07-06T10:02:45Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">401</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-issue-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">16225</_id>
-    <_time t="T">2025-07-03T21:01:04Z</_time>
-    <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">354</latest>
+    <_id t="I">16239</_id>
+    <_time t="T">2025-07-06T10:02:45Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">361</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">16226</_id>
-    <_time t="T">2025-07-03T21:01:08Z</_time>
-    <_version t="S">0.12.1/0.50.5/</_version>
-    <latest t="I">341</latest>
+    <_id t="I">16240</_id>
+    <_time t="T">2025-07-06T10:04:16Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <branch t="S">846-respect-no-code-in-ctors</branch>
+    <comments t="I">17</comments>
+    <comments_appreciated t="I">5</comments_appreciated>
+    <comments_by_author t="I">5</comments_by_author>
+    <comments_by_reviewers t="I">12</comments_by_reviewers>
+    <comments_resolved t="I">2</comments_resolved>
+    <comments_to_code t="I">12</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#847 has been 'pull-was-merged'.</details>
+    <failed_builds t="I">0</failed_builds>
+    <hoc t="I">192</hoc>
+    <issue t="I">847</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">12</review_comments>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-07-02T14:04:17Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">16241</_id>
+    <_time t="T">2025-07-06T10:04:18Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">merges-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">16242</_id>
+    <_time t="T">2025-07-06T10:07:24Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <since t="T">2025-06-29T10:04:18Z</since>
+    <total_releases_published t="I">0</total_releases_published>
+    <total_reviews_submitted t="I">44</total_reviews_submitted>
+    <what t="S">quantity-of-deliverables</what>
+    <when t="T">2025-07-06T10:04:18Z</when>
+  </f>
+  <f>
+    <_id t="I">16243</_id>
+    <_time t="T">2025-07-06T10:08:28Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">533</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">16244</_id>
+    <_time t="T">2025-07-06T10:09:21Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">440</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">assignees-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">16245</_id>
+    <_time t="T">2025-07-06T10:09:24Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <total_active_contributors t="I">7</total_active_contributors>
+    <total_commits t="I">2535</total_commits>
+    <total_contributors t="I">22</total_contributors>
+    <total_files t="I">1054</total_files>
+    <total_forks t="I">33</total_forks>
+    <total_issues t="I">421</total_issues>
+    <total_pulls t="I">430</total_pulls>
+    <total_releases t="I">28</total_releases>
+    <total_repositories t="I">1</total_repositories>
+    <total_stars t="I">87</total_stars>
+    <what t="S">dimensions-of-terrain</what>
+    <when t="T">2025-07-06T10:09:21Z</when>
+  </f>
+  <f>
+    <_id t="I">16246</_id>
+    <_time t="T">2025-07-06T10:10:08Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">51729049548</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>

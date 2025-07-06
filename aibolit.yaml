@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 318.94711754
-  version: 0.50.5
+  seconds: 901.799536399
+  version: 0.51.0
   what: judges-summary
-  when: 2025-07-03 21:02:09.171873352 Z
+  when: 2025-07-06 10:10:08.990889889 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -29900,38 +29900,234 @@
   where: github
   who: 115366324
   why: Contributed code in cqfn/aibolit#844
-- _id: 16221
-  _time: 2025-07-03 21:00:31.069977768 Z
-  _version: 0.12.1/0.50.5/
-  latest: 395
+- _id: 16227
+  _time: 2025-07-06 09:55:11.427220423 Z
+  _version: 0.13.0/0.51.0/
+  branch: enable-eo007-850
+  details: The pull request cqfn/aibolit#851 has been opened by @antonprokopyev.
+  event_id: 51728981937
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 851
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-07-05 16:41:39.000000000 Z
+  where: github
+  who: 13173649
+- _id: 16228
+  _time: 2025-07-06 09:55:11.731051966 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#850 has been opened by @antonprokopyev.
+  event_id: 51728914530
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 850
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-07-05 16:36:30.000000000 Z
+  where: github
+  who: 13173649
+- _id: 16229
+  _time: 2025-07-06 09:55:12.184670494 Z
+  _version: 0.13.0/0.51.0/
+  comments: 15
+  commits: 17
+  details: The pull request cqfn/aibolit#849 has been reviewed by @ivanovmg with 532
+    HoC and 15 comments.
+  event_id: 51725376050
+  event_type: PullRequestReviewEvent
+  files: 9
+  hoc: 532
+  is_human: 1
+  issue: 849
+  repository: 237167507
+  review_comments: 12
+  what: pull-was-reviewed
+  when: 2025-07-05 12:12:47.000000000 Z
+  where: github
+  who: 41443370
+- _id: 16230
+  _time: 2025-07-06 09:55:13.179954546 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#845 has been closed by @can4red.
+  event_id: 51711284318
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 845
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-07-04 18:05:17.000000000 Z
+  where: github
+  who: 115366324
+- _id: 16231
+  _time: 2025-07-06 09:55:13.580887471 Z
+  _version: 0.13.0/0.51.0/
+  commit: a0df296764cd62d750ada5222dea3f8f52467ad5
+  default_branch: master
+  details: 'A new Git push #25301138866 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is ''master''), not associated with any pull request.'
+  event_id: 51705445891
+  event_type: PushEvent
+  is_human: 1
+  push_id: 25301138866
+  ref: refs/heads/master
+  repository: 237167507
+  to_master: 1
+  what: git-was-pushed
+  when: 2025-07-04 14:29:56.000000000 Z
+  where: github
+  who: 526301
+- _id: 16232
+  _time: 2025-07-06 09:55:14.701384891 Z
+  _version: 0.13.0/0.51.0/
+  branch: refine-cc-metric-848
+  details: The pull request cqfn/aibolit#849 has been opened by @antonprokopyev.
+  event_id: 51689639337
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 849
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-07-04 07:40:20.000000000 Z
+  where: github
+  who: 13173649
+- _id: 16233
+  _time: 2025-07-06 09:55:14.764395440 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#848 has been opened by @antonprokopyev.
+  event_id: 51689556910
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 848
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-07-04 07:38:05.000000000 Z
+  where: github
+  who: 13173649
+- _id: 16235
+  _time: 2025-07-06 10:01:29.956779012 Z
+  _version: 0.13.0/0.51.0/
+  average_backlog_size: 1.25
+  average_build_duration: 87.063
+  average_build_mttr: -17931
+  average_build_success_rate: 0.901
+  average_issue_lifetime: 159381.0
+  average_pull_files_size: 7.0
+  average_pull_hoc_size: 92.66666666666667
+  average_pull_lifetime: 127572.0
+  average_pull_rejection_rate: 0.25
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
+  average_release_interval: 0
+  average_review_size: 4.333333333333333
+  average_review_time: 108240.0
+  average_reviewers_per_pull: 1.6666666666666667
+  average_reviews_per_pull: 4.0
+  average_triage_time: 3425.0
+  since: 2025-06-29 09:56:04.195196286 Z
+  what: quality-of-service
+  when: 2025-07-06 09:56:04.195150170 Z
+- _id: 16236
+  _time: 2025-07-06 10:01:30.815674369 Z
+  _version: 0.13.0/0.51.0/
+  details: The pull cqfn/aibolit#847 has been opened by @antonprokopyev.
+  issue: 847
+  repository: 237167507
+  stale: 'branch #847'
+  what: pull-was-opened
+  when: 2025-07-02 06:23:23.000000000 Z
+  where: github
+  who: 13173649
+- _id: 16237
+  _time: 2025-07-06 10:02:32.621602223 Z
+  _version: 0.13.0/0.51.0/
+  latest: 626
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 16223
-  _time: 2025-07-03 21:00:43.112323838 Z
-  _version: 0.12.1/0.50.5/
-  latest: 51662855884
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 16224
-  _time: 2025-07-03 21:01:03.822837068 Z
-  _version: 0.12.1/0.50.5/
+- _id: 16238
+  _time: 2025-07-06 10:02:45.054795518 Z
+  _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 16225
-  _time: 2025-07-03 21:01:04.659623781 Z
-  _version: 0.12.1/0.50.5/
-  latest: 354
+- _id: 16239
+  _time: 2025-07-06 10:02:45.773548520 Z
+  _version: 0.13.0/0.51.0/
+  latest: 361
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 16226
-  _time: 2025-07-03 21:01:08.574370900 Z
-  _version: 0.12.1/0.50.5/
-  latest: 341
+- _id: 16240
+  _time: 2025-07-06 10:04:16.079098726 Z
+  _version: 0.13.0/0.51.0/
+  branch: 846-respect-no-code-in-ctors
+  comments: 17
+  comments_appreciated: 5
+  comments_by_author: 5
+  comments_by_reviewers: 12
+  comments_resolved: 2
+  comments_to_code: 12
+  details: Apparently, cqfn/aibolit#847 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 192
+  issue: 847
+  repository: 237167507
+  review_comments: 12
+  succeeded_builds: 18
+  what: pull-was-merged
+  when: 2025-07-02 14:04:17.000000000 Z
+  where: github
+  who: 8086956
+- _id: 16241
+  _time: 2025-07-06 10:04:18.047767064 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 16242
+  _time: 2025-07-06 10:07:24.343356410 Z
+  _version: 0.13.0/0.51.0/
+  since: 2025-06-29 10:04:18.076533579 Z
+  total_releases_published: 0
+  total_reviews_submitted: 44
+  what: quantity-of-deliverables
+  when: 2025-07-06 10:04:18.076382929 Z
+- _id: 16243
+  _time: 2025-07-06 10:08:28.920453958 Z
+  _version: 0.13.0/0.51.0/
+  latest: 533
   repository: 237167507
   what: types-were-scanned
+  where: github
+- _id: 16244
+  _time: 2025-07-06 10:09:21.630568193 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 16245
+  _time: 2025-07-06 10:09:24.764549645 Z
+  _version: 0.13.0/0.51.0/
+  total_active_contributors: 7
+  total_commits: 2535
+  total_contributors: 22
+  total_files: 1054
+  total_forks: 33
+  total_issues: 421
+  total_pulls: 430
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 87
+  what: dimensions-of-terrain
+  when: 2025-07-06 10:09:21.658688395 Z
+- _id: 16246
+  _time: 2025-07-06 10:10:08.951626089 Z
+  _version: 0.13.0/0.51.0/
+  latest: 51729049548
+  repository: 237167507
+  what: events-were-scanned
   where: github
