@@ -21,7 +21,7 @@ install:
 	uv run aibolit --version
 
 test:
-	uv run pytest --cov=aibolit/ test/
+	uv run pytest --testmon --cov=aibolit/ test/
 
 it:
 	uv run python -m test.integration.test_patterns_and_metrics
