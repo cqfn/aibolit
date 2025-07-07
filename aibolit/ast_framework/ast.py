@@ -114,6 +114,31 @@ class AST:
             elif edge_type == 'reverse':
                 on_node_leaving(ASTNode(self._tree, destination))
 
+    def with_fields_and_methods(
+        self,
+        allowed_fields_names: set[str],
+        allowed_methods_names: set[str]
+    ) -> 'AST':
+        class_declaration = self.root()
+        if class_declaration.node_type != ASTNodeType.CLASS_DECLARATION:
+            raise ValueError(
+                f'Expected {ASTNodeType.CLASS_DECLARATION} node,'
+                f' but {class_declaration.node_type} was provided.'
+            )
+        allowed_nodes = {class_declaration.node_index}
+
+        for field_declaration in class_declaration.fields:
+            if len(allowed_fields_names & set(field_declaration.names)) != 0:
+                field_ast = self.subtree(field_declaration)
+                allowed_nodes.update(node.node_index for node in field_ast)
+
+        for method_declaration in class_declaration.methods:
+            if method_declaration.name in allowed_methods_names:
+                method_ast = self.subtree(method_declaration)
+                allowed_nodes.update(node.node_index for node in method_ast)
+
+        return AST(self._tree.subgraph(allowed_nodes), class_declaration.node_index)
+
     @deprecated(reason='Use ASTNode functionality instead.')
     def children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
         """
