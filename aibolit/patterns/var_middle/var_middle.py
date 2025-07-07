@@ -2,10 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 from typing import List
-from networkx import DiGraph, dfs_labeled_edges  # type: ignore
 
 from aibolit.types_decl import LineNumber
-from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 from aibolit.utils.scope_status import ScopeStatus, ScopeStatusFlags
 
 
@@ -19,28 +18,26 @@ class VarMiddle:
 
         scope_status = ScopeStatus()
         lines_with_error: List[LineNumber] = []
-        for _, destination, edge_type in dfs_labeled_edges(ast._tree, ast._root):
-            if edge_type == 'forward':
-                VarMiddle._on_entering_node(destination, ast._tree, scope_status, lines_with_error)
-            elif edge_type == 'reverse':
-                VarMiddle._on_leaving_node(destination, ast._tree, scope_status)
-
+        ast.traverse(
+            lambda node: VarMiddle._on_entering_node(node, scope_status, lines_with_error),
+            lambda node: VarMiddle._on_leaving_node(node, scope_status),
+        )
         return lines_with_error
 
     @staticmethod
-    def _on_entering_node(node: int, ast: DiGraph, scope_status: ScopeStatus,
+    def _on_entering_node(node: ASTNode, scope_status: ScopeStatus,
                           lines_with_error: List[LineNumber]):
-        node_type = ast.nodes[node]['node_type']
+        node_type = node.node_type
 
         # if the variable is declared mark it and check the scope
         if node_type in VarMiddle._var_declaration_node_types:
             scope_status.add_flag(ScopeStatusFlags.INSIDE_VARIABLE_DECLARATION_SUBTREE)
             if ScopeStatusFlags.ONLY_VARIABLE_DECLARATIONS_PRESENT not in scope_status.status():
-                lines_with_error.append(ast.nodes[node]['line'])
+                lines_with_error.append(node.line)
 
         # mark scope for super constructor calling
         elif node_type == ASTNodeType.STATEMENT_EXPRESSION:
-            children_types = {ast.nodes[child]['node_type'] for child in ast.succ[node]}
+            children_types = {child.node_type for child in node.children}
             if ASTNodeType.SUPER_CONSTRUCTOR_INVOCATION in children_types:
                 scope_status.add_flag(
                     ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE)
@@ -60,8 +57,8 @@ class VarMiddle:
                 scope_status.enter_new_scope()
 
     @staticmethod
-    def _on_leaving_node(node: int, ast: DiGraph, scope_status: ScopeStatus):
-        node_type = ast.nodes[node]['node_type']
+    def _on_leaving_node(node: ASTNode, scope_status: ScopeStatus):
+        node_type = node.node_type
 
         # on the end of variable declaration remove according flag
         if node_type in VarMiddle._var_declaration_node_types:
@@ -69,7 +66,7 @@ class VarMiddle:
 
         # on the end of super constructor call remove according flag
         elif node_type == ASTNodeType.STATEMENT_EXPRESSION:
-            children_types = {ast.nodes[child]['node_type'] for child in ast.succ[node]}
+            children_types = {child.node_type for child in node.children}
             if ASTNodeType.SUPER_CONSTRUCTOR_INVOCATION in children_types:
                 scope_status.remove_flag(
                     ScopeStatusFlags.INSIDE_CALLING_SUPER_CLASS_CONSTRUCTOR_SUBTREE)
