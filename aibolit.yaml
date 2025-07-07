@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 608.382687453
+  seconds: 500.391156376
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-07 00:05:21.677832484 Z
+  when: 2025-07-07 02:54:46.431916487 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -30208,52 +30208,65 @@
   where: github
   who: 13173649
   why: Reported bug in cqfn/aibolit#848
-- _id: 16445
-  _time: 2025-07-07 00:00:32.669888080 Z
+- _id: 16452
+  _time: 2025-07-07 02:46:29.231791041 Z
   _version: 0.13.0/0.51.0/
-  latest: 51750609135
+  details: The issue cqfn/aibolit#834 has been closed by @ivanovmg.
+  event_id: 51753935316
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 834
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-07-07 02:32:41.000000000 Z
+  where: github
+  who: 41443370
+- _id: 16460
+  _time: 2025-07-07 02:50:34.261569195 Z
+  _version: 0.13.0/0.51.0/
+  latest: 51753935529
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 16446
-  _time: 2025-07-07 00:00:35.542344174 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 16447
-  _time: 2025-07-07 00:00:36.214404187 Z
-  _version: 0.13.0/0.51.0/
-  latest: 415
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 16448
-  _time: 2025-07-07 00:01:22.167584073 Z
-  _version: 0.13.0/0.51.0/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 16449
-  _time: 2025-07-07 00:02:29.624996736 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 16450
-  _time: 2025-07-07 00:03:54.257237918 Z
+- _id: 16461
+  _time: 2025-07-07 02:51:09.639496766 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 16451
-  _time: 2025-07-07 00:04:41.532758061 Z
+- _id: 16462
+  _time: 2025-07-07 02:52:44.894057540 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 16463
+  _time: 2025-07-07 02:52:47.711208990 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 16464
+  _time: 2025-07-07 02:52:48.220124406 Z
+  _version: 0.13.0/0.51.0/
+  latest: 420
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 16465
+  _time: 2025-07-07 02:53:21.596177374 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
-  what: labels-were-scanned
+  what: types-were-scanned
+  where: github
+- _id: 16466
+  _time: 2025-07-07 02:54:45.846830102 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
