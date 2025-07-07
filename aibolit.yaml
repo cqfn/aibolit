@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 496.65549327
+  seconds: 523.550970575
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-07 12:03:18.766241555 Z
+  when: 2025-07-07 13:32:56.759913865 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -30659,7 +30659,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-07 10:05:21.000000000 Z
+  when: &389 2025-07-07 10:05:21.000000000 Z
   where: github
   who: 526301
 - _id: 16627
@@ -30671,7 +30671,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-07 10:04:43.000000000 Z
+  when: &390 2025-07-07 10:04:43.000000000 Z
   where: github
   who: 526301
 - _id: 16628
@@ -30683,55 +30683,97 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-07 10:04:25.000000000 Z
+  when: &391 2025-07-07 10:04:25.000000000 Z
   where: github
   who: 526301
-- _id: 16635
-  _time: 2025-07-07 11:59:22.775142056 Z
+- _id: 16642
+  _job: 28056
+  _time: 2025-07-07 12:03:46.885968422 Z
+  _version: 0.13.0/0.51.0/0.14.25
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#788 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 788
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *389
+  where: github
+  who: 526301
+- _id: 16643
+  _job: 28056
+  _time: 2025-07-07 12:03:47.272233528 Z
+  _version: 0.13.0/0.51.0/0.14.25
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#811 reported by @antonprokopyev;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 811
+  reporter: 13173649
+  repository: 237167507
+  what: bug-was-accepted
+  when: *390
+  where: github
+  who: 526301
+- _id: 16644
+  _job: 28056
+  _time: 2025-07-07 12:03:47.383859343 Z
+  _version: 0.13.0/0.51.0/0.14.25
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#813 reported by @antonprokopyev;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 813
+  reporter: 13173649
+  repository: 237167507
+  what: bug-was-accepted
+  when: *391
+  where: github
+  who: 526301
+- _id: 16652
+  _time: 2025-07-07 13:28:49.115209396 Z
   _version: 0.13.0/0.51.0/
-  latest: 51766132252
+  latest: 51768748669
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 16636
-  _time: 2025-07-07 11:59:39.020512331 Z
+- _id: 16653
+  _time: 2025-07-07 13:29:26.124750569 Z
   _version: 0.13.0/0.51.0/
-  latest: 0
+  latest: 753
   repository: 237167507
   what: assignees-were-scanned
   where: github
-- _id: 16637
-  _time: 2025-07-07 11:59:41.795430634 Z
+- _id: 16654
+  _time: 2025-07-07 13:29:28.887895650 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 16638
-  _time: 2025-07-07 11:59:42.293466891 Z
+- _id: 16655
+  _time: 2025-07-07 13:29:29.366029336 Z
   _version: 0.13.0/0.51.0/
-  latest: 471
+  latest: 473
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 16639
-  _time: 2025-07-07 12:00:22.786987263 Z
+- _id: 16656
+  _time: 2025-07-07 13:30:03.957584100 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 16640
-  _time: 2025-07-07 12:00:56.880933466 Z
+- _id: 16657
+  _time: 2025-07-07 13:30:46.337508382 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 16641
-  _time: 2025-07-07 12:02:39.135416510 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
-  repository: 237167507
   what: labels-were-scanned
+  where: github
+- _id: 16658
+  _time: 2025-07-07 13:32:56.372411075 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
   where: github
