@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="591172">
+<fb version="0.11.0" size="593249">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">524.855699632</seconds>
+    <seconds t="F">512.00271334</seconds>
     <version t="S">0.51.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-07T10:04:38Z</when>
+    <when t="T">2025-07-07T11:05:27Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -33672,55 +33672,11 @@
     <who t="I">41502249</who>
   </f>
   <f>
-    <_id t="I">16588</_id>
-    <_time t="T">2025-07-07T10:00:38Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">51763888380</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">16589</_id>
-    <_time t="T">2025-07-07T10:02:01Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">753</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">16590</_id>
-    <_time t="T">2025-07-07T10:02:04Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">401</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">16591</_id>
-    <_time t="T">2025-07-07T10:02:05Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">457</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-pull-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">16592</_id>
-    <_time t="T">2025-07-07T10:03:22Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">merges-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">16593</_id>
     <_time t="T">2025-07-07T10:04:04Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <details t="S">The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#840.</details>
+    <is_human t="I">1</is_human>
     <issue t="I">840</issue>
     <label t="S">bug</label>
     <repository t="I">237167507</repository>
@@ -33734,6 +33690,7 @@
     <_time t="T">2025-07-07T10:04:05Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <details t="S">The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#852.</details>
+    <is_human t="I">1</is_human>
     <issue t="I">852</issue>
     <label t="S">bug</label>
     <repository t="I">237167507</repository>
@@ -33747,6 +33704,7 @@
     <_time t="T">2025-07-07T10:04:05Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <details t="S">The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#853.</details>
+    <is_human t="I">1</is_human>
     <issue t="I">853</issue>
     <label t="S">bug</label>
     <repository t="I">237167507</repository>
@@ -33756,21 +33714,169 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">16596</_id>
-    <_time t="T">2025-07-07T10:04:05Z</_time>
+    <_id t="I">16598</_id>
+    <_job t="I">28046</_job>
+    <_time t="T">2025-07-07T10:05:01Z</_time>
+    <_version t="S">0.13.0/0.51.0/0.14.25</_version>
+    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#840 reported by @error10556; this means that a bug was accepted as valid, by the project team.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">840</issue>
+    <reporter t="I">151189440</reporter>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-was-accepted</what>
+    <when t="T">2025-07-07T10:03:19Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">16599</_id>
+    <_job t="I">28046</_job>
+    <_time t="T">2025-07-07T10:05:01Z</_time>
+    <_version t="S">0.13.0/0.51.0/0.14.25</_version>
+    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#852 reported by @ivanovmg; this means that a bug was accepted as valid, by the project team.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">852</issue>
+    <reporter t="I">41443370</reporter>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-was-accepted</what>
+    <when t="T">2025-07-07T10:03:51Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">16600</_id>
+    <_job t="I">28046</_job>
+    <_time t="T">2025-07-07T10:05:02Z</_time>
+    <_version t="S">0.13.0/0.51.0/0.14.25</_version>
+    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#853 reported by @antonprokopyev; this means that a bug was accepted as valid, by the project team.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">853</issue>
+    <reporter t="I">13173649</reporter>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-was-accepted</what>
+    <when t="T">2025-07-07T10:02:45Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">16601</_id>
+    <_job t="I">28046</_job>
+    <_time>
+      <v t="T">2025-07-07T10:05:25Z</v>
+      <v t="T">2025-07-07T10:05:03Z</v>
+    </_time>
+    <_version t="S">0.13.0/0.51.0/0.14.25</_version>
+    <award t="I">12</award>
+    <details t="S">It's time to reward @antonprokopyev for the bug reported in cqfn/aibolit#850, the reward amount is 12.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/850/#issuecomment-3044291387</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">850</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-report-was-rewarded</what>
+    <when t="T">2025-07-07T10:05:03Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+    <why t="S">Reported bug in cqfn/aibolit#850</why>
+  </f>
+  <f>
+    <_id t="I">16602</_id>
+    <_time t="T">2025-07-07T10:56:58Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">0</latest>
+    <comments t="I">12</comments>
+    <commits t="I">4</commits>
+    <details t="S">The pull request cqfn/aibolit#851 has been reviewed by @ivanovmg with 574 HoC and 12 comments.</details>
+    <event_id t="I">51764752414</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">64</files>
+    <hoc t="I">574</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">851</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">9</review_comments>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2025-07-07T08:42:04Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+  </f>
+  <f>
+    <_id t="I">16608</_id>
+    <_time t="T">2025-07-07T10:59:53Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <total_active_contributors t="I">7</total_active_contributors>
+    <total_commits t="I">2553</total_commits>
+    <total_contributors t="I">22</total_contributors>
+    <total_files t="I">1049</total_files>
+    <total_forks t="I">33</total_forks>
+    <total_issues t="I">423</total_issues>
+    <total_pulls t="I">431</total_pulls>
+    <total_releases t="I">28</total_releases>
+    <total_repositories t="I">1</total_repositories>
+    <total_stars t="I">87</total_stars>
+    <what t="S">dimensions-of-terrain</what>
+    <when t="T">2025-07-07T10:59:46Z</when>
+  </f>
+  <f>
+    <_id t="I">16611</_id>
+    <_time t="T">2025-07-07T11:01:30Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">51765267636</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">16612</_id>
+    <_time t="T">2025-07-07T11:01:33Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">401</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">16613</_id>
+    <_time t="T">2025-07-07T11:01:34Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">464</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-pull-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">16614</_id>
+    <_time t="T">2025-07-07T11:02:25Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">513</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">16615</_id>
+    <_time t="T">2025-07-07T11:02:47Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">513</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">16597</_id>
-    <_time t="T">2025-07-07T10:04:37Z</_time>
+    <_id t="I">16616</_id>
+    <_time t="T">2025-07-07T11:03:25Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">440</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">assignees-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">16617</_id>
+    <_time t="T">2025-07-07T11:04:03Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
+    <what t="S">merges-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
