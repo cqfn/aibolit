@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 603.152196214
+  seconds: 503.596289374
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-07 21:05:55.287958048 Z
+  when: 2025-07-07 22:03:26.719250943 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -30805,52 +30805,71 @@
   when: 2025-07-07 14:27:37.000000000 Z
   where: github
   who: 151189440
-- _id: 16771
-  _time: 2025-07-07 21:01:01.843757507 Z
+- _id: 16778
+  _job: 28104
+  _time:
+  - 2025-07-07 21:06:38.406373609 Z
+  - 2025-07-07 21:06:27.331864009 Z
+  _version: 0.13.0/0.51.0/0.14.25
+  award: -12
+  branch: master
+  details: It's time to punish @error10556 for the branch named as 'master', which
+    is wrong in cqfn/aibolit#855, the penalty amount is -12.
+  href: https://github.com/cqfn/aibolit/issues/855/#issuecomment-3046521926
+  is_human: 1
+  issue: 855
+  repository: 237167507
+  what: bad-branch-name-was-punished
+  when: 2025-07-07 21:06:27.344198766 Z
+  where: github
+  who: 151189440
+  why: Wrongly named a branch in cqfn/aibolit#855
+- _id: 16786
+  _time: 2025-07-07 21:59:37.370246093 Z
   _version: 0.13.0/0.51.0/
-  latest: 51781505991
+  latest: 51782829834
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 16772
-  _time: 2025-07-07 21:01:23.489695837 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 16773
-  _time: 2025-07-07 21:02:32.154138609 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 16774
-  _time: 2025-07-07 21:03:34.848868569 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 16775
-  _time: 2025-07-07 21:04:29.409277393 Z
+- _id: 16787
+  _time: 2025-07-07 22:00:20.937745328 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 16776
-  _time: 2025-07-07 21:04:30.054185263 Z
+- _id: 16788
+  _time: 2025-07-07 22:00:21.424448364 Z
   _version: 0.13.0/0.51.0/
-  latest: 499
+  latest: 503
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 16777
-  _time: 2025-07-07 21:05:55.253742035 Z
+- _id: 16789
+  _time: 2025-07-07 22:00:57.043560240 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
+  where: github
+- _id: 16790
+  _time: 2025-07-07 22:01:34.769581245 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 16791
+  _time: 2025-07-07 22:02:05.872766636 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 16792
+  _time: 2025-07-07 22:03:26.683851168 Z
+  _version: 0.13.0/0.51.0/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
