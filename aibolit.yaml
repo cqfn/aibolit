@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 523.550970575
+  seconds: 567.963428242
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-07 13:32:56.759913865 Z
+  when: 2025-07-07 14:07:23.433750037 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -30728,52 +30728,115 @@
   when: *391
   where: github
   who: 526301
-- _id: 16652
-  _time: 2025-07-07 13:28:49.115209396 Z
+- _id:
+  - 16662
+  - 16659
+  _job: 28062
+  _time:
+  - 2025-07-07 13:34:05.857967245 Z
+  - 2025-07-07 13:33:28.197781586 Z
+  _version: 0.13.0/0.51.0/0.14.25
+  award: 12
+  details: It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#788,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/788/#issuecomment-3045172767
+  is_human: 1
+  issue: 788
+  receipt: 0
+  repository: 237167507
+  what: bug-report-was-rewarded
+  when: 2025-07-07 13:33:28.202742125 Z
+  where: github
+  who: 41443370
+  why: Reported bug in cqfn/aibolit#788
+- _id:
+  - 16663
+  - 16660
+  _job: 28062
+  _time:
+  - 2025-07-07 13:34:05.871054464 Z
+  - 2025-07-07 13:33:37.978297787 Z
+  _version: 0.13.0/0.51.0/0.14.25
+  award: 12
+  details: It's time to reward @antonprokopyev for the bug reported in cqfn/aibolit#811,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/811/#issuecomment-3045172847
+  is_human: 1
+  issue: 811
+  receipt: 0
+  repository: 237167507
+  what: bug-report-was-rewarded
+  when: 2025-07-07 13:33:37.982187131 Z
+  where: github
+  who: 13173649
+  why: Reported bug in cqfn/aibolit#811
+- _id:
+  - 16664
+  - 16661
+  _job: 28062
+  _time:
+  - 2025-07-07 13:34:05.884106556 Z
+  - 2025-07-07 13:33:51.779573668 Z
+  _version: 0.13.0/0.51.0/0.14.25
+  award: 12
+  details: It's time to reward @antonprokopyev for the bug reported in cqfn/aibolit#813,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/813/#issuecomment-3045172914
+  is_human: 1
+  issue: 813
+  receipt: 0
+  repository: 237167507
+  what: bug-report-was-rewarded
+  when: 2025-07-07 13:33:51.783921080 Z
+  where: github
+  who: 13173649
+  why: Reported bug in cqfn/aibolit#813
+- _id: 16672
+  _time: 2025-07-07 14:02:41.320585994 Z
   _version: 0.13.0/0.51.0/
-  latest: 51768748669
+  latest: 51769235616
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 16653
-  _time: 2025-07-07 13:29:26.124750569 Z
-  _version: 0.13.0/0.51.0/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 16654
-  _time: 2025-07-07 13:29:28.887895650 Z
+- _id: 16673
+  _time: 2025-07-07 14:02:44.618086654 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 16655
-  _time: 2025-07-07 13:29:29.366029336 Z
+- _id: 16674
+  _time: 2025-07-07 14:02:45.272516953 Z
   _version: 0.13.0/0.51.0/
-  latest: 473
+  latest: 475
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 16656
-  _time: 2025-07-07 13:30:03.957584100 Z
+- _id: 16675
+  _time: 2025-07-07 14:04:32.684267465 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 16676
+  _time: 2025-07-07 14:05:55.434418259 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 16677
+  _time: 2025-07-07 14:06:47.222917876 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 16678
+  _time: 2025-07-07 14:07:23.275402226 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
-  where: github
-- _id: 16657
-  _time: 2025-07-07 13:30:46.337508382 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 16658
-  _time: 2025-07-07 13:32:56.372411075 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
   where: github
