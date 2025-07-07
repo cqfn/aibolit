@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="588537">
+<fb version="0.11.0" size="589798">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">546.846064249</seconds>
+    <seconds t="F">592.008628993</seconds>
     <version t="S">0.51.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-07T08:04:08Z</when>
+    <when t="T">2025-07-07T09:11:03Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -33580,35 +33580,78 @@
     <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">16553</_id>
-    <_time t="T">2025-07-07T07:59:33Z</_time>
+    <_id>
+      <v t="I">16562</v>
+      <v t="I">16560</v>
+    </_id>
+    <_job t="I">28027</_job>
+    <_time>
+      <v t="T">2025-07-07T08:04:58Z</v>
+      <v t="T">2025-07-07T08:04:42Z</v>
+    </_time>
+    <_version t="S">0.13.0/0.51.0/0.14.25</_version>
+    <award t="I">17</award>
+    <details t="S">It's time to reward @yegor256 for the code review in cqfn/aibolit#849, the reward amount is 17.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/849/#issuecomment-3043897111</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">849</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">code-review-was-rewarded</what>
+    <when t="T">2025-07-07T08:04:42Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+    <why t="S">Reviewed code in cqfn/aibolit#849</why>
+  </f>
+  <f>
+    <_id>
+      <v t="I">16563</v>
+      <v t="I">16561</v>
+    </_id>
+    <_job t="I">28027</_job>
+    <_time>
+      <v t="T">2025-07-07T08:04:58Z</v>
+      <v t="T">2025-07-07T08:04:45Z</v>
+    </_time>
+    <_version t="S">0.13.0/0.51.0/0.14.25</_version>
+    <award t="I">8</award>
+    <details t="S">It's time to reward @antonprokopyev for the code contributed in cqfn/aibolit#849, the reward amount is 8.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/849/#issuecomment-3043897190</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">849</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">code-contribution-was-rewarded</what>
+    <when t="T">2025-07-07T08:04:45Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+    <why t="S">Contributed code in cqfn/aibolit#849</why>
+  </f>
+  <f>
+    <_id t="I">16569</_id>
+    <_time t="T">2025-07-07T09:03:57Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">51760923793</latest>
+    <details t="S">The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#850.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">850</issue>
+    <label t="S">bug</label>
+    <repository t="I">237167507</repository>
+    <what t="S">label-was-attached</what>
+    <when t="T">2025-07-07T08:24:59Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">16572</_id>
+    <_time t="T">2025-07-07T09:06:16Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">51762116087</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">16554</_id>
-    <_time t="T">2025-07-07T08:00:21Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">440</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">16555</_id>
-    <_time t="T">2025-07-07T08:01:17Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">513</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">16556</_id>
-    <_time t="T">2025-07-07T08:02:43Z</_time>
+    <_id t="I">16573</_id>
+    <_time t="T">2025-07-07T09:06:50Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -33616,17 +33659,26 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">16557</_id>
-    <_time t="T">2025-07-07T08:03:21Z</_time>
+    <_id t="I">16574</_id>
+    <_time t="T">2025-07-07T09:07:58Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
+    <what t="S">assignees-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">16558</_id>
-    <_time t="T">2025-07-07T08:03:24Z</_time>
+    <_id t="I">16575</_id>
+    <_time t="T">2025-07-07T09:09:07Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">327</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">16576</_id>
+    <_time t="T">2025-07-07T09:09:59Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">401</latest>
     <repository t="I">237167507</repository>
@@ -33634,12 +33686,21 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">16559</_id>
-    <_time t="T">2025-07-07T08:03:25Z</_time>
+    <_id t="I">16577</_id>
+    <_time t="T">2025-07-07T09:10:00Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">451</latest>
+    <latest t="I">453</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">16578</_id>
+    <_time t="T">2025-07-07T09:11:03Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">513</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
