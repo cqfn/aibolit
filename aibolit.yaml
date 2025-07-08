@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 721.961438539
+  seconds: 677.939653642
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-08 10:07:53.625530750 Z
+  when: 2025-07-08 11:07:56.773960616 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -30845,55 +30845,6 @@
   when: 2025-07-08 05:41:33.000000000 Z
   where: github
   who: 151189440
-- _id: 16941
-  _time: 2025-07-08 10:00:19.596426445 Z
-  _version: 0.13.0/0.51.0/
-  latest: 51799615716
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 16942
-  _time: 2025-07-08 10:01:17.979849257 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 16943
-  _time: 2025-07-08 10:01:53.760410968 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 16944
-  _time: 2025-07-08 10:02:09.214754343 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 16945
-  _time: 2025-07-08 10:02:12.814921001 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 16946
-  _time: 2025-07-08 10:02:13.253308038 Z
-  _version: 0.13.0/0.51.0/
-  latest: 547
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 16947
-  _time: 2025-07-08 10:04:30.776468161 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 16948
   _time: 2025-07-08 10:07:53.230494866 Z
   _version: 0.13.0/0.51.0/
@@ -30914,6 +30865,104 @@
   average_reviewers_per_pull: 2.0
   average_reviews_per_pull: 5.25
   average_triage_time: 33680.4
+  composite: 0.442
+  ffact: 136
   since: 2025-07-01 10:04:37.110679262 Z
   what: quality-of-service
   when: 2025-07-08 10:04:37.110631121 Z
+- _id: 16949
+  _job: 28179
+  _time: 2025-07-08 10:08:57.267717911 Z
+  _version: 0.13.0/0.51.0/0.14.25
+  ac: 381
+  cant_infer_ev: There is not .CSV file
+  cant_infer_pv: There is not .CSV file
+  ev: 0
+  pv: 0
+  qod: 338
+  qod_per_sec: 9.758947144266933e-05
+  start: *95
+  what: earned-value
+  when: &392 2025-07-08 10:08:57.267974022 Z
+- _id: 16950
+  _job: 28179
+  _time: 2025-07-08 10:08:57.387196077 Z
+  _version: 0.13.0/0.51.0/0.14.25
+  what: earned-value-prev
+  when: *392
+- _id: 16952
+  _time: 2025-07-08 10:57:28.615131835 Z
+  _version: 0.13.0/0.51.0/
+  since: 2025-07-01 10:56:51.453179384 Z
+  total_builds_ran: 1228
+  total_commits_pushed: 33
+  total_hoc_committed: 1819
+  total_issues_created: 14
+  total_pulls_submitted: 7
+  total_releases_published: 0
+  what: quantity-of-deliverables
+  when: 2025-07-08 10:56:51.453132296 Z
+- _id: 16959
+  _time: 2025-07-08 11:02:48.296362094 Z
+  _version: 0.13.0/0.51.0/
+  latest: 51800849717
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 16960
+  _time: 2025-07-08 11:02:51.691627218 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 16961
+  _time: 2025-07-08 11:02:52.516410620 Z
+  _version: 0.13.0/0.51.0/
+  latest: 549
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 16962
+  _time: 2025-07-08 11:04:33.122849315 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 16963
+  _time: 2025-07-08 11:04:41.701674657 Z
+  _version: 0.13.0/0.51.0/
+  total_active_contributors: 7
+  total_commits: 2553
+  total_contributors: 22
+  total_files: 1049
+  total_forks: 33
+  total_issues: 423
+  total_pulls: 433
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 87
+  what: dimensions-of-terrain
+  when: 2025-07-08 11:04:33.146406840 Z
+- _id: 16964
+  _time: 2025-07-08 11:05:32.218499763 Z
+  _version: 0.13.0/0.51.0/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 16965
+  _time: 2025-07-08 11:06:09.960604480 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 16966
+  _time: 2025-07-08 11:07:07.498688625 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
