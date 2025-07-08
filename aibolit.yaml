@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 606.36973202
+  seconds: 626.04026556
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-08 05:10:21.319058950 Z
+  when: 2025-07-08 06:06:00.748181575 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -30824,52 +30824,73 @@
   where: github
   who: 151189440
   why: Wrongly named a branch in cqfn/aibolit#855
-- _id: 16870
-  _time: 2025-07-08 05:05:42.961667533 Z
+- _id: 16880
+  _time: 2025-07-08 05:58:50.937069211 Z
   _version: 0.13.0/0.51.0/
-  latest: 51792584267
+  branch: master
+  comments: 2
+  comments_appreciated: 1
+  comments_by_author: 0
+  comments_by_reviewers: 2
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#855 has been 'pull-was-closed'.
+  failed_builds: 0
+  hoc: 17
+  is_human: 1
+  issue: 855
+  repository: 237167507
+  succeeded_builds: 18
+  what: pull-was-closed
+  when: 2025-07-08 05:41:33.000000000 Z
+  where: github
+  who: 151189440
+- _id: 16885
+  _time: 2025-07-08 06:00:53.031266653 Z
+  _version: 0.13.0/0.51.0/
+  latest: 51794431731
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 16871
-  _time: 2025-07-08 05:06:36.408170739 Z
+- _id: 16886
+  _time: 2025-07-08 06:01:43.484098921 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 16872
-  _time: 2025-07-08 05:06:37.197188837 Z
+- _id: 16887
+  _time: 2025-07-08 06:01:44.295366537 Z
   _version: 0.13.0/0.51.0/
-  latest: 523
+  latest: 527
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 16873
-  _time: 2025-07-08 05:07:25.089717611 Z
-  _version: 0.13.0/0.51.0/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 16874
-  _time: 2025-07-08 05:08:55.676615053 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 16875
-  _time: 2025-07-08 05:09:32.773778861 Z
+- _id: 16888
+  _time: 2025-07-08 06:02:21.799574710 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 16876
-  _time: 2025-07-08 05:10:21.285688668 Z
+- _id: 16889
+  _time: 2025-07-08 06:03:09.699565071 Z
   _version: 0.13.0/0.51.0/
-  latest: 0
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 16890
+  _time: 2025-07-08 06:04:10.839413499 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
   repository: 237167507
   what: labels-were-scanned
+  where: github
+- _id: 16891
+  _time: 2025-07-08 06:05:11.438725468 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
   where: github
