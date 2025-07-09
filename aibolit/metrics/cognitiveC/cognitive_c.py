@@ -27,23 +27,23 @@ logical_operators = ('&&', '||')
 
 
 class CognitiveComplexity:
-    def _traverse_childs(self, node: ASTNode, nested_level: int, method_name: str) -> int:
+    def _traverse_children(self, node: ASTNode, nested_level: int, method_name: str) -> int:
         complexity = 0
-        for each_child in node.children:
-            complexity += self._get_complexity(each_child, nested_level, method_name)
+        for child_node in node.children:
+            complexity += self._get_complexity(child_node, nested_level, method_name)
         return complexity
 
     def _check_if_statement(self, node: ASTNode, nested_level: int, method_name: str) -> int:
         """function to work with IfStatement block"""
         complexity = 0
-        all_childs = list(node.children)
-        complexity += self._get_complexity(all_childs[0], 0, method_name)
-        if len(all_childs) >= 2:
+        children = list(node.children)
+        complexity += self._get_complexity(children[0], 0, method_name)
+        if len(children) >= 2:
             complexity += nested_level + 1
-            complexity += self._get_complexity(all_childs[1], nested_level + 1, method_name)
+            complexity += self._get_complexity(children[1], nested_level + 1, method_name)
 
-        if len(all_childs) == 3:
-            node_obj = all_childs[2]
+        if len(children) == 3:
+            node_obj = children[2]
             if node_obj.node_type == ASTNodeType.IF_STATEMENT:
                 complexity -= nested_level
                 complexity += self._check_if_statement(
@@ -104,7 +104,7 @@ class CognitiveComplexity:
 
         else:
             complexity += 1
-            complexity += self._traverse_childs(node, nested_level, method_name)
+            complexity += self._traverse_children(node, nested_level, method_name)
 
         return complexity
 
@@ -123,14 +123,14 @@ class CognitiveComplexity:
 
         elif each_block_type in increment_and_nested_for:
             complexity += 1 + nested_level
-            complexity += self._traverse_childs(node, nested_level + 1, method_name)
+            complexity += self._traverse_children(node, nested_level + 1, method_name)
 
         elif each_block_type in only_increment_for:
             complexity += self._process_not_nested_structure(
                 node, nested_level, method_name)
 
         else:
-            complexity += self._traverse_childs(node, nested_level, method_name)
+            complexity += self._traverse_children(node, nested_level, method_name)
         return complexity
 
     def _get_node_name(self, node: ASTNode) -> str:
@@ -139,7 +139,7 @@ class CognitiveComplexity:
         for each_string in names:
             method_name = each_string.string
             # Checking not to start with '/' is aimed to get
-            # rid of comments, which are all childs of node.
+            # rid of comments, which are all children of node.
             # We check the occurance any letter in name in order
             # to get rid of '' string and None.
             if not method_name.startswith('/') and re.search(r'[^\W\d]', method_name) is not None:
