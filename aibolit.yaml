@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 558.622433234
+  seconds: 687.718251356
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-09 06:06:21.118320621 Z
+  when: 2025-07-09 07:12:18.428190850 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -31066,63 +31066,104 @@
   when: 2025-07-09 04:44:31.000000000 Z
   where: github
   who: 13173649
-- _id: 17221
-  _time: 2025-07-09 06:02:09.468656211 Z
+- _id: 17227
+  _time: 2025-07-09 06:06:12.780045210 Z
   _version: 0.13.0/0.51.0/
-  latest: 51855616701
+  details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#857.
+  is_human: 1
+  issue: 857
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: &395 2025-07-09 04:52:25.000000000 Z
+  where: github
+  who: 526301
+- _id: 17229
+  _job: 28279
+  _time: 2025-07-09 06:06:51.337800092 Z
+  _version: 0.13.0/0.51.0/0.14.25!0.14.26
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#857 reported by @antonprokopyev;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 857
+  reporter: 13173649
+  repository: 237167507
+  what: bug-was-accepted
+  when: *395
+  where: github
+  who: 526301
+- _id: 17230
+  _time: 2025-07-09 07:00:54.530390730 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#840 has been closed by @yegor256.
+  event_id: 51856487675
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 840
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-07-09 03:23:01.000000000 Z
+  where: github
+  who: 526301
+- _id: 17231
+  _time: 2025-07-09 07:01:11.832183346 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#682 has been closed by @yegor256.
+  event_id: 51856459914
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 682
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-07-09 03:21:39.000000000 Z
+  where: github
+  who: 526301
+- _id: 17239
+  _time: 2025-07-09 07:07:03.642026698 Z
+  _version: 0.13.0/0.51.0/
+  latest: 51856621605
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 17222
-  _time: 2025-07-09 06:03:00.105944258 Z
+- _id: 17240
+  _time: 2025-07-09 07:07:48.815988747 Z
   _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 17223
-  _time: 2025-07-09 06:03:00.792817904 Z
-  _version: 0.13.0/0.51.0/
-  latest: 616
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 17224
-  _time: 2025-07-09 06:04:29.148075785 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 17225
-  _time: 2025-07-09 06:04:50.105256340 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
+  latest: 753
   repository: 237167507
   what: assignees-were-scanned
   where: github
-- _id: 17226
-  _time: 2025-07-09 06:05:26.363952570 Z
+- _id: 17241
+  _time: 2025-07-09 07:08:26.290401854 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 17227
-  _time: 2025-07-09 06:06:12.780045210 Z
+- _id: 17242
+  _time: 2025-07-09 07:08:30.106001092 Z
   _version: 0.13.0/0.51.0/
-  details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#857.
-  issue: 857
-  label: bug
+  latest: 401
   repository: 237167507
-  what: label-was-attached
-  when: 2025-07-09 04:52:25.000000000 Z
+  what: min-issue-was-found
   where: github
-  who: 526301
-- _id: 17228
-  _time: 2025-07-09 06:06:13.312787331 Z
+- _id: 17243
+  _time: 2025-07-09 07:08:30.844796776 Z
   _version: 0.13.0/0.51.0/
-  latest: 0
+  latest: 620
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 17244
+  _time: 2025-07-09 07:10:16.322837387 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 17245
+  _time: 2025-07-09 07:12:09.715522546 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
   repository: 237167507
   what: labels-were-scanned
   where: github
