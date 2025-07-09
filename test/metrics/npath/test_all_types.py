@@ -520,6 +520,23 @@ class TestMvnFreeNPathMetric:
         ''').strip()
         assert self._value(content) == 2
 
+    def test_nested_while_loops(self) -> None:
+        content = dedent('''
+        public class Test {
+            public void nestedLoops() {
+                int i = 0;
+                while (i < 3) {
+                    int j = 0;
+                    while (j < 2) {
+                        j++;
+                    }
+                    i++;
+                }
+            }
+        }
+        ''').strip()
+        assert self._value(content) == 3
+
     def _value(self, content: str) -> int:
         return MvnFreeNPathMetric(
             AST.build_from_javalang(
