@@ -57,7 +57,7 @@ e2e: build
 	./test/e2e/test_e2e_release.sh dist
 
 coverage: requirements
-	uv run pytest --cov=aibolit
+	uv run pytest --cov aibolit --cov-report=xml
 
 clean:
 	rm -rf build
