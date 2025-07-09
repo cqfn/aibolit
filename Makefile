@@ -56,6 +56,9 @@ build: requirements
 e2e: build
 	./test/e2e/test_e2e_release.sh dist
 
+coverage: requirements
+	uv run pytest --cov=aibolit
+
 clean:
 	rm -rf build
 	rm -rf aibolit.egg-info
