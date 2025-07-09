@@ -33,25 +33,18 @@ class CognitiveComplexity:
             for child_node in node.children
         )
 
-    def _check_if_statement(self, node: ASTNode, nested_level: int, method_name: str) -> int:
-        """function to work with IfStatement block"""
-        complexity = 0
-        children = list(node.children)
-        complexity += self._get_complexity(children[0], 0, method_name)
-        if len(children) >= 2:
+    def _if_complexity(self, node: ASTNode, nested_level: int, method_name: str) -> int:
+        complexity = self._get_complexity(node.condition, 0, method_name)
+        if then_ := node.then_statement:
             complexity += nested_level + 1
-            complexity += self._get_complexity(children[1], nested_level + 1, method_name)
-
-        if len(children) == 3:
-            node_obj = children[2]
-            if node_obj.node_type == ASTNodeType.IF_STATEMENT:
+            complexity += self._get_complexity(then_, nested_level + 1, method_name)
+        if else_ := node.else_statement:
+            if else_.node_type == ASTNodeType.IF_STATEMENT:
                 complexity -= nested_level
-                complexity += self._check_if_statement(
-                    node_obj, nested_level, method_name)
+                complexity += self._if_complexity(else_, nested_level, method_name)
             else:
                 complexity += 1
-                complexity += self._get_complexity(
-                    node_obj, nested_level + 1, method_name)
+                complexity += self._get_complexity(else_, nested_level + 1, method_name)
         return complexity
 
     def _increment_logical_operators(self, node: ASTNode) -> int:
@@ -119,7 +112,7 @@ class CognitiveComplexity:
             complexity += self._nested_methods(node, nested_level, method_name)
 
         elif each_block_type == ASTNodeType.IF_STATEMENT:
-            complexity += self._check_if_statement(node, nested_level, method_name)
+            complexity += self._if_complexity(node, nested_level, method_name)
 
         elif each_block_type in increment_and_nested_for:
             complexity += 1 + nested_level
