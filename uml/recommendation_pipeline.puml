@@ -1,7 +1,7 @@
 @startuml
 
 skinparam backgroundColor #EEEBDC
-skinparam handwritten true
+!option handwritten true
 
 skinparam sequence {
 ArrowColor DeepSkyBlue
@@ -45,7 +45,9 @@ activate main
 activate check
 main -> check
 check -> handle_exclude_command_line: parse cmd for exclude pattern
+activate handle_exclude_command_line
 handle_exclude_command_line -> check: ignored files
+deactivate handle_exclude_command_line
 check -> check: filter ignored files
 |||
 check -> run_thread: prepare ThreadPoolExecutor
@@ -53,25 +55,36 @@ activate run_thread
 run_thread -> run_recommend_for_file: parallel run for each file
 activate run_recommend_for_file
 run_recommend_for_file -> find_annotation_by_node_type: for class_declaration
+activate find_annotation_by_node_type
 find_annotation_by_node_type -> run_recommend_for_file: annotations with class_declaration
+deactivate find_annotation_by_node_type
 run_recommend_for_file -> find_annotation_by_node_type: for field_declaration
+activate find_annotation_by_node_type
 find_annotation_by_node_type -> run_recommend_for_file: annotations with field_declaration
+deactivate find_annotation_by_node_type
 run_recommend_for_file -> find_annotation_by_node_type: for method_declaration
+activate find_annotation_by_node_type
 find_annotation_by_node_type -> run_recommend_for_file: annotations with method_declaration
+deactivate find_annotation_by_node_type
 run_recommend_for_file -> calculate_patterns_and_metrics
 activate calculate_patterns_and_metrics
 calculate_patterns_and_metrics -> Config: get_patterns_config()
+activate Config
 Config -> calculate_patterns_and_metrics: config with patterns and metrics
+deactivate Config
 calculate_patterns_and_metrics -> __count_value: pass config
 activate __count_value
 __count_value -> __count_value: run value() of a pattern/metric
 __count_value -> calculate_patterns_and_metrics: input_params, code_lines_dict, error_string
 deactivate __count_value
+calculate_patterns_and_metrics -> run_recommend_for_file: patterns and metrics
 deactivate calculate_patterns_and_metrics
 run_recommend_for_file -> inference: input_params, code_lines_dict, args
 activate inference
 inference -> Config: folder_model_data()
+activate Config
 Config -> inference: filename for model loading
+deactivate Config
 inference -> inference: pickle load PatternRankingModel
 inference -> predict: input_params, model, args
 activate predict
@@ -97,7 +110,9 @@ run_thread -> check: yield future.result()
 deactivate run_thread
 
 check -> get_exit_code: pass results
+activate get_exit_code
 get_exit_code -> check: exit code
+deactivate get_exit_code
 
 activate check   #DarkSalmon
 check -> create_xml_tree: if args.format == 'xml':
