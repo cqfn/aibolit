@@ -103,18 +103,15 @@ class MvnFreeNPathMetric:
         if isinstance(node, list):
             return self._sequence_npath(node)
 
-        if node.node_type == ASTNodeType.IF_STATEMENT:
-            return self._if_npath(node)
-        elif node.node_type == ASTNodeType.SWITCH_STATEMENT:
-            return self._switch_npath(node)
-        elif node.node_type == ASTNodeType.FOR_STATEMENT:
-            return self._for_loop_npath(node)
-        elif node.node_type == ASTNodeType.WHILE_STATEMENT:
-            return self._while_loop_npath(node)
-        elif node.node_type == ASTNodeType.BINARY_OPERATION:
-            return self._binary_expression_npath(node)
-        else:
-            return self._sequence_npath(node.children)
+        dispatcher = {
+            ASTNodeType.IF_STATEMENT: self._if_npath,
+            ASTNodeType.SWITCH_STATEMENT: self._switch_npath,
+            ASTNodeType.FOR_STATEMENT: self._for_loop_npath,
+            ASTNodeType.WHILE_STATEMENT: self._while_loop_npath,
+            ASTNodeType.BINARY_OPERATION: self._binary_expression_npath,
+        }
+        handler = dispatcher.get(node.node_type, lambda n: self._sequence_npath(n.children))
+        return handler(node)
 
     def _sequence_npath(self, nodes: Iterable[ASTNode]) -> int:
         return math.prod((self._node_npath(child) for child in nodes))
