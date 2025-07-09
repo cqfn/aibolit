@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="600922">
+<fb version="0.11.0" size="601045">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
+    <error t="S">GET https://api.github.com/repos/cqfn/aibolit/issues/710/events?per_page=100: 500 - </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">595.947545305</seconds>
+    <seconds t="F">501.339799301</seconds>
     <version t="S">0.51.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-09T00:05:02Z</when>
+    <when t="T">2025-07-09T02:42:11Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -34227,26 +34228,26 @@
     <who t="I">151189440</who>
   </f>
   <f>
-    <_id t="I">17143</_id>
-    <_time t="T">2025-07-09T00:00:00Z</_time>
+    <_id t="I">17156</_id>
+    <_time t="T">2025-07-09T02:38:01Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">51848139218</latest>
+    <latest t="I">51851189248</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">17144</_id>
-    <_time t="T">2025-07-09T00:00:46Z</_time>
+    <_id t="I">17157</_id>
+    <_time t="T">2025-07-09T02:39:17Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
-    <what t="S">merges-were-scanned</what>
+    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">17145</_id>
-    <_time t="T">2025-07-09T00:01:30Z</_time>
+    <_id t="I">17158</_id>
+    <_time t="T">2025-07-09T02:39:20Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">401</latest>
     <repository t="I">237167507</repository>
@@ -34254,39 +34255,39 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">17146</_id>
-    <_time t="T">2025-07-09T00:01:31Z</_time>
+    <_id t="I">17159</_id>
+    <_time t="T">2025-07-09T02:39:20Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">595</latest>
+    <latest t="I">602</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">17147</_id>
-    <_time t="T">2025-07-09T00:02:32Z</_time>
+    <_id t="I">17160</_id>
+    <_time t="T">2025-07-09T02:40:55Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">513</latest>
+    <latest t="I">327</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">17148</_id>
-    <_time t="T">2025-07-09T00:04:01Z</_time>
+    <_id t="I">17161</_id>
+    <_time t="T">2025-07-09T02:41:32Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">merges-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">17162</_id>
+    <_time t="T">2025-07-09T02:42:07Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">440</latest>
     <repository t="I">237167507</repository>
     <what t="S">assignees-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">17149</_id>
-    <_time t="T">2025-07-09T00:05:02Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">513</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>

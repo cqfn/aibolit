@@ -2,11 +2,13 @@
 - added: 8
   cycles: 2
   deleted: 8
+  error: 'GET https://api.github.com/repos/cqfn/aibolit/issues/710/events?per_page=100:
+    500 - '
   inserted: 8
-  seconds: 595.947545305
+  seconds: 501.339799301
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-09 00:05:02.258682840 Z
+  when: 2025-07-09 02:42:11.785879413 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -30933,52 +30935,52 @@
   when: 2025-07-08 05:46:53.000000000 Z
   where: github
   who: 151189440
-- _id: 17143
-  _time: 2025-07-09 00:00:00.423562543 Z
+- _id: 17156
+  _time: 2025-07-09 02:38:01.420038235 Z
   _version: 0.13.0/0.51.0/
-  latest: 51848139218
+  latest: 51851189248
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 17144
-  _time: 2025-07-09 00:00:46.910804099 Z
+- _id: 17157
+  _time: 2025-07-09 02:39:17.091966792 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
-  what: merges-were-scanned
+  what: types-were-scanned
   where: github
-- _id: 17145
-  _time: 2025-07-09 00:01:30.376036116 Z
+- _id: 17158
+  _time: 2025-07-09 02:39:20.503396349 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 17146
-  _time: 2025-07-09 00:01:31.515604314 Z
+- _id: 17159
+  _time: 2025-07-09 02:39:20.973858529 Z
   _version: 0.13.0/0.51.0/
-  latest: 595
+  latest: 602
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 17147
-  _time: 2025-07-09 00:02:32.651108000 Z
+- _id: 17160
+  _time: 2025-07-09 02:40:55.437573801 Z
   _version: 0.13.0/0.51.0/
-  latest: 513
+  latest: 327
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 17148
-  _time: 2025-07-09 00:04:01.572868375 Z
+- _id: 17161
+  _time: 2025-07-09 02:41:32.450099955 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 17162
+  _time: 2025-07-09 02:42:07.726525572 Z
   _version: 0.13.0/0.51.0/
   latest: 440
   repository: 237167507
   what: assignees-were-scanned
-  where: github
-- _id: 17149
-  _time: 2025-07-09 00:05:02.225055784 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
   where: github
