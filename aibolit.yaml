@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 516.599992439
+  seconds: 558.622433234
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-09 05:12:10.164998903 Z
+  when: 2025-07-09 06:06:21.118320621 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -31066,52 +31066,63 @@
   when: 2025-07-09 04:44:31.000000000 Z
   where: github
   who: 13173649
-- _id: 17207
-  _time: 2025-07-09 05:07:37.609025597 Z
+- _id: 17221
+  _time: 2025-07-09 06:02:09.468656211 Z
   _version: 0.13.0/0.51.0/
-  latest: 51852349323
+  latest: 51855616701
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 17208
-  _time: 2025-07-09 05:08:24.409869644 Z
+- _id: 17222
+  _time: 2025-07-09 06:03:00.105944258 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 17209
-  _time: 2025-07-09 05:08:24.866875140 Z
+- _id: 17223
+  _time: 2025-07-09 06:03:00.792817904 Z
   _version: 0.13.0/0.51.0/
-  latest: 611
+  latest: 616
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 17210
-  _time: 2025-07-09 05:08:59.304337333 Z
+- _id: 17224
+  _time: 2025-07-09 06:04:29.148075785 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 17225
+  _time: 2025-07-09 06:04:50.105256340 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 17226
+  _time: 2025-07-09 06:05:26.363952570 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 17211
-  _time: 2025-07-09 05:09:36.926722023 Z
+- _id: 17227
+  _time: 2025-07-09 06:06:12.780045210 Z
   _version: 0.13.0/0.51.0/
-  latest: 440
+  details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#857.
+  issue: 857
+  label: bug
   repository: 237167507
-  what: assignees-were-scanned
+  what: label-was-attached
+  when: 2025-07-09 04:52:25.000000000 Z
   where: github
-- _id: 17212
-  _time: 2025-07-09 05:10:33.061787651 Z
+  who: 526301
+- _id: 17228
+  _time: 2025-07-09 06:06:13.312787331 Z
   _version: 0.13.0/0.51.0/
-  latest: 327
+  latest: 0
   repository: 237167507
   what: labels-were-scanned
-  where: github
-- _id: 17213
-  _time: 2025-07-09 05:11:23.809782540 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
   where: github
