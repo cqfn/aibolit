@@ -6,22 +6,22 @@ from typing import List, Set
 
 from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 
-only_increment_for: Set[ASTNodeType] = set([
+only_increment_for: Set[ASTNodeType] = {
     ASTNodeType.BREAK_STATEMENT,
     ASTNodeType.CONTINUE_STATEMENT,
     ASTNodeType.TERNARY_EXPRESSION,
     ASTNodeType.BINARY_OPERATION,
     ASTNodeType.METHOD_INVOCATION,
-])
+}
 
-increment_and_nested_for: Set[ASTNodeType] = set([
+increment_and_nested_for: Set[ASTNodeType] = {
     ASTNodeType.IF_STATEMENT,
     ASTNodeType.SWITCH_STATEMENT,
     ASTNodeType.FOR_STATEMENT,
     ASTNodeType.WHILE_STATEMENT,
     ASTNodeType.DO_STATEMENT,
     ASTNodeType.CATCH_CLAUSE,
-])
+}
 
 logical_operators = ['&&', '||']
 
