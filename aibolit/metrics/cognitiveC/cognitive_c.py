@@ -28,10 +28,10 @@ logical_operators = ('&&', '||')
 
 class CognitiveComplexity:
     def _traverse_children(self, node: ASTNode, nested_level: int, method_name: str) -> int:
-        complexity = 0
-        for child_node in node.children:
-            complexity += self._get_complexity(child_node, nested_level, method_name)
-        return complexity
+        return sum(
+            self._get_complexity(child_node, nested_level, method_name)
+            for child_node in node.children
+        )
 
     def _check_if_statement(self, node: ASTNode, nested_level: int, method_name: str) -> int:
         """function to work with IfStatement block"""
