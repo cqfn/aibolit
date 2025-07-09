@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 import re
 from itertools import groupby
-from typing import List, Set
+from typing import Iterable, Set
 
 from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 
@@ -47,29 +47,19 @@ class CognitiveComplexity:
                 complexity += self._get_complexity(else_, nested_level + 1, method_name)
         return complexity
 
-    def _increment_logical_operators(self, node: ASTNode) -> int:
-        complexity = 0
-        logical_operators_sequence = self._create_logical_operators_sequence(node)
-        complexity += len(list(groupby(logical_operators_sequence)))
-        return complexity
+    def _condition_complexity(self, node: ASTNode) -> int:
+        return sum(1 for _ in groupby(self._logical_operators_sequence(node)))
 
-    def _create_logical_operators_sequence(self, node: ASTNode) -> List[str]:
+    def _logical_operators_sequence(self, node: ASTNode) -> Iterable[str]:
         if node.node_type != ASTNodeType.BINARY_OPERATION:
-            return []
+            return
 
-        # Get binary operation params using new API
-        children = list(node.children)
-        if len(children) < 3:
-            return []
-        operation_node, left_side_node, right_side_node = children[0], children[1], children[2]
-        operator = operation_node.string if operation_node.node_type == ASTNodeType.STRING else None
+        if node.operator not in logical_operators:
+            return
 
-        if operator not in logical_operators:
-            return []
-
-        left_sequence = self._create_logical_operators_sequence(left_side_node)
-        right_sequence = self._create_logical_operators_sequence(right_side_node)
-        return left_sequence + [operator] + right_sequence
+        yield from self._logical_operators_sequence(node.operandl)
+        yield node.operator
+        yield from self._logical_operators_sequence(node.operandr)
 
     def _is_recursion_call(self, node: ASTNode, method_name: str) -> bool:
         assert node.node_type == ASTNodeType.METHOD_INVOCATION
@@ -89,7 +79,7 @@ class CognitiveComplexity:
                             if child.node_type == ASTNodeType.STRING]
             bin_operator = string_nodes[0].string if string_nodes else None
             if bin_operator in logical_operators:
-                complexity += self._increment_logical_operators(node)
+                complexity += self._condition_complexity(node)
 
         elif each_block_type == ASTNodeType.METHOD_INVOCATION:
             is_recursion = self._is_recursion_call(node, method_name)
