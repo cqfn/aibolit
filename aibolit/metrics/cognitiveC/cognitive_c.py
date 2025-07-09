@@ -23,7 +23,7 @@ increment_and_nested_for: Set[ASTNodeType] = {
     ASTNodeType.CATCH_CLAUSE,
 }
 
-logical_operators = ['&&', '||']
+logical_operators = ('&&', '||')
 
 
 class CognitiveComplexity:
