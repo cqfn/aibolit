@@ -63,7 +63,7 @@ class CognitiveComplexity:
     def _is_recursion_call(self, node: ASTNode, method_name: str) -> bool:
         return method_name == self._method_name(node)
 
-    def _nested_methods(self, node, nested_level: int, method_name: str) -> int:
+    def _nested_methods(self, node: ASTNode, nested_level: int, method_name: str) -> int:
         method_name = self._method_name(node)
         return self._complexity(node, nested_level + 1, method_name)
 
