@@ -272,8 +272,8 @@ def calculate_patterns_and_metrics_with_decomposition(
         ]
         ast = AST.build_from_javalang(build_ast(file_path))
         classes_ast = [
-            ast.get_subtree(node)
-            for node in ast.get_root().types
+            ast.subtree(node)
+            for node in ast.root().types
             if node.node_type == ASTNodeType.CLASS_DECLARATION
         ]
         for class_ast in classes_ast:

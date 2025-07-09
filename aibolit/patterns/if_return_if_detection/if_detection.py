@@ -13,7 +13,7 @@ class CountIfReturn:
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for if_statement in ast.get_proxy_nodes(ASTNodeType.IF_STATEMENT):
+        for if_statement in ast.proxy_nodes(ASTNodeType.IF_STATEMENT):
             if if_statement.else_statement is not None and \
                self._is_then_branch_return(if_statement):
                 lines.append(if_statement.line)

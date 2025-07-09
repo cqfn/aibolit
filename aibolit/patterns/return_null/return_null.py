@@ -14,7 +14,7 @@ class ReturnNull:
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for return_statement in ast.get_proxy_nodes(ASTNodeType.RETURN_STATEMENT):
+        for return_statement in ast.proxy_nodes(ASTNodeType.RETURN_STATEMENT):
             if self._check_null_return_statement(return_statement):
                 lines.append(return_statement.line)
 

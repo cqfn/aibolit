@@ -87,7 +87,7 @@ class ScopeTestCase(TestCase):
     def _get_method_ast(self, method_name) -> AST:
         path = str(Path(__file__).absolute().parent / 'ScopeTest.java')
         ast = AST.build_from_javalang(build_ast(path))
-        package_declaration = ast.get_root()
+        package_declaration = ast.root()
 
         assert len(package_declaration.types) == 1 and \
             package_declaration.types[0].node_type == ASTNodeType.CLASS_DECLARATION
@@ -96,7 +96,7 @@ class ScopeTestCase(TestCase):
 
         try:
             return next(
-                ast.get_subtree(method_declaration)
+                ast.subtree(method_declaration)
                 for method_declaration in class_declaration.methods
                 if method_declaration.name == method_name
             )

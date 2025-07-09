@@ -11,10 +11,10 @@ from aibolit.types_decl import LineNumber
 class NullAssignment:
     def value(self, ast: AST) -> List[LineNumber]:
         lines = set()
-        for assignment in ast.get_proxy_nodes(ASTNodeType.ASSIGNMENT):
+        for assignment in ast.proxy_nodes(ASTNodeType.ASSIGNMENT):
             if self._is_null_literal(assignment.value):
                 lines.add(assignment.line)
-        for declarator in ast.get_proxy_nodes(ASTNodeType.VARIABLE_DECLARATOR):
+        for declarator in ast.proxy_nodes(ASTNodeType.VARIABLE_DECLARATOR):
             if self._is_null_literal(declarator.initializer):
                 lines.add(declarator.line)
         return sorted(lines)

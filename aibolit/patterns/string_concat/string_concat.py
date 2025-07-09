@@ -21,7 +21,7 @@ class StringConcatFinder:
 
     def value(self, ast: AST) -> List[int]:
         lines: Set[int] = set()
-        for node in ast.get_proxy_nodes(ASTNodeType.BINARY_OPERATION):
+        for node in ast.proxy_nodes(ASTNodeType.BINARY_OPERATION):
             if node.operator == '+' and self._check_left_right_operator(node):
                 lines.add(node.line)
 

@@ -35,7 +35,7 @@ class ExternalMethodsCalledCount:
                     yield second.member
 
     def _parent_method_invocation_nodes(self) -> Iterator[ASTNode]:
-        for node in self.ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION):
+        for node in self.ast.proxy_nodes(ASTNodeType.METHOD_INVOCATION):
             if (parent := node.parent) is not None:
                 yield parent
 

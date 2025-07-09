@@ -14,7 +14,7 @@ class JoinedValidation:
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for if_statement in ast.get_proxy_nodes(ASTNodeType.IF_STATEMENT):
+        for if_statement in ast.proxy_nodes(ASTNodeType.IF_STATEMENT):
             if self._is_logical_or_used_in_expression(if_statement.condition) and \
                self._is_block_consist_of_single_throw(if_statement.then_statement):
                 lines.append(if_statement.line)
