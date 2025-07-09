@@ -494,6 +494,22 @@ class TestMvnFreeNPathMetric:
         ''').strip()
         assert self._value(content) == 3
 
+    def test_while_with_break(self) -> None:
+        content = dedent('''
+        public class Test {
+            public void loopWithBreak() {
+                int i = 0;
+                while (i < 10) {
+                    if (i == 5) {
+                        break;
+                    }
+                    i++;
+                }
+            }
+        }
+        ''').strip()
+        assert self._value(content) == 3
+
     def _value(self, content: str) -> int:
         return MvnFreeNPathMetric(
             AST.build_from_javalang(
