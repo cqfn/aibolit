@@ -146,7 +146,11 @@ class MvnFreeNPathMetric:
 
     def _while_loop_npath(self, node: ASTNode) -> int:
         body_npath = self._node_npath(node.body)
-        return body_npath + 1
+        if hasattr(node, 'condition') and node.condition:
+            condition_npath = max(1, self._node_npath(node.condition))
+        else:
+            condition_npath = 1
+        return body_npath + condition_npath
 
     def _binary_expression_npath(self, node: ASTNode) -> int:
         if node.operator not in {'&&', '||'}:
