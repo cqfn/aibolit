@@ -109,6 +109,8 @@ class MvnFreeNPathMetric:
             return self._switch_npath(node)
         elif node.node_type == ASTNodeType.FOR_STATEMENT:
             return self._for_loop_npath(node)
+        elif node.node_type == ASTNodeType.WHILE_STATEMENT:
+            return self._while_loop_npath(node)
         elif node.node_type == ASTNodeType.BINARY_OPERATION:
             return self._binary_expression_npath(node)
         else:
@@ -141,6 +143,10 @@ class MvnFreeNPathMetric:
         else:
             condition_npath = 1
         return body_npath + condition_npath
+
+    def _while_loop_npath(self, node: ASTNode) -> int:
+        body_npath = self._node_npath(node.body)
+        return body_npath + 1
 
     def _binary_expression_npath(self, node: ASTNode) -> int:
         if node.operator not in {'&&', '||'}:
