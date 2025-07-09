@@ -510,6 +510,16 @@ class TestMvnFreeNPathMetric:
         ''').strip()
         assert self._value(content) == 3
 
+    def test_empty_while_loop(self) -> None:
+        content = dedent('''
+        public class Test {
+            public void emptyLoop() {
+                while (condition) {}
+            }
+        }
+        ''').strip()
+        assert self._value(content) == 2
+
     def _value(self, content: str) -> int:
         return MvnFreeNPathMetric(
             AST.build_from_javalang(
