@@ -480,6 +480,20 @@ class TestMvnFreeNPathMetric:
         ''').strip()
         assert self._value(content) == 6
 
+    def test_while_with_and_condition(self) -> None:
+        content = dedent('''
+        public class Test {
+            void whileWithAndCondition(int x, int y) {
+                while (x > 0 && y > 0) {
+                    System.out.println("Both X and Y are positive");
+                    x--;
+                    y--;
+                }
+            }
+        }
+        ''').strip()
+        assert self._value(content) == 3
+
     def _value(self, content: str) -> int:
         return MvnFreeNPathMetric(
             AST.build_from_javalang(
