@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 581.462929036
+  seconds: 691.862668018
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-09 12:04:48.921251782 Z
+  when: 2025-07-09 13:36:10.659219467 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -31229,52 +31229,79 @@
   total_stars: 87
   what: dimensions-of-terrain
   when: 2025-07-09 11:05:44.011682438 Z
-- _id: 17316
-  _time: 2025-07-09 12:00:33.732067243 Z
+- _id: 17323
+  _time: 2025-07-09 13:24:42.421160125 Z
   _version: 0.13.0/0.51.0/
-  latest: 51862851647
+  details: The issue cqfn/aibolit#857 has been closed by @yegor256.
+  event_id: 51864443042
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 857
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-07-09 07:51:03.000000000 Z
+  where: github
+  who: 526301
+- _id: 17324
+  _time: 2025-07-09 13:25:01.653740311 Z
+  _version: 0.13.0/0.51.0/
+  branch: improve-coco-850
+  details: The pull request cqfn/aibolit#859 has been opened by @antonprokopyev.
+  event_id: 51863714043
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 859
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-07-09 07:33:42.000000000 Z
+  where: github
+  who: 13173649
+- _id: 17332
+  _time: 2025-07-09 13:30:49.917603475 Z
+  _version: 0.13.0/0.51.0/
+  latest: 51864687089
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 17317
-  _time: 2025-07-09 12:01:10.506297653 Z
+- _id: 17333
+  _time: 2025-07-09 13:32:05.349913348 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 17334
+  _time: 2025-07-09 13:33:10.302564971 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 17335
+  _time: 2025-07-09 13:33:58.106364531 Z
+  _version: 0.13.0/0.51.0/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 17336
+  _time: 2025-07-09 13:36:06.042295527 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 17318
-  _time: 2025-07-09 12:02:44.626265970 Z
+- _id: 17337
+  _time: 2025-07-09 13:36:09.626016607 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 17319
-  _time: 2025-07-09 12:02:45.329300362 Z
+- _id: 17338
+  _time: 2025-07-09 13:36:10.511158579 Z
   _version: 0.13.0/0.51.0/
-  latest: 639
+  latest: 643
   repository: 237167507
   what: min-pull-was-found
-  where: github
-- _id: 17320
-  _time: 2025-07-09 12:03:29.692294246 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 17321
-  _time: 2025-07-09 12:04:26.883582747 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 17322
-  _time: 2025-07-09 12:04:48.889346232 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
   where: github

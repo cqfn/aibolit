@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="607022">
+<fb version="0.11.0" size="607605">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">581.462929036</seconds>
+    <seconds t="F">691.862668018</seconds>
     <version t="S">0.51.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-09T12:04:48Z</when>
+    <when t="T">2025-07-09T13:36:10Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -34557,17 +34557,75 @@
     <when t="T">2025-07-09T11:05:44Z</when>
   </f>
   <f>
-    <_id t="I">17316</_id>
-    <_time t="T">2025-07-09T12:00:33Z</_time>
+    <_id t="I">17323</_id>
+    <_time t="T">2025-07-09T13:24:42Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">51862851647</latest>
+    <details t="S">The issue cqfn/aibolit#857 has been closed by @yegor256.</details>
+    <event_id t="I">51864443042</event_id>
+    <event_type t="S">IssuesEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">857</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-closed</what>
+    <when t="T">2025-07-09T07:51:03Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">17324</_id>
+    <_time t="T">2025-07-09T13:25:01Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <branch t="S">improve-coco-850</branch>
+    <details t="S">The pull request cqfn/aibolit#859 has been opened by @antonprokopyev.</details>
+    <event_id t="I">51863714043</event_id>
+    <event_type t="S">PullRequestEvent</event_type>
+    <is_human t="I">1</is_human>
+    <issue t="I">859</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2025-07-09T07:33:42Z</when>
+    <where t="S">github</where>
+    <who t="I">13173649</who>
+  </f>
+  <f>
+    <_id t="I">17332</_id>
+    <_time t="T">2025-07-09T13:30:49Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">51864687089</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">17317</_id>
-    <_time t="T">2025-07-09T12:01:10Z</_time>
+    <_id t="I">17333</_id>
+    <_time t="T">2025-07-09T13:32:05Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">513</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">17334</_id>
+    <_time t="T">2025-07-09T13:33:10Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">513</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">17335</_id>
+    <_time t="T">2025-07-09T13:33:58Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">753</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">assignees-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">17336</_id>
+    <_time t="T">2025-07-09T13:36:06Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -34575,8 +34633,8 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">17318</_id>
-    <_time t="T">2025-07-09T12:02:44Z</_time>
+    <_id t="I">17337</_id>
+    <_time t="T">2025-07-09T13:36:09Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">401</latest>
     <repository t="I">237167507</repository>
@@ -34584,39 +34642,12 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">17319</_id>
-    <_time t="T">2025-07-09T12:02:45Z</_time>
+    <_id t="I">17338</_id>
+    <_time t="T">2025-07-09T13:36:10Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">639</latest>
+    <latest t="I">643</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">17320</_id>
-    <_time t="T">2025-07-09T12:03:29Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">17321</_id>
-    <_time t="T">2025-07-09T12:04:26Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">17322</_id>
-    <_time t="T">2025-07-09T12:04:48Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
