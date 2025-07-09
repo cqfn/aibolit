@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 555.837120792
+  seconds: 630.353453424
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-09 10:05:44.320231825 Z
+  when: 2025-07-09 11:07:25.405081875 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -31195,52 +31195,86 @@
   when: *396
   where: github
   who: 13173649
-- _id: 17286
-  _time: 2025-07-09 10:01:23.522412244 Z
+- _id: 17293
+  _job: 28301
+  _time:
+  - 2025-07-09 10:06:35.272780268 Z
+  - 2025-07-09 10:06:26.150166930 Z
+  _version: 0.13.0/0.51.0/0.14.25!0.14.26
+  award: 4
+  details: It's time to reward @antonprokopyev for the code contributed in cqfn/aibolit#858,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/858/#issuecomment-3051988978
+  is_human: 1
+  issue: 858
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-07-09 10:06:26.157216095 Z
+  where: github
+  who: 13173649
+  why: Contributed code in cqfn/aibolit#858
+- _id: 17301
+  _time: 2025-07-09 11:01:59.785292193 Z
   _version: 0.13.0/0.51.0/
   latest: 51860462444
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 17287
-  _time: 2025-07-09 10:02:00.934545942 Z
-  _version: 0.13.0/0.51.0/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 17288
-  _time: 2025-07-09 10:02:42.917328340 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 17289
-  _time: 2025-07-09 10:05:02.461650522 Z
+- _id: 17302
+  _time: 2025-07-09 11:03:48.297318848 Z
   _version: 0.13.0/0.51.0/
   latest: 513
   repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 17290
-  _time: 2025-07-09 10:05:40.441372824 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 17291
-  _time: 2025-07-09 10:05:43.746194715 Z
+- _id: 17303
+  _time: 2025-07-09 11:03:52.310625813 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 17292
-  _time: 2025-07-09 10:05:44.283631086 Z
+- _id: 17304
+  _time: 2025-07-09 11:03:52.994888593 Z
   _version: 0.13.0/0.51.0/
-  latest: 631
+  latest: 635
   repository: 237167507
   what: min-pull-was-found
+  where: github
+- _id: 17305
+  _time: 2025-07-09 11:05:43.986114670 Z
+  _version: 0.13.0/0.51.0/
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 17306
+  _time: 2025-07-09 11:05:52.753884104 Z
+  _version: 0.13.0/0.51.0/
+  total_active_contributors: 7
+  total_commits: 2585
+  total_contributors: 23
+  total_files: 1049
+  total_forks: 33
+  total_issues: 424
+  total_pulls: 437
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 87
+  what: dimensions-of-terrain
+  when: 2025-07-09 11:05:44.011682438 Z
+- _id: 17307
+  _time: 2025-07-09 11:06:36.712056683 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 17308
+  _time: 2025-07-09 11:07:25.256864441 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
