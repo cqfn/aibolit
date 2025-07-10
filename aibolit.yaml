@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 691.862668018
+  seconds: 671.70863283
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-09 13:36:10.659219467 Z
+  when: 2025-07-10 05:14:06.486313366 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -31230,7 +31230,54 @@
   what: dimensions-of-terrain
   when: 2025-07-09 11:05:44.011682438 Z
 - _id: 17323
-  _time: 2025-07-09 13:24:42.421160125 Z
+  _time: 2025-07-10 05:02:58.647798030 Z
+  _version: 0.13.0/0.51.0/
+  comments: 9
+  commits: 9
+  details: The pull request cqfn/aibolit#859 has been reviewed by @ivanovmg with 171
+    HoC and 9 comments.
+  event_id: 51868269980
+  event_type: PullRequestReviewEvent
+  files: 1
+  hoc: 171
+  is_human: 1
+  issue: 859
+  repository: 237167507
+  review_comments: 7
+  what: pull-was-reviewed
+  when: 2025-07-09 09:15:14.000000000 Z
+  where: github
+  who: 41443370
+- _id: 17324
+  _time: 2025-07-10 05:02:59.601062188 Z
+  _version: 0.13.0/0.51.0/
+  branch: '852'
+  details: The pull request cqfn/aibolit#861 has been opened by @ivanovmg.
+  event_id: 51865664122
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 861
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-07-09 08:18:59.000000000 Z
+  where: github
+  who: 41443370
+- _id: 17325
+  _time: 2025-07-10 05:02:59.673261574 Z
+  _version: 0.13.0/0.51.0/
+  branch: yet-another-codecov-fix-857
+  details: The pull request cqfn/aibolit#860 has been opened by @antonprokopyev.
+  event_id: 51865581074
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 860
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-07-09 08:17:04.000000000 Z
+  where: github
+  who: 13173649
+- _id: 17326
+  _time: 2025-07-10 05:03:00.148586235 Z
   _version: 0.13.0/0.51.0/
   details: The issue cqfn/aibolit#857 has been closed by @yegor256.
   event_id: 51864443042
@@ -31242,8 +31289,8 @@
   when: 2025-07-09 07:51:03.000000000 Z
   where: github
   who: 526301
-- _id: 17324
-  _time: 2025-07-09 13:25:01.653740311 Z
+- _id: 17327
+  _time: 2025-07-10 05:03:19.432222015 Z
   _version: 0.13.0/0.51.0/
   branch: improve-coco-850
   details: The pull request cqfn/aibolit#859 has been opened by @antonprokopyev.
@@ -31256,52 +31303,52 @@
   when: 2025-07-09 07:33:42.000000000 Z
   where: github
   who: 13173649
-- _id: 17332
-  _time: 2025-07-09 13:30:49.917603475 Z
+- _id: 17335
+  _time: 2025-07-10 05:08:59.364523692 Z
   _version: 0.13.0/0.51.0/
-  latest: 51864687089
+  latest: 51880087186
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 17333
-  _time: 2025-07-09 13:32:05.349913348 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 17334
-  _time: 2025-07-09 13:33:10.302564971 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 17335
-  _time: 2025-07-09 13:33:58.106364531 Z
-  _version: 0.13.0/0.51.0/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
 - _id: 17336
-  _time: 2025-07-09 13:36:06.042295527 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 17337
-  _time: 2025-07-09 13:36:09.626016607 Z
+  _time: 2025-07-10 05:09:02.790752392 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 17338
-  _time: 2025-07-09 13:36:10.511158579 Z
+- _id: 17337
+  _time: 2025-07-10 05:09:03.800427844 Z
   _version: 0.13.0/0.51.0/
   latest: 643
   repository: 237167507
   what: min-pull-was-found
+  where: github
+- _id: 17338
+  _time: 2025-07-10 05:10:05.811915858 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 17339
+  _time: 2025-07-10 05:11:06.765047141 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 17340
+  _time: 2025-07-10 05:11:46.293656833 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 17341
+  _time: 2025-07-10 05:13:22.948495254 Z
+  _version: 0.13.0/0.51.0/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
