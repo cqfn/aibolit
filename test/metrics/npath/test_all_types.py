@@ -547,6 +547,7 @@ class TestMvnFreeNPathMetric:
         # @todo #852:60min Fix MvnFreeNPathMetric for moderate NPath complexity case
         #  It is necessary to fix implementation of MvnFreeNPathMetric
         #  so that the test on a moderate NPath complexity case passes.
+        #  Once fixed, remove `pytest.mark.xfail` decorator.
         #
         #  It is most likely that the implementation of if statements is wrong.
         #  Refer to https://checkstyle.org/checks/metrics/npathcomplexity.html,
@@ -554,8 +555,6 @@ class TestMvnFreeNPathMetric:
         #  of NPath complexities for the condition, then and else parts.
         #  On the other hand when following this calculation, the simple if-else statement
         #  would have complexity of 3 rather than 2.
-        #
-        #  Once fixed, remove `pytest.mark.xfail` decorator.
         assert self._value_from_filepath(self._filepath('Complicated.java')) == 12
 
     @pytest.mark.xfail(
@@ -585,11 +584,7 @@ class TestMvnFreeNPathMetric:
         #  </module>
         #
         #  $ java -jar checkstyle-10.26.1-all.jar -c config.xml test/metrics/npath/Foo.java
-        #  Starting audit...
-        #  [ERROR] /.../test/metrics/npath/Foo.java:5:3: ...
-        #  NPath Complexity is 288 (max allowed is 1). [NPathComplexity]
-        #  Audit done.
-        #  Checkstyle ends with 1 errors.
+        #  [ERROR] ... NPath Complexity is 288 (max allowed is 1). [NPathComplexity]
         assert self._value_from_filepath(self._filepath('Foo.java')) == 288
 
     def _filepath(self, basename: str) -> pathlib.Path:
