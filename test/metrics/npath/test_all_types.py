@@ -1,13 +1,15 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
+import os
+import pathlib
 from textwrap import dedent
 
 import pytest
 
 from aibolit.ast_framework import AST
 from aibolit.metrics.npath.main import MvnFreeNPathMetric, NPathMetric
-from aibolit.utils.ast_builder import build_ast_from_string
+from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 
 
 def testIncorrectFormat():
@@ -537,9 +539,75 @@ class TestMvnFreeNPathMetric:
         ''').strip()
         assert self._value(content) == 3
 
+    @pytest.mark.xfail(
+        strict=True,
+        reason='Incorrect implementation. Most likely need to review if statement',
+    )
+    def test_complicated(self) -> None:
+        # @todo #852:60min Fix MvnFreeNPathMetric for moderate NPath complexity case
+        #  It is necessary to fix implementation of MvnFreeNPathMetric
+        #  so that the test on a moderate NPath complexity case passes.
+        #
+        #  It is most likely that the implementation of if statements is wrong.
+        #  Refer to https://checkstyle.org/checks/metrics/npathcomplexity.html,
+        #  where it is stated that complexity for the `if` statement is a sum
+        #  of NPath complexities for the condition, then and else parts.
+        #  On the other hand when following this calculation, the simple if-else statement
+        #  would have complexity of 3 rather than 2.
+        #
+        #  Once fixed, remove `pytest.mark.xfail` decorator.
+        assert self._value_from_filepath(self._filepath('Complicated.java')) == 12
+
+    @pytest.mark.xfail(
+        strict=True,
+        reason='Incorrect implementation. Most likely need to review if/switch statements',
+    )
+    def test_even_more_complicated(self) -> None:
+        # @todo #852:60min Fix MvnFreeNPathMetric for high NPath complexity case
+        #  It is necessary to fix implementation of MvnFreeNPathMetric,
+        #  so that the test on a very high NPath complexity case passes.
+        #  Once fixed, remove `pytest.mark.xfail` decorator.
+        #
+        #  Although the comment in Foo.java states that the expected value is 200,
+        #  the actual value, verified against `checkstyle-10.26.1-all.jar` is 288.
+        #
+        #  $ cat config.xml
+        #  <?xml version="1.0"?>
+        #  <!DOCTYPE module PUBLIC
+        #            "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        #            "https://checkstyle.org/dtds/configuration_1_3.dtd">
+        #  <module name="Checker">
+        #    <module name="TreeWalker">
+        #      <module name="NPathComplexity">
+        #        <property name="max" value="1"/>
+        #      </module>
+        #    </module>
+        #  </module>
+        #
+        #  $ java -jar checkstyle-10.26.1-all.jar -c config.xml test/metrics/npath/Foo.java
+        #  Starting audit...
+        #  [ERROR] /.../test/metrics/npath/Foo.java:5:3: ...
+        #  NPath Complexity is 288 (max allowed is 1). [NPathComplexity]
+        #  Audit done.
+        #  Checkstyle ends with 1 errors.
+        assert self._value_from_filepath(self._filepath('Foo.java')) == 288
+
+    def _filepath(self, basename: str) -> pathlib.Path:
+        return pathlib.Path(__file__).parent / basename
+
     def _value(self, content: str) -> int:
-        return MvnFreeNPathMetric(
+        return self._metric(
             AST.build_from_javalang(
                 build_ast_from_string(content),
             ),
-        ).value()
+        )
+
+    def _value_from_filepath(self, filepath: str | os.PathLike) -> int:
+        return self._metric(
+            AST.build_from_javalang(
+                build_ast(filepath),
+            ),
+        )
+
+    def _metric(self, ast: AST) -> int:
+        return MvnFreeNPathMetric(ast).value()
