@@ -103,6 +103,9 @@ class MvnFreeNPathMetric:
         if isinstance(node, list):
             return self._sequence_npath(node)
 
+        def default_handler(node: ASTNode) -> int:
+            return self._sequence_npath(node.children)
+
         dispatcher = {
             ASTNodeType.IF_STATEMENT: self._if_npath,
             ASTNodeType.SWITCH_STATEMENT: self._switch_npath,
@@ -110,7 +113,8 @@ class MvnFreeNPathMetric:
             ASTNodeType.WHILE_STATEMENT: self._while_loop_npath,
             ASTNodeType.BINARY_OPERATION: self._binary_expression_npath,
         }
-        handler = dispatcher.get(node.node_type, lambda n: self._sequence_npath(n.children))
+
+        handler = dispatcher.get(node.node_type, default_handler)
         return handler(node)
 
     def _sequence_npath(self, nodes: Iterable[ASTNode]) -> int:
