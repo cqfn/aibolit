@@ -138,12 +138,14 @@ class MvnFreeNPathMetric:
         return self._node_npath(node.expression) * max(case_paths, 1)
 
     def _for_loop_npath(self, node: ASTNode) -> int:
+        condition_npath = self._condition_npath(node.control)
         body_npath = self._node_npath(node.body)
-        return body_npath + self._condition_npath(node.control)
+        return condition_npath + body_npath
 
     def _while_loop_npath(self, node: ASTNode) -> int:
+        condition_npath = self._condition_npath(node)
         body_npath = self._node_npath(node.body)
-        return body_npath + self._condition_npath(node)
+        return condition_npath + body_npath
 
     def _condition_npath(self, node: ASTNode) -> int:
         if hasattr(node, 'condition') and node.condition:
