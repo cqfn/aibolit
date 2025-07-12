@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="609973">
+<fb version="0.11.0" size="610568">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">512.94293065</seconds>
+    <seconds t="F">771.486265743</seconds>
     <version t="S">0.51.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-12T10:03:30Z</when>
+    <when t="T">2025-07-12T11:07:50Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -34732,44 +34732,44 @@
     <when t="T">2025-07-11T11:57:16Z</when>
   </f>
   <f>
-    <_id t="I">18009</_id>
-    <_time t="T">2025-07-12T09:59:01Z</_time>
+    <_id t="I">18023</_id>
+    <_time t="T">2025-07-12T10:59:22Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">51993237228</latest>
+    <latest t="I">51994681350</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">18010</_id>
-    <_time t="T">2025-07-12T09:59:38Z</_time>
+    <_id t="I">18024</_id>
+    <_time t="T">2025-07-12T11:00:41Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">440</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">18011</_id>
-    <_time t="T">2025-07-12T10:01:12Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">327</latest>
+    <latest t="I">0</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">18012</_id>
-    <_time t="T">2025-07-12T10:02:04Z</_time>
+    <_id t="I">18025</_id>
+    <_time t="T">2025-07-12T11:01:59Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">513</latest>
+    <latest t="I">0</latest>
     <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
+    <what t="S">merges-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">18013</_id>
-    <_time t="T">2025-07-12T10:02:07Z</_time>
+    <_id t="I">18026</_id>
+    <_time t="T">2025-07-12T11:02:14Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">assignees-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">18027</_id>
+    <_time t="T">2025-07-12T11:02:20Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">401</latest>
     <repository t="I">237167507</repository>
@@ -34777,21 +34777,56 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">18014</_id>
-    <_time t="T">2025-07-12T10:02:08Z</_time>
+    <_id t="I">18028</_id>
+    <_time t="T">2025-07-12T11:02:21Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">835</latest>
+    <latest t="I">837</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">18015</_id>
-    <_time t="T">2025-07-12T10:02:45Z</_time>
+    <_id t="I">18029</_id>
+    <_time t="T">2025-07-12T11:04:48Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <average_backlog_size t="F">2.625</average_backlog_size>
+    <average_build_duration t="F">145.56177156177156</average_build_duration>
+    <average_build_mttr t="I">-36055</average_build_mttr>
+    <average_build_success_rate t="F">0.9603729603729604</average_build_success_rate>
+    <average_issue_lifetime t="F">1429502.6</average_issue_lifetime>
+    <average_pull_files_size t="F">6.25</average_pull_files_size>
+    <average_pull_hoc_size t="F">583.5</average_pull_hoc_size>
+    <average_pull_lifetime t="F">601442.8</average_pull_lifetime>
+    <average_pull_rejection_rate t="F">0.2</average_pull_rejection_rate>
+    <average_release_commits_size t="I">0</average_release_commits_size>
+    <average_release_hoc_size t="I">0</average_release_hoc_size>
+    <average_release_interval t="I">0</average_release_interval>
+    <average_review_size t="F">7.25</average_review_size>
+    <average_review_time t="F">728961.25</average_review_time>
+    <average_reviewers_per_pull t="F">2.0</average_reviewers_per_pull>
+    <average_reviews_per_pull t="F">6.5</average_reviews_per_pull>
+    <average_triage_time t="F">6024.666666666667</average_triage_time>
+    <since t="T">2025-07-05T11:02:21Z</since>
+    <what t="S">quality-of-service</what>
+    <when t="T">2025-07-12T11:02:21Z</when>
+  </f>
+  <f>
+    <_id t="I">18030</_id>
+    <_time t="T">2025-07-12T11:05:26Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
-    <what t="S">merges-were-scanned</what>
+    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">18031</_id>
+    <_time t="T">2025-07-12T11:07:50Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <since t="T">2025-07-05T11:05:26Z</since>
+    <total_builds_ran t="I">858</total_builds_ran>
+    <total_reviews_submitted t="I">26</total_reviews_submitted>
+    <what t="S">quantity-of-deliverables</what>
+    <when t="T">2025-07-12T11:05:26Z</when>
   </f>
 </fb>

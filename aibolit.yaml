@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 512.94293065
+  seconds: 771.486265743
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-12 10:03:30.046727839 Z
+  when: 2025-07-12 11:07:50.857781745 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -31386,52 +31386,83 @@
   total_stars: 87
   what: dimensions-of-terrain
   when: 2025-07-11 11:57:16.867913639 Z
-- _id: 18009
-  _time: 2025-07-12 09:59:01.883803318 Z
+- _id: 18023
+  _time: 2025-07-12 10:59:22.357363073 Z
   _version: 0.13.0/0.51.0/
-  latest: 51993237228
+  latest: 51994681350
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 18010
-  _time: 2025-07-12 09:59:38.214510393 Z
+- _id: 18024
+  _time: 2025-07-12 11:00:41.388044678 Z
   _version: 0.13.0/0.51.0/
-  latest: 440
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 18011
-  _time: 2025-07-12 10:01:12.022272006 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
+  latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 18012
-  _time: 2025-07-12 10:02:04.610207072 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 18013
-  _time: 2025-07-12 10:02:07.617640330 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 18014
-  _time: 2025-07-12 10:02:08.120087910 Z
-  _version: 0.13.0/0.51.0/
-  latest: 835
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 18015
-  _time: 2025-07-12 10:02:45.045116125 Z
+- _id: 18025
+  _time: 2025-07-12 11:01:59.026547292 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
+- _id: 18026
+  _time: 2025-07-12 11:02:14.233908436 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 18027
+  _time: 2025-07-12 11:02:20.457741341 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 18028
+  _time: 2025-07-12 11:02:21.037024067 Z
+  _version: 0.13.0/0.51.0/
+  latest: 837
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 18029
+  _time: 2025-07-12 11:04:48.853950206 Z
+  _version: 0.13.0/0.51.0/
+  average_backlog_size: 2.625
+  average_build_duration: 145.56177156177156
+  average_build_mttr: -36055
+  average_build_success_rate: 0.9603729603729604
+  average_issue_lifetime: 1429502.6
+  average_pull_files_size: 6.25
+  average_pull_hoc_size: 583.5
+  average_pull_lifetime: 601442.8
+  average_pull_rejection_rate: 0.2
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
+  average_release_interval: 0
+  average_review_size: 7.25
+  average_review_time: 728961.25
+  average_reviewers_per_pull: 2.0
+  average_reviews_per_pull: 6.5
+  average_triage_time: 6024.666666666667
+  since: 2025-07-05 11:02:21.231410809 Z
+  what: quality-of-service
+  when: 2025-07-12 11:02:21.231362839 Z
+- _id: 18030
+  _time: 2025-07-12 11:05:26.557184762 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 18031
+  _time: 2025-07-12 11:07:50.818280117 Z
+  _version: 0.13.0/0.51.0/
+  since: 2025-07-05 11:05:26.646616940 Z
+  total_builds_ran: 858
+  total_reviews_submitted: 26
+  what: quantity-of-deliverables
+  when: 2025-07-12 11:05:26.646572367 Z
