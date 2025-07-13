@@ -125,7 +125,7 @@ class CognitiveComplexityTestCase(TestCase):
                 sb.append('$');
                 return sb.toString();
               }
-            }                                                                // total complexity = 20
+            }                                                                // total = 20
             '''
         ).strip()
         self.assertEqual(CognitiveComplexity().value(
