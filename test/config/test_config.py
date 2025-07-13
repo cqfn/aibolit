@@ -26,7 +26,7 @@ def is_ast_or_subclass(ann):
     if ann is inspect.Signature.empty:
         return False
     if isinstance(ann, str):
-        return ann == 'AST' or ann == 'aibolit.ast_framework.ast.AST'
+        return ann == 'AST'
     try:
         return issubclass(ann, AST)
     except TypeError:
