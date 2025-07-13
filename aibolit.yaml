@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 681.358054048
+  seconds: 570.479022729
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-13 20:06:26.817318449 Z
+  when: 2025-07-13 21:04:43.204464203 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -31129,18 +31129,6 @@
   where: github
   who: 13173649
   why: Reported bug in cqfn/aibolit#857
-- _id: 17261
-  _job: 28297
-  _time: 2025-07-09 08:05:23.724510688 Z
-  _version: 0.13.0/0.51.0/0.14.25!0.14.26
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  what: learn-eva
-  when: 2025-07-09 08:05:23.711397674 Z
 - _id: 17262
   _time: 2025-07-09 09:01:31.441425434 Z
   _version: 0.13.0/0.51.0/
@@ -31654,52 +31642,64 @@
   total_stars: 87
   what: dimensions-of-terrain
   when: 2025-07-13 13:21:01.925758230 Z
-- _id: 18475
-  _time: 2025-07-13 20:00:52.716997803 Z
+- _id: 18482
+  _job: 28715
+  _time: 2025-07-13 20:07:28.867251675 Z
+  _version: 0.13.0/0.51.0/0.14.25!0.14.27
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  what: learn-eva
+  when: 2025-07-13 20:07:28.854097613 Z
+- _id: 18490
+  _time: 2025-07-13 20:59:44.339998001 Z
   _version: 0.13.0/0.51.0/
-  latest: 52027990074
+  latest: 52028725212
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 18476
-  _time: 2025-07-13 20:01:40.512154072 Z
-  _version: 0.13.0/0.51.0/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 18477
-  _time: 2025-07-13 20:02:52.753238085 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 18478
-  _time: 2025-07-13 20:04:17.874392841 Z
+- _id: 18491
+  _time: 2025-07-13 21:00:27.082813432 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 18479
-  _time: 2025-07-13 20:06:13.499190952 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 18480
-  _time: 2025-07-13 20:06:17.110122906 Z
+- _id: 18492
+  _time: 2025-07-13 21:01:11.518285464 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 18481
-  _time: 2025-07-13 20:06:17.822568673 Z
+- _id: 18493
+  _time: 2025-07-13 21:01:12.188841531 Z
   _version: 0.13.0/0.51.0/
-  latest: 232
+  latest: 234
   repository: 237167507
   what: min-pull-was-found
+  where: github
+- _id: 18494
+  _time: 2025-07-13 21:02:18.576520790 Z
+  _version: 0.13.0/0.51.0/
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 18495
+  _time: 2025-07-13 21:03:05.754999383 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 18496
+  _time: 2025-07-13 21:04:43.170808724 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
