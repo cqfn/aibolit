@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 501.44759814
+  seconds: 682.955541906
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-13 10:03:24.541511802 Z
+  when: 2025-07-13 11:08:17.891620253 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -31434,52 +31434,155 @@
   total_stars: 87
   what: dimensions-of-terrain
   when: 2025-07-12 12:02:35.800327286 Z
-- _id: 18320
-  _time: 2025-07-13 09:59:34.405699537 Z
+- _id: 18327
+  _time: 2025-07-13 10:56:58.847161153 Z
   _version: 0.13.0/0.51.0/
-  latest: 52020537844
+  branch: avoid-ast-int-repr-usage-850
+  details: The pull request cqfn/aibolit#864 has been opened by @antonprokopyev.
+  event_id: 52021194093
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 864
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-07-13 10:47:35.000000000 Z
+  where: github
+  who: 13173649
+- _id: 18328
+  _time: 2025-07-13 10:56:59.153089549 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#863 has been opened by @0pdd.
+  event_id: 52020865602
+  event_type: IssuesEvent
+  is_human: 0
+  issue: 863
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-07-13 10:23:30.000000000 Z
+  where: github
+  who: 24456188
+- _id: 18329
+  _time: 2025-07-13 10:56:59.494669086 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#862 has been opened by @0pdd.
+  event_id: 52020865001
+  event_type: IssuesEvent
+  is_human: 0
+  issue: 862
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-07-13 10:23:27.000000000 Z
+  where: github
+  who: 24456188
+- _id: 18330
+  _time: 2025-07-13 10:56:59.993691018 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#852 has been closed by @yegor256.
+  event_id: 52020863376
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 852
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-07-13 10:23:20.000000000 Z
+  where: github
+  who: 526301
+- _id: 18331
+  _time: 2025-07-13 10:57:00.303036172 Z
+  _version: 0.13.0/0.51.0/
+  branch: '852'
+  comments: 13
+  comments_appreciated: 4
+  comments_by_author: 7
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 7
+  details: The pull request cqfn/aibolit#861 has been closed by @yegor256, with 211
+    HoC and 13 comments.
+  event_id: 52020863269
+  event_type: PullRequestEvent
+  failed_builds: 0
+  hoc: 211
+  is_human: 1
+  issue: 861
+  repository: 237167507
+  review_comments: 7
+  succeeded_builds: 18
+  what: pull-was-merged
+  when: 2025-07-13 10:23:19.000000000 Z
+  where: github
+  who: 526301
+- _id: 18332
+  _time: 2025-07-13 10:57:19.974040911 Z
+  _version: 0.13.0/0.51.0/
+  branch: yet-another-codecov-fix-857
+  comments: 6
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: The pull request cqfn/aibolit#860 has been closed by @yegor256, with 2
+    HoC and 6 comments.
+  event_id: 52020857425
+  event_type: PullRequestEvent
+  failed_builds: 0
+  hoc: 2
+  is_human: 1
+  issue: 860
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 18
+  what: pull-was-merged
+  when: 2025-07-13 10:22:53.000000000 Z
+  where: github
+  who: 526301
+- _id: 18340
+  _time: 2025-07-13 11:03:17.558791474 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52021281327
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 18321
-  _time: 2025-07-13 10:00:11.943264743 Z
+- _id: 18341
+  _time: 2025-07-13 11:03:58.109031178 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 18322
-  _time: 2025-07-13 10:01:04.314192940 Z
+- _id: 18342
+  _time: 2025-07-13 11:04:40.429576629 Z
   _version: 0.13.0/0.51.0/
-  latest: 513
+  latest: 0
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 18323
-  _time: 2025-07-13 10:01:19.802923830 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 18324
-  _time: 2025-07-13 10:02:40.498151333 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 18325
-  _time: 2025-07-13 10:03:24.049594467 Z
+- _id: 18343
+  _time: 2025-07-13 11:05:37.571122842 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 18326
-  _time: 2025-07-13 10:03:24.505631585 Z
+- _id: 18344
+  _time: 2025-07-13 11:05:38.248520292 Z
   _version: 0.13.0/0.51.0/
-  latest: 200
+  latest: 203
   repository: 237167507
   what: min-pull-was-found
+  where: github
+- _id: 18345
+  _time: 2025-07-13 11:06:38.723025203 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 18346
+  _time: 2025-07-13 11:08:10.251168541 Z
+  _version: 0.13.0/0.51.0/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
