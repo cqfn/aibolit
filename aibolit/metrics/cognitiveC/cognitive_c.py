@@ -35,15 +35,12 @@ class CognitiveComplexity:
     def _if_complexity(self, node: ASTNode, nested_level: int, method_name: str) -> int:
         complexity = self._complexity(node.condition, 0, method_name)
         if then_ := node.then_statement:
-            complexity += nested_level + 1
-            complexity += self._complexity(then_, nested_level + 1, method_name)
+            complexity += nested_level + 1 + self._complexity(then_, nested_level + 1, method_name)
         if else_ := node.else_statement:
             if else_.node_type == ASTNodeType.IF_STATEMENT:
-                complexity -= nested_level
-                complexity += self._if_complexity(else_, nested_level, method_name)
+                complexity += (-nested_level) + self._if_complexity(else_, nested_level, method_name)
             else:
-                complexity += 1
-                complexity += self._complexity(else_, nested_level + 1, method_name)
+                complexity += 1 + self._complexity(else_, nested_level + 1, method_name)
         return complexity
 
     def _condition_complexity(self, node: ASTNode) -> int:
