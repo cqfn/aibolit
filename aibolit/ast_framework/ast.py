@@ -102,6 +102,19 @@ class AST:
         allowed_fields_names: Set[str],
         allowed_methods_names: Set[str]
     ) -> 'AST':
+        """
+        Creates a filtered AST containing only specified fields and methods.
+
+        Args:
+            allowed_fields_names: Set of field names to include
+            allowed_methods_names: Set of method names to include
+
+        Returns:
+            New AST instance with filtered subgraph
+
+        Raises:
+            ValueError: If root node is not a CLASS_DECLARATION
+        """
         class_declaration = self.get_root()
         if class_declaration.node_type != ASTNodeType.CLASS_DECLARATION:
             raise ValueError(
@@ -111,7 +124,7 @@ class AST:
         allowed_nodes = {class_declaration.node_index}
 
         for field_declaration in class_declaration.fields:
-            if len(allowed_fields_names & set(field_declaration.names)) != 0:
+            if allowed_fields_names & set(field_declaration.names):
                 field_ast = self.get_subtree(field_declaration)
                 allowed_nodes.update(node.node_index for node in field_ast)
 
