@@ -2,11 +2,12 @@
 # SPDX-License-Identifier: MIT
 
 from pathlib import Path
+from textwrap import dedent
 from unittest import TestCase
 
 from aibolit.metrics.cognitiveC.cognitive_c import CognitiveComplexity
 from aibolit.ast_framework import AST
-from aibolit.utils.ast_builder import build_ast
+from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 
 
 class CognitiveComplexityTestCase(TestCase):
@@ -81,3 +82,54 @@ class CognitiveComplexityTestCase(TestCase):
         metric = CognitiveComplexity()
         value = metric.value(ast)
         self.assertEqual(value, 13)
+
+    def test_co_co_sonar_guide_example_1(self):
+        content = dedent(
+            '''\
+            class Dummy {
+              // See: https://www.sonarsource.com/docs/CognitiveComplexity.pdf Appendix C
+              private static String toRegexp(String antPattern, String directorySeparator) {
+                final String escapedDirectorySeparator = '\\\\' + directorySeparator;
+                final StringBuilder sb = new StringBuilder(antPattern.length());
+                sb.append('^');
+                int i = antPattern.startsWith("/") ||                        // +1
+                     antPattern.startsWith("\\\\") ? 1 : 0;                  // +1
+                while (i < antPattern.length()) {                            // +1
+                  final char ch = antPattern.charAt(i);
+                  if (SPECIAL_CHARS.indexOf(ch) != -1) {                     // +2 (nesting = 1)
+                    sb.append('\\\\').append(ch);
+                  } else if (ch == '*') {                                    // +1
+                    if (i + 1 < antPattern.length()                          // +3 (nesting = 2)
+                            && antPattern.charAt(i + 1) == '*') {            // +1
+                      if (i + 2 < antPattern.length()                        // +4 (nesting = 3)
+                           && isSlash(antPattern.charAt(i + 2))) {           // +1
+                        sb.append("(?:.*")
+                            .append(escapedDirectorySeparator).append("|)");
+                        i += 2;
+                      } else {                                               // +1
+                        sb.append(".*");
+                        i += 1;
+                      }
+                    } else {                                                 // +1
+                      sb.append("[^").append(escapedDirectorySeparator).append("]*?");
+                    }
+                  } else if (ch == '?') {                                    // +1
+                    sb.append("[^").append(escapedDirectorySeparator).append("]");
+                  } else if (isSlash(ch)) {                                  // +1
+                    sb.append(escapedDirectorySeparator);
+                  } else {                                                   // +1
+                    sb.append(ch);
+                  }
+                  i++;
+                }
+                sb.append('$');
+                return sb.toString();
+              }
+            }                                                                // total complexity = 20
+            '''
+        ).strip()
+        self.assertEqual(CognitiveComplexity().value(
+            AST.build_from_javalang(
+                build_ast_from_string(content),
+            ),
+        ), 20)
