@@ -43,6 +43,6 @@ class ExternalMethodsCalledCount:
             second: ASTNode,
     ) -> bool:
         return (
-            first.node_type == ASTNodeType.MEMBER_REFERENCE and
-            second.node_type == ASTNodeType.METHOD_INVOCATION
+                first.node_type == ASTNodeType.MEMBER_REFERENCE and
+                second.node_type == ASTNodeType.METHOD_INVOCATION
         )
