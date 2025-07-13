@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 682.955541906
+  seconds: 541.333828944
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-13 11:08:17.891620253 Z
+  when: 2025-07-13 12:04:00.537760396 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -31509,7 +31509,7 @@
   review_comments: 7
   succeeded_builds: 18
   what: pull-was-merged
-  when: 2025-07-13 10:23:19.000000000 Z
+  when: &398 2025-07-13 10:23:19.000000000 Z
   where: github
   who: 526301
 - _id: 18332
@@ -31534,55 +31534,115 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: 2025-07-13 10:22:53.000000000 Z
+  when: &399 2025-07-13 10:22:53.000000000 Z
   where: github
   who: 526301
-- _id: 18340
-  _time: 2025-07-13 11:03:17.558791474 Z
+- _id: 18347
+  _job: 28672
+  _time: 2025-07-13 11:08:49.916585398 Z
+  _version: 0.13.0/0.51.0/0.14.25!0.14.27
+  comments: 13
+  details: The pull request cqfn/aibolit#861 with 211 HoC created by @ivanovmg was
+    merged by @yegor256 after 4d2h of being in review and 13 comments.
+  hoc: 211
+  is_human: 1
+  issue: 861
+  merger: 526301
+  repository: 237167507
+  review_comments: 7
+  seconds: 353060
+  what: code-was-contributed
+  when: *398
+  where: github
+  who: 41443370
+- _id: 18348
+  _job: 28672
+  _time: 2025-07-13 11:08:50.385952685 Z
+  _version: 0.13.0/0.51.0/0.14.25!0.14.27
+  comments: 6
+  details: The pull request cqfn/aibolit#860 with 2 HoC created by @antonprokopyev
+    was merged by @yegor256 after 4d2h of being in review and 6 comments.
+  hoc: 2
+  is_human: 1
+  issue: 860
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 353149
+  what: code-was-contributed
+  when: *399
+  where: github
+  who: 13173649
+- _id: 18354
+  _time: 2025-07-13 11:58:09.606194438 Z
   _version: 0.13.0/0.51.0/
-  latest: 52021281327
+  details: The 'bug' label was attached by @0pdd to the issue cqfn/aibolit#862.
+  is_human: 0
+  issue: 862
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-07-13 10:23:27.000000000 Z
+  where: github
+  who: 24456188
+- _id: 18355
+  _time: 2025-07-13 11:58:10.241043217 Z
+  _version: 0.13.0/0.51.0/
+  details: The 'bug' label was attached by @0pdd to the issue cqfn/aibolit#863.
+  is_human: 0
+  issue: 863
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-07-13 10:23:29.000000000 Z
+  where: github
+  who: 24456188
+- _id: 18358
+  _time: 2025-07-13 11:59:15.882599158 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52021762969
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 18341
-  _time: 2025-07-13 11:03:58.109031178 Z
+- _id: 18359
+  _time: 2025-07-13 12:00:13.052259888 Z
   _version: 0.13.0/0.51.0/
-  latest: 0
+  latest: 327
   repository: 237167507
-  what: merges-were-scanned
+  what: labels-were-scanned
   where: github
-- _id: 18342
-  _time: 2025-07-13 11:04:40.429576629 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 18343
-  _time: 2025-07-13 11:05:37.571122842 Z
+- _id: 18360
+  _time: 2025-07-13 12:00:15.789625610 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 18344
-  _time: 2025-07-13 11:05:38.248520292 Z
+- _id: 18361
+  _time: 2025-07-13 12:00:16.393584467 Z
   _version: 0.13.0/0.51.0/
-  latest: 203
+  latest: 205
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 18345
-  _time: 2025-07-13 11:06:38.723025203 Z
+- _id: 18362
+  _time: 2025-07-13 12:02:26.318239080 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 18363
+  _time: 2025-07-13 12:03:16.871420491 Z
   _version: 0.13.0/0.51.0/
   latest: 513
   repository: 237167507
-  what: labels-were-scanned
+  what: types-were-scanned
   where: github
-- _id: 18346
-  _time: 2025-07-13 11:08:10.251168541 Z
+- _id: 18364
+  _time: 2025-07-13 12:03:55.835618486 Z
   _version: 0.13.0/0.51.0/
-  latest: 753
+  latest: 0
   repository: 237167507
-  what: assignees-were-scanned
+  what: merges-were-scanned
   where: github
