@@ -536,6 +536,7 @@ def _process_file_result(file, result_for_file):
         patterns_number = len(results)
         importance_for_class = []
 
+
         for i, pattern in enumerate(results, start=1):
             if pattern.get('pattern_code'):
                 pattern_score = _process_pattern(patterns_tag, pattern, i, patterns_number)
@@ -801,6 +802,7 @@ def check():
                 print('\n'.join(text))
 
     return exit_code
+
 
 def handle_exclude_command_line(args: Any) -> List[str]:
     files_to_exclude: List[str] = []
