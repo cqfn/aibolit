@@ -531,11 +531,10 @@ def _process_file_result(file, result_for_file):
         importances_sum_tag = etree.SubElement(file, 'score')
         patterns_tag = etree.SubElement(file, 'patterns')
         results = result_for_file['results']
-        if results and isinstance(results[0], list):
+        if results and all(isinstance(item, list) for item in results):
             results = flatten(results)
         patterns_number = len(results)
         importance_for_class = []
-
 
         for i, pattern in enumerate(results, start=1):
             if pattern.get('pattern_code'):
