@@ -61,6 +61,7 @@ class TestRecommendPipeline(TestCase):
         error_file = {
             'exception': str(ex),
             'filename': 'hdd/home/Error.java',
+            'ncss': 0,
             'results': []
         }
         mock_input = [item, another_item, error_file]
@@ -152,6 +153,11 @@ class TestRecommendPipeline(TestCase):
     def test_xml_empty_results(self):
         mock_cmd = self.__create_mock_cmd()
         create_xml_tree([], full_report=True, cmd=mock_cmd, exit_code=0)
+
+    def test_xml(self):
+        mock_input = self.__create_mock_input()
+        mock_cmd = self.__create_mock_cmd()
+        create_xml_tree(mock_input, full_report=True, cmd=mock_cmd, exit_code=2)
 
     def test_text_format(self):
         mock_input = self.__create_mock_input()
