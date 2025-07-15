@@ -104,7 +104,7 @@ class MvnFreeNPathMetric:
             return self._sequence_npath(node)
 
         def default_handler(node: ASTNode) -> int:
-            return self._sequence_npath(node.children)
+            return max(1, self._sequence_npath(node.children))
 
         dispatcher = {
             ASTNodeType.IF_STATEMENT: self._if_npath,
@@ -112,6 +112,7 @@ class MvnFreeNPathMetric:
             ASTNodeType.FOR_STATEMENT: self._for_loop_npath,
             ASTNodeType.WHILE_STATEMENT: self._while_loop_npath,
             ASTNodeType.BINARY_OPERATION: self._binary_expression_npath,
+            ASTNodeType.EXPRESSION: self._expression_npath,
         }
 
         handler = dispatcher.get(node.node_type, default_handler)
@@ -128,33 +129,34 @@ class MvnFreeNPathMetric:
             if node.else_statement is not None
             else 1
         )
-        return condition_npath * then_npath + else_npath
+        return condition_npath + then_npath + else_npath
 
     def _switch_npath(self, node: ASTNode) -> int:
-        def _group_npath(case_group: ASTNode) -> int:
-            return math.prod((self._node_npath(case) for case in case_group.children))
-
-        case_paths = sum(_group_npath(case_group) for case_group in node.cases)
-        return self._node_npath(node.expression) * max(case_paths, 1)
+        npath = 0
+        has_case = False
+        has_default = False
+        for case_group in node.cases:
+            if len(case_group.case):
+                has_case = True
+            else:
+                has_default = True
+            npath += self._node_npath(case_group.statements)
+        return npath + int(not has_case) + int(not has_default)
 
     def _for_loop_npath(self, node: ASTNode) -> int:
-        condition_npath = self._condition_npath(node.control)
+        control_npath = sum(self._expression_npath(expr) for expr in node.control.children)
         body_npath = self._node_npath(node.body)
-        return condition_npath + body_npath
+        return control_npath + body_npath + 1
 
     def _while_loop_npath(self, node: ASTNode) -> int:
-        condition_npath = self._condition_npath(node)
+        condition_npath = self._expression_npath(node)
         body_npath = self._node_npath(node.body)
-        return condition_npath + body_npath
+        return condition_npath + body_npath + 1
 
-    def _condition_npath(self, node: ASTNode) -> int:
-        if hasattr(node, 'condition') and node.condition:
-            return max(1, self._node_npath(node.condition))
-        return 1
+    def _expression_npath(self, node: ASTNode) -> int:
+        return sum(self._node_npath(node) for node in node.children)
 
     def _binary_expression_npath(self, node: ASTNode) -> int:
-        if node.operator not in {'&&', '||'}:
-            return 1
         left_npath = self._node_npath(node.operandl)
         right_npath = self._node_npath(node.operandr)
-        return left_npath + right_npath
+        return left_npath + right_npath + (node.operator in {'&&', '||'})
