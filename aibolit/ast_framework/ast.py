@@ -14,7 +14,6 @@ from aibolit.ast_framework._auxiliary_data import (
     javalang_to_ast_node_type, attributes_by_node_type, ASTNodeReference
 )
 from aibolit.ast_framework.ast_node import ASTNode
-from aibolit.utils.ast_builder import build_ast_from_string
 
 MethodInvocationParams = namedtuple('MethodInvocationParams', ['object_name', 'method_name'])
 
@@ -42,10 +41,6 @@ class AST:
                                                    javalang_node_to_index_map)
         AST._replace_javalang_nodes_in_attributes(tree, javalang_node_to_index_map)
         return AST(tree, root)
-
-    @staticmethod
-    def from_string(content: str) -> 'AST':
-        return AST.build_from_javalang(build_ast_from_string(content))
 
     def __str__(self) -> str:
         printed_graph = ''

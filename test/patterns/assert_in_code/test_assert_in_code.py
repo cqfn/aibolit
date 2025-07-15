@@ -6,6 +6,7 @@ from unittest import TestCase
 
 from aibolit.ast_framework import AST
 from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode
+from aibolit.utils.ast_builder import build_ast_from_string
 
 
 def book_content() -> str:
@@ -16,7 +17,7 @@ def book_content() -> str:
 
         class Book {
           void foo(String x) {
-            assert x != null;
+            assert x != null; // here
           }
         }
         '''
@@ -26,5 +27,5 @@ def book_content() -> str:
 class AssertInCodeTestCase(TestCase):
 
     def test_assert_in_code(self):
-        ast = AST.from_string(book_content())
+        ast = AST.build_from_javalang(build_ast_from_string(book_content()))
         self.assertEqual(AssertInCode().value(ast), [6])
