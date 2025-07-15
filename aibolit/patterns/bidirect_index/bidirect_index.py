@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+import os
 import re
+
+from aibolit.types_decl import LineNumber
 
 
 def find_methods(lines):
@@ -118,40 +121,36 @@ def count_inc_dec(lines, var, for_blocks, start, end):
 
 class BidirectIndex:
     """
-    This class analyzes Java source code to find line numbers where a variable
-    is used as a bidirectional index.
-    A bidirectional index is defined as a variable that:
-        - is assigned a value (with or without type declaration) within a method or block,
-        - is incremented and decremented somewhere in its scope,
-        - increments/decrements inside a for-loop with a local variable of the same name
-    are ignored (to avoid "fake" cases).
+    Analyze Java source code to find line numbers where a variable is used as a bidirectional index.
 
-    The typical use-case: detect patterns like `i = 0; ... ++i; ... --i;`
-    in Java code, while ignoring manipulations of `i` inside
-    loops where `i` is a local loop variable (e.g., `for (int i = 0; ...) { ... }`).
+    A bidirectional index is a variable that:
+      - is assigned a value (with or without type declaration) within a method or block,
+      - is incremented and decremented somewhere in its scope,
+      - increments/decrements inside a for-loop with a local variable of the same name are ignored.
 
     Usage:
         idx = BidirectIndex()
-        lines = open("MyClass.java", encoding="utf-8").readlines()
-        result = idx.value(lines)
-        # result is a list of line numbers matching the described pattern
+        result = idx.value("MyClass.java")
     """
 
     def __init__(self):
         pass
 
-    def value(self, lines):
+    def value(self, filename: str | os.PathLike) -> list[LineNumber]:
         """
-        Analyze the given Java file lines and return a sorted list of line numbers where a variable
-        is used as a bidirectional index as per the definition above.
+        Analyze the given Java file and return a sorted list of line numbers where a variable
+        is used as a bidirectional index.
 
         Args:
-            lines (list[str]): Lines of the Java source file.
+            filename (str | os.PathLike): Path to the Java source file.
 
         Returns:
-            List[int]: Sorted list of line numbers where bidirectional indices are found.
+            list[LineNumber]: Sorted list of line numbers where bidirectional indices are found.
         """
+
+        with open(filename, encoding='utf-8') as f:
+            lines = f.readlines()
         result: list[int] = []
         for m_start, m_end in find_methods(lines):
             analyze_block(lines, m_start + 1, m_end, result)
-        return sorted(result)
+        return [LineNumber(n) for n in sorted(result)]
