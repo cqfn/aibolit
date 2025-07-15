@@ -14,13 +14,13 @@ from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 
 def testIncorrectFormat():
     with pytest.raises(Exception, match='PMDException'):
-        file = 'test/metrics/npath/ooo.java'
+        file = 'test/metrics/npath/javacode/ooo.java'
         metric = NPathMetric(file)
         metric.value(True)
 
 
 def testLowScore():
-    file = 'test/metrics/npath/OtherClass.java'
+    file = 'test/metrics/npath/javacode/OtherClass.java'
     metric = NPathMetric(file)
     res = metric.value(True)
     assert res['data'][0]['complexity'] == 3
@@ -28,7 +28,7 @@ def testLowScore():
 
 
 def testHighScore():
-    file = 'test/metrics/npath/Foo.java'
+    file = 'test/metrics/npath/javacode/Foo.java'
     metric = NPathMetric(file)
     res = metric.value(True)
     assert res['data'][0]['complexity'] == 200
@@ -36,15 +36,15 @@ def testHighScore():
 
 
 def testNonExistedFile():
-    match = 'File test/metrics/npath/ooo1.java does not exist'
+    match = 'File test/metrics/npath/javacode/ooo1.java does not exist'
     with pytest.raises(Exception, match=match):
-        file = 'test/metrics/npath/ooo1.java'
+        file = 'test/metrics/npath/javacode/ooo1.java'
         metric = NPathMetric(file)
         metric.value(True)
 
 
 def testMediumScore():
-    file = 'test/metrics/npath/Complicated.java'
+    file = 'test/metrics/npath/javacode/Complicated.java'
     metric = NPathMetric(file)
     res = metric.value(True)
     assert res['data'][0]['complexity'] == 12
@@ -247,7 +247,7 @@ class TestMvnFreeNPathMetric:
             }
             ''',
         ).strip()
-        assert self._value(content) == 1
+        assert self._value(content) == 2
 
     def test_switch_simple_without_default(self):
         content = dedent(
@@ -539,10 +539,6 @@ class TestMvnFreeNPathMetric:
         ''').strip()
         assert self._value(content) == 3
 
-    @pytest.mark.xfail(
-        strict=True,
-        reason='Incorrect implementation. Most likely need to review if statement',
-    )
     def test_complicated(self) -> None:
         # @todo #852:60min Fix MvnFreeNPathMetric for moderate NPath complexity case
         #  It is necessary to fix implementation of MvnFreeNPathMetric
@@ -555,12 +551,8 @@ class TestMvnFreeNPathMetric:
         #  of NPath complexities for the condition, then and else parts.
         #  On the other hand when following this calculation, the simple if-else statement
         #  would have complexity of 3 rather than 2.
-        assert self._value_from_filepath(self._filepath('Complicated.java')) == 12
+        assert self._value_from_filepath(self._filepath('javacode/Complicated.java')) == 12
 
-    @pytest.mark.xfail(
-        strict=True,
-        reason='Incorrect implementation. Most likely need to review if/switch statements',
-    )
     def test_even_more_complicated(self) -> None:
         # @todo #852:60min Fix MvnFreeNPathMetric for high NPath complexity case
         #  It is necessary to fix implementation of MvnFreeNPathMetric,
@@ -583,9 +575,9 @@ class TestMvnFreeNPathMetric:
         #    </module>
         #  </module>
         #
-        #  $ java -jar checkstyle-10.26.1-all.jar -c config.xml test/metrics/npath/Foo.java
+        #  $ java -jar checkstyle-10.26.1-all.jar -c config.xml test/metrics/npath/javacode/Foo.java
         #  [ERROR] ... NPath Complexity is 288 (max allowed is 1). [NPathComplexity]
-        assert self._value_from_filepath(self._filepath('Foo.java')) == 288
+        assert self._value_from_filepath(self._filepath('javacode/Foo.java')) == 288
 
     def _filepath(self, basename: str) -> pathlib.Path:
         return pathlib.Path(__file__).parent / basename
