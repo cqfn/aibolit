@@ -72,7 +72,7 @@ class BidirectIndex:
                         break
                     j += 1
                 inc_outside, dec_outside = (
-                    self._count_inc_dec(lines, var, i + 1, j))
+                    self._count_inc_dec(lines, var, i + 1, j - 1))
                 if inc_outside and dec_outside:
                     result.append(i + 1)
             if '{' in line:
