@@ -28,7 +28,7 @@ def testLowScore():
 
 
 def testHighScore():
-    file = 'test/metrics/npath/javacode/Foo.java'
+    file = 'test/metrics/npath/javacode/EvenMoreComplicated.java'
     metric = NPathMetric(file)
     res = metric.value(True)
     assert res['data'][0]['complexity'] == 200
