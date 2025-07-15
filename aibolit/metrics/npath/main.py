@@ -149,7 +149,6 @@ class MvnFreeNPathMetric:
 
     def _for_loop_npath(self, node: ASTNode) -> int:
         control_npath = sum(self._expression_npath(expr) for expr in node.control.children)
-        print(node.body.node_type)
         body_npath = self._node_npath(node.body)
         return control_npath + body_npath + 1
 
