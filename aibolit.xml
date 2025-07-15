@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="616519">
+<fb version="0.11.0" size="617085">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">755.294056824</seconds>
+    <seconds t="F">699.981064048</seconds>
     <version t="S">0.51.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-14T23:09:29Z</when>
+    <when t="T">2025-07-15T00:06:55Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -35099,8 +35099,40 @@
     <who t="I">154023300</who>
   </f>
   <f>
-    <_id t="I">18832</_id>
-    <_time t="T">2025-07-14T23:04:12Z</_time>
+    <_id t="I">18836</_id>
+    <_time t="T">2025-07-14T23:07:41Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <details t="S">onemoreslacker</details>
+    <is_human t="I">1</is_human>
+    <name t="S">onemoreslacker</name>
+    <what t="S">who-has-name</what>
+    <where t="S">github</where>
+    <who t="I">154023300</who>
+  </f>
+  <f>
+    <_id t="I">18840</_id>
+    <_job t="I">28870</_job>
+    <_time>
+      <v t="T">2025-07-14T23:10:24Z</v>
+      <v t="T">2025-07-14T23:10:01Z</v>
+    </_time>
+    <_version t="S">0.13.0/0.51.0/0.14.25!0.14.27</_version>
+    <award t="I">-12</award>
+    <branch t="S">recommendxml</branch>
+    <details t="S">It's time to punish @onemoreslacker for the branch named as 'recommendxml', which is wrong in cqfn/aibolit#865, the penalty amount is -12.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/865/#issuecomment-3071299104</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">865</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">bad-branch-name-was-punished</what>
+    <when t="T">2025-07-14T23:10:01Z</when>
+    <where t="S">github</where>
+    <who t="I">154023300</who>
+    <why t="S">Wrongly named a branch in cqfn/aibolit#865</why>
+  </f>
+  <f>
+    <_id t="I">18848</_id>
+    <_time t="T">2025-07-15T00:02:23Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">3200322689</latest>
     <repository t="I">237167507</repository>
@@ -35108,17 +35140,8 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">18833</_id>
-    <_time t="T">2025-07-14T23:05:29Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">327</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">18834</_id>
-    <_time t="T">2025-07-14T23:06:52Z</_time>
+    <_id t="I">18849</_id>
+    <_time t="T">2025-07-15T00:03:04Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -35126,36 +35149,8 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">18835</_id>
-    <_time t="T">2025-07-14T23:07:41Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">440</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">18836</_id>
-    <_time t="T">2025-07-14T23:07:41Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <details t="S">onemoreslacker</details>
-    <name t="S">onemoreslacker</name>
-    <what t="S">who-has-name</what>
-    <where t="S">github</where>
-    <who t="I">154023300</who>
-  </f>
-  <f>
-    <_id t="I">18837</_id>
-    <_time t="T">2025-07-14T23:08:33Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">18838</_id>
-    <_time t="T">2025-07-14T23:08:37Z</_time>
+    <_id t="I">18850</_id>
+    <_time t="T">2025-07-15T00:03:59Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">401</latest>
     <repository t="I">237167507</repository>
@@ -35163,12 +35158,39 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">18839</_id>
-    <_time t="T">2025-07-14T23:08:38Z</_time>
+    <_id t="I">18851</_id>
+    <_time t="T">2025-07-15T00:04:00Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">334</latest>
+    <latest t="I">345</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">18852</_id>
+    <_time t="T">2025-07-15T00:04:57Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">513</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">18853</_id>
+    <_time t="T">2025-07-15T00:06:08Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">assignees-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">18854</_id>
+    <_time t="T">2025-07-15T00:06:54Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
