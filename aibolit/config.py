@@ -17,11 +17,8 @@ from aibolit.metrics.RFC.rfc import RFC as M9
 from aibolit.metrics.cc.main import CCMetric as M11
 from aibolit.metrics.cognitiveC.cognitive_c import CognitiveComplexity as M4
 from aibolit.metrics.entropy.entropy import Entropy as M1
-from aibolit.metrics.external_methods_called.external_methods_called import (ExternalMethodsCalled
-                                                                             as M13)
 from aibolit.metrics.fanout.FanOut import FanOut as M10
 from aibolit.metrics.lcom4.lcom4 import LCOM4 as M5
-from aibolit.metrics.local_methods_calls.local_methods_calls import LocalMethodsCalls as M12
 from aibolit.metrics.max_diameter.max_diameter import MaxDiameter as M6
 from aibolit.metrics.ncss.ncss import NCSSMetric as M2
 from aibolit.metrics.number_variables.numVariables import NumVars as M7
@@ -232,8 +229,6 @@ class Config(metaclass=Singleton):
                 {'name': 'Responce for class', 'code': 'M9', 'make': M9},
                 {'name': 'Fan out', 'code': 'M10', 'make': M10},
                 {'name': 'Cyclomatic Complexity', 'code': 'M11', 'make': M11},
-                {'name': 'Local Methods Calls', 'code': 'M12', 'make': M12},
-                {'name': 'External Methods Called', 'code': 'M13', 'make': M13},
             ],
             'target': {
 
