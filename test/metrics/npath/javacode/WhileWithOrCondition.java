@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
+/*
+    This file is used only for Unit testing
+*/
 public class Test {
     void whileWithOrCondition(int x, int y) {
         while (x > 0 || y > 0) {
@@ -12,3 +17,4 @@ public class Test {
         }
     }
 }
+// 6

@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 // SPDX-License-Identifier: MIT
-
+/*
+    This file is used only for Unit testing
+*/
 public class Foo {
   public static void bar() {
     /*
@@ -25,3 +27,4 @@ public class Foo {
     while (j++ < 20);
   }
 }
+// 288

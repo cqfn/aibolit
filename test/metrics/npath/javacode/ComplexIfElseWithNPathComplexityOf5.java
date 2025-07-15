@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
+/*
+    This file is used only for Unit testing
+*/
 public class NPath5Example {
     public void checkValues(int a, int b) {
         if (a > 0) { // Branch 1 (2 paths: true/false)
@@ -17,3 +22,4 @@ public class NPath5Example {
         }
     }
 }
+// 5

@@ -1,5 +1,10 @@
 // SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 // SPDX-License-Identifier: MIT
+/*
+    This file is used only for Unit testing
+*/
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
 
 class OtherClass {
   public static void main(String[] args) {
@@ -18,3 +23,4 @@ class OtherClass {
     }
   }
 }
+// 3

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-License-Identifier: MIT
+/*
+    This file is used only for Unit testing
+*/
 class NestedSwitchStatements {
     public void process(int x, int y) {
         switch (x) { // 1 path through case and 4 - default
@@ -14,3 +19,4 @@ class NestedSwitchStatements {
         }
     }
 }
+// 5
