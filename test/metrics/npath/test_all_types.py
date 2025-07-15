@@ -3,7 +3,6 @@
 
 import os
 import pathlib
-from textwrap import dedent
 
 import pytest
 
