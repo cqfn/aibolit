@@ -103,6 +103,9 @@ class MvnFreeNPathMetric:
         if isinstance(node, list):
             return self._sequence_npath(node)
 
+        def default_handler(node: ASTNode) -> int:
+            return self._composite_npath(node)
+
         dispatcher = {
             ASTNodeType.IF_STATEMENT: self._if_npath,
             ASTNodeType.SWITCH_STATEMENT: self._switch_npath,
@@ -112,7 +115,7 @@ class MvnFreeNPathMetric:
             ASTNodeType.EXPRESSION: self._expression_npath,
         }
 
-        handler = dispatcher.get(node.node_type, self._composite_npath)
+        handler = dispatcher.get(node.node_type, default_handler)
         return handler(node)
 
     def _composite_npath(self, node: ASTNode) -> int:
