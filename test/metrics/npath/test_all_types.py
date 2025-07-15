@@ -66,13 +66,16 @@ class TestMvnFreeNPathMetric:
         assert self._value_from_filepath(self._filepath('javacode/IfWithInnerIfElse.java')) == 3
 
     def test_if_with_if_else_inside_outer_else(self) -> None:
-        assert self._value_from_filepath(self._filepath('javacode/IfWithIfElseInsideOuterElse.java')) == 3
+        file = 'javacode/IfWithIfElseInsideOuterElse.java'
+        assert self._value_from_filepath(self._filepath(file)) == 3
 
     def test_complex_with_if_else_inside_if_else_blocks(self) -> None:
-        assert self._value_from_filepath(self._filepath('javacode/ComplexWithIfElseInsideIfElseBlocks.java')) == 4
+        file = 'javacode/ComplexWithIfElseInsideIfElseBlocks.java'
+        assert self._value_from_filepath(self._filepath(file)) == 4
 
     def test_complex_if_else_with_npath_complexity_of_5(self) -> None:
-        assert self._value_from_filepath(self._filepath('javacode/ComplexIfElseWithNPathComplexityOf5.java')) == 5
+        file = 'javacode/ComplexIfElseWithNPathComplexityOf5.java'
+        assert self._value_from_filepath(self._filepath(file)) == 5
 
     def test_if_with_and_condition(self) -> None:
         assert self._value_from_filepath(self._filepath('javacode/IfWithAndCondition.java')) == 3
@@ -81,19 +84,23 @@ class TestMvnFreeNPathMetric:
         assert self._value_from_filepath(self._filepath('javacode/IfWithOrCondition.java')) == 3
 
     def test_switch_simple_with_default(self) -> None:
-        assert self._value_from_filepath(self._filepath('javacode/SwitchSimpleWithDefault.java')) == 3
+        file = 'javacode/SwitchSimpleWithDefault.java'
+        assert self._value_from_filepath(self._filepath(file)) == 3
 
     def test_test_switch_empty(self) -> None:
         assert self._value_from_filepath(self._filepath('javacode/TestSwitchEmpty.java')) == 2
 
     def test_switch_simple_without_default(self) -> None:
-        assert self._value_from_filepath(self._filepath('javacode/SwitchSimpleWithoutDefault.java')) == 3
+        file = 'javacode/SwitchSimpleWithoutDefault.java'
+        assert self._value_from_filepath(self._filepath(file)) == 3
 
     def test_switch_with_fallthrough(self) -> None:
-        assert self._value_from_filepath(self._filepath('javacode/SwitchWithFallthrough.java')) == 5
+        file = 'javacode/SwitchWithFallthrough.java'
+        assert self._value_from_filepath(self._filepath(file)) == 5
 
     def test_nested_switch_statements(self) -> None:
-        assert self._value_from_filepath(self._filepath('javacode/NestedSwitchStatements.java')) == 5
+        file = 'javacode/NestedSwitchStatements.java'
+        assert self._value_from_filepath(self._filepath(file)) == 5
 
     def test_simple_for_loop(self) -> None:
         assert self._value_from_filepath(self._filepath('javacode/SimpleForLoop.java')) == 2
@@ -114,7 +121,8 @@ class TestMvnFreeNPathMetric:
         assert self._value_from_filepath(self._filepath('javacode/ForWithSwitch.java')) == 5
 
     def test_comlpex_for_with_multiple_constructs(self) -> None:
-        assert self._value_from_filepath(self._filepath('javacode/ComlpexForWithMultipleConstructs.java')) == 4
+        file = 'javacode/ComlpexForWithMultipleConstructs.java'
+        assert self._value_from_filepath(self._filepath(file)) == 4
 
     def test_empty_infinite_for_loop(self) -> None:
         assert self._value_from_filepath(self._filepath('javacode/EmptyInfiniteForLoop.java')) == 2
@@ -132,7 +140,8 @@ class TestMvnFreeNPathMetric:
         assert self._value_from_filepath(self._filepath('javacode/WhileWithOrCondition.java')) == 6
 
     def test_while_with_and_condition(self) -> None:
-        assert self._value_from_filepath(self._filepath('javacode/WhileWithAndCondition.java')) == 3
+        file = 'javacode/WhileWithAndCondition.java'
+        assert self._value_from_filepath(self._filepath(file)) == 3
 
     def test_while_with_break(self) -> None:
         assert self._value_from_filepath(self._filepath('javacode/WhileWithBreak.java')) == 3
@@ -147,7 +156,8 @@ class TestMvnFreeNPathMetric:
         assert self._value_from_filepath(self._filepath('javacode/Complicated.java')) == 12
 
     def test_even_more_complicated(self) -> None:
-        assert self._value_from_filepath(self._filepath('javacode/EvenMoreComplicated.java')) == 288
+        file = 'javacode/EvenMoreComplicated.java'
+        assert self._value_from_filepath(self._filepath(file)) == 288
 
     def _filepath(self, basename: str) -> pathlib.Path:
         return pathlib.Path(__file__).parent / basename
