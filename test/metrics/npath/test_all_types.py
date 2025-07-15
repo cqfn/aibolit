@@ -120,8 +120,8 @@ class TestMvnFreeNPathMetric:
     def test_for_with_switch(self) -> None:
         assert self._value_from_filepath(self._filepath('javacode/ForWithSwitch.java')) == 5
 
-    def test_comlpex_for_with_multiple_constructs(self) -> None:
-        file = 'javacode/ComlpexForWithMultipleConstructs.java'
+    def test_complex_for_with_multiple_constructs(self) -> None:
+        file = 'javacode/ComplexForWithMultipleConstructs.java'
         assert self._value_from_filepath(self._filepath(file)) == 4
 
     def test_empty_infinite_for_loop(self) -> None:
