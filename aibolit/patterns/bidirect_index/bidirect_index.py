@@ -58,7 +58,8 @@ class BidirectIndex:
         while i <= end:
             line = lines[i]
             typed_decl = re.match(r'\s*(int|long|byte|short)\s+(\w+)\s*=', line)
-            untyped_decl = re.match(r'^\s*(\w+)\s*=\s*[^;]+;', line) \
+            # Only match simple reassignments, not method calls or field access
+            untyped_decl = re.match(r'^\s*(\w+)\s*=\s*[^=;]+;', line) \
                 if not typed_decl else None
             var = typed_decl.group(2) if typed_decl else (untyped_decl.group(1)
                                                           if untyped_decl else None)
@@ -66,6 +67,7 @@ class BidirectIndex:
                 j = i + 1
                 while j <= end:
                     line_ = lines[j]
+                    # Check for both typed declarations and simple reassignments
                     if re.match(r'\s*(int|long|byte|short)\s+' + re.escape(var) + r'\s*=', line_):
                         break
                     j += 1
@@ -94,7 +96,8 @@ class BidirectIndex:
         k = start
         while k < end:
             line_ = lines[k]
-            for_decl = re.match(r'\s*for\s*\(\s*int\s+' + re.escape(var) + r'\s*=', line_)
+            for_decl = re.match(
+                r'\s*for\s*\(\s*(int|long|byte|short)\s+' + re.escape(var) + r'\s*=', line_)
             if for_decl:
                 brace = line_.count('{') - line_.count('}')
                 bstart = k
