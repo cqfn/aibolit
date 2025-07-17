@@ -33,14 +33,14 @@ class JavaClassDecompositionTestSuite(TestCase):
         package_ast = AST.build_from_javalang(
             build_ast(Path(__file__).parent.absolute() / filename)
         )
-        package_declaration = package_ast.get_root()
+        package_declaration = package_ast.root()
         try:
             class_declaration = next(
                 class_declaration
                 for class_declaration in package_declaration.types
                 if class_declaration.name == class_name
             )
-            return package_ast.get_subtree(class_declaration)
+            return package_ast.subtree(class_declaration)
 
         except StopIteration:
             raise ValueError(
@@ -51,8 +51,8 @@ class JavaClassDecompositionTestSuite(TestCase):
         file = str(Path(self.cur_dir, 'LottieImageAsset.java'))
         ast = AST.build_from_javalang(build_ast(file))
         classes_ast = [
-            ast.get_subtree(node)
-            for node in ast.get_root().types
+            ast.subtree(node)
+            for node in ast.root().types
             if node.node_type == ASTNodeType.CLASS_DECLARATION
         ]
         components = list(decompose_java_class(
@@ -61,7 +61,7 @@ class JavaClassDecompositionTestSuite(TestCase):
             ignore_setters=ignore_setters,
             ignore_getters=ignore_getters))
         function_names = flatten([
-            [x.name for x in list(c.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION))]
+            [x.name for x in list(c.proxy_nodes(ASTNodeType.METHOD_DECLARATION))]
             for c in components])
         return function_names
 
@@ -344,8 +344,8 @@ def _decompose_java_class_from_string(
 ) -> dict:
     ast = AST.build_from_javalang(build_ast_from_string(content))
     classes_ast = [
-        ast.get_subtree(node)
-        for node in ast.get_root().types
+        ast.subtree(node)
+        for node in ast.root().types
         if node.node_type == ASTNodeType.CLASS_DECLARATION
     ]
     assert len(classes_ast) == 1, 'String content must have exactly one class declaration'
@@ -365,7 +365,7 @@ def _decompose_java_class_from_string(
 def _field_names(components: list[AST]) -> list[str]:
     result = set()
     for component in components:
-        for field_declaration in component.get_proxy_nodes(ASTNodeType.FIELD_DECLARATION):
+        for field_declaration in component.proxy_nodes(ASTNodeType.FIELD_DECLARATION):
             for name in field_declaration.names:
                 result.add(name)
     return sorted(result)
@@ -374,7 +374,7 @@ def _field_names(components: list[AST]) -> list[str]:
 def _method_names(components: list[AST]) -> list[str]:
     return flatten(
         [
-            [x.name for x in c.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)]
+            [x.name for x in c.proxy_nodes(ASTNodeType.METHOD_DECLARATION)]
             for c in components
         ],
     )

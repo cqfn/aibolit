@@ -19,14 +19,14 @@ class CCMetric:
     def value(self, ast: AST) -> int:
         return sum(
             self._method_complexity(ast, node)
-            for node in ast.get_proxy_nodes(
+            for node in ast.proxy_nodes(
                 ASTNodeType.METHOD_DECLARATION, ASTNodeType.CONSTRUCTOR_DECLARATION
             )
         )
 
     def _method_complexity(self, ast: AST, method: ASTNode) -> int:
-        method_ast = ast.get_subtree(method)
-        return 1 + sum(self._node_complexity(ast, node) for node in method_ast.get_proxy_nodes())
+        method_ast = ast.subtree(method)
+        return 1 + sum(self._node_complexity(ast, node) for node in method_ast.proxy_nodes())
 
     def _node_complexity(self, ast: AST, node: ASTNode) -> int:
         if node.node_type in _SIMPLE_NODES:
@@ -48,10 +48,10 @@ class CCMetric:
     def _expression_complexity(self, ast: AST, expression: ASTNode | None) -> int:
         if expression is None:
             return 0
-        expression_ast = ast.get_subtree(expression)
+        expression_ast = ast.subtree(expression)
         return sum(
             1
-            for node in expression_ast.get_proxy_nodes(ASTNodeType.BINARY_OPERATION)
+            for node in expression_ast.proxy_nodes(ASTNodeType.BINARY_OPERATION)
             if node.operator in ('&&', '||')
         )
 

@@ -18,7 +18,7 @@ class MethodSiblings:
 
     def value(self, ast: AST) -> List[int]:
         numbers: List[int] = []
-        method_nodes = ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION)
+        method_nodes = ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION)
 
         for node in method_nodes:
             for new_node in method_nodes:

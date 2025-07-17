@@ -23,7 +23,7 @@ class NonFinalArgument:
 
 
 def _offending_lines(ast: AST) -> Iterator[LineNumber]:
-    for node in ast.get_proxy_nodes(
+    for node in ast.proxy_nodes(
         ASTNodeType.METHOD_DECLARATION,
         ASTNodeType.CONSTRUCTOR_DECLARATION,
     ):

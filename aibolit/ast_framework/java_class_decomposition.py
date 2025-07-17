@@ -22,8 +22,8 @@ def find_patterns(tree: AST, patterns: List[Any]) -> Set[str]:
     """
 
     patterns_method_names: Set[str] = set()
-    for method_declaration in tree.get_root().methods:
-        method_ast = tree.get_subtree(method_declaration)
+    for method_declaration in tree.root().methods:
+        method_ast = tree.subtree(method_declaration)
         for pattern in patterns:
             if is_ast_pattern(method_ast, pattern):
                 patterns_method_names.add(method_declaration.name)
@@ -108,7 +108,7 @@ def _create_usage_graph(class_ast: AST) -> DiGraph:
     fields_ids: Dict[str, int] = {}
     methods_ids: Dict[str, int] = {}
 
-    class_declaration = class_ast.get_root()
+    class_declaration = class_ast.root()
 
     for field_declaration in class_declaration.fields:
         # several fields can be declared at one line
@@ -127,7 +127,7 @@ def _create_usage_graph(class_ast: AST) -> DiGraph:
             )
 
     for method_declaration in class_declaration.methods:
-        method_ast = class_ast.get_subtree(method_declaration)
+        method_ast = class_ast.subtree(method_declaration)
 
         for invoked_method_name in _find_local_method_invocations(method_ast):
             if invoked_method_name in methods_ids:
@@ -147,7 +147,7 @@ def _create_usage_graph(class_ast: AST) -> DiGraph:
 
 def _find_local_method_invocations(method_ast: AST) -> Set[str]:
     invoked_methods: Set[str] = set()
-    for method_invocation in method_ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION):
+    for method_invocation in method_ast.proxy_nodes(ASTNodeType.METHOD_INVOCATION):
         if method_invocation.qualifier is None:
             invoked_methods.add(method_invocation.member)
 
@@ -156,17 +156,17 @@ def _find_local_method_invocations(method_ast: AST) -> Set[str]:
 
 def _find_fields_usage(method_ast: AST) -> Set[str]:
     local_variables: Set[str] = set()
-    for variable_declaration in method_ast.get_proxy_nodes(
+    for variable_declaration in method_ast.proxy_nodes(
             ASTNodeType.LOCAL_VARIABLE_DECLARATION
     ):
         local_variables.update(variable_declaration.names)
 
-    method_declaration = method_ast.get_root()
+    method_declaration = method_ast.root()
     for parameter in method_declaration.parameters:
         local_variables.add(parameter.name)
 
     used_fields: Set[str] = set()
-    for member_reference in method_ast.get_proxy_nodes(ASTNodeType.MEMBER_REFERENCE):
+    for member_reference in method_ast.proxy_nodes(ASTNodeType.MEMBER_REFERENCE):
         if member_reference.qualifier is None and \
                 member_reference.member not in local_variables:
             used_fields.add(member_reference.member)

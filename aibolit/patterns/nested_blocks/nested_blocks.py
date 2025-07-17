@@ -19,8 +19,8 @@ class NestedBlocks:
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
         for block_type in self._block_types:
-            for block_ast in ast.get_subtrees(block_type):
-                for overnested_block in self._find_overnested_blocks(block_ast.get_root()):
+            for block_ast in ast.subtrees(block_type):
+                for overnested_block in self._find_overnested_blocks(block_ast.root()):
                     lines.append(overnested_block.line)
 
         return lines

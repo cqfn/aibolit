@@ -76,7 +76,7 @@ class VarDeclarationDistance:
 
         result = set()
         empty_lines = self.__find_empty_lines_in_ast(ast)
-        for declaration in ast.get_subtrees(ASTNodeType.METHOD_DECLARATION):
+        for declaration in ast.subtrees(ASTNodeType.METHOD_DECLARATION):
             result.update(self.__value_for_method_declaration(declaration, empty_lines))
 
         return sorted(result)

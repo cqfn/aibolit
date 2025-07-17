@@ -27,7 +27,7 @@ class ErClass:
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for node in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
+        for node in ast.proxy_nodes(ASTNodeType.CLASS_DECLARATION):
             class_name = node.name.lower()
             if any(forbiden_word in class_name
                    for forbiden_word in self.forbiden_words_in_class_names):

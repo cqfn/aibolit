@@ -13,11 +13,11 @@ class InstanceOf:
 
     def value(self, ast: AST):
         lines: List[int] = []
-        for binary_operator in ast.get_proxy_nodes(ASTNodeType.BINARY_OPERATION):
+        for binary_operator in ast.proxy_nodes(ASTNodeType.BINARY_OPERATION):
             if binary_operator.operator == 'instanceof':
                 lines.append(binary_operator.line)
 
-        for method_invocation in ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION):
+        for method_invocation in ast.proxy_nodes(ASTNodeType.METHOD_INVOCATION):
             if method_invocation.member == 'isInstance':
                 lines.append(method_invocation.line)
 
