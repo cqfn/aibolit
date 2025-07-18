@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 666.515782022
+  seconds: 872.278264955
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-18 10:08:45.638698358 Z
+  when: 2025-07-18 11:13:04.128187217 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -31981,52 +31981,79 @@
   where: github
   who: 13173649
   why: Contributed code in cqfn/aibolit#859
-- _id: 19927
-  _time: 2025-07-18 10:03:47.444461551 Z
+- _id: 19934
+  _job: 29260
+  _time: 2025-07-18 10:10:10.774824885 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.14.27
+  ac: 425
+  cant_infer_ev: There is not .CSV file
+  cant_infer_pv: There is not .CSV file
+  ev: 0
+  pv: 0
+  qod: 222
+  qod_per_sec: 5.130591194284047e-05
+  start: *95
+  what: earned-value
+  when: &402 2025-07-18 10:10:10.775965114 Z
+- _id: 19935
+  _job: 29260
+  _time: 2025-07-18 10:10:10.914844745 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.14.27
+  what: earned-value-prev
+  when: *402
+- _id: 19943
+  _time: 2025-07-18 11:04:29.681270986 Z
   _version: 0.13.0/0.51.0/
   latest: 3200322689
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 19928
-  _time: 2025-07-18 10:04:26.484579185 Z
+- _id: 19944
+  _time: 2025-07-18 11:05:41.935358775 Z
   _version: 0.13.0/0.51.0/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 19929
-  _time: 2025-07-18 10:05:23.200268535 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 19930
-  _time: 2025-07-18 10:07:54.853045107 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
+  latest: 327
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 19931
-  _time: 2025-07-18 10:07:58.276471865 Z
+- _id: 19945
+  _time: 2025-07-18 11:07:19.893653607 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 19946
+  _time: 2025-07-18 11:07:31.126303279 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 19932
-  _time: 2025-07-18 10:07:58.868720622 Z
+- _id: 19947
+  _time: 2025-07-18 11:07:31.922681564 Z
   _version: 0.13.0/0.51.0/
-  latest: 647
+  latest: 651
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 19933
-  _time: 2025-07-18 10:08:44.109739128 Z
+- _id: 19948
+  _time: 2025-07-18 11:09:02.407549912 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
+  where: github
+- _id: 19949
+  _time: 2025-07-18 11:12:12.745454461 Z
+  _version: 0.13.0/0.51.0/
+  since: 2025-07-11 11:09:03.112610632 Z
+  total_reviews_submitted: 49
+  what: quantity-of-deliverables
+  when: 2025-07-18 11:09:03.112561289 Z
+- _id: 19950
+  _time: 2025-07-18 11:13:04.090981952 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
