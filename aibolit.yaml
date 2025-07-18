@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 872.278264955
+  seconds: 924.143850522
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-18 11:13:04.128187217 Z
+  when: 2025-07-18 12:10:49.470874633 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -32001,48 +32001,6 @@
   _version: 0.13.0/0.51.1/0.14.25!0.14.27
   what: earned-value-prev
   when: *402
-- _id: 19943
-  _time: 2025-07-18 11:04:29.681270986 Z
-  _version: 0.13.0/0.51.0/
-  latest: 3200322689
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 19944
-  _time: 2025-07-18 11:05:41.935358775 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 19945
-  _time: 2025-07-18 11:07:19.893653607 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 19946
-  _time: 2025-07-18 11:07:31.126303279 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 19947
-  _time: 2025-07-18 11:07:31.922681564 Z
-  _version: 0.13.0/0.51.0/
-  latest: 651
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 19948
-  _time: 2025-07-18 11:09:02.407549912 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
 - _id: 19949
   _time: 2025-07-18 11:12:12.745454461 Z
   _version: 0.13.0/0.51.0/
@@ -32050,10 +32008,117 @@
   total_reviews_submitted: 49
   what: quantity-of-deliverables
   when: 2025-07-18 11:09:03.112561289 Z
-- _id: 19950
-  _time: 2025-07-18 11:13:04.090981952 Z
+- _id: 19954
+  _time: 2025-07-18 11:59:54.616054355 Z
   _version: 0.13.0/0.51.0/
-  latest: 440
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 19956
+  _time: 2025-07-18 12:01:32.734237060 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#868 has been opened by @error10556.
+  is_human: 1
+  issue: 868
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-07-18 11:25:27.000000000 Z
+  where: github
+  who: 151189440
+- _id: 19957
+  _time: 2025-07-18 12:01:33.087960972 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 19958
+  _time: 2025-07-18 12:01:33.828145981 Z
+  _version: 0.13.0/0.51.0/
+  latest: 653
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 19959
+  _time: 2025-07-18 12:02:06.181113048 Z
+  _version: 0.13.0/0.51.0/
+  latest: 3200322689
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 19960
+  _time: 2025-07-18 12:02:29.679565753 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
   repository: 237167507
   what: assignees-were-scanned
+  where: github
+- _id: 19961
+  _time: 2025-07-18 12:07:59.503786316 Z
+  _version: 0.13.0/0.51.0/
+  average_backlog_size: 1.625
+  average_build_duration: 164.281179138322
+  average_build_mttr: -46764
+  average_build_success_rate: 0.9886621315192744
+  average_issue_lifetime: 528453.0
+  average_pull_files_size: 1.8
+  average_pull_hoc_size: 111.8
+  average_pull_lifetime: 356694.0
+  average_pull_rejection_rate: 0.0
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
+  average_release_interval: 0
+  average_review_size: 3.6
+  average_review_time: 444682.0
+  average_reviewers_per_pull: 1.6
+  average_reviews_per_pull: 2.8
+  average_triage_time: 1.0
+  since: 2025-07-11 12:03:21.934527054 Z
+  what: quality-of-service
+  when: 2025-07-18 12:03:21.934376525 Z
+- _id: 19962
+  _time: 2025-07-18 12:09:06.400305261 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 19963
+  _time: 2025-07-18 12:09:07.168871937 Z
+  _version: 0.13.0/0.51.0/
+  details: The pull cqfn/aibolit#867 has been opened by @antonprokopyev.
+  is_human: 1
+  issue: 867
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-07-17 08:00:22.000000000 Z
+  where: github
+  who: 13173649
+- _id: 19964
+  _time: 2025-07-18 12:10:04.200240970 Z
+  _version: 0.13.0/0.51.0/
+  branch: 682-fix-rultor-after-uv-integration
+  comments: 3
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 2
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#867 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 2
+  issue: 867
+  repository: 237167507
+  succeeded_builds: 18
+  what: pull-was-merged
+  when: 2025-07-17 09:06:15.000000000 Z
+  where: github
+  who: 526301
+- _id: 19965
+  _time: 2025-07-18 12:10:04.640069459 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
   where: github
