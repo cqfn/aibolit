@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 924.143850522
+  seconds: 628.387430267
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-18 12:10:49.470874633 Z
+  when: 2025-07-18 13:38:08.555765023 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -32008,13 +32008,6 @@
   total_reviews_submitted: 49
   what: quantity-of-deliverables
   when: 2025-07-18 11:09:03.112561289 Z
-- _id: 19954
-  _time: 2025-07-18 11:59:54.616054355 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
 - _id: 19956
   _time: 2025-07-18 12:01:32.734237060 Z
   _version: 0.13.0/0.51.0/
@@ -32026,34 +32019,6 @@
   when: 2025-07-18 11:25:27.000000000 Z
   where: github
   who: 151189440
-- _id: 19957
-  _time: 2025-07-18 12:01:33.087960972 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 19958
-  _time: 2025-07-18 12:01:33.828145981 Z
-  _version: 0.13.0/0.51.0/
-  latest: 653
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 19959
-  _time: 2025-07-18 12:02:06.181113048 Z
-  _version: 0.13.0/0.51.0/
-  latest: 3200322689
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 19960
-  _time: 2025-07-18 12:02:29.679565753 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
 - _id: 19961
   _time: 2025-07-18 12:07:59.503786316 Z
   _version: 0.13.0/0.51.0/
@@ -32074,16 +32039,11 @@
   average_reviewers_per_pull: 1.6
   average_reviews_per_pull: 2.8
   average_triage_time: 1.0
+  composite: 0.419
+  ffact: 136
   since: 2025-07-11 12:03:21.934527054 Z
   what: quality-of-service
   when: 2025-07-18 12:03:21.934376525 Z
-- _id: 19962
-  _time: 2025-07-18 12:09:06.400305261 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 19963
   _time: 2025-07-18 12:09:07.168871937 Z
   _version: 0.13.0/0.51.0/
@@ -32091,6 +32051,7 @@
   is_human: 1
   issue: 867
   repository: 237167507
+  stale: 'branch #867'
   what: pull-was-opened
   when: 2025-07-17 08:00:22.000000000 Z
   where: github
@@ -32108,17 +32069,61 @@
   details: Apparently, cqfn/aibolit#867 has been 'pull-was-merged'.
   failed_builds: 0
   hoc: 2
+  is_human: 1
   issue: 867
   repository: 237167507
+  review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
   when: 2025-07-17 09:06:15.000000000 Z
   where: github
   who: 526301
-- _id: 19965
-  _time: 2025-07-18 12:10:04.640069459 Z
+- _id: 19973
+  _time: 2025-07-18 13:33:07.758530912 Z
+  _version: 0.13.0/0.51.0/
+  latest: 3200322689
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 19974
+  _time: 2025-07-18 13:33:49.604679848 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
+  where: github
+- _id: 19975
+  _time: 2025-07-18 13:33:58.174904120 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 19976
+  _time: 2025-07-18 13:33:58.722341988 Z
+  _version: 0.13.0/0.51.0/
+  latest: 656
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 19977
+  _time: 2025-07-18 13:35:03.025412220 Z
+  _version: 0.13.0/0.51.0/
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 19978
+  _time: 2025-07-18 13:37:22.552423558 Z
+  _version: 0.13.0/0.51.0/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 19979
+  _time: 2025-07-18 13:38:08.225101235 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
   where: github
