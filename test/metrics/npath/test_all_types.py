@@ -548,6 +548,28 @@ class TestMvnFreeNPathMetric:
     def test_even_more_complicated(self) -> None:
         assert self._value_from_filepath(self._filepath('Foo.java')) == 288
 
+    def test_ternary_trivial(self) -> None:
+        content = dedent('''
+        public class Test {
+            void method() {
+                int a = 5, b = 6;
+                System.out.println(a < b ? a : b);
+            }
+        }
+        ''').strip()
+        assert self._value(content) == 2
+
+    def test_ternary_with_logic(self) -> None:
+        content = dedent('''
+        public class Test {
+            void method() {
+                int a = 5, b = 6, c = 4;
+                System.out.println(a < b || a < c ? (c < b ? c : a) : b);
+            }
+        }
+        ''').strip()
+        assert self._value(content) == 5
+
     def _filepath(self, basename: str) -> pathlib.Path:
         return pathlib.Path(__file__).parent / basename
 
