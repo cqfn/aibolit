@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 711.415519696
+  seconds: 645.364703334
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-20 19:10:56.571360198 Z
+  when: 2025-07-20 20:05:44.841153470 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33124,8 +33124,27 @@
   when: 2025-07-20 17:23:16.000000000 Z
   where: github
   who: 150797125
-- _id: 20765
-  _time: 2025-07-20 18:59:47.911858231 Z
+- _id: 20780
+  _job: 29569
+  _time:
+  - 2025-07-20 19:11:50.356991651 Z
+  - 2025-07-20 19:11:30.728985974 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.14.27
+  award: -12
+  branch: improve-error-handling
+  details: It's time to punish @mmenshikh for the branch named as 'improve-error-handling',
+    which is wrong in cqfn/aibolit#881, the penalty amount is -12.
+  href: https://github.com/cqfn/aibolit/issues/881/#issuecomment-3094715071
+  is_human: 1
+  issue: 881
+  repository: 237167507
+  what: bad-branch-name-was-punished
+  when: 2025-07-20 19:11:30.734251743 Z
+  where: github
+  who: 150797125
+  why: Wrongly named a branch in cqfn/aibolit#881
+- _id: 20781
+  _time: 2025-07-20 19:55:39.328882714 Z
   _version: 0.13.0/0.51.0/
   branch: '869'
   details: The pull request cqfn/aibolit#875 has been opened by @dvrkrain.
@@ -33138,52 +33157,52 @@
   when: 2025-07-20 10:33:32.000000000 Z
   where: github
   who: 60609459
-- _id: 20773
-  _time: 2025-07-20 19:05:53.516537736 Z
+- _id: 20789
+  _time: 2025-07-20 20:01:20.622260040 Z
   _version: 0.13.0/0.51.0/
   latest: 3200322689
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 20774
-  _time: 2025-07-20 19:07:39.014139569 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 20775
-  _time: 2025-07-20 19:07:42.016453758 Z
+- _id: 20790
+  _time: 2025-07-20 20:02:14.565257334 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 20776
-  _time: 2025-07-20 19:07:42.521446258 Z
+- _id: 20791
+  _time: 2025-07-20 20:02:15.000219431 Z
   _version: 0.13.0/0.51.0/
-  latest: 855
+  latest: 858
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 20777
-  _time: 2025-07-20 19:08:27.533028704 Z
+- _id: 20792
+  _time: 2025-07-20 20:02:52.214437366 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 20793
+  _time: 2025-07-20 20:03:29.634031737 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 20794
+  _time: 2025-07-20 20:04:58.709575636 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 20795
+  _time: 2025-07-20 20:05:44.691978153 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
-  where: github
-- _id: 20778
-  _time: 2025-07-20 19:09:03.374106247 Z
-  _version: 0.13.0/0.51.0/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 20779
-  _time: 2025-07-20 19:10:56.535876512 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
   where: github
