@@ -885,7 +885,7 @@ def run_thread(files, args):
             try:
                 results.append(future.result())
             except Exception as e:
-                print(f"Error analyzing file: {e}")
+                print(f'Error analyzing file: {e}')
     return results
 
 
