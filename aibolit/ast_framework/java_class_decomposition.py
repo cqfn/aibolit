@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from typing import List, Dict, Set, Iterator, Any
+from typing import List, Dict, Set, Iterator, Any, Literal
 
 from networkx import (  # type: ignore
     DiGraph, strongly_connected_components, weakly_connected_components
@@ -43,7 +43,7 @@ def is_ast_pattern(class_ast: AST, Pattern) -> bool:
 
 def decompose_java_class(
         class_ast: AST,
-        strength: str,
+        strength: Literal['strong', 'weak'],
         ignore_setters=False,
         ignore_getters=False) -> List[AST]:
     '''
