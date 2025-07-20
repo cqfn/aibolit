@@ -256,7 +256,7 @@ class Book {
 {\it Example:}
 \begin{lstlisting}[language=Java]
 public void start() {
-	// this line is match the pattern
+	// this line matches the pattern
 	System.out.println("test" + str1 + "34234" + str2);
 	list = new ArrayList<>();
 	for (int i = 0; i < 10; i++)
@@ -306,7 +306,7 @@ static void myMethod() {
 	\item \pattern{Variable is declared in the middle of the method body}{P21}{All variables we need have to be declared at the beginning of their scope. If a variable is declared inside the scope following after logical blocks, we consider that this is the pattern.}
 {\it Example:}
 \begin{lstlisting}[language=Java]
-// The declaration of variable list is match pattern.
+// The declaration of variable list matches the pattern.
 static void myMethod2() {
 	int b = 4;
 	b = b + 6;

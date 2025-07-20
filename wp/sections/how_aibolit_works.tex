@@ -3,11 +3,11 @@
 
 \subsection{The Idea}
 
-The main purpose of Aibolit is to help developers identify  patterns in their
+The main purpose of Aibolit is to help developers identify patterns in their
 code that may cause maintainability issues. From the user perspective, it works
 by outputting a list of patterns recommended to remove, given a Java class. The
 Aibolit engine is comprised of two parts: an ML regression model and a
-recommendation algorithm. The regression model  predicts maintainability of any
+recommendation algorithm. The regression model predicts the maintainability of any
 Java class. The recommendation algorithm uses the regression model to decide
 which pattern is better to avoid by considering various modifications
 of the input Java class.
@@ -21,13 +21,13 @@ of the input Java class.
 Compute the maintainability metric value for the vector.
 (3) Consider changes to the vector representation by subtracting pattern counts.
 Predict the corresponding maintainability metric score.
-(4) Rank all the alternative vectors wrt to how much they improve the original
+(4) Rank all the alternative vectors with respect to how much they improve the original
 maintainability score. Recommend changes that gave the most improvement.}
 \label{fig:aibolit_graphic}
 \end{figure}
 
 Figure~\ref{fig:aibolit_graphic} represents the Aibolit recommendation procedure at a high level.
-In the remaining subsections we provide a more detailed
+In the remaining subsections, we provide a more detailed
 description of each of Aibolit's components.
 
 \subsection{Patterns \& Quality metrics}
@@ -68,7 +68,7 @@ metric in the remainder of the text.
 \label{sec:dataset}
 
 To train our prediction model, we mined training data
-from Github open source repositories. We chose repositories written in Java
+from GitHub open source repositories. We chose repositories written in Java
 as the main language. We filtered out all non-Java files and all software
 testing files. To make sure our data is
 representative of good software engineering standards, we only extracted
@@ -86,7 +86,7 @@ The resulting filtered dataset consists of 124 repositories and
 approximately 0.7:0.3 ratio. The filtered train set contains 20,049 classes,
 the filtered test set contains 9,016.
 %More detailed statistics can be found in Table~\todo. -- keep this for research paper
-The complete list of mined repositories and the train/test split is provided in Aibolit
+The complete list of mined repositories and the train/test split is provided in the Aibolit
 project folder.
 %(\todo link to file with repository URLs).
 
@@ -103,7 +103,7 @@ class (Section~\ref{sec:aibolit_patterns_metrics}), also divided by the NCSS.
 %value computation (where $f_p^C$ is the feature value for pattern $p$ and code
 %$C$, $t^C$ is the target value for code $C$	).
 Table~\ref{tab:features_example}
-gives an illustration of how a dataset looks after this procedure.
+gives an illustration of how the dataset looks after this procedure.
 
 
 %\vspace{0.2in}
@@ -136,7 +136,7 @@ Multiple Try},  \textbf{P13}: {\em Null checks}).} \label{tab:features_example}
 \subsubsection*{Training}
 We train a gradient boosting regression model \citep{Friedman2001GreedyFA}.
 We use the implementation of CatBoost \citep{Dorogush2018CatBoostGB} with the RMSE loss function.
-For hyperparameter selection, we do a 3-fold crossvalidation.
+For hyperparameter selection, we do a 3-fold cross-validation.
 
 
 \subsection{Recommendation algorithm}
@@ -185,9 +185,9 @@ For each pattern from the set of patterns used at training, we
 precompute feature values and compute the metric value of the source code
 (lines~\ref{line:init_F}-\ref{line:compute_m_source}). Then we compute the
 impact factor $I_p$ of each pattern $p$ on the source code maintainability
-(lines~\ref{line:init_I}-\ref{line:impact}). Under ``lower is better''
+(lines~\ref{line:init_I}-\ref{line:impact}). Under the ``lower is better''
 convention of maintainability metric, low values of $I_p$ indicate that removal
-of $p$ lead to improvement of the metric score. We collect the $K$ most
+of $p$ leads to improvement of the metric score. We collect the $K$ most
 negatively impacting patterns and output them as recommendations. Thus, we
 pick patterns $p$ for which $I_p$ are the lowest
 (lines~\ref{line:topK}-\ref{line:return}).
