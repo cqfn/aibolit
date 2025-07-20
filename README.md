@@ -318,7 +318,7 @@ First, you need to install:
 
 * [Python 3.11+](https://www.python.org/downloads/)
 * [uv](https://docs.astral.sh/uv/)
-* Ruby 2.6+
+* [Ruby 2.6+](https://www.ruby-lang.org/en/downloads/)
 * [Xcop](https://github.com/yegor256/xcop)
 
 Install the following packages if you don't have them:
