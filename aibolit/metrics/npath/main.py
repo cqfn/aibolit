@@ -159,12 +159,14 @@ class MvnFreeNPathMetric:
         return condition_npath + body_npath + 1
 
     def _expression_npath(self, node: ASTNode) -> int:
+        def default_handler(node: ASTNode) -> int:
+            return self._composite_expression_npath(node)
+
         dispatcher = {
             ASTNodeType.BINARY_OPERATION: self._binary_expression_npath,
             ASTNodeType.TERNARY_EXPRESSION: self._ternary_npath,
         }
-        return dispatcher.get(node.node_type,
-                              self._composite_expression_npath)(node)
+        return dispatcher.get(node.node_type, default_handler)(node)
 
     def _composite_expression_npath(self, node: ASTNode) -> int:
         return sum(self._expression_npath(child) for child in node.children)
