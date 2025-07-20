@@ -97,6 +97,44 @@ class AST:
         subtree = self.tree.subgraph(subtree_nodes_indexes)
         return AST(subtree, node.node_index)
 
+    def with_fields_and_methods(
+        self,
+        allowed_fields_names: Set[str],
+        allowed_methods_names: Set[str]
+    ) -> 'AST':
+        """
+        Creates a filtered AST containing only specified fields and methods.
+
+        Args:
+            allowed_fields_names: Set of field names to include
+            allowed_methods_names: Set of method names to include
+
+        Returns:
+            New AST instance with filtered subgraph
+
+        Raises:
+            ValueError: If root node is not a CLASS_DECLARATION
+        """
+        class_declaration = self.get_root()
+        if class_declaration.node_type != ASTNodeType.CLASS_DECLARATION:
+            raise ValueError(
+                f'Expected {ASTNodeType.CLASS_DECLARATION} node,'
+                f' but {class_declaration.node_type} was provided.'
+            )
+        allowed_nodes = {class_declaration.node_index}
+
+        for field_declaration in class_declaration.fields:
+            if allowed_fields_names & set(field_declaration.names):
+                field_ast = self.get_subtree(field_declaration)
+                allowed_nodes.update(node.node_index for node in field_ast)
+
+        for method_declaration in class_declaration.methods:
+            if method_declaration.name in allowed_methods_names:
+                method_ast = self.get_subtree(method_declaration)
+                allowed_nodes.update(node.node_index for node in method_ast)
+
+        return AST(self.tree.subgraph(allowed_nodes), class_declaration.node_index)
+
     def traverse(
         self,
         on_node_entering: TraverseCallback,

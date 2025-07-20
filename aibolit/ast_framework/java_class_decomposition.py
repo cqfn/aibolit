@@ -94,7 +94,7 @@ def decompose_java_class(
         if ignore_setters or ignore_getters:
             method_names = method_names.difference(prohibited_function_names)
 
-        filtered = _filter_class_methods_and_fields(class_ast, field_names, method_names)
+        filtered = class_ast.with_fields_and_methods(field_names, method_names)
 
         class_parts.append(
             filtered
@@ -172,24 +172,3 @@ def _find_fields_usage(method_ast: AST) -> Set[str]:
             used_fields.add(member_reference.member)
 
     return used_fields
-
-
-def _filter_class_methods_and_fields(
-        class_ast: AST,
-        allowed_fields_names: Set[str],
-        allowed_methods_names: Set[str]
-) -> AST:
-    class_declaration = class_ast.get_root()
-    allowed_nodes = {class_declaration.node_index}
-
-    for field_declaration in class_declaration.fields:
-        if len(allowed_fields_names & set(field_declaration.names)) != 0:
-            field_ast = class_ast.get_subtree(field_declaration)
-            allowed_nodes.update(node.node_index for node in field_ast)
-
-    for method_declaration in class_declaration.methods:
-        if method_declaration.name in allowed_methods_names:
-            method_ast = class_ast.get_subtree(method_declaration)
-            allowed_nodes.update(node.node_index for node in method_ast)
-
-    return AST(class_ast.tree.subgraph(allowed_nodes), class_declaration.node_index)

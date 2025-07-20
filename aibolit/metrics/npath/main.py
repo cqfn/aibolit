@@ -103,16 +103,19 @@ class MvnFreeNPathMetric:
         if isinstance(node, list):
             return self._sequence_npath(node)
 
-        if node.node_type == ASTNodeType.IF_STATEMENT:
-            return self._if_npath(node)
-        elif node.node_type == ASTNodeType.SWITCH_STATEMENT:
-            return self._switch_npath(node)
-        elif node.node_type == ASTNodeType.FOR_STATEMENT:
-            return self._for_loop_npath(node)
-        elif node.node_type == ASTNodeType.BINARY_OPERATION:
-            return self._binary_expression_npath(node)
-        else:
+        def default_handler(node: ASTNode) -> int:
             return self._sequence_npath(node.children)
+
+        dispatcher = {
+            ASTNodeType.IF_STATEMENT: self._if_npath,
+            ASTNodeType.SWITCH_STATEMENT: self._switch_npath,
+            ASTNodeType.FOR_STATEMENT: self._for_loop_npath,
+            ASTNodeType.WHILE_STATEMENT: self._while_loop_npath,
+            ASTNodeType.BINARY_OPERATION: self._binary_expression_npath,
+        }
+
+        handler = dispatcher.get(node.node_type, default_handler)
+        return handler(node)
 
     def _sequence_npath(self, nodes: Iterable[ASTNode]) -> int:
         return math.prod((self._node_npath(child) for child in nodes))
@@ -135,12 +138,19 @@ class MvnFreeNPathMetric:
         return self._node_npath(node.expression) * max(case_paths, 1)
 
     def _for_loop_npath(self, node: ASTNode) -> int:
+        condition_npath = self._condition_npath(node.control)
         body_npath = self._node_npath(node.body)
-        if hasattr(node.control, 'condition') and node.control.condition:
-            condition_npath = max(1, self._node_npath(node.control.condition))
-        else:
-            condition_npath = 1
-        return body_npath + condition_npath
+        return condition_npath + body_npath
+
+    def _while_loop_npath(self, node: ASTNode) -> int:
+        condition_npath = self._condition_npath(node)
+        body_npath = self._node_npath(node.body)
+        return condition_npath + body_npath
+
+    def _condition_npath(self, node: ASTNode) -> int:
+        if hasattr(node, 'condition') and node.condition:
+            return max(1, self._node_npath(node.condition))
+        return 1
 
     def _binary_expression_npath(self, node: ASTNode) -> int:
         if node.operator not in {'&&', '||'}:
