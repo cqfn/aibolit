@@ -247,7 +247,8 @@ class TestMvnFreeNPathMetric:
             }
             ''',
         ).strip()
-        assert self._value(content) == 1
+        # NPath = 2 = 1 (for an empty CASE) + 1 (for an empty DEFAULT)
+        assert self._value(content) == 2
 
     def test_switch_simple_without_default(self):
         content = dedent(
@@ -262,7 +263,8 @@ class TestMvnFreeNPathMetric:
             }
             ''',
         ).strip()
-        assert self._value(content) == 2
+        # NPath = 3 = 2 (for 2 CASEs) + 1 (for an empty DEFAULT)
+        assert self._value(content) == 3
 
     def test_switch_with_fallthrough(self):
         content = dedent(
@@ -280,7 +282,8 @@ class TestMvnFreeNPathMetric:
             }
             ''',
         )
-        assert self._value(content) == 4
+        # NPath = 5 = 1 for each CASE and DEFAULT
+        assert self._value(content) == 5
 
     def test_nested_switch_statements(self) -> None:
         content = dedent(
@@ -539,52 +542,10 @@ class TestMvnFreeNPathMetric:
         ''').strip()
         assert self._value(content) == 3
 
-    @pytest.mark.xfail(
-        strict=True,
-        reason='Incorrect implementation. Most likely need to review if statement',
-    )
     def test_complicated(self) -> None:
-        # @todo #852:60min Fix MvnFreeNPathMetric for moderate NPath complexity case
-        #  It is necessary to fix implementation of MvnFreeNPathMetric
-        #  so that the test on a moderate NPath complexity case passes.
-        #  Once fixed, remove `pytest.mark.xfail` decorator.
-        #
-        #  It is most likely that the implementation of if statements is wrong.
-        #  Refer to https://checkstyle.org/checks/metrics/npathcomplexity.html,
-        #  where it is stated that complexity for the `if` statement is a sum
-        #  of NPath complexities for the condition, then and else parts.
-        #  On the other hand when following this calculation, the simple if-else statement
-        #  would have complexity of 3 rather than 2.
         assert self._value_from_filepath(self._filepath('Complicated.java')) == 12
 
-    @pytest.mark.xfail(
-        strict=True,
-        reason='Incorrect implementation. Most likely need to review if/switch statements',
-    )
     def test_even_more_complicated(self) -> None:
-        # @todo #852:60min Fix MvnFreeNPathMetric for high NPath complexity case
-        #  It is necessary to fix implementation of MvnFreeNPathMetric,
-        #  so that the test on a very high NPath complexity case passes.
-        #  Once fixed, remove `pytest.mark.xfail` decorator.
-        #
-        #  Although the comment in Foo.java states that the expected value is 200,
-        #  the actual value, verified against `checkstyle-10.26.1-all.jar` is 288.
-        #
-        #  $ cat config.xml
-        #  <?xml version="1.0"?>
-        #  <!DOCTYPE module PUBLIC
-        #            "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
-        #            "https://checkstyle.org/dtds/configuration_1_3.dtd">
-        #  <module name="Checker">
-        #    <module name="TreeWalker">
-        #      <module name="NPathComplexity">
-        #        <property name="max" value="1"/>
-        #      </module>
-        #    </module>
-        #  </module>
-        #
-        #  $ java -jar checkstyle-10.26.1-all.jar -c config.xml test/metrics/npath/Foo.java
-        #  [ERROR] ... NPath Complexity is 288 (max allowed is 1). [NPathComplexity]
         assert self._value_from_filepath(self._filepath('Foo.java')) == 288
 
     def _filepath(self, basename: str) -> pathlib.Path:
