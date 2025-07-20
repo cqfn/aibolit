@@ -321,7 +321,8 @@ First, you need to install:
 * Ruby 2.6+
 * [Xcop](https://github.com/yegor256/xcop)
 * [LaTeX](https://www.latex-project.org/get/)
-  * Or check out for `latexmk` LaTeX ecosystem package (**LaTeX is still needed!**): 
+  * Or check out for `latexmk` LaTeX ecosystem package
+    (**LaTeX is still needed!**):
     [Package latexmk on CTAN](https://ctan.org/pkg/latexmk)
 
 Install the following packages if you don't have them:
