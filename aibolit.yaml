@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 645.860740303
+  seconds: 648.175737835
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-20 07:10:16.323549779 Z
+  when: 2025-07-20 08:05:54.838986632 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -32229,7 +32229,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-20 06:32:54.000000000 Z
+  when: &404 2025-07-20 06:32:54.000000000 Z
   where: github
   who: 526301
 - _id: 20525
@@ -32241,7 +32241,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-20 06:32:22.000000000 Z
+  when: &405 2025-07-20 06:32:22.000000000 Z
   where: github
   who: 526301
 - _id: 20526
@@ -32253,7 +32253,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-20 06:31:46.000000000 Z
+  when: &406 2025-07-20 06:31:46.000000000 Z
   where: github
   who: 526301
 - _id: 20527
@@ -32265,7 +32265,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-20 06:31:11.000000000 Z
+  when: &407 2025-07-20 06:31:11.000000000 Z
   where: github
   who: 526301
 - _id: 20528
@@ -32277,7 +32277,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-20 06:30:45.000000000 Z
+  when: &408 2025-07-20 06:30:45.000000000 Z
   where: github
   who: 526301
 - _id: 20529
@@ -32289,55 +32289,139 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-20 06:29:57.000000000 Z
+  when: &409 2025-07-20 06:29:57.000000000 Z
   where: github
   who: 526301
-- _id: 20536
-  _time: 2025-07-20 07:05:20.895387239 Z
+- _id: 20543
+  _job: 29504
+  _time: 2025-07-20 07:11:09.672429395 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.14.27
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#869 reported by @dvrkrain;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 869
+  reporter: 60609459
+  repository: 237167507
+  what: bug-was-accepted
+  when: *404
+  where: github
+  who: 526301
+- _id: 20544
+  _job: 29504
+  _time: 2025-07-20 07:11:10.095238358 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.14.27
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#870 reported by @dvrkrain;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 870
+  reporter: 60609459
+  repository: 237167507
+  what: bug-was-accepted
+  when: *405
+  where: github
+  who: 526301
+- _id: 20545
+  _job: 29504
+  _time: 2025-07-20 07:11:10.143455006 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.14.27
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#871 reported by @dvrkrain;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 871
+  reporter: 60609459
+  repository: 237167507
+  what: bug-was-accepted
+  when: *406
+  where: github
+  who: 526301
+- _id: 20546
+  _job: 29504
+  _time: 2025-07-20 07:11:10.193248902 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.14.27
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#872 reported by @dvrkrain;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 872
+  reporter: 60609459
+  repository: 237167507
+  what: bug-was-accepted
+  when: *407
+  where: github
+  who: 526301
+- _id: 20547
+  _job: 29504
+  _time: 2025-07-20 07:11:10.239349789 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.14.27
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#873 reported by @dvrkrain;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 873
+  reporter: 60609459
+  repository: 237167507
+  what: bug-was-accepted
+  when: *408
+  where: github
+  who: 526301
+- _id: 20548
+  _job: 29504
+  _time: 2025-07-20 07:11:10.285884025 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.14.27
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#874 reported by @dvrkrain;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 874
+  reporter: 60609459
+  repository: 237167507
+  what: bug-was-accepted
+  when: *409
+  where: github
+  who: 526301
+- _id: 20556
+  _time: 2025-07-20 08:01:03.332114150 Z
   _version: 0.13.0/0.51.0/
   latest: 3200322689
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 20537
-  _time: 2025-07-20 07:05:23.845623147 Z
+- _id: 20557
+  _time: 2025-07-20 08:02:44.080689364 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 20558
+  _time: 2025-07-20 08:03:38.550472328 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 20538
-  _time: 2025-07-20 07:05:24.334244303 Z
+- _id: 20559
+  _time: 2025-07-20 08:03:39.188427695 Z
   _version: 0.13.0/0.51.0/
-  latest: 814
+  latest: 816
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 20539
-  _time: 2025-07-20 07:07:37.554609267 Z
+- _id: 20560
+  _time: 2025-07-20 08:04:23.765049504 Z
   _version: 0.13.0/0.51.0/
-  latest: 753
+  latest: 440
   repository: 237167507
   what: assignees-were-scanned
   where: github
-- _id: 20540
-  _time: 2025-07-20 07:08:18.432458712 Z
+- _id: 20561
+  _time: 2025-07-20 08:05:05.245892756 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 20541
-  _time: 2025-07-20 07:09:22.479928275 Z
+- _id: 20562
+  _time: 2025-07-20 08:05:48.016112328 Z
   _version: 0.13.0/0.51.0/
-  latest: 327
+  latest: 0
   repository: 237167507
   what: labels-were-scanned
-  where: github
-- _id: 20542
-  _time: 2025-07-20 07:10:16.289326749 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
   where: github
