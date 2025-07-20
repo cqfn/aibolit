@@ -5,7 +5,7 @@
 
 \begin{itemize}
 	\item \pattern{Assert in code}{P1}
-	{If there is an assert statement in code block, and name of class doesn't end with Test, it is considered a pattern.}
+	{If there is an assert statement in a code block, and the name of the class doesn't end with Test, it is considered a pattern.}
 	{\it Example:}
 \begin{lstlisting}[language=Java]
 class Book {
@@ -19,7 +19,7 @@ class Book {
 \begin{lstlisting}[language=Java]
 class Book {
 	private String title;
-	void setTitle(String) {
+	void setTitle(String t) {
 		this.title = t;
 	}
 }
@@ -58,7 +58,7 @@ class Book {
 		this.randomDevPath = conf.get(
 		HADOOP_SECURITY_SECURE_RANDOM_DEVICE_FILE_PATH_KEY,
 		HADOOP_SECURITY_SECURE_RANDOM_DEVICE_FILE_PATH_DEFAULT);
-		close(); \\ some minor changes also do not affect, it is still Setter pattern
+		close(); // some minor changes also do not affect, it is still Setter pattern
 	}
 }
 \end{lstlisting}
@@ -125,7 +125,7 @@ public class a implements A, B {
 }
 \end{lstlisting}
 
-	\item \pattern{Using \texttt{instanceof} operator}{P8}{ Using of \texttt{instanceof} operator considered as pattern.}
+	\item \pattern{Using \texttt{instanceof} operator}{P8}{ Using the \texttt{instanceof} operator is considered a pattern.}
 {\it Examples:}
 	\begin{lstlisting}[language=Java]
 public static void main(String[] args) {
@@ -252,7 +252,7 @@ class Book {
 }
 \end{lstlisting}
 
-	\item \pattern{String concatenation using \texttt{+} operator}{P17}{Any usage string concatenation using \texttt{+} operator is considered as pattern match.}
+	\item \pattern{String concatenation using \texttt{+} operator}{P17}{Any usage of string concatenation using the \texttt{+} operator is considered a pattern match.}
 {\it Example:}
 \begin{lstlisting}[language=Java]
 public void start() {
@@ -264,7 +264,7 @@ public void start() {
 }
 \end{lstlisting}
 
-	\item \pattern{Override method calls parent method}{P18}{If we call parent method from override class method it is considered as the pattern.}
+	\item \pattern{Override method calls parent method}{P18}{If we call a parent method from an overridden class method, it is considered as the pattern.}
 {\it Example:}
 \begin{lstlisting}[language=Java]
 @Override
@@ -284,26 +284,26 @@ class Book {
 		int a = 1; // here
 	}
 	Book(int i) {
-		this.id = I;
+		this.id = i;
 	}
 }
 \end{lstlisting}
 
-	\item \pattern{Line distance between variable declaration and first usage greater then threshold}{P20\_5, P20\_7, P20\_11}{If line distance between variable declaration and first usage exceeds some threshold we consider it as the pattern. We calculate only non-empty lines. P20\_5 means that distance is 5.}
+	\item \pattern{Line distance between variable declaration and first usage greater than threshold}{P20\_5, P20\_7, P20\_11}{If the line distance between variable declaration and first usage exceeds some threshold, we consider it as the pattern. We calculate only non-empty lines. P20\_5 means that the distance is 5.}
 {\it Example:}
 \begin{lstlisting}[language=Java]
 // variable a declared and used with 2 lines distance
 static void myMethod() {
-	string path1 = '/tmp/test1';
+	String path1 = "/tmp/test1";
 	int a = 4;
 
-	string path2 = '/tmp/test2';
-	string path3 = '/tmp/test3';
+	String path2 = "/tmp/test2";
+	String path3 = "/tmp/test3";
 	a = a + 4;
 }
 \end{lstlisting}
 
-	\item \pattern{Variable is declared in the middle of the method body}{P21}{All variable we need have to be declared at the beginning of its scope. If variable declared inside the scope following after logical blocks we consider that this is the pattern.}
+	\item \pattern{Variable is declared in the middle of the method body}{P21}{All variables we need have to be declared at the beginning of their scope. If a variable is declared inside the scope following after logical blocks, we consider that this is the pattern.}
 {\it Example:}
 \begin{lstlisting}[language=Java]
 // The declaration of variable list is match pattern.
@@ -335,7 +335,7 @@ class Book {
 }
 \end{lstlisting}
 
-	\item \pattern{Class declaration must always be \texttt{final}}{P24}{Once you see a non \texttt{final} method, it's a pattern.}
+	\item \pattern{Class declaration must always be \texttt{final}}{P24}{Once you see a non \texttt{final} class, it's a pattern.}
 {\it Example:}
 \begin{lstlisting}[language=Java]
 class Book {
@@ -417,7 +417,7 @@ class Foo {
 \begin{lstlisting}[language=Java]
 class Foo {
 	void foo() {
-		white (true) {
+		while (true) {
 			for (;;) { // here
 			}
 		}

@@ -5,7 +5,7 @@
 
 As a by-product of Aibolit's ML and recommendation
 engine, we get a tool for empirically analysing different patterns' impacts on the target quality metric. Just
-like in the main recommendation algorithm (Algorith~\ref{fig:recsys_alg}, Section~\ref{sec:recommendation_algorithm}), we can estimate whether a particular pattern has a positive or negative impact on the quality metric by considering modifications of source code where pattern count is decreased or increased. We perform such a procedure on a heldout set, which allows to estimate the average impact of a particular pattern on quality.
+like in the main recommendation algorithm (Algorithm~\ref{fig:recsys_alg}, Section~\ref{sec:recommendation_algorithm}), we can estimate whether a particular pattern has a positive or negative impact on the quality metric by considering modifications of source code where pattern count is decreased or increased. We perform such a procedure on a held-out set, which allows us to estimate the average impact of a particular pattern on quality.
 
 In Table~\ref{tab:pattern_analysis} we present a case study of the 34 patterns used at training of Aibolit (see Appendix for the pattern descriptions). On a separate test set (see details in Section~\ref{sec:dataset}), for each pattern, we considered increasing and decreasing the pattern's count by 1. We used the pretrained Aibolit's regression model to predict the corresponding change in quality metric.
 
@@ -51,7 +51,7 @@ Nested Loop                            		&	580	&	527	&	29	&	81	&	1	&	2	\\
 \hline
 \end{tabular}
 \centering
-\caption{Empirical analysis of patterns. For each source code in the test set, we consider encreasing (\textbf{p+}) and decreasing (\textbf{p-}) pattern count by 1. And we recorded whether the maintainability metric increased (\textbf{m+}) or decreased (\textbf{m-}) as a result of that (where lower is better). In some cases the metric did no change (\textbf{m=}). The values in the cells are counts of cases.}
+\caption{Empirical analysis of patterns. For each source code in the test set, we consider increasing (\textbf{p+}) and decreasing (\textbf{p-}) pattern count by 1. We recorded whether the maintainability metric increased (\textbf{m+}) or decreased (\textbf{m-}) as a result of that (where lower is better). In some cases the metric did not change (\textbf{m=}). The values in the cells are counts of cases.}
 \label{tab:pattern_analysis}
 \captionsetup{font=scriptsize}
 % \caption*{
@@ -80,11 +80,11 @@ Nested Loop                            		&	580	&	527	&	29	&	81	&	1	&	2	\\
 \end{table}
 
 Based on the statistics in Table~\ref{tab:pattern_analysis}, it appears that \emph{Prohibited class name}, \emph{Count If Return}, \emph{Instance of}, \emph{Null check}, \emph{Nested Loop},
-\emph{Array as function argument}, \emph{Joined validation} are \textbf{anti-patterns}, since their count decrease tends to improve  the metric. Another group of patterns are \emph{Setters}, \emph{Many primary constructors}, \emph{Method chain}, \emph{Non final attribute}, \emph{Super Method}, \emph{Send Null patterns}: for them we observe that decresing them causes the metric to deteriorate, and increasing causes the metric to improve. We consider them \textbf{pro-patterns}. The third group (the rest of the patterns) can both improve and deteriorate the metric. We restrain oursevles from calling them either anti- or pro-patterns.
+\emph{Array as function argument}, \emph{Joined validation} are \textbf{anti-patterns}, since their count decrease tends to improve the metric. Another group of patterns are \emph{Setters}, \emph{Many primary constructors}, \emph{Method chain}, \emph{Non final attribute}, \emph{Super Method}, \emph{Send Null}: for them we observe that decreasing them causes the metric to deteriorate, and increasing causes the metric to improve. We consider them \textbf{pro-patterns}. The third group (the rest of the patterns) can both improve and deteriorate the metric. We restrain ourselves from calling them either anti- or pro-patterns.
 
 Attempting to interpret the results, we observe that ``true'' anti-patterns usually have \emph{if/else condition} or cycle in their definition.
 E.g., \emph{Null check} always checks for a null, \emph{Count If Return}, \emph{Instance of},
-\emph{Joined validation} have always \emph{if condition}, \emph{Nested Loop} has always at least 1 loop inside. Given that so far we have worked with the Cognitive Complexity metric, it is no surprise that those patterns affect it (\emph{if/else condition} or cycle are the main contributors into \emph{CogC}). Despite this limitation of the present analysis, we believe the proposed \textit{method} itself can be very useful in software engineering practice and research.
+\emph{Joined validation} always have \emph{if condition}, \emph{Nested Loop} always has at least 1 loop inside. Given that so far we have worked with the Cognitive Complexity metric, it is no surprise that those patterns affect it (\emph{if/else condition} or cycle are the main contributors to \emph{CogC}). Despite this limitation of the present analysis, we believe the proposed \textit{method} itself can be very useful in software engineering practice and research.
 
 
 

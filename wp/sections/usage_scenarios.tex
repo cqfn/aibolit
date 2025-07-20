@@ -3,21 +3,21 @@
 
 \subsection{Aibolit Index}
 
-In addition to the recommendation functionality, we proppose \textit{Aibolit Index},
+In addition to the recommendation functionality, we propose \textit{Aibolit Index},
 a score that measures the overall quality of a given software project.
 It is a single number, with the following properties:
 \begin{itemize}
 \item[(i)] the more patterns are suggested to fix, the higher Aibolit Index;
 \item[(ii)] the higher negative impact factor (see Section \ref{sec:recommendation_algorithm})
-of detected patterns the higher Aibolit Index.
+of detected patterns, the higher Aibolit Index.
 \end{itemize}
-Therefore, the lower Abolit Index the better the project's code from the point
+Therefore, the lower Aibolit Index, the better the project's code from the point
 of view of Aibolit.
 
 Let $P(C)$ be a set of all patterns Aibolit recommends to fix for Java class $C$.
 % As we know from the section ~\ref{sec:recommendation_algorithm}, each
 % recommended anti-pattern $p \in P(C)$ has an associated impact factor $I_{p}$ and a count $count(p, C)$.
-We define the Aibolit Index $A(C)$ of Java class $C$ as a sum of the products of
+We define the Aibolit Index $A(C)$ of Java class $C$ as the sum of the products of
 impact factors $I_{p}$ and scaled counts $count(p, C)$ for all of the
 patterns occurring in the class (Eq.~\ref{eq:aibolit_index}). We use log-scaling for smoothing purposes, because some patterns are a lot more common than others.
 
@@ -27,7 +27,7 @@ patterns occurring in the class (Eq.~\ref{eq:aibolit_index}). We use log-scaling
 \end{equation}
 
 
-The Aibolit Index of a project is defined as average Aibolit Index
+The Aibolit Index of a project is defined as the average Aibolit Index
 across all Java classes in the project. In Table~\ref{table:aibolit_index_repos}
 you can see a calculated Aibolit Index of some GitHub Java repositories with
 more than 4500 stars. Aibolit Index is supposed to be a convenient instrument
