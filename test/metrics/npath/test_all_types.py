@@ -570,6 +570,18 @@ class TestMvnFreeNPathMetric:
         ''').strip()
         assert self._value(content) == 5
 
+    def test_ternary_with_more_logic(self) -> None:
+        content = dedent('''
+        public class Test {
+            void method() {
+                int a = 5, b = 6, c = 4;
+                System.out.println(a < b || a < c ? (c < b ? c : a) :
+                                   (a > 3 && b < c || c < a ? 8 : 10));
+            }
+        }
+        ''').strip()
+        assert self._value(content) == 9
+
     def _filepath(self, basename: str) -> pathlib.Path:
         return pathlib.Path(__file__).parent / basename
 
