@@ -115,7 +115,7 @@ class AST:
         Raises:
             ValueError: If root node is not a CLASS_DECLARATION
         """
-        class_declaration = self.get_root()
+        class_declaration = self.root()
         if class_declaration.node_type != ASTNodeType.CLASS_DECLARATION:
             raise ValueError(
                 f'Expected {ASTNodeType.CLASS_DECLARATION} node,'
@@ -125,15 +125,15 @@ class AST:
 
         for field_declaration in class_declaration.fields:
             if allowed_fields_names & set(field_declaration.names):
-                field_ast = self.get_subtree(field_declaration)
+                field_ast = self.subtree(field_declaration)
                 allowed_nodes.update(node.node_index for node in field_ast)
 
         for method_declaration in class_declaration.methods:
             if method_declaration.name in allowed_methods_names:
-                method_ast = self.get_subtree(method_declaration)
+                method_ast = self.subtree(method_declaration)
                 allowed_nodes.update(node.node_index for node in method_ast)
 
-        return AST(self.tree.subgraph(allowed_nodes), class_declaration.node_index)
+        return AST(self._tree.subgraph(allowed_nodes), class_declaration.node_index)
 
     def traverse(
         self,

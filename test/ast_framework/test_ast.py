@@ -38,25 +38,25 @@ class ASTTestSuite(TestCase):
         self.assertEqual(method_declaration.node_type, ASTNodeType.METHOD_DECLARATION)
 
     def test_with_fields_and_methods_empty(self):
-        ast = next(self._build_ast('SimpleClass.java').get_subtrees(ASTNodeType.CLASS_DECLARATION))
+        ast = next(self._build_ast('SimpleClass.java').subtrees(ASTNodeType.CLASS_DECLARATION))
         nothing_ast = ast.with_fields_and_methods(set(), set())
         self.assertEqual(self._field_names(nothing_ast), [])
         self.assertEqual(self._method_names(nothing_ast), [])
 
     def test_with_fields_and_methods_only_methods(self):
-        ast = next(self._build_ast('SimpleClass.java').get_subtrees(ASTNodeType.CLASS_DECLARATION))
+        ast = next(self._build_ast('SimpleClass.java').subtrees(ASTNodeType.CLASS_DECLARATION))
         method_ast = ast.with_fields_and_methods(set(), {'Increment'})
         self.assertEqual(self._field_names(method_ast), [])
         self.assertEqual(self._method_names(method_ast), ['Increment'])
 
     def test_with_fields_and_methods_only_fields(self):
-        ast = next(self._build_ast('SimpleClass.java').get_subtrees(ASTNodeType.CLASS_DECLARATION))
+        ast = next(self._build_ast('SimpleClass.java').subtrees(ASTNodeType.CLASS_DECLARATION))
         field_ast = ast.with_fields_and_methods({'x'}, set())
         self.assertEqual(self._field_names(field_ast), ['x'])
         self.assertEqual(self._method_names(field_ast), [])
 
     def test_with_fields_and_methods(self):
-        ast = next(self._build_ast('SimpleClass.java').get_subtrees(ASTNodeType.CLASS_DECLARATION))
+        ast = next(self._build_ast('SimpleClass.java').subtrees(ASTNodeType.CLASS_DECLARATION))
         method_field_ast = ast.with_fields_and_methods({'x'}, {'Increment'})
         self.assertEqual(self._field_names(method_field_ast), ['x'])
         self.assertEqual(self._method_names(method_field_ast), ['Increment'])
@@ -81,14 +81,14 @@ class ASTTestSuite(TestCase):
 
     def _field_names(self, ast: AST) -> list[str]:
         result = set()
-        for field_declaration in ast.get_proxy_nodes(ASTNodeType.FIELD_DECLARATION):
+        for field_declaration in ast.proxy_nodes(ASTNodeType.FIELD_DECLARATION):
             for name in field_declaration.names:
                 result.add(name)
         return sorted(result)
 
     def _method_names(self, ast: AST) -> list[str]:
         result = set()
-        for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
+        for method_declaration in ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             result.add(method_declaration.name)
         return sorted(result)
 
