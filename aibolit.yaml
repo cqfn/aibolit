@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 609.425650328
+  seconds: 647.114552989
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-21 09:14:23.704656184 Z
+  when: 2025-07-21 10:09:11.839931893 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33183,52 +33183,82 @@
   when: 2025-07-20 22:22:22.000000000 Z
   where: github
   who: 150797125
-- _id: 20953
-  _time: 2025-07-21 09:09:20.002850258 Z
+- _id: 20960
+  _time: 2025-07-21 09:58:28.200019552 Z
   _version: 0.13.0/0.51.0/
-  latest: 52328535474
+  comments: 8
+  commits: 3
+  details: The pull request cqfn/aibolit#865 has been reviewed by @antonprokopyev
+    with 13 HoC and 8 comments.
+  event_id: 52329914387
+  event_type: PullRequestReviewEvent
+  files: 2
+  hoc: 13
+  is_human: 1
+  issue: 865
+  repository: 237167507
+  review_comments: 2
+  what: pull-was-reviewed
+  when: 2025-07-21 09:20:22.000000000 Z
+  where: github
+  who: 13173649
+- _id: 20962
+  _time: 2025-07-21 09:58:32.073551919 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#885 has been opened by @ivanovmg.
+  is_human: 1
+  issue: 885
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-07-21 09:34:06.000000000 Z
+  where: github
+  who: 41443370
+- _id: 20969
+  _time: 2025-07-21 10:03:52.923079560 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52330023112
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 20954
-  _time: 2025-07-21 09:10:07.625092390 Z
+- _id: 20970
+  _time: 2025-07-21 10:04:44.671578150 Z
   _version: 0.13.0/0.51.0/
-  latest: 0
+  latest: 440
   repository: 237167507
-  what: merges-were-scanned
+  what: assignees-were-scanned
   where: github
-- _id: 20955
-  _time: 2025-07-21 09:11:46.711079066 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 20956
-  _time: 2025-07-21 09:12:52.985660040 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 20957
-  _time: 2025-07-21 09:12:56.753438388 Z
+- _id: 20971
+  _time: 2025-07-21 10:04:48.252684286 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 20958
-  _time: 2025-07-21 09:12:57.452320267 Z
+- _id: 20972
+  _time: 2025-07-21 10:04:48.954679038 Z
   _version: 0.13.0/0.51.0/
-  latest: 168
+  latest: 173
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 20959
-  _time: 2025-07-21 09:13:34.657594452 Z
+- _id: 20973
+  _time: 2025-07-21 10:06:36.618506155 Z
   _version: 0.13.0/0.51.0/
-  latest: 753
+  latest: 0
   repository: 237167507
-  what: assignees-were-scanned
+  what: types-were-scanned
+  where: github
+- _id: 20974
+  _time: 2025-07-21 10:07:24.567381874 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 20975
+  _time: 2025-07-21 10:08:16.348531198 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
   where: github
