@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 639.959583456
+  seconds: 758.272418536
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-21 13:39:38.074165072 Z
+  when: 2025-07-21 14:13:53.751082043 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -32688,20 +32688,6 @@
   when: *413
   where: github
   who: 60609459
-- _id: 20657
-  _job: 29536
-  _time: 2025-07-20 13:35:21.198868311 Z
-  _version: 0.13.0/0.51.1/0.14.25!0.14.27
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  what: learn-eva
-  when: 2025-07-20 13:35:21.182374780 Z
 - _id: 20666
   _time: 2025-07-20 14:02:36.429022636 Z
   _version: 0.13.0/0.51.0/
@@ -33290,7 +33276,7 @@
   review_comments: 12
   succeeded_builds: 18
   what: pull-was-merged
-  when: 2025-07-21 12:32:00.000000000 Z
+  when: &422 2025-07-21 12:32:00.000000000 Z
   where: github
   who: 8086956
 - _id: 21011
@@ -33312,88 +33298,238 @@
   review_comments: 2
   succeeded_builds: 18
   what: pull-was-merged
-  when: 2025-07-21 12:08:49.000000000 Z
+  when: &423 2025-07-21 12:08:49.000000000 Z
   where: github
   who: 8086956
-- _id: 21016
-  _time: 2025-07-21 13:34:43.728391674 Z
-  _version: 0.13.0/0.51.0/
-  latest: 52334688757
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 21017
-  _time: 2025-07-21 13:35:41.998448674 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 21018
-  _time: 2025-07-21 13:36:23.096146981 Z
-  _version: 0.13.0/0.51.0/
-  latest: 440
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 21019
-  _time: 2025-07-21 13:37:17.013486701 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 21020
-  _time: 2025-07-21 13:37:17.543040135 Z
-  _version: 0.13.0/0.51.0/
-  latest: 185
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
 - _id: 21021
   _time: 2025-07-21 13:38:00.294573475 Z
   _version: 0.13.0/0.51.0/
   details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#882.
+  is_human: 1
   issue: 882
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-21 12:23:33.000000000 Z
+  when: &419 2025-07-21 12:23:33.000000000 Z
   where: github
   who: 526301
 - _id: 21022
   _time: 2025-07-21 13:38:00.721348468 Z
   _version: 0.13.0/0.51.0/
   details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#883.
+  is_human: 1
   issue: 883
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-21 12:23:17.000000000 Z
+  when: &420 2025-07-21 12:23:17.000000000 Z
   where: github
   who: 526301
 - _id: 21023
   _time: 2025-07-21 13:38:01.158241350 Z
   _version: 0.13.0/0.51.0/
   details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#885.
+  is_human: 1
   issue: 885
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-21 12:22:36.000000000 Z
+  when: &421 2025-07-21 12:22:36.000000000 Z
   where: github
   who: 526301
-- _id: 21024
-  _time: 2025-07-21 13:38:01.343387881 Z
+- _id: 21026
+  _job: 29661
+  _time: 2025-07-21 13:40:02.514349966 Z
+  _version: 0.13.0/0.51.1/0.14.25
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#882 reported by @mmenshikh;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 882
+  reporter: 150797125
+  repository: 237167507
+  what: bug-was-accepted
+  when: *419
+  where: github
+  who: 526301
+- _id: 21027
+  _job: 29661
+  _time: 2025-07-21 13:40:02.980288283 Z
+  _version: 0.13.0/0.51.1/0.14.25
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#883 reported by @mmenshikh;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 883
+  reporter: 150797125
+  repository: 237167507
+  what: bug-was-accepted
+  when: *420
+  where: github
+  who: 526301
+- _id: 21028
+  _job: 29661
+  _time: 2025-07-21 13:40:03.036550593 Z
+  _version: 0.13.0/0.51.1/0.14.25
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#885 reported by @ivanovmg;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 885
+  reporter: 41443370
+  repository: 237167507
+  what: bug-was-accepted
+  when: *421
+  where: github
+  who: 526301
+- _id: 21029
+  _job: 29661
+  _time: 2025-07-21 13:40:04.343680692 Z
+  _version: 0.13.0/0.51.1/0.14.25
+  comments: 19
+  details: The pull request cqfn/aibolit#851 with 460 HoC created by @antonprokopyev
+    was merged by @rultor after 2w1d of being in review and 19 comments.
+  hoc: 460
+  is_human: 1
+  issue: 851
+  merger: 8086956
+  repository: 237167507
+  review_comments: 12
+  seconds: 1367421
+  what: code-was-contributed
+  when: *422
+  where: github
+  who: 13173649
+- _id: 21030
+  _job: 29661
+  _time: 2025-07-21 13:40:04.583196444 Z
+  _version: 0.13.0/0.51.1/0.14.25
+  comments: 11
+  details: The pull request cqfn/aibolit#865 with 13 HoC created by @onemoreslacker
+    was merged by @rultor after 6d19h of being in review and 11 comments.
+  hoc: 13
+  is_human: 1
+  issue: 865
+  merger: 8086956
+  repository: 237167507
+  review_comments: 2
+  seconds: 587108
+  what: code-was-contributed
+  when: *423
+  where: github
+  who: 154023300
+- _id:
+  - 21033
+  - 21031
+  _job: 29661
+  _time:
+  - 2025-07-21 13:40:35.064355462 Z
+  - 2025-07-21 13:40:08.536079607 Z
+  _version: 0.13.0/0.51.1/0.14.25
+  award: 4
+  details: It's time to reward @antonprokopyev for the code review in cqfn/aibolit#865,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/865/#issuecomment-3096837730
+  is_human: 1
+  issue: 865
+  receipt: 0
+  repository: 237167507
+  what: code-review-was-rewarded
+  when: 2025-07-21 13:40:08.546781120 Z
+  where: github
+  who: 13173649
+  why: Reviewed code in cqfn/aibolit#865
+- _id:
+  - 21034
+  - 21032
+  _job: 29661
+  _time:
+  - 2025-07-21 13:40:35.078663224 Z
+  - 2025-07-21 13:40:11.841781468 Z
+  _version: 0.13.0/0.51.1/0.14.25
+  award: 4
+  details: It's time to reward @dvrkrain for the code contributed in cqfn/aibolit#878,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/878/#issuecomment-3096837804
+  is_human: 1
+  issue: 878
+  receipt: 0
+  repository: 237167507
+  what: code-contribution-was-rewarded
+  when: 2025-07-21 13:40:11.848767426 Z
+  where: github
+  who: 60609459
+  why: Contributed code in cqfn/aibolit#878
+- _id: 21035
+  _job: 29661
+  _time: 2025-07-21 13:41:06.482888057 Z
+  _version: 0.13.0/0.51.1/0.14.25
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  what: learn-eva
+  when: 2025-07-21 13:41:06.466334481 Z
+- _id: 21043
+  _time: 2025-07-21 14:07:39.638247170 Z
   _version: 0.13.0/0.51.0/
-  latest: 0
+  details: The issue cqfn/aibolit#872 has been closed by @yegor256.
+  event_id: 52336165481
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 872
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-07-21 11:46:09.000000000 Z
+  where: github
+  who: 526301
+- _id: 21044
+  _time: 2025-07-21 14:08:03.955012630 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52336167289
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 21045
+  _time: 2025-07-21 14:10:09.461011206 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 21025
-  _time: 2025-07-21 13:38:45.837696567 Z
+- _id: 21046
+  _time: 2025-07-21 14:11:05.481466435 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
+  where: github
+- _id: 21047
+  _time: 2025-07-21 14:11:09.470750718 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 21048
+  _time: 2025-07-21 14:11:10.273019417 Z
+  _version: 0.13.0/0.51.0/
+  latest: 187
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 21049
+  _time: 2025-07-21 14:13:10.578034125 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 21050
+  _time: 2025-07-21 14:13:53.715230830 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
