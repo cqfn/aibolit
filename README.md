@@ -320,6 +320,8 @@ First, you need to install:
 * [uv](https://docs.astral.sh/uv/)
 * [Ruby 2.6+](https://www.ruby-lang.org/en/downloads/)
 * [Xcop](https://github.com/yegor256/xcop)
+* [LaTeX](https://www.latex-project.org/get/) and
+  [`latexmk`](https://ctan.org/pkg/latexmk)
 
 Install the following packages if you don't have them:
 
