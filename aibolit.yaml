@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 617.370290325
+  seconds: 639.959583456
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-21 12:05:51.245599718 Z
+  when: 2025-07-21 13:39:38.074165072 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33250,55 +33250,150 @@
   review_comments: 1
   succeeded_builds: 18
   what: pull-was-merged
-  when: 2025-07-21 11:46:07.000000000 Z
+  when: &418 2025-07-21 11:46:07.000000000 Z
   where: github
   who: 526301
-- _id: 20999
-  _time: 2025-07-21 12:00:43.431498989 Z
+- _id: 21006
+  _job: 29654
+  _time: 2025-07-21 12:06:21.755586201 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.14.27
+  comments: 7
+  details: The pull request cqfn/aibolit#878 with 2 HoC created by @dvrkrain was merged
+    by @yegor256 after 22h44m of being in review and 7 comments.
+  hoc: 2
+  is_human: 1
+  issue: 878
+  merger: 526301
+  repository: 237167507
+  review_comments: 1
+  seconds: 81845
+  what: code-was-contributed
+  when: *418
+  where: github
+  who: 60609459
+- _id: 21010
+  _time: 2025-07-21 13:32:17.326155522 Z
   _version: 0.13.0/0.51.0/
-  latest: 52332112283
+  branch: enable-eo007-850
+  comments: 19
+  comments_appreciated: 6
+  comments_by_author: 3
+  comments_by_reviewers: 16
+  comments_resolved: 7
+  comments_to_code: 12
+  details: Apparently, cqfn/aibolit#851 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 460
+  is_human: 0
+  issue: 851
+  repository: 237167507
+  review_comments: 12
+  succeeded_builds: 18
+  what: pull-was-merged
+  when: 2025-07-21 12:32:00.000000000 Z
+  where: github
+  who: 8086956
+- _id: 21011
+  _time: 2025-07-21 13:32:30.854627844 Z
+  _version: 0.13.0/0.51.0/
+  branch: recommendxml
+  comments: 11
+  comments_appreciated: 1
+  comments_by_author: 4
+  comments_by_reviewers: 7
+  comments_resolved: 1
+  comments_to_code: 2
+  details: Apparently, cqfn/aibolit#865 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 13
+  is_human: 0
+  issue: 865
+  repository: 237167507
+  review_comments: 2
+  succeeded_builds: 18
+  what: pull-was-merged
+  when: 2025-07-21 12:08:49.000000000 Z
+  where: github
+  who: 8086956
+- _id: 21016
+  _time: 2025-07-21 13:34:43.728391674 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52334688757
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 21000
-  _time: 2025-07-21 12:02:14.525382602 Z
+- _id: 21017
+  _time: 2025-07-21 13:35:41.998448674 Z
   _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 21001
-  _time: 2025-07-21 12:03:10.556549698 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
+  latest: 513
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 21002
-  _time: 2025-07-21 12:03:14.417996466 Z
+- _id: 21018
+  _time: 2025-07-21 13:36:23.096146981 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 21019
+  _time: 2025-07-21 13:37:17.013486701 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 21003
-  _time: 2025-07-21 12:03:14.915450173 Z
+- _id: 21020
+  _time: 2025-07-21 13:37:17.543040135 Z
   _version: 0.13.0/0.51.0/
-  latest: 179
+  latest: 185
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 21004
-  _time: 2025-07-21 12:04:21.127791371 Z
+- _id: 21021
+  _time: 2025-07-21 13:38:00.294573475 Z
   _version: 0.13.0/0.51.0/
-  latest: 327
+  details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#882.
+  issue: 882
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-07-21 12:23:33.000000000 Z
+  where: github
+  who: 526301
+- _id: 21022
+  _time: 2025-07-21 13:38:00.721348468 Z
+  _version: 0.13.0/0.51.0/
+  details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#883.
+  issue: 883
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-07-21 12:23:17.000000000 Z
+  where: github
+  who: 526301
+- _id: 21023
+  _time: 2025-07-21 13:38:01.158241350 Z
+  _version: 0.13.0/0.51.0/
+  details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#885.
+  issue: 885
+  label: bug
+  repository: 237167507
+  what: label-was-attached
+  when: 2025-07-21 12:22:36.000000000 Z
+  where: github
+  who: 526301
+- _id: 21024
+  _time: 2025-07-21 13:38:01.343387881 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 21005
-  _time: 2025-07-21 12:04:59.816248204 Z
+- _id: 21025
+  _time: 2025-07-21 13:38:45.837696567 Z
   _version: 0.13.0/0.51.0/
-  latest: 753
+  latest: 0
   repository: 237167507
-  what: assignees-were-scanned
+  what: merges-were-scanned
   where: github
