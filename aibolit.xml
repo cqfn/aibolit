@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="647290">
+<fb version="0.11.0" size="647074">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
+    <error>
+      <v t="S">GET https://api.github.com/repos/cqfn/aibolit/actions/jobs/46337977288: 502 - Server Error</v>
+      <v t="S">GET https://api.github.com/repos/cqfn/aibolit/actions/jobs/46170854146: 502 - Server Error</v>
+    </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">681.47858569</seconds>
+    <seconds t="F">776.076827446</seconds>
     <version t="S">0.51.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-21T06:10:00Z</when>
+    <when t="T">2025-07-21T07:16:26Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -36748,33 +36752,35 @@
     <who t="I">150797125</who>
   </f>
   <f>
-    <_id t="I">20904</_id>
-    <_time t="T">2025-07-21T05:59:24Z</_time>
+    <_id t="I">20925</_id>
+    <_time t="T">2025-07-21T07:11:39Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <branch t="S">869</branch>
-    <details t="S">The pull request cqfn/aibolit#875 has been opened by @dvrkrain.</details>
-    <event_id t="I">52305335284</event_id>
-    <event_type t="S">PullRequestEvent</event_type>
-    <is_human t="I">1</is_human>
-    <issue t="I">875</issue>
+    <latest t="I">440</latest>
     <repository t="I">237167507</repository>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2025-07-20T10:33:32Z</when>
-    <where t="S">github</where>
-    <who t="I">60609459</who>
-  </f>
-  <f>
-    <_id t="I">20912</_id>
-    <_time t="T">2025-07-21T06:05:05Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">3200322689</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
+    <what t="S">assignees-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">20913</_id>
-    <_time t="T">2025-07-21T06:06:43Z</_time>
+    <_id t="I">20926</_id>
+    <_time t="T">2025-07-21T07:14:36Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">513</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">20927</_id>
+    <_time t="T">2025-07-21T07:15:33Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">20928</_id>
+    <_time t="T">2025-07-21T07:16:21Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -36782,17 +36788,8 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">20914</_id>
-    <_time t="T">2025-07-21T06:07:47Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">327</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">20915</_id>
-    <_time t="T">2025-07-21T06:08:37Z</_time>
+    <_id t="I">20929</_id>
+    <_time t="T">2025-07-21T07:16:25Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">401</latest>
     <repository t="I">237167507</repository>
@@ -36800,30 +36797,12 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">20916</_id>
-    <_time t="T">2025-07-21T06:08:38Z</_time>
+    <_id t="I">20930</_id>
+    <_time t="T">2025-07-21T07:16:26Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">152</latest>
+    <latest t="I">156</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">20917</_id>
-    <_time t="T">2025-07-21T06:09:14Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">753</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">20918</_id>
-    <_time t="T">2025-07-21T06:10:00Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
