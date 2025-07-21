@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 637.023299857
+  seconds: 617.370290325
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-21 11:10:02.421806639 Z
+  when: 2025-07-21 12:05:51.245599718 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33231,52 +33231,74 @@
   when: *417
   where: github
   who: 13173649
-- _id: 20984
-  _time: 2025-07-21 11:04:58.808668881 Z
+- _id: 20993
+  _time: 2025-07-21 11:58:52.007743945 Z
   _version: 0.13.0/0.51.0/
-  latest: 52330536512
+  branch: '872'
+  comments: 7
+  comments_appreciated: 1
+  comments_by_author: 3
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 1
+  details: Apparently, cqfn/aibolit#878 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 2
+  is_human: 1
+  issue: 878
+  repository: 237167507
+  review_comments: 1
+  succeeded_builds: 18
+  what: pull-was-merged
+  when: 2025-07-21 11:46:07.000000000 Z
+  where: github
+  who: 526301
+- _id: 20999
+  _time: 2025-07-21 12:00:43.431498989 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52332112283
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 20985
-  _time: 2025-07-21 11:06:51.762607273 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 20986
-  _time: 2025-07-21 11:06:55.177899349 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 20987
-  _time: 2025-07-21 11:06:56.324432020 Z
-  _version: 0.13.0/0.51.0/
-  latest: 176
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 20988
-  _time: 2025-07-21 11:08:51.612073605 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 20989
-  _time: 2025-07-21 11:09:39.137625627 Z
+- _id: 21000
+  _time: 2025-07-21 12:02:14.525382602 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 20990
-  _time: 2025-07-21 11:10:02.384987326 Z
+- _id: 21001
+  _time: 2025-07-21 12:03:10.556549698 Z
   _version: 0.13.0/0.51.0/
   latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 21002
+  _time: 2025-07-21 12:03:14.417996466 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 21003
+  _time: 2025-07-21 12:03:14.915450173 Z
+  _version: 0.13.0/0.51.0/
+  latest: 179
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 21004
+  _time: 2025-07-21 12:04:21.127791371 Z
+  _version: 0.13.0/0.51.0/
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 21005
+  _time: 2025-07-21 12:04:59.816248204 Z
+  _version: 0.13.0/0.51.0/
+  latest: 753
   repository: 237167507
   what: assignees-were-scanned
   where: github
