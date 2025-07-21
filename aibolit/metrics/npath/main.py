@@ -111,9 +111,9 @@ class MvnFreeNPathMetric:
             ASTNodeType.SWITCH_STATEMENT: self._switch_npath,
             ASTNodeType.FOR_STATEMENT: self._for_loop_npath,
             ASTNodeType.WHILE_STATEMENT: self._while_loop_npath,
-            ASTNodeType.BINARY_OPERATION: self._binary_expression_npath,
             ASTNodeType.EXPRESSION: self._expression_npath,
-            ASTNodeType.TERNARY_EXPRESSION: self._ternary_npath,
+            ASTNodeType.BINARY_OPERATION: self._expression_npath,
+            ASTNodeType.TERNARY_EXPRESSION: self._expression_npath,
         }
 
         handler = dispatcher.get(node.node_type, default_handler)
