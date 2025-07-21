@@ -137,12 +137,12 @@ class JavalangImproved:
             filter(lambda v: type(v.node) in ntypes, nodes)
         )
 
-    def get_empty_lines(self) -> List[int]:
+    def empty_lines(self) -> List[int]:
         """Figure out lines that are either empty or multiline statements"""
-        lines_with_nodes = self.get_non_empty_lines()
+        lines_with_nodes = self.non_empty_lines()
         max_line = max(lines_with_nodes)
         return list(set(range(1, max_line + 1)).difference(lines_with_nodes))
 
-    def get_non_empty_lines(self) -> List[int]:
+    def non_empty_lines(self) -> List[int]:
         """Figure out file lines that contains statements"""
         return list(map(lambda v: v.line, self.tree_to_nodes()))

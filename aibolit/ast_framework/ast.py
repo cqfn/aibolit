@@ -30,8 +30,8 @@ TraverseCallback = Callable[[ASTNode], None]
 
 class AST:
     def __init__(self, networkx_tree: DiGraph, root: int):
-        self.tree = networkx_tree
-        self.root = root
+        self._tree = networkx_tree
+        self._root = root
 
     @staticmethod
     def build_from_javalang(javalang_ast_root: Node) -> 'AST':
@@ -45,15 +45,15 @@ class AST:
     def __str__(self) -> str:
         printed_graph = ''
         depth = 0
-        for _, destination, edge_type in dfs_labeled_edges(self.tree, self.root):
+        for _, destination, edge_type in dfs_labeled_edges(self._tree, self._root):
             if edge_type == 'forward':
                 printed_graph += '|   ' * depth
-                node_type = self.tree.nodes[destination]['node_type']
+                node_type = self._tree.nodes[destination]['node_type']
                 printed_graph += str(node_type) + ': '
                 if node_type == ASTNodeType.STRING:
-                    printed_graph += self.tree.nodes[destination]['string'] + ', '
+                    printed_graph += self._tree.nodes[destination]['string'] + ', '
                 printed_graph += f'node index = {destination}'
-                node_line = self.tree.nodes[destination]['line']
+                node_line = self._tree.nodes[destination]['line']
                 if node_line is not None:
                     printed_graph += f', line = {node_line}'
                 printed_graph += '\n'
@@ -62,14 +62,14 @@ class AST:
                 depth -= 1
         return printed_graph
 
-    def get_root(self) -> ASTNode:
-        return ASTNode(self.tree, self.root)
+    def root(self) -> ASTNode:
+        return ASTNode(self._tree, self._root)
 
     def __iter__(self) -> Iterator[ASTNode]:
-        for node_index in self.tree.nodes:
-            yield ASTNode(self.tree, node_index)
+        for node_index in self._tree.nodes:
+            yield ASTNode(self._tree, node_index)
 
-    def get_subtrees(self, *root_type: ASTNodeType) -> Iterator['AST']:
+    def subtrees(self, *root_type: ASTNodeType) -> Iterator['AST']:
         """
         Yields subtrees with given type of the root.
         If such subtrees are one including the other, only the larger one is
@@ -78,23 +78,23 @@ class AST:
         is_inside_subtree = False
         current_subtree_root = -1  # all node indexes are positive
         subtree: List[int] = []
-        for _, destination, edge_type in dfs_labeled_edges(self.tree, self.root):
+        for _, destination, edge_type in dfs_labeled_edges(self._tree, self._root):
             if edge_type == 'forward':
                 if is_inside_subtree:
                     subtree.append(destination)
-                elif self.tree.nodes[destination]['node_type'] in root_type:
+                elif self._tree.nodes[destination]['node_type'] in root_type:
                     subtree.append(destination)
                     is_inside_subtree = True
                     current_subtree_root = destination
             elif edge_type == 'reverse' and destination == current_subtree_root:
                 is_inside_subtree = False
-                yield AST(self.tree.subgraph(subtree), current_subtree_root)
+                yield AST(self._tree.subgraph(subtree), current_subtree_root)
                 subtree = []
                 current_subtree_root = -1
 
-    def get_subtree(self, node: ASTNode) -> 'AST':
-        subtree_nodes_indexes = dfs_preorder_nodes(self.tree, node.node_index)
-        subtree = self.tree.subgraph(subtree_nodes_indexes)
+    def subtree(self, node: ASTNode) -> 'AST':
+        subtree_nodes_indexes = dfs_preorder_nodes(self._tree, node.node_index)
+        subtree = self._tree.subgraph(subtree_nodes_indexes)
         return AST(subtree, node.node_index)
 
     def with_fields_and_methods(
@@ -115,7 +115,7 @@ class AST:
         Raises:
             ValueError: If root node is not a CLASS_DECLARATION
         """
-        class_declaration = self.get_root()
+        class_declaration = self.root()
         if class_declaration.node_type != ASTNodeType.CLASS_DECLARATION:
             raise ValueError(
                 f'Expected {ASTNodeType.CLASS_DECLARATION} node,'
@@ -125,15 +125,15 @@ class AST:
 
         for field_declaration in class_declaration.fields:
             if allowed_fields_names & set(field_declaration.names):
-                field_ast = self.get_subtree(field_declaration)
+                field_ast = self.subtree(field_declaration)
                 allowed_nodes.update(node.node_index for node in field_ast)
 
         for method_declaration in class_declaration.methods:
             if method_declaration.name in allowed_methods_names:
-                method_ast = self.get_subtree(method_declaration)
+                method_ast = self.subtree(method_declaration)
                 allowed_nodes.update(node.node_index for node in method_ast)
 
-        return AST(self.tree.subgraph(allowed_nodes), class_declaration.node_index)
+        return AST(self._tree.subgraph(allowed_nodes), class_declaration.node_index)
 
     def traverse(
         self,
@@ -142,31 +142,31 @@ class AST:
         source_node: Optional[ASTNode] = None,
         undirected=False
     ):
-        traverse_graph = self.tree.to_undirected(as_view=True) if undirected else self.tree
+        traverse_graph = self._tree.to_undirected(as_view=True) if undirected else self._tree
         if source_node is None:
-            source_node = self.get_root()
+            source_node = self.root()
 
         for _, destination, edge_type in dfs_labeled_edges(traverse_graph, source_node.node_index):
             if edge_type == 'forward':
-                on_node_entering(ASTNode(self.tree, destination))
+                on_node_entering(ASTNode(self._tree, destination))
             elif edge_type == 'reverse':
-                on_node_leaving(ASTNode(self.tree, destination))
+                on_node_leaving(ASTNode(self._tree, destination))
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
         """
         Yields children of node with given type.
         """
-        for child in self.tree.succ[node]:
-            if self.tree.nodes[child]['node_type'] == child_type:
+        for child in self._tree.succ[node]:
+            if self._tree.nodes[child]['node_type'] == child_type:
                 yield child
 
     @deprecated(reason='Use ASTNode functionality instead.')
     def list_all_children_with_type(self, node: int, child_type: ASTNodeType) -> List[int]:
         list_node: List[int] = []
-        for child in self.tree.succ[node]:
+        for child in self._tree.succ[node]:
             list_node = list_node + self.list_all_children_with_type(child, child_type)
-            if self.tree.nodes[child]['node_type'] == child_type:
+            if self._tree.nodes[child]['node_type'] == child_type:
                 list_node.append(child)
         return sorted(list_node)
 
@@ -178,7 +178,7 @@ class AST:
         yield from self.list_all_children_with_type(node, child_type)
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def get_first_n_children_with_type(
+    def first_n_children_with_type(
         self, node: int, child_type: ASTNodeType, quantity: int
     ) -> List[int]:
         """
@@ -186,60 +186,60 @@ class AST:
         Resulted list is padded with None to length quantity.
         """
         children_with_type = (
-            child for child in self.tree.succ[node] if self.get_type(child) == child_type
+            child for child in self._tree.succ[node] if self.type(child) == child_type
         )
         children_with_type_padded = chain(children_with_type, repeat(None))
         return list(islice(children_with_type_padded, 0, quantity))
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def get_binary_operation_name(self, node: int) -> str:
-        assert self.get_type(node) == ASTNodeType.BINARY_OPERATION
+    def binary_operation_name(self, node: int) -> str:
+        assert self.type(node) == ASTNodeType.BINARY_OPERATION
         name_node, = islice(self.children_with_type(node, ASTNodeType.STRING), 1)
-        return self.get_attr(name_node, 'string')
+        return self.attr(name_node, 'string')
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def get_line_number_from_children(self, node: int) -> int:
-        for child in self.tree.succ[node]:
-            cur_line = self.get_attr(child, 'line')
+    def line_number_from_children(self, node: int) -> int:
+        for child in self._tree.succ[node]:
+            cur_line = self.attr(child, 'line')
             if cur_line is not None:
                 return cur_line
         return 0
 
     @deprecated(reason='Use get_proxy_nodes instead.')
-    def get_nodes(self, type: Union[ASTNodeType, None] = None) -> Iterator[int]:
-        for node in self.tree.nodes:
-            if type is None or self.tree.nodes[node]['node_type'] == type:
+    def nodes(self, type: Union[ASTNodeType, None] = None) -> Iterator[int]:
+        for node in self._tree.nodes:
+            if type is None or self._tree.nodes[node]['node_type'] == type:
                 yield node
 
-    def get_proxy_nodes(self, *types: ASTNodeType) -> Iterator[ASTNode]:
-        for node in self.tree.nodes:
-            if len(types) == 0 or self.tree.nodes[node]['node_type'] in types:
-                yield ASTNode(self.tree, node)
+    def proxy_nodes(self, *types: ASTNodeType) -> Iterator[ASTNode]:
+        for node in self._tree.nodes:
+            if len(types) == 0 or self._tree.nodes[node]['node_type'] in types:
+                yield ASTNode(self._tree, node)
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def get_attr(self, node: int, attr_name: str, default_value: Any = None) -> Any:
-        return self.tree.nodes[node].get(attr_name, default_value)
+    def attr(self, node: int, attr_name: str, default_value: Any = None) -> Any:
+        return self._tree.nodes[node].get(attr_name, default_value)
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def get_type(self, node: int) -> ASTNodeType:
-        return self.get_attr(node, 'node_type')
+    def type(self, node: int) -> ASTNodeType:
+        return self.attr(node, 'node_type')
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def get_method_invocation_params(self, invocation_node: int) -> MethodInvocationParams:
-        assert self.get_type(invocation_node) == ASTNodeType.METHOD_INVOCATION
+    def method_invocation_params(self, invocation_node: int) -> MethodInvocationParams:
+        assert self.type(invocation_node) == ASTNodeType.METHOD_INVOCATION
         # first two STRING nodes represent object and method names
         children = list(self.children_with_type(invocation_node, ASTNodeType.STRING))
         if len(children) == 1:
-            return MethodInvocationParams('', self.get_attr(children[0], 'string'))
+            return MethodInvocationParams('', self.attr(children[0], 'string'))
 
-        return MethodInvocationParams(self.get_attr(children[0], 'string'),
-                                      self.get_attr(children[1], 'string'))
+        return MethodInvocationParams(self.attr(children[0], 'string'),
+                                      self.attr(children[1], 'string'))
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def get_member_reference_params(self, member_reference_node: int) -> MemberReferenceParams:
-        assert self.get_type(member_reference_node) == ASTNodeType.MEMBER_REFERENCE
+    def member_reference_params(self, member_reference_node: int) -> MemberReferenceParams:
+        assert self.type(member_reference_node) == ASTNodeType.MEMBER_REFERENCE
         params = [
-            self.get_attr(child, 'string') for child in
+            self.attr(child, 'string') for child in
             self.children_with_type(member_reference_node, ASTNodeType.STRING)
         ]
 
@@ -263,11 +263,11 @@ class AST:
         return member_reference_params
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def get_binary_operation_params(self, binary_operation_node: int) -> BinaryOperationParams:
-        assert self.get_type(binary_operation_node) == ASTNodeType.BINARY_OPERATION
-        operation_node, left_side_node, right_side_node = self.tree.succ[binary_operation_node]
+    def binary_operation_params(self, binary_operation_node: int) -> BinaryOperationParams:
+        assert self.type(binary_operation_node) == ASTNodeType.BINARY_OPERATION
+        operation_node, left_side_node, right_side_node = self._tree.succ[binary_operation_node]
         return BinaryOperationParams(
-            self.get_attr(operation_node, 'string'), left_side_node, right_side_node
+            self.attr(operation_node, 'string'), left_side_node, right_side_node
         )
 
     @staticmethod

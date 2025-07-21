@@ -23,20 +23,20 @@ class RFC:
 
     def value(self, ast: AST) -> int:
         rfc = 0
-        for class_declaration in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
-            rfc += self._calculate_class_RFC(ast.get_subtree(class_declaration))
+        for class_declaration in ast.proxy_nodes(ASTNodeType.CLASS_DECLARATION):
+            rfc += self._calculate_class_RFC(ast.subtree(class_declaration))
 
         return rfc
 
     def _calculate_class_RFC(self, java_class: AST) -> int:
-        class_declaration = java_class.get_root()
+        class_declaration = java_class.root()
         assert class_declaration.node_type == ASTNodeType.CLASS_DECLARATION
 
         rfc = 0
         invoked_methods: Set[_MethodInvocationParams] = set()
         local_methods_names: Set[str] = set()
-        for method_ast in java_class.get_subtrees(ASTNodeType.METHOD_DECLARATION):
-            method_declaration = method_ast.get_root()
+        for method_ast in java_class.subtrees(ASTNodeType.METHOD_DECLARATION):
+            method_declaration = method_ast.root()
             local_methods_names.add(method_declaration.name)
             if 'public' in method_declaration.modifiers:
                 rfc += 1
@@ -57,7 +57,7 @@ class RFC:
     def _get_all_method_invocation_params(self, ast: AST) -> Set[_MethodInvocationParams]:
         return {
             self._create_method_invocation_params(method_invocation)
-            for method_invocation in ast.get_proxy_nodes(ASTNodeType.METHOD_INVOCATION)
+            for method_invocation in ast.proxy_nodes(ASTNodeType.METHOD_INVOCATION)
         }
 
     def _create_method_invocation_params(self,

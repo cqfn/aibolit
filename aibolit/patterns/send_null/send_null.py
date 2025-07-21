@@ -27,12 +27,12 @@ class SendNull:
             ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION,
             ASTNodeType.CLASS_CREATOR
         ]
-        for node in ast.get_proxy_nodes(*invocatios_types):
+        for node in ast.proxy_nodes(*invocatios_types):
             for argument in node.arguments:
                 if (argument.node_type == ASTNodeType.LITERAL) and (argument.value == 'null'):
                     lines.add(argument.line)
 
-        for node in ast.get_proxy_nodes(ASTNodeType.TERNARY_EXPRESSION):
+        for node in ast.proxy_nodes(ASTNodeType.TERNARY_EXPRESSION):
             if self.__is_null(node.if_false) or self.__is_null(node.if_true):
                 lines.add(node.line)
 

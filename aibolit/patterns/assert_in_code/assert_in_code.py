@@ -13,7 +13,7 @@ class AssertInCode:
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for assert_node in ast.get_proxy_nodes(ASTNodeType.ASSERT_STATEMENT):
+        for assert_node in ast.proxy_nodes(ASTNodeType.ASSERT_STATEMENT):
             lines.append(assert_node.line)
 
         return lines

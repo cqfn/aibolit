@@ -19,7 +19,7 @@ class ASTTestSuite(TestCase):
 
     def test_subtrees_selection(self):
         ast = self._build_ast('SimpleClass.java')
-        subtrees = ast.get_subtrees(ASTNodeType.BASIC_TYPE)
+        subtrees = ast.subtrees(ASTNodeType.BASIC_TYPE)
         for actual_subtree, expected_subtree in \
                 zip_longest(subtrees, ASTTestSuite._java_simple_class_basic_type_subtrees):
             with self.subTest():
@@ -28,7 +28,7 @@ class ASTTestSuite(TestCase):
 
     def test_complex_fields(self):
         ast = self._build_ast('StaticConstructor.java')
-        class_declaration = next((declaration for declaration in ast.get_root().types if
+        class_declaration = next((declaration for declaration in ast.root().types if
                                  declaration.node_type == ASTNodeType.CLASS_DECLARATION), None)
         assert class_declaration is not None, 'Cannot find class declaration'
 
@@ -38,25 +38,25 @@ class ASTTestSuite(TestCase):
         self.assertEqual(method_declaration.node_type, ASTNodeType.METHOD_DECLARATION)
 
     def test_with_fields_and_methods_empty(self):
-        ast = next(self._build_ast('SimpleClass.java').get_subtrees(ASTNodeType.CLASS_DECLARATION))
+        ast = next(self._build_ast('SimpleClass.java').subtrees(ASTNodeType.CLASS_DECLARATION))
         nothing_ast = ast.with_fields_and_methods(set(), set())
         self.assertEqual(self._field_names(nothing_ast), [])
         self.assertEqual(self._method_names(nothing_ast), [])
 
     def test_with_fields_and_methods_only_methods(self):
-        ast = next(self._build_ast('SimpleClass.java').get_subtrees(ASTNodeType.CLASS_DECLARATION))
+        ast = next(self._build_ast('SimpleClass.java').subtrees(ASTNodeType.CLASS_DECLARATION))
         method_ast = ast.with_fields_and_methods(set(), {'Increment'})
         self.assertEqual(self._field_names(method_ast), [])
         self.assertEqual(self._method_names(method_ast), ['Increment'])
 
     def test_with_fields_and_methods_only_fields(self):
-        ast = next(self._build_ast('SimpleClass.java').get_subtrees(ASTNodeType.CLASS_DECLARATION))
+        ast = next(self._build_ast('SimpleClass.java').subtrees(ASTNodeType.CLASS_DECLARATION))
         field_ast = ast.with_fields_and_methods({'x'}, set())
         self.assertEqual(self._field_names(field_ast), ['x'])
         self.assertEqual(self._method_names(field_ast), [])
 
     def test_with_fields_and_methods(self):
-        ast = next(self._build_ast('SimpleClass.java').get_subtrees(ASTNodeType.CLASS_DECLARATION))
+        ast = next(self._build_ast('SimpleClass.java').subtrees(ASTNodeType.CLASS_DECLARATION))
         method_field_ast = ast.with_fields_and_methods({'x'}, {'Increment'})
         self.assertEqual(self._field_names(method_field_ast), ['x'])
         self.assertEqual(self._method_names(method_field_ast), ['Increment'])
@@ -64,16 +64,16 @@ class ASTTestSuite(TestCase):
     @skip('Method "get_member_reference_params" is deprecated')
     def test_member_reference_params(self):
         ast = self._build_ast('MemberReferencesExample.java')
-        for node, expected_params in zip_longest(ast.get_nodes(ASTNodeType.MEMBER_REFERENCE),
+        for node, expected_params in zip_longest(ast.nodes(ASTNodeType.MEMBER_REFERENCE),
                                                  ASTTestSuite._expected_member_reference_params):
-            self.assertEqual(ast.get_member_reference_params(node), expected_params)
+            self.assertEqual(ast.member_reference_params(node), expected_params)
 
     @skip('Method "get_method_invocation_params" is deprecated')
     def test_method_invocation_params(self):
         ast = self._build_ast('MethodInvokeExample.java')
-        for node, expected_params in zip_longest(ast.get_nodes(ASTNodeType.METHOD_INVOCATION),
+        for node, expected_params in zip_longest(ast.nodes(ASTNodeType.METHOD_INVOCATION),
                                                  ASTTestSuite._expected_method_invocation_params):
-            self.assertEqual(ast.get_method_invocation_params(node), expected_params)
+            self.assertEqual(ast.method_invocation_params(node), expected_params)
 
     def _build_ast(self, filename: str):
         javalang_ast = build_ast(str(Path(__file__).parent.absolute() / filename))
@@ -81,14 +81,14 @@ class ASTTestSuite(TestCase):
 
     def _field_names(self, ast: AST) -> list[str]:
         result = set()
-        for field_declaration in ast.get_proxy_nodes(ASTNodeType.FIELD_DECLARATION):
+        for field_declaration in ast.proxy_nodes(ASTNodeType.FIELD_DECLARATION):
             for name in field_declaration.names:
                 result.add(name)
         return sorted(result)
 
     def _method_names(self, ast: AST) -> list[str]:
         result = set()
-        for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
+        for method_declaration in ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             result.add(method_declaration.name)
         return sorted(result)
 

@@ -14,8 +14,8 @@ class NullCheck():
     """
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
-            for bin_op in ast.get_subtree(method_declaration).get_proxy_nodes(
+        for method_declaration in ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION):
+            for bin_op in ast.subtree(method_declaration).proxy_nodes(
                     ASTNodeType.BINARY_OPERATION):
                 if self._check_null(bin_op):
                     lines.append(bin_op.operandr.line)

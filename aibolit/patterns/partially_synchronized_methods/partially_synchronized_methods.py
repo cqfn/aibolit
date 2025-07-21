@@ -15,15 +15,15 @@ class PartiallySynchronizedMethods:
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for method_ast in ast.get_subtrees(
+        for method_ast in ast.subtrees(
             ASTNodeType.METHOD_DECLARATION, ASTNodeType.CONSTRUCTOR_DECLARATION
         ):
-            method_declaration = method_ast.get_root()
+            method_declaration = method_ast.root()
             is_fully_sync_method = len(method_declaration.body) == 1 and \
                 method_declaration.body[0].node_type == ASTNodeType.SYNCHRONIZED_STATEMENT
 
             synchronized_statements = list(
-                method_ast.get_proxy_nodes(ASTNodeType.SYNCHRONIZED_STATEMENT)
+                method_ast.proxy_nodes(ASTNodeType.SYNCHRONIZED_STATEMENT)
             )
 
             if len(synchronized_statements) > 0 and not is_fully_sync_method:

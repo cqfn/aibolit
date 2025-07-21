@@ -13,7 +13,7 @@ class NonFinalClass:
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for class_declaration in ast.get_proxy_nodes(ASTNodeType.CLASS_DECLARATION):
+        for class_declaration in ast.proxy_nodes(ASTNodeType.CLASS_DECLARATION):
             if len(class_declaration.modifiers & NonFinalClass._allowed_class_modifiers) == 0:
                 lines.append(class_declaration.line)
 

@@ -78,7 +78,7 @@ class HybridConstructor:
 
     def value(self, ast: AST) -> List[int]:
         lines = []
-        for node in ast.get_proxy_nodes(ASTNodeType.CONSTRUCTOR_DECLARATION):
+        for node in ast.proxy_nodes(ASTNodeType.CONSTRUCTOR_DECLARATION):
             exp_ctrs_decls: List[Any] = []
             other_statements: List[Any] = []
             for statement in node.body:

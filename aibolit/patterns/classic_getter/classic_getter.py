@@ -35,7 +35,7 @@ class ClassicGetter:
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for node in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
+        for node in ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             method_name = node.name
             if method_name.startswith('get') and self._check_body_nodes(node.body):
                 lines.append(node.line)

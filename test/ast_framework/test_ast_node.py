@@ -15,7 +15,7 @@ class ASTNodeTestSuite(TestCase):
                 Path(__file__).absolute().parent / 'MethodUseOtherMethodExample.java'
             )
         )
-        package = ast.get_root()
+        package = ast.root()
         assert len(package.types) == 1 and \
             package.types[0].node_type == ASTNodeType.CLASS_DECLARATION
 

@@ -15,7 +15,7 @@ class VarSiblings:
     def _collect_method_variables_names(self, ast: AST, node: ASTNode) -> Dict[str, int]:
         assert node.node_type == ASTNodeType.METHOD_DECLARATION
         vars_lines: Dict[str, int] = {}
-        for local_var_node in ast.get_proxy_nodes(ASTNodeType.LOCAL_VARIABLE_DECLARATION):
+        for local_var_node in ast.proxy_nodes(ASTNodeType.LOCAL_VARIABLE_DECLARATION):
             for var_declaration in local_var_node.declarators:
                 var_name = var_declaration.name
                 if var_name not in vars_lines:
@@ -43,7 +43,7 @@ class VarSiblings:
 
     def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
-        for method_declaration in ast.get_proxy_nodes(ASTNodeType.METHOD_DECLARATION):
+        for method_declaration in ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             variables_info = self._collect_method_variables_names(ast, method_declaration)
             lines.extend(self._find_sibling_vars(variables_info))
         return sorted(lines)
