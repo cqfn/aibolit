@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 723.319021192
+  seconds: 589.243768585
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-21 15:11:13.512946443 Z
+  when: 2025-07-21 16:07:54.403707403 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33589,48 +33589,6 @@
   where: github
   who: 41443370
   why: Reported bug in cqfn/aibolit#885
-- _id: 21068
-  _time: 2025-07-21 15:05:19.921887885 Z
-  _version: 0.13.0/0.51.0/
-  latest: 52337527705
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 21069
-  _time: 2025-07-21 15:06:55.088334061 Z
-  _version: 0.13.0/0.51.0/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 21070
-  _time: 2025-07-21 15:08:12.951110350 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 21071
-  _time: 2025-07-21 15:08:23.940103463 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 21072
-  _time: 2025-07-21 15:08:24.543667939 Z
-  _version: 0.13.0/0.51.0/
-  latest: 189
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 21073
-  _time: 2025-07-21 15:09:10.719017509 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
 - _id: 21074
   _time: 2025-07-21 15:09:18.510639184 Z
   _version: 0.13.0/0.51.0/
@@ -33646,10 +33604,65 @@
   total_stars: 87
   what: dimensions-of-terrain
   when: 2025-07-21 15:09:10.869559772 Z
-- _id: 21075
-  _time: 2025-07-21 15:11:13.476049720 Z
+- _id: 21076
+  _time: 2025-07-21 15:58:07.791603455 Z
   _version: 0.13.0/0.51.0/
-  latest: 513
+  details: The issue cqfn/aibolit#850 has been closed by @rultor.
+  event_id: 52338247030
+  event_type: IssuesEvent
+  is_human: 0
+  issue: 850
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-07-21 12:32:02.000000000 Z
+  where: github
+  who: 8086956
+- _id: 21084
+  _time: 2025-07-21 16:03:17.033998240 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52338977079
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 21085
+  _time: 2025-07-21 16:03:57.782242489 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 21086
+  _time: 2025-07-21 16:04:42.882445564 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 21087
+  _time: 2025-07-21 16:06:14.675859701 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
   repository: 237167507
   what: types-were-scanned
+  where: github
+- _id: 21088
+  _time: 2025-07-21 16:06:54.819827161 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 21089
+  _time: 2025-07-21 16:07:02.106098822 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 21090
+  _time: 2025-07-21 16:07:02.667475199 Z
+  _version: 0.13.0/0.51.0/
+  latest: 193
+  repository: 237167507
+  what: min-pull-was-found
   where: github
