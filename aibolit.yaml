@@ -2,16 +2,11 @@
 - added: 8
   cycles: 2
   deleted: 8
-  error:
-  - 'GET https://api.github.com/repos/cqfn/aibolit/actions/jobs/46337977288: 502 -
-    Server Error'
-  - 'GET https://api.github.com/repos/cqfn/aibolit/actions/jobs/46170854146: 502 -
-    Server Error'
   inserted: 8
-  seconds: 776.076827446
+  seconds: 710.734278814
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-21 07:16:26.459250481 Z
+  when: 2025-07-21 08:09:24.549269129 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33188,45 +33183,66 @@
   when: 2025-07-20 22:22:22.000000000 Z
   where: github
   who: 150797125
-- _id: 20925
-  _time: 2025-07-21 07:11:39.958071951 Z
+- _id: 20931
+  _time: 2025-07-21 07:58:27.436270873 Z
   _version: 0.13.0/0.51.0/
-  latest: 440
+  branch: '869'
+  details: The pull request cqfn/aibolit#875 has been opened by @dvrkrain.
+  event_id: 52305335284
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 875
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-07-20 10:33:32.000000000 Z
+  where: github
+  who: 60609459
+- _id: 20939
+  _time: 2025-07-21 08:04:25.619129187 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52326461888
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 20940
+  _time: 2025-07-21 08:05:45.934776405 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
   repository: 237167507
   what: assignees-were-scanned
   where: github
-- _id: 20926
-  _time: 2025-07-21 07:14:36.732207502 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 20927
-  _time: 2025-07-21 07:15:33.115410465 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 20928
-  _time: 2025-07-21 07:16:21.762616757 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 20929
-  _time: 2025-07-21 07:16:25.571066952 Z
+- _id: 20941
+  _time: 2025-07-21 08:06:43.749475090 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 20930
-  _time: 2025-07-21 07:16:26.377969828 Z
+- _id: 20942
+  _time: 2025-07-21 08:06:44.346603096 Z
   _version: 0.13.0/0.51.0/
-  latest: 156
+  latest: 163
   repository: 237167507
   what: min-pull-was-found
+  where: github
+- _id: 20943
+  _time: 2025-07-21 08:07:32.131549510 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 20944
+  _time: 2025-07-21 08:08:25.798668621 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 20945
+  _time: 2025-07-21 08:09:24.395190957 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
   where: github
