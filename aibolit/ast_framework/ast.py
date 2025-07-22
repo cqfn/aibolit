@@ -153,13 +153,6 @@ class AST:
                 on_node_leaving(ASTNode(self._tree, destination))
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def all_children_with_type(self, node: int, child_type: ASTNodeType) -> Iterator[int]:
-        """
-        Yields all children of node with given type.
-        """
-        yield from self.list_all_children_with_type(node, child_type)
-
-    @deprecated(reason='Use ASTNode functionality instead.')
     def first_n_children_with_type(
         self, node: int, child_type: ASTNodeType, quantity: int
     ) -> List[int]:
