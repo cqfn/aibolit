@@ -153,20 +153,6 @@ class AST:
                 on_node_leaving(ASTNode(self._tree, destination))
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def first_n_children_with_type(
-        self, node: int, child_type: ASTNodeType, quantity: int
-    ) -> List[int]:
-        """
-        Returns first quantity of children of node with type child_type.
-        Resulted list is padded with None to length quantity.
-        """
-        children_with_type = (
-            child for child in self._tree.succ[node] if self.type(child) == child_type
-        )
-        children_with_type_padded = chain(children_with_type, repeat(None))
-        return list(islice(children_with_type_padded, 0, quantity))
-
-    @deprecated(reason='Use ASTNode functionality instead.')
     def binary_operation_name(self, node: int) -> str:
         assert self.type(node) == ASTNodeType.BINARY_OPERATION
         name_node, = islice(self.children_with_type(node, ASTNodeType.STRING), 1)
