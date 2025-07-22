@@ -5,7 +5,6 @@ from collections import namedtuple
 from itertools import islice, repeat, chain
 from typing import Union, Any, Callable, Set, List, Iterator, Tuple, Dict, cast, Optional
 
-from deprecated import deprecated  # type: ignore
 from javalang.tree import Node
 from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
 
