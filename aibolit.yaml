@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 944.428768566
+  seconds: 621.99090674
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-22 13:44:32.632489161 Z
+  when: 2025-07-22 14:11:45.734509450 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33457,20 +33457,6 @@
   where: github
   who: 60609459
   why: Contributed code in cqfn/aibolit#878
-- _id: 21035
-  _job: 29661
-  _time: 2025-07-21 13:41:06.482888057 Z
-  _version: 0.13.0/0.51.1/0.14.25
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  what: learn-eva
-  when: 2025-07-21 13:41:06.466334481 Z
 - _id: 21043
   _time: 2025-07-21 14:07:39.638247170 Z
   _version: 0.13.0/0.51.0/
@@ -33769,13 +33755,6 @@
   where: github
   who: 41443370
   why: Contributed code in cqfn/aibolit#886
-- _id: 21353
-  _time: 2025-07-22 13:30:07.348858855 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
 - _id: 21354
   _time: 2025-07-22 13:35:54.176698381 Z
   _version: 0.13.0/0.51.0/
@@ -33796,48 +33775,71 @@
   average_reviewers_per_pull: 1.7
   average_reviews_per_pull: 5.3
   average_triage_time: 55642.09090909091
+  composite: 0.382
+  ffact: 136
   since: 2025-07-15 13:30:07.516430548 Z
   what: quality-of-service
   when: 2025-07-22 13:30:07.516368542 Z
-- _id: 21355
-  _time: 2025-07-22 13:36:45.330691601 Z
+- _id: 21365
+  _job: 29822
+  _time: 2025-07-22 13:45:43.058257530 Z
+  _version: 0.13.0/0.51.1/0.14.25
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  what: learn-eva
+  when: 2025-07-22 13:45:43.044581540 Z
+- _id: 21373
+  _time: 2025-07-22 14:06:44.172871183 Z
   _version: 0.13.0/0.51.0/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 21360
-  _time: 2025-07-22 13:40:51.703348638 Z
-  _version: 0.13.0/0.51.0/
-  latest: 52372651249
+  latest: 52374090811
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 21361
-  _time: 2025-07-22 13:41:34.412315893 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 21362
-  _time: 2025-07-22 13:41:38.038483125 Z
+- _id: 21374
+  _time: 2025-07-22 14:06:47.620689565 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 21363
-  _time: 2025-07-22 13:41:38.771005586 Z
+- _id: 21375
+  _time: 2025-07-22 14:06:48.460273851 Z
   _version: 0.13.0/0.51.0/
-  latest: 250
+  latest: 254
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 21364
-  _time: 2025-07-22 13:44:32.594234863 Z
+- _id: 21376
+  _time: 2025-07-22 14:07:39.994503382 Z
   _version: 0.13.0/0.51.0/
-  latest: 513
+  latest: 0
   repository: 237167507
   what: types-were-scanned
+  where: github
+- _id: 21377
+  _time: 2025-07-22 14:09:22.346858655 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 21378
+  _time: 2025-07-22 14:10:06.001387716 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 21379
+  _time: 2025-07-22 14:11:45.293996766 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
