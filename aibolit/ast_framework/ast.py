@@ -158,33 +158,6 @@ class AST:
                 yield ASTNode(self._tree, node)
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def member_reference_params(self, member_reference_node: int) -> MemberReferenceParams:
-        assert self.type(member_reference_node) == ASTNodeType.MEMBER_REFERENCE
-        params = [
-            self.attr(child, 'string') for child in
-            self.children_with_type(member_reference_node, ASTNodeType.STRING)
-        ]
-
-        member_reference_params: MemberReferenceParams
-        if len(params) == 1:
-            member_reference_params = MemberReferenceParams(object_name='', member_name=params[0],
-                                                            unary_operator='')
-        elif len(params) == 2:
-            member_reference_params = MemberReferenceParams(
-                object_name=params[0], member_name=params[1], unary_operator=''
-            )
-        elif len(params) == 3:
-            member_reference_params = MemberReferenceParams(
-                unary_operator=params[0], object_name=params[1], member_name=params[2]
-            )
-        else:
-            raise ValueError(
-                'Node has 0 or more then 3 children with type "STRING": ' + str(params)
-            )
-
-        return member_reference_params
-
-    @deprecated(reason='Use ASTNode functionality instead.')
     def binary_operation_params(self, binary_operation_node: int) -> BinaryOperationParams:
         assert self.type(binary_operation_node) == ASTNodeType.BINARY_OPERATION
         operation_node, left_side_node, right_side_node = self._tree.succ[binary_operation_node]
