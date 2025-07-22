@@ -153,12 +153,6 @@ class AST:
                 on_node_leaving(ASTNode(self._tree, destination))
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def binary_operation_name(self, node: int) -> str:
-        assert self.type(node) == ASTNodeType.BINARY_OPERATION
-        name_node, = islice(self.children_with_type(node, ASTNodeType.STRING), 1)
-        return self.attr(name_node, 'string')
-
-    @deprecated(reason='Use ASTNode functionality instead.')
     def line_number_from_children(self, node: int) -> int:
         for child in self._tree.succ[node]:
             cur_line = self.attr(child, 'line')
