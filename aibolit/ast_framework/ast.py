@@ -152,12 +152,6 @@ class AST:
             elif edge_type == 'reverse':
                 on_node_leaving(ASTNode(self._tree, destination))
 
-    @deprecated(reason='Use get_proxy_nodes instead.')
-    def nodes(self, type: Union[ASTNodeType, None] = None) -> Iterator[int]:
-        for node in self._tree.nodes:
-            if type is None or self._tree.nodes[node]['node_type'] == type:
-                yield node
-
     def proxy_nodes(self, *types: ASTNodeType) -> Iterator[ASTNode]:
         for node in self._tree.nodes:
             if len(types) == 0 or self._tree.nodes[node]['node_type'] in types:
