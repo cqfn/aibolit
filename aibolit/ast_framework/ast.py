@@ -158,17 +158,6 @@ class AST:
                 yield ASTNode(self._tree, node)
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def method_invocation_params(self, invocation_node: int) -> MethodInvocationParams:
-        assert self.type(invocation_node) == ASTNodeType.METHOD_INVOCATION
-        # first two STRING nodes represent object and method names
-        children = list(self.children_with_type(invocation_node, ASTNodeType.STRING))
-        if len(children) == 1:
-            return MethodInvocationParams('', self.attr(children[0], 'string'))
-
-        return MethodInvocationParams(self.attr(children[0], 'string'),
-                                      self.attr(children[1], 'string'))
-
-    @deprecated(reason='Use ASTNode functionality instead.')
     def member_reference_params(self, member_reference_node: int) -> MemberReferenceParams:
         assert self.type(member_reference_node) == ASTNodeType.MEMBER_REFERENCE
         params = [
