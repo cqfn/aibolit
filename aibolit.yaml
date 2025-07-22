@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 714.925566521
+  seconds: 944.428768566
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-22 12:06:59.691767693 Z
+  when: 2025-07-22 13:44:32.632489161 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33742,27 +33742,6 @@
   when: *425
   where: github
   who: 41443370
-- _id: 21343
-  _time: 2025-07-22 11:59:50.372191792 Z
-  _version: 0.13.0/0.51.0/
-  latest: 52369126240
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 21344
-  _time: 2025-07-22 12:00:33.908973270 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 21345
-  _time: 2025-07-22 12:02:05.735898845 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 21346
   _time: 2025-07-22 12:04:34.091477274 Z
   _version: 0.13.0/0.51.0/
@@ -33771,31 +33750,94 @@
   total_reviews_submitted: 65
   what: quantity-of-deliverables
   when: 2025-07-22 12:02:05.911244165 Z
-- _id: 21347
-  _time: 2025-07-22 12:05:15.708822137 Z
-  _version: 0.13.0/0.51.0/
-  latest: 440
+- _id: 21351
+  _job: 29814
+  _time:
+  - 2025-07-22 12:07:55.702575857 Z
+  - 2025-07-22 12:07:36.479416575 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.15.0
+  award: 7
+  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#886,
+    the reward amount is 7.
+  href: https://github.com/cqfn/aibolit/issues/886/#issuecomment-3102435007
+  is_human: 1
+  issue: 886
+  receipt: 0
   repository: 237167507
-  what: assignees-were-scanned
+  what: code-contribution-was-rewarded
+  when: 2025-07-22 12:07:36.489898678 Z
   where: github
-- _id: 21348
-  _time: 2025-07-22 12:06:00.954725159 Z
+  who: 41443370
+  why: Contributed code in cqfn/aibolit#886
+- _id: 21353
+  _time: 2025-07-22 13:30:07.348858855 Z
   _version: 0.13.0/0.51.0/
-  latest: 0
+  latest: 327
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 21349
-  _time: 2025-07-22 12:06:06.360642603 Z
+- _id: 21354
+  _time: 2025-07-22 13:35:54.176698381 Z
+  _version: 0.13.0/0.51.0/
+  average_backlog_size: 4.75
+  average_build_duration: 155.703
+  average_build_mttr: -4005
+  average_build_success_rate: 0.991
+  average_issue_lifetime: 934266.0
+  average_pull_files_size: 8.0
+  average_pull_hoc_size: 105.9
+  average_pull_lifetime: 674436.0
+  average_pull_rejection_rate: 0.09090909090909091
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
+  average_release_interval: 0
+  average_review_size: 7.5
+  average_review_time: 502921.71428571426
+  average_reviewers_per_pull: 1.7
+  average_reviews_per_pull: 5.3
+  average_triage_time: 55642.09090909091
+  since: 2025-07-15 13:30:07.516430548 Z
+  what: quality-of-service
+  when: 2025-07-22 13:30:07.516368542 Z
+- _id: 21355
+  _time: 2025-07-22 13:36:45.330691601 Z
+  _version: 0.13.0/0.51.0/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 21360
+  _time: 2025-07-22 13:40:51.703348638 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52372651249
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 21361
+  _time: 2025-07-22 13:41:34.412315893 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 21362
+  _time: 2025-07-22 13:41:38.038483125 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 21350
-  _time: 2025-07-22 12:06:06.865309808 Z
+- _id: 21363
+  _time: 2025-07-22 13:41:38.771005586 Z
   _version: 0.13.0/0.51.0/
-  latest: 248
+  latest: 250
   repository: 237167507
   what: min-pull-was-found
+  where: github
+- _id: 21364
+  _time: 2025-07-22 13:44:32.594234863 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
   where: github
