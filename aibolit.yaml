@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 698.399772436
+  seconds: 606.957177566
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-22 15:09:49.603659546 Z
+  when: 2025-07-22 16:08:21.663139871 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33794,55 +33794,6 @@
   - 1.907285714434459
   what: learn-eva
   when: 2025-07-22 13:45:43.044581540 Z
-- _id: 21387
-  _time: 2025-07-22 15:04:20.154134526 Z
-  _version: 0.13.0/0.51.0/
-  latest: 52374090811
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 21388
-  _time: 2025-07-22 15:05:26.772501348 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 21389
-  _time: 2025-07-22 15:05:55.895500164 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 21390
-  _time: 2025-07-22 15:07:25.281441113 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 21391
-  _time: 2025-07-22 15:08:25.461065855 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 21392
-  _time: 2025-07-22 15:08:26.148894918 Z
-  _version: 0.13.0/0.51.0/
-  latest: 259
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 21393
-  _time: 2025-07-22 15:09:31.587835902 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 21394
   _time: 2025-07-22 15:09:40.817672828 Z
   _version: 0.13.0/0.51.0/
@@ -33858,3 +33809,84 @@
   total_stars: 87
   what: dimensions-of-terrain
   when: 2025-07-22 15:09:32.307870587 Z
+- _id: 21395
+  _time: 2025-07-22 15:58:17.198091176 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#885 has been closed by @rultor.
+  event_id: 52377536850
+  event_type: IssuesEvent
+  is_human: 0
+  issue: 885
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-07-22 07:36:44.000000000 Z
+  where: github
+  who: 8086956
+- _id: 21396
+  _time: 2025-07-22 15:58:44.851962414 Z
+  _version: 0.13.0/0.51.0/
+  comments: 6
+  commits: 15
+  details: The pull request cqfn/aibolit#886 has been reviewed by @yegor256 with 131
+    HoC and 6 comments.
+  event_id: 52376633617
+  event_type: PullRequestReviewEvent
+  files: 2
+  hoc: 131
+  is_human: 1
+  issue: 886
+  repository: 237167507
+  review_comments: 0
+  what: pull-was-reviewed
+  when: 2025-07-22 07:15:47.000000000 Z
+  where: github
+  who: 526301
+- _id: 21404
+  _time: 2025-07-22 16:03:21.903352371 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52377582887
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 21405
+  _time: 2025-07-22 16:03:58.999056667 Z
+  _version: 0.13.0/0.51.0/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 21406
+  _time: 2025-07-22 16:04:46.120999319 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 21407
+  _time: 2025-07-22 16:07:27.207215135 Z
+  _version: 0.13.0/0.51.0/
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 21408
+  _time: 2025-07-22 16:07:30.673294444 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 21409
+  _time: 2025-07-22 16:07:31.093583267 Z
+  _version: 0.13.0/0.51.0/
+  latest: 266
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 21410
+  _time: 2025-07-22 16:08:17.023002626 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
