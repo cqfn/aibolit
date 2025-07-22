@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: MIT
 
 from collections import namedtuple
-from itertools import islice, repeat, chain
 from typing import Union, Any, Callable, Set, List, Iterator, Tuple, Dict, cast, Optional
 
 from javalang.tree import Node
