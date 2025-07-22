@@ -152,14 +152,6 @@ class AST:
             elif edge_type == 'reverse':
                 on_node_leaving(ASTNode(self._tree, destination))
 
-    @deprecated(reason='Use ASTNode functionality instead.')
-    def line_number_from_children(self, node: int) -> int:
-        for child in self._tree.succ[node]:
-            cur_line = self.attr(child, 'line')
-            if cur_line is not None:
-                return cur_line
-        return 0
-
     @deprecated(reason='Use get_proxy_nodes instead.')
     def nodes(self, type: Union[ASTNodeType, None] = None) -> Iterator[int]:
         for node in self._tree.nodes:
