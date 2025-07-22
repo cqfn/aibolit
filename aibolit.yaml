@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 578.421649841
+  seconds: 665.2447979
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-22 17:11:44.140996627 Z
+  when: 2025-07-22 18:07:36.667318335 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33859,52 +33859,70 @@
   when: *426
   where: github
   who: 526301
-- _id: 21419
-  _time: 2025-07-22 17:07:00.831842941 Z
+- _id: 21426
+  _job: 29842
+  _time:
+  - 2025-07-22 17:12:37.387738938 Z
+  - 2025-07-22 17:12:17.911748293 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.15.0
+  award: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#886,
+    the reward amount is 4.
+  href: https://github.com/cqfn/aibolit/issues/886/#issuecomment-3103928814
+  is_human: 1
+  issue: 886
+  repository: 237167507
+  what: code-review-was-rewarded
+  when: 2025-07-22 17:12:17.918146134 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#886
+- _id: 21434
+  _time: 2025-07-22 18:02:24.991047556 Z
   _version: 0.13.0/0.51.0/
   latest: 52378853710
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 21420
-  _time: 2025-07-22 17:07:04.532153278 Z
+- _id: 21435
+  _time: 2025-07-22 18:04:18.611665469 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 21436
+  _time: 2025-07-22 18:04:22.786904398 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 21421
-  _time: 2025-07-22 17:07:05.234669895 Z
+- _id: 21437
+  _time: 2025-07-22 18:04:23.624494333 Z
   _version: 0.13.0/0.51.0/
-  latest: 268
+  latest: 272
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 21422
-  _time: 2025-07-22 17:07:46.877777190 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 21423
-  _time: 2025-07-22 17:08:28.855569195 Z
+- _id: 21438
+  _time: 2025-07-22 18:05:06.446234971 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 21424
-  _time: 2025-07-22 17:09:55.472575937 Z
+- _id: 21439
+  _time: 2025-07-22 18:05:36.667742014 Z
   _version: 0.13.0/0.51.0/
-  latest: 440
+  latest: 0
   repository: 237167507
   what: assignees-were-scanned
   where: github
-- _id: 21425
-  _time: 2025-07-22 17:11:44.101547454 Z
+- _id: 21440
+  _time: 2025-07-22 18:07:28.271437402 Z
   _version: 0.13.0/0.51.0/
-  latest: 513
+  latest: 0
   repository: 237167507
   what: types-were-scanned
   where: github
