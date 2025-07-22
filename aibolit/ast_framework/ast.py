@@ -157,14 +157,6 @@ class AST:
             if len(types) == 0 or self._tree.nodes[node]['node_type'] in types:
                 yield ASTNode(self._tree, node)
 
-    @deprecated(reason='Use ASTNode functionality instead.')
-    def binary_operation_params(self, binary_operation_node: int) -> BinaryOperationParams:
-        assert self.type(binary_operation_node) == ASTNodeType.BINARY_OPERATION
-        operation_node, left_side_node, right_side_node = self._tree.succ[binary_operation_node]
-        return BinaryOperationParams(
-            self.attr(operation_node, 'string'), left_side_node, right_side_node
-        )
-
     @staticmethod
     def _add_subtree_from_javalang_node(tree: DiGraph, javalang_node: Union[Node, Set[Any], str],
                                         javalang_node_to_index_map: Dict[Node, int]) -> int:
