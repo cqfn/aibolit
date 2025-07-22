@@ -158,10 +158,6 @@ class AST:
                 yield ASTNode(self._tree, node)
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def type(self, node: int) -> ASTNodeType:
-        return self.attr(node, 'node_type')
-
-    @deprecated(reason='Use ASTNode functionality instead.')
     def method_invocation_params(self, invocation_node: int) -> MethodInvocationParams:
         assert self.type(invocation_node) == ASTNodeType.METHOD_INVOCATION
         # first two STRING nodes represent object and method names
