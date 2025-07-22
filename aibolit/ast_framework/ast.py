@@ -158,10 +158,6 @@ class AST:
                 yield ASTNode(self._tree, node)
 
     @deprecated(reason='Use ASTNode functionality instead.')
-    def attr(self, node: int, attr_name: str, default_value: Any = None) -> Any:
-        return self._tree.nodes[node].get(attr_name, default_value)
-
-    @deprecated(reason='Use ASTNode functionality instead.')
     def type(self, node: int) -> ASTNodeType:
         return self.attr(node, 'node_type')
 
