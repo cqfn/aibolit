@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from unittest import TestCase, skip
+from unittest import TestCase
 from pathlib import Path
 from itertools import zip_longest
 
@@ -60,20 +60,6 @@ class ASTTestSuite(TestCase):
         method_field_ast = ast.with_fields_and_methods({'x'}, {'Increment'})
         self.assertEqual(self._field_names(method_field_ast), ['x'])
         self.assertEqual(self._method_names(method_field_ast), ['Increment'])
-
-    @skip('Method "get_member_reference_params" is deprecated')
-    def test_member_reference_params(self):
-        ast = self._build_ast('MemberReferencesExample.java')
-        for node, expected_params in zip_longest(ast.nodes(ASTNodeType.MEMBER_REFERENCE),
-                                                 ASTTestSuite._expected_member_reference_params):
-            self.assertEqual(ast.member_reference_params(node), expected_params)
-
-    @skip('Method "get_method_invocation_params" is deprecated')
-    def test_method_invocation_params(self):
-        ast = self._build_ast('MethodInvokeExample.java')
-        for node, expected_params in zip_longest(ast.nodes(ASTNodeType.METHOD_INVOCATION),
-                                                 ASTTestSuite._expected_method_invocation_params):
-            self.assertEqual(ast.method_invocation_params(node), expected_params)
 
     def _build_ast(self, filename: str):
         javalang_ast = build_ast(str(Path(__file__).parent.absolute() / filename))
