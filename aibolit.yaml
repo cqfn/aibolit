@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 594.932874757
+  seconds: 674.1338414
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-22 10:07:13.693695782 Z
+  when: 2025-07-22 11:09:53.438202944 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33638,52 +33638,120 @@
   when: 2025-07-22 09:23:11.000000000 Z
   where: github
   who: 13173649
-- _id: 21309
-  _time: 2025-07-22 10:02:43.167200956 Z
+- _id: 21316
+  _time: 2025-07-22 10:58:42.490815815 Z
   _version: 0.13.0/0.51.0/
-  latest: 52365239677
+  comments: 14
+  commits: 5
+  details: The pull request cqfn/aibolit#879 has been reviewed by @ivanovmg with 52
+    HoC and 14 comments.
+  event_id: 52368790307
+  event_type: PullRequestReviewEvent
+  files: 2
+  hoc: 52
+  is_human: 1
+  issue: 879
+  repository: 237167507
+  review_comments: 12
+  what: pull-was-reviewed
+  when: 2025-07-22 02:45:22.000000000 Z
+  where: github
+  who: 41443370
+- _id: 21317
+  _time: 2025-07-22 10:58:43.207904797 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#788 has been closed by @ivanovmg.
+  event_id: 52368164061
+  event_type: IssuesEvent
+  is_human: 1
+  issue: 788
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-07-22 02:17:32.000000000 Z
+  where: github
+  who: 41443370
+- _id: 21318
+  _time: 2025-07-22 10:58:43.369656326 Z
+  _version: 0.13.0/0.51.0/
+  branch: '885'
+  details: The pull request cqfn/aibolit#886 has been opened by @ivanovmg.
+  event_id: 52368072805
+  event_type: PullRequestEvent
+  is_human: 1
+  issue: 886
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-07-22 02:13:33.000000000 Z
+  where: github
+  who: 41443370
+- _id: 21320
+  _time: 2025-07-22 11:00:01.235267604 Z
+  _version: 0.13.0/0.51.0/
+  branch: '885'
+  comments: 5
+  comments_appreciated: 1
+  comments_by_author: 1
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#886 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 131
+  is_human: 0
+  issue: 886
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 18
+  what: pull-was-merged
+  when: 2025-07-22 07:36:43.000000000 Z
+  where: github
+  who: 8086956
+- _id: 21327
+  _time: 2025-07-22 11:04:37.668393490 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52369126240
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 21310
-  _time: 2025-07-22 10:03:29.438190169 Z
+- _id: 21328
+  _time: 2025-07-22 11:06:07.610399432 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
-  what: types-were-scanned
+  what: merges-were-scanned
   where: github
-- _id: 21311
-  _time: 2025-07-22 10:05:15.427985273 Z
+- _id: 21329
+  _time: 2025-07-22 11:07:43.463819591 Z
   _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 21312
-  _time: 2025-07-22 10:06:27.643599670 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
+  latest: 753
   repository: 237167507
   what: assignees-were-scanned
   where: github
-- _id: 21313
-  _time: 2025-07-22 10:06:30.910531372 Z
+- _id: 21330
+  _time: 2025-07-22 11:07:46.513980286 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 21314
-  _time: 2025-07-22 10:06:31.462499912 Z
+- _id: 21331
+  _time: 2025-07-22 11:07:47.125977769 Z
   _version: 0.13.0/0.51.0/
-  latest: 243
+  latest: 245
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 21315
-  _time: 2025-07-22 10:07:13.658622708 Z
+- _id: 21332
+  _time: 2025-07-22 11:08:46.586866748 Z
   _version: 0.13.0/0.51.0/
-  latest: 0
+  latest: 513
   repository: 237167507
-  what: merges-were-scanned
+  what: types-were-scanned
+  where: github
+- _id: 21333
+  _time: 2025-07-22 11:09:53.401027938 Z
+  _version: 0.13.0/0.51.0/
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
   where: github
