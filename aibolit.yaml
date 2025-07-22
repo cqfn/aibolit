@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 606.957177566
+  seconds: 578.421649841
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-22 16:08:21.663139871 Z
+  when: 2025-07-22 17:11:44.140996627 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33838,55 +33838,73 @@
   repository: 237167507
   review_comments: 0
   what: pull-was-reviewed
-  when: 2025-07-22 07:15:47.000000000 Z
+  when: &426 2025-07-22 07:15:47.000000000 Z
   where: github
   who: 526301
-- _id: 21404
-  _time: 2025-07-22 16:03:21.903352371 Z
+- _id: 21411
+  _job: 29838
+  _time: 2025-07-22 16:08:54.637813277 Z
+  _version: 0.13.0/0.51.1/0.14.25!0.15.0
+  author: 41443370
+  comments: 6
+  details: The pull request cqfn/aibolit#886 with 131 HoC created by @ivanovmg was
+    reviewed by @yegor256 after 5h2m and 6 comments.
+  hoc: 131
+  is_human: 1
+  issue: 886
+  repository: 237167507
+  review_comments: 0
+  seconds: 18134
+  what: code-was-reviewed
+  when: *426
+  where: github
+  who: 526301
+- _id: 21419
+  _time: 2025-07-22 17:07:00.831842941 Z
   _version: 0.13.0/0.51.0/
-  latest: 52377582887
+  latest: 52378853710
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 21405
-  _time: 2025-07-22 16:03:58.999056667 Z
-  _version: 0.13.0/0.51.0/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 21406
-  _time: 2025-07-22 16:04:46.120999319 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 21407
-  _time: 2025-07-22 16:07:27.207215135 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 21408
-  _time: 2025-07-22 16:07:30.673294444 Z
+- _id: 21420
+  _time: 2025-07-22 17:07:04.532153278 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 21409
-  _time: 2025-07-22 16:07:31.093583267 Z
+- _id: 21421
+  _time: 2025-07-22 17:07:05.234669895 Z
   _version: 0.13.0/0.51.0/
-  latest: 266
+  latest: 268
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 21410
-  _time: 2025-07-22 16:08:17.023002626 Z
+- _id: 21422
+  _time: 2025-07-22 17:07:46.877777190 Z
   _version: 0.13.0/0.51.0/
   latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 21423
+  _time: 2025-07-22 17:08:28.855569195 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 21424
+  _time: 2025-07-22 17:09:55.472575937 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 21425
+  _time: 2025-07-22 17:11:44.101547454 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
   repository: 237167507
   what: types-were-scanned
   where: github
