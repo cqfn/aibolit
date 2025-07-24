@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 902.234055111
+  seconds: 610.585231602
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-24 13:43:59.893378911 Z
+  when: 2025-07-24 14:11:09.040991999 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -1256,24 +1256,6 @@
   to_master: 1
   what: git-was-pushed
   when: 2025-05-25 13:53:10.000000000 Z
-  where: github
-  who: 526301
-- _id: 82
-  _time: 2025-05-29 07:01:21.005654406 Z
-  _version: 0.10.2/0.45.0/
-  commit: d329248c0b4fb6049b81b72b793e1864027e36a6
-  default_branch: master
-  details: 'A new Git push #24500322052 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is ''master''), not associated with any pull request.'
-  event_id: 50117173120
-  event_type: PushEvent
-  is_human: 1
-  push_id: 24500322052
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-05-25 13:36:25.000000000 Z
   where: github
   who: 526301
 - _id: 83
@@ -33902,58 +33884,17 @@
   total_reviews_submitted: 28
   what: quantity-of-deliverables
   when: 2025-07-24 12:05:24.331550150 Z
-- _id: 21982
-  _time: 2025-07-24 13:35:07.557680024 Z
-  _version: 0.13.0/0.51.0/
-  latest: 52479308422
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 21983
-  _time: 2025-07-24 13:36:09.913193245 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 21984
-  _time: 2025-07-24 13:38:22.962799018 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
 - _id: 21985
   _time: 2025-07-24 13:38:25.758112276 Z
   _version: 0.13.0/0.51.0/
   details: The issue cqfn/aibolit#887 has been opened by @mmenshikh.
+  is_human: 1
   issue: 887
   repository: 237167507
   what: issue-was-opened
   when: 2025-07-24 13:33:32.000000000 Z
   where: github
   who: 150797125
-- _id: 21986
-  _time: 2025-07-24 13:38:26.174733458 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 21987
-  _time: 2025-07-24 13:38:26.790269841 Z
-  _version: 0.13.0/0.51.0/
-  latest: 456
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 21988
-  _time: 2025-07-24 13:39:26.230166991 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
 - _id: 21989
   _time: 2025-07-24 13:43:15.936525938 Z
   _version: 0.13.0/0.51.0/
@@ -33974,13 +33915,79 @@
   average_reviewers_per_pull: 1.7142857142857142
   average_reviews_per_pull: 6.428571428571429
   average_triage_time: 55642.09090909091
+  composite: 0.38
+  ffact: 136
   since: 2025-07-17 13:39:26.260243113 Z
   what: quality-of-service
   when: 2025-07-24 13:39:26.260191747 Z
-- _id: 21990
-  _time: 2025-07-24 13:43:59.858578948 Z
+- _id: 21994
+  _time: 2025-07-24 14:04:21.914710453 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#889 has been opened by @mmenshikh.
+  is_human: 1
+  issue: 889
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-07-24 13:54:20.000000000 Z
+  where: github
+  who: 150797125
+- _id: 21995
+  _time: 2025-07-24 14:04:21.956524871 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#888 has been opened by @mmenshikh.
+  is_human: 1
+  issue: 888
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-07-24 13:39:45.000000000 Z
+  where: github
+  who: 150797125
+- _id: 22000
+  _time: 2025-07-24 14:05:58.332466427 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52479308422
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 22001
+  _time: 2025-07-24 14:07:33.004017110 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
+  where: github
+- _id: 22002
+  _time: 2025-07-24 14:09:16.933797443 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 22003
+  _time: 2025-07-24 14:10:00.611990095 Z
+  _version: 0.13.0/0.51.0/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 22004
+  _time: 2025-07-24 14:10:03.958573453 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 22005
+  _time: 2025-07-24 14:10:04.518747265 Z
+  _version: 0.13.0/0.51.0/
+  latest: 460
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 22006
+  _time: 2025-07-24 14:11:09.003624411 Z
+  _version: 0.13.0/0.51.0/
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
   where: github

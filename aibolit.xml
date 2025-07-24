@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="662259">
+<fb version="0.11.0" size="662367">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">902.234055111</seconds>
+    <seconds t="F">610.585231602</seconds>
     <version t="S">0.51.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-24T13:43:59Z</when>
+    <when t="T">2025-07-24T14:11:09Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -1400,25 +1400,6 @@
     <to_master t="I">1</to_master>
     <what t="S">git-was-pushed</what>
     <when t="T">2025-05-25T13:53:10Z</when>
-    <where t="S">github</where>
-    <who t="I">526301</who>
-  </f>
-  <f>
-    <_id t="I">82</_id>
-    <_time t="T">2025-05-29T07:01:21Z</_time>
-    <_version t="S">0.10.2/0.45.0/</_version>
-    <commit t="S">d329248c0b4fb6049b81b72b793e1864027e36a6</commit>
-    <default_branch t="S">master</default_branch>
-    <details t="S">A new Git push #24500322052 has arrived to cqfn/aibolit, made by @yegor256 (default branch is 'master'), not associated with any pull request.</details>
-    <event_id t="I">50117173120</event_id>
-    <event_type t="S">PushEvent</event_type>
-    <is_human t="I">1</is_human>
-    <push_id t="I">24500322052</push_id>
-    <ref t="S">refs/heads/master</ref>
-    <repository t="I">237167507</repository>
-    <to_master t="I">1</to_master>
-    <what t="S">git-was-pushed</what>
-    <when t="T">2025-05-25T13:36:25Z</when>
     <where t="S">github</where>
     <who t="I">526301</who>
   </f>
@@ -37545,70 +37526,17 @@
     <when t="T">2025-07-24T12:05:24Z</when>
   </f>
   <f>
-    <_id t="I">21982</_id>
-    <_time t="T">2025-07-24T13:35:07Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">52479308422</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">21983</_id>
-    <_time t="T">2025-07-24T13:36:09Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">513</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">21984</_id>
-    <_time t="T">2025-07-24T13:38:22Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">21985</_id>
     <_time t="T">2025-07-24T13:38:25Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <details t="S">The issue cqfn/aibolit#887 has been opened by @mmenshikh.</details>
+    <is_human t="I">1</is_human>
     <issue t="I">887</issue>
     <repository t="I">237167507</repository>
     <what t="S">issue-was-opened</what>
     <when t="T">2025-07-24T13:33:32Z</when>
     <where t="S">github</where>
     <who t="I">150797125</who>
-  </f>
-  <f>
-    <_id t="I">21986</_id>
-    <_time t="T">2025-07-24T13:38:26Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">401</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-issue-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">21987</_id>
-    <_time t="T">2025-07-24T13:38:26Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">456</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">min-pull-was-found</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">21988</_id>
-    <_time t="T">2025-07-24T13:39:26Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">513</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
   </f>
   <f>
     <_id t="I">21989</_id>
@@ -37631,17 +37559,99 @@
     <average_reviewers_per_pull t="F">1.7142857142857142</average_reviewers_per_pull>
     <average_reviews_per_pull t="F">6.428571428571429</average_reviews_per_pull>
     <average_triage_time t="F">55642.09090909091</average_triage_time>
+    <composite t="F">0.38</composite>
+    <ffact t="I">136</ffact>
     <since t="T">2025-07-17T13:39:26Z</since>
     <what t="S">quality-of-service</what>
     <when t="T">2025-07-24T13:39:26Z</when>
   </f>
   <f>
-    <_id t="I">21990</_id>
-    <_time t="T">2025-07-24T13:43:59Z</_time>
+    <_id t="I">21994</_id>
+    <_time t="T">2025-07-24T14:04:21Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <details t="S">The issue cqfn/aibolit#889 has been opened by @mmenshikh.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">889</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-07-24T13:54:20Z</when>
+    <where t="S">github</where>
+    <who t="I">150797125</who>
+  </f>
+  <f>
+    <_id t="I">21995</_id>
+    <_time t="T">2025-07-24T14:04:21Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <details t="S">The issue cqfn/aibolit#888 has been opened by @mmenshikh.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">888</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">issue-was-opened</what>
+    <when t="T">2025-07-24T13:39:45Z</when>
+    <where t="S">github</where>
+    <who t="I">150797125</who>
+  </f>
+  <f>
+    <_id t="I">22000</_id>
+    <_time t="T">2025-07-24T14:05:58Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">52479308422</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">22001</_id>
+    <_time t="T">2025-07-24T14:07:33Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
     <what t="S">merges-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">22002</_id>
+    <_time t="T">2025-07-24T14:09:16Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">22003</_id>
+    <_time t="T">2025-07-24T14:10:00Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">753</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">assignees-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">22004</_id>
+    <_time t="T">2025-07-24T14:10:03Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">401</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-issue-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">22005</_id>
+    <_time t="T">2025-07-24T14:10:04Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">460</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">min-pull-was-found</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">22006</_id>
+    <_time t="T">2025-07-24T14:11:09Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">327</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
