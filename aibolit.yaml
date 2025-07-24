@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 679.350476203
+  seconds: 635.24590381
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-24 16:09:16.823448502 Z
+  when: 2025-07-24 17:12:32.128162649 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -1101,78 +1101,6 @@
   when: 2025-05-25 16:00:18.000000000 Z
   where: github
   who: 41443370
-- _id: 73
-  _time: 2025-05-29 07:01:19.653390308 Z
-  _version: 0.10.2/0.45.0/
-  commit: 5bd31c70063e17306016367b860349594c1ec233
-  default_branch: master
-  details: 'A new Git push #24501446867 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is ''master''), not associated with any pull request.'
-  event_id: 50118854757
-  event_type: PushEvent
-  is_human: 1
-  push_id: 24501446867
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-05-25 15:40:50.000000000 Z
-  where: github
-  who: 526301
-- _id: 74
-  _time: 2025-05-29 07:01:19.816025583 Z
-  _version: 0.10.2/0.45.0/
-  commit: 2ad84cbfa110fc476bd765d66aa83f968e20cdbc
-  default_branch: master
-  details: 'A new Git push #24501319262 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is ''master''), not associated with any pull request.'
-  event_id: 50118662981
-  event_type: PushEvent
-  is_human: 1
-  push_id: 24501319262
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-05-25 15:25:45.000000000 Z
-  where: github
-  who: 526301
-- _id: 75
-  _time: 2025-05-29 07:01:19.993132952 Z
-  _version: 0.10.2/0.45.0/
-  commit: 5e0a85b9886b388e6d570c3a8b16a6649601758a
-  default_branch: master
-  details: 'A new Git push #24501316289 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is ''master''), not associated with any pull request.'
-  event_id: 50118658477
-  event_type: PushEvent
-  is_human: 1
-  push_id: 24501316289
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-05-25 15:25:24.000000000 Z
-  where: github
-  who: 526301
-- _id: 76
-  _time: 2025-05-29 07:01:20.141777850 Z
-  _version: 0.10.2/0.45.0/
-  commit: 16ff8b0adfa637cf16fe8c319add4ee246b7eaf9
-  default_branch: master
-  details: 'A new Git push #24501240358 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is ''master''), not associated with any pull request.'
-  event_id: 50118543422
-  event_type: PushEvent
-  is_human: 1
-  push_id: 24501240358
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-05-25 15:17:00.000000000 Z
-  where: github
-  who: 526301
 - _id: 77
   _time: 2025-05-29 07:01:20.293642176 Z
   _version: 0.10.2/0.45.0/
@@ -33885,52 +33813,74 @@
   total_stars: 87
   what: dimensions-of-terrain
   when: 2025-07-24 15:58:43.376818874 Z
-- _id: 22029
-  _time: 2025-07-24 16:04:09.104517998 Z
+- _id: 22038
+  _time: 2025-07-24 17:04:48.739935634 Z
+  _version: 0.13.0/0.51.0/
+  branch: '868'
+  comments: 18
+  comments_appreciated: 2
+  comments_by_author: 5
+  comments_by_reviewers: 13
+  comments_resolved: 0
+  comments_to_code: 12
+  details: Apparently, cqfn/aibolit#879 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 52
+  is_human: 0
+  issue: 879
+  repository: 237167507
+  review_comments: 12
+  succeeded_builds: 18
+  what: pull-was-merged
+  when: 2025-07-24 16:18:24.000000000 Z
+  where: github
+  who: 8086956
+- _id: 22044
+  _time: 2025-07-24 17:07:26.338998939 Z
   _version: 0.13.0/0.51.0/
   latest: 52481587688
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 22030
-  _time: 2025-07-24 16:05:08.672107921 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 22031
-  _time: 2025-07-24 16:05:09.402028410 Z
-  _version: 0.13.0/0.51.0/
-  latest: 472
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 22032
-  _time: 2025-07-24 16:06:13.682777997 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 22033
-  _time: 2025-07-24 16:07:16.553526554 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 22034
-  _time: 2025-07-24 16:08:00.020730671 Z
+- _id: 22045
+  _time: 2025-07-24 17:09:47.848822558 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 22035
-  _time: 2025-07-24 16:08:29.435897866 Z
+- _id: 22046
+  _time: 2025-07-24 17:10:49.081291462 Z
   _version: 0.13.0/0.51.0/
-  latest: 0
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 22047
+  _time: 2025-07-24 17:11:26.261261811 Z
+  _version: 0.13.0/0.51.0/
+  latest: 753
   repository: 237167507
   what: assignees-were-scanned
+  where: github
+- _id: 22048
+  _time: 2025-07-24 17:11:29.871737721 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 22049
+  _time: 2025-07-24 17:11:30.358528452 Z
+  _version: 0.13.0/0.51.0/
+  latest: 474
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 22050
+  _time: 2025-07-24 17:12:25.616388906 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
   where: github
