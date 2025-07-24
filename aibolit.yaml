@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 586.460469152
+  seconds: 679.350476203
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-24 15:08:52.489895975 Z
+  when: 2025-07-24 16:09:16.823448502 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -1184,42 +1184,6 @@
   repository: 237167507
   what: issue-was-opened
   when: 2025-05-25 15:14:52.000000000 Z
-  where: github
-  who: 526301
-- _id: 78
-  _time: 2025-05-29 07:01:20.313939082 Z
-  _version: 0.10.2/0.45.0/
-  commit: 2812edebf1196c050fc63c7324781de852df4188
-  default_branch: master
-  details: 'A new Git push #24500997206 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is ''master''), not associated with any pull request.'
-  event_id: 50118180054
-  event_type: PushEvent
-  is_human: 1
-  push_id: 24500997206
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-05-25 14:51:12.000000000 Z
-  where: github
-  who: 526301
-- _id: 79
-  _time: 2025-05-29 07:01:20.528308383 Z
-  _version: 0.10.2/0.45.0/
-  commit: 3c7f0ab6b9763fefaef44514ed1d9507cf77a2b4
-  default_branch: master
-  details: 'A new Git push #24500920328 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is ''master''), not associated with any pull request.'
-  event_id: 50118065799
-  event_type: PushEvent
-  is_human: 1
-  push_id: 24500920328
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-05-25 14:42:36.000000000 Z
   where: github
   who: 526301
 - _id: 83
@@ -33906,52 +33870,67 @@
   when: 2025-07-24 13:39:45.000000000 Z
   where: github
   who: 150797125
-- _id: 22014
-  _time: 2025-07-24 15:04:01.559504850 Z
+- _id: 22023
+  _time: 2025-07-24 15:58:50.118844443 Z
+  _version: 0.13.0/0.51.0/
+  total_active_contributors: 10
+  total_commits: 2673
+  total_contributors: 26
+  total_files: 1049
+  total_forks: 37
+  total_issues: 441
+  total_pulls: 448
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 87
+  what: dimensions-of-terrain
+  when: 2025-07-24 15:58:43.376818874 Z
+- _id: 22029
+  _time: 2025-07-24 16:04:09.104517998 Z
   _version: 0.13.0/0.51.0/
   latest: 52481587688
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 22015
-  _time: 2025-07-24 15:04:43.856205641 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 22016
-  _time: 2025-07-24 15:05:40.669979715 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 22017
-  _time: 2025-07-24 15:05:44.544716779 Z
+- _id: 22030
+  _time: 2025-07-24 16:05:08.672107921 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 22018
-  _time: 2025-07-24 15:05:45.045073836 Z
+- _id: 22031
+  _time: 2025-07-24 16:05:09.402028410 Z
   _version: 0.13.0/0.51.0/
-  latest: 465
+  latest: 472
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 22019
-  _time: 2025-07-24 15:06:25.431964961 Z
+- _id: 22032
+  _time: 2025-07-24 16:06:13.682777997 Z
   _version: 0.13.0/0.51.0/
-  latest: 440
+  latest: 513
   repository: 237167507
-  what: assignees-were-scanned
+  what: labels-were-scanned
   where: github
-- _id: 22020
-  _time: 2025-07-24 15:07:59.617352680 Z
+- _id: 22033
+  _time: 2025-07-24 16:07:16.553526554 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
-  what: labels-were-scanned
+  what: types-were-scanned
+  where: github
+- _id: 22034
+  _time: 2025-07-24 16:08:00.020730671 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 22035
+  _time: 2025-07-24 16:08:29.435897866 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
