@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 829.992983484
+  seconds: 902.234055111
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-24 12:08:57.826840443 Z
+  when: 2025-07-24 13:43:59.893378911 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33892,55 +33892,6 @@
   total_stars: 87
   what: dimensions-of-terrain
   when: 2025-07-23 15:09:45.792155952 Z
-- _id: 21967
-  _time: 2025-07-24 12:00:21.575643895 Z
-  _version: 0.13.0/0.51.0/
-  latest: 52477988737
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 21968
-  _time: 2025-07-24 12:01:04.272819630 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 21969
-  _time: 2025-07-24 12:01:52.475980276 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 21970
-  _time: 2025-07-24 12:04:32.515985519 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 21971
-  _time: 2025-07-24 12:05:20.114158003 Z
-  _version: 0.13.0/0.51.0/
-  latest: 440
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 21972
-  _time: 2025-07-24 12:05:23.531618549 Z
-  _version: 0.13.0/0.51.0/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 21973
-  _time: 2025-07-24 12:05:24.303553727 Z
-  _version: 0.13.0/0.51.0/
-  latest: 452
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
 - _id: 21974
   _time: 2025-07-24 12:08:50.668457760 Z
   _version: 0.13.0/0.51.0/
@@ -33951,3 +33902,85 @@
   total_reviews_submitted: 28
   what: quantity-of-deliverables
   when: 2025-07-24 12:05:24.331550150 Z
+- _id: 21982
+  _time: 2025-07-24 13:35:07.557680024 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52479308422
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 21983
+  _time: 2025-07-24 13:36:09.913193245 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 21984
+  _time: 2025-07-24 13:38:22.962799018 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 21985
+  _time: 2025-07-24 13:38:25.758112276 Z
+  _version: 0.13.0/0.51.0/
+  details: The issue cqfn/aibolit#887 has been opened by @mmenshikh.
+  issue: 887
+  repository: 237167507
+  what: issue-was-opened
+  when: 2025-07-24 13:33:32.000000000 Z
+  where: github
+  who: 150797125
+- _id: 21986
+  _time: 2025-07-24 13:38:26.174733458 Z
+  _version: 0.13.0/0.51.0/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 21987
+  _time: 2025-07-24 13:38:26.790269841 Z
+  _version: 0.13.0/0.51.0/
+  latest: 456
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 21988
+  _time: 2025-07-24 13:39:26.230166991 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 21989
+  _time: 2025-07-24 13:43:15.936525938 Z
+  _version: 0.13.0/0.51.0/
+  average_backlog_size: 7.0
+  average_build_duration: 168.322974472808
+  average_build_mttr: -4005
+  average_build_success_rate: 0.9911209766925638
+  average_issue_lifetime: 934266.0
+  average_pull_files_size: 10.571428571428571
+  average_pull_hoc_size: 101.85714285714286
+  average_pull_lifetime: 792692.125
+  average_pull_rejection_rate: 0.125
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
+  average_release_interval: 0
+  average_review_size: 9.142857142857142
+  average_review_time: 489486.0
+  average_reviewers_per_pull: 1.7142857142857142
+  average_reviews_per_pull: 6.428571428571429
+  average_triage_time: 55642.09090909091
+  since: 2025-07-17 13:39:26.260243113 Z
+  what: quality-of-service
+  when: 2025-07-24 13:39:26.260191747 Z
+- _id: 21990
+  _time: 2025-07-24 13:43:59.858578948 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
