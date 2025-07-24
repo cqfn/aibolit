@@ -111,8 +111,9 @@ class MvnFreeNPathMetric:
             ASTNodeType.SWITCH_STATEMENT: self._switch_npath,
             ASTNodeType.FOR_STATEMENT: self._for_loop_npath,
             ASTNodeType.WHILE_STATEMENT: self._while_loop_npath,
-            ASTNodeType.BINARY_OPERATION: self._binary_expression_npath,
             ASTNodeType.EXPRESSION: self._expression_npath,
+            ASTNodeType.BINARY_OPERATION: self._expression_npath,
+            ASTNodeType.TERNARY_EXPRESSION: self._expression_npath,
         }
 
         handler = dispatcher.get(node.node_type, default_handler)
@@ -158,11 +159,22 @@ class MvnFreeNPathMetric:
         return condition_npath + body_npath + 1
 
     def _expression_npath(self, node: ASTNode) -> int:
-        if node.node_type == ASTNodeType.BINARY_OPERATION:
-            return self._binary_expression_npath(node)
+        def default_handler(node: ASTNode) -> int:
+            return self._composite_expression_npath(node)
+
+        dispatcher = {
+            ASTNodeType.BINARY_OPERATION: self._binary_expression_npath,
+            ASTNodeType.TERNARY_EXPRESSION: self._ternary_npath,
+        }
+        return dispatcher.get(node.node_type, default_handler)(node)
+
+    def _composite_expression_npath(self, node: ASTNode) -> int:
         return sum(self._expression_npath(child) for child in node.children)
 
     def _binary_expression_npath(self, node: ASTNode) -> int:
         left_npath = self._expression_npath(node.operandl)
         right_npath = self._expression_npath(node.operandr)
         return left_npath + right_npath + (node.operator in ('&&', '||'))
+
+    def _ternary_npath(self, node: ASTNode) -> int:
+        return self._composite_expression_npath(node) + 2
