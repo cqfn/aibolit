@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 635.24590381
+  seconds: 588.187711343
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-24 17:12:32.128162649 Z
+  when: 2025-07-24 18:04:34.914465576 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33832,55 +33832,94 @@
   review_comments: 12
   succeeded_builds: 18
   what: pull-was-merged
-  when: 2025-07-24 16:18:24.000000000 Z
+  when: &427 2025-07-24 16:18:24.000000000 Z
   where: github
   who: 8086956
-- _id: 22044
-  _time: 2025-07-24 17:07:26.338998939 Z
+- _id: 22052
+  _job: 30120
+  _time: 2025-07-24 17:13:07.132786245 Z
+  _version: 0.14.0/0.51.1/0.14.25!0.15.0
+  comments: 18
+  details: The pull request cqfn/aibolit#879 with 52 HoC created by @error10556 was
+    merged by @rultor after 4d0h of being in review and 18 comments.
+  hoc: 52
+  is_human: 1
+  issue: 879
+  merger: 8086956
+  repository: 237167507
+  review_comments: 12
+  seconds: 348504
+  what: code-was-contributed
+  when: *427
+  where: github
+  who: 151189440
+- _id:
+  - 22053
+  - 22051
+  _job: 30120
+  _time:
+  - 2025-07-24 17:13:25.801746125 Z
+  - 2025-07-24 17:13:03.118681587 Z
+  _version: 0.14.0/0.51.1/0.14.25!0.15.0
+  award: 12
+  details: It's time to reward @ivanovmg for the code review in cqfn/aibolit#879,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/879/#issuecomment-3114234525
+  is_human: 1
+  issue: 879
+  receipt: 0
+  repository: 237167507
+  what: code-review-was-rewarded
+  when: 2025-07-24 17:13:03.126656350 Z
+  where: github
+  who: 41443370
+  why: Reviewed code in cqfn/aibolit#879
+- _id: 22061
+  _time: 2025-07-24 17:59:45.579716148 Z
   _version: 0.13.0/0.51.0/
-  latest: 52481587688
+  latest: 52483788923
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 22045
-  _time: 2025-07-24 17:09:47.848822558 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 22046
-  _time: 2025-07-24 17:10:49.081291462 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 22047
-  _time: 2025-07-24 17:11:26.261261811 Z
-  _version: 0.13.0/0.51.0/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 22048
-  _time: 2025-07-24 17:11:29.871737721 Z
+- _id: 22062
+  _time: 2025-07-24 17:59:52.826688332 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 22049
-  _time: 2025-07-24 17:11:30.358528452 Z
+- _id: 22063
+  _time: 2025-07-24 17:59:53.316961986 Z
   _version: 0.13.0/0.51.0/
-  latest: 474
+  latest: 477
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 22050
-  _time: 2025-07-24 17:12:25.616388906 Z
+- _id: 22064
+  _time: 2025-07-24 18:00:37.987339562 Z
   _version: 0.13.0/0.51.0/
-  latest: 513
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 22065
+  _time: 2025-07-24 18:02:13.510818554 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 22066
+  _time: 2025-07-24 18:02:59.823567034 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
   repository: 237167507
   what: types-were-scanned
+  where: github
+- _id: 22067
+  _time: 2025-07-24 18:04:34.578648087 Z
+  _version: 0.13.0/0.51.0/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
   where: github

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="659787">
+<fb version="0.11.0" size="660656">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">635.24590381</seconds>
+    <seconds t="F">588.187711343</seconds>
     <version t="S">0.51.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-24T17:12:32Z</when>
+    <when t="T">2025-07-24T18:04:34Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -37481,44 +37481,60 @@
     <who t="I">8086956</who>
   </f>
   <f>
-    <_id t="I">22044</_id>
-    <_time t="T">2025-07-24T17:07:26Z</_time>
+    <_id t="I">22052</_id>
+    <_job t="I">30120</_job>
+    <_time t="T">2025-07-24T17:13:07Z</_time>
+    <_version t="S">0.14.0/0.51.1/0.14.25!0.15.0</_version>
+    <comments t="I">18</comments>
+    <details t="S">The pull request cqfn/aibolit#879 with 52 HoC created by @error10556 was merged by @rultor after 4d0h of being in review and 18 comments.</details>
+    <hoc t="I">52</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">879</issue>
+    <merger t="I">8086956</merger>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">12</review_comments>
+    <seconds t="I">348504</seconds>
+    <what t="S">code-was-contributed</what>
+    <when t="T">2025-07-24T16:18:24Z</when>
+    <where t="S">github</where>
+    <who t="I">151189440</who>
+  </f>
+  <f>
+    <_id>
+      <v t="I">22053</v>
+      <v t="I">22051</v>
+    </_id>
+    <_job t="I">30120</_job>
+    <_time>
+      <v t="T">2025-07-24T17:13:25Z</v>
+      <v t="T">2025-07-24T17:13:03Z</v>
+    </_time>
+    <_version t="S">0.14.0/0.51.1/0.14.25!0.15.0</_version>
+    <award t="I">12</award>
+    <details t="S">It's time to reward @ivanovmg for the code review in cqfn/aibolit#879, the reward amount is 12.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/879/#issuecomment-3114234525</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">879</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">code-review-was-rewarded</what>
+    <when t="T">2025-07-24T17:13:03Z</when>
+    <where t="S">github</where>
+    <who t="I">41443370</who>
+    <why t="S">Reviewed code in cqfn/aibolit#879</why>
+  </f>
+  <f>
+    <_id t="I">22061</_id>
+    <_time t="T">2025-07-24T17:59:45Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">52481587688</latest>
+    <latest t="I">52483788923</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22045</_id>
-    <_time t="T">2025-07-24T17:09:47Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">merges-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">22046</_id>
-    <_time t="T">2025-07-24T17:10:49Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">327</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">22047</_id>
-    <_time t="T">2025-07-24T17:11:26Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">753</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">22048</_id>
-    <_time t="T">2025-07-24T17:11:29Z</_time>
+    <_id t="I">22062</_id>
+    <_time t="T">2025-07-24T17:59:52Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">401</latest>
     <repository t="I">237167507</repository>
@@ -37526,21 +37542,48 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22049</_id>
-    <_time t="T">2025-07-24T17:11:30Z</_time>
+    <_id t="I">22063</_id>
+    <_time t="T">2025-07-24T17:59:53Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">474</latest>
+    <latest t="I">477</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22050</_id>
-    <_time t="T">2025-07-24T17:12:25Z</_time>
+    <_id t="I">22064</_id>
+    <_time t="T">2025-07-24T18:00:37Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">513</latest>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">22065</_id>
+    <_time t="T">2025-07-24T18:02:13Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">merges-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">22066</_id>
+    <_time t="T">2025-07-24T18:02:59Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">0</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">22067</_id>
+    <_time t="T">2025-07-24T18:04:34Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">440</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">assignees-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
