@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 583.340272774
+  seconds: 674.147983739
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-25 06:08:28.091385873 Z
+  when: 2025-07-25 07:13:54.937432345 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33945,52 +33945,107 @@
   when: *429
   where: github
   who: 526301
-- _id: 22206
-  _time: 2025-07-25 06:03:51.506141734 Z
+- _id:
+  - 22215
+  - 22213
+  _job: 30184
+  _time:
+  - 2025-07-25 06:09:29.754910403 Z
+  - 2025-07-25 06:09:04.335240982 Z
+  _version: 0.14.0/0.51.1/0.14.25!0.15.0
+  award: 12
+  details: It's time to reward @mmenshikh for the bug reported in cqfn/aibolit#887,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/887/#issuecomment-3116528208
+  is_human: 1
+  issue: 887
+  receipt: 0
+  repository: 237167507
+  what: bug-report-was-rewarded
+  when: 2025-07-25 06:09:04.340706954 Z
+  where: github
+  who: 150797125
+  why: Reported bug in cqfn/aibolit#887
+- _id:
+  - 22216
+  - 22214
+  _job: 30184
+  _time:
+  - 2025-07-25 06:09:29.769209202 Z
+  - 2025-07-25 06:09:08.390709769 Z
+  _version: 0.14.0/0.51.1/0.14.25!0.15.0
+  award: 12
+  details: It's time to reward @mmenshikh for the bug reported in cqfn/aibolit#888,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/888/#issuecomment-3116528237
+  is_human: 1
+  issue: 888
+  receipt: 0
+  repository: 237167507
+  what: bug-report-was-rewarded
+  when: 2025-07-25 06:09:08.397103223 Z
+  where: github
+  who: 150797125
+  why: Reported bug in cqfn/aibolit#888
+- _id: 22217
+  _time: 2025-07-25 07:02:43.774196361 Z
   _version: 0.13.0/0.51.0/
-  latest: 52506470401
+  details: The issue cqfn/aibolit#868 has been closed by @rultor.
+  event_id: 52506840910
+  event_type: IssuesEvent
+  is_human: 0
+  issue: 868
+  repository: 237167507
+  what: issue-was-closed
+  when: 2025-07-24 16:18:26.000000000 Z
+  where: github
+  who: 8086956
+- _id: 22225
+  _time: 2025-07-25 07:08:24.722157232 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52507114213
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 22207
-  _time: 2025-07-25 06:04:36.895116932 Z
+- _id: 22226
+  _time: 2025-07-25 07:09:22.150873480 Z
   _version: 0.13.0/0.51.0/
-  latest: 0
+  latest: 513
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 22208
-  _time: 2025-07-25 06:04:40.004079593 Z
+- _id: 22227
+  _time: 2025-07-25 07:10:30.685739836 Z
+  _version: 0.13.0/0.51.0/
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 22228
+  _time: 2025-07-25 07:11:31.342537735 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 22209
-  _time: 2025-07-25 06:04:40.526134364 Z
+- _id: 22229
+  _time: 2025-07-25 07:11:32.148080996 Z
   _version: 0.13.0/0.51.0/
-  latest: 511
+  latest: 516
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 22210
-  _time: 2025-07-25 06:05:23.780767042 Z
+- _id: 22230
+  _time: 2025-07-25 07:12:12.615180122 Z
+  _version: 0.13.0/0.51.0/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 22231
+  _time: 2025-07-25 07:12:57.344103115 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
-  where: github
-- _id: 22211
-  _time: 2025-07-25 06:06:16.915734980 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 22212
-  _time: 2025-07-25 06:06:40.660642780 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
   where: github
