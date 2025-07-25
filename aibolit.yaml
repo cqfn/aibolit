@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 668.553283403
+  seconds: 583.340272774
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-25 05:27:09.451142187 Z
+  when: 2025-07-25 06:08:28.091385873 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -33893,74 +33893,104 @@
   where: github
   who: 151189440
   why: Contributed code in cqfn/aibolit#879
-- _id: 22188
-  _time: 2025-07-25 05:21:34.246702832 Z
-  _version: 0.13.0/0.51.0/
-  latest: 52504893938
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 22189
-  _time: 2025-07-25 05:23:25.984336617 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 22190
   _time: 2025-07-25 05:25:14.245917150 Z
   _version: 0.13.0/0.51.0/
   details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#887.
+  is_human: 1
   issue: 887
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-25 04:30:53.000000000 Z
+  when: &428 2025-07-25 04:30:53.000000000 Z
   where: github
   who: 526301
 - _id: 22191
   _time: 2025-07-25 05:25:14.729077439 Z
   _version: 0.13.0/0.51.0/
   details: The 'bug' label was attached by @yegor256 to the issue cqfn/aibolit#888.
+  is_human: 1
   issue: 888
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2025-07-25 04:31:23.000000000 Z
+  when: &429 2025-07-25 04:31:23.000000000 Z
   where: github
   who: 526301
-- _id: 22192
-  _time: 2025-07-25 05:25:15.382679432 Z
+- _id: 22197
+  _job: 30164
+  _time: 2025-07-25 05:27:46.031339013 Z
+  _version: 0.14.0/0.51.1/0.14.25!0.15.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#887 reported by @mmenshikh;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 887
+  reporter: 150797125
+  repository: 237167507
+  what: bug-was-accepted
+  when: *428
+  where: github
+  who: 526301
+- _id: 22198
+  _job: 30164
+  _time: 2025-07-25 05:27:46.432535248 Z
+  _version: 0.14.0/0.51.1/0.14.25!0.15.0
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#888 reported by @mmenshikh;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 888
+  reporter: 150797125
+  repository: 237167507
+  what: bug-was-accepted
+  when: *429
+  where: github
+  who: 526301
+- _id: 22206
+  _time: 2025-07-25 06:03:51.506141734 Z
+  _version: 0.13.0/0.51.0/
+  latest: 52506470401
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 22207
+  _time: 2025-07-25 06:04:36.895116932 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
-  what: labels-were-scanned
+  what: types-were-scanned
   where: github
-- _id: 22193
-  _time: 2025-07-25 05:25:18.886542979 Z
+- _id: 22208
+  _time: 2025-07-25 06:04:40.004079593 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 22194
-  _time: 2025-07-25 05:25:19.563083594 Z
+- _id: 22209
+  _time: 2025-07-25 06:04:40.526134364 Z
   _version: 0.13.0/0.51.0/
-  latest: 506
+  latest: 511
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 22195
-  _time: 2025-07-25 05:26:18.003037494 Z
-  _version: 0.13.0/0.51.0/
-  latest: 440
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 22196
-  _time: 2025-07-25 05:27:01.146171207 Z
+- _id: 22210
+  _time: 2025-07-25 06:05:23.780767042 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
+  where: github
+- _id: 22211
+  _time: 2025-07-25 06:06:16.915734980 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 22212
+  _time: 2025-07-25 06:06:40.660642780 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
