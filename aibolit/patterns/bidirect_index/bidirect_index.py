@@ -20,8 +20,23 @@ class BidirectIndex:
         result = idx.value("MyClass.java")
     """
 
-    def __init__(self):
-        pass
+    def value(self, filename: str | os.PathLike) -> list[LineNumber]:
+        """
+        Analyze the given Java file and return a sorted list of line numbers where a variable
+        is used as a bidirectional index.
+
+        Args:
+            filename (str | os.PathLike): Path to the Java source file.
+
+        Returns:
+            list[LineNumber]: Sorted list of line numbers where bidirectional indices are found.
+        """
+        with open(filename, encoding='utf-8') as f:
+            lines = f.readlines()
+        result: list[int] = []
+        for m_start, m_end in self._find_methods(lines):
+            self._analyze_block(lines, m_start + 1, m_end, result)
+        return [LineNumber(n) for n in sorted(result)]
 
     def _find_methods(self, lines):
         """
@@ -36,10 +51,18 @@ class BidirectIndex:
         res = []
         brace = 0
         mstart = None
+        # Regular expression to find method declaration in Java
+        method_pattern = re.compile(r"""
+            (public|private|protected|static|\s)*  # access modifiers and static
+            ([\w<>\[\]]+)                          # # return type
+            \s+                                    # space
+            \w+                                    # method name
+            \s*                                    # possible spaces
+            \( [^)]* \)                            # parameters in brackets
+            \s* \{                                 # opening curly brace
+            """, re.VERBOSE)
         for idx, line in enumerate(lines):
-            if (re.search(
-                    r'(public|private|protected|static|\s)*([\w<>\[\]]+)\s+\w+\s*\([^)]*\)\s*{',
-                    line)):
+            if method_pattern.search(line):
                 if mstart is None:
                     mstart = idx
                     brace = 0
@@ -57,18 +80,21 @@ class BidirectIndex:
         i = start
         while i <= end:
             line = lines[i]
-            typed_decl = re.match(r'\s*(int|long|byte|short)\s+(\w+)\s*=', line)
-            # Only match simple reassignments, not method calls or field access
-            untyped_decl = re.match(r'^\s*(\w+)\s*=\s*[^=;]+;', line) \
-                if not typed_decl else None
+            # Finding a variable declaration with type
+            typed_decl = re.match(
+                r'\s*(int|long|byte|short)\s+(\w+)\s*=', line)
+            # Finding a simple assignment without a type
+            untyped_decl = re.match(
+                r'^\s*(\w+)\s*=\s*[^=;]+;', line) if not typed_decl else None
             var = typed_decl.group(2) if typed_decl else (untyped_decl.group(1)
                                                           if untyped_decl else None)
             if var:
                 j = i + 1
                 while j <= end:
                     line_ = lines[j]
-                    # Check for both typed declarations and simple reassignments
-                    if re.match(r'\s*(int|long|byte|short)\s+' + re.escape(var) + r'\s*=', line_):
+                    # Check for re-declaration of variable with type
+                    if re.match(
+                            r'\s*(int|long|byte|short)\s+' + re.escape(var) + r'\s*=', line_):
                         break
                     j += 1
                 inc_outside, dec_outside = (
@@ -94,11 +120,16 @@ class BidirectIndex:
         """
         for_blocks = []
         k = start
+        # Regular expression to find variable declaration in for
+        for_pattern = re.compile(r"""
+            \s*for\s*                # keyword for
+            \(                       # opening parenthesis
+            \s*(int|long|byte|short) # variable type
+            \s+""" + re.escape(var) + r"""\s*= # variable name and =
+            """, re.VERBOSE)
         while k < end:
             line_ = lines[k]
-            for_decl = re.match(
-                r'\s*for\s*\(\s*(int|long|byte|short)\s+' + re.escape(var) + r'\s*=', line_)
-            if for_decl:
+            if for_pattern.match(line_):
                 brace = line_.count('{') - line_.count('}')
                 bstart = k
                 k += 1
@@ -118,37 +149,26 @@ class BidirectIndex:
         inc_outside = 0
         dec_outside = 0
         k = start
+        # Regular expressions for increment and decrement
+        inc_pattern = re.compile(r"""
+            (\+\+""" + re.escape(var) + r"""|   # ++var
+            """ + re.escape(var) + r"""\+\+|    # var++
+            """ + re.escape(var) + r"""\s*\+=\s*1\b| # var += 1
+            """ + re.escape(var) + r"""\s*=\s*""" + re.escape(var) + r"""\s*\+\s*1\b) # var = var + 1
+            """, re.VERBOSE)
+        dec_pattern = re.compile(r"""
+            (--""" + re.escape(var) + r"""|     # --var
+            """ + re.escape(var) + r"""--|      # var--
+            """ + re.escape(var) + r"""\s*-=\s*1\b| # var -= 1
+            """ + re.escape(var) + r"""\s*=\s*""" + re.escape(var) + r"""\s*-\s*1\b) # var = var - 1
+            """, re.VERBOSE)
         while k < end:
             in_for = any(bstart <= k <= bend for (bstart, bend) in for_blocks)
             if not in_for:
                 line_ = lines[k]
-                if re.search(
-                        r'(\+\+' + re.escape(var) + r'|' + re.escape(var) + r'\+\+|' +
-                        re.escape(var) + r'\s*\+=\s*1\b|' +
-                        re.escape(var) + r'\s*=\s*' + re.escape(var) + r'\s*\+\s*1\b)', line_):
+                if inc_pattern.search(line_):
                     inc_outside += 1
-                if re.search(
-                        r'(--' + re.escape(var) + r'|' + re.escape(var) + r'--|' +
-                        re.escape(var) + r'\s*-=\s*1\b|' +
-                        re.escape(var) + r'\s*=\s*' + re.escape(var) + r'\s*-\s*1\b)', line_):
+                if dec_pattern.search(line_):
                     dec_outside += 1
             k += 1
         return inc_outside, dec_outside
-
-    def value(self, filename: str | os.PathLike) -> list[LineNumber]:
-        """
-        Analyze the given Java file and return a sorted list of line numbers where a variable
-        is used as a bidirectional index.
-
-        Args:
-            filename (str | os.PathLike): Path to the Java source file.
-
-        Returns:
-            list[LineNumber]: Sorted list of line numbers where bidirectional indices are found.
-        """
-        with open(filename, encoding='utf-8') as f:
-            lines = f.readlines()
-        result: list[int] = []
-        for m_start, m_end in self._find_methods(lines):
-            self._analyze_block(lines, m_start + 1, m_end, result)
-        return [LineNumber(n) for n in sorted(result)]
