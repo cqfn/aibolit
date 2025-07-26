@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="664014">
+<fb version="0.11.0" size="664455">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">884.579536317</seconds>
+    <seconds t="F">762.017999342</seconds>
     <version t="S">0.51.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-26T13:35:51Z</when>
+    <when t="T">2025-07-26T14:09:19Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -37694,17 +37694,42 @@
     <when t="T">2025-07-26T13:23:08Z</when>
   </f>
   <f>
-    <_id t="I">22633</_id>
-    <_time t="T">2025-07-26T13:30:42Z</_time>
+    <_id t="I">22643</_id>
+    <_time t="T">2025-07-26T14:01:10Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">52575620124</latest>
+    <average_backlog_size t="F">8.75</average_backlog_size>
+    <average_build_duration t="F">163.5738219895288</average_build_duration>
+    <average_build_mttr t="I">-4005</average_build_mttr>
+    <average_build_success_rate t="F">0.9916230366492147</average_build_success_rate>
+    <average_issue_lifetime t="F">890011.7777777778</average_issue_lifetime>
+    <average_pull_files_size t="F">9.5</average_pull_files_size>
+    <average_pull_hoc_size t="F">95.625</average_pull_hoc_size>
+    <average_pull_lifetime t="F">743338.1111111111</average_pull_lifetime>
+    <average_pull_rejection_rate t="F">0.1111111111111111</average_pull_rejection_rate>
+    <average_release_commits_size t="I">0</average_release_commits_size>
+    <average_release_hoc_size t="I">0</average_release_hoc_size>
+    <average_release_interval t="I">0</average_release_interval>
+    <average_review_size t="F">9.5</average_review_size>
+    <average_review_time t="F">465956.5</average_review_time>
+    <average_reviewers_per_pull t="F">1.875</average_reviewers_per_pull>
+    <average_reviews_per_pull t="F">7.25</average_reviews_per_pull>
+    <average_triage_time t="F">36450.5</average_triage_time>
+    <since t="T">2025-07-19T13:58:15Z</since>
+    <what t="S">quality-of-service</what>
+    <when t="T">2025-07-26T13:58:15Z</when>
+  </f>
+  <f>
+    <_id t="I">22648</_id>
+    <_time t="T">2025-07-26T14:04:26Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">52576924642</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22634</_id>
-    <_time t="T">2025-07-26T13:31:21Z</_time>
+    <_id t="I">22649</_id>
+    <_time t="T">2025-07-26T14:05:07Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -37712,17 +37737,17 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22635</_id>
-    <_time t="T">2025-07-26T13:33:28Z</_time>
+    <_id t="I">22650</_id>
+    <_time t="T">2025-07-26T14:05:43Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">513</latest>
+    <latest t="I">753</latest>
     <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
+    <what t="S">assignees-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22636</_id>
-    <_time t="T">2025-07-26T13:33:33Z</_time>
+    <_id t="I">22651</_id>
+    <_time t="T">2025-07-26T14:06:40Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">401</latest>
     <repository t="I">237167507</repository>
@@ -37730,30 +37755,30 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22637</_id>
-    <_time t="T">2025-07-26T13:33:34Z</_time>
+    <_id t="I">22652</_id>
+    <_time t="T">2025-07-26T14:06:41Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">625</latest>
+    <latest t="I">629</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22638</_id>
-    <_time t="T">2025-07-26T13:34:06Z</_time>
+    <_id t="I">22653</_id>
+    <_time t="T">2025-07-26T14:07:34Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">513</latest>
     <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
+    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22639</_id>
-    <_time t="T">2025-07-26T13:35:01Z</_time>
+    <_id t="I">22654</_id>
+    <_time t="T">2025-07-26T14:09:19Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">327</latest>
     <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
