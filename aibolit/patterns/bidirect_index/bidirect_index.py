@@ -54,7 +54,7 @@ class BidirectIndex:
         # Regular expression to find method declaration in Java
         method_pattern = re.compile(r'''
             (public|private|protected|static|\s)*  # access modifiers and static
-            ([\w<>\[\]]+)                          # # return type
+            ([\w<>\[\]]+)                          # return type
             \s+                                    # space
             \w+                                    # method name
             \s*                                    # possible spaces
@@ -92,7 +92,7 @@ class BidirectIndex:
                 j = i + 1
                 while j <= end:
                     line_ = lines[j]
-                    # Check for re-declaration of variable with type
+                    # Check for both typed declarations and simple reassignments
                     if re.match(
                             r'\s*(int|long|byte|short)\s+' + re.escape(var) + r'\s*=', line_):
                         break
