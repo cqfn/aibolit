@@ -52,7 +52,7 @@ class BidirectIndex:
         brace = 0
         mstart = None
         # Regular expression to find method declaration in Java
-        method_pattern = re.compile(r"""
+        method_pattern = re.compile(r'''
             (public|private|protected|static|\s)*  # access modifiers and static
             ([\w<>\[\]]+)                          # # return type
             \s+                                    # space
@@ -60,7 +60,7 @@ class BidirectIndex:
             \s*                                    # possible spaces
             \( [^)]* \)                            # parameters in brackets
             \s* \{                                 # opening curly brace
-            """, re.VERBOSE)
+            ''', re.VERBOSE)
         for idx, line in enumerate(lines):
             if method_pattern.search(line):
                 if mstart is None:
@@ -121,12 +121,12 @@ class BidirectIndex:
         for_blocks = []
         k = start
         # Regular expression to find variable declaration in for
-        for_pattern = re.compile(r"""
+        for_pattern = re.compile(r'''
             \s*for\s*                # keyword for
             \(                       # opening parenthesis
             \s*(int|long|byte|short) # variable type
-            \s+""" + re.escape(var) + r"""\s*= # variable name and =
-            """, re.VERBOSE)
+            \s+''' + re.escape(var) + r'''\s*= # variable name and =
+            ''', re.VERBOSE)
         while k < end:
             line_ = lines[k]
             if for_pattern.match(line_):
@@ -150,18 +150,18 @@ class BidirectIndex:
         dec_outside = 0
         k = start
         # Regular expressions for increment and decrement
-        inc_pattern = re.compile(r"""
-            (\+\+""" + re.escape(var) + r"""|   # ++var
-            """ + re.escape(var) + r"""\+\+|    # var++
-            """ + re.escape(var) + r"""\s*\+=\s*1\b| # var += 1
-            """ + re.escape(var) + r"""\s*=\s*""" + re.escape(var) + r"""\s*\+\s*1\b) # var = var + 1
-            """, re.VERBOSE)
-        dec_pattern = re.compile(r"""
-            (--""" + re.escape(var) + r"""|     # --var
-            """ + re.escape(var) + r"""--|      # var--
-            """ + re.escape(var) + r"""\s*-=\s*1\b| # var -= 1
-            """ + re.escape(var) + r"""\s*=\s*""" + re.escape(var) + r"""\s*-\s*1\b) # var = var - 1
-            """, re.VERBOSE)
+        inc_pattern = re.compile(r'''
+            (\+\+''' + re.escape(var) + r'''|   # ++var
+            ''' + re.escape(var) + r'''\+\+|    # var++
+            ''' + re.escape(var) + r'''\s*\+=\s*1\b| # var += 1
+            ''' + re.escape(var) + r'''\s*=\s*''' + re.escape(var) + r'''\s*\+\s*1\b)# var = var + 1
+            ''', re.VERBOSE)
+        dec_pattern = re.compile(r'''
+            (--''' + re.escape(var) + r'''|     # --var
+            ''' + re.escape(var) + r'''--|      # var--
+            ''' + re.escape(var) + r'''\s*-=\s*1\b| # var -= 1
+            ''' + re.escape(var) + r'''\s*=\s*''' + re.escape(var) + r'''\s*-\s*1\b)# var = var - 1
+            ''', re.VERBOSE)
         while k < end:
             in_for = any(bstart <= k <= bend for (bstart, bend) in for_blocks)
             if not in_for:
