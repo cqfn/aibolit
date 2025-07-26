@@ -11,58 +11,57 @@ class BidirectIndexTestCase(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
 
     def test_bidirect_index_increase_decrease(self):
-        file_path = Path(self.dir_path, 'BidirectIndexIncreaseDecrease.java')
         self.assertEqual(
-            BidirectIndex().value(file_path),
+            BidirectIndex().value(Path(self.dir_path, 'BidirectIndexIncreaseDecrease.java')),
             [6],
             'Could not find bidirect index when index increased and then decreased',
         )
 
     def test_bidirect_index_decrease_increase(self):
-        file_path = Path(self.dir_path, 'BidirectIndexDecreaseIncrease.java')
         self.assertEqual(
-            BidirectIndex().value(file_path),
+            BidirectIndex().value(Path(self.dir_path, 'BidirectIndexDecreaseIncrease.java')),
             [6],
             'Could not find bidirect index when index decreased and then increased',
         )
 
     def test_bidirect_index_increase_decrease_assignment(self):
-        file_path = Path(self.dir_path, 'BidirectIndexIncreaseDecreaseAssignment.java')
         self.assertEqual(
-            BidirectIndex().value(file_path),
+            BidirectIndex().value(
+                Path(self.dir_path, 'BidirectIndexIncreaseDecreaseAssignment.java')
+            ),
             [6],
             'Could not find bidirect index when index increased and then decreased with assignment',
         )
 
     def test_bidirect_index_increase_assignment_decrease(self):
-        file_path = Path(self.dir_path, 'BidirectIndexIncreaseAssignmentDecrease.java')
         self.assertEqual(
-            BidirectIndex().value(file_path),
+            BidirectIndex().value(
+                Path(self.dir_path, 'BidirectIndexIncreaseAssignmentDecrease.java')
+            ),
             [6],
             'Could not find bidirect index when index increased with assignment and then decreased',
         )
 
     def test_bidirect_index_increase_assignment_decrease_assignment(self):
-        file_path = Path(self.dir_path, 'BidirectIndexIncreaseAssignmentDecreaseAssignment.java')
         self.assertEqual(
-            BidirectIndex().value(file_path),
+            BidirectIndex().value(
+                Path(self.dir_path, 'BidirectIndexIncreaseAssignmentDecreaseAssignment.java')
+            ),
             [6],
             'Could not find bidirect index when index increased with assignment '
             'and then decreased with assignment',
         )
 
     def test_bidirect_index_hidden_scope_true(self):
-        file_path = Path(self.dir_path, 'BidirectIndexHiddenScope.java')
         self.assertEqual(
-            BidirectIndex().value(file_path),
+            BidirectIndex().value(Path(self.dir_path, 'BidirectIndexHiddenScope.java')),
             [],
             'Could not find bidirec index when scope is hidden',
         )
 
     def test_bidirect_index_outsider(self):
-        file_path = Path(self.dir_path, 'BidirectIndexOutsider.java')
         self.assertEqual(
-            BidirectIndex().value(file_path),
+            BidirectIndex().value(Path(self.dir_path, 'BidirectIndexOutsider.java')),
             [13],
             'Could not find bidirec index when index is ot of loop',
         )
