@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="663775">
+<fb version="0.11.0" size="664182">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">616.241542118</seconds>
+    <seconds t="F">645.526152171</seconds>
     <version t="S">0.51.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-07-28T11:09:16Z</when>
+    <when t="T">2025-07-28T12:05:49Z</when>
   </f>
   <f>
     <_id t="I">1</_id>
@@ -37700,17 +37700,50 @@
     <when t="T">2025-07-27T19:06:04Z</when>
   </f>
   <f>
-    <_id t="I">22873</_id>
-    <_time t="T">2025-07-28T11:04:11Z</_time>
+    <_id t="I">22880</_id>
+    <_job t="I">30619</_job>
+    <_time t="T">2025-07-28T11:10:08Z</_time>
+    <_version t="S">0.14.0/0.51.1/0.14.25!0.15.1</_version>
+    <ac t="I">652</ac>
+    <cant_infer_ev t="S">There is not .CSV file</cant_infer_ev>
+    <cant_infer_pv t="S">There is not .CSV file</cant_infer_pv>
+    <ev t="I">0</ev>
+    <pv t="I">0</pv>
+    <qod t="I">266</qod>
+    <qod_per_sec t="F">5.125479710382091e-05</qod_per_sec>
+    <start t="T">2025-05-29T07:01:48Z</start>
+    <what t="S">earned-value</what>
+    <when t="T">2025-07-28T11:10:08Z</when>
+  </f>
+  <f>
+    <_id t="I">22881</_id>
+    <_job t="I">30619</_job>
+    <_time t="T">2025-07-28T11:10:08Z</_time>
+    <_version t="S">0.14.0/0.51.1/0.14.25!0.15.1</_version>
+    <what t="S">earned-value-prev</what>
+    <when t="T">2025-07-28T11:10:08Z</when>
+  </f>
+  <f>
+    <_id t="I">22889</_id>
+    <_time t="T">2025-07-28T12:00:36Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">52614983982</latest>
+    <latest t="I">52618047839</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22874</_id>
-    <_time t="T">2025-07-28T11:04:17Z</_time>
+    <_id t="I">22890</_id>
+    <_time t="T">2025-07-28T12:01:37Z</_time>
+    <_version t="S">0.13.0/0.51.0/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">types-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">22891</_id>
+    <_time t="T">2025-07-28T12:01:41Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">401</latest>
     <repository t="I">237167507</repository>
@@ -37718,17 +37751,17 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22875</_id>
-    <_time t="T">2025-07-28T11:04:17Z</_time>
+    <_id t="I">22892</_id>
+    <_time t="T">2025-07-28T12:01:42Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">677</latest>
+    <latest t="I">679</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22876</_id>
-    <_time t="T">2025-07-28T11:05:00Z</_time>
+    <_id t="I">22893</_id>
+    <_time t="T">2025-07-28T12:04:16Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -37736,30 +37769,21 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22877</_id>
-    <_time t="T">2025-07-28T11:05:56Z</_time>
+    <_id t="I">22894</_id>
+    <_time t="T">2025-07-28T12:05:20Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">513</latest>
     <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">22878</_id>
-    <_time t="T">2025-07-28T11:06:40Z</_time>
-    <_version t="S">0.13.0/0.51.0/</_version>
-    <latest t="I">440</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">22879</_id>
-    <_time t="T">2025-07-28T11:09:11Z</_time>
+    <_id t="I">22895</_id>
+    <_time t="T">2025-07-28T12:05:49Z</_time>
     <_version t="S">0.13.0/0.51.0/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
+    <what t="S">assignees-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
