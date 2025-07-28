@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 711.170919823
+  seconds: 622.194632957
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-28 14:14:04.487258105 Z
+  when: 2025-07-28 15:09:57.562474107 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -34079,55 +34079,57 @@
   average_reviewers_per_pull: 2.0
   average_reviews_per_pull: 7.0
   average_triage_time: 53669.5
+  composite: 0.359
+  ffact: 136
   since: 2025-07-21 14:06:22.624900154 Z
   what: quality-of-service
   when: 2025-07-28 14:06:22.624848517 Z
-- _id: 22919
-  _time: 2025-07-28 14:09:17.643444337 Z
+- _id: 22933
+  _time: 2025-07-28 15:05:17.087720164 Z
   _version: 0.13.0/0.51.0/
   latest: 52618047839
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 22920
-  _time: 2025-07-28 14:10:57.859583074 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 22921
-  _time: 2025-07-28 14:11:40.417375331 Z
+- _id: 22934
+  _time: 2025-07-28 15:06:04.665249281 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 22922
-  _time: 2025-07-28 14:11:44.123570021 Z
+- _id: 22935
+  _time: 2025-07-28 15:06:08.398460588 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 22923
-  _time: 2025-07-28 14:11:44.615052627 Z
+- _id: 22936
+  _time: 2025-07-28 15:06:09.018344963 Z
   _version: 0.13.0/0.51.0/
-  latest: 688
+  latest: 693
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 22924
-  _time: 2025-07-28 14:12:26.947597755 Z
+- _id: 22937
+  _time: 2025-07-28 15:07:09.263780753 Z
   _version: 0.13.0/0.51.0/
-  latest: 440
+  latest: 513
   repository: 237167507
-  what: assignees-were-scanned
+  what: labels-were-scanned
   where: github
-- _id: 22925
-  _time: 2025-07-28 14:14:03.952150967 Z
+- _id: 22938
+  _time: 2025-07-28 15:07:36.305123864 Z
+  _version: 0.13.0/0.51.0/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 22939
+  _time: 2025-07-28 15:09:00.293485629 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
-  what: types-were-scanned
+  what: assignees-were-scanned
   where: github
