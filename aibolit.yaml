@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 557.007265601
+  seconds: 646.724910173
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-29 04:46:10.303441189 Z
+  when: 2025-07-29 05:29:25.817987008 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -4882,24 +4882,6 @@
   repository: 237167507
   what: issue-was-closed
   when: 2025-05-30 03:46:01.000000000 Z
-  where: github
-  who: 526301
-- _id: 985
-  _time: 2025-05-30 23:59:52.400590067 Z
-  _version: 0.10.2/0.45.0/
-  commit: 0b841b02d9f1a8e45f48b7c1285afca9a78d4931
-  default_branch: master
-  details: 'A new Git push #24597625798 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is ''master''), not associated with any pull request.'
-  event_id: 50311200600
-  event_type: PushEvent
-  is_human: 1
-  push_id: 24597625798
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-05-30 03:45:57.000000000 Z
   where: github
   who: 526301
 - _id: 1001
@@ -34081,50 +34063,50 @@
   - 1.907285714434459
   what: learn-eva
   when: 2025-07-28 22:07:13.560815489 Z
-- _id: 23080
-  _time: 2025-07-29 04:41:20.361884115 Z
+- _id: 23094
+  _time: 2025-07-29 05:24:20.031541319 Z
   _version: 0.13.0/0.51.0/
   latest: 52635138101
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 23081
-  _time: 2025-07-29 04:42:04.057287502 Z
+- _id: 23095
+  _time: 2025-07-29 05:26:00.916260944 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 23082
-  _time: 2025-07-29 04:43:02.446842963 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
-  repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 23083
-  _time: 2025-07-29 04:43:05.456554191 Z
+- _id: 23096
+  _time: 2025-07-29 05:26:04.667403781 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 23084
-  _time: 2025-07-29 04:43:05.880598574 Z
+- _id: 23097
+  _time: 2025-07-29 05:26:05.371347200 Z
   _version: 0.13.0/0.51.0/
-  latest: 760
+  latest: 763
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 23085
-  _time: 2025-07-29 04:43:44.074879629 Z
+- _id: 23098
+  _time: 2025-07-29 05:27:15.885917836 Z
   _version: 0.13.0/0.51.0/
-  latest: 440
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 23099
+  _time: 2025-07-29 05:28:42.718133628 Z
+  _version: 0.13.0/0.51.0/
+  latest: 0
   repository: 237167507
   what: assignees-were-scanned
   where: github
-- _id: 23086
-  _time: 2025-07-29 04:44:26.487451609 Z
+- _id: 23100
+  _time: 2025-07-29 05:29:25.784636578 Z
   _version: 0.13.0/0.51.0/
   latest: 0
   repository: 237167507
