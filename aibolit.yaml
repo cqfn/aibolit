@@ -2,13 +2,30 @@
 - added: 8
   cycles: 2
   deleted: 8
-  error: 'GET https://api.github.com/repositories/237167507/issues/476/timeline?per_page=100:
+  error:
+  - end of file reached
+  - 'GET https://api.github.com/repositories/237167507/issues/552/timeline?per_page=100:
     502 - Server Error'
+  - 'GET https://api.github.com/repos/cqfn/aibolit/pulls/676: 504 - We couldn''t respond
+    to your request in time. Sorry about that. Please try resubmitting your request
+    and contact us if the problem persists.'
+  - 'GET https://api.github.com/repos/cqfn/aibolit: 504 - We couldn''t respond to
+    your request in time. Sorry about that. Please try resubmitting your request and
+    contact us if the problem persists.'
+  - 'GET https://api.github.com/repositories/237167507/issues/169/timeline?per_page=100:
+    504 - We couldn''t respond to your request in time. Sorry about that. Please try
+    resubmitting your request and contact us if the problem persists.'
+  - 'GET https://api.github.com/repositories/237167507/issues/579/timeline?per_page=100:
+    504 - We couldn''t respond to your request in time. Sorry about that. Please try
+    resubmitting your request and contact us if the problem persists.'
+  - 'GET https://api.github.com/repos/cqfn/aibolit/issues/887/events?per_page=100:
+    504 - We couldn''t respond to your request in time. Sorry about that. Please try
+    resubmitting your request and contact us if the problem persists.'
   inserted: 8
-  seconds: 611.761633055
+  seconds: 533.595140433
   version: 0.51.0
   what: judges-summary
-  when: 2025-07-28 23:09:03.374356051 Z
+  when: 2025-07-29 00:06:06.772699810 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -34083,52 +34100,17 @@
   - 1.907285714434459
   what: learn-eva
   when: 2025-07-28 22:07:13.560815489 Z
-- _id: 23046
-  _time: 2025-07-28 23:04:00.559199560 Z
-  _version: 0.13.0/0.51.0/
-  latest: 52625827964
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 23047
-  _time: 2025-07-28 23:05:33.736881370 Z
-  _version: 0.13.0/0.51.0/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 23048
-  _time: 2025-07-28 23:06:40.044736897 Z
-  _version: 0.13.0/0.51.0/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 23049
-  _time: 2025-07-28 23:06:43.397811934 Z
+- _id: 23057
+  _time: 2025-07-29 00:04:22.386996146 Z
   _version: 0.13.0/0.51.0/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 23050
-  _time: 2025-07-28 23:06:43.867306872 Z
+- _id: 23058
+  _time: 2025-07-29 00:04:22.958143629 Z
   _version: 0.13.0/0.51.0/
-  latest: 729
+  latest: 733
   repository: 237167507
   what: min-pull-was-found
-  where: github
-- _id: 23051
-  _time: 2025-07-28 23:07:37.636597651 Z
-  _version: 0.13.0/0.51.0/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 23052
-  _time: 2025-07-28 23:09:02.156301599 Z
-  _version: 0.13.0/0.51.0/
-  latest: 440
-  repository: 237167507
-  what: assignees-were-scanned
   where: github
