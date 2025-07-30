@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 632.355703609
+  seconds: 696.263569566
   version: 0.52.1
   what: judges-summary
-  when: 2025-07-30 20:05:43.041880068 Z
+  when: 2025-07-30 21:09:47.298954778 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -39020,59 +39020,78 @@
   when: 2025-07-30 08:37:36.000000000 Z
   where: github
   who: 526301
-- _id: 23802
-  _time: 2025-07-30 20:00:50.818528208 Z
+- _id: 23810
+  _job: 30997
+  _time:
+  - 2025-07-30 20:06:37.403592847 Z
+  - 2025-07-30 20:06:15.644645989 Z
+  _version: 0.14.3/0.52.1/0.15.3!0.15.4
+  award: -16
+  commit: cc70f4527d98d74aa22ca6ac06220351d703a5a4
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  href: https://github.com/cqfn/aibolit/commit/cc70f4527d98d74aa22ca6ac06220351d703a5a4/#commitcomment-163161143
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-07-30 20:06:15.650708199 Z
+  where: github
+  who: 526301
+  why: Pushed cc70f4527 to the default branch 'master' in cqfn/aibolit
+- _id: 23819
+  _time: 2025-07-30 21:04:20.030837675 Z
   _version: 0.14.3/0.52.1/
-  latest: 52721308274
+  latest: 52722752076
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 23803
-  _time: 2025-07-30 20:00:55.736719691 Z
+- _id: 23820
+  _time: 2025-07-30 21:05:35.786896566 Z
+  _version: 0.14.3/0.52.1/
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 23821
+  _time: 2025-07-30 21:06:24.043213174 Z
+  _version: 0.14.3/0.52.1/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 23822
+  _time: 2025-07-30 21:07:26.161562839 Z
+  _version: 0.14.3/0.52.1/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 23823
+  _time: 2025-07-30 21:07:29.928194483 Z
   _version: 0.14.3/0.52.1/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 23804
-  _time: 2025-07-30 20:00:56.418623193 Z
+- _id: 23824
+  _time: 2025-07-30 21:07:30.607127253 Z
   _version: 0.14.3/0.52.1/
-  latest: 838
+  latest: 841
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 23805
-  _time: 2025-07-30 20:01:49.839985255 Z
-  _version: 0.14.3/0.52.1/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 23806
-  _time: 2025-07-30 20:03:53.548249699 Z
+- _id: 23825
+  _time: 2025-07-30 21:08:17.741586698 Z
   _version: 0.14.3/0.52.1/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 23807
-  _time: 2025-07-30 20:04:24.586425317 Z
-  _version: 0.14.3/0.52.1/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 23808
-  _time: 2025-07-30 20:04:52.704254774 Z
+- _id: 23826
+  _time: 2025-07-30 21:08:46.141489245 Z
   _version: 0.14.3/0.52.1/
   latest: 0
   repository: 237167507
   what: issues-were-scanned
-  where: github
-- _id: 23809
-  _time: 2025-07-30 20:05:42.998119500 Z
-  _version: 0.14.3/0.52.1/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
   where: github
