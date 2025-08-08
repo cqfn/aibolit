@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 673.64066915
+  seconds: 800.00818341
   version: 0.52.1
   what: judges-summary
-  when: 2025-08-07 14:14:15.997086869 Z
+  when: 2025-08-08 10:11:23.893367395 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -39264,59 +39264,122 @@
   _version: 0.14.1/0.52.1/0.15.3!0.15.6
   what: earned-value-prev
   when: *582
-- _id: 26523
-  _time: 2025-08-07 14:09:00.929855575 Z
-  _version: 0.14.3/0.52.1/
-  latest: 53051003693
+- _id: 26531
+  _time: 2025-08-08 09:58:06.613030284 Z
+  _version: 0.14.4/0.52.1/
+  commit: 7f14dc44ace58a047972424e5a99c29236f05b92
+  default_branch: master
+  details: 'A new Git push #26010300967 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is ''master''), not associated with any pull request.'
+  event_id: 53113893400
+  event_type: PushEvent
+  is_human: 1
+  push_id: 26010300967
+  ref: refs/heads/master
+  repository: 237167507
+  to_master: 1
+  what: git-was-pushed
+  when: 2025-08-08 09:21:01.000000000 Z
+  where: github
+  who: 526301
+- _id: 26536
+  _time: 2025-08-08 09:58:46.278846395 Z
+  _version: 0.14.4/0.52.1/
+  total_active_contributors: 8
+  total_commits: 2681
+  total_contributors: 26
+  total_files: 1049
+  total_forks: 36
+  total_issues: 441
+  total_pulls: 448
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 87
+  what: dimensions-of-terrain
+  when: 2025-08-08 09:58:35.395845941 Z
+- _id: 26538
+  _time: 2025-08-08 10:03:27.843107442 Z
+  _version: 0.14.4/0.52.1/
+  since: 2025-08-01 10:00:38.952881443 Z
+  total_reviews_submitted: 0
+  what: quantity-of-deliverables
+  when: 2025-08-08 10:00:38.952834556 Z
+- _id: 26542
+  _time: 2025-08-08 10:06:55.695187004 Z
+  _version: 0.14.4/0.52.1/
+  average_backlog_size: 0.0
+  average_build_duration: 225.13915094339623
+  average_build_mttr: -24229
+  average_build_success_rate: 0.9528301886792453
+  average_issue_lifetime: 0
+  average_pull_files_size: 0
+  average_pull_hoc_size: 0
+  average_pull_lifetime: 0
+  average_pull_rejection_rate: 0
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
+  average_release_interval: 0
+  average_review_size: 0
+  average_review_time: 0
+  average_reviewers_per_pull: 0
+  average_reviews_per_pull: 0
+  average_triage_time: 0
+  since: 2025-08-01 10:05:08.082950215 Z
+  what: quality-of-service
+  when: 2025-08-08 10:05:08.082902135 Z
+- _id: 26543
+  _time: 2025-08-08 10:06:57.666420890 Z
+  _version: 0.14.4/0.52.1/
+  latest: 53113893400
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 26524
-  _time: 2025-08-07 14:09:27.049253054 Z
-  _version: 0.14.3/0.52.1/
-  latest: 0
-  repository: 237167507
-  what: issues-were-scanned
-  where: github
-- _id: 26525
-  _time: 2025-08-07 14:09:30.690065445 Z
-  _version: 0.14.3/0.52.1/
+- _id: 26544
+  _time: 2025-08-08 10:07:00.697685106 Z
+  _version: 0.14.4/0.52.1/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 26526
-  _time: 2025-08-07 14:09:31.315792570 Z
-  _version: 0.14.3/0.52.1/
-  latest: 771
+- _id: 26545
+  _time: 2025-08-08 10:07:01.231079132 Z
+  _version: 0.14.4/0.52.1/
+  latest: 774
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 26527
-  _time: 2025-08-07 14:11:21.748545839 Z
-  _version: 0.14.3/0.52.1/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 26528
-  _time: 2025-08-07 14:12:34.145040168 Z
-  _version: 0.14.3/0.52.1/
-  latest: 513
+- _id: 26546
+  _time: 2025-08-08 10:08:08.945739463 Z
+  _version: 0.14.4/0.52.1/
+  latest: 327
   repository: 237167507
   what: labels-were-scanned
   where: github
-- _id: 26529
-  _time: 2025-08-07 14:13:23.556347946 Z
-  _version: 0.14.3/0.52.1/
-  latest: 513
+- _id: 26547
+  _time: 2025-08-08 10:08:33.552274397 Z
+  _version: 0.14.4/0.52.1/
+  latest: 0
+  repository: 237167507
+  what: issues-were-scanned
+  where: github
+- _id: 26548
+  _time: 2025-08-08 10:09:20.935801299 Z
+  _version: 0.14.4/0.52.1/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 26549
+  _time: 2025-08-08 10:10:07.038709113 Z
+  _version: 0.14.4/0.52.1/
+  latest: 0
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 26530
-  _time: 2025-08-07 14:14:15.237359260 Z
-  _version: 0.14.3/0.52.1/
-  latest: 753
+- _id: 26550
+  _time: 2025-08-08 10:11:19.366378643 Z
+  _version: 0.14.4/0.52.1/
+  latest: 0
   repository: 237167507
-  what: assignees-were-scanned
+  what: merges-were-scanned
   where: github
