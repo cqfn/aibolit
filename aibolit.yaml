@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 800.00818341
+  seconds: 634.658569837
   version: 0.52.1
   what: judges-summary
-  when: 2025-08-08 10:11:23.893367395 Z
+  when: 2025-08-08 11:09:16.894687315 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -7370,24 +7370,6 @@
   where: github
   who: 150805542
   why: Wrongly named a branch in cqfn/aibolit#816
-- _id: 3958
-  _time: 2025-06-08 15:59:45.098416080 Z
-  _version: 0.11.0/0.47.0/
-  commit: f6b6682d5a16e742eb4a6859b391993574cb41e4
-  default_branch: master
-  details: 'A new Git push #24770389034 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is ''master''), not associated with any pull request.'
-  event_id: 50648395480
-  event_type: PushEvent
-  is_human: 1
-  push_id: 24770389034
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-06-08 15:57:36.000000000 Z
-  where: github
-  who: 526301
 - _id: 4040
   _time: 2025-06-08 20:02:22.517849748 Z
   _version: 0.11.0/0.47.0/
@@ -7469,24 +7451,6 @@
   when: &97 2025-06-09 09:54:46.000000000 Z
   where: github
   who: 41443370
-- _id: 4174
-  _time: 2025-06-09 11:59:57.709401538 Z
-  _version: 0.11.0/0.47.0/
-  commit: 670453b52befdaffdad96e86d81cc457f701c14c
-  default_branch: master
-  details: 'A new Git push #24780972284 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is ''master''), not associated with any pull request.'
-  event_id: 50667747758
-  event_type: PushEvent
-  is_human: 1
-  push_id: 24780972284
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-06-09 09:29:26.000000000 Z
-  where: github
-  who: 526301
 - _id: 4175
   _time: 2025-06-09 11:59:58.619366637 Z
   _version: 0.11.0/0.47.0/
@@ -34031,20 +33995,6 @@
   total_stars: 87
   what: dimensions-of-terrain
   when: 2025-07-28 19:08:36.137001078 Z
-- _id: 23039
-  _job: 30699
-  _time: 2025-07-28 22:07:13.579846601 Z
-  _version: 0.14.0/0.51.1/0.14.25!0.15.1
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  what: learn-eva
-  when: 2025-07-28 22:07:13.560815489 Z
 - _id: 23161
   _time: 2025-07-30 04:34:05.605120287 Z
   _version: 0.13.0/0.51.0/
@@ -39324,62 +39274,99 @@
   average_reviewers_per_pull: 0
   average_reviews_per_pull: 0
   average_triage_time: 0
+  composite: 0.222
+  ffact: 136
   since: 2025-08-01 10:05:08.082950215 Z
   what: quality-of-service
   when: 2025-08-08 10:05:08.082902135 Z
-- _id: 26543
-  _time: 2025-08-08 10:06:57.666420890 Z
+- _id: 26551
+  _job: 32116
+  _time:
+  - 2025-08-08 10:12:02.197483600 Z
+  - 2025-08-08 10:11:56.091555313 Z
+  _version: 0.14.4/0.52.1/0.15.7
+  award: -16
+  commit: 7f14dc44ace58a047972424e5a99c29236f05b92
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  href: https://github.com/cqfn/aibolit/commit/7f14dc44ace58a047972424e5a99c29236f05b92/#commitcomment-163661384
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2025-08-08 10:11:56.097610988 Z
+  where: github
+  who: 526301
+  why: Pushed 7f14dc44a to the default branch 'master' in cqfn/aibolit
+- _id: 26552
+  _job: 32116
+  _time: 2025-08-08 10:12:44.850226998 Z
+  _version: 0.14.3/0.52.1/0.15.7
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  what: learn-eva
+  when: 2025-08-08 10:12:44.824143045 Z
+- _id: 26561
+  _time: 2025-08-08 11:04:30.692247545 Z
   _version: 0.14.4/0.52.1/
-  latest: 53113893400
+  latest: 53114182470
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 26544
-  _time: 2025-08-08 10:07:00.697685106 Z
-  _version: 0.14.4/0.52.1/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 26545
-  _time: 2025-08-08 10:07:01.231079132 Z
-  _version: 0.14.4/0.52.1/
-  latest: 774
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 26546
-  _time: 2025-08-08 10:08:08.945739463 Z
-  _version: 0.14.4/0.52.1/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 26547
-  _time: 2025-08-08 10:08:33.552274397 Z
+- _id: 26562
+  _time: 2025-08-08 11:05:06.054123076 Z
   _version: 0.14.4/0.52.1/
   latest: 0
   repository: 237167507
   what: issues-were-scanned
   where: github
-- _id: 26548
-  _time: 2025-08-08 10:09:20.935801299 Z
+- _id: 26563
+  _time: 2025-08-08 11:06:21.594655612 Z
   _version: 0.14.4/0.52.1/
-  latest: 440
+  latest: 401
   repository: 237167507
-  what: assignees-were-scanned
+  what: min-issue-was-found
   where: github
-- _id: 26549
-  _time: 2025-08-08 10:10:07.038709113 Z
+- _id: 26564
+  _time: 2025-08-08 11:06:22.409513886 Z
+  _version: 0.14.4/0.52.1/
+  latest: 778
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 26565
+  _time: 2025-08-08 11:07:17.517022488 Z
   _version: 0.14.4/0.52.1/
   latest: 0
   repository: 237167507
-  what: types-were-scanned
+  what: labels-were-scanned
   where: github
-- _id: 26550
-  _time: 2025-08-08 10:11:19.366378643 Z
+- _id: 26566
+  _time: 2025-08-08 11:07:49.791437148 Z
+  _version: 0.14.4/0.52.1/
+  latest: 0
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 26567
+  _time: 2025-08-08 11:08:06.257891312 Z
   _version: 0.14.4/0.52.1/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
+  where: github
+- _id: 26568
+  _time: 2025-08-08 11:09:16.654531409 Z
+  _version: 0.14.4/0.52.1/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
   where: github
