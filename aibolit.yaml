@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 572.819269226
+  seconds: 501.487622784
   version: 0.52.2
   what: judges-summary
-  when: 2025-08-09 16:04:43.075907239 Z
+  when: 2025-08-09 17:06:23.440551838 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -36866,60 +36866,6 @@
   where: github
   who: 41443370
   why: Reviewed code in cqfn/aibolit#825
-- _id: 33678
-  _job: 32261
-  _time:
-  - 2025-08-09 05:09:07.454707612 Z
-  - 2025-08-09 05:08:43.166140737 Z
-  _version: 0.14.4/0.52.2/0.15.7!0.15.8
-  award: -16
-  details: It's time to punish @ivanovmg for the dud submitted in cqfn/aibolit#730,
-    the fee amount is -16.
-  href: https://github.com/cqfn/aibolit/issues/730/#issuecomment-2918774710
-  is_human: 1
-  issue: 730
-  repository: 237167507
-  what: dud-was-punished
-  when: *587
-  where: github
-  who: 41443370
-  why: Submitted dud in cqfn/aibolit#730
-- _id: 33679
-  _job: 32261
-  _time:
-  - 2025-08-09 05:09:07.523364176 Z
-  - 2025-08-09 05:08:43.227501130 Z
-  _version: 0.14.4/0.52.2/0.15.7!0.15.8
-  award: -16
-  details: It's time to punish @ivanovmg for the dud submitted in cqfn/aibolit#728,
-    the fee amount is -16.
-  href: https://github.com/cqfn/aibolit/issues/728/#issuecomment-2918774751
-  is_human: 1
-  issue: 728
-  repository: 237167507
-  what: dud-was-punished
-  when: *588
-  where: github
-  who: 41443370
-  why: Submitted dud in cqfn/aibolit#728
-- _id: 33680
-  _job: 32261
-  _time:
-  - 2025-08-09 05:09:07.585818706 Z
-  - 2025-08-09 05:08:43.289443779 Z
-  _version: 0.14.4/0.52.2/0.15.7!0.15.8
-  award: -16
-  details: It's time to punish @ivanovmg for the dud submitted in cqfn/aibolit#722,
-    the fee amount is -16.
-  href: https://github.com/cqfn/aibolit/issues/722/#issuecomment-2918774792
-  is_human: 1
-  issue: 722
-  repository: 237167507
-  what: dud-was-punished
-  when: *589
-  where: github
-  who: 41443370
-  why: Submitted dud in cqfn/aibolit#722
 - _id: 33681
   _job: 32261
   _time:
@@ -39412,59 +39358,59 @@
   when: 2025-08-09 07:29:01.000000000 Z
   where: github
   who: 526301
-- _id: 33981
-  _time: 2025-08-09 16:00:08.609854451 Z
+- _id: 33997
+  _time: 2025-08-09 17:01:56.440004800 Z
   _version: 0.14.4/0.52.2/
-  latest: 53152707805
+  latest: 53154638506
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 33982
-  _time: 2025-08-09 16:00:12.154834791 Z
+- _id: 33998
+  _time: 2025-08-09 17:03:03.104113016 Z
   _version: 0.14.4/0.52.2/
-  latest: 401
+  latest: 327
   repository: 237167507
-  what: min-issue-was-found
+  what: labels-were-scanned
   where: github
-- _id: 33983
-  _time: 2025-08-09 16:00:12.681908193 Z
-  _version: 0.14.4/0.52.2/
-  latest: 884
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 33984
-  _time: 2025-08-09 16:00:17.696928032 Z
+- _id: 33999
+  _time: 2025-08-09 17:03:51.120294540 Z
   _version: 0.14.4/0.52.2/
   latest: 0
   repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 33985
-  _time: 2025-08-09 16:01:23.121160615 Z
-  _version: 0.14.4/0.52.2/
-  latest: 513
-  repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 33986
-  _time: 2025-08-09 16:01:56.754948106 Z
+- _id: 34000
+  _time: 2025-08-09 17:04:24.103683021 Z
   _version: 0.14.4/0.52.2/
   latest: 0
   repository: 237167507
   what: issues-were-scanned
   where: github
-- _id: 33987
-  _time: 2025-08-09 16:02:54.459915937 Z
+- _id: 34001
+  _time: 2025-08-09 17:04:28.764716883 Z
   _version: 0.14.4/0.52.2/
-  latest: 513
+  latest: 0
   repository: 237167507
-  what: labels-were-scanned
+  what: merges-were-scanned
   where: github
-- _id: 33988
-  _time: 2025-08-09 16:04:36.252195364 Z
+- _id: 34002
+  _time: 2025-08-09 17:05:34.368667946 Z
   _version: 0.14.4/0.52.2/
-  latest: 753
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 34003
+  _time: 2025-08-09 17:05:34.493329610 Z
+  _version: 0.14.4/0.52.2/
+  latest: 0
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 34004
+  _time: 2025-08-09 17:06:23.385916803 Z
+  _version: 0.14.4/0.52.2/
+  latest: 440
   repository: 237167507
   what: assignees-were-scanned
   where: github
