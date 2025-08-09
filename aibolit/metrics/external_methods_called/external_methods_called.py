@@ -1,12 +1,10 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 import itertools
-import os
 from dataclasses import dataclass
 from typing import Iterator
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
-from aibolit.utils.ast_builder import build_ast
 
 
 class ExternalMethodsCalled:
@@ -17,8 +15,8 @@ class ExternalMethodsCalled:
     def __init__(self):
         pass
 
-    def value(self, filepath: str | os.PathLike):
-        return ExternalMethodsCalledCount(AST.build_from_javalang(build_ast(filepath))).total()
+    def value(self, ast: AST) -> int:
+        return ExternalMethodsCalledCount(ast).total()
 
 
 @dataclass(frozen=True)
@@ -40,9 +38,9 @@ class ExternalMethodsCalledCount:
                 yield parent
 
     def _member_reference_followed_by_method_invocation(
-        self,
-        first: ASTNode,
-        second: ASTNode,
+            self,
+            first: ASTNode,
+            second: ASTNode,
     ) -> bool:
         return (
             first.node_type == ASTNodeType.MEMBER_REFERENCE and
