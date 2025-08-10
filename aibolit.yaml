@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 450.330684944
+  seconds: 533.113684119
   version: 0.52.2
   what: judges-summary
-  when: 2025-08-10 05:11:34.230906874 Z
+  when: 2025-08-10 06:05:06.799676682 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -36866,62 +36866,6 @@
   where: github
   who: 41443370
   why: Reviewed code in cqfn/aibolit#825
-- _id: 33711
-  _job: 32261
-  _time:
-  - 2025-08-09 05:09:09.541034012 Z
-  - 2025-08-09 05:08:45.232741919 Z
-  _version: 0.14.4/0.52.2/0.15.7!0.15.8
-  award: 12
-  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#800,
-    the reward amount is 12.
-  href: https://github.com/cqfn/aibolit/issues/800/#issuecomment-2940914460
-  is_human: 1
-  issue: 800
-  repository: 237167507
-  what: code-review-was-rewarded
-  when: 2025-06-04 18:01:44.478672649 Z
-  where: github
-  who: 526301
-  why: Reviewed code in cqfn/aibolit#800
-- _id: 33712
-  _job: 32261
-  _time:
-  - 2025-08-09 05:09:09.603578415 Z
-  - 2025-08-09 05:08:45.294482318 Z
-  _version: 0.14.4/0.52.2/0.15.7!0.15.8
-  award: 8
-  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#802,
-    the reward amount is 8.
-  href: https://github.com/cqfn/aibolit/issues/802/#issuecomment-2940914508
-  is_human: 1
-  issue: 802
-  receipt: 0
-  repository: 237167507
-  what: code-contribution-was-rewarded
-  when: 2025-06-04 18:01:35.034560580 Z
-  where: github
-  who: 41443370
-  why: Contributed code in cqfn/aibolit#802
-- _id: 33713
-  _job: 32261
-  _time:
-  - 2025-08-09 05:09:09.671626895 Z
-  - 2025-08-09 05:08:45.356356687 Z
-  _version: 0.14.4/0.52.2/0.15.7!0.15.8
-  award: 24
-  details: It's time to reward @antonprokopyev for the code contributed in cqfn/aibolit#800,
-    the reward amount is 24.
-  href: https://github.com/cqfn/aibolit/issues/800/#issuecomment-2940914549
-  is_human: 1
-  issue: 800
-  receipt: 0
-  repository: 237167507
-  what: code-contribution-was-rewarded
-  when: 2025-06-04 18:01:39.518883572 Z
-  where: github
-  who: 13173649
-  why: Contributed code in cqfn/aibolit#800
 - _id: 33714
   _job: 32261
   _time:
@@ -38788,59 +38732,59 @@
   when: 2025-08-09 07:29:01.000000000 Z
   where: github
   who: 526301
-- _id: 34157
-  _time: 2025-08-10 05:08:08.154372453 Z
+- _id: 34173
+  _time: 2025-08-10 06:00:55.737071831 Z
   _version: 0.14.4/0.52.2/
-  latest: 53165215670
+  latest: 53165548987
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 34158
-  _time: 2025-08-10 05:09:30.428012641 Z
+- _id: 34174
+  _time: 2025-08-10 06:01:51.423048260 Z
   _version: 0.14.4/0.52.2/
-  latest: 0
+  latest: 513
   repository: 237167507
-  what: assignees-were-scanned
+  what: types-were-scanned
   where: github
-- _id: 34159
-  _time: 2025-08-10 05:09:39.929330070 Z
+- _id: 34175
+  _time: 2025-08-10 06:01:54.570074521 Z
   _version: 0.14.4/0.52.2/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 34160
-  _time: 2025-08-10 05:09:40.536495624 Z
+- _id: 34176
+  _time: 2025-08-10 06:01:55.082675614 Z
   _version: 0.14.4/0.52.2/
-  latest: 189
+  latest: 193
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 34161
-  _time: 2025-08-10 05:09:45.138249733 Z
+- _id: 34177
+  _time: 2025-08-10 06:03:38.351678698 Z
+  _version: 0.14.4/0.52.2/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 34178
+  _time: 2025-08-10 06:04:31.878471364 Z
+  _version: 0.14.4/0.52.2/
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 34179
+  _time: 2025-08-10 06:04:36.660289333 Z
   _version: 0.14.4/0.52.2/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 34162
-  _time: 2025-08-10 05:10:27.448551083 Z
-  _version: 0.14.4/0.52.2/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 34163
-  _time: 2025-08-10 05:10:52.023518405 Z
+- _id: 34180
+  _time: 2025-08-10 06:05:04.276121424 Z
   _version: 0.14.4/0.52.2/
   latest: 0
   repository: 237167507
   what: issues-were-scanned
-  where: github
-- _id: 34164
-  _time: 2025-08-10 05:11:32.569402002 Z
-  _version: 0.14.4/0.52.2/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
   where: github
