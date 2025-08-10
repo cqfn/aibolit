@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 587.441967221
+  seconds: 495.632387136
   version: 0.52.2
   what: judges-summary
-  when: 2025-08-10 09:07:37.893996467 Z
+  when: 2025-08-10 10:03:17.307583475 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -36866,62 +36866,6 @@
   where: github
   who: 41443370
   why: Reviewed code in cqfn/aibolit#825
-- _id: 33723
-  _job: 32261
-  _time:
-  - 2025-08-09 05:09:10.308776552 Z
-  - 2025-08-09 05:08:45.988099841 Z
-  _version: 0.14.4/0.52.2/0.15.7!0.15.8
-  award: 4
-  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#815,
-    the reward amount is 4.
-  href: https://github.com/cqfn/aibolit/issues/815/#issuecomment-2956069236
-  is_human: 1
-  issue: 815
-  repository: 237167507
-  what: code-review-was-rewarded
-  when: 2025-06-09 15:03:43.890831462 Z
-  where: github
-  who: 526301
-  why: Reviewed code in cqfn/aibolit#815
-- _id: 33724
-  _job: 32261
-  _time:
-  - 2025-08-09 05:09:10.370913312 Z
-  - 2025-08-09 05:08:46.055963317 Z
-  _version: 0.14.4/0.52.2/0.15.7!0.15.8
-  award: 22
-  details: It's time to reward @newspec for the code contributed in cqfn/aibolit#815,
-    the reward amount is 22.
-  href: https://github.com/cqfn/aibolit/issues/815/#issuecomment-2956069299
-  is_human: 1
-  issue: 815
-  receipt: 0
-  repository: 237167507
-  what: code-contribution-was-rewarded
-  when: 2025-06-09 15:03:52.881849421 Z
-  where: github
-  who: 150796108
-  why: Contributed code in cqfn/aibolit#815
-- _id: 33725
-  _job: 32261
-  _time:
-  - 2025-08-09 05:09:10.433988705 Z
-  - 2025-08-09 05:08:46.119899535 Z
-  _version: 0.14.4/0.52.2/0.15.7!0.15.8
-  award: 12
-  details: It's time to reward @ivanovmg for the code review in cqfn/aibolit#814,
-    the reward amount is 12.
-  href: https://github.com/cqfn/aibolit/issues/814/#issuecomment-2976794962
-  is_human: 1
-  issue: 814
-  receipt: 0
-  repository: 237167507
-  what: code-review-was-rewarded
-  when: 2025-06-16 14:04:05.802247953 Z
-  where: github
-  who: 41443370
-  why: Reviewed code in cqfn/aibolit#814
 - _id: 33726
   _job: 32261
   _time:
@@ -38561,59 +38505,74 @@
   when: 2025-08-09 07:29:01.000000000 Z
   where: github
   who: 526301
-- _id: 34221
-  _time: 2025-08-10 09:02:55.704646213 Z
+- _id: 34237
+  _time: 2025-08-10 09:58:48.024116282 Z
   _version: 0.14.4/0.52.2/
-  latest: 53167525323
+  latest: 53168362283
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 34222
-  _time: 2025-08-10 09:03:58.935095928 Z
+- _id: 34238
+  _time: 2025-08-10 09:59:32.375729774 Z
   _version: 0.14.4/0.52.2/
-  latest: 513
+  latest: 440
   repository: 237167507
-  what: labels-were-scanned
+  what: assignees-were-scanned
   where: github
-- _id: 34223
-  _time: 2025-08-10 09:04:02.574574439 Z
-  _version: 0.14.4/0.52.2/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 34224
-  _time: 2025-08-10 09:04:03.240492266 Z
-  _version: 0.14.4/0.52.2/
-  latest: 204
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 34225
-  _time: 2025-08-10 09:04:08.472912890 Z
+- _id: 34239
+  _time: 2025-08-10 09:59:41.273101966 Z
   _version: 0.14.4/0.52.2/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 34226
-  _time: 2025-08-10 09:04:47.777628119 Z
+- _id: 34240
+  _time: 2025-08-10 10:00:03.193757391 Z
   _version: 0.14.4/0.52.2/
   latest: 0
   repository: 237167507
   what: issues-were-scanned
   where: github
-- _id: 34227
-  _time: 2025-08-10 09:05:38.723105970 Z
+- _id: 34241
+  _time: 2025-08-10 10:01:07.291598237 Z
   _version: 0.14.4/0.52.2/
-  latest: 0
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 34242
+  _time: 2025-08-10 10:01:07.756296096 Z
+  _version: 0.14.4/0.52.2/
+  latest: 207
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 34243
+  _time: 2025-08-10 10:02:12.758515564 Z
+  _version: 0.14.4/0.52.2/
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 34244
+  _time: 2025-08-10 10:03:05.710049974 Z
+  _version: 0.14.4/0.52.2/
+  latest: 513
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 34228
-  _time: 2025-08-10 09:06:37.836070961 Z
+- _id: 34245
+  _time: 2025-08-10 10:03:10.801151133 Z
   _version: 0.14.4/0.52.2/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
+  total_active_contributors: 8
+  total_commits: 2682
+  total_contributors: 26
+  total_files: 1049
+  total_forks: 36
+  total_issues: 441
+  total_pulls: 448
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 87
+  what: dimensions-of-terrain
+  when: 2025-08-10 10:03:10.805308247 Z
