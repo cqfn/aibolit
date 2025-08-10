@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 520.42030074
+  seconds: 555.107673776
   version: 0.52.2
   what: judges-summary
-  when: 2025-08-10 14:04:08.529144285 Z
+  when: 2025-08-10 15:04:14.466301060 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -6483,18 +6483,6 @@
   when: &602 2025-05-27 11:57:07.000000000 Z
   where: github
   who: 526301
-- _id: 9472
-  _time: 2025-06-23 07:56:10.236177899 Z
-  _version: 0.11.1/0.50.5/
-  branch: wp
-  details: cqfn/aibolit#171 has been opened by @acheshkov.
-  is_human: 1
-  issue: 171
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-08 07:28:54.000000000 Z
-  where: github
-  who: 231433
 - _id: 9473
   _time: 2025-06-23 07:56:10.691049105 Z
   _version: 0.11.1/0.50.5/
@@ -39460,59 +39448,71 @@
   when: 2020-04-06 01:55:52.000000000 Z
   where: github
   who: 3613180
-- _id: 35462
-  _time: 2025-08-10 14:00:12.872652435 Z
+- _id: 35478
+  _time: 2025-08-10 14:59:41.135963892 Z
   _version: 0.14.4/0.52.2/
-  latest: 53172098957
+  branch: wp
+  details: The pull cqfn/aibolit#171 has been opened earlier by @acheshkov.
+  is_human: 1
+  issue: 171
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 07:28:54.000000000 Z
+  where: github
+  who: 231433
+- _id: 35479
+  _time: 2025-08-10 14:59:43.827688733 Z
+  _version: 0.14.4/0.52.2/
+  latest: 53172688917
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 35463
-  _time: 2025-08-10 14:00:24.028902058 Z
+- _id: 35480
+  _time: 2025-08-10 14:59:46.850193542 Z
   _version: 0.14.4/0.52.2/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 35464
-  _time: 2025-08-10 14:00:24.684297798 Z
+- _id: 35481
+  _time: 2025-08-10 14:59:47.490836247 Z
   _version: 0.14.4/0.52.2/
-  latest: 220
+  latest: 223
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 35465
-  _time: 2025-08-10 14:00:52.268377630 Z
+- _id: 35482
+  _time: 2025-08-10 15:00:14.353540624 Z
   _version: 0.14.4/0.52.2/
   latest: 0
   repository: 237167507
   what: issues-were-scanned
   where: github
-- _id: 35466
-  _time: 2025-08-10 14:01:38.064712890 Z
+- _id: 35483
+  _time: 2025-08-10 15:01:06.780577729 Z
   _version: 0.14.4/0.52.2/
-  latest: 0
+  latest: 753
   repository: 237167507
-  what: labels-were-scanned
+  what: assignees-were-scanned
   where: github
-- _id: 35467
-  _time: 2025-08-10 14:02:36.233515519 Z
+- _id: 35484
+  _time: 2025-08-10 15:02:05.256868080 Z
   _version: 0.14.4/0.52.2/
   latest: 513
   repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 35485
+  _time: 2025-08-10 15:04:08.565480932 Z
+  _version: 0.14.4/0.52.2/
+  latest: 0
+  repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 35468
-  _time: 2025-08-10 14:03:42.413853106 Z
+- _id: 35486
+  _time: 2025-08-10 15:04:14.408315291 Z
   _version: 0.14.4/0.52.2/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
-  where: github
-- _id: 35469
-  _time: 2025-08-10 14:04:07.391702349 Z
-  _version: 0.14.4/0.52.2/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
   where: github
