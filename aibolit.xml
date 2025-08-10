@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="793979">
+<fb version="0.11.0" size="794092">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">948.663824897</seconds>
+    <seconds t="F">570.368378559</seconds>
     <version t="S">0.52.2</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-08-10T11:11:34Z</when>
+    <when t="T">2025-08-10T12:04:34Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -6822,48 +6822,6 @@
     <when t="T">2025-05-27T11:57:07Z</when>
     <where t="S">github</where>
     <who t="I">526301</who>
-  </f>
-  <f>
-    <_id t="I">9464</_id>
-    <_time t="T">2025-06-23T07:56:06Z</_time>
-    <_version t="S">0.11.1/0.50.5/</_version>
-    <branch t="S">master</branch>
-    <details t="S">cqfn/aibolit#151 has been opened by @cringoleg.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">151</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2020-04-02T03:13:40Z</when>
-    <where t="S">github</where>
-    <who t="I">57872461</who>
-  </f>
-  <f>
-    <_id t="I">9465</_id>
-    <_time t="T">2025-06-23T07:56:06Z</_time>
-    <_version t="S">0.11.1/0.50.5/</_version>
-    <branch t="S">Pavel</branch>
-    <details t="S">cqfn/aibolit#168 has been opened by @lukyanoffpashok.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">168</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2020-04-07T12:41:15Z</when>
-    <where t="S">github</where>
-    <who t="I">46167437</who>
-  </f>
-  <f>
-    <_id t="I">9466</_id>
-    <_time t="T">2025-06-23T07:56:07Z</_time>
-    <_version t="S">0.11.1/0.50.5/</_version>
-    <branch t="S">scope_april_2020</branch>
-    <details t="S">cqfn/aibolit#152 has been opened by @acheshkov.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">152</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2020-04-02T08:40:14Z</when>
-    <where t="S">github</where>
-    <who t="I">231433</who>
   </f>
   <f>
     <_id t="I">9467</_id>
@@ -43249,6 +43207,8 @@
     <_id t="I">35402</_id>
     <_time t="T">2025-08-10T10:58:17Z</_time>
     <_version t="S">0.14.4/0.52.2/</_version>
+    <composite t="F">0.545</composite>
+    <ffact t="I">137</ffact>
     <since t="T">2025-08-03T10:58:17Z</since>
     <total_builds_ran t="I">448</total_builds_ran>
     <total_commits_pushed t="I">2</total_commits_pushed>
@@ -43281,13 +43241,67 @@
     <average_reviewers_per_pull t="I">0</average_reviewers_per_pull>
     <average_reviews_per_pull t="I">0</average_reviews_per_pull>
     <average_triage_time t="I">0</average_triage_time>
+    <composite t="F">0.222</composite>
+    <ffact t="I">136</ffact>
     <since t="T">2025-08-03T11:02:01Z</since>
     <what t="S">quality-of-service</what>
     <when t="T">2025-08-10T11:02:01Z</when>
   </f>
   <f>
-    <_id t="I">35404</_id>
-    <_time t="T">2025-08-10T11:05:15Z</_time>
+    <_id t="I">35414</_id>
+    <_job t="I">32448</_job>
+    <_time t="T">2025-08-10T11:12:14Z</_time>
+    <_version t="S">0.14.5/0.52.2/0.15.9</_version>
+    <branch t="S">Pavel</branch>
+    <details t="S">cqfn/aibolit#168 has been opened by @lukyanoffpashok.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">168</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-04-07T12:41:15Z</when>
+    <where t="S">github</where>
+    <who t="I">46167437</who>
+  </f>
+  <f>
+    <_id t="I">35421</_id>
+    <_time t="T">2025-08-10T11:57:47Z</_time>
+    <_version t="S">0.14.4/0.52.2/</_version>
+    <branch t="S">master</branch>
+    <details t="S">The pull cqfn/aibolit#151 has been opened earlier by @cringoleg.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">151</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-04-02T03:13:40Z</when>
+    <where t="S">github</where>
+    <who t="I">57872461</who>
+  </f>
+  <f>
+    <_id t="I">35422</_id>
+    <_time t="T">2025-08-10T11:57:48Z</_time>
+    <_version t="S">0.14.4/0.52.2/</_version>
+    <branch t="S">scope_april_2020</branch>
+    <details t="S">The pull cqfn/aibolit#152 has been opened earlier by @acheshkov.</details>
+    <is_human t="I">1</is_human>
+    <issue t="I">152</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2020-04-02T08:40:14Z</when>
+    <where t="S">github</where>
+    <who t="I">231433</who>
+  </f>
+  <f>
+    <_id t="I">35425</_id>
+    <_time t="T">2025-08-10T12:00:00Z</_time>
+    <_version t="S">0.14.4/0.52.2/</_version>
+    <latest t="I">53170009335</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">events-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">35426</_id>
+    <_time t="T">2025-08-10T12:01:27Z</_time>
     <_version t="S">0.14.4/0.52.2/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -43295,26 +43309,17 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">35407</_id>
-    <_time t="T">2025-08-10T11:07:39Z</_time>
+    <_id t="I">35427</_id>
+    <_time t="T">2025-08-10T12:02:27Z</_time>
     <_version t="S">0.14.4/0.52.2/</_version>
-    <latest t="I">53169111581</latest>
+    <latest t="I">513</latest>
     <repository t="I">237167507</repository>
-    <what t="S">events-were-scanned</what>
+    <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">35408</_id>
-    <_time t="T">2025-08-10T11:07:46Z</_time>
-    <_version t="S">0.14.4/0.52.2/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">merges-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">35409</_id>
-    <_time t="T">2025-08-10T11:07:50Z</_time>
+    <_id t="I">35428</_id>
+    <_time t="T">2025-08-10T12:02:31Z</_time>
     <_version t="S">0.14.4/0.52.2/</_version>
     <latest t="I">401</latest>
     <repository t="I">237167507</repository>
@@ -43322,39 +43327,39 @@
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">35410</_id>
-    <_time t="T">2025-08-10T11:07:51Z</_time>
+    <_id t="I">35429</_id>
+    <_time t="T">2025-08-10T12:02:31Z</_time>
     <_version t="S">0.14.4/0.52.2/</_version>
-    <latest t="I">210</latest>
+    <latest t="I">213</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">35411</_id>
-    <_time t="T">2025-08-10T11:09:36Z</_time>
+    <_id t="I">35430</_id>
+    <_time t="T">2025-08-10T12:03:37Z</_time>
     <_version t="S">0.14.4/0.52.2/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">35412</_id>
-    <_time t="T">2025-08-10T11:10:31Z</_time>
-    <_version t="S">0.14.4/0.52.2/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">513</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">35413</_id>
-    <_time t="T">2025-08-10T11:11:34Z</_time>
+    <_id t="I">35431</_id>
+    <_time t="T">2025-08-10T12:03:42Z</_time>
     <_version t="S">0.14.4/0.52.2/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
-    <what t="S">labels-were-scanned</what>
+    <what t="S">merges-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">35432</_id>
+    <_time t="T">2025-08-10T12:04:32Z</_time>
+    <_version t="S">0.14.4/0.52.2/</_version>
+    <latest t="I">753</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">assignees-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
