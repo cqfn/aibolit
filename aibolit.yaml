@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 501.351055458
+  seconds: 520.42030074
   version: 0.52.2
   what: judges-summary
-  when: 2025-08-10 13:28:55.689940320 Z
+  when: 2025-08-10 14:04:08.529144285 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -6483,42 +6483,6 @@
   when: &602 2025-05-27 11:57:07.000000000 Z
   where: github
   who: 526301
-- _id: 9469
-  _time: 2025-06-23 07:56:09.087340431 Z
-  _version: 0.11.1/0.50.5/
-  branch: '126'
-  details: cqfn/aibolit#162 has been opened by @paulodamaso.
-  is_human: 1
-  issue: 162
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-03 17:45:40.000000000 Z
-  where: github
-  who: 33915433
-- _id: 9470
-  _time: 2025-06-23 07:56:09.458139150 Z
-  _version: 0.11.1/0.50.5/
-  branch: '127'
-  details: cqfn/aibolit#163 has been opened by @paulodamaso.
-  is_human: 1
-  issue: 163
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-03 17:59:39.000000000 Z
-  where: github
-  who: 33915433
-- _id: 9471
-  _time: 2025-06-23 07:56:09.783893777 Z
-  _version: 0.11.1/0.50.5/
-  branch: '130'
-  details: cqfn/aibolit#165 has been opened by @tribals.
-  is_human: 1
-  issue: 165
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-06 01:55:52.000000000 Z
-  where: github
-  who: 3613180
 - _id: 9472
   _time: 2025-06-23 07:56:10.236177899 Z
   _version: 0.11.1/0.50.5/
@@ -39458,59 +39422,97 @@
   when: 2020-04-02 16:35:18.000000000 Z
   where: github
   who: 3613180
-- _id: 35443
-  _time: 2025-08-10 13:24:17.519496033 Z
+- _id: 35451
+  _job: 32474
+  _time: 2025-08-10 13:29:31.756128821 Z
+  _version: 0.14.5/0.52.2/0.15.9
+  branch: '126'
+  details: cqfn/aibolit#162 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 162
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-03 17:45:40.000000000 Z
+  where: github
+  who: 33915433
+- _id: 35452
+  _job: 32474
+  _time: 2025-08-10 13:29:31.852830154 Z
+  _version: 0.14.5/0.52.2/0.15.9
+  branch: '127'
+  details: cqfn/aibolit#163 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 163
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-03 17:59:39.000000000 Z
+  where: github
+  who: 33915433
+- _id: 35455
+  _time: 2025-08-10 13:55:42.867470572 Z
   _version: 0.14.4/0.52.2/
-  latest: 53170709592
+  branch: '130'
+  details: The pull cqfn/aibolit#165 has been opened earlier by @tribals.
+  is_human: 1
+  issue: 165
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-06 01:55:52.000000000 Z
+  where: github
+  who: 3613180
+- _id: 35462
+  _time: 2025-08-10 14:00:12.872652435 Z
+  _version: 0.14.4/0.52.2/
+  latest: 53172098957
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 35444
-  _time: 2025-08-10 13:24:23.224331198 Z
-  _version: 0.14.4/0.52.2/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 35445
-  _time: 2025-08-10 13:25:30.541329917 Z
-  _version: 0.14.4/0.52.2/
-  latest: 327
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 35446
-  _time: 2025-08-10 13:25:57.353722361 Z
-  _version: 0.14.4/0.52.2/
-  latest: 0
-  repository: 237167507
-  what: issues-were-scanned
-  where: github
-- _id: 35447
-  _time: 2025-08-10 13:26:47.550561455 Z
-  _version: 0.14.4/0.52.2/
-  latest: 440
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 35448
-  _time: 2025-08-10 13:28:49.521451765 Z
-  _version: 0.14.4/0.52.2/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 35449
-  _time: 2025-08-10 13:28:55.055656090 Z
+- _id: 35463
+  _time: 2025-08-10 14:00:24.028902058 Z
   _version: 0.14.4/0.52.2/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 35450
-  _time: 2025-08-10 13:28:55.634926807 Z
+- _id: 35464
+  _time: 2025-08-10 14:00:24.684297798 Z
   _version: 0.14.4/0.52.2/
-  latest: 217
+  latest: 220
   repository: 237167507
   what: min-pull-was-found
+  where: github
+- _id: 35465
+  _time: 2025-08-10 14:00:52.268377630 Z
+  _version: 0.14.4/0.52.2/
+  latest: 0
+  repository: 237167507
+  what: issues-were-scanned
+  where: github
+- _id: 35466
+  _time: 2025-08-10 14:01:38.064712890 Z
+  _version: 0.14.4/0.52.2/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 35467
+  _time: 2025-08-10 14:02:36.233515519 Z
+  _version: 0.14.4/0.52.2/
+  latest: 513
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 35468
+  _time: 2025-08-10 14:03:42.413853106 Z
+  _version: 0.14.4/0.52.2/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 35469
+  _time: 2025-08-10 14:04:07.391702349 Z
+  _version: 0.14.4/0.52.2/
+  latest: 0
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
