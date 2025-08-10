@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 570.368378559
+  seconds: 501.351055458
   version: 0.52.2
   what: judges-summary
-  when: 2025-08-10 12:04:34.845368964 Z
+  when: 2025-08-10 13:28:55.689940320 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -6483,30 +6483,6 @@
   when: &602 2025-05-27 11:57:07.000000000 Z
   where: github
   who: 526301
-- _id: 9467
-  _time: 2025-06-23 07:56:08.057939230 Z
-  _version: 0.11.1/0.50.5/
-  branch: '131'
-  details: cqfn/aibolit#155 has been opened by @paulodamaso.
-  is_human: 1
-  issue: 155
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-02 13:02:46.000000000 Z
-  where: github
-  who: 33915433
-- _id: 9468
-  _time: 2025-06-23 07:56:08.582611269 Z
-  _version: 0.11.1/0.50.5/
-  branch: '116'
-  details: cqfn/aibolit#156 has been opened by @tribals.
-  is_human: 1
-  issue: 156
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-02 16:35:18.000000000 Z
-  where: github
-  who: 3613180
 - _id: 9469
   _time: 2025-06-23 07:56:09.087340431 Z
   _version: 0.11.1/0.50.5/
@@ -39457,59 +39433,84 @@
   when: 2020-04-02 08:40:14.000000000 Z
   where: github
   who: 231433
-- _id: 35425
-  _time: 2025-08-10 12:00:00.938311528 Z
+- _id: 35433
+  _job: 32453
+  _time: 2025-08-10 12:05:05.626649123 Z
+  _version: 0.14.5/0.52.2/0.15.9
+  branch: '131'
+  details: cqfn/aibolit#155 has been opened by @paulodamaso.
+  is_human: 1
+  issue: 155
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-02 13:02:46.000000000 Z
+  where: github
+  who: 33915433
+- _id: 35437
+  _time: 2025-08-10 13:22:19.095232717 Z
   _version: 0.14.4/0.52.2/
-  latest: 53170009335
+  branch: '116'
+  details: The pull cqfn/aibolit#156 has been opened earlier by @tribals.
+  is_human: 1
+  issue: 156
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-02 16:35:18.000000000 Z
+  where: github
+  who: 3613180
+- _id: 35443
+  _time: 2025-08-10 13:24:17.519496033 Z
+  _version: 0.14.4/0.52.2/
+  latest: 53170709592
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 35426
-  _time: 2025-08-10 12:01:27.132770266 Z
-  _version: 0.14.4/0.52.2/
-  latest: 0
-  repository: 237167507
-  what: issues-were-scanned
-  where: github
-- _id: 35427
-  _time: 2025-08-10 12:02:27.618595727 Z
-  _version: 0.14.4/0.52.2/
-  latest: 513
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 35428
-  _time: 2025-08-10 12:02:31.208383481 Z
-  _version: 0.14.4/0.52.2/
-  latest: 401
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 35429
-  _time: 2025-08-10 12:02:31.779825903 Z
-  _version: 0.14.4/0.52.2/
-  latest: 213
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 35430
-  _time: 2025-08-10 12:03:37.567789391 Z
-  _version: 0.14.4/0.52.2/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 35431
-  _time: 2025-08-10 12:03:42.889477556 Z
+- _id: 35444
+  _time: 2025-08-10 13:24:23.224331198 Z
   _version: 0.14.4/0.52.2/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 35432
-  _time: 2025-08-10 12:04:32.254709992 Z
+- _id: 35445
+  _time: 2025-08-10 13:25:30.541329917 Z
   _version: 0.14.4/0.52.2/
-  latest: 753
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 35446
+  _time: 2025-08-10 13:25:57.353722361 Z
+  _version: 0.14.4/0.52.2/
+  latest: 0
+  repository: 237167507
+  what: issues-were-scanned
+  where: github
+- _id: 35447
+  _time: 2025-08-10 13:26:47.550561455 Z
+  _version: 0.14.4/0.52.2/
+  latest: 440
   repository: 237167507
   what: assignees-were-scanned
+  where: github
+- _id: 35448
+  _time: 2025-08-10 13:28:49.521451765 Z
+  _version: 0.14.4/0.52.2/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 35449
+  _time: 2025-08-10 13:28:55.055656090 Z
+  _version: 0.14.4/0.52.2/
+  latest: 401
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 35450
+  _time: 2025-08-10 13:28:55.634926807 Z
+  _version: 0.14.4/0.52.2/
+  latest: 217
+  repository: 237167507
+  what: min-pull-was-found
   where: github
