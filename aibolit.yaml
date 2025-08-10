@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 498.338447686
+  seconds: 587.441967221
   version: 0.52.2
   what: judges-summary
-  when: 2025-08-10 08:03:28.351819103 Z
+  when: 2025-08-10 09:07:37.893996467 Z
 - _id: 1
   _time: 2025-05-29 06:59:47.029228982 Z
   _version: 0.10.2/0.45.0/
@@ -36866,63 +36866,6 @@
   where: github
   who: 41443370
   why: Reviewed code in cqfn/aibolit#825
-- _id: 33720
-  _job: 32261
-  _time:
-  - 2025-08-09 05:09:10.116776331 Z
-  - 2025-08-09 05:08:45.800837689 Z
-  _version: 0.14.4/0.52.2/0.15.7!0.15.8
-  award: 4
-  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#808,
-    the reward amount is 4.
-  href: https://github.com/cqfn/aibolit/issues/808/#issuecomment-2950793862
-  is_human: 1
-  issue: 808
-  receipt: 0
-  repository: 237167507
-  what: code-contribution-was-rewarded
-  when: 2025-06-06 21:04:29.096704751 Z
-  where: github
-  who: 41443370
-  why: Contributed code in cqfn/aibolit#808
-- _id: 33721
-  _job: 32261
-  _time:
-  - 2025-08-09 05:09:10.179913975 Z
-  - 2025-08-09 05:08:45.863079016 Z
-  _version: 0.14.4/0.52.2/0.15.7!0.15.8
-  award: -12
-  branch: improve-typings
-  details: It's time to punish @antonprokopyev for the branch named as 'improve-typings',
-    which is wrong in cqfn/aibolit#814, the penalty amount is -12.
-  href: https://github.com/cqfn/aibolit/issues/814/#issuecomment-2953191472
-  is_human: 1
-  issue: 814
-  repository: 237167507
-  what: bad-branch-name-was-punished
-  when: 2025-06-07 23:02:09.338085592 Z
-  where: github
-  who: 13173649
-  why: Wrongly named a branch in cqfn/aibolit#814
-- _id: 33722
-  _job: 32261
-  _time:
-  - 2025-08-09 05:09:10.245655993 Z
-  - 2025-08-09 05:08:45.925789954 Z
-  _version: 0.14.4/0.52.2/0.15.7!0.15.8
-  award: -12
-  branch: implement_loop_outsider
-  details: It's time to punish @sinbadthesailor2005 for the branch named as 'implement_loop_outsider',
-    which is wrong in cqfn/aibolit#816, the penalty amount is -12.
-  href: https://github.com/cqfn/aibolit/issues/816/#issuecomment-2953940540
-  is_human: 1
-  issue: 816
-  repository: 237167507
-  what: bad-branch-name-was-punished
-  when: 2025-06-08 11:02:26.658401153 Z
-  where: github
-  who: 150805542
-  why: Wrongly named a branch in cqfn/aibolit#816
 - _id: 33723
   _job: 32261
   _time:
@@ -38618,59 +38561,59 @@
   when: 2025-08-09 07:29:01.000000000 Z
   where: github
   who: 526301
-- _id: 34205
-  _time: 2025-08-10 07:59:38.051961462 Z
+- _id: 34221
+  _time: 2025-08-10 09:02:55.704646213 Z
   _version: 0.14.4/0.52.2/
-  latest: 53166828842
+  latest: 53167525323
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 34206
-  _time: 2025-08-10 08:00:52.037328969 Z
+- _id: 34222
+  _time: 2025-08-10 09:03:58.935095928 Z
   _version: 0.14.4/0.52.2/
-  latest: 0
+  latest: 513
   repository: 237167507
-  what: merges-were-scanned
+  what: labels-were-scanned
   where: github
-- _id: 34207
-  _time: 2025-08-10 08:01:21.584800648 Z
-  _version: 0.14.4/0.52.2/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 34208
-  _time: 2025-08-10 08:01:46.899932969 Z
-  _version: 0.14.4/0.52.2/
-  latest: 0
-  repository: 237167507
-  what: issues-were-scanned
-  where: github
-- _id: 34209
-  _time: 2025-08-10 08:01:50.044882774 Z
+- _id: 34223
+  _time: 2025-08-10 09:04:02.574574439 Z
   _version: 0.14.4/0.52.2/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 34210
-  _time: 2025-08-10 08:01:50.558049043 Z
+- _id: 34224
+  _time: 2025-08-10 09:04:03.240492266 Z
   _version: 0.14.4/0.52.2/
-  latest: 201
+  latest: 204
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 34211
-  _time: 2025-08-10 08:02:46.143714938 Z
-  _version: 0.14.4/0.52.2/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 34212
-  _time: 2025-08-10 08:03:28.151027149 Z
+- _id: 34225
+  _time: 2025-08-10 09:04:08.472912890 Z
   _version: 0.14.4/0.52.2/
   latest: 0
   repository: 237167507
-  what: labels-were-scanned
+  what: merges-were-scanned
+  where: github
+- _id: 34226
+  _time: 2025-08-10 09:04:47.777628119 Z
+  _version: 0.14.4/0.52.2/
+  latest: 0
+  repository: 237167507
+  what: issues-were-scanned
+  where: github
+- _id: 34227
+  _time: 2025-08-10 09:05:38.723105970 Z
+  _version: 0.14.4/0.52.2/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 34228
+  _time: 2025-08-10 09:06:37.836070961 Z
+  _version: 0.14.4/0.52.2/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
