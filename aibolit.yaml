@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 516.026406411
+  seconds: 454.203646482
   version: 0.52.2
   what: judges-summary
-  when: 2025-08-10 18:03:40.360355535 Z
+  when: 2025-08-10 19:05:32.187119542 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -6483,18 +6483,6 @@
   when: &602 2025-05-27 11:57:07.000000000 Z
   where: github
   who: 526301
-- _id: 9478
-  _time: 2025-06-23 07:56:12.777655137 Z
-  _version: 0.11.1/0.50.5/
-  branch: master
-  details: cqfn/aibolit#205 has been opened by @angusev.
-  is_human: 1
-  issue: 205
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-13 11:19:15.000000000 Z
-  where: github
-  who: 44449418
 - _id: 9479
   _time: 2025-06-23 07:56:13.277735095 Z
   _version: 0.11.1/0.50.5/
@@ -39462,59 +39450,89 @@
   when: 2020-04-09 12:08:34.000000000 Z
   where: github
   who: 57872461
-- _id: 35532
-  _time: 2025-08-10 17:59:35.212338937 Z
-  _version: 0.14.4/0.52.2/
-  latest: 53175622581
+- _id: 35540
+  _time: 2025-08-10 18:58:00.183223684 Z
+  _version: 0.14.7/0.52.2/
+  commit: 7ae09d3128cad606ad511c7a0acc7e696421a5f4
+  default_branch: master
+  details: 'A new Git push #26045715417 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is ''master''), not associated with any pull request.'
+  event_id: 53176415440
+  event_type: PushEvent
+  is_human: 1
+  push_id: 26045715417
+  ref: refs/heads/master
+  repository: 237167507
+  to_master: 1
+  what: git-was-pushed
+  when: 2025-08-10 17:58:34.000000000 Z
+  where: github
+  who: 526301
+- _id: 35542
+  _time: 2025-08-10 18:59:06.213999569 Z
+  _version: 0.14.7/0.52.2/
+  branch: master
+  details: The pull cqfn/aibolit#205 has been opened earlier by @angusev.
+  is_human: 1
+  issue: 205
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-13 11:19:15.000000000 Z
+  where: github
+  who: 44449418
+- _id: 35550
+  _time: 2025-08-10 19:01:20.318372678 Z
+  _version: 0.14.7/0.52.2/
+  latest: 53176518106
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 35533
-  _time: 2025-08-10 17:59:39.708214082 Z
-  _version: 0.14.4/0.52.2/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 35534
-  _time: 2025-08-10 18:01:40.280498769 Z
-  _version: 0.14.4/0.52.2/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 35535
-  _time: 2025-08-10 18:02:16.431466297 Z
-  _version: 0.14.4/0.52.2/
-  latest: 753
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 35536
-  _time: 2025-08-10 18:02:19.101811738 Z
-  _version: 0.14.4/0.52.2/
+- _id: 35551
+  _time: 2025-08-10 19:01:23.739319225 Z
+  _version: 0.14.7/0.52.2/
   latest: 401
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 35537
-  _time: 2025-08-10 18:02:19.566471318 Z
-  _version: 0.14.4/0.52.2/
-  latest: 233
+- _id: 35552
+  _time: 2025-08-10 19:01:24.513609195 Z
+  _version: 0.14.7/0.52.2/
+  latest: 236
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 35538
-  _time: 2025-08-10 18:02:47.754963267 Z
-  _version: 0.14.4/0.52.2/
+- _id: 35553
+  _time: 2025-08-10 19:02:08.497723127 Z
+  _version: 0.14.7/0.52.2/
+  latest: 0
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 35554
+  _time: 2025-08-10 19:03:08.669987716 Z
+  _version: 0.14.7/0.52.2/
+  latest: 327
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 35555
+  _time: 2025-08-10 19:04:57.529270605 Z
+  _version: 0.14.7/0.52.2/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 35556
+  _time: 2025-08-10 19:05:06.926948857 Z
+  _version: 0.14.7/0.52.2/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 35557
+  _time: 2025-08-10 19:05:31.889481137 Z
+  _version: 0.14.7/0.52.2/
   latest: 0
   repository: 237167507
   what: issues-were-scanned
-  where: github
-- _id: 35539
-  _time: 2025-08-10 18:03:40.309320428 Z
-  _version: 0.14.4/0.52.2/
-  latest: 513
-  repository: 237167507
-  what: labels-were-scanned
   where: github
