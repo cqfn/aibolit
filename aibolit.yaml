@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 896.90870944
+  seconds: 523.273897635
   version: 0.52.2
   what: judges-summary
-  when: 2025-08-17 06:10:15.175603460 Z
+  when: 2025-08-17 07:07:29.711135352 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -17261,25 +17261,6 @@
   when: 2025-06-14 07:00:46.000000000 Z
   where: github
   who: 24456188
-- _id: 34664
-  _job: 32439
-  _time: 2025-08-10 10:04:02.730283554 Z
-  _version: 0.14.5/0.52.2/0.15.9
-  commit: 6f98563ea5192cabc81d20f4eaabd5b0fa3be30c
-  default_branch: master
-  details: 'A new Git push #24924870536 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is ''master''), not associated with any pull request.'
-  event_id: 50953513195
-  event_type: PushEvent
-  is_human: 1
-  push_id: 24924870536
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-06-16 13:08:17.000000000 Z
-  where: github
-  who: 526301
 - _id: 34665
   _job: 32439
   _time: 2025-08-10 10:04:02.794178376 Z
@@ -17306,25 +17287,6 @@
   repository: 237167507
   what: issue-was-closed
   when: 2025-06-17 13:34:38.000000000 Z
-  where: github
-  who: 526301
-- _id: 34667
-  _job: 32439
-  _time: 2025-08-10 10:04:02.921921590 Z
-  _version: 0.14.5/0.52.2/0.15.9
-  commit: ee955c5f268d63c4acafd97fd24f5a71f6297b30
-  default_branch: master
-  details: 'A new Git push #24950301800 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is ''master''), not associated with any pull request.'
-  event_id: 51006720615
-  event_type: PushEvent
-  is_human: 1
-  push_id: 24950301800
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-06-17 13:33:39.000000000 Z
   where: github
   who: 526301
 - _id: 34668
@@ -40069,6 +40031,8 @@
   average_reviewers_per_pull: 0
   average_reviews_per_pull: 0
   average_triage_time: 0
+  composite: 0.203
+  ffact: 136
   since: 2025-08-10 05:55:21.066450231 Z
   what: quality-of-service
   when: 2025-08-17 05:55:21.061562681 Z
@@ -40097,59 +40061,59 @@
   total_stars: 87
   what: dimensions-of-terrain
   when: 2025-08-17 06:05:43.036408334 Z
-- _id: 38621
-  _time: 2025-08-17 06:05:53.747013591 Z
+- _id: 38637
+  _time: 2025-08-17 07:03:34.618996313 Z
   _version: 0.14.7/0.52.2/
-  latest: 53437315536
+  latest: 53452879822
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 38622
-  _time: 2025-08-17 06:06:21.176119855 Z
-  _version: 0.14.7/0.52.2/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 38623
-  _time: 2025-08-17 06:07:17.682005015 Z
-  _version: 0.14.7/0.52.2/
-  latest: 0
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 38624
-  _time: 2025-08-17 06:09:21.069481601 Z
-  _version: 0.14.7/0.52.2/
-  latest: 513
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 38625
-  _time: 2025-08-17 06:09:22.931992145 Z
+- _id: 38638
+  _time: 2025-08-17 07:03:39.403588574 Z
   _version: 0.14.7/0.52.2/
   latest: 702
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 38626
-  _time: 2025-08-17 06:09:23.580112337 Z
+- _id: 38639
+  _time: 2025-08-17 07:03:39.875770937 Z
   _version: 0.14.7/0.52.2/
-  latest: 633
+  latest: 637
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 38627
-  _time: 2025-08-17 06:09:56.982724220 Z
+- _id: 38640
+  _time: 2025-08-17 07:05:18.088125633 Z
+  _version: 0.14.7/0.52.2/
+  latest: 753
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 38641
+  _time: 2025-08-17 07:06:11.204660517 Z
+  _version: 0.14.7/0.52.2/
+  latest: 513
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 38642
+  _time: 2025-08-17 07:06:52.196051485 Z
   _version: 0.14.7/0.52.2/
   latest: 0
   repository: 237167507
-  what: issues-were-scanned
+  what: types-were-scanned
   where: github
-- _id: 38628
-  _time: 2025-08-17 06:10:04.148590278 Z
+- _id: 38643
+  _time: 2025-08-17 07:06:57.560802834 Z
   _version: 0.14.7/0.52.2/
   latest: 0
   repository: 237167507
   what: merges-were-scanned
+  where: github
+- _id: 38644
+  _time: 2025-08-17 07:07:28.730004520 Z
+  _version: 0.14.7/0.52.2/
+  latest: 0
+  repository: 237167507
+  what: issues-were-scanned
   where: github
