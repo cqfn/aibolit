@@ -1,12 +1,12 @@
 ---
 - added: 8
-  cycles: 2
+  cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 557.836667076
+  seconds: 490.147043368
   version: 0.53.1
   what: judges-summary
-  when: 2025-08-23 07:05:17.457511747 Z
+  when: 2025-08-23 08:03:11.159253094 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -41124,62 +41124,77 @@
   average_reviewers_per_pull: 0
   average_reviews_per_pull: 0
   average_triage_time: 0
+  composite: 0.222
+  ffact: 136
   since: 2025-08-16 06:59:43.699976240 Z
   what: quality-of-service
   when: 2025-08-23 06:59:43.698410420 Z
-- _id: 40626
-  _time: 2025-08-23 07:01:13.820793970 Z
+- _id: 40634
+  _time: 2025-08-23 07:55:03.710656303 Z
   _version: 0.15.5/0.53.1/
-  latest: 53727978955
+  latest: 53730221007
   repository: 237167507
   what: events-were-scanned
   where: github
-- _id: 40627
-  _time: 2025-08-23 07:01:55.353594816 Z
+- _id: 40635
+  _time: 2025-08-23 07:55:10.865038968 Z
   _version: 0.15.5/0.53.1/
-  latest: 0
+  since: 2025-08-16 07:55:10.871173867 Z
+  total_builds_ran: 472
+  total_commits_pushed: 3
+  total_hoc_committed: 6
+  total_issues_created: 0
+  total_pulls_submitted: 0
+  total_releases_published: 0
+  total_reviews_submitted: 0
+  what: quantity-of-deliverables
+  when: 2025-08-23 07:55:10.869600297 Z
+- _id: 40636
+  _time: 2025-08-23 07:59:41.383481446 Z
+  _version: 0.15.5/0.53.1/
+  latest: 327
   repository: 237167507
   what: types-were-scanned
   where: github
-- _id: 40628
-  _time: 2025-08-23 07:03:38.433155921 Z
-  _version: 0.15.5/0.53.1/
-  latest: 561
-  repository: 237167507
-  what: labels-were-scanned
-  where: github
-- _id: 40629
-  _time: 2025-08-23 07:03:42.962172937 Z
-  _version: 0.15.5/0.53.1/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 40630
-  _time: 2025-08-23 07:04:13.514576361 Z
-  _version: 0.15.5/0.53.1/
-  latest: 0
-  repository: 237167507
-  what: issues-were-scanned
-  where: github
-- _id: 40631
-  _time: 2025-08-23 07:04:18.777353138 Z
-  _version: 0.15.5/0.53.1/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 40632
-  _time: 2025-08-23 07:05:15.958637260 Z
+- _id: 40637
+  _time: 2025-08-23 07:59:43.359583211 Z
   _version: 0.15.5/0.53.1/
   latest: 702
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 40633
-  _time: 2025-08-23 07:05:16.471160213 Z
+- _id: 40638
+  _time: 2025-08-23 07:59:44.353608128 Z
   _version: 0.15.5/0.53.1/
-  latest: 392
+  latest: 393
   repository: 237167507
   what: min-pull-was-found
+  where: github
+- _id: 40639
+  _time: 2025-08-23 08:01:37.542587711 Z
+  _version: 0.15.5/0.53.1/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
+  where: github
+- _id: 40640
+  _time: 2025-08-23 08:01:54.487210347 Z
+  _version: 0.15.5/0.53.1/
+  latest: 0
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 40641
+  _time: 2025-08-23 08:02:23.875910405 Z
+  _version: 0.15.5/0.53.1/
+  latest: 0
+  repository: 237167507
+  what: issues-were-scanned
+  where: github
+- _id: 40642
+  _time: 2025-08-23 08:03:10.204094144 Z
+  _version: 0.15.5/0.53.1/
+  latest: 440
+  repository: 237167507
+  what: assignees-were-scanned
   where: github
