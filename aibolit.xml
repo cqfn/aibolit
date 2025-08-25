@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="830207">
+<fb version="0.11.0" size="830467">
   <f>
     <added t="I">8</added>
-    <cycles t="I">2</cycles>
+    <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">604.659547633</seconds>
+    <seconds t="F">537.252592124</seconds>
     <version t="S">0.53.1</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-08-25T07:09:41Z</when>
+    <when t="T">2025-08-25T08:04:09Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -44528,58 +44528,33 @@ Average pull cycle time 160828.6947368421 is increasing (R=0.36346294936252166).
     <average_reviewers_per_pull t="I">0</average_reviewers_per_pull>
     <average_reviews_per_pull t="I">0</average_reviews_per_pull>
     <average_triage_time t="I">0</average_triage_time>
+    <composite t="F">0.222</composite>
+    <ffact t="I">136</ffact>
     <since t="T">2025-08-18T07:01:27Z</since>
     <what t="S">quality-of-service</what>
     <when t="T">2025-08-25T07:01:27Z</when>
   </f>
   <f>
-    <_id t="I">54535</_id>
-    <_time t="T">2025-08-25T07:04:51Z</_time>
+    <_id t="I">54543</_id>
+    <_time t="T">2025-08-25T07:55:15Z</_time>
     <_version t="S">0.15.6/0.53.1/</_version>
-    <latest t="I">53776291799</latest>
+    <latest t="I">53778620737</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">54536</_id>
-    <_time t="T">2025-08-25T07:05:33Z</_time>
-    <_version t="S">0.15.6/0.53.1/</_version>
-    <latest t="I">440</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">54537</_id>
-    <_time t="T">2025-08-25T07:05:57Z</_time>
+    <_id t="I">54544</_id>
+    <_time t="T">2025-08-25T07:56:00Z</_time>
     <_version t="S">0.15.6/0.53.1/</_version>
     <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">issues-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">54538</_id>
-    <_time t="T">2025-08-25T07:06:45Z</_time>
-    <_version t="S">0.15.6/0.53.1/</_version>
-    <latest t="I">732</latest>
     <repository t="I">237167507</repository>
     <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">54539</_id>
-    <_time t="T">2025-08-25T07:08:57Z</_time>
-    <_version t="S">0.15.6/0.53.1/</_version>
-    <latest t="I">0</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">merges-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">54540</_id>
-    <_time t="T">2025-08-25T07:08:58Z</_time>
+    <_id t="I">54545</_id>
+    <_time t="T">2025-08-25T07:57:07Z</_time>
     <_version t="S">0.15.6/0.53.1/</_version>
     <latest t="I">702</latest>
     <repository t="I">237167507</repository>
@@ -44587,21 +44562,63 @@ Average pull cycle time 160828.6947368421 is increasing (R=0.36346294936252166).
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">54541</_id>
-    <_time t="T">2025-08-25T07:08:59Z</_time>
+    <_id t="I">54546</_id>
+    <_time t="T">2025-08-25T07:57:08Z</_time>
     <_version t="S">0.15.6/0.53.1/</_version>
-    <latest t="I">573</latest>
+    <latest t="I">576</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">54542</_id>
-    <_time t="T">2025-08-25T07:09:41Z</_time>
+    <_id t="I">54547</_id>
+    <_time t="T">2025-08-25T07:57:14Z</_time>
     <_version t="S">0.15.6/0.53.1/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
+    <what t="S">merges-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">54548</_id>
+    <_time t="T">2025-08-25T07:58:23Z</_time>
+    <_version t="S">0.15.6/0.53.1/</_version>
+    <latest t="I">327</latest>
+    <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">54549</_id>
+    <_time t="T">2025-08-25T07:59:02Z</_time>
+    <_version t="S">0.15.6/0.53.1/</_version>
+    <latest t="I">753</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">assignees-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">54550</_id>
+    <_time t="T">2025-08-25T08:00:02Z</_time>
+    <_version t="S">0.15.6/0.53.1/</_version>
+    <since t="T">2025-08-18T08:00:02Z</since>
+    <total_builds_ran t="I">509</total_builds_ran>
+    <total_commits_pushed t="I">4</total_commits_pushed>
+    <total_hoc_committed t="I">8</total_hoc_committed>
+    <total_issues_created t="I">0</total_issues_created>
+    <total_pulls_submitted t="I">0</total_pulls_submitted>
+    <total_releases_published t="I">0</total_releases_published>
+    <total_reviews_submitted t="I">0</total_reviews_submitted>
+    <what t="S">quantity-of-deliverables</what>
+    <when t="T">2025-08-25T08:00:02Z</when>
+  </f>
+  <f>
+    <_id t="I">54551</_id>
+    <_time t="T">2025-08-25T08:04:02Z</_time>
+    <_version t="S">0.15.6/0.53.1/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">issues-were-scanned</what>
     <where t="S">github</where>
   </f>
 </fb>
