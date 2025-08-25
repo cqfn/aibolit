@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.11.0" size="829877">
+<fb version="0.11.0" size="830207">
   <f>
     <added t="I">8</added>
     <cycles t="I">2</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">614.771325831</seconds>
+    <seconds t="F">604.659547633</seconds>
     <version t="S">0.53.1</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-08-25T06:05:14Z</when>
+    <when t="T">2025-08-25T07:09:41Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -44508,26 +44508,51 @@ Average pull cycle time 160828.6947368421 is increasing (R=0.36346294936252166).
     <when t="T">2025-08-24T08:59:11Z</when>
   </f>
   <f>
-    <_id t="I">54518</_id>
-    <_time t="T">2025-08-25T05:59:53Z</_time>
+    <_id t="I">54533</_id>
+    <_time t="T">2025-08-25T07:01:27Z</_time>
     <_version t="S">0.15.6/0.53.1/</_version>
-    <latest t="I">53774648460</latest>
+    <average_backlog_size t="F">0.0</average_backlog_size>
+    <average_build_duration t="F">244.0983606557377</average_build_duration>
+    <average_build_mttr t="I">0</average_build_mttr>
+    <average_build_success_rate t="F">0.9836065573770492</average_build_success_rate>
+    <average_issue_lifetime t="I">0</average_issue_lifetime>
+    <average_pull_files_size t="I">0</average_pull_files_size>
+    <average_pull_hoc_size t="I">0</average_pull_hoc_size>
+    <average_pull_lifetime t="I">0</average_pull_lifetime>
+    <average_pull_rejection_rate t="I">0</average_pull_rejection_rate>
+    <average_release_commits_size t="I">0</average_release_commits_size>
+    <average_release_hoc_size t="I">0</average_release_hoc_size>
+    <average_release_interval t="I">0</average_release_interval>
+    <average_review_size t="I">0</average_review_size>
+    <average_review_time t="I">0</average_review_time>
+    <average_reviewers_per_pull t="I">0</average_reviewers_per_pull>
+    <average_reviews_per_pull t="I">0</average_reviews_per_pull>
+    <average_triage_time t="I">0</average_triage_time>
+    <since t="T">2025-08-18T07:01:27Z</since>
+    <what t="S">quality-of-service</what>
+    <when t="T">2025-08-25T07:01:27Z</when>
+  </f>
+  <f>
+    <_id t="I">54535</_id>
+    <_time t="T">2025-08-25T07:04:51Z</_time>
+    <_version t="S">0.15.6/0.53.1/</_version>
+    <latest t="I">53776291799</latest>
     <repository t="I">237167507</repository>
     <what t="S">events-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">54519</_id>
-    <_time t="T">2025-08-25T06:00:05Z</_time>
+    <_id t="I">54536</_id>
+    <_time t="T">2025-08-25T07:05:33Z</_time>
     <_version t="S">0.15.6/0.53.1/</_version>
-    <latest t="I">0</latest>
+    <latest t="I">440</latest>
     <repository t="I">237167507</repository>
-    <what t="S">merges-were-scanned</what>
+    <what t="S">assignees-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">54520</_id>
-    <_time t="T">2025-08-25T06:00:19Z</_time>
+    <_id t="I">54537</_id>
+    <_time t="T">2025-08-25T07:05:57Z</_time>
     <_version t="S">0.15.6/0.53.1/</_version>
     <latest t="I">0</latest>
     <repository t="I">237167507</repository>
@@ -44535,17 +44560,26 @@ Average pull cycle time 160828.6947368421 is increasing (R=0.36346294936252166).
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">54521</_id>
-    <_time t="T">2025-08-25T06:00:57Z</_time>
+    <_id t="I">54538</_id>
+    <_time t="T">2025-08-25T07:06:45Z</_time>
     <_version t="S">0.15.6/0.53.1/</_version>
-    <latest t="I">753</latest>
+    <latest t="I">732</latest>
     <repository t="I">237167507</repository>
-    <what t="S">assignees-were-scanned</what>
+    <what t="S">types-were-scanned</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">54522</_id>
-    <_time t="T">2025-08-25T06:03:00Z</_time>
+    <_id t="I">54539</_id>
+    <_time t="T">2025-08-25T07:08:57Z</_time>
+    <_version t="S">0.15.6/0.53.1/</_version>
+    <latest t="I">0</latest>
+    <repository t="I">237167507</repository>
+    <what t="S">merges-were-scanned</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">54540</_id>
+    <_time t="T">2025-08-25T07:08:58Z</_time>
     <_version t="S">0.15.6/0.53.1/</_version>
     <latest t="I">702</latest>
     <repository t="I">237167507</repository>
@@ -44553,28 +44587,19 @@ Average pull cycle time 160828.6947368421 is increasing (R=0.36346294936252166).
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">54523</_id>
-    <_time t="T">2025-08-25T06:03:00Z</_time>
+    <_id t="I">54541</_id>
+    <_time t="T">2025-08-25T07:08:59Z</_time>
     <_version t="S">0.15.6/0.53.1/</_version>
-    <latest t="I">569</latest>
+    <latest t="I">573</latest>
     <repository t="I">237167507</repository>
     <what t="S">min-pull-was-found</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">54524</_id>
-    <_time t="T">2025-08-25T06:04:10Z</_time>
+    <_id t="I">54542</_id>
+    <_time t="T">2025-08-25T07:09:41Z</_time>
     <_version t="S">0.15.6/0.53.1/</_version>
-    <latest t="I">327</latest>
-    <repository t="I">237167507</repository>
-    <what t="S">types-were-scanned</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">54525</_id>
-    <_time t="T">2025-08-25T06:05:14Z</_time>
-    <_version t="S">0.15.6/0.53.1/</_version>
-    <latest t="I">327</latest>
+    <latest t="I">0</latest>
     <repository t="I">237167507</repository>
     <what t="S">labels-were-scanned</what>
     <where t="S">github</where>
