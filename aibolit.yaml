@@ -3,10 +3,10 @@
   cycles: 2
   deleted: 8
   inserted: 8
-  seconds: 494.549106386
+  seconds: 454.46752533
   version: 0.53.4
   what: judges-summary
-  when: 2025-08-28 22:03:16.947187691 Z
+  when: 2025-08-28 23:02:41.581997272 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -40717,54 +40717,6 @@
   when: 2020-10-27 09:43:50.000000000 Z
   where: github
   who: 1987026
-- _id: 59373
-  _job: 34755
-  _time: 2025-08-28 21:05:43.202665363 Z
-  _version: 0.15.7/0.53.5/0.15.25
-  analyzers: 18
-  text: |-
-    The average reward per task (8.9 points) is decreasing (R=0.06).
-    The average punishment per task (15.0 points) is decreasing (R=0.03).
-    The average backlog size per repository (2.8 tasks) is decreasing (R=-0.64).
-    The average build duration (2m42s) is increasing (R=0.91).
-    The average number of builds per week (891.7) is decreasing (R=-0.92).
-    The average build success rate (94%) is decreasing (R=-0.25).
-    The average number of commits per week (24.8) is decreasing (R=-0.68).
-    The average bugs accepted per month (24.0) is decreasing (R=-0.57).
-    The average monthly punishment (131 points) is decreasing (R=-0.92).
-    The average monthly wage (8.6 points) is increasing (R=0.78).
-    The average issue cycle time (4d3h) is increasing (R=0.38).
-    The average pull cycle time (1d20h) is increasing (R=0.36).
-    The average quality of service (33%) is decreasing (R=-0.78).
-    The average number of releases per month (0.0) is staying still.
-    The average time of issue triaging (4h20m) is decreasing (R=-0.34).
-    The average monthly turnover (21.0 developers) is decreasing (R=-0.77).
-  what: assessment
-  when: 2025-08-28 21:05:43.210938292 Z
-- _id: 59374
-  _job: 34755
-  _time: 2025-08-28 21:05:49.850495204 Z
-  _version: 0.15.7/0.53.5/0.15.25
-  analyzers: 18
-  text: |-
-    The average reward per task (8.9 points) is decreasing (R=0.06).
-    The average punishment per task (15.0 points) is decreasing (R=0.03).
-    The average backlog size per repository (2.8 tasks) is decreasing (R=-0.64).
-    The average build duration (2m42s) is increasing (R=0.91).
-    The average number of builds per week (891.7) is decreasing (R=-0.92).
-    The average build success rate (94%) is decreasing (R=-0.25).
-    The average number of commits per week (24.8) is decreasing (R=-0.68).
-    The average bugs accepted per month (24.0) is decreasing (R=-0.57).
-    The average monthly punishment (131 points) is decreasing (R=-0.92).
-    The average monthly wage (8.6 points) is increasing (R=0.78).
-    The average issue cycle time (4d3h) is increasing (R=0.38).
-    The average pull cycle time (1d20h) is increasing (R=0.36).
-    The average quality of service (33%) is decreasing (R=-0.78).
-    The average number of releases per month (0.0) is staying still.
-    The average time of issue triaging (4h20m) is decreasing (R=-0.34).
-    The average monthly turnover (21.0 developers) is decreasing (R=-0.77).
-  what: assessment
-  when: 2025-08-28 21:05:49.857653757 Z
 - _id: 59376
   _time: 2025-08-28 21:55:29.239051885 Z
   _version: 0.15.6/0.53.4/
@@ -40813,39 +40765,12 @@
   when: 2020-07-20 09:48:47.000000000 Z
   where: github
   who: 1987026
-- _id: 59387
-  _time: 2025-08-28 21:59:29.388581329 Z
-  _version: 0.15.6/0.53.4/
-  latest: 53964286902
-  repository: 237167507
-  what: events-were-scanned
-  where: github
-- _id: 59388
-  _time: 2025-08-28 21:59:32.507713763 Z
-  _version: 0.15.6/0.53.4/
-  latest: 702
-  repository: 237167507
-  what: min-issue-was-found
-  where: github
-- _id: 59389
-  _time: 2025-08-28 21:59:33.125251600 Z
-  _version: 0.15.6/0.53.4/
-  latest: 860
-  repository: 237167507
-  what: min-pull-was-found
-  where: github
-- _id: 59390
-  _time: 2025-08-28 22:00:06.672502674 Z
-  _version: 0.15.6/0.53.4/
-  latest: 0
-  repository: 237167507
-  what: types-were-scanned
-  where: github
 - _id: 59391
   _time: 2025-08-28 22:00:07.098241773 Z
   _version: 0.15.6/0.53.4/
   assigner: 1987026
   details: cqfn/aibolit#534 was assigned to @aravij by @aravij .
+  is_human: 1
   issue: 534
   repository: 237167507
   what: issue-was-assigned
@@ -40857,6 +40782,7 @@
   _version: 0.15.6/0.53.4/
   assigner: 1987026
   details: cqfn/aibolit#538 was assigned to @aravij by @aravij .
+  is_human: 1
   issue: 538
   repository: 237167507
   what: issue-was-assigned
@@ -40868,6 +40794,7 @@
   _version: 0.15.6/0.53.4/
   assigner: 1987026
   details: cqfn/aibolit#550 was assigned to @aravij by @aravij .
+  is_human: 1
   issue: 550
   repository: 237167507
   what: issue-was-assigned
@@ -40879,37 +40806,18 @@
   _version: 0.15.6/0.53.4/
   assigner: 20803206
   details: cqfn/aibolit#565 was assigned to @lyriccoder by @lyriccoder .
+  is_human: 1
   issue: 565
   repository: 237167507
   what: issue-was-assigned
   when: 2020-07-24 13:35:03.000000000 Z
   where: github
   who: 20803206
-- _id: 59395
-  _time: 2025-08-28 22:00:31.747164848 Z
-  _version: 0.15.6/0.53.4/
-  latest: 734
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 59396
-  _time: 2025-08-28 22:01:36.938872201 Z
-  _version: 0.15.6/0.53.4/
-  latest: 0
-  repository: 237167507
-  what: merges-were-scanned
-  where: github
-- _id: 59397
-  _time: 2025-08-28 22:01:37.590440410 Z
-  _version: 0.15.6/0.53.4/
-  latest: 0
-  repository: 237167507
-  what: issues-were-scanned
-  where: github
 - _id: 59398
   _time: 2025-08-28 22:01:47.393156657 Z
   _version: 0.15.6/0.53.4/
   details: The 'enhancement' label was attached by @aravij to the issue cqfn/aibolit#520.
+  is_human: 1
   issue: 520
   label: enhancement
   repository: 237167507
@@ -40921,6 +40829,7 @@
   _time: 2025-08-28 22:01:50.422360801 Z
   _version: 0.15.6/0.53.4/
   details: The 'bug' label was attached by @aravij to the issue cqfn/aibolit#530.
+  is_human: 1
   issue: 530
   label: bug
   repository: 237167507
@@ -40932,6 +40841,7 @@
   _time: 2025-08-28 22:01:51.628249719 Z
   _version: 0.15.6/0.53.4/
   details: The 'enhancement' label was attached by @aravij to the issue cqfn/aibolit#532.
+  is_human: 1
   issue: 532
   label: enhancement
   repository: 237167507
@@ -40943,6 +40853,7 @@
   _time: 2025-08-28 22:01:52.089609253 Z
   _version: 0.15.6/0.53.4/
   details: The 'bug' label was attached by @aravij to the issue cqfn/aibolit#533.
+  is_human: 1
   issue: 533
   label: bug
   repository: 237167507
@@ -40954,6 +40865,7 @@
   _time: 2025-08-28 22:01:52.574450076 Z
   _version: 0.15.6/0.53.4/
   details: The 'enhancement' label was attached by @aravij to the issue cqfn/aibolit#534.
+  is_human: 1
   issue: 534
   label: enhancement
   repository: 237167507
@@ -40965,6 +40877,7 @@
   _time: 2025-08-28 22:01:54.396778765 Z
   _version: 0.15.6/0.53.4/
   details: The 'question' label was attached by @aravij to the issue cqfn/aibolit#538.
+  is_human: 1
   issue: 538
   label: question
   repository: 237167507
@@ -40976,6 +40889,7 @@
   _time: 2025-08-28 22:01:55.350545849 Z
   _version: 0.15.6/0.53.4/
   details: The 'enhancement' label was attached by @aravij to the issue cqfn/aibolit#550.
+  is_human: 1
   issue: 550
   label: enhancement
   repository: 237167507
@@ -40987,6 +40901,7 @@
   _time: 2025-08-28 22:01:59.055609614 Z
   _version: 0.15.6/0.53.4/
   details: The 'bug' label was attached by @lyriccoder to the issue cqfn/aibolit#565.
+  is_human: 1
   issue: 565
   label: bug
   repository: 237167507
@@ -40994,10 +40909,107 @@
   when: 2020-07-24 11:37:18.000000000 Z
   where: github
   who: 20803206
-- _id: 59406
-  _time: 2025-08-28 22:02:16.243426386 Z
+- _id: 59408
+  _job: 34767
+  _time: 2025-08-28 22:04:22.164195321 Z
+  _version: 0.15.7/0.53.5/0.15.25
+  analyzers: 18
+  text: |-
+    The average reward per task (8.9 points) is decreasing (R=0.06).
+    The average punishment per task (15.0 points) is decreasing (R=0.03).
+    The average backlog size per repository (2.8 tasks) is decreasing (R=-0.64).
+    The average build duration (2m42s) is increasing (R=0.91).
+    The average number of builds per week (891.7) is decreasing (R=-0.92).
+    The average build success rate (94%) is decreasing (R=-0.25).
+    The average number of commits per week (24.8) is decreasing (R=-0.68).
+    The average bugs accepted per month (24.0) is decreasing (R=-0.57).
+    The average monthly punishment (131 points) is decreasing (R=-0.92).
+    The average monthly wage (8.6 points) is increasing (R=0.78).
+    The average issue cycle time (4d3h) is increasing (R=0.38).
+    The average pull cycle time (1d20h) is increasing (R=0.36).
+    The average quality of service (33%) is decreasing (R=-0.78).
+    The average number of releases per month (0.0) is staying still.
+    The average time of issue triaging (4h20m) is decreasing (R=-0.34).
+    The average monthly turnover (21.0 developers) is decreasing (R=-0.77).
+  what: assessment
+  when: 2025-08-28 22:04:22.171363401 Z
+- _id: 59409
+  _job: 34767
+  _time: 2025-08-28 22:04:32.013402757 Z
+  _version: 0.15.7/0.53.5/0.15.25
+  analyzers: 18
+  text: |-
+    The average reward per task (8.9 points) is decreasing (R=0.06).
+    The average punishment per task (15.0 points) is decreasing (R=0.03).
+    The average backlog size per repository (2.8 tasks) is decreasing (R=-0.64).
+    The average build duration (2m42s) is increasing (R=0.91).
+    The average number of builds per week (891.7) is decreasing (R=-0.92).
+    The average build success rate (94%) is decreasing (R=-0.25).
+    The average number of commits per week (24.8) is decreasing (R=-0.68).
+    The average bugs accepted per month (24.0) is decreasing (R=-0.57).
+    The average monthly punishment (131 points) is decreasing (R=-0.92).
+    The average monthly wage (8.6 points) is increasing (R=0.78).
+    The average issue cycle time (4d3h) is increasing (R=0.38).
+    The average pull cycle time (1d20h) is increasing (R=0.36).
+    The average quality of service (33%) is decreasing (R=-0.78).
+    The average number of releases per month (0.0) is staying still.
+    The average time of issue triaging (4h20m) is decreasing (R=-0.34).
+    The average monthly turnover (21.0 developers) is decreasing (R=-0.77).
+  what: assessment
+  when: 2025-08-28 22:04:32.020617563 Z
+- _id: 59418
+  _time: 2025-08-28 22:59:05.476328312 Z
   _version: 0.15.6/0.53.4/
-  latest: 642
+  latest: 53966878180
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 59419
+  _time: 2025-08-28 22:59:42.425221110 Z
+  _version: 0.15.6/0.53.4/
+  latest: 368
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 59420
+  _time: 2025-08-28 22:59:44.006605075 Z
+  _version: 0.15.6/0.53.4/
+  latest: 0
+  repository: 237167507
+  what: issues-were-scanned
+  where: github
+- _id: 59421
+  _time: 2025-08-28 22:59:48.300183592 Z
+  _version: 0.15.6/0.53.4/
+  latest: 0
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 59422
+  _time: 2025-08-28 22:59:50.155627288 Z
+  _version: 0.15.6/0.53.4/
+  latest: 702
+  repository: 237167507
+  what: min-issue-was-found
+  where: github
+- _id: 59423
+  _time: 2025-08-28 22:59:50.647012856 Z
+  _version: 0.15.6/0.53.4/
+  latest: 864
+  repository: 237167507
+  what: min-pull-was-found
+  where: github
+- _id: 59424
+  _time: 2025-08-28 23:01:31.797022279 Z
+  _version: 0.15.6/0.53.4/
+  latest: 264
   repository: 237167507
   what: labels-were-scanned
+  where: github
+- _id: 59425
+  _time: 2025-08-28 23:02:37.821355954 Z
+  _version: 0.15.6/0.53.4/
+  latest: 0
+  repository: 237167507
+  what: merges-were-scanned
   where: github
