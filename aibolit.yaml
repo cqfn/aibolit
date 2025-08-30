@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 371.47533584
+  seconds: 297.419730727
   version: 0.53.5
   what: judges-summary
-  when: 2025-08-30 09:01:21.660657848 Z
+  when: 2025-08-30 10:00:06.592223744 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -28626,30 +28626,6 @@
   since: 2025-08-22 07:57:41.657893813 Z
   what: quality-of-service
   when: 2025-08-29 07:57:41.656273777 Z
-- _id: 60577
-  _job: 34875
-  _time: 2025-08-29 08:05:29.134256064 Z
-  _version: 0.15.7/0.53.5/0.15.26
-  analyzers: 18
-  text: |-
-    The average reward per task (8.9 points) is decreasing (R=0.06).
-    The average punishment per task (15.0 points) is decreasing (R=0.03).
-    The average backlog size per repository (2.8 tasks) is decreasing (R=-0.65).
-    The average build duration (2m42s) is increasing (R=0.87).
-    The average number of builds per week (891.7) is decreasing (R=-0.92).
-    The average build success rate (94%) is decreasing (R=-0.22).
-    The average number of commits per week (24.8) is decreasing (R=-0.68).
-    The average bugs accepted per month (24.0) is decreasing (R=-0.57).
-    The average monthly punishment (131 points) is decreasing (R=-0.92).
-    The average monthly wage (8.6 points) is increasing (R=0.78).
-    The average issue cycle time (4d3h) is increasing (R=0.38).
-    The average pull cycle time (1d20h) is increasing (R=0.36).
-    The average quality of service (33%) is decreasing (R=-0.78).
-    The average number of releases per month (0.0) is staying still.
-    The average time of issue triaging (4h12m) is decreasing (R=-0.36).
-    The average monthly turnover (21.0 developers) is decreasing (R=-0.77).
-  what: assessment
-  when: 2025-08-29 08:05:29.145786689 Z
 - _id: 60579
   _job: 34875
   _time: 2025-08-29 08:05:38.931519623 Z
@@ -28800,9 +28776,40 @@
   when: *220
   where: github
   who: 526301
-- _id: 62113
-  _job: 34999
-  _time: 2025-08-30 08:01:33.341353505 Z
+- _id: 62114
+  _time: 2025-08-30 08:55:12.515077983 Z
+  _version: 0.15.7/0.53.5/
+  latest: 54016346177
+  repository: 237167507
+  what: events-were-scanned
+  where: github
+- _id: 62221
+  _job: 35003
+  _time: 2025-08-30 09:02:00.290626855 Z
+  _version: 0.15.7/0.53.5/0.15.27
+  analyzers: 18
+  text: |-
+    The average reward per task (9.0 points) is increasing (R=0.07).
+    The average punishment per task (15.0 points) is decreasing (R=0.03).
+    The average backlog size per repository (2.8 tasks) is decreasing (R=-0.65).
+    The average build duration (2m42s) is increasing (R=0.87).
+    The average number of builds per week (866.7) is decreasing (R=-0.90).
+    The average build success rate (94%) is decreasing (R=-0.22).
+    The average number of commits per week (23.4) is decreasing (R=-0.66).
+    The average bugs accepted per month (18.0) is decreasing (R=-0.76).
+    The average monthly punishment (131 points) is decreasing (R=-0.92).
+    The average monthly wage (9.5 points) is increasing (R=0.88).
+    The average issue cycle time (4d3h) is increasing (R=0.38).
+    The average pull cycle time (1d20h) is increasing (R=0.36).
+    The average quality of service (33%) is decreasing (R=-0.78).
+    The average number of releases per month (0.0) is staying still.
+    The average time of issue triaging (4h12m) is decreasing (R=-0.36).
+    The average monthly turnover (21.0 developers) is decreasing (R=-0.78).
+  what: assessment
+  when: 2025-08-30 09:02:00.297974744 Z
+- _id: 62222
+  _job: 35003
+  _time: 2025-08-30 09:02:06.367679165 Z
   _version: 0.15.7/0.53.5/0.15.27
   issues:
   - 136-136
@@ -28831,10 +28838,8 @@
   - 155-156
   - 155-157
   - 155-160
-  - 156-159
-  - 156-156
   - 156-160
-  - 160-160
+  - 156-156
   - 162-162
   - 162-165
   - 162-163
@@ -28857,9 +28862,9 @@
   - 197-198
   - 197-200
   - 197-199
-  - 198-201
-  - 198-200
   - 198-198
+  - 198-200
+  - 198-201
   - 200-200
   - 200-201
   - 201-201
@@ -28872,10 +28877,10 @@
   - 217-217
   - 217-218
   - 218-218
-  - 220-222
-  - 220-221
-  - 220-224
   - 220-220
+  - 220-224
+  - 220-221
+  - 220-222
   - 222-222
   - 222-224
   - 222-223
@@ -28885,9 +28890,9 @@
   - 229-233
   - 229-232
   - 229-230
-  - 230-231
-  - 230-230
   - 230-232
+  - 230-230
+  - 230-231
   - 231-233
   - 233-233
   - 235-237
@@ -28897,9 +28902,9 @@
   - 236-238
   - 236-245
   - 236-236
-  - 238-239
-  - 238-240
   - 238-243
+  - 238-240
+  - 238-239
   - 239-240
   - 239-241
   - 239-244
@@ -28910,10 +28915,10 @@
   - 241-246
   - 241-242
   - 242-243
-  - 243-246
-  - 243-247
-  - 243-243
   - 243-245
+  - 243-243
+  - 243-247
+  - 243-246
   - 244-245
   - 247-247
   - 247-248
@@ -28966,11 +28971,9 @@
   - 308-309
   - 309-313
   - 309-309
-  - 311-311
-  - 311-313
-  - 311-314
   - 311-312
-  - 312-312
+  - 311-314
+  - 311-313
   - 312-314
   - 312-313
   - 313-313
@@ -28981,11 +28984,9 @@
   - 317-317
   - 321-321
   - 321-323
-  - 325-325
-  - 325-329
-  - 325-326
   - 325-328
-  - 326-326
+  - 325-326
+  - 325-329
   - 328-329
   - 328-328
   - 332-332
@@ -29008,22 +29009,22 @@
   - 350-351
   - 350-350
   - 354-354
-  - 356-361
-  - 356-359
-  - 356-362
-  - 356-357
   - 356-358
+  - 356-357
+  - 356-362
+  - 356-359
+  - 356-361
   - 357-359
   - 358-361
   - 358-359
   - 359-360
   - 360-365
   - 360-362
-  - 361-365
-  - 361-361
-  - 361-364
-  - 361-363
   - 361-362
+  - 361-363
+  - 361-364
+  - 361-361
+  - 361-365
   - 362-362
   - 364-365
   - 365-365
@@ -29048,9 +29049,8 @@
   - 377-380
   - 378-379
   - 378-380
-  - 379-379
   - 379-381
-  - 380-380
+  - 379-380
   - 380-381
   - 381-381
   - 383-386
@@ -29063,10 +29063,8 @@
   - 389-389
   - 389-390
   - 389-392
-  - 391-391
-  - 391-392
   - 391-394
-  - 392-392
+  - 391-392
   - 392-393
   - 392-405
   - 392-394
@@ -29074,11 +29072,10 @@
   - 393-397
   - 394-394
   - 394-396
-  - 394-395
-  - 396-396
-  - 396-399
+  - 394-398
   - 396-397
-  - 396-398
+  - 396-399
+  - 396-396
   - 398-398
   - 398-402
   - 398-401
@@ -29104,11 +29101,10 @@
   - 422-423
   - 422-427
   - 422-428
-  - 423-423
-  - 423-424
-  - 423-425
   - 423-427
-  - 424-426
+  - 423-425
+  - 423-424
+  - 423-426
   - 424-424
   - 426-427
   - 426-428
@@ -29129,10 +29125,10 @@
   - 448-448
   - 451-453
   - 451-452
-  - 455-457
-  - 455-456
-  - 455-460
   - 455-458
+  - 455-460
+  - 455-456
+  - 455-457
   - 456-456
   - 456-460
   - 456-457
@@ -29158,8 +29154,8 @@
   - 472-473
   - 472-481
   - 472-474
-  - 473-476
   - 473-475
+  - 473-476
   - 474-474
   - 474-477
   - 474-475
@@ -29183,19 +29179,23 @@
   - 496-497
   - 496-505
   - 496-498
-  - 498-502
-  - 498-499
-  - 498-500
   - 498-501
+  - 498-500
+  - 498-499
+  - 498-502
   - 499-499
   - 501-501
   - 501-503
   - 501-506
+  - 503-503
   - 503-504
+  - 504-504
   - 504-505
   - 504-506
   - 505-507
+  - 505-505
   - 505-506
+  - 506-506
   - 509-509
   - 511-511
   - 511-512
@@ -29203,21 +29203,27 @@
   - 514-516
   - 514-518
   - 514-515
+  - 515-515
   - 515-521
   - 515-520
   - 515-518
+  - 515-516
   - 516-523
+  - 516-517
+  - 517-522
   - 518-520
-  - 518-522
+  - 518-518
+  - 518-519
   - 519-519
   - 521-527
-  - 522-523
-  - 522-526
-  - 522-525
+  - 522-522
   - 522-524
+  - 522-525
+  - 522-526
+  - 522-523
   - 523-523
-  - 525-527
   - 525-525
+  - 525-527
   - 527-527
   - 529-529
   - 529-530
@@ -29228,6 +29234,7 @@
   - 537-538
   - 541-544
   - 541-543
+  - 541-541
   - 541-542
   - 541-550
   - 541-545
@@ -29236,37 +29243,58 @@
   - 543-543
   - 543-547
   - 543-548
-  - 544-549
+  - 543-544
   - 544-544
+  - 544-549
   - 544-546
   - 544-547
+  - 545-545
   - 545-548
   - 545-549
+  - 546-546
+  - 546-547
   - 547-550
+  - 547-548
   - 548-549
   - 549-549
   - 553-553
   - 555-555
-  - 557-558
-  - 557-559
+  - 557-557
   - 557-560
-  - 563-564
-  - 563-565
+  - 557-559
+  - 557-558
+  - 558-559
+  - 559-560
+  - 560-560
+  - 563-563
   - 563-566
+  - 563-565
+  - 563-564
+  - 564-564
   - 568-568
   - 568-569
   - 569-569
   - 572-573
-  - 575-583
-  - 575-577
+  - 572-572
+  - 573-573
   - 575-578
-  - 576-578
+  - 575-577
+  - 575-583
   - 576-580
+  - 576-576
+  - 576-578
   - 576-582
+  - 577-577
+  - 577-578
+  - 578-578
+  - 580-580
   - 580-581
   - 580-583
+  - 581-581
   - 581-583
+  - 582-582
   - 582-583
+  - 583-583
   - 585-586
   - 586-586
   - 588-590
@@ -29290,10 +29318,10 @@
   - 607-613
   - 609-612
   - 609-613
-  - 610-612
-  - 610-610
-  - 610-613
   - 610-611
+  - 610-613
+  - 610-610
+  - 610-612
   - 611-612
   - 612-612
   - 616-616
@@ -29302,10 +29330,10 @@
   - 618-618
   - 618-621
   - 620-621
-  - 624-625
-  - 624-636
-  - 624-626
   - 624-627
+  - 624-626
+  - 624-636
+  - 624-625
   - 627-629
   - 627-628
   - 627-630
@@ -29316,8 +29344,8 @@
   - 629-631
   - 631-634
   - 631-631
-  - 633-635
   - 633-633
+  - 633-635
   - 635-635
   - 635-636
   - 638-638
@@ -29517,8 +29545,8 @@
   - 55802-55901
   - 55817-55901
   - 55857-55901
-  - 55903-56004
   - 55903-55906
+  - 55903-56004
   - 56013-56080
   - 56083-56090
   - 56094-56105
@@ -29528,1595 +29556,555 @@
   repo: 237167507
   what: tombstone
   where: github
-- _id: 62114
-  _time: 2025-08-30 08:55:12.515077983 Z
-  _version: 0.15.7/0.53.5/
-  latest: 54016346177
+- _id: 62223
+  _job: 35003
+  _time: 2025-08-30 09:02:08.636465589 Z
+  _version: 0.15.7/0.53.5/0.15.27
+  award: 12
+  details: It's time to reward @mmenshikh for the bug reported in cqfn/aibolit#889,
+    the reward amount is 12.
+  href: https://github.com/cqfn/aibolit/issues/889/#issuecomment-3239127584
+  is_human: 1
+  issue: 889
+  receipt: 0
   repository: 237167507
-  what: events-were-scanned
+  what: bug-report-was-rewarded
+  when: 2025-08-30 09:01:52.907064190 Z
   where: github
-- _id: 62115
-  _time: 2025-08-30 08:55:21.618131515 Z
-  _version: 0.15.7/0.53.5/
-  latest: 0
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 62116
-  _time: 2025-08-30 08:55:56.105163277 Z
+  who: 150797125
+  why: Reported bug in cqfn/aibolit#889
+- _id: 62224
+  _time: 2025-08-30 09:56:02.818533045 Z
   _version: 0.15.7/0.53.5/
   latest: 370
   repository: 237167507
-  what: labels-were-scanned
+  what: types-were-scanned
   where: github
-- _id: 62117
-  _time: 2025-08-30 08:57:23.647355787 Z
+- _id: 62225
+  _time: 2025-08-30 09:56:12.657788654 Z
   _version: 0.15.7/0.53.5/
-  latest: 483
+  latest: 591
   repository: 237167507
   what: min-pull-was-found
   where: github
-- _id: 62118
-  _time: 2025-08-30 08:57:24.512920564 Z
+- _id: 62226
+  _time: 2025-08-30 09:56:36.027232415 Z
   _version: 0.15.7/0.53.5/
-  branch: append_node
-  comments: 5
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 5
-  comments_resolved: 2
-  comments_to_code: 2
-  details: Apparently, cqfn/aibolit#503 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 53
-  issue: 503
+  latest: 513
   repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-09 08:40:05.000000000 Z
+  what: assignees-were-scanned
   where: github
-  who: 8086956
-- _id: 62119
-  _time: 2025-08-30 08:57:35.032577906 Z
-  _version: 0.15.7/0.53.5/
-  branch: final_annotation
-  comments: 9
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 7
-  comments_resolved: 1
-  comments_to_code: 2
-  details: Apparently, cqfn/aibolit#504 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 29
-  issue: 504
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-09 11:47:33.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62120
-  _time: 2025-08-30 08:57:38.598383339 Z
-  _version: 0.15.7/0.53.5/
-  branch: timeout
-  comments: 0
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 0
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#505 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 2
-  issue: 505
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-13 11:42:19.000000000 Z
-  where: github
-  who: 231433
-- _id: 62121
-  _time: 2025-08-30 08:57:40.453940328 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-469
-  comments: 14
-  comments_appreciated: 1
-  comments_by_author: 3
-  comments_by_reviewers: 11
-  comments_resolved: 0
-  comments_to_code: 1
-  details: Apparently, cqfn/aibolit#506 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 930
-  issue: 506
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-14 12:36:39.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62122
-  _time: 2025-08-30 08:57:45.115993502 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_508
-  comments: 35
-  comments_appreciated: 0
-  comments_by_author: 12
-  comments_by_reviewers: 23
-  comments_resolved: 8
-  comments_to_code: 26
-  details: Apparently, cqfn/aibolit#509 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 41
-  issue: 509
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-17 07:30:00.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62123
-  _time: 2025-08-30 08:57:53.096996640 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_510
-  comments: 20
-  comments_appreciated: 0
-  comments_by_author: 4
-  comments_by_reviewers: 16
-  comments_resolved: 9
-  comments_to_code: 15
-  details: Apparently, cqfn/aibolit#511 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 71
-  issue: 511
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-15 16:17:11.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62124
-  _time: 2025-08-30 08:57:58.649907431 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-514
-  comments: 10
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 8
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#515 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 102
-  issue: 515
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-14 14:06:34.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62125
-  _time: 2025-08-30 08:58:02.629594725 Z
-  _version: 0.15.7/0.53.5/
-  branch: acheshkov-patch-1
-  comments: 4
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 3
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#516 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 4
-  issue: 516
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-14 14:47:52.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62126
-  _time: 2025-08-30 08:58:05.588287989 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-469
-  comments: 8
-  comments_appreciated: 4
-  comments_by_author: 2
-  comments_by_reviewers: 6
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#517 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 232
-  issue: 517
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-15 07:40:27.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62127
-  _time: 2025-08-30 08:58:08.977456044 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-514
-  comments: 17
-  comments_appreciated: 0
-  comments_by_author: 5
-  comments_by_reviewers: 12
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#518 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 2
-  issue: 518
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-15 12:16:19.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62128
-  _time: 2025-08-30 08:58:14.015573269 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-469
-  comments: 3
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 3
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#519 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 25
-  issue: 519
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-15 14:35:10.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62129
-  _time: 2025-08-30 08:58:16.282910464 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-469
-  comments: 3
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 3
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#522 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 302
-  issue: 522
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-16 12:07:35.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62130
-  _time: 2025-08-30 08:58:18.646368822 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_520
-  comments: 6
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 5
-  comments_resolved: 0
-  comments_to_code: 2
-  details: Apparently, cqfn/aibolit#523 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 26
-  issue: 523
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-17 10:06:22.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62131
-  _time: 2025-08-30 08:58:21.734177676 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-469
-  comments: 3
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 3
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#525 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 367
-  issue: 525
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-20 07:43:27.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62132
-  _time: 2025-08-30 08:58:24.423667491 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-526
-  comments: 7
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 6
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#527 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 41
-  issue: 527
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-17 15:09:52.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62133
-  _time: 2025-08-30 08:58:27.688791592 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_1
-  comments: 11
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 11
-  comments_resolved: 1
-  comments_to_code: 5
-  details: Apparently, cqfn/aibolit#529 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 59
-  issue: 529
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-24 10:16:49.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62134
-  _time: 2025-08-30 08:58:36.520768633 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-530
-  comments: 3
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 3
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#541 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 4
-  issue: 541
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-20 12:25:55.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62135
-  _time: 2025-08-30 08:58:38.908105169 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_3
-  comments: 19
-  comments_appreciated: 0
-  comments_by_author: 6
-  comments_by_reviewers: 13
-  comments_resolved: 6
-  comments_to_code: 16
-  details: Apparently, cqfn/aibolit#542 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 35
-  issue: 542
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-23 08:37:59.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62136
-  _time: 2025-08-30 08:58:44.316474527 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-533
-  comments: 5
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 4
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#543 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 103
-  issue: 543
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-22 14:22:55.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62137
-  _time: 2025-08-30 08:58:47.037953243 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-534
-  comments: 4
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 4
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#544 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 21
-  issue: 544
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-20 15:19:57.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62138
-  _time: 2025-08-30 08:58:49.546069265 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_7
-  comments: 7
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 5
-  comments_resolved: 0
-  comments_to_code: 4
-  details: Apparently, cqfn/aibolit#545 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 50
-  issue: 545
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-22 07:36:23.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62139
-  _time: 2025-08-30 08:58:52.918467289 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-531
-  comments: 9
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 9
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#546 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 6134
-  issue: 546
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-20 16:43:21.000000000 Z
-  where: github
-  who: 231433
-- _id: 62140
-  _time: 2025-08-30 08:58:56.306252889 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_10
-  comments: 8
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 7
-  comments_resolved: 0
-  comments_to_code: 2
-  details: Apparently, cqfn/aibolit#547 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 24
-  issue: 547
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-22 08:43:10.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62141
-  _time: 2025-08-30 08:58:59.933905380 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_11
-  comments: 17
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 15
-  comments_resolved: 0
-  comments_to_code: 5
-  details: Apparently, cqfn/aibolit#548 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 24
-  issue: 548
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-22 08:24:59.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62142
-  _time: 2025-08-30 08:59:05.076201533 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_12
-  comments: 3
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 3
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#549 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 48
-  issue: 549
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-21 09:25:40.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62143
-  _time: 2025-08-30 08:59:07.528238355 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_18
-  comments: 30
-  comments_appreciated: 1
-  comments_by_author: 11
-  comments_by_reviewers: 19
-  comments_resolved: 12
-  comments_to_code: 27
-  details: Apparently, cqfn/aibolit#553 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 84
-  issue: 553
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-22 14:01:53.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62144
-  _time: 2025-08-30 08:59:14.906222660 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-550
-  comments: 5
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 4
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#555 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 141
-  issue: 555
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-22 06:31:04.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62145
-  _time: 2025-08-30 08:59:17.585897305 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_8
-  comments: 14
-  comments_appreciated: 1
-  comments_by_author: 5
-  comments_by_reviewers: 9
-  comments_resolved: 6
-  comments_to_code: 11
-  details: Apparently, cqfn/aibolit#557 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 172
-  issue: 557
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-22 14:43:20.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62146
-  _time: 2025-08-30 08:59:22.053039311 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-532
-  comments: 13
-  comments_appreciated: 0
-  comments_by_author: 5
-  comments_by_reviewers: 8
-  comments_resolved: 1
-  comments_to_code: 10
-  details: Apparently, cqfn/aibolit#558 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 430
-  issue: 558
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-30 07:09:51.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62147
-  _time: 2025-08-30 08:59:26.326753035 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-538
-  comments: 5
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 4
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#559 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 59
-  issue: 559
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-26 14:29:57.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62148
-  _time: 2025-08-30 08:59:28.964316316 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_15
-  comments: 20
-  comments_appreciated: 1
-  comments_by_author: 3
-  comments_by_reviewers: 17
-  comments_resolved: 3
-  comments_to_code: 17
-  details: Apparently, cqfn/aibolit#560 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 91
-  issue: 560
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-24 12:52:35.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62149
-  _time: 2025-08-30 08:59:34.702013269 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-535
-  comments: 3
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 3
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#563 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 664
-  issue: 563
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-24 16:39:36.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62150
-  _time: 2025-08-30 08:59:37.212943241 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-537
-  comments: 6
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 5
-  comments_resolved: 0
-  comments_to_code: 3
-  details: Apparently, cqfn/aibolit#564 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 414
-  issue: 564
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-24 16:59:43.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62151
-  _time: 2025-08-30 08:59:40.529361680 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_2
-  comments: 20
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 20
-  comments_resolved: 3
-  comments_to_code: 10
-  details: Apparently, cqfn/aibolit#568 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 136
-  issue: 568
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-31 13:56:53.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62152
-  _time: 2025-08-30 08:59:46.322214527 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-561
-  comments: 13
-  comments_appreciated: 0
-  comments_by_author: 5
-  comments_by_reviewers: 8
-  comments_resolved: 4
-  comments_to_code: 10
-  details: Apparently, cqfn/aibolit#569 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 157
-  issue: 569
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-28 15:03:07.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62153
-  _time: 2025-08-30 08:59:50.413922763 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_4
-  comments: 4
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 4
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#572 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 109
-  issue: 572
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-28 06:52:09.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62154
-  _time: 2025-08-30 08:59:53.010539055 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-528_9
-  comments: 21
-  comments_appreciated: 0
-  comments_by_author: 6
-  comments_by_reviewers: 15
-  comments_resolved: 3
-  comments_to_code: 15
-  details: Apparently, cqfn/aibolit#573 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 537
-  issue: 573
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-31 14:52:52.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62155
-  _time: 2025-08-30 08:59:59.151369578 Z
-  _version: 0.15.7/0.53.5/
-  branch: send_null
-  comments: 28
-  comments_appreciated: 1
-  comments_by_author: 9
-  comments_by_reviewers: 19
-  comments_resolved: 9
-  comments_to_code: 25
-  details: Apparently, cqfn/aibolit#576 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 85
-  issue: 576
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-30 14:08:16.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62156
-  _time: 2025-08-30 09:00:07.016953917 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_13
-  comments: 8
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 7
-  comments_resolved: 0
-  comments_to_code: 2
-  details: Apparently, cqfn/aibolit#577 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 109
-  issue: 577
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-30 09:52:05.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62157
-  _time: 2025-08-30 09:00:10.488251828 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-528_5
-  comments: 12
-  comments_appreciated: 0
-  comments_by_author: 3
-  comments_by_reviewers: 9
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#578 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 285
-  issue: 578
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-08-09 12:05:12.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62158
-  _time: 2025-08-30 09:00:14.598446512 Z
-  _version: 0.15.7/0.53.5/
-  branch: this_finder
-  comments: 3
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 3
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#580 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 276
-  issue: 580
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-30 14:42:05.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62159
-  _time: 2025-08-30 09:00:17.098763910 Z
-  _version: 0.15.7/0.53.5/
-  branch: wp_update
-  comments: 0
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 0
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#581 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 2171
-  issue: 581
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-30 18:11:17.000000000 Z
-  where: github
-  who: 231433
-- _id: 62160
-  _time: 2025-08-30 09:00:18.925699603 Z
-  _version: 0.15.7/0.53.5/
-  branch: acheshkov-patch-2
-  comments: 0
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 0
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#582 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 11
-  issue: 582
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-30 19:44:09.000000000 Z
-  where: github
-  who: 231433
-- _id: 62161
-  _time: 2025-08-30 09:00:20.854800530 Z
-  _version: 0.15.7/0.53.5/
-  branch: style
-  comments: 0
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 0
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#583 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 96
-  issue: 583
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-07-31 10:03:58.000000000 Z
-  where: github
-  who: 13572815
-- _id: 62162
-  _time: 2025-08-30 09:00:22.774614019 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-585
-  comments: 12
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 11
-  comments_resolved: 1
-  comments_to_code: 3
-  details: Apparently, cqfn/aibolit#586 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 164
-  issue: 586
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-08-03 14:27:18.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62163
-  _time: 2025-08-30 09:00:27.030146036 Z
-  _version: 0.15.7/0.53.5/
-  branch: number_of_methods
-  comments: 26
-  comments_appreciated: 1
-  comments_by_author: 9
-  comments_by_reviewers: 17
-  comments_resolved: 0
-  comments_to_code: 14
-  details: Apparently, cqfn/aibolit#589 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 220
-  issue: 589
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-08-13 12:00:01.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62164
-  _time: 2025-08-30 09:00:33.760987795 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-588
-  comments: 4
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 4
-  comments_resolved: 0
-  comments_to_code: 1
-  details: Apparently, cqfn/aibolit#590 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 206
-  issue: 590
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-08-05 08:19:45.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62165
-  _time: 2025-08-30 09:00:36.518386309 Z
+- _id: 62227
+  _time: 2025-08-30 09:56:36.907899717 Z
   _version: 0.15.7/0.53.5/
   branch: acheshkov-patch-3
-  comments: 10
-  comments_appreciated: 0
-  comments_by_author: 4
-  comments_by_reviewers: 6
-  comments_resolved: 2
-  comments_to_code: 7
-  details: Apparently, cqfn/aibolit#592 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 6
-  issue: 592
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-08-07 06:45:44.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62166
-  _time: 2025-08-30 09:00:40.295414605 Z
-  _version: 0.15.7/0.53.5/
-  branch: model_katya
-  comments: 9
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 7
-  comments_resolved: 2
-  comments_to_code: 6
-  details: Apparently, cqfn/aibolit#594 has been 'pull-was-merged'.
-  failed_builds: 0
-  hoc: 82
-  issue: 594
-  repository: 237167507
-  succeeded_builds: 0
-  what: pull-was-merged
-  when: 2020-08-06 11:56:11.000000000 Z
-  where: github
-  who: 8086956
-- _id: 62167
-  _time: 2025-08-30 09:00:44.019110336 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-574
   comments: 0
   comments_appreciated: 0
   comments_by_author: 0
   comments_by_reviewers: 0
   comments_resolved: 0
   comments_to_code: 0
-  details: Apparently, cqfn/aibolit#597 has been 'pull-was-merged'.
+  details: Apparently, cqfn/aibolit#602 has been 'pull-was-merged'.
   failed_builds: 0
-  hoc: 22
-  issue: 597
+  hoc: 2
+  issue: 602
   repository: 237167507
   succeeded_builds: 0
   what: pull-was-merged
-  when: 2020-08-07 09:02:02.000000000 Z
+  when: 2020-08-07 09:28:45.000000000 Z
   where: github
-  who: 13572815
-- _id: 62168
-  _time: 2025-08-30 09:00:45.199677616 Z
+  who: 231433
+- _id: 62228
+  _time: 2025-08-30 09:56:43.932284608 Z
   _version: 0.15.7/0.53.5/
-  latest: 597
+  branch: acheshkov-patch-4
+  comments: 4
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 2
+  comments_resolved: 0
+  comments_to_code: 4
+  details: Apparently, cqfn/aibolit#604 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 5
+  issue: 604
   repository: 237167507
-  what: merges-were-scanned
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-07 11:25:01.000000000 Z
   where: github
-- _id: 62169
-  _time: 2025-08-30 09:00:52.369489411 Z
+  who: 231433
+- _id: 62229
+  _time: 2025-08-30 09:56:46.898877183 Z
+  _version: 0.15.7/0.53.5/
+  branch: acheshkov-patch-3
+  comments: 0
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 0
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#605 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 2
+  issue: 605
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-07 10:40:50.000000000 Z
+  where: github
+  who: 231433
+- _id: 62230
+  _time: 2025-08-30 09:56:48.932612705 Z
+  _version: 0.15.7/0.53.5/
+  branch: release_1.2.6
+  comments: 9
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#606 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 2
+  issue: 606
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-13 14:28:37.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62231
+  _time: 2025-08-30 09:56:52.996354652 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-570
+  comments: 3
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 3
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#607 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 874
+  issue: 607
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-08 09:29:33.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62232
+  _time: 2025-08-30 09:56:55.576693794 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-608
+  comments: 12
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 9
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#610 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 15
+  issue: 610
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-13 10:20:01.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62233
+  _time: 2025-08-30 09:57:00.104712356 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-468
+  comments: 13
+  comments_appreciated: 1
+  comments_by_author: 4
+  comments_by_reviewers: 9
+  comments_resolved: 1
+  comments_to_code: 6
+  details: Apparently, cqfn/aibolit#611 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 3073
+  issue: 611
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-21 11:27:53.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62234
+  _time: 2025-08-30 09:57:04.965283073 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-609
+  comments: 6
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#612 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 13
+  issue: 612
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-13 11:08:21.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62235
+  _time: 2025-08-30 09:57:08.228501723 Z
+  _version: 0.15.7/0.53.5/
+  branch: ranked_decomposed
+  comments: 11
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 8
+  comments_resolved: 1
+  comments_to_code: 2
+  details: Apparently, cqfn/aibolit#616 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 211
+  issue: 616
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-28 14:05:13.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62236
+  _time: 2025-08-30 09:57:12.864083732 Z
+  _version: 0.15.7/0.53.5/
+  branch: getter_ignore
+  comments: 13
+  comments_appreciated: 1
+  comments_by_author: 3
+  comments_by_reviewers: 10
+  comments_resolved: 1
+  comments_to_code: 2
+  details: Apparently, cqfn/aibolit#618 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 90
+  issue: 618
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-25 12:16:51.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62237
+  _time: 2025-08-30 09:57:17.798269682 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-619
+  comments: 15
+  comments_appreciated: 0
+  comments_by_author: 4
+  comments_by_reviewers: 11
+  comments_resolved: 4
+  comments_to_code: 7
+  details: Apparently, cqfn/aibolit#620 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 482
+  issue: 620
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-24 11:49:33.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62238
+  _time: 2025-08-30 09:57:22.936625405 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-507
+  comments: 23
+  comments_appreciated: 0
+  comments_by_author: 9
+  comments_by_reviewers: 14
+  comments_resolved: 2
+  comments_to_code: 3
+  details: Apparently, cqfn/aibolit#621 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 35
+  issue: 621
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-28 08:38:33.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62239
+  _time: 2025-08-30 09:57:29.976006265 Z
+  _version: 0.15.7/0.53.5/
+  branch: test_for_ncss
+  comments: 7
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 2
+  details: Apparently, cqfn/aibolit#624 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 5194
+  issue: 624
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-09-02 09:50:11.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62240
+  _time: 2025-08-30 09:57:33.406674063 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-622
+  comments: 10
+  comments_appreciated: 0
+  comments_by_author: 4
+  comments_by_reviewers: 5
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#625 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 4
+  issue: 625
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-25 11:29:29.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62241
+  _time: 2025-08-30 09:57:37.364026390 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-626
+  comments: 4
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#627 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 298
+  issue: 627
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-25 08:02:22.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62242
+  _time: 2025-08-30 09:57:40.422023465 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-628
+  comments: 5
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#629 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 32
+  issue: 629
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-25 13:53:47.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62243
+  _time: 2025-08-30 09:57:43.513305069 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-630
+  comments: 3
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 3
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#631 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 12
+  issue: 631
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-27 07:51:27.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62244
+  _time: 2025-08-30 09:57:46.029832080 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-632
+  comments: 8
+  comments_appreciated: 1
+  comments_by_author: 2
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 4
+  details: Apparently, cqfn/aibolit#633 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 65
+  issue: 633
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-28 13:16:33.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62245
+  _time: 2025-08-30 09:57:49.946650856 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-634
+  comments: 6
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 3
+  details: Apparently, cqfn/aibolit#635 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 232
+  issue: 635
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-09-16 07:36:39.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62246
+  _time: 2025-08-30 09:57:53.291499839 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-640
+  comments: 30
+  comments_appreciated: 0
+  comments_by_author: 14
+  comments_by_reviewers: 16
+  comments_resolved: 2
+  comments_to_code: 29
+  details: Apparently, cqfn/aibolit#641 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 243
+  issue: 641
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-09-21 07:36:45.000000000 Z
+  where: github
+  who: 231433
+- _id: 62247
+  _time: 2025-08-30 09:58:01.718262861 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-636
+  comments: 3
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 3
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#643 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 341
+  issue: 643
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-09-16 09:35:42.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62248
+  _time: 2025-08-30 09:58:04.202556773 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-638
+  comments: 4
+  comments_appreciated: 1
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#644 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 149
+  issue: 644
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-09-16 12:51:56.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62249
+  _time: 2025-08-30 09:58:07.172566301 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-646
+  comments: 3
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 3
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#647 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 102
+  issue: 647
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-09-18 09:42:58.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62250
+  _time: 2025-08-30 09:58:09.650047764 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-649
+  comments: 3
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 3
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#650 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 140
+  issue: 650
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-09-21 08:27:14.000000000 Z
+  where: github
+  who: 8086956
+- _id: 62251
+  _time: 2025-08-30 09:58:12.254240939 Z
+  _version: 0.15.7/0.53.5/
+  branch: issue-654
+  comments: 0
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 0
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#655 has been 'pull-was-merged'.
+  failed_builds: 0
+  hoc: 945
+  issue: 655
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-10-27 11:22:20.000000000 Z
+  where: github
+  who: 1987026
+- _id: 62252
+  _time: 2025-08-30 09:58:17.840993034 Z
   _version: 0.15.7/0.53.5/
   latest: 0
   repository: 237167507
-  what: types-were-scanned
+  what: merges-were-scanned
   where: github
-- _id: 62170
-  _time: 2025-08-30 09:00:52.632396083 Z
+- _id: 62253
+  _time: 2025-08-30 09:59:22.463521190 Z
   _version: 0.15.7/0.53.5/
-  branch: append_node
-  details: The pull cqfn/aibolit#503 has been opened earlier by @lyriccoder.
-  issue: 503
+  latest: 694
   repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-08 14:58:31.000000000 Z
+  what: labels-were-scanned
   where: github
-  who: 20803206
-- _id: 62171
-  _time: 2025-08-30 09:00:53.393957936 Z
-  _version: 0.15.7/0.53.5/
-  branch: final_annotation
-  details: The pull cqfn/aibolit#504 has been opened earlier by @lyriccoder.
-  issue: 504
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-09 09:35:13.000000000 Z
-  where: github
-  who: 20803206
-- _id: 62172
-  _time: 2025-08-30 09:00:54.067789945 Z
-  _version: 0.15.7/0.53.5/
-  branch: timeout
-  details: The pull cqfn/aibolit#505 has been opened earlier by @lyriccoder.
-  issue: 505
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-13 09:09:14.000000000 Z
-  where: github
-  who: 20803206
-- _id: 62173
-  _time: 2025-08-30 09:00:54.699021921 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-469
-  details: The pull cqfn/aibolit#506 has been opened earlier by @aravij.
-  issue: 506
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-13 13:05:39.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62174
-  _time: 2025-08-30 09:00:55.363550820 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_508
-  details: The pull cqfn/aibolit#509 has been opened earlier by @vitaly-protasov.
-  issue: 509
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-13 15:57:30.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62175
-  _time: 2025-08-30 09:00:56.223855435 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_510
-  details: The pull cqfn/aibolit#511 has been opened earlier by @vitaly-protasov.
-  issue: 511
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-13 16:13:05.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62176
-  _time: 2025-08-30 09:00:56.720579085 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-514
-  details: The pull cqfn/aibolit#515 has been opened earlier by @lyriccoder.
-  issue: 515
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-14 10:05:12.000000000 Z
-  where: github
-  who: 20803206
-- _id: 62177
-  _time: 2025-08-30 09:00:57.262877221 Z
-  _version: 0.15.7/0.53.5/
-  branch: acheshkov-patch-1
-  details: The pull cqfn/aibolit#516 has been opened earlier by @acheshkov.
-  issue: 516
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-14 12:39:59.000000000 Z
-  where: github
-  who: 231433
-- _id: 62178
-  _time: 2025-08-30 09:00:58.401784933 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-469
-  details: The pull cqfn/aibolit#517 has been opened earlier by @aravij.
-  issue: 517
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-14 13:55:17.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62179
-  _time: 2025-08-30 09:00:59.305022110 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-514
-  details: The pull cqfn/aibolit#518 has been opened earlier by @lyriccoder.
-  issue: 518
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-14 14:21:58.000000000 Z
-  where: github
-  who: 20803206
-- _id: 62180
-  _time: 2025-08-30 09:00:59.872484601 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-469
-  details: The pull cqfn/aibolit#519 has been opened earlier by @aravij.
-  issue: 519
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-15 08:21:39.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62181
-  _time: 2025-08-30 09:01:00.481606193 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-469
-  details: The pull cqfn/aibolit#522 has been opened earlier by @aravij.
-  issue: 522
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-15 15:05:19.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62182
-  _time: 2025-08-30 09:01:01.081407069 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_520
-  details: The pull cqfn/aibolit#523 has been opened earlier by @vitaly-protasov.
-  issue: 523
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-16 14:58:19.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62183
-  _time: 2025-08-30 09:01:01.606730498 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-469
-  details: The pull cqfn/aibolit#525 has been opened earlier by @aravij.
-  issue: 525
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-17 09:13:37.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62184
-  _time: 2025-08-30 09:01:02.241621907 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-526
-  details: The pull cqfn/aibolit#527 has been opened earlier by @aravij.
-  issue: 527
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-17 14:36:33.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62185
-  _time: 2025-08-30 09:01:02.918213077 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_1
-  details: The pull cqfn/aibolit#529 has been opened earlier by @vitaly-protasov.
-  issue: 529
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-20 08:38:20.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62186
-  _time: 2025-08-30 09:01:03.451959620 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-530
-  details: The pull cqfn/aibolit#541 has been opened earlier by @aravij.
-  issue: 541
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-20 11:05:20.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62187
-  _time: 2025-08-30 09:01:04.065597013 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_3
-  details: The pull cqfn/aibolit#542 has been opened earlier by @vitaly-protasov.
-  issue: 542
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-20 13:34:46.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62188
-  _time: 2025-08-30 09:01:04.629550707 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-533
-  details: The pull cqfn/aibolit#543 has been opened earlier by @aravij.
-  issue: 543
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-20 13:43:31.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62189
-  _time: 2025-08-30 09:01:05.287045164 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-534
-  details: The pull cqfn/aibolit#544 has been opened earlier by @aravij.
-  issue: 544
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-20 14:27:36.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62190
-  _time: 2025-08-30 09:01:05.841960380 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_7
-  details: The pull cqfn/aibolit#545 has been opened earlier by @vitaly-protasov.
-  issue: 545
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-20 14:33:00.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62191
-  _time: 2025-08-30 09:01:06.884303910 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-531
-  details: The pull cqfn/aibolit#546 has been opened earlier by @lyriccoder.
-  issue: 546
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-20 14:39:49.000000000 Z
-  where: github
-  who: 20803206
-- _id: 62192
-  _time: 2025-08-30 09:01:07.631533465 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_10
-  details: The pull cqfn/aibolit#547 has been opened earlier by @vitaly-protasov.
-  issue: 547
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-20 14:56:20.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62193
-  _time: 2025-08-30 09:01:08.198052832 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_11
-  details: The pull cqfn/aibolit#548 has been opened earlier by @vitaly-protasov.
-  issue: 548
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-20 15:06:28.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62194
-  _time: 2025-08-30 09:01:08.748677078 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_12
-  details: The pull cqfn/aibolit#549 has been opened earlier by @vitaly-protasov.
-  issue: 549
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-20 15:24:59.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62195
-  _time: 2025-08-30 09:01:09.370355543 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_18
-  details: The pull cqfn/aibolit#553 has been opened earlier by @vitaly-protasov.
-  issue: 553
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-21 08:10:38.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62196
-  _time: 2025-08-30 09:01:09.923867916 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-550
-  details: The pull cqfn/aibolit#555 has been opened earlier by @aravij.
-  issue: 555
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-21 11:56:21.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62197
-  _time: 2025-08-30 09:01:10.535614559 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_8
-  details: The pull cqfn/aibolit#557 has been opened earlier by @vitaly-protasov.
-  issue: 557
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-21 15:44:05.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62198
-  _time: 2025-08-30 09:01:11.101760114 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-532
-  details: The pull cqfn/aibolit#558 has been opened earlier by @aravij.
-  issue: 558
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-22 14:46:57.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62199
-  _time: 2025-08-30 09:01:11.733175531 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-538
-  details: The pull cqfn/aibolit#559 has been opened earlier by @aravij.
-  issue: 559
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-22 15:13:04.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62200
-  _time: 2025-08-30 09:01:12.355475465 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_15
-  details: The pull cqfn/aibolit#560 has been opened earlier by @vitaly-protasov.
-  issue: 560
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-23 06:56:31.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62201
-  _time: 2025-08-30 09:01:13.191505402 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-535
-  details: The pull cqfn/aibolit#563 has been opened earlier by @aravij.
-  issue: 563
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-23 10:56:02.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62202
-  _time: 2025-08-30 09:01:13.753095322 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-537
-  details: The pull cqfn/aibolit#564 has been opened earlier by @aravij.
-  issue: 564
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-23 14:39:23.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62203
-  _time: 2025-08-30 09:01:14.364986909 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_2
-  details: The pull cqfn/aibolit#568 has been opened earlier by @vitaly-protasov.
-  issue: 568
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-24 13:26:12.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62204
-  _time: 2025-08-30 09:01:15.030639371 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-561
-  details: The pull cqfn/aibolit#569 has been opened earlier by @lyriccoder.
-  issue: 569
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-24 13:34:51.000000000 Z
-  where: github
-  who: 20803206
-- _id: 62205
-  _time: 2025-08-30 09:01:15.636719529 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_4
-  details: The pull cqfn/aibolit#572 has been opened earlier by @vitaly-protasov.
-  issue: 572
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-27 16:24:46.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62206
-  _time: 2025-08-30 09:01:16.175204604 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-528_9
-  details: The pull cqfn/aibolit#573 has been opened earlier by @aravij.
-  issue: 573
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-28 12:41:13.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62207
-  _time: 2025-08-30 09:01:16.749878442 Z
-  _version: 0.15.7/0.53.5/
-  branch: send_null
-  details: The pull cqfn/aibolit#576 has been opened earlier by @lyriccoder.
-  issue: 576
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-28 15:04:42.000000000 Z
-  where: github
-  who: 20803206
-- _id: 62208
-  _time: 2025-08-30 09:01:17.478726969 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue_528_13
-  details: The pull cqfn/aibolit#577 has been opened earlier by @vitaly-protasov.
-  issue: 577
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-28 21:00:54.000000000 Z
-  where: github
-  who: 43099602
-- _id: 62209
-  _time: 2025-08-30 09:01:18.132968745 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-528_5
-  details: The pull cqfn/aibolit#578 has been opened earlier by @aravij.
-  issue: 578
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-29 15:14:19.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62210
-  _time: 2025-08-30 09:01:18.826776694 Z
-  _version: 0.15.7/0.53.5/
-  branch: this_finder
-  details: The pull cqfn/aibolit#580 has been opened earlier by @lyriccoder.
-  issue: 580
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-29 15:22:04.000000000 Z
-  where: github
-  who: 20803206
-- _id: 62211
-  _time: 2025-08-30 09:01:19.364276434 Z
-  _version: 0.15.7/0.53.5/
-  branch: wp_update
-  details: The pull cqfn/aibolit#581 has been opened earlier by @acheshkov.
-  issue: 581
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-30 14:29:09.000000000 Z
-  where: github
-  who: 231433
-- _id: 62212
-  _time: 2025-08-30 09:01:19.895144389 Z
-  _version: 0.15.7/0.53.5/
-  branch: acheshkov-patch-2
-  details: The pull cqfn/aibolit#582 has been opened earlier by @acheshkov.
-  issue: 582
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-30 14:49:08.000000000 Z
-  where: github
-  who: 231433
-- _id: 62213
-  _time: 2025-08-30 09:01:20.609887946 Z
-  _version: 0.15.7/0.53.5/
-  branch: style
-  details: The pull cqfn/aibolit#583 has been opened earlier by @yegor256.
-  issue: 583
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-07-30 19:32:54.000000000 Z
-  where: github
-  who: 526301
-- _id: 62214
-  _time: 2025-08-30 09:01:21.162830550 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-585
-  details: The pull cqfn/aibolit#586 has been opened earlier by @lyriccoder.
-  issue: 586
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-08-03 12:47:00.000000000 Z
-  where: github
-  who: 20803206
-- _id: 62215
-  _time: 2025-08-30 09:01:21.214236357 Z
-  _version: 0.15.7/0.53.5/
-  branch: number_of_methods
-  details: The pull cqfn/aibolit#589 has been opened earlier by @lukyanoffpashok.
-  issue: 589
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-08-04 13:38:22.000000000 Z
-  where: github
-  who: 46167437
-- _id: 62216
-  _time: 2025-08-30 09:01:21.400927821 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-588
-  details: The pull cqfn/aibolit#590 has been opened earlier by @aravij.
-  issue: 590
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-08-04 13:38:30.000000000 Z
-  where: github
-  who: 1987026
-- _id: 62217
-  _time: 2025-08-30 09:01:21.457954051 Z
-  _version: 0.15.7/0.53.5/
-  branch: acheshkov-patch-3
-  details: The pull cqfn/aibolit#592 has been opened earlier by @acheshkov.
-  issue: 592
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-08-05 06:20:25.000000000 Z
-  where: github
-  who: 231433
-- _id: 62218
-  _time: 2025-08-30 09:01:21.511637650 Z
-  _version: 0.15.7/0.53.5/
-  branch: model_katya
-  details: The pull cqfn/aibolit#594 has been opened earlier by @lyriccoder.
-  issue: 594
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-08-05 10:53:12.000000000 Z
-  where: github
-  who: 20803206
-- _id: 62219
-  _time: 2025-08-30 09:01:21.567715919 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-574
-  details: The pull cqfn/aibolit#597 has been opened earlier by @lyriccoder.
-  issue: 597
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-08-06 15:03:45.000000000 Z
-  where: github
-  who: 20803206
