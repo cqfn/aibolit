@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 567.834277077
+  seconds: 624.157941925
   version: 0.53.5
   what: judges-summary
-  when: 2025-09-03 05:04:44.023468890 Z
+  when: 2025-09-03 06:05:37.593909625 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -23461,7 +23461,7 @@
   what: assessment
   when: 2025-09-02 16:07:07.972395263 Z
 - _id: 66983
-  _time: 2025-09-03 04:55:19.819908349 Z
+  _time: 2025-09-03 05:55:17.638390687 Z
   _version: 0.15.7/0.53.5/
   commit: 82fedf2125723617ddf68a88dd24294afb5332a8
   default_branch: master
@@ -23479,7 +23479,7 @@
   where: github
   who: 526301
 - _id: 66984
-  _time: 2025-09-03 04:55:20.170162929 Z
+  _time: 2025-09-03 05:55:18.049502575 Z
   _version: 0.15.7/0.53.5/
   commit: 2a66ee251d521da21f95688b7efa77913b9a1b3b
   default_branch: master
@@ -23497,7 +23497,7 @@
   where: github
   who: 526301
 - _id: 66985
-  _time: 2025-09-03 04:55:20.746229717 Z
+  _time: 2025-09-03 05:55:18.739813205 Z
   _version: 0.15.7/0.53.5/
   commit: 8e386aab622b103535b9ec4a49866c36ca755289
   default_branch: master
@@ -23515,7 +23515,7 @@
   where: github
   who: 526301
 - _id: 66986
-  _time: 2025-09-03 04:55:22.432948262 Z
+  _time: 2025-09-03 05:55:20.536912565 Z
   _version: 0.15.7/0.53.5/
   commit: 29259b95045cd6b28aa93dac71b42b9ce188ad35
   default_branch: master
@@ -23533,7 +23533,7 @@
   where: github
   who: 526301
 - _id: 66987
-  _time: 2025-09-03 04:55:23.750518610 Z
+  _time: 2025-09-03 05:55:21.921709573 Z
   _version: 0.15.7/0.53.5/
   commit: deabca0d8661dd80885ae4fca5ec5623e2b439b1
   default_branch: master
@@ -23551,7 +23551,7 @@
   where: github
   who: 526301
 - _id: 66988
-  _time: 2025-09-03 04:55:24.141410880 Z
+  _time: 2025-09-03 05:55:22.320659079 Z
   _version: 0.15.7/0.53.5/
   commit: b16c196b43086e2203aea43cd4660c92b2de0d57
   default_branch: master
@@ -23569,14 +23569,79 @@
   where: github
   who: 526301
 - _id: 66989
-  _time: 2025-09-03 04:55:25.774930546 Z
+  _time: 2025-09-03 05:55:24.145198354 Z
   _version: 0.15.7/0.53.5/
   latest: 54154093296
   repository: 237167507
   what: events-were-scanned
   where: github
 - _id: 66990
-  _time: 2025-09-03 04:55:26.653677460 Z
+  _time: 2025-09-03 05:55:24.162202539 Z
+  _version: 0.15.7/0.53.5/
+  since: 2025-08-27 05:55:24.177065449 Z
+  total_builds_ran: 496
+  total_commits_pushed: 4
+  total_hoc_committed: 8
+  total_issues_created: 2
+  total_pulls_submitted: 0
+  total_releases_published: 0
+  total_reviews_submitted: 0
+  what: quantity-of-deliverables
+  when: 2025-09-03 05:55:24.173571460 Z
+- _id: 66991
+  _time: 2025-09-03 05:58:13.025835777 Z
+  _version: 0.15.7/0.53.5/
+  total_active_contributors: 1
+  total_commits: 2692
+  total_contributors: 26
+  total_files: 1049
+  total_forks: 36
+  total_issues: 441
+  total_pulls: 448
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 87
+  what: dimensions-of-terrain
+  when: 2025-09-03 05:58:13.031523905 Z
+- _id: 66992
+  _time: 2025-09-03 05:58:38.958136265 Z
+  _version: 0.15.7/0.53.5/
+  latest: 513
+  repository: 237167507
+  what: assignees-were-scanned
+  where: github
+- _id: 66993
+  _time: 2025-09-03 05:59:07.403522796 Z
+  _version: 0.15.7/0.53.5/
+  latest: 370
+  repository: 237167507
+  what: types-were-scanned
+  where: github
+- _id: 66994
+  _time: 2025-09-03 05:59:07.423123980 Z
+  _version: 0.15.7/0.53.5/
+  average_backlog_size: 69.0
+  average_build_duration: 262.4754098360656
+  average_build_mttr: -3401
+  average_build_success_rate: 0.9508196721311475
+  average_issue_lifetime: 0
+  average_pull_files_size: 0
+  average_pull_hoc_size: 0
+  average_pull_lifetime: 0
+  average_pull_rejection_rate: 0
+  average_release_commits_size: 0
+  average_release_hoc_size: 0
+  average_release_interval: 0
+  average_review_size: 0
+  average_review_time: 0
+  average_reviewers_per_pull: 0
+  average_reviews_per_pull: 0
+  average_triage_time: 0
+  since: 2025-08-27 05:59:07.429656682 Z
+  what: quality-of-service
+  when: 2025-09-03 05:59:07.427975500 Z
+- _id: 66995
+  _time: 2025-09-03 05:59:41.027769789 Z
   _version: 0.15.7/0.53.5/
   branch: scope_april_2020
   comments: 9
@@ -23597,8 +23662,8 @@
   when: 2020-04-02 17:10:03.000000000 Z
   where: github
   who: 8086956
-- _id: 66991
-  _time: 2025-09-03 04:55:34.972986032 Z
+- _id: 66996
+  _time: 2025-09-03 05:59:44.755262816 Z
   _version: 0.15.7/0.53.5/
   branch: '131'
   comments: 15
@@ -23619,8 +23684,8 @@
   when: 2020-04-03 14:42:11.000000000 Z
   where: github
   who: 8086956
-- _id: 66992
-  _time: 2025-09-03 04:55:39.025568989 Z
+- _id: 66997
+  _time: 2025-09-03 05:59:49.529436888 Z
   _version: 0.15.7/0.53.5/
   branch: '116'
   comments: 30
@@ -23641,8 +23706,8 @@
   when: 2020-04-08 05:45:22.000000000 Z
   where: github
   who: 8086956
-- _id: 66993
-  _time: 2025-09-03 04:55:44.547230178 Z
+- _id: 66998
+  _time: 2025-09-03 05:59:56.945998032 Z
   _version: 0.15.7/0.53.5/
   branch: '126'
   comments: 9
@@ -23663,8 +23728,8 @@
   when: 2020-04-06 12:50:47.000000000 Z
   where: github
   who: 8086956
-- _id: 66994
-  _time: 2025-09-03 04:55:47.626314040 Z
+- _id: 66999
+  _time: 2025-09-03 06:00:00.436789613 Z
   _version: 0.15.7/0.53.5/
   branch: '127'
   comments: 16
@@ -23685,8 +23750,8 @@
   when: 2020-04-07 08:22:04.000000000 Z
   where: github
   who: 8086956
-- _id: 66995
-  _time: 2025-09-03 04:55:51.502603049 Z
+- _id: 67000
+  _time: 2025-09-03 06:00:05.568232693 Z
   _version: 0.15.7/0.53.5/
   branch: '130'
   comments: 27
@@ -23707,8 +23772,8 @@
   when: 2020-04-06 17:13:49.000000000 Z
   where: github
   who: 8086956
-- _id: 66996
-  _time: 2025-09-03 04:55:56.513428112 Z
+- _id: 67001
+  _time: 2025-09-03 06:00:13.222746950 Z
   _version: 0.15.7/0.53.5/
   branch: wp
   comments: 6
@@ -23729,8 +23794,8 @@
   when: 2020-04-08 10:23:01.000000000 Z
   where: github
   who: 526301
-- _id: 66997
-  _time: 2025-09-03 04:55:59.164959463 Z
+- _id: 67002
+  _time: 2025-09-03 06:00:16.330939531 Z
   _version: 0.15.7/0.53.5/
   branch: red_catch_fix
   comments: 13
@@ -23751,8 +23816,8 @@
   when: 2020-04-08 11:31:56.000000000 Z
   where: github
   who: 8086956
-- _id: 66998
-  _time: 2025-09-03 04:56:02.608357560 Z
+- _id: 67003
+  _time: 2025-09-03 06:00:20.893318834 Z
   _version: 0.15.7/0.53.5/
   branch: wp
   comments: 3
@@ -23773,8 +23838,8 @@
   when: 2020-04-08 10:42:58.000000000 Z
   where: github
   who: 526301
-- _id: 66999
-  _time: 2025-09-03 04:56:04.667561242 Z
+- _id: 67004
+  _time: 2025-09-03 06:00:23.422626213 Z
   _version: 0.15.7/0.53.5/
   branch: log_errors_red_catch
   comments: 13
@@ -23795,8 +23860,8 @@
   when: 2020-04-09 08:41:03.000000000 Z
   where: github
   who: 8086956
-- _id: 67000
-  _time: 2025-09-03 04:56:07.913860344 Z
+- _id: 67005
+  _time: 2025-09-03 06:00:27.860271140 Z
   _version: 0.15.7/0.53.5/
   branch: issue-177
   comments: 9
@@ -23817,8 +23882,8 @@
   when: 2020-04-08 14:47:44.000000000 Z
   where: github
   who: 8086956
-- _id: 67001
-  _time: 2025-09-03 04:56:10.670331240 Z
+- _id: 67006
+  _time: 2025-09-03 06:00:31.861350387 Z
   _version: 0.15.7/0.53.5/
   branch: empty_rethrow_fix
   comments: 15
@@ -23839,8 +23904,8 @@
   when: 2020-04-09 11:57:49.000000000 Z
   where: github
   who: 8086956
-- _id: 67002
-  _time: 2025-09-03 04:56:14.135054382 Z
+- _id: 67007
+  _time: 2025-09-03 06:00:36.774475784 Z
   _version: 0.15.7/0.53.5/
   branch: diameter
   comments: 11
@@ -23861,8 +23926,8 @@
   when: 2020-04-10 10:06:19.000000000 Z
   where: github
   who: 8086956
-- _id: 67003
-  _time: 2025-09-03 04:56:17.086742008 Z
+- _id: 67008
+  _time: 2025-09-03 06:00:41.167982987 Z
   _version: 0.15.7/0.53.5/
   branch: issue-143
   comments: 10
@@ -23883,8 +23948,8 @@
   when: 2020-04-10 13:51:14.000000000 Z
   where: github
   who: 8086956
-- _id: 67004
-  _time: 2025-09-03 04:56:20.203516767 Z
+- _id: 67009
+  _time: 2025-09-03 06:00:45.281145391 Z
   _version: 0.15.7/0.53.5/
   branch: issue-137
   comments: 6
@@ -23905,8 +23970,8 @@
   when: 2020-04-09 16:53:33.000000000 Z
   where: github
   who: 8086956
-- _id: 67005
-  _time: 2025-09-03 04:56:22.603083343 Z
+- _id: 67010
+  _time: 2025-09-03 06:00:48.366287312 Z
   _version: 0.15.7/0.53.5/
   branch: fix_string_conat
   comments: 10
@@ -23927,8 +23992,8 @@
   when: 2020-04-10 09:30:06.000000000 Z
   where: github
   who: 8086956
-- _id: 67006
-  _time: 2025-09-03 04:56:25.457587659 Z
+- _id: 67011
+  _time: 2025-09-03 06:00:52.174483668 Z
   _version: 0.15.7/0.53.5/
   branch: spaces_counter_fix
   comments: 8
@@ -23949,8 +24014,8 @@
   when: 2020-04-10 09:21:23.000000000 Z
   where: github
   who: 8086956
-- _id: 67007
-  _time: 2025-09-03 04:56:28.096937289 Z
+- _id: 67012
+  _time: 2025-09-03 06:00:55.533947525 Z
   _version: 0.15.7/0.53.5/
   branch: patterns
   comments: 18
@@ -23971,8 +24036,8 @@
   when: 2020-04-15 16:34:38.000000000 Z
   where: github
   who: 8086956
-- _id: 67008
-  _time: 2025-09-03 04:56:32.007807261 Z
+- _id: 67013
+  _time: 2025-09-03 06:01:00.608988676 Z
   _version: 0.15.7/0.53.5/
   branch: leave
   comments: 14
@@ -23993,8 +24058,8 @@
   when: 2020-04-10 15:27:04.000000000 Z
   where: github
   who: 8086956
-- _id: 67009
-  _time: 2025-09-03 04:56:35.601206426 Z
+- _id: 67014
+  _time: 2025-09-03 06:01:05.352327895 Z
   _version: 0.15.7/0.53.5/
   branch: patterns_calc
   comments: 22
@@ -24015,8 +24080,8 @@
   when: 2020-04-10 15:49:13.000000000 Z
   where: github
   who: 8086956
-- _id: 67010
-  _time: 2025-09-03 04:56:39.902038306 Z
+- _id: 67015
+  _time: 2025-09-03 06:01:11.498239161 Z
   _version: 0.15.7/0.53.5/
   branch: metrics
   comments: 9
@@ -24037,8 +24102,8 @@
   when: 2020-04-13 09:39:48.000000000 Z
   where: github
   who: 8086956
-- _id: 67011
-  _time: 2025-09-03 04:56:42.630017154 Z
+- _id: 67016
+  _time: 2025-09-03 06:01:15.160383574 Z
   _version: 0.15.7/0.53.5/
   branch: '128'
   comments: 12
@@ -24059,8 +24124,8 @@
   when: 2020-04-14 14:40:52.000000000 Z
   where: github
   who: 8086956
-- _id: 67012
-  _time: 2025-09-03 04:56:45.735731249 Z
+- _id: 67017
+  _time: 2025-09-03 06:01:19.291338459 Z
   _version: 0.15.7/0.53.5/
   branch: '136'
   comments: 11
@@ -24081,8 +24146,8 @@
   when: 2020-04-14 14:32:09.000000000 Z
   where: github
   who: 8086956
-- _id: 67013
-  _time: 2025-09-03 04:56:48.890688737 Z
+- _id: 67018
+  _time: 2025-09-03 06:01:23.268946740 Z
   _version: 0.15.7/0.53.5/
   branch: cognitive
   comments: 7
@@ -24103,8 +24168,8 @@
   when: 2020-04-14 13:47:38.000000000 Z
   where: github
   who: 8086956
-- _id: 67014
-  _time: 2025-09-03 04:56:51.380235310 Z
+- _id: 67019
+  _time: 2025-09-03 06:01:26.596992259 Z
   _version: 0.15.7/0.53.5/
   branch: '141'
   comments: 6
@@ -24125,8 +24190,8 @@
   when: 2020-04-16 12:37:16.000000000 Z
   where: github
   who: 8086956
-- _id: 67015
-  _time: 2025-09-03 04:56:53.622100157 Z
+- _id: 67020
+  _time: 2025-09-03 06:01:29.360589041 Z
   _version: 0.15.7/0.53.5/
   branch: cognitive
   comments: 42
@@ -24147,8 +24212,8 @@
   when: 2020-04-16 08:43:21.000000000 Z
   where: github
   who: 8086956
-- _id: 67016
-  _time: 2025-09-03 04:57:00.733481188 Z
+- _id: 67021
+  _time: 2025-09-03 06:01:39.048892149 Z
   _version: 0.15.7/0.53.5/
   branch: cognitive
   comments: 9
@@ -24169,8 +24234,8 @@
   when: 2020-04-17 07:26:18.000000000 Z
   where: github
   who: 8086956
-- _id: 67017
-  _time: 2025-09-03 04:57:03.488127936 Z
+- _id: 67022
+  _time: 2025-09-03 06:01:42.856630582 Z
   _version: 0.15.7/0.53.5/
   branch: LCOM4
   comments: 15
@@ -24191,8 +24256,8 @@
   when: 2020-04-17 16:46:09.000000000 Z
   where: github
   who: 8086956
-- _id: 67018
-  _time: 2025-09-03 04:57:07.211634056 Z
+- _id: 67023
+  _time: 2025-09-03 06:01:47.633576982 Z
   _version: 0.15.7/0.53.5/
   branch: cognitive
   comments: 12
@@ -24213,8 +24278,8 @@
   when: 2020-04-17 13:53:11.000000000 Z
   where: github
   who: 8086956
-- _id: 67019
-  _time: 2025-09-03 04:57:10.602779881 Z
+- _id: 67024
+  _time: 2025-09-03 06:01:51.583171912 Z
   _version: 0.15.7/0.53.5/
   branch: leave
   comments: 8
@@ -24235,8 +24300,8 @@
   when: 2020-04-17 15:05:07.000000000 Z
   where: github
   who: 8086956
-- _id: 67020
-  _time: 2025-09-03 04:57:13.152410641 Z
+- _id: 67025
+  _time: 2025-09-03 06:01:54.982939967 Z
   _version: 0.15.7/0.53.5/
   branch: '159'
   comments: 6
@@ -24257,8 +24322,8 @@
   when: 2020-04-19 06:12:25.000000000 Z
   where: github
   who: 8086956
-- _id: 67021
-  _time: 2025-09-03 04:57:15.447062042 Z
+- _id: 67026
+  _time: 2025-09-03 06:01:57.683279623 Z
   _version: 0.15.7/0.53.5/
   branch: '160'
   comments: 13
@@ -24279,8 +24344,8 @@
   when: 2020-04-21 18:42:37.000000000 Z
   where: github
   who: 8086956
-- _id: 67022
-  _time: 2025-09-03 04:57:18.791055307 Z
+- _id: 67027
+  _time: 2025-09-03 06:02:01.949001301 Z
   _version: 0.15.7/0.53.5/
   branch: '158'
   comments: 8
@@ -24301,8 +24366,8 @@
   when: 2020-04-21 18:27:34.000000000 Z
   where: github
   who: 8086956
-- _id: 67023
-  _time: 2025-09-03 04:57:22.285851685 Z
+- _id: 67028
+  _time: 2025-09-03 06:02:05.698817648 Z
   _version: 0.15.7/0.53.5/
   branch: fix_error_log
   comments: 27
@@ -24323,8 +24388,8 @@
   when: 2020-04-21 17:54:05.000000000 Z
   where: github
   who: 8086956
-- _id: 67024
-  _time: 2025-09-03 04:57:27.460912723 Z
+- _id: 67029
+  _time: 2025-09-03 06:02:12.375484338 Z
   _version: 0.15.7/0.53.5/
   branch: LCOM4
   comments: 29
@@ -24345,8 +24410,8 @@
   when: 2020-05-13 17:11:34.000000000 Z
   where: github
   who: 8086956
-- _id: 67025
-  _time: 2025-09-03 04:57:32.809234995 Z
+- _id: 67030
+  _time: 2025-09-03 06:02:19.962750195 Z
   _version: 0.15.7/0.53.5/
   branch: issue-228
   comments: 13
@@ -24367,8 +24432,8 @@
   when: 2020-04-21 13:46:09.000000000 Z
   where: github
   who: 8086956
-- _id: 67026
-  _time: 2025-09-03 04:57:35.968715917 Z
+- _id: 67031
+  _time: 2025-09-03 06:02:24.101475264 Z
   _version: 0.15.7/0.53.5/
   branch: cognitive
   comments: 10
@@ -24389,8 +24454,8 @@
   when: 2020-04-22 07:38:49.000000000 Z
   where: github
   who: 8086956
-- _id: 67027
-  _time: 2025-09-03 04:57:39.051057536 Z
+- _id: 67032
+  _time: 2025-09-03 06:02:27.873524119 Z
   _version: 0.15.7/0.53.5/
   branch: diameter
   comments: 4
@@ -24411,8 +24476,8 @@
   when: 2020-04-22 12:58:17.000000000 Z
   where: github
   who: 8086956
-- _id: 67028
-  _time: 2025-09-03 04:57:41.132018079 Z
+- _id: 67033
+  _time: 2025-09-03 06:02:30.359542564 Z
   _version: 0.15.7/0.53.5/
   branch: ML_pipeline
   comments: 19
@@ -24433,8 +24498,8 @@
   when: 2020-04-27 09:41:12.000000000 Z
   where: github
   who: 8086956
-- _id: 67029
-  _time: 2025-09-03 04:57:45.260470833 Z
+- _id: 67034
+  _time: 2025-09-03 06:02:36.042120377 Z
   _version: 0.15.7/0.53.5/
   branch: '142'
   comments: 14
@@ -24455,8 +24520,8 @@
   when: 2020-04-27 05:32:31.000000000 Z
   where: github
   who: 8086956
-- _id: 67030
-  _time: 2025-09-03 04:57:48.881181360 Z
+- _id: 67035
+  _time: 2025-09-03 06:02:40.670583019 Z
   _version: 0.15.7/0.53.5/
   branch: '147'
   comments: 18
@@ -24477,8 +24542,8 @@
   when: 2020-04-29 17:20:38.000000000 Z
   where: github
   who: 8086956
-- _id: 67031
-  _time: 2025-09-03 04:57:52.787454284 Z
+- _id: 67036
+  _time: 2025-09-03 06:02:46.223113868 Z
   _version: 0.15.7/0.53.5/
   branch: "#194"
   comments: 10
@@ -24499,8 +24564,8 @@
   when: 2020-04-28 07:33:16.000000000 Z
   where: github
   who: 8086956
-- _id: 67032
-  _time: 2025-09-03 04:57:55.686817588 Z
+- _id: 67037
+  _time: 2025-09-03 06:02:49.899734819 Z
   _version: 0.15.7/0.53.5/
   branch: '139'
   comments: 11
@@ -24521,8 +24586,8 @@
   when: 2020-04-29 18:18:22.000000000 Z
   where: github
   who: 8086956
-- _id: 67033
-  _time: 2025-09-03 04:57:58.803901850 Z
+- _id: 67038
+  _time: 2025-09-03 06:02:53.704529098 Z
   _version: 0.15.7/0.53.5/
   branch: '183'
   comments: 6
@@ -24543,8 +24608,8 @@
   when: 2020-04-27 16:26:30.000000000 Z
   where: github
   who: 8086956
-- _id: 67034
-  _time: 2025-09-03 04:58:01.224033849 Z
+- _id: 67039
+  _time: 2025-09-03 06:02:56.793341054 Z
   _version: 0.15.7/0.53.5/
   branch: '184'
   comments: 11
@@ -24565,8 +24630,8 @@
   when: 2020-04-29 18:01:37.000000000 Z
   where: github
   who: 8086956
-- _id: 67035
-  _time: 2025-09-03 04:58:04.290911131 Z
+- _id: 67040
+  _time: 2025-09-03 06:03:00.538551599 Z
   _version: 0.15.7/0.53.5/
   branch: '164'
   comments: 11
@@ -24587,8 +24652,8 @@
   when: 2020-04-28 07:48:29.000000000 Z
   where: github
   who: 8086956
-- _id: 67036
-  _time: 2025-09-03 04:58:07.336358614 Z
+- _id: 67041
+  _time: 2025-09-03 06:03:04.734074133 Z
   _version: 0.15.7/0.53.5/
   branch: Pavel
   comments: 7
@@ -24609,8 +24674,8 @@
   when: 2020-04-27 13:27:10.000000000 Z
   where: github
   who: 8086956
-- _id: 67037
-  _time: 2025-09-03 04:58:09.757675349 Z
+- _id: 67042
+  _time: 2025-09-03 06:03:07.902952973 Z
   _version: 0.15.7/0.53.5/
   branch: recommend_feature
   comments: 21
@@ -24631,8 +24696,8 @@
   when: 2020-05-06 09:28:42.000000000 Z
   where: github
   who: 8086956
-- _id: 67038
-  _time: 2025-09-03 04:58:14.456874149 Z
+- _id: 67043
+  _time: 2025-09-03 06:03:13.855920097 Z
   _version: 0.15.7/0.53.5/
   branch: '138'
   comments: 9
@@ -24653,8 +24718,8 @@
   when: 2020-05-03 14:34:55.000000000 Z
   where: github
   who: 8086956
-- _id: 67039
-  _time: 2025-09-03 04:58:17.179813432 Z
+- _id: 67044
+  _time: 2025-09-03 06:03:17.555818943 Z
   _version: 0.15.7/0.53.5/
   branch: master_fix_flake8
   comments: 3
@@ -24675,66 +24740,22 @@
   when: 2020-04-29 17:06:04.000000000 Z
   where: github
   who: 231433
-- _id: 67040
-  _time: 2025-09-03 04:58:18.383641989 Z
+- _id: 67045
+  _time: 2025-09-03 06:03:19.097197908 Z
   _version: 0.15.7/0.53.5/
   latest: 254
   repository: 237167507
   what: merges-were-scanned
   where: github
-- _id: 67041
-  _time: 2025-09-03 04:58:18.420450441 Z
+- _id: 67046
+  _time: 2025-09-03 06:03:54.813586955 Z
   _version: 0.15.7/0.53.5/
-  since: 2025-08-27 04:58:18.426859750 Z
-  total_builds_ran: 493
-  total_commits_pushed: 4
-  total_hoc_committed: 8
-  total_issues_created: 2
-  total_pulls_submitted: 0
-  total_releases_published: 0
-  total_reviews_submitted: 0
-  what: quantity-of-deliverables
-  when: 2025-09-03 04:58:18.425287306 Z
-- _id: 67042
-  _time: 2025-09-03 05:01:05.673525871 Z
-  _version: 0.15.7/0.53.5/
-  average_backlog_size: 69.0
-  average_build_duration: 260.3114754098361
-  average_build_mttr: -3809
-  average_build_success_rate: 0.9508196721311475
-  average_issue_lifetime: 0
-  average_pull_files_size: 0
-  average_pull_hoc_size: 0
-  average_pull_lifetime: 0
-  average_pull_rejection_rate: 0
-  average_release_commits_size: 0
-  average_release_hoc_size: 0
-  average_release_interval: 0
-  average_review_size: 0
-  average_review_time: 0
-  average_reviewers_per_pull: 0
-  average_reviews_per_pull: 0
-  average_triage_time: 0
-  since: 2025-08-27 05:01:05.678938843 Z
-  what: quality-of-service
-  when: 2025-09-03 05:01:05.677571373 Z
-- _id: 67043
-  _time: 2025-09-03 05:01:24.380695686 Z
-  _version: 0.15.7/0.53.5/
-  total_active_contributors: 1
-  total_commits: 2692
-  total_contributors: 26
-  total_files: 1049
-  total_forks: 36
-  total_issues: 441
-  total_pulls: 448
-  total_releases: 28
-  total_repositories: 1
-  total_stars: 87
-  what: dimensions-of-terrain
-  when: 2025-09-03 05:01:24.385229311 Z
-- _id: 67044
-  _time: 2025-09-03 05:01:53.300722155 Z
+  latest: 370
+  repository: 237167507
+  what: labels-were-scanned
+  where: github
+- _id: 67047
+  _time: 2025-09-03 06:05:29.304039782 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#888 has been opened by @mmenshikh.
   issue: 888
@@ -24743,8 +24764,8 @@
   when: 2025-07-24 13:39:45.000000000 Z
   where: github
   who: 150797125
-- _id: 67045
-  _time: 2025-09-03 05:01:53.471166780 Z
+- _id: 67048
+  _time: 2025-09-03 06:05:29.340760403 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#887 has been opened by @mmenshikh.
   issue: 887
@@ -24753,8 +24774,8 @@
   when: 2025-07-24 13:33:32.000000000 Z
   where: github
   who: 150797125
-- _id: 67046
-  _time: 2025-09-03 05:01:53.512554599 Z
+- _id: 67049
+  _time: 2025-09-03 06:05:29.377369575 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#885 has been opened by @ivanovmg.
   issue: 885
@@ -24763,8 +24784,8 @@
   when: 2025-07-21 09:34:06.000000000 Z
   where: github
   who: 41443370
-- _id: 67047
-  _time: 2025-09-03 05:01:53.610227646 Z
+- _id: 67050
+  _time: 2025-09-03 06:05:29.409587968 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#883 has been opened by @mmenshikh.
   issue: 883
@@ -24773,8 +24794,8 @@
   when: 2025-07-20 22:28:44.000000000 Z
   where: github
   who: 150797125
-- _id: 67048
-  _time: 2025-09-03 05:01:53.649050515 Z
+- _id: 67051
+  _time: 2025-09-03 06:05:29.440825383 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#882 has been opened by @mmenshikh.
   issue: 882
@@ -24783,8 +24804,8 @@
   when: 2025-07-20 22:22:21.000000000 Z
   where: github
   who: 150797125
-- _id: 67049
-  _time: 2025-09-03 05:01:53.799018090 Z
+- _id: 67052
+  _time: 2025-09-03 06:05:29.472269043 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#876 has been opened by @nexonm.
   issue: 876
@@ -24793,8 +24814,8 @@
   when: 2025-07-20 11:56:06.000000000 Z
   where: github
   who: 68069947
-- _id: 67050
-  _time: 2025-09-03 05:01:53.996839549 Z
+- _id: 67053
+  _time: 2025-09-03 06:05:29.551622415 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#874 has been opened by @dvrkrain.
   issue: 874
@@ -24803,8 +24824,8 @@
   when: 2025-07-19 15:59:23.000000000 Z
   where: github
   who: 60609459
-- _id: 67051
-  _time: 2025-09-03 05:01:54.119095320 Z
+- _id: 67054
+  _time: 2025-09-03 06:05:29.598355541 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#873 has been opened by @dvrkrain.
   issue: 873
@@ -24813,8 +24834,8 @@
   when: 2025-07-19 15:51:37.000000000 Z
   where: github
   who: 60609459
-- _id: 67052
-  _time: 2025-09-03 05:01:54.155396421 Z
+- _id: 67055
+  _time: 2025-09-03 06:05:29.635404343 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#872 has been opened by @dvrkrain.
   issue: 872
@@ -24823,8 +24844,8 @@
   when: 2025-07-19 15:18:28.000000000 Z
   where: github
   who: 60609459
-- _id: 67053
-  _time: 2025-09-03 05:01:54.209653888 Z
+- _id: 67056
+  _time: 2025-09-03 06:05:29.671311348 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#871 has been opened by @dvrkrain.
   issue: 871
@@ -24833,8 +24854,8 @@
   when: 2025-07-19 15:13:44.000000000 Z
   where: github
   who: 60609459
-- _id: 67054
-  _time: 2025-09-03 05:01:54.250943685 Z
+- _id: 67057
+  _time: 2025-09-03 06:05:29.707583322 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#870 has been opened by @dvrkrain.
   issue: 870
@@ -24843,8 +24864,8 @@
   when: 2025-07-19 15:12:46.000000000 Z
   where: github
   who: 60609459
-- _id: 67055
-  _time: 2025-09-03 05:01:54.289663742 Z
+- _id: 67058
+  _time: 2025-09-03 06:05:29.740720607 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#869 has been opened by @dvrkrain.
   issue: 869
@@ -24853,8 +24874,8 @@
   when: 2025-07-19 15:10:52.000000000 Z
   where: github
   who: 60609459
-- _id: 67056
-  _time: 2025-09-03 05:01:54.323362683 Z
+- _id: 67059
+  _time: 2025-09-03 06:05:29.774149104 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#868 has been opened by @error10556.
   issue: 868
@@ -24863,8 +24884,8 @@
   when: 2025-07-18 11:25:27.000000000 Z
   where: github
   who: 151189440
-- _id: 67057
-  _time: 2025-09-03 05:01:54.364444110 Z
+- _id: 67060
+  _time: 2025-09-03 06:05:29.860736055 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#857 has been opened by @antonprokopyev.
   issue: 857
@@ -24873,8 +24894,8 @@
   when: 2025-07-09 04:44:31.000000000 Z
   where: github
   who: 13173649
-- _id: 67058
-  _time: 2025-09-03 05:01:54.404571752 Z
+- _id: 67061
+  _time: 2025-09-03 06:05:29.904689357 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#853 has been opened by @antonprokopyev.
   issue: 853
@@ -24883,8 +24904,8 @@
   when: 2025-07-07 07:37:30.000000000 Z
   where: github
   who: 13173649
-- _id: 67059
-  _time: 2025-09-03 05:01:54.505196949 Z
+- _id: 67062
+  _time: 2025-09-03 06:05:29.939967290 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#852 has been opened by @ivanovmg.
   issue: 852
@@ -24893,8 +24914,8 @@
   when: 2025-07-07 07:35:46.000000000 Z
   where: github
   who: 41443370
-- _id: 67060
-  _time: 2025-09-03 05:01:54.537132620 Z
+- _id: 67063
+  _time: 2025-09-03 06:05:29.976286533 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#850 has been opened by @antonprokopyev.
   issue: 850
@@ -24903,8 +24924,8 @@
   when: 2025-07-05 16:36:29.000000000 Z
   where: github
   who: 13173649
-- _id: 67061
-  _time: 2025-09-03 05:01:54.575574598 Z
+- _id: 67064
+  _time: 2025-09-03 06:05:30.011715547 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#848 has been opened by @antonprokopyev.
   issue: 848
@@ -24913,8 +24934,8 @@
   when: 2025-07-04 07:38:04.000000000 Z
   where: github
   who: 13173649
-- _id: 67062
-  _time: 2025-09-03 05:01:54.615867799 Z
+- _id: 67065
+  _time: 2025-09-03 06:05:30.105360627 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#846 has been opened by @antonprokopyev.
   issue: 846
@@ -24923,8 +24944,8 @@
   when: 2025-07-02 06:10:20.000000000 Z
   where: github
   who: 13173649
-- _id: 67063
-  _time: 2025-09-03 05:01:54.658166986 Z
+- _id: 67066
+  _time: 2025-09-03 06:05:30.205792090 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#840 has been opened by @error10556.
   issue: 840
@@ -24933,8 +24954,8 @@
   when: 2025-06-26 14:17:20.000000000 Z
   where: github
   who: 151189440
-- _id: 67064
-  _time: 2025-09-03 05:01:54.690909706 Z
+- _id: 67067
+  _time: 2025-09-03 06:05:30.273657474 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#834 has been opened by @ivanovmg.
   issue: 834
@@ -24943,8 +24964,8 @@
   when: 2025-06-23 10:46:03.000000000 Z
   where: github
   who: 41443370
-- _id: 67065
-  _time: 2025-09-03 05:01:54.741985859 Z
+- _id: 67068
+  _time: 2025-09-03 06:05:30.324388134 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#819 has been opened by @alchemmist.
   issue: 819
@@ -24953,8 +24974,8 @@
   when: 2025-06-12 09:39:52.000000000 Z
   where: github
   who: 104511335
-- _id: 67066
-  _time: 2025-09-03 05:01:54.779342375 Z
+- _id: 67069
+  _time: 2025-09-03 06:05:30.362449142 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#813 has been opened by @antonprokopyev.
   issue: 813
@@ -24963,8 +24984,8 @@
   when: 2025-06-07 17:41:47.000000000 Z
   where: github
   who: 13173649
-- _id: 67067
-  _time: 2025-09-03 05:01:54.820000169 Z
+- _id: 67070
+  _time: 2025-09-03 06:05:30.400511632 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#811 has been opened by @antonprokopyev.
   issue: 811
@@ -24973,8 +24994,8 @@
   when: 2025-06-07 13:34:12.000000000 Z
   where: github
   who: 13173649
-- _id: 67068
-  _time: 2025-09-03 05:01:54.860032273 Z
+- _id: 67071
+  _time: 2025-09-03 06:05:30.445213001 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#798 has been opened by @ivanovmg.
   issue: 798
@@ -24983,8 +25004,8 @@
   when: 2025-06-02 08:25:15.000000000 Z
   where: github
   who: 41443370
-- _id: 67069
-  _time: 2025-09-03 05:01:54.908046826 Z
+- _id: 67072
+  _time: 2025-09-03 06:05:30.478256841 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#788 has been opened by @ivanovmg.
   issue: 788
@@ -24993,8 +25014,8 @@
   when: 2025-05-30 06:11:03.000000000 Z
   where: github
   who: 41443370
-- _id: 67070
-  _time: 2025-09-03 05:01:54.945967479 Z
+- _id: 67073
+  _time: 2025-09-03 06:05:30.509111253 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#786 has been opened by @ivanovmg.
   issue: 786
@@ -25003,8 +25024,8 @@
   when: 2025-05-30 01:56:50.000000000 Z
   where: github
   who: 41443370
-- _id: 67071
-  _time: 2025-09-03 05:01:54.982571747 Z
+- _id: 67074
+  _time: 2025-09-03 06:05:30.539367864 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#785 has been opened by @ivanovmg.
   issue: 785
@@ -25013,8 +25034,8 @@
   when: 2025-05-29 17:59:36.000000000 Z
   where: github
   who: 41443370
-- _id: 67072
-  _time: 2025-09-03 05:01:55.062180761 Z
+- _id: 67075
+  _time: 2025-09-03 06:05:30.633824135 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#736 has been opened by @ivanovmg.
   issue: 736
@@ -25023,8 +25044,8 @@
   when: 2025-05-27 07:14:05.000000000 Z
   where: github
   who: 41443370
-- _id: 67073
-  _time: 2025-09-03 05:01:55.107619604 Z
+- _id: 67076
+  _time: 2025-09-03 06:05:30.678430186 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#724 has been opened by @ivanovmg.
   issue: 724
@@ -25033,8 +25054,8 @@
   when: 2025-05-25 11:21:27.000000000 Z
   where: github
   who: 41443370
-- _id: 67074
-  _time: 2025-09-03 05:01:55.148509312 Z
+- _id: 67077
+  _time: 2025-09-03 06:05:30.719849400 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#719 has been opened by @ivanovmg.
   issue: 719
@@ -25043,8 +25064,8 @@
   when: 2025-05-23 13:30:21.000000000 Z
   where: github
   who: 41443370
-- _id: 67075
-  _time: 2025-09-03 05:01:55.185294599 Z
+- _id: 67078
+  _time: 2025-09-03 06:05:30.760424451 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#712 has been opened by @ivanovmg.
   issue: 712
@@ -25053,8 +25074,8 @@
   when: 2025-05-23 07:49:15.000000000 Z
   where: github
   who: 41443370
-- _id: 67076
-  _time: 2025-09-03 05:01:55.236465038 Z
+- _id: 67079
+  _time: 2025-09-03 06:05:30.797464524 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#710 has been opened by @ivanovmg.
   issue: 710
@@ -25063,8 +25084,8 @@
   when: 2025-05-23 07:33:32.000000000 Z
   where: github
   who: 41443370
-- _id: 67077
-  _time: 2025-09-03 05:01:55.276757068 Z
+- _id: 67080
+  _time: 2025-09-03 06:05:30.830280200 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#709 has been opened by @ivanovmg.
   issue: 709
@@ -25073,8 +25094,8 @@
   when: 2025-05-22 12:28:11.000000000 Z
   where: github
   who: 41443370
-- _id: 67078
-  _time: 2025-09-03 05:01:55.334373912 Z
+- _id: 67081
+  _time: 2025-09-03 06:05:31.020843321 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#666 has been opened by @sv-atoslav.
   issue: 666
@@ -25083,8 +25104,8 @@
   when: 2022-05-24 17:28:26.000000000 Z
   where: github
   who: 28783346
-- _id: 67079
-  _time: 2025-09-03 05:01:55.375398503 Z
+- _id: 67082
+  _time: 2025-09-03 06:05:31.054548243 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#649 has been opened by @aravij.
   issue: 649
@@ -25093,8 +25114,8 @@
   when: 2020-09-18 08:30:52.000000000 Z
   where: github
   who: 1987026
-- _id: 67080
-  _time: 2025-09-03 05:01:55.423114337 Z
+- _id: 67083
+  _time: 2025-09-03 06:05:31.111094028 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#640 has been opened by @vitaly-protasov.
   issue: 640
@@ -25103,8 +25124,8 @@
   when: 2020-09-15 18:47:10.000000000 Z
   where: github
   who: 43099602
-- _id: 67081
-  _time: 2025-09-03 05:01:55.465259134 Z
+- _id: 67084
+  _time: 2025-09-03 06:05:31.156467789 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#638 has been opened by @aravij.
   issue: 638
@@ -25113,8 +25134,8 @@
   when: 2020-09-15 14:15:52.000000000 Z
   where: github
   who: 1987026
-- _id: 67082
-  _time: 2025-09-03 05:01:55.497534500 Z
+- _id: 67085
+  _time: 2025-09-03 06:05:31.194681912 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#636 has been opened by @aravij.
   issue: 636
@@ -25123,8 +25144,8 @@
   when: 2020-09-15 11:58:45.000000000 Z
   where: github
   who: 1987026
-- _id: 67083
-  _time: 2025-09-03 05:01:55.539454307 Z
+- _id: 67086
+  _time: 2025-09-03 06:05:31.234053761 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#634 has been opened by @aravij.
   issue: 634
@@ -25133,8 +25154,8 @@
   when: 2020-09-15 08:58:09.000000000 Z
   where: github
   who: 1987026
-- _id: 67084
-  _time: 2025-09-03 05:01:55.577638852 Z
+- _id: 67087
+  _time: 2025-09-03 06:05:31.272898539 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#632 has been opened by @aravij.
   issue: 632
@@ -25143,8 +25164,8 @@
   when: 2020-08-25 19:17:08.000000000 Z
   where: github
   who: 1987026
-- _id: 67085
-  _time: 2025-09-03 05:01:55.617242864 Z
+- _id: 67088
+  _time: 2025-09-03 06:05:31.311129644 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#630 has been opened by @aravij.
   issue: 630
@@ -25153,8 +25174,8 @@
   when: 2020-08-25 18:44:10.000000000 Z
   where: github
   who: 1987026
-- _id: 67086
-  _time: 2025-09-03 05:01:55.648349533 Z
+- _id: 67089
+  _time: 2025-09-03 06:05:31.343237087 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#628 has been opened by @aravij.
   issue: 628
@@ -25163,8 +25184,8 @@
   when: 2020-08-25 10:14:14.000000000 Z
   where: github
   who: 1987026
-- _id: 67087
-  _time: 2025-09-03 05:01:55.689762418 Z
+- _id: 67090
+  _time: 2025-09-03 06:05:31.374975114 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#626 has been opened by @aravij.
   issue: 626
@@ -25173,8 +25194,8 @@
   when: 2020-08-24 10:03:30.000000000 Z
   where: github
   who: 1987026
-- _id: 67088
-  _time: 2025-09-03 05:01:55.729867248 Z
+- _id: 67091
+  _time: 2025-09-03 06:05:31.408631106 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#619 has been opened by @lyriccoder.
   issue: 619
@@ -25183,8 +25204,8 @@
   when: 2020-08-18 10:05:25.000000000 Z
   where: github
   who: 20803206
-- _id: 67089
-  _time: 2025-09-03 05:01:55.771287751 Z
+- _id: 67092
+  _time: 2025-09-03 06:05:31.457384055 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#613 has been opened by @aravij.
   issue: 613
@@ -25193,8 +25214,8 @@
   when: 2020-08-14 06:52:22.000000000 Z
   where: github
   who: 1987026
-- _id: 67090
-  _time: 2025-09-03 05:01:55.802262663 Z
+- _id: 67093
+  _time: 2025-09-03 06:05:31.498275555 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#609 has been opened by @yegor256.
   issue: 609
@@ -25203,8 +25224,8 @@
   when: 2020-08-10 08:44:42.000000000 Z
   where: github
   who: 526301
-- _id: 67091
-  _time: 2025-09-03 05:01:55.930076728 Z
+- _id: 67094
+  _time: 2025-09-03 06:05:31.535285214 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#608 has been opened by @yegor256.
   issue: 608
@@ -25213,8 +25234,8 @@
   when: 2020-08-10 08:39:45.000000000 Z
   where: github
   who: 526301
-- _id: 67092
-  _time: 2025-09-03 05:01:55.978539870 Z
+- _id: 67095
+  _time: 2025-09-03 06:05:31.580341043 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#593 has been opened by @acheshkov.
   issue: 593
@@ -25223,8 +25244,8 @@
   when: 2020-08-05 06:23:51.000000000 Z
   where: github
   who: 231433
-- _id: 67093
-  _time: 2025-09-03 05:01:56.086562233 Z
+- _id: 67096
+  _time: 2025-09-03 06:05:31.617119852 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#588 has been opened by @aravij.
   issue: 588
@@ -25233,8 +25254,8 @@
   when: 2020-08-04 13:07:59.000000000 Z
   where: github
   who: 1987026
-- _id: 67094
-  _time: 2025-09-03 05:01:56.122860257 Z
+- _id: 67097
+  _time: 2025-09-03 06:05:31.654543842 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#585 has been opened by @g4s8.
   issue: 585
@@ -25243,8 +25264,8 @@
   when: 2020-07-31 11:24:20.000000000 Z
   where: github
   who: 1524988
-- _id: 67095
-  _time: 2025-09-03 05:01:56.166852803 Z
+- _id: 67098
+  _time: 2025-09-03 06:05:31.686289815 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#579 has been opened by @lyriccoder.
   issue: 579
@@ -25253,8 +25274,8 @@
   when: 2020-07-29 15:21:39.000000000 Z
   where: github
   who: 20803206
-- _id: 67096
-  _time: 2025-09-03 05:01:56.206844200 Z
+- _id: 67099
+  _time: 2025-09-03 06:05:31.717995062 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#575 has been opened by @lyriccoder.
   issue: 575
@@ -25263,8 +25284,8 @@
   when: 2020-07-28 15:04:08.000000000 Z
   where: github
   who: 20803206
-- _id: 67097
-  _time: 2025-09-03 05:01:56.245466102 Z
+- _id: 67100
+  _time: 2025-09-03 06:05:31.757353834 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#566 has been opened by @lyriccoder.
   issue: 566
@@ -25273,8 +25294,8 @@
   when: 2020-07-24 11:21:02.000000000 Z
   where: github
   who: 20803206
-- _id: 67098
-  _time: 2025-09-03 05:01:56.286427414 Z
+- _id: 67101
+  _time: 2025-09-03 06:05:31.805163934 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#565 has been opened by @lyriccoder.
   issue: 565
@@ -25283,8 +25304,8 @@
   when: 2020-07-24 10:54:07.000000000 Z
   where: github
   who: 20803206
-- _id: 67099
-  _time: 2025-09-03 05:01:56.333316771 Z
+- _id: 67102
+  _time: 2025-09-03 06:05:31.853307095 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#550 has been opened by @aravij.
   issue: 550
@@ -25293,8 +25314,8 @@
   when: 2020-07-20 15:59:54.000000000 Z
   where: github
   who: 1987026
-- _id: 67100
-  _time: 2025-09-03 05:01:56.374262033 Z
+- _id: 67103
+  _time: 2025-09-03 06:05:31.892826369 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#538 has been opened by @aravij.
   issue: 538
@@ -25303,8 +25324,8 @@
   when: 2020-07-20 10:18:20.000000000 Z
   where: github
   who: 1987026
-- _id: 67101
-  _time: 2025-09-03 05:01:56.405009900 Z
+- _id: 67104
+  _time: 2025-09-03 06:05:31.933905272 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#537 has been opened by @aravij.
   issue: 537
@@ -25313,8 +25334,8 @@
   when: 2020-07-20 09:56:03.000000000 Z
   where: github
   who: 1987026
-- _id: 67102
-  _time: 2025-09-03 05:01:56.447575275 Z
+- _id: 67105
+  _time: 2025-09-03 06:05:31.974495261 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#535 has been opened by @aravij.
   issue: 535
@@ -25323,8 +25344,8 @@
   when: 2020-07-20 09:54:11.000000000 Z
   where: github
   who: 1987026
-- _id: 67103
-  _time: 2025-09-03 05:01:56.486337456 Z
+- _id: 67106
+  _time: 2025-09-03 06:05:32.012338720 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#534 has been opened by @aravij.
   issue: 534
@@ -25333,8 +25354,8 @@
   when: 2020-07-20 09:49:30.000000000 Z
   where: github
   who: 1987026
-- _id: 67104
-  _time: 2025-09-03 05:01:56.521456223 Z
+- _id: 67107
+  _time: 2025-09-03 06:05:32.045078204 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#533 has been opened by @aravij.
   issue: 533
@@ -25343,8 +25364,8 @@
   when: 2020-07-20 09:48:47.000000000 Z
   where: github
   who: 1987026
-- _id: 67105
-  _time: 2025-09-03 05:01:56.551904530 Z
+- _id: 67108
+  _time: 2025-09-03 06:05:32.077559646 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#532 has been opened by @aravij.
   issue: 532
@@ -25353,8 +25374,8 @@
   when: 2020-07-20 09:44:42.000000000 Z
   where: github
   who: 1987026
-- _id: 67106
-  _time: 2025-09-03 05:01:56.597637913 Z
+- _id: 67109
+  _time: 2025-09-03 06:05:32.110877287 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#530 has been opened by @aravij.
   issue: 530
@@ -25363,8 +25384,8 @@
   when: 2020-07-20 09:39:46.000000000 Z
   where: github
   who: 1987026
-- _id: 67107
-  _time: 2025-09-03 05:01:56.637020621 Z
+- _id: 67110
+  _time: 2025-09-03 06:05:32.161265861 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#526 has been opened by @aravij.
   issue: 526
@@ -25373,8 +25394,8 @@
   when: 2020-07-17 14:16:45.000000000 Z
   where: github
   who: 1987026
-- _id: 67108
-  _time: 2025-09-03 05:01:56.672222254 Z
+- _id: 67111
+  _time: 2025-09-03 06:05:32.208318092 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#524 has been opened by @lyriccoder.
   issue: 524
@@ -25383,8 +25404,8 @@
   when: 2020-07-16 14:58:53.000000000 Z
   where: github
   who: 20803206
-- _id: 67109
-  _time: 2025-09-03 05:01:56.799295135 Z
+- _id: 67112
+  _time: 2025-09-03 06:05:32.245858129 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#521 has been opened by @acheshkov.
   issue: 521
@@ -25393,8 +25414,8 @@
   when: 2020-07-15 12:18:43.000000000 Z
   where: github
   who: 231433
-- _id: 67110
-  _time: 2025-09-03 05:01:56.840738099 Z
+- _id: 67113
+  _time: 2025-09-03 06:05:32.284684853 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#520 has been opened by @aravij.
   issue: 520
@@ -25403,8 +25424,8 @@
   when: 2020-07-15 09:55:01.000000000 Z
   where: github
   who: 1987026
-- _id: 67111
-  _time: 2025-09-03 05:01:56.878882870 Z
+- _id: 67114
+  _time: 2025-09-03 06:05:32.324360285 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#514 has been opened by @yegor256.
   issue: 514
@@ -25413,8 +25434,8 @@
   when: 2020-07-14 07:26:04.000000000 Z
   where: github
   who: 526301
-- _id: 67112
-  _time: 2025-09-03 05:01:56.914382971 Z
+- _id: 67115
+  _time: 2025-09-03 06:05:32.361658051 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#512 has been opened by @yegor256.
   issue: 512
@@ -25423,8 +25444,8 @@
   when: 2020-07-13 16:42:09.000000000 Z
   where: github
   who: 526301
-- _id: 67113
-  _time: 2025-09-03 05:01:56.959632660 Z
+- _id: 67116
+  _time: 2025-09-03 06:05:32.396218126 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#507 has been opened by @yegor256.
   issue: 507
@@ -25433,8 +25454,8 @@
   when: 2020-07-13 13:43:00.000000000 Z
   where: github
   who: 526301
-- _id: 67114
-  _time: 2025-09-03 05:01:56.997766380 Z
+- _id: 67117
+  _time: 2025-09-03 06:05:32.438502371 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#502 has been opened by @lyriccoder.
   issue: 502
@@ -25443,8 +25464,8 @@
   when: 2020-07-08 14:58:04.000000000 Z
   where: github
   who: 20803206
-- _id: 67115
-  _time: 2025-09-03 05:01:57.036850609 Z
+- _id: 67118
+  _time: 2025-09-03 06:05:32.470603565 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#500 has been opened by @lyriccoder.
   issue: 500
@@ -25453,8 +25474,8 @@
   when: 2020-07-08 10:06:17.000000000 Z
   where: github
   who: 20803206
-- _id: 67116
-  _time: 2025-09-03 05:01:57.068737869 Z
+- _id: 67119
+  _time: 2025-09-03 06:05:32.515966697 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#497 has been opened by @yegor256.
   issue: 497
@@ -25463,8 +25484,8 @@
   when: 2020-07-07 16:39:16.000000000 Z
   where: github
   who: 526301
-- _id: 67117
-  _time: 2025-09-03 05:01:57.120566546 Z
+- _id: 67120
+  _time: 2025-09-03 06:05:32.567103424 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#480 has been opened by @lyriccoder.
   issue: 480
@@ -25473,8 +25494,8 @@
   when: 2020-07-06 11:13:13.000000000 Z
   where: github
   who: 20803206
-- _id: 67118
-  _time: 2025-09-03 05:01:57.159274014 Z
+- _id: 67121
+  _time: 2025-09-03 06:05:32.604088367 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#476 has been opened by @lyriccoder.
   issue: 476
@@ -25483,8 +25504,8 @@
   when: 2020-07-03 07:52:38.000000000 Z
   where: github
   who: 20803206
-- _id: 67119
-  _time: 2025-09-03 05:01:57.196526866 Z
+- _id: 67122
+  _time: 2025-09-03 06:05:32.641015132 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#470 has been opened by @lyriccoder.
   issue: 470
@@ -25493,8 +25514,8 @@
   when: 2020-06-30 10:20:26.000000000 Z
   where: github
   who: 20803206
-- _id: 67120
-  _time: 2025-09-03 05:01:57.233767214 Z
+- _id: 67123
+  _time: 2025-09-03 06:05:32.681907965 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#468 has been opened by @aravij.
   issue: 468
@@ -25503,8 +25524,8 @@
   when: 2020-06-30 06:23:22.000000000 Z
   where: github
   who: 1987026
-- _id: 67121
-  _time: 2025-09-03 05:01:57.279227877 Z
+- _id: 67124
+  _time: 2025-09-03 06:05:32.719324091 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#466 has been opened by @aravij.
   issue: 466
@@ -25513,8 +25534,8 @@
   when: 2020-06-30 06:18:55.000000000 Z
   where: github
   who: 1987026
-- _id: 67122
-  _time: 2025-09-03 05:01:57.319350340 Z
+- _id: 67125
+  _time: 2025-09-03 06:05:32.751789447 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#462 has been opened by @g4s8.
   issue: 462
@@ -25523,8 +25544,8 @@
   when: 2020-06-29 12:56:10.000000000 Z
   where: github
   who: 1524988
-- _id: 67123
-  _time: 2025-09-03 05:01:57.355843293 Z
+- _id: 67126
+  _time: 2025-09-03 06:05:32.784286496 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#459 has been opened by @acheshkov.
   issue: 459
@@ -25533,8 +25554,8 @@
   when: 2020-06-28 16:53:04.000000000 Z
   where: github
   who: 231433
-- _id: 67124
-  _time: 2025-09-03 05:01:57.393033127 Z
+- _id: 67127
+  _time: 2025-09-03 06:05:32.814854323 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#458 has been opened by @acheshkov.
   issue: 458
@@ -25543,8 +25564,8 @@
   when: 2020-06-28 16:35:57.000000000 Z
   where: github
   who: 231433
-- _id: 67125
-  _time: 2025-09-03 05:01:57.434255488 Z
+- _id: 67128
+  _time: 2025-09-03 06:05:32.862861110 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#455 has been opened by @g4s8.
   issue: 455
@@ -25553,8 +25574,8 @@
   when: 2020-06-26 09:48:33.000000000 Z
   where: github
   who: 1524988
-- _id: 67126
-  _time: 2025-09-03 05:01:57.480588131 Z
+- _id: 67129
+  _time: 2025-09-03 06:05:32.907027384 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#445 has been opened by @angusev.
   issue: 445
@@ -25563,8 +25584,8 @@
   when: 2020-06-23 13:27:49.000000000 Z
   where: github
   who: 44449418
-- _id: 67127
-  _time: 2025-09-03 05:01:57.512593431 Z
+- _id: 67130
+  _time: 2025-09-03 06:05:32.944099787 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#443 has been opened by @lyriccoder.
   issue: 443
@@ -25573,8 +25594,8 @@
   when: 2020-06-23 10:47:26.000000000 Z
   where: github
   who: 20803206
-- _id: 67128
-  _time: 2025-09-03 05:01:57.556171611 Z
+- _id: 67131
+  _time: 2025-09-03 06:05:33.092751828 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#439 has been opened by @aravij.
   issue: 439
@@ -25583,8 +25604,8 @@
   when: 2020-06-22 08:44:59.000000000 Z
   where: github
   who: 1987026
-- _id: 67129
-  _time: 2025-09-03 05:01:57.596823123 Z
+- _id: 67132
+  _time: 2025-09-03 06:05:33.134046801 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#436 has been opened by @acheshkov.
   issue: 436
@@ -25593,8 +25614,8 @@
   when: 2020-06-20 12:07:54.000000000 Z
   where: github
   who: 231433
-- _id: 67130
-  _time: 2025-09-03 05:01:57.635223662 Z
+- _id: 67133
+  _time: 2025-09-03 06:05:33.169687840 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#435 has been opened by @acheshkov.
   issue: 435
@@ -25603,8 +25624,8 @@
   when: 2020-06-20 12:07:02.000000000 Z
   where: github
   who: 231433
-- _id: 67131
-  _time: 2025-09-03 05:01:57.675356183 Z
+- _id: 67134
+  _time: 2025-09-03 06:05:33.206168634 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#430 has been opened by @acheshkov.
   issue: 430
@@ -25613,8 +25634,8 @@
   when: 2020-06-20 10:41:41.000000000 Z
   where: github
   who: 231433
-- _id: 67132
-  _time: 2025-09-03 05:01:57.719380758 Z
+- _id: 67135
+  _time: 2025-09-03 06:05:33.237177590 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#429 has been opened by @yegor256.
   issue: 429
@@ -25623,8 +25644,8 @@
   when: 2020-06-19 19:00:47.000000000 Z
   where: github
   who: 526301
-- _id: 67133
-  _time: 2025-09-03 05:01:57.759365273 Z
+- _id: 67136
+  _time: 2025-09-03 06:05:33.268732897 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#425 has been opened by @yegor256.
   issue: 425
@@ -25633,8 +25654,8 @@
   when: 2020-06-19 09:46:12.000000000 Z
   where: github
   who: 526301
-- _id: 67134
-  _time: 2025-09-03 05:01:57.795294938 Z
+- _id: 67137
+  _time: 2025-09-03 06:05:33.320024043 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#422 has been opened by @lyriccoder.
   issue: 422
@@ -25643,8 +25664,8 @@
   when: 2020-06-19 07:26:45.000000000 Z
   where: github
   who: 20803206
-- _id: 67135
-  _time: 2025-09-03 05:01:57.833615047 Z
+- _id: 67138
+  _time: 2025-09-03 06:05:33.358967174 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#419 has been opened by @aravij.
   issue: 419
@@ -25653,8 +25674,8 @@
   when: 2020-06-18 15:41:41.000000000 Z
   where: github
   who: 1987026
-- _id: 67136
-  _time: 2025-09-03 05:01:57.877521121 Z
+- _id: 67139
+  _time: 2025-09-03 06:05:33.399667368 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#414 has been opened by @aravij.
   issue: 414
@@ -25663,8 +25684,8 @@
   when: 2020-06-17 08:35:48.000000000 Z
   where: github
   who: 1987026
-- _id: 67137
-  _time: 2025-09-03 05:01:57.922564994 Z
+- _id: 67140
+  _time: 2025-09-03 06:05:33.439431622 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#411 has been opened by @lyriccoder.
   issue: 411
@@ -25673,8 +25694,8 @@
   when: 2020-06-16 13:11:52.000000000 Z
   where: github
   who: 20803206
-- _id: 67138
-  _time: 2025-09-03 05:01:57.954627782 Z
+- _id: 67141
+  _time: 2025-09-03 06:05:33.477910317 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#407 has been opened by @lyriccoder.
   issue: 407
@@ -25683,8 +25704,8 @@
   when: 2020-06-11 10:10:14.000000000 Z
   where: github
   who: 20803206
-- _id: 67139
-  _time: 2025-09-03 05:01:58.000051085 Z
+- _id: 67142
+  _time: 2025-09-03 06:05:33.514003849 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#404 has been opened by @aravij.
   issue: 404
@@ -25693,8 +25714,8 @@
   when: 2020-06-10 16:21:10.000000000 Z
   where: github
   who: 1987026
-- _id: 67140
-  _time: 2025-09-03 05:01:58.039089238 Z
+- _id: 67143
+  _time: 2025-09-03 06:05:33.546125402 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#401 has been opened by @lyriccoder.
   issue: 401
@@ -25703,8 +25724,8 @@
   when: 2020-06-10 11:22:12.000000000 Z
   where: github
   who: 20803206
-- _id: 67141
-  _time: 2025-09-03 05:01:58.078225114 Z
+- _id: 67144
+  _time: 2025-09-03 06:05:33.576964304 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#399 has been opened by @lyriccoder.
   issue: 399
@@ -25713,8 +25734,8 @@
   when: 2020-06-09 13:15:04.000000000 Z
   where: github
   who: 20803206
-- _id: 67142
-  _time: 2025-09-03 05:01:58.110031993 Z
+- _id: 67145
+  _time: 2025-09-03 06:05:33.612855610 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#397 has been opened by @lyriccoder.
   issue: 397
@@ -25723,8 +25744,8 @@
   when: 2020-06-08 14:45:54.000000000 Z
   where: github
   who: 20803206
-- _id: 67143
-  _time: 2025-09-03 05:01:58.156749800 Z
+- _id: 67146
+  _time: 2025-09-03 06:05:33.660643468 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#395 has been opened by @vitaly-protasov.
   issue: 395
@@ -25733,8 +25754,8 @@
   when: 2020-06-08 13:56:44.000000000 Z
   where: github
   who: 43099602
-- _id: 67144
-  _time: 2025-09-03 05:01:58.197293580 Z
+- _id: 67147
+  _time: 2025-09-03 06:05:33.698603304 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#390 has been opened by @aravij.
   issue: 390
@@ -25743,8 +25764,8 @@
   when: 2020-06-04 18:19:28.000000000 Z
   where: github
   who: 1987026
-- _id: 67145
-  _time: 2025-09-03 05:01:58.233192253 Z
+- _id: 67148
+  _time: 2025-09-03 06:05:33.737060240 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#388 has been opened by @lyriccoder.
   issue: 388
@@ -25753,8 +25774,8 @@
   when: 2020-06-04 13:00:53.000000000 Z
   where: github
   who: 20803206
-- _id: 67146
-  _time: 2025-09-03 05:01:58.270768440 Z
+- _id: 67149
+  _time: 2025-09-03 06:05:33.773568835 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#385 has been opened by @lyriccoder.
   issue: 385
@@ -25763,8 +25784,8 @@
   when: 2020-06-03 11:42:21.000000000 Z
   where: github
   who: 20803206
-- _id: 67147
-  _time: 2025-09-03 05:01:58.314329738 Z
+- _id: 67150
+  _time: 2025-09-03 06:05:33.810857433 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#384 has been opened by @lyriccoder.
   issue: 384
@@ -25773,8 +25794,8 @@
   when: 2020-06-03 11:37:50.000000000 Z
   where: github
   who: 20803206
-- _id: 67148
-  _time: 2025-09-03 05:01:58.354742639 Z
+- _id: 67151
+  _time: 2025-09-03 06:05:33.845546910 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#383 has been opened by @lyriccoder.
   issue: 383
@@ -25783,8 +25804,8 @@
   when: 2020-06-03 11:27:50.000000000 Z
   where: github
   who: 20803206
-- _id: 67149
-  _time: 2025-09-03 05:01:58.386748630 Z
+- _id: 67152
+  _time: 2025-09-03 06:05:33.878533804 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#376 has been opened by @acheshkov.
   issue: 376
@@ -25793,8 +25814,8 @@
   when: 2020-05-29 10:38:52.000000000 Z
   where: github
   who: 231433
-- _id: 67150
-  _time: 2025-09-03 05:01:58.428432656 Z
+- _id: 67153
+  _time: 2025-09-03 06:05:33.909551821 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#373 has been opened by @yegor256.
   issue: 373
@@ -25803,8 +25824,8 @@
   when: 2020-05-29 03:22:35.000000000 Z
   where: github
   who: 526301
-- _id: 67151
-  _time: 2025-09-03 05:01:58.466398427 Z
+- _id: 67154
+  _time: 2025-09-03 06:05:33.944205102 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#372 has been opened by @yegor256.
   issue: 372
@@ -25813,8 +25834,8 @@
   when: 2020-05-29 03:15:07.000000000 Z
   where: github
   who: 526301
-- _id: 67152
-  _time: 2025-09-03 05:01:58.504236805 Z
+- _id: 67155
+  _time: 2025-09-03 06:05:33.991478540 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#371 has been opened by @yegor256.
   issue: 371
@@ -25823,8 +25844,8 @@
   when: 2020-05-29 03:11:44.000000000 Z
   where: github
   who: 526301
-- _id: 67153
-  _time: 2025-09-03 05:01:58.537343537 Z
+- _id: 67156
+  _time: 2025-09-03 06:05:34.145279320 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#369 has been opened by @yegor256.
   issue: 369
@@ -25833,8 +25854,8 @@
   when: 2020-05-29 03:03:01.000000000 Z
   where: github
   who: 526301
-- _id: 67154
-  _time: 2025-09-03 05:01:58.581585589 Z
+- _id: 67157
+  _time: 2025-09-03 06:05:34.183284564 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#368 has been opened by @yegor256.
   issue: 368
@@ -25843,8 +25864,8 @@
   when: 2020-05-29 02:51:39.000000000 Z
   where: github
   who: 526301
-- _id: 67155
-  _time: 2025-09-03 05:01:58.622985042 Z
+- _id: 67158
+  _time: 2025-09-03 06:05:34.224488357 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#365 has been opened by @g4s8.
   issue: 365
@@ -25853,8 +25874,8 @@
   when: 2020-05-28 11:46:46.000000000 Z
   where: github
   who: 1524988
-- _id: 67156
-  _time: 2025-09-03 05:01:58.658450698 Z
+- _id: 67159
+  _time: 2025-09-03 06:05:34.264807000 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#364 has been opened by @g4s8.
   issue: 364
@@ -25863,8 +25884,8 @@
   when: 2020-05-28 11:43:20.000000000 Z
   where: github
   who: 1524988
-- _id: 67157
-  _time: 2025-09-03 05:01:58.697117741 Z
+- _id: 67160
+  _time: 2025-09-03 06:05:34.299305942 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#363 has been opened by @g4s8.
   issue: 363
@@ -25873,8 +25894,8 @@
   when: 2020-05-28 11:37:06.000000000 Z
   where: github
   who: 1524988
-- _id: 67158
-  _time: 2025-09-03 05:01:58.737564255 Z
+- _id: 67161
+  _time: 2025-09-03 06:05:34.331665771 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#360 has been opened by @yegor256.
   issue: 360
@@ -25883,8 +25904,8 @@
   when: 2020-05-28 06:48:02.000000000 Z
   where: github
   who: 526301
-- _id: 67159
-  _time: 2025-09-03 05:01:58.858816849 Z
+- _id: 67162
+  _time: 2025-09-03 06:05:34.363363293 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#359 has been opened by @yegor256.
   issue: 359
@@ -25893,8 +25914,8 @@
   when: 2020-05-28 06:36:37.000000000 Z
   where: github
   who: 526301
-- _id: 67160
-  _time: 2025-09-03 05:01:58.891113575 Z
+- _id: 67163
+  _time: 2025-09-03 06:05:34.399075535 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#358 has been opened by @yegor256.
   issue: 358
@@ -25903,8 +25924,8 @@
   when: 2020-05-28 06:33:33.000000000 Z
   where: github
   who: 526301
-- _id: 67161
-  _time: 2025-09-03 05:01:58.932997118 Z
+- _id: 67164
+  _time: 2025-09-03 06:05:34.445077826 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#357 has been opened by @yegor256.
   issue: 357
@@ -25913,8 +25934,8 @@
   when: 2020-05-28 06:32:29.000000000 Z
   where: github
   who: 526301
-- _id: 67162
-  _time: 2025-09-03 05:01:58.973671244 Z
+- _id: 67165
+  _time: 2025-09-03 06:05:34.482963838 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#356 has been opened by @yegor256.
   issue: 356
@@ -25923,8 +25944,8 @@
   when: 2020-05-28 06:29:39.000000000 Z
   where: github
   who: 526301
-- _id: 67163
-  _time: 2025-09-03 05:01:59.014823578 Z
+- _id: 67166
+  _time: 2025-09-03 06:05:34.525882155 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#351 has been opened by @g4s8.
   issue: 351
@@ -25933,8 +25954,8 @@
   when: 2020-05-26 11:25:38.000000000 Z
   where: github
   who: 1524988
-- _id: 67164
-  _time: 2025-09-03 05:01:59.053331218 Z
+- _id: 67167
+  _time: 2025-09-03 06:05:34.569036020 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#342 has been opened by @yegor256.
   issue: 342
@@ -25943,8 +25964,8 @@
   when: 2020-05-22 12:39:59.000000000 Z
   where: github
   who: 526301
-- _id: 67165
-  _time: 2025-09-03 05:01:59.095053004 Z
+- _id: 67168
+  _time: 2025-09-03 06:05:34.606527033 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#341 has been opened by @yegor256.
   issue: 341
@@ -25953,8 +25974,8 @@
   when: 2020-05-22 12:39:10.000000000 Z
   where: github
   who: 526301
-- _id: 67166
-  _time: 2025-09-03 05:01:59.134309867 Z
+- _id: 67169
+  _time: 2025-09-03 06:05:34.640899972 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#340 has been opened by @yegor256.
   issue: 340
@@ -25963,8 +25984,8 @@
   when: 2020-05-22 12:37:39.000000000 Z
   where: github
   who: 526301
-- _id: 67167
-  _time: 2025-09-03 05:01:59.167208268 Z
+- _id: 67170
+  _time: 2025-09-03 06:05:34.672406098 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#339 has been opened by @yegor256.
   issue: 339
@@ -25973,8 +25994,8 @@
   when: 2020-05-22 12:34:40.000000000 Z
   where: github
   who: 526301
-- _id: 67168
-  _time: 2025-09-03 05:01:59.211583540 Z
+- _id: 67171
+  _time: 2025-09-03 06:05:34.704317208 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#338 has been opened by @yegor256.
   issue: 338
@@ -25983,8 +26004,8 @@
   when: 2020-05-22 12:32:29.000000000 Z
   where: github
   who: 526301
-- _id: 67169
-  _time: 2025-09-03 05:01:59.250860250 Z
+- _id: 67172
+  _time: 2025-09-03 06:05:34.740475301 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#337 has been opened by @lyriccoder.
   issue: 337
@@ -25993,8 +26014,8 @@
   when: 2020-05-22 11:29:03.000000000 Z
   where: github
   who: 20803206
-- _id: 67170
-  _time: 2025-09-03 05:01:59.291956775 Z
+- _id: 67173
+  _time: 2025-09-03 06:05:34.786849025 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#333 has been opened by @acheshkov.
   issue: 333
@@ -26003,8 +26024,8 @@
   when: 2020-05-21 06:42:26.000000000 Z
   where: github
   who: 231433
-- _id: 67171
-  _time: 2025-09-03 05:01:59.326612556 Z
+- _id: 67174
+  _time: 2025-09-03 06:05:34.828185956 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#329 has been opened by @acheshkov.
   issue: 329
@@ -26013,8 +26034,8 @@
   when: 2020-05-20 07:59:44.000000000 Z
   where: github
   who: 231433
-- _id: 67172
-  _time: 2025-09-03 05:01:59.371275066 Z
+- _id: 67175
+  _time: 2025-09-03 06:05:34.865569000 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#327 has been opened by @lyriccoder.
   issue: 327
@@ -26023,8 +26044,8 @@
   when: 2020-05-19 17:47:40.000000000 Z
   where: github
   who: 20803206
-- _id: 67173
-  _time: 2025-09-03 05:01:59.414401560 Z
+- _id: 67176
+  _time: 2025-09-03 06:05:34.906148891 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#323 has been opened by @yegor256.
   issue: 323
@@ -26033,8 +26054,8 @@
   when: 2020-05-19 09:51:16.000000000 Z
   where: github
   who: 526301
-- _id: 67174
-  _time: 2025-09-03 05:01:59.448162707 Z
+- _id: 67177
+  _time: 2025-09-03 06:05:34.942199102 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#322 has been opened by @lyriccoder.
   issue: 322
@@ -26043,8 +26064,8 @@
   when: 2020-05-19 09:38:07.000000000 Z
   where: github
   who: 20803206
-- _id: 67175
-  _time: 2025-09-03 05:01:59.492868778 Z
+- _id: 67178
+  _time: 2025-09-03 06:05:34.977459903 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#318 has been opened by @acheshkov.
   issue: 318
@@ -26053,8 +26074,8 @@
   when: 2020-05-17 16:26:50.000000000 Z
   where: github
   who: 231433
-- _id: 67176
-  _time: 2025-09-03 05:01:59.531530156 Z
+- _id: 67179
+  _time: 2025-09-03 06:05:35.008476256 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#316 has been opened by @lyriccoder.
   issue: 316
@@ -26063,8 +26084,8 @@
   when: 2020-05-16 11:20:55.000000000 Z
   where: github
   who: 20803206
-- _id: 67177
-  _time: 2025-09-03 05:01:59.570986131 Z
+- _id: 67180
+  _time: 2025-09-03 06:05:35.042289069 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#310 has been opened by @acheshkov.
   issue: 310
@@ -26073,8 +26094,8 @@
   when: 2020-05-15 07:01:11.000000000 Z
   where: github
   who: 231433
-- _id: 67178
-  _time: 2025-09-03 05:01:59.615122515 Z
+- _id: 67181
+  _time: 2025-09-03 06:05:35.221961716 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#295 has been opened by @acheshkov.
   issue: 295
@@ -26083,8 +26104,8 @@
   when: 2020-05-14 07:21:49.000000000 Z
   where: github
   who: 231433
-- _id: 67179
-  _time: 2025-09-03 05:01:59.660426205 Z
+- _id: 67182
+  _time: 2025-09-03 06:05:35.264399036 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#292 has been opened by @angusev.
   issue: 292
@@ -26093,8 +26114,8 @@
   when: 2020-05-13 14:50:53.000000000 Z
   where: github
   who: 44449418
-- _id: 67180
-  _time: 2025-09-03 05:01:59.699449741 Z
+- _id: 67183
+  _time: 2025-09-03 06:05:35.302954756 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#290 has been opened by @lyriccoder.
   issue: 290
@@ -26103,8 +26124,8 @@
   when: 2020-05-13 12:26:04.000000000 Z
   where: github
   who: 20803206
-- _id: 67181
-  _time: 2025-09-03 05:01:59.731474087 Z
+- _id: 67184
+  _time: 2025-09-03 06:05:35.342562054 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#289 has been opened by @angusev.
   issue: 289
@@ -26113,8 +26134,8 @@
   when: 2020-05-13 12:06:30.000000000 Z
   where: github
   who: 44449418
-- _id: 67182
-  _time: 2025-09-03 05:01:59.772893817 Z
+- _id: 67185
+  _time: 2025-09-03 06:05:35.381681623 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#287 has been opened by @ilyamoskva.
   issue: 287
@@ -26123,8 +26144,8 @@
   when: 2020-05-13 09:37:13.000000000 Z
   where: github
   who: 25896691
-- _id: 67183
-  _time: 2025-09-03 05:01:59.824415574 Z
+- _id: 67186
+  _time: 2025-09-03 06:05:35.431196429 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#265 has been opened by @lyriccoder.
   issue: 265
@@ -26133,8 +26154,8 @@
   when: 2020-05-06 11:09:05.000000000 Z
   where: github
   who: 20803206
-- _id: 67184
-  _time: 2025-09-03 05:01:59.862882188 Z
+- _id: 67187
+  _time: 2025-09-03 06:05:35.465147861 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#262 has been opened by @acheshkov.
   issue: 262
@@ -26143,8 +26164,8 @@
   when: 2020-05-06 10:02:06.000000000 Z
   where: github
   who: 231433
-- _id: 67185
-  _time: 2025-09-03 05:01:59.900417478 Z
+- _id: 67188
+  _time: 2025-09-03 06:05:35.498892917 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#256 has been opened by @acheshkov.
   issue: 256
@@ -26153,8 +26174,8 @@
   when: 2020-04-30 15:16:22.000000000 Z
   where: github
   who: 231433
-- _id: 67186
-  _time: 2025-09-03 05:01:59.942104949 Z
+- _id: 67189
+  _time: 2025-09-03 06:05:35.536495391 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#255 has been opened by @paulodamaso.
   issue: 255
@@ -26163,8 +26184,8 @@
   when: 2020-04-29 21:12:28.000000000 Z
   where: github
   who: 33915433
-- _id: 67187
-  _time: 2025-09-03 05:01:59.984667047 Z
+- _id: 67190
+  _time: 2025-09-03 06:05:35.587225420 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#252 has been opened by @acheshkov.
   issue: 252
@@ -26173,8 +26194,8 @@
   when: 2020-04-28 20:51:15.000000000 Z
   where: github
   who: 231433
-- _id: 67188
-  _time: 2025-09-03 05:02:00.020124940 Z
+- _id: 67191
+  _time: 2025-09-03 06:05:35.625840019 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#246 has been opened by @lyriccoder.
   issue: 246
@@ -26183,8 +26204,8 @@
   when: 2020-04-27 09:49:38.000000000 Z
   where: github
   who: 20803206
-- _id: 67189
-  _time: 2025-09-03 05:02:00.066088043 Z
+- _id: 67192
+  _time: 2025-09-03 06:05:35.664298478 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#237 has been opened by @lyriccoder.
   issue: 237
@@ -26193,8 +26214,8 @@
   when: 2020-04-22 15:51:31.000000000 Z
   where: github
   who: 20803206
-- _id: 67190
-  _time: 2025-09-03 05:02:00.105840874 Z
+- _id: 67193
+  _time: 2025-09-03 06:05:35.703033881 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#235 has been opened by @vitaly-protasov.
   issue: 235
@@ -26203,8 +26224,8 @@
   when: 2020-04-22 10:08:52.000000000 Z
   where: github
   who: 43099602
-- _id: 67191
-  _time: 2025-09-03 05:02:00.142252842 Z
+- _id: 67194
+  _time: 2025-09-03 06:05:35.741055545 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#229 has been opened by @lyriccoder.
   issue: 229
@@ -26213,8 +26234,8 @@
   when: 2020-04-20 14:32:09.000000000 Z
   where: github
   who: 20803206
-- _id: 67192
-  _time: 2025-09-03 05:02:00.184804270 Z
+- _id: 67195
+  _time: 2025-09-03 06:05:35.777250286 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#221 has been opened by @vitaly-protasov.
   issue: 221
@@ -26223,8 +26244,8 @@
   when: 2020-04-17 14:08:29.000000000 Z
   where: github
   who: 43099602
-- _id: 67193
-  _time: 2025-09-03 05:02:00.231852284 Z
+- _id: 67196
+  _time: 2025-09-03 06:05:35.812566650 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#208 has been opened by @lyriccoder.
   issue: 208
@@ -26233,8 +26254,8 @@
   when: 2020-04-13 16:05:42.000000000 Z
   where: github
   who: 20803206
-- _id: 67194
-  _time: 2025-09-03 05:02:00.271718818 Z
+- _id: 67197
+  _time: 2025-09-03 06:05:35.842890734 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#206 has been opened by @lukyanoffpashok.
   issue: 206
@@ -26243,8 +26264,8 @@
   when: 2020-04-13 15:20:17.000000000 Z
   where: github
   who: 46167437
-- _id: 67195
-  _time: 2025-09-03 05:02:00.305590521 Z
+- _id: 67198
+  _time: 2025-09-03 06:05:35.884669207 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#199 has been opened by @lyriccoder.
   issue: 199
@@ -26253,8 +26274,8 @@
   when: 2020-04-10 14:22:17.000000000 Z
   where: github
   who: 20803206
-- _id: 67196
-  _time: 2025-09-03 05:02:00.353859731 Z
+- _id: 67199
+  _time: 2025-09-03 06:05:35.929448591 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#195 has been opened by @lyriccoder.
   issue: 195
@@ -26263,8 +26284,8 @@
   when: 2020-04-10 09:39:50.000000000 Z
   where: github
   who: 20803206
-- _id: 67197
-  _time: 2025-09-03 05:02:00.396795158 Z
+- _id: 67200
+  _time: 2025-09-03 06:05:35.966386005 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#194 has been opened by @lyriccoder.
   issue: 194
@@ -26273,8 +26294,8 @@
   when: 2020-04-10 09:25:49.000000000 Z
   where: github
   who: 20803206
-- _id: 67198
-  _time: 2025-09-03 05:02:00.436426776 Z
+- _id: 67201
+  _time: 2025-09-03 06:05:36.006406854 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#184 has been opened by @lukyanoffpashok.
   issue: 184
@@ -26283,8 +26304,8 @@
   when: 2020-04-08 15:38:08.000000000 Z
   where: github
   who: 46167437
-- _id: 67199
-  _time: 2025-09-03 05:02:00.476487855 Z
+- _id: 67202
+  _time: 2025-09-03 06:05:36.044976930 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#183 has been opened by @lukyanoffpashok.
   issue: 183
@@ -26293,8 +26314,8 @@
   when: 2020-04-08 15:30:33.000000000 Z
   where: github
   who: 46167437
-- _id: 67200
-  _time: 2025-09-03 05:02:00.527018507 Z
+- _id: 67203
+  _time: 2025-09-03 06:05:36.092265078 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#167 has been opened by @vitaly-protasov.
   issue: 167
@@ -26303,8 +26324,8 @@
   when: 2020-04-07 09:56:09.000000000 Z
   where: github
   who: 43099602
-- _id: 67201
-  _time: 2025-09-03 05:02:00.567127744 Z
+- _id: 67204
+  _time: 2025-09-03 06:05:36.125581756 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#164 has been opened by @yegor256.
   issue: 164
@@ -26313,8 +26334,8 @@
   when: 2020-04-05 06:25:45.000000000 Z
   where: github
   who: 526301
-- _id: 67202
-  _time: 2025-09-03 05:02:00.601017967 Z
+- _id: 67205
+  _time: 2025-09-03 06:05:36.158737195 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#160 has been opened by @0pdd.
   issue: 160
@@ -26323,8 +26344,8 @@
   when: 2020-04-03 14:42:41.000000000 Z
   where: github
   who: 24456188
-- _id: 67203
-  _time: 2025-09-03 05:02:00.647492999 Z
+- _id: 67206
+  _time: 2025-09-03 06:05:36.311158578 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#159 has been opened by @0pdd.
   issue: 159
@@ -26333,8 +26354,8 @@
   when: 2020-04-03 14:42:31.000000000 Z
   where: github
   who: 24456188
-- _id: 67204
-  _time: 2025-09-03 05:02:00.691667214 Z
+- _id: 67207
+  _time: 2025-09-03 06:05:36.363832970 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#158 has been opened by @0pdd.
   issue: 158
@@ -26343,8 +26364,8 @@
   when: 2020-04-03 14:42:21.000000000 Z
   where: github
   who: 24456188
-- _id: 67205
-  _time: 2025-09-03 05:02:00.725692876 Z
+- _id: 67208
+  _time: 2025-09-03 06:05:36.403143225 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#157 has been opened by @fevzian.
   issue: 157
@@ -26353,8 +26374,8 @@
   when: 2020-04-02 17:04:39.000000000 Z
   where: github
   who: 3167940
-- _id: 67206
-  _time: 2025-09-03 05:02:00.770591137 Z
+- _id: 67209
+  _time: 2025-09-03 06:05:36.443690555 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#153 has been opened by @acheshkov.
   issue: 153
@@ -26363,8 +26384,8 @@
   when: 2020-04-02 09:09:26.000000000 Z
   where: github
   who: 231433
-- _id: 67207
-  _time: 2025-09-03 05:02:00.811004063 Z
+- _id: 67210
+  _time: 2025-09-03 06:05:36.487607852 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#149 has been opened by @yegor256.
   issue: 149
@@ -26373,8 +26394,8 @@
   when: 2020-04-01 21:35:05.000000000 Z
   where: github
   who: 526301
-- _id: 67208
-  _time: 2025-09-03 05:02:00.849652376 Z
+- _id: 67211
+  _time: 2025-09-03 06:05:36.527466038 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#148 has been opened by @yegor256.
   issue: 148
@@ -26383,8 +26404,8 @@
   when: 2020-04-01 21:33:40.000000000 Z
   where: github
   who: 526301
-- _id: 67209
-  _time: 2025-09-03 05:02:00.960664338 Z
+- _id: 67212
+  _time: 2025-09-03 06:05:36.561016322 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#147 has been opened by @yegor256.
   issue: 147
@@ -26393,8 +26414,8 @@
   when: 2020-04-01 21:22:05.000000000 Z
   where: github
   who: 526301
-- _id: 67210
-  _time: 2025-09-03 05:02:01.008655568 Z
+- _id: 67213
+  _time: 2025-09-03 06:05:36.591624876 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#146 has been opened by @yegor256.
   issue: 146
@@ -26403,8 +26424,8 @@
   when: 2020-04-01 21:16:14.000000000 Z
   where: github
   who: 526301
-- _id: 67211
-  _time: 2025-09-03 05:02:01.051893411 Z
+- _id: 67214
+  _time: 2025-09-03 06:05:36.624065322 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#143 has been opened by @yegor256.
   issue: 143
@@ -26413,8 +26434,8 @@
   when: 2020-04-01 21:11:45.000000000 Z
   where: github
   who: 526301
-- _id: 67212
-  _time: 2025-09-03 05:02:01.086305838 Z
+- _id: 67215
+  _time: 2025-09-03 06:05:36.660187465 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#142 has been opened by @yegor256.
   issue: 142
@@ -26423,8 +26444,8 @@
   when: 2020-04-01 21:07:13.000000000 Z
   where: github
   who: 526301
-- _id: 67213
-  _time: 2025-09-03 05:02:01.131881436 Z
+- _id: 67216
+  _time: 2025-09-03 06:05:36.705936635 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#141 has been opened by @yegor256.
   issue: 141
@@ -26433,8 +26454,8 @@
   when: 2020-04-01 21:05:48.000000000 Z
   where: github
   who: 526301
-- _id: 67214
-  _time: 2025-09-03 05:02:01.171260628 Z
+- _id: 67217
+  _time: 2025-09-03 06:05:36.742977061 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#140 has been opened by @yegor256.
   issue: 140
@@ -26443,8 +26464,8 @@
   when: 2020-04-01 21:02:48.000000000 Z
   where: github
   who: 526301
-- _id: 67215
-  _time: 2025-09-03 05:02:01.209701914 Z
+- _id: 67218
+  _time: 2025-09-03 06:05:36.781117637 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#139 has been opened by @yegor256.
   issue: 139
@@ -26453,8 +26474,8 @@
   when: 2020-04-01 20:59:39.000000000 Z
   where: github
   who: 526301
-- _id: 67216
-  _time: 2025-09-03 05:02:01.246608427 Z
+- _id: 67219
+  _time: 2025-09-03 06:05:36.819922180 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#138 has been opened by @yegor256.
   issue: 138
@@ -26463,8 +26484,8 @@
   when: 2020-04-01 20:56:34.000000000 Z
   where: github
   who: 526301
-- _id: 67217
-  _time: 2025-09-03 05:02:01.290092914 Z
+- _id: 67220
+  _time: 2025-09-03 06:05:36.858056594 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#137 has been opened by @yegor256.
   issue: 137
@@ -26473,8 +26494,8 @@
   when: 2020-04-01 20:52:51.000000000 Z
   where: github
   who: 526301
-- _id: 67218
-  _time: 2025-09-03 05:02:01.330940563 Z
+- _id: 67221
+  _time: 2025-09-03 06:05:36.892420554 Z
   _version: 0.15.7/0.53.5/
   details: The issue cqfn/aibolit#136 has been opened by @yegor256.
   issue: 136
@@ -26483,742 +26504,17 @@
   when: 2020-04-01 20:45:07.000000000 Z
   where: github
   who: 526301
-- _id: 67219
-  _time: 2025-09-03 05:02:01.366750835 Z
+- _id: 67222
+  _time: 2025-09-03 06:05:36.926052951 Z
   _version: 0.15.7/0.53.5/
   latest: 136
   repository: 237167507
   what: min-issue-was-found
   where: github
-- _id: 67220
-  _time: 2025-09-03 05:02:01.827968034 Z
+- _id: 67223
+  _time: 2025-09-03 06:05:37.395648088 Z
   _version: 0.15.7/0.53.5/
   latest: 151
   repository: 237167507
   what: min-pull-was-found
-  where: github
-- _id: 67221
-  _time: 2025-09-03 05:02:02.106923656 Z
-  _version: 0.15.7/0.53.5/
-  branch: scope_april_2020
-  details: The pull cqfn/aibolit#152 has been opened earlier by @acheshkov.
-  issue: 152
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-02 08:40:14.000000000 Z
-  where: github
-  who: 231433
-- _id: 67222
-  _time: 2025-09-03 05:02:02.632857113 Z
-  _version: 0.15.7/0.53.5/
-  branch: '131'
-  details: The pull cqfn/aibolit#155 has been opened earlier by @paulodamaso.
-  issue: 155
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-02 13:02:46.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67223
-  _time: 2025-09-03 05:02:03.304352057 Z
-  _version: 0.15.7/0.53.5/
-  branch: '116'
-  details: The pull cqfn/aibolit#156 has been opened earlier by @tribals.
-  issue: 156
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-02 16:35:18.000000000 Z
-  where: github
-  who: 3613180
-- _id: 67224
-  _time: 2025-09-03 05:02:03.997587924 Z
-  _version: 0.15.7/0.53.5/
-  branch: '126'
-  details: The pull cqfn/aibolit#162 has been opened earlier by @paulodamaso.
-  issue: 162
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-03 17:45:40.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67225
-  _time: 2025-09-03 05:02:04.503783841 Z
-  _version: 0.15.7/0.53.5/
-  branch: '127'
-  details: The pull cqfn/aibolit#163 has been opened earlier by @paulodamaso.
-  issue: 163
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-03 17:59:39.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67226
-  _time: 2025-09-03 05:02:04.963721488 Z
-  _version: 0.15.7/0.53.5/
-  branch: '130'
-  details: The pull cqfn/aibolit#165 has been opened earlier by @tribals.
-  issue: 165
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-06 01:55:52.000000000 Z
-  where: github
-  who: 3613180
-- _id: 67227
-  _time: 2025-09-03 05:02:05.408303245 Z
-  _version: 0.15.7/0.53.5/
-  branch: wp
-  details: The pull cqfn/aibolit#171 has been opened earlier by @acheshkov.
-  issue: 171
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-08 07:28:54.000000000 Z
-  where: github
-  who: 231433
-- _id: 67228
-  _time: 2025-09-03 05:02:05.908372995 Z
-  _version: 0.15.7/0.53.5/
-  branch: red_catch_fix
-  details: The pull cqfn/aibolit#173 has been opened earlier by @lyriccoder.
-  issue: 173
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-08 10:19:26.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67229
-  _time: 2025-09-03 05:02:06.600519048 Z
-  _version: 0.15.7/0.53.5/
-  branch: wp
-  details: The pull cqfn/aibolit#174 has been opened earlier by @acheshkov.
-  issue: 174
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-08 10:41:23.000000000 Z
-  where: github
-  who: 231433
-- _id: 67230
-  _time: 2025-09-03 05:02:07.103956947 Z
-  _version: 0.15.7/0.53.5/
-  branch: log_errors_red_catch
-  details: The pull cqfn/aibolit#176 has been opened earlier by @lyriccoder.
-  issue: 176
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-08 13:50:54.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67231
-  _time: 2025-09-03 05:02:07.610191467 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-177
-  details: The pull cqfn/aibolit#178 has been opened earlier by @acheshkov.
-  issue: 178
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-08 14:04:11.000000000 Z
-  where: github
-  who: 231433
-- _id: 67232
-  _time: 2025-09-03 05:02:08.150198036 Z
-  _version: 0.15.7/0.53.5/
-  branch: empty_rethrow_fix
-  details: The pull cqfn/aibolit#181 has been opened earlier by @lyriccoder.
-  issue: 181
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-08 14:44:35.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67233
-  _time: 2025-09-03 05:02:08.677437768 Z
-  _version: 0.15.7/0.53.5/
-  branch: diameter
-  details: The pull cqfn/aibolit#186 has been opened earlier by @vitaly-protasov.
-  issue: 186
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-08 15:58:01.000000000 Z
-  where: github
-  who: 43099602
-- _id: 67234
-  _time: 2025-09-03 05:02:09.777781096 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-143
-  details: The pull cqfn/aibolit#188 has been opened earlier by @acheshkov.
-  issue: 188
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-09 13:54:48.000000000 Z
-  where: github
-  who: 231433
-- _id: 67235
-  _time: 2025-09-03 05:02:10.409549283 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-137
-  details: The pull cqfn/aibolit#189 has been opened earlier by @acheshkov.
-  issue: 189
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-09 15:44:46.000000000 Z
-  where: github
-  who: 231433
-- _id: 67236
-  _time: 2025-09-03 05:02:10.890157099 Z
-  _version: 0.15.7/0.53.5/
-  branch: fix_string_conat
-  details: The pull cqfn/aibolit#191 has been opened earlier by @lyriccoder.
-  issue: 191
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-09 16:28:12.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67237
-  _time: 2025-09-03 05:02:11.354457553 Z
-  _version: 0.15.7/0.53.5/
-  branch: spaces_counter_fix
-  details: The pull cqfn/aibolit#193 has been opened earlier by @lyriccoder.
-  issue: 193
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-10 09:10:16.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67238
-  _time: 2025-09-03 05:02:11.824540490 Z
-  _version: 0.15.7/0.53.5/
-  branch: patterns
-  details: The pull cqfn/aibolit#197 has been opened earlier by @cringoleg.
-  issue: 197
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-10 12:09:47.000000000 Z
-  where: github
-  who: 57872461
-- _id: 67239
-  _time: 2025-09-03 05:02:12.440418425 Z
-  _version: 0.15.7/0.53.5/
-  branch: leave
-  details: The pull cqfn/aibolit#198 has been opened earlier by @vitaly-protasov.
-  issue: 198
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-10 13:40:11.000000000 Z
-  where: github
-  who: 43099602
-- _id: 67240
-  _time: 2025-09-03 05:02:12.845223936 Z
-  _version: 0.15.7/0.53.5/
-  branch: patterns_calc
-  details: The pull cqfn/aibolit#200 has been opened earlier by @lyriccoder.
-  issue: 200
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-10 14:23:45.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67241
-  _time: 2025-09-03 05:02:13.350777803 Z
-  _version: 0.15.7/0.53.5/
-  branch: metrics
-  details: The pull cqfn/aibolit#201 has been opened earlier by @cringoleg.
-  issue: 201
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-10 15:01:31.000000000 Z
-  where: github
-  who: 57872461
-- _id: 67242
-  _time: 2025-09-03 05:02:13.794059312 Z
-  _version: 0.15.7/0.53.5/
-  branch: '128'
-  details: The pull cqfn/aibolit#203 has been opened earlier by @paulodamaso.
-  issue: 203
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-11 04:19:19.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67243
-  _time: 2025-09-03 05:02:14.312455150 Z
-  _version: 0.15.7/0.53.5/
-  branch: '136'
-  details: The pull cqfn/aibolit#204 has been opened earlier by @paulodamaso.
-  issue: 204
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-12 02:59:12.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67244
-  _time: 2025-09-03 05:02:14.812862584 Z
-  _version: 0.15.7/0.53.5/
-  branch: cognitive
-  details: The pull cqfn/aibolit#207 has been opened earlier by @vitaly-protasov.
-  issue: 207
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-13 15:40:27.000000000 Z
-  where: github
-  who: 43099602
-- _id: 67245
-  _time: 2025-09-03 05:02:15.321036748 Z
-  _version: 0.15.7/0.53.5/
-  branch: '141'
-  details: The pull cqfn/aibolit#210 has been opened earlier by @paulodamaso.
-  issue: 210
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-14 16:59:44.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67246
-  _time: 2025-09-03 05:02:15.776717230 Z
-  _version: 0.15.7/0.53.5/
-  branch: cognitive
-  details: The pull cqfn/aibolit#213 has been opened earlier by @vitaly-protasov.
-  issue: 213
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-15 11:14:41.000000000 Z
-  where: github
-  who: 43099602
-- _id: 67247
-  _time: 2025-09-03 05:02:16.246324718 Z
-  _version: 0.15.7/0.53.5/
-  branch: cognitive
-  details: The pull cqfn/aibolit#217 has been opened earlier by @vitaly-protasov.
-  issue: 217
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-16 15:06:02.000000000 Z
-  where: github
-  who: 43099602
-- _id: 67248
-  _time: 2025-09-03 05:02:16.720753891 Z
-  _version: 0.15.7/0.53.5/
-  branch: LCOM4
-  details: The pull cqfn/aibolit#218 has been opened earlier by @cringoleg.
-  issue: 218
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-16 16:54:36.000000000 Z
-  where: github
-  who: 57872461
-- _id: 67249
-  _time: 2025-09-03 05:02:17.290791220 Z
-  _version: 0.15.7/0.53.5/
-  branch: cognitive
-  details: The pull cqfn/aibolit#220 has been opened earlier by @vitaly-protasov.
-  issue: 220
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-17 11:53:47.000000000 Z
-  where: github
-  who: 43099602
-- _id: 67250
-  _time: 2025-09-03 05:02:17.827368829 Z
-  _version: 0.15.7/0.53.5/
-  branch: leave
-  details: The pull cqfn/aibolit#222 has been opened earlier by @vitaly-protasov.
-  issue: 222
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-17 14:21:12.000000000 Z
-  where: github
-  who: 43099602
-- _id: 67251
-  _time: 2025-09-03 05:02:18.305794149 Z
-  _version: 0.15.7/0.53.5/
-  branch: '159'
-  details: The pull cqfn/aibolit#223 has been opened earlier by @paulodamaso.
-  issue: 223
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-17 16:03:11.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67252
-  _time: 2025-09-03 05:02:18.891317714 Z
-  _version: 0.15.7/0.53.5/
-  branch: '160'
-  details: The pull cqfn/aibolit#224 has been opened earlier by @paulodamaso.
-  issue: 224
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-17 16:39:29.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67253
-  _time: 2025-09-03 05:02:19.516369466 Z
-  _version: 0.15.7/0.53.5/
-  branch: '158'
-  details: The pull cqfn/aibolit#227 has been opened earlier by @paulodamaso.
-  issue: 227
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-19 21:50:05.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67254
-  _time: 2025-09-03 05:02:20.066201222 Z
-  _version: 0.15.7/0.53.5/
-  branch: fix_error_log
-  details: The pull cqfn/aibolit#230 has been opened earlier by @lyriccoder.
-  issue: 230
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-20 14:32:34.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67255
-  _time: 2025-09-03 05:02:21.102656479 Z
-  _version: 0.15.7/0.53.5/
-  branch: LCOM4
-  details: The pull cqfn/aibolit#231 has been opened earlier by @cringoleg.
-  issue: 231
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-20 16:07:56.000000000 Z
-  where: github
-  who: 57872461
-- _id: 67256
-  _time: 2025-09-03 05:02:21.622150923 Z
-  _version: 0.15.7/0.53.5/
-  branch: issue-228
-  details: The pull cqfn/aibolit#232 has been opened earlier by @acheshkov.
-  issue: 232
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-21 10:27:56.000000000 Z
-  where: github
-  who: 231433
-- _id: 67257
-  _time: 2025-09-03 05:02:22.115171795 Z
-  _version: 0.15.7/0.53.5/
-  branch: cognitive
-  details: The pull cqfn/aibolit#233 has been opened earlier by @vitaly-protasov.
-  issue: 233
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-22 06:49:23.000000000 Z
-  where: github
-  who: 43099602
-- _id: 67258
-  _time: 2025-09-03 05:02:22.523004031 Z
-  _version: 0.15.7/0.53.5/
-  branch: diameter
-  details: The pull cqfn/aibolit#236 has been opened earlier by @vitaly-protasov.
-  issue: 236
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-22 10:09:35.000000000 Z
-  where: github
-  who: 43099602
-- _id: 67259
-  _time: 2025-09-03 05:02:23.024904079 Z
-  _version: 0.15.7/0.53.5/
-  branch: ML_pipeline
-  details: The pull cqfn/aibolit#238 has been opened earlier by @lyriccoder.
-  issue: 238
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-22 15:51:44.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67260
-  _time: 2025-09-03 05:02:23.595454805 Z
-  _version: 0.15.7/0.53.5/
-  branch: '142'
-  details: The pull cqfn/aibolit#239 has been opened earlier by @paulodamaso.
-  issue: 239
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-24 12:46:36.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67261
-  _time: 2025-09-03 05:02:24.112577424 Z
-  _version: 0.15.7/0.53.5/
-  branch: '147'
-  details: The pull cqfn/aibolit#240 has been opened earlier by @paulodamaso.
-  issue: 240
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-24 19:23:26.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67262
-  _time: 2025-09-03 05:02:24.619325073 Z
-  _version: 0.15.7/0.53.5/
-  branch: "#194"
-  details: The pull cqfn/aibolit#241 has been opened earlier by @paulodamaso.
-  issue: 241
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-24 20:31:39.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67263
-  _time: 2025-09-03 05:02:25.111847831 Z
-  _version: 0.15.7/0.53.5/
-  branch: '139'
-  details: The pull cqfn/aibolit#242 has been opened earlier by @paulodamaso.
-  issue: 242
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-24 21:45:47.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67264
-  _time: 2025-09-03 05:02:25.716747811 Z
-  _version: 0.15.7/0.53.5/
-  branch: '183'
-  details: The pull cqfn/aibolit#243 has been opened earlier by @paulodamaso.
-  issue: 243
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-25 22:24:41.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67265
-  _time: 2025-09-03 05:02:26.210581161 Z
-  _version: 0.15.7/0.53.5/
-  branch: '184'
-  details: The pull cqfn/aibolit#244 has been opened earlier by @paulodamaso.
-  issue: 244
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-25 23:57:09.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67266
-  _time: 2025-09-03 05:02:26.713361205 Z
-  _version: 0.15.7/0.53.5/
-  branch: '164'
-  details: The pull cqfn/aibolit#245 has been opened earlier by @dz-s.
-  issue: 245
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-26 23:18:12.000000000 Z
-  where: github
-  who: 27350480
-- _id: 67267
-  _time: 2025-09-03 05:02:27.436415495 Z
-  _version: 0.15.7/0.53.5/
-  branch: Pavel
-  details: The pull cqfn/aibolit#247 has been opened earlier by @lukyanoffpashok.
-  issue: 247
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-27 12:32:00.000000000 Z
-  where: github
-  who: 46167437
-- _id: 67268
-  _time: 2025-09-03 05:02:27.962017119 Z
-  _version: 0.15.7/0.53.5/
-  branch: recommend_feature
-  details: The pull cqfn/aibolit#248 has been opened earlier by @lyriccoder.
-  issue: 248
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-27 14:57:44.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67269
-  _time: 2025-09-03 05:02:28.394853330 Z
-  _version: 0.15.7/0.53.5/
-  branch: '138'
-  details: The pull cqfn/aibolit#250 has been opened earlier by @paulodamaso.
-  issue: 250
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-28 04:01:42.000000000 Z
-  where: github
-  who: 33915433
-- _id: 67270
-  _time: 2025-09-03 05:02:28.967321856 Z
-  _version: 0.15.7/0.53.5/
-  branch: master_fix_flake8
-  details: The pull cqfn/aibolit#254 has been opened earlier by @acheshkov.
-  issue: 254
-  repository: 237167507
-  what: pull-was-opened
-  when: 2020-04-29 17:03:57.000000000 Z
-  where: github
-  who: 231433
-- _id: 67271
-  _time: 2025-09-03 05:03:09.971523399 Z
-  _version: 0.15.7/0.53.5/
-  latest: 264
-  repository: 237167507
-  what: types-were-scanned
-  where: github
-- _id: 67272
-  _time: 2025-09-03 05:03:11.054471354 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 231433
-  details: cqfn/aibolit#137 was assigned to @acheshkov by @acheshkov .
-  issue: 137
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-04-09 12:37:23.000000000 Z
-  where: github
-  who: 231433
-- _id: 67273
-  _time: 2025-09-03 05:03:13.660673346 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 231433
-  details: cqfn/aibolit#143 was assigned to @acheshkov by @acheshkov .
-  issue: 143
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-04-09 12:34:57.000000000 Z
-  where: github
-  who: 231433
-- _id: 67274
-  _time: 2025-09-03 05:03:16.034335550 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 231433
-  details: cqfn/aibolit#148 was assigned to @cringoleg by @acheshkov .
-  issue: 148
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-04-03 07:27:12.000000000 Z
-  where: github
-  who: 57872461
-- _id: 67275
-  _time: 2025-09-03 05:03:16.599815810 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 231433
-  details: cqfn/aibolit#149 was assigned to @lukyanoffpashok by @acheshkov .
-  issue: 149
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-04-06 08:01:52.000000000 Z
-  where: github
-  who: 46167437
-- _id: 67276
-  _time: 2025-09-03 05:03:17.375882836 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 231433
-  details: cqfn/aibolit#153 was assigned to @yegor256 by @acheshkov .
-  issue: 153
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-04-27 16:08:34.000000000 Z
-  where: github
-  who: 526301
-- _id: 67277
-  _time: 2025-09-03 05:03:20.836190000 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 231433
-  details: cqfn/aibolit#167 was assigned to @vitaly-protasov by @acheshkov .
-  issue: 167
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-04-07 13:21:59.000000000 Z
-  where: github
-  who: 43099602
-- _id: 67278
-  _time: 2025-09-03 05:03:29.366635869 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 231433
-  details: cqfn/aibolit#246 was assigned to @lyriccoder by @acheshkov .
-  issue: 246
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-04-27 10:22:17.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67279
-  _time: 2025-09-03 05:03:29.888500567 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 231433
-  details: cqfn/aibolit#252 was assigned to @acheshkov by @acheshkov .
-  issue: 252
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-04-28 20:51:15.000000000 Z
-  where: github
-  who: 231433
-- _id: 67280
-  _time: 2025-09-03 05:03:30.292580889 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 231433
-  details: cqfn/aibolit#255 was assigned to @yegor256 by @acheshkov .
-  issue: 255
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-05-01 05:22:26.000000000 Z
-  where: github
-  who: 526301
-- _id: 67281
-  _time: 2025-09-03 05:03:30.717525462 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 231433
-  details: cqfn/aibolit#256 was assigned to @acheshkov by @acheshkov .
-  issue: 256
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-04-30 15:17:12.000000000 Z
-  where: github
-  who: 231433
-- _id: 67282
-  _time: 2025-09-03 05:03:31.180470642 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 231433
-  details: cqfn/aibolit#262 was assigned to @acheshkov by @acheshkov .
-  issue: 262
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-05-06 10:02:18.000000000 Z
-  where: github
-  who: 231433
-- _id: 67283
-  _time: 2025-09-03 05:03:31.609525208 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 20803206
-  details: cqfn/aibolit#265 was assigned to @lyriccoder by @lyriccoder .
-  issue: 265
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-05-06 12:30:13.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67284
-  _time: 2025-09-03 05:03:34.264909013 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 231433
-  details: cqfn/aibolit#287 was assigned to @lyriccoder by @acheshkov .
-  issue: 287
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-05-13 16:26:07.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67285
-  _time: 2025-09-03 05:03:34.652696012 Z
-  _version: 0.15.7/0.53.5/
-  assigner: 44449418
-  details: cqfn/aibolit#289 was assigned to @lyriccoder by @angusev .
-  issue: 289
-  repository: 237167507
-  what: issue-was-assigned
-  when: 2020-05-13 12:06:50.000000000 Z
-  where: github
-  who: 20803206
-- _id: 67286
-  _time: 2025-09-03 05:03:35.094725820 Z
-  _version: 0.15.7/0.53.5/
-  latest: 290
-  repository: 237167507
-  what: assignees-were-scanned
-  where: github
-- _id: 67287
-  _time: 2025-09-03 05:04:43.977076489 Z
-  _version: 0.15.7/0.53.5/
-  latest: 264
-  repository: 237167507
-  what: labels-were-scanned
   where: github
