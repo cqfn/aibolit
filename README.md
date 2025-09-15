@@ -289,7 +289,7 @@ Otherwise model will be saved into
 parameter`, the default value will be `scripts/target/01` of aibolit cloned
 repo
 
-Or you can use our docker image (link will be soon here)
+Or you can use our [docker image](https://hub.docker.com/r/yegor256/aibolit-image)
 
 Run train pipeline:
 
@@ -358,7 +358,7 @@ Using Docker recommendation pipeline
 docker run --rm -it \
   -v <absolute_path_to_folder_with_classes>:/in \
   -v <absolute_path_to_out_dir>:/out \
-  cqfn/aibolit-image
+  yegor256/aibolit-image
 ```
 
 [White Paper]: https://github.com/cqfn/aibolit/releases/download/1.2.5-post.1/aibolit_wp.pdf
