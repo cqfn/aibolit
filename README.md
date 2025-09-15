@@ -319,6 +319,7 @@ First, you need to install:
 * [Python 3.11+](https://www.python.org/downloads/)
 * [uv](https://docs.astral.sh/uv/)
 * [Ruby 2.6+](https://www.ruby-lang.org/en/downloads/)
+* [Maven](https://maven.apache.org/)
 * [Xcop](https://github.com/yegor256/xcop)
 * [LaTeX](https://www.latex-project.org/get/) and
   [`latexmk`](https://ctan.org/pkg/latexmk)
