@@ -271,12 +271,12 @@ class AST:
                 if isinstance(attribute_value, Node):
                     node_reference = AST._create_reference_to_node(attribute_value,
                                                                    javalang_node_to_index_map)
-                    tree.add_node(node, **{attribute_name: node_reference})
+                    tree.nodes[node][attribute_name] = node_reference
                 elif isinstance(attribute_value, list):
                     node_references = \
                         AST._replace_javalang_nodes_in_list(attribute_value,
                                                             javalang_node_to_index_map)
-                    tree.add_node(node, **{attribute_name: node_references})
+                    tree.nodes[node][attribute_name] = node_references
 
     @staticmethod
     def _replace_javalang_nodes_in_list(javalang_nodes_list: List[Any],
