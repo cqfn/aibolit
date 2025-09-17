@@ -52,26 +52,26 @@ EOF
 
 echo "Testing aibolit analysis..."
 set +e
-aibolit check --filenames test-files/Sample.java > /dev/null
+aibolit recommend --filenames test-files/Sample.java > /dev/null
 exit_code=$?
 set -e
 if [ $exit_code -ne 1 ]; then
-  echo "ERROR: aibolit check failed with exit code $exit_code"
+  echo "ERROR: aibolit recommend failed with exit code $exit_code"
   exit 1
 fi
 
 set +e
-aibolit check --filenames test-files/Sample.java --format=compact > /dev/null
+aibolit recommend --filenames test-files/Sample.java --format=compact > /dev/null
 exit_code=$?
 set -e
 if [ $exit_code -ne 1 ]; then
-  echo "ERROR: aibolit check failed with exit code $exit_code"
+  echo "ERROR: aibolit recommend failed with exit code $exit_code"
   exit 1
 fi
 
 echo "Testing error handling..."
 set +e
-aibolit check --filenames non-existent.java > /dev/null 2>&1
+aibolit recommend --filenames non-existent.java > /dev/null 2>&1
 exit_code=$?
 set -e
 if [ $exit_code -eq 2 ]; then
@@ -82,7 +82,7 @@ else
 fi
 
 echo "Testing help command..."
-aibolit check --help > /dev/null
+aibolit recommend --help > /dev/null
 
 deactivate
 

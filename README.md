@@ -20,12 +20,6 @@ pip3 install aibolit~=1.3.0
 To analyze your Java sources, located at `src/java` (for example), run:
 
 ```bash
-aibolit check --filenames src/java/File.java src/java/AnotherFile.java
-```
-
-or
-
-```bash
 aibolit recommend --filenames src/java/File.java src/java/AnotherFile.java
 ```
 
