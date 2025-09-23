@@ -89,8 +89,10 @@ def decompose_java_class(
         components = weakly_connected_components(usage_graph)
     else:
         valid_strengths = [s.value for s in DecompositionStrength]
-        raise ValueError(f"Unsupported decomposition strength: {strength}. "
-                         f"Must be one of: {valid_strengths}")
+        raise ValueError(
+            f'Unsupported decomposition strength: {strength}. '
+            f'Must be one of: {valid_strengths}'
+        )
 
     class_parts: List[AST] = []
     patterns_to_ignore: List[Any] = []
