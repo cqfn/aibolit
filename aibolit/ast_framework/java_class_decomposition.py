@@ -58,7 +58,7 @@ def is_ast_pattern(class_ast: AST, Pattern) -> bool:
 
 def decompose_java_class(
         class_ast: AST,
-        sstrength: Union[DecompositionStrength, str] = DecompositionStrength.STRONG,
+        strength: Union[DecompositionStrength, str] = DecompositionStrength.STRONG,
         ignore_setters=False,
         ignore_getters=False) -> List[AST]:
     """
