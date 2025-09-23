@@ -21,7 +21,7 @@ class DecompositionStrength(Enum):
     WEAK = "weak"
 
     @classmethod
-    def values(cls) -> List[str]::
+    def values(cls) -> List[str]:
         """
         Return available strength values.
         """
