@@ -22,7 +22,7 @@ class DecompositionStrength(Enum):
     WEAK = "weak"
 
     @classmethod
-    def values(cls):
+    def values(cls) -> List[str]::
         """
         Return available strength values.
         """
@@ -59,22 +59,31 @@ def is_ast_pattern(class_ast: AST, Pattern) -> bool:
 
 def decompose_java_class(
         class_ast: AST,
-        strength: DecompositionStrength = DecompositionStrength.STRONG,
+        sstrength: Union[DecompositionStrength, str] = DecompositionStrength.STRONG,
         ignore_setters=False,
         ignore_getters=False) -> List[AST]:
-    '''
+    """
     Splits java_class fields and methods by their usage and
     construct for each case an AST with only those fields and methods kept.
     :param class_ast: component
     :param ignore_getters: should ignore getters
     :param ignore_setters: should ignore setters
-    :param strength: The decomposition strength (STRONG or WEAK)
+    :param strength: decomposition strength; accepts DecompositionStrength or 'strong'/'weak'
     for splitting fields and methods by strong and weak connectivity.
-    '''
+    """
 
     usage_graph = _create_usage_graph(class_ast)
 
     components: Iterator[Set[int]]
+    if isinstance(strength, str):
+        try:
+            strength = DecompositionStrength(strength.lower())
+        except ValueError:
+            valid_strengths = [s.value for s in DecompositionStrength]
+            raise ValueError(
+                f'Unsupported decomposition strength: {strength}. '
+                f'Must be one of: {valid_strengths}'
+            )
     if strength == DecompositionStrength.STRONG:
         components = strongly_connected_components(usage_graph)
     elif strength == DecompositionStrength.WEAK:
