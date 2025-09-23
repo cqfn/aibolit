@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: MIT
 
 from typing import List, Dict, Set, Iterator, Any
+from enum import Enum
 
 from networkx import (  # type: ignore
     DiGraph, strongly_connected_components, weakly_connected_components
@@ -11,7 +12,6 @@ from aibolit.ast_framework import AST, ASTNodeType
 
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter as setter
 from aibolit.patterns.classic_getter.classic_getter import ClassicGetter as getter
-from enum import Enum
 
 
 class DecompositionStrength(Enum):
