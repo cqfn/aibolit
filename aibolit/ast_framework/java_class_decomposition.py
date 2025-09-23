@@ -12,7 +12,6 @@ from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter as setter
 from aibolit.patterns.classic_getter.classic_getter import ClassicGetter as getter
 from enum import Enum
-from typing import List, Optional
 
 
 class DecompositionStrength(Enum):
@@ -84,7 +83,6 @@ def decompose_java_class(
         valid_strengths = [s.value for s in DecompositionStrength]
         raise ValueError(f"Unsupported decomposition strength: {strength}. "
                          f"Must be one of: {valid_strengths}")
-   
 
     class_parts: List[AST] = []
     patterns_to_ignore: List[Any] = []
