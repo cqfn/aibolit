@@ -11,6 +11,23 @@ from aibolit.ast_framework import AST, ASTNodeType
 
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter as setter
 from aibolit.patterns.classic_getter.classic_getter import ClassicGetter as getter
+from enum import Enum
+from typing import List, Optional
+
+
+class DecompositionStrength(Enum):
+    """
+    Enum representing available decomposition strengths.
+    """
+    STRONG = "strong"
+    WEAK = "weak"
+
+    @classmethod
+    def values(cls):
+        """
+        Return available strength values.
+        """
+        return [item.value for item in cls]
 
 
 def find_patterns(tree: AST, patterns: List[Any]) -> Set[str]:
@@ -43,7 +60,7 @@ def is_ast_pattern(class_ast: AST, Pattern) -> bool:
 
 def decompose_java_class(
         class_ast: AST,
-        strength: str,
+        strength: DecompositionStrength = DecompositionStrength.STRONG,
         ignore_setters=False,
         ignore_getters=False) -> List[AST]:
     '''
@@ -52,21 +69,22 @@ def decompose_java_class(
     :param class_ast: component
     :param ignore_getters: should ignore getters
     :param ignore_setters: should ignore setters
-    :param strength: controls splitting criteria. Use "strong" or "weak"
+    :param strength: The decomposition strength (STRONG or WEAK)
     for splitting fields and methods by strong and weak connectivity.
     '''
 
     usage_graph = _create_usage_graph(class_ast)
 
     components: Iterator[Set[int]]
-    if strength == 'strong':
+    if strength == DecompositionStrength.STRONG:
         components = strongly_connected_components(usage_graph)
-    elif strength == 'weak':
+    elif strength == DecompositionStrength.WEAK:
         components = weakly_connected_components(usage_graph)
     else:
-        raise ValueError(
-            f"'strength' argument must be either 'strong' or 'weak', but '{strength}' was provided."
-        )
+        valid_strengths = [s.value for s in DecompositionStrength]
+        raise ValueError(f"Unsupported decomposition strength: {strength}. "
+                         f"Must be one of: {valid_strengths}")
+   
 
     class_parts: List[AST] = []
     patterns_to_ignore: List[Any] = []
