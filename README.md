@@ -261,13 +261,10 @@ Train works only with cloned git repository.
 Linux).
 5. Set env variable `TARGET_FOLDER` if you need to save all dataset files to
 another directory.
-
 *Please note that if you set `TARGET_FOLDER`, your dataset files will be located in `TARGET_FOLDER/target`.*
-
-**Environment Variables Configuration:**
-
 6. **Dataset Paths** (required when using `TARGET_FOLDER`):
-   - Set the training dataset path:
+   * Set the training dataset path:
+
      ```bash
      # Linux/Mac
      export HOME_TRAIN_DATASET="$TARGET_FOLDER/target/08/08-train.csv"
@@ -276,7 +273,8 @@ another directory.
      set HOME_TRAIN_DATASET=%TARGET_FOLDER%\target\08\08-train.csv
      ```
 
-   - Set the test dataset path:
+   * Set the test dataset path:
+
      ```bash
      # Linux/Mac
      export HOME_TEST_DATASET="$TARGET_FOLDER/target/08/08-test.csv"
@@ -286,7 +284,8 @@ another directory.
      ```
 
 7. **Model Save Directory** (optional):
-   - To specify a custom directory for saving the model, set the `SAVE_MODEL_FOLDER` environment variable:
+   * To specify a custom directory for saving the model, set the `SAVE_MODEL_FOLDER` environment variable:
+
      ```bash
      # Linux/Mac
      export SAVE_MODEL_FOLDER="/your/custom/path"
@@ -294,16 +293,18 @@ another directory.
      # Windows
      set SAVE_MODEL_FOLDER=C:\your\custom\path
      ```
-   
-   - If not set, the model will be saved to the default location:
+
+   * If not set, the model will be saved to the default location:
+
      ```
      cloned_aibolit_path/aibolit/binary_files/model.pkl
      ```
 
 8. **Java Files Directory** (optional):
-   - To use a custom folder with Java files, use the `--java_folder` parameter
-   - Default value: `scripts/target/01` of the aibolit cloned repository
-   - Usage example:
+   * To use a custom folder with Java files, use the `--java_folder` parameter
+   * Default value: `scripts/target/01` of the aibolit cloned repository
+   * Usage example:
+
      ```bash
      python script.py --java_folder /path/to/your/java/files
      ```
