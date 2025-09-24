@@ -17,8 +17,8 @@ class DecompositionStrength(Enum):
     """
     Enum representing available decomposition strengths.
     """
-    STRONG = "strong"
-    WEAK = "weak"
+    STRONG = 'strong'
+    WEAK = 'weak'
 
     @classmethod
     def values(cls) -> List[str]:
