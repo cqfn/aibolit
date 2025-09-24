@@ -261,8 +261,9 @@ Train works only with cloned git repository.
 Linux).
 5. Set env variable `TARGET_FOLDER` if you need to save all dataset files to
 another directory.
-*Please note that if you set `TARGET_FOLDER`, your dataset files will be located in `TARGET_FOLDER/target`.*
-6. **Dataset Paths** (required when using `TARGET_FOLDER`):
+*Please note that if you set `TARGET_FOLDER`, your dataset files will be
+located in `TARGET_FOLDER/target`.*
+7. **Dataset Paths** (required when using `TARGET_FOLDER`):
    * Set the training dataset path:
 
      ```bash
@@ -283,8 +284,9 @@ another directory.
      set HOME_TEST_DATASET=%TARGET_FOLDER%\target\08\08-test.csv
      ```
 
-7. **Model Save Directory** (optional):
-   * To specify a custom directory for saving the model, set the `SAVE_MODEL_FOLDER` environment variable:
+8. **Model Save Directory** (optional):
+   * To specify a custom directory for saving the model,
+      set the `SAVE_MODEL_FOLDER` environment variable:
 
      ```bash
      # Linux/Mac
@@ -296,11 +298,11 @@ another directory.
 
    * If not set, the model will be saved to the default location:
 
-     ```
+     ```bash
      cloned_aibolit_path/aibolit/binary_files/model.pkl
      ```
 
-8. **Java Files Directory** (optional):
+9. **Java Files Directory** (optional):
    * To use a custom folder with Java files, use the `--java_folder` parameter
    * Default value: `scripts/target/01` of the aibolit cloned repository
    * Usage example:
