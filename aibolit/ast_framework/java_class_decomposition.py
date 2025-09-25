@@ -59,14 +59,20 @@ def is_ast_pattern(class_ast: AST, Pattern) -> bool:
 def _normalize_strength(strength: Union[DecompositionStrength, str]) -> DecompositionStrength:
     if isinstance(strength, DecompositionStrength):
         return strength
-    try:
-        return DecompositionStrength(strength.lower())
-    except ValueError as exc:
-        valid_strengths = [s.value for s in DecompositionStrength]
-        raise ValueError(
-            f'Unsupported decomposition strength: {strength}. '
-            f'Must be one of: {valid_strengths}'
-        ) from exc
+    if isinstance(strength, str):
+        try:
+            return DecompositionStrength(strength.lower())
+        except ValueError as exc:
+            valid_strengths = DecompositionStrength.values()
+            raise ValueError(
+                f'Unsupported decomposition strength: {strength}. '
+                f'Must be one of: {valid_strengths}'
+            ) from exc
+    valid_strengths = DecompositionStrength.values()
+    raise ValueError(
+        f'Unsupported decomposition strength: {strength}. '
+        f'Must be one of: {valid_strengths}'
+    )
 
 
 def decompose_java_class(
