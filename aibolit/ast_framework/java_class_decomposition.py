@@ -56,6 +56,19 @@ def is_ast_pattern(class_ast: AST, Pattern) -> bool:
     return len(Pattern().value(class_ast)) > 0
 
 
+def _normalize_strength(strength: Union[DecompositionStrength, str]) -> DecompositionStrength:
+    if isinstance(strength, DecompositionStrength):
+        return strength
+    try:
+        return DecompositionStrength(strength.lower())
+    except ValueError as exc:
+        valid_strengths = [s.value for s in DecompositionStrength]
+        raise ValueError(
+            f'Unsupported decomposition strength: {strength}. '
+            f'Must be one of: {valid_strengths}'
+        ) from exc
+
+
 def decompose_java_class(
         class_ast: AST,
         strength: Union[DecompositionStrength, str] = DecompositionStrength.STRONG,
@@ -74,23 +87,16 @@ def decompose_java_class(
     usage_graph = _create_usage_graph(class_ast)
 
     components: Iterator[Set[int]]
-    if isinstance(strength, str):
-        try:
-            strength = DecompositionStrength(strength.lower())
-        except ValueError:
-            valid_strengths = [s.value for s in DecompositionStrength]
-            raise ValueError(
-                f'Unsupported decomposition strength: {strength}. '
-                f'Must be one of: {valid_strengths}'
-            )
-    if strength == DecompositionStrength.STRONG:
+    normalized_strength = _normalize_strength(strength)
+
+    if normalized_strength == DecompositionStrength.STRONG:
         components = strongly_connected_components(usage_graph)
-    elif strength == DecompositionStrength.WEAK:
+    elif normalized_strength == DecompositionStrength.WEAK:
         components = weakly_connected_components(usage_graph)
     else:
         valid_strengths = [s.value for s in DecompositionStrength]
         raise ValueError(
-            f'Unsupported decomposition strength: {strength}. '
+            f'Unsupported decomposition strength: {normalized_strength}. '
             f'Must be one of: {valid_strengths}'
         )
 
