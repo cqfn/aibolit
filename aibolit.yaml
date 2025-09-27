@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 185.058461063
+  seconds: 418.495825197
   version: 0.54.0
   what: judges-summary
-  when: 2025-09-27 02:12:28.545499154 Z
+  when: 2025-09-27 03:25:49.413730133 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -14593,2183 +14593,6 @@
     The average monthly turnover (18.0 developers) is decreasing (R=-0.91).
   what: assessment
   when: 2025-09-26 11:00:45.438916963 Z
-- _id: 123809
-  _job: 18042761771
-  _time: 2025-09-26 15:57:53.292626648 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: The missing issue cqfn/aibolit#255 has been opened by @paulodamaso.
-  is_human: 1
-  issue: 255
-  repository: 237167507
-  tombstone: 2025-09-26 16:59:54.741209682 Z
-  what: issue-was-opened
-  when: &129 2020-04-29 21:12:28.000000000 Z
-  where: github
-  who: 33915433
-- _id: 123810
-  _job: 18042761771
-  _time: 2025-09-26 15:58:04.948464290 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: The issue cqfn/aibolit#634 has been earlier opened by @aravij.
-  issue: 634
-  repository: 237167507
-  tombstone: 2025-09-26 16:02:49.385152170 Z
-  what: issue-was-opened
-  when: 2020-09-15 08:58:09.000000000 Z
-  where: github
-  who: 1987026
-- _id: 123812
-  _job: 18042761771
-  _time: 2025-09-26 15:59:01.150041078 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: wp
-  comments: 3
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 2
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#174 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.390945110 Z
-  failed_builds: 0
-  files: 3
-  hoc: 20
-  issue: 174
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.549964871 Z
-  what: pull-was-merged
-  when: 2020-04-08 10:42:58.000000000 Z
-  where: github
-  who: 526301
-- _id: 123813
-  _job: 18042761771
-  _time: 2025-09-26 15:59:07.390403589 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: log_errors_red_catch
-  comments: 13
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 13
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#176 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.430368751 Z
-  failed_builds: 0
-  files: 6
-  hoc: 1313
-  issue: 176
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.564516190 Z
-  what: pull-was-merged
-  when: 2020-04-09 08:41:03.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123814
-  _job: 18042761771
-  _time: 2025-09-26 15:59:11.445870289 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-177
-  comments: 9
-  comments_appreciated: 0
-  comments_by_author: 3
-  comments_by_reviewers: 6
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#178 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.458758608 Z
-  failed_builds: 0
-  files: 1
-  hoc: 2
-  issue: 178
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.578850058 Z
-  what: pull-was-merged
-  when: 2020-04-08 14:47:44.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123815
-  _job: 18042761771
-  _time: 2025-09-26 15:59:15.052235013 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: master
-  comments: 4
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 4
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#179 has been 'pull-was-closed'.
-  done: 2025-09-26 16:02:48.684021027 Z
-  failed_builds: 0
-  files: 9
-  hoc: 278
-  issue: 179
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.593822295 Z
-  what: pull-was-closed
-  when: 2020-04-08 15:44:33.000000000 Z
-  where: github
-  who: 43099602
-- _id: 123816
-  _job: 18042761771
-  _time: 2025-09-26 15:59:17.464627038 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: empty_rethrow_fix
-  comments: 15
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 15
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#181 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.512245773 Z
-  failed_builds: 0
-  files: 8
-  hoc: 946
-  issue: 181
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.610383506 Z
-  what: pull-was-merged
-  when: 2020-04-09 11:57:49.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123817
-  _job: 18042761771
-  _time: 2025-09-26 15:59:21.566494091 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: unittest
-  comments: 13
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 11
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#185 has been 'pull-was-closed'.
-  done: 2025-09-26 16:02:48.719006323 Z
-  failed_builds: 0
-  files: 1
-  hoc: 29
-  issue: 185
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.623037247 Z
-  what: pull-was-closed
-  when: 2020-04-10 07:30:31.000000000 Z
-  where: github
-  who: 43099602
-- _id: 123818
-  _job: 18042761771
-  _time: 2025-09-26 15:59:25.389769836 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: diameter
-  comments: 11
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 11
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#186 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.554902542 Z
-  failed_builds: 0
-  files: 11
-  hoc: 325
-  issue: 186
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.644781392 Z
-  what: pull-was-merged
-  when: 2020-04-10 10:06:19.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123819
-  _job: 18042761771
-  _time: 2025-09-26 15:59:29.030074244 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: master
-  comments: 7
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 6
-  comments_resolved: 0
-  comments_to_code: 2
-  details: Apparently, cqfn/aibolit#187 has been 'pull-was-closed'.
-  done: 2025-09-26 16:02:48.750753200 Z
-  failed_builds: 0
-  files: 12
-  hoc: 9017
-  issue: 187
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.660088965 Z
-  what: pull-was-closed
-  when: 2020-04-10 10:11:36.000000000 Z
-  where: github
-  who: 57872461
-- _id: 123820
-  _job: 18042761771
-  _time: 2025-09-26 15:59:32.147776023 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-143
-  comments: 10
-  comments_appreciated: 0
-  comments_by_author: 3
-  comments_by_reviewers: 7
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#188 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.582714604 Z
-  failed_builds: 0
-  files: 8
-  hoc: 73
-  issue: 188
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.674309267 Z
-  what: pull-was-merged
-  when: 2020-04-10 13:51:14.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123821
-  _job: 18042761771
-  _time: 2025-09-26 15:59:35.577137803 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-137
-  comments: 6
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 5
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#189 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.608749971 Z
-  failed_builds: 0
-  files: 10
-  hoc: 177
-  issue: 189
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.688790658 Z
-  what: pull-was-merged
-  when: 2020-04-09 16:53:33.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123822
-  _job: 18042761771
-  _time: 2025-09-26 15:59:38.468812858 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: fix_string_conat
-  comments: 10
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 10
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#191 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.650137691 Z
-  failed_builds: 0
-  files: 11
-  hoc: 3349
-  issue: 191
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.704996539 Z
-  what: pull-was-merged
-  when: 2020-04-10 09:30:06.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123823
-  _job: 18042761771
-  _time: 2025-09-26 15:59:41.719930787 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: spaces_counter_fix
-  comments: 8
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 8
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#193 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.678756721 Z
-  failed_builds: 0
-  files: 4
-  hoc: 215
-  issue: 193
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.718067335 Z
-  what: pull-was-merged
-  when: 2020-04-10 09:21:23.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123824
-  _job: 18042761771
-  _time: 2025-09-26 15:59:44.808041931 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: patterns
-  comments: 18
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 16
-  comments_resolved: 1
-  comments_to_code: 4
-  details: Apparently, cqfn/aibolit#197 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.706032840 Z
-  failed_builds: 0
-  files: 12
-  hoc: 8995
-  issue: 197
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.737637637 Z
-  what: pull-was-merged
-  when: 2020-04-15 16:34:38.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123825
-  _job: 18042761771
-  _time: 2025-09-26 15:59:49.596398063 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: leave
-  comments: 14
-  comments_appreciated: 0
-  comments_by_author: 3
-  comments_by_reviewers: 11
-  comments_resolved: 1
-  comments_to_code: 4
-  details: Apparently, cqfn/aibolit#198 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.731189602 Z
-  failed_builds: 0
-  files: 11
-  hoc: 308
-  issue: 198
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.755833800 Z
-  what: pull-was-merged
-  when: 2020-04-10 15:27:04.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123826
-  _job: 18042761771
-  _time: 2025-09-26 15:59:53.546700016 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: patterns_calc
-  comments: 22
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 22
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#200 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.772859929 Z
-  failed_builds: 0
-  files: 15
-  hoc: 427
-  issue: 200
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.770235347 Z
-  what: pull-was-merged
-  when: 2020-04-10 15:49:13.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123827
-  _job: 18042761771
-  _time: 2025-09-26 15:59:58.493962048 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: metrics
-  comments: 9
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 9
-  comments_resolved: 1
-  comments_to_code: 1
-  details: Apparently, cqfn/aibolit#201 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.801256122 Z
-  failed_builds: 0
-  files: 8
-  hoc: 120
-  issue: 201
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.784691569 Z
-  what: pull-was-merged
-  when: 2020-04-13 09:39:48.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123828
-  _job: 18042761771
-  _time: 2025-09-26 16:00:02.010058110 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '128'
-  comments: 12
-  comments_appreciated: 0
-  comments_by_author: 3
-  comments_by_reviewers: 9
-  comments_resolved: 0
-  comments_to_code: 3
-  details: Apparently, cqfn/aibolit#203 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.828857505 Z
-  failed_builds: 0
-  files: 13
-  hoc: 197
-  issue: 203
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.800874801 Z
-  what: pull-was-merged
-  when: 2020-04-14 14:40:52.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123829
-  _job: 18042761771
-  _time: 2025-09-26 16:00:05.923358656 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '136'
-  comments: 11
-  comments_appreciated: 0
-  comments_by_author: 3
-  comments_by_reviewers: 8
-  comments_resolved: 0
-  comments_to_code: 3
-  details: Apparently, cqfn/aibolit#204 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.853893369 Z
-  failed_builds: 0
-  files: 10
-  hoc: 112
-  issue: 204
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.813649594 Z
-  what: pull-was-merged
-  when: 2020-04-14 14:32:09.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123830
-  _job: 18042761771
-  _time: 2025-09-26 16:00:09.583446660 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: master
-  comments: 8
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 7
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#205 has been 'pull-was-closed'.
-  done: 2025-09-26 16:02:48.779458570 Z
-  failed_builds: 0
-  files: 3
-  hoc: 12844
-  issue: 205
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.832467390 Z
-  what: pull-was-closed
-  when: 2020-04-21 18:13:45.000000000 Z
-  where: github
-  who: 231433
-- _id: 123831
-  _job: 18042761771
-  _time: 2025-09-26 16:00:13.070399236 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: cognitive
-  comments: 7
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 7
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#207 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.895449450 Z
-  failed_builds: 0
-  files: 7
-  hoc: 136
-  issue: 207
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.851998543 Z
-  what: pull-was-merged
-  when: 2020-04-14 13:47:38.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123832
-  _job: 18042761771
-  _time: 2025-09-26 16:00:16.200419335 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: pair_wise
-  comments: 16
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 16
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#209 has been 'pull-was-closed'.
-  done: 2025-09-26 16:02:48.806378576 Z
-  failed_builds: 0
-  files: 3
-  hoc: 2897
-  issue: 209
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.867274230 Z
-  what: pull-was-closed
-  when: 2020-04-21 18:13:31.000000000 Z
-  where: github
-  who: 231433
-- _id: 123833
-  _job: 18042761771
-  _time: 2025-09-26 16:00:20.872980894 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '141'
-  comments: 6
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 6
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#210 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.923143137 Z
-  failed_builds: 0
-  files: 6
-  hoc: 43
-  issue: 210
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.881685676 Z
-  what: pull-was-merged
-  when: 2020-04-16 12:37:16.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123834
-  _job: 18042761771
-  _time: 2025-09-26 16:00:23.910036681 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '148'
-  comments: 8
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 7
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#211 has been 'pull-was-closed'.
-  done: 2025-09-26 16:02:48.838404788 Z
-  failed_builds: 0
-  files: 7
-  hoc: 102
-  issue: 211
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.898861546 Z
-  what: pull-was-closed
-  when: 2020-04-15 16:42:31.000000000 Z
-  where: github
-  who: 231433
-- _id: 123835
-  _job: 18042761771
-  _time: 2025-09-26 16:00:27.169005040 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: cognitive
-  comments: 42
-  comments_appreciated: 0
-  comments_by_author: 7
-  comments_by_reviewers: 35
-  comments_resolved: 8
-  comments_to_code: 16
-  details: Apparently, cqfn/aibolit#213 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.949859527 Z
-  failed_builds: 0
-  files: 3
-  hoc: 121
-  issue: 213
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.912058076 Z
-  what: pull-was-merged
-  when: 2020-04-16 08:43:21.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123836
-  _job: 18042761771
-  _time: 2025-09-26 16:00:35.120799174 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: metrics
-  comments: 14
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 12
-  comments_resolved: 2
-  comments_to_code: 6
-  details: Apparently, cqfn/aibolit#214 has been 'pull-was-closed'.
-  done: 2025-09-26 16:02:48.872849653 Z
-  failed_builds: 0
-  files: 3
-  hoc: 19
-  issue: 214
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.931960628 Z
-  what: pull-was-closed
-  when: 2020-04-21 18:12:57.000000000 Z
-  where: github
-  who: 231433
-- _id: 123837
-  _job: 18042761771
-  _time: 2025-09-26 16:00:40.010416426 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: cognitive
-  comments: 9
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 9
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#217 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:47.974657943 Z
-  failed_builds: 0
-  files: 5
-  hoc: 121
-  issue: 217
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.949064934 Z
-  what: pull-was-merged
-  when: 2020-04-17 07:26:18.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123838
-  _job: 18042761771
-  _time: 2025-09-26 16:00:45.252860158 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: LCOM4
-  comments: 15
-  comments_appreciated: 0
-  comments_by_author: 4
-  comments_by_reviewers: 11
-  comments_resolved: 3
-  comments_to_code: 7
-  details: Apparently, cqfn/aibolit#218 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.013658851 Z
-  failed_builds: 0
-  files: 16
-  hoc: 474
-  issue: 218
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.963471081 Z
-  what: pull-was-merged
-  when: 2020-04-17 16:46:09.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123839
-  _job: 18042761771
-  _time: 2025-09-26 16:00:49.770316134 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: cognitive
-  comments: 12
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 12
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#220 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.041785770 Z
-  failed_builds: 0
-  files: 5
-  hoc: 116
-  issue: 220
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.978230209 Z
-  what: pull-was-merged
-  when: 2020-04-17 13:53:11.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123840
-  _job: 18042761771
-  _time: 2025-09-26 16:00:53.486081000 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: leave
-  comments: 8
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 8
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#222 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.069199956 Z
-  failed_builds: 0
-  files: 4
-  hoc: 71
-  issue: 222
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:20.994353541 Z
-  what: pull-was-merged
-  when: 2020-04-17 15:05:07.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123841
-  _job: 18042761771
-  _time: 2025-09-26 16:00:56.744375492 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '159'
-  comments: 6
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 6
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#223 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.094113600 Z
-  failed_builds: 0
-  files: 1
-  hoc: 20
-  issue: 223
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.007197138 Z
-  what: pull-was-merged
-  when: 2020-04-19 06:12:25.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123842
-  _job: 18042761771
-  _time: 2025-09-26 16:00:59.713116057 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '160'
-  comments: 13
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 11
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#224 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.134358280 Z
-  failed_builds: 0
-  files: 6
-  hoc: 77
-  issue: 224
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.026701488 Z
-  what: pull-was-merged
-  when: 2020-04-21 18:42:37.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123843
-  _job: 18042761771
-  _time: 2025-09-26 16:01:03.686814881 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '158'
-  comments: 8
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 7
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#227 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.162602052 Z
-  failed_builds: 0
-  files: 3
-  hoc: 25
-  issue: 227
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.043986932 Z
-  what: pull-was-merged
-  when: 2020-04-21 18:27:34.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123844
-  _job: 18042761771
-  _time: 2025-09-26 16:01:07.102082550 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: fix_error_log
-  comments: 27
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 26
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#230 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.189760907 Z
-  failed_builds: 0
-  files: 2673
-  hoc: 1379949
-  issue: 230
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.058326430 Z
-  what: pull-was-merged
-  when: 2020-04-21 17:54:05.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123845
-  _job: 18042761771
-  _time: 2025-09-26 16:01:13.026527515 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: LCOM4
-  comments: 29
-  comments_appreciated: 2
-  comments_by_author: 2
-  comments_by_reviewers: 27
-  comments_resolved: 8
-  comments_to_code: 10
-  details: Apparently, cqfn/aibolit#231 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.214438144 Z
-  failed_builds: 0
-  files: 12
-  hoc: 604
-  issue: 231
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.072722344 Z
-  what: pull-was-merged
-  when: 2020-05-13 17:11:34.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123846
-  _job: 18042761771
-  _time: 2025-09-26 16:01:20.005293026 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-228
-  comments: 13
-  comments_appreciated: 0
-  comments_by_author: 4
-  comments_by_reviewers: 9
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#232 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.255884207 Z
-  failed_builds: 0
-  files: 2825
-  hoc: 1472885
-  issue: 232
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.089045178 Z
-  what: pull-was-merged
-  when: 2020-04-21 13:46:09.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123847
-  _job: 18042761771
-  _time: 2025-09-26 16:01:24.034822630 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: cognitive
-  comments: 10
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 8
-  comments_resolved: 0
-  comments_to_code: 5
-  details: Apparently, cqfn/aibolit#233 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.284332237 Z
-  failed_builds: 0
-  files: 5
-  hoc: 131
-  issue: 233
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.102138234 Z
-  what: pull-was-merged
-  when: 2020-04-22 07:38:49.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123848
-  _job: 18042761771
-  _time: 2025-09-26 16:01:27.817536945 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: master
-  comments: 0
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 0
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#234 has been 'pull-was-closed'.
-  done: 2025-09-26 16:02:48.901183048 Z
-  failed_builds: 0
-  files: 0
-  hoc: 0
-  issue: 234
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.122267443 Z
-  what: pull-was-closed
-  when: 2020-04-22 06:58:27.000000000 Z
-  where: github
-  who: 43099602
-- _id: 123849
-  _job: 18042761771
-  _time: 2025-09-26 16:01:30.355167314 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: diameter
-  comments: 4
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 4
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#236 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.311718724 Z
-  failed_builds: 0
-  files: 2
-  hoc: 119
-  issue: 236
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.139223941 Z
-  what: pull-was-merged
-  when: 2020-04-22 12:58:17.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123850
-  _job: 18042761771
-  _time: 2025-09-26 16:01:33.047705902 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: ML_pipeline
-  comments: 19
-  comments_appreciated: 0
-  comments_by_author: 3
-  comments_by_reviewers: 16
-  comments_resolved: 1
-  comments_to_code: 1
-  details: Apparently, cqfn/aibolit#238 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.336702598 Z
-  failed_builds: 0
-  files: 9
-  hoc: 346
-  issue: 238
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.153641758 Z
-  what: pull-was-merged
-  when: 2020-04-27 09:41:12.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123851
-  _job: 18042761771
-  _time: 2025-09-26 16:01:37.966247896 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '142'
-  comments: 14
-  comments_appreciated: 0
-  comments_by_author: 3
-  comments_by_reviewers: 11
-  comments_resolved: 0
-  comments_to_code: 2
-  details: Apparently, cqfn/aibolit#239 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.378653862 Z
-  failed_builds: 0
-  files: 6
-  hoc: 72
-  issue: 239
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.168134642 Z
-  what: pull-was-merged
-  when: 2020-04-27 05:32:31.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123852
-  _job: 18042761771
-  _time: 2025-09-26 16:01:42.412254618 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '147'
-  comments: 18
-  comments_appreciated: 0
-  comments_by_author: 3
-  comments_by_reviewers: 15
-  comments_resolved: 0
-  comments_to_code: 2
-  details: Apparently, cqfn/aibolit#240 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.407563299 Z
-  failed_builds: 0
-  files: 17
-  hoc: 225
-  issue: 240
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.184336391 Z
-  what: pull-was-merged
-  when: 2020-04-29 17:20:38.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123853
-  _job: 18042761771
-  _time: 2025-09-26 16:01:47.258967381 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: "#194"
-  comments: 10
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 8
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#241 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.435418062 Z
-  failed_builds: 0
-  files: 8
-  hoc: 2164
-  issue: 241
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.197210788 Z
-  what: pull-was-merged
-  when: 2020-04-28 07:33:16.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123854
-  _job: 18042761771
-  _time: 2025-09-26 16:01:50.861383115 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '139'
-  comments: 11
-  comments_appreciated: 0
-  comments_by_author: 3
-  comments_by_reviewers: 8
-  comments_resolved: 0
-  comments_to_code: 3
-  details: Apparently, cqfn/aibolit#242 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.460681487 Z
-  failed_builds: 0
-  files: 11
-  hoc: 146
-  issue: 242
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.216683412 Z
-  what: pull-was-merged
-  when: 2020-04-29 18:18:22.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123855
-  _job: 18042761771
-  _time: 2025-09-26 16:01:54.806608801 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '183'
-  comments: 6
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 6
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#243 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.502637762 Z
-  failed_builds: 0
-  files: 9
-  hoc: 178
-  issue: 243
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.233700034 Z
-  what: pull-was-merged
-  when: 2020-04-27 16:26:30.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123856
-  _job: 18042761771
-  _time: 2025-09-26 16:01:57.705354407 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '184'
-  comments: 11
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 9
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#244 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.531207102 Z
-  failed_builds: 0
-  files: 8
-  hoc: 207
-  issue: 244
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.248117129 Z
-  what: pull-was-merged
-  when: 2020-04-29 18:01:37.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123857
-  _job: 18042761771
-  _time: 2025-09-26 16:02:01.331479318 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '164'
-  comments: 11
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 11
-  comments_resolved: 1
-  comments_to_code: 1
-  details: Apparently, cqfn/aibolit#245 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.558519568 Z
-  failed_builds: 0
-  files: 8
-  hoc: 78
-  issue: 245
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.262611140 Z
-  what: pull-was-merged
-  when: 2020-04-28 07:48:29.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123858
-  _job: 18042761771
-  _time: 2025-09-26 16:02:05.254360617 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: Pavel
-  comments: 7
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 7
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#247 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.583443250 Z
-  failed_builds: 0
-  files: 8
-  hoc: 158
-  issue: 247
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.279028766 Z
-  what: pull-was-merged
-  when: 2020-04-27 13:27:10.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123859
-  _job: 18042761771
-  _time: 2025-09-26 16:02:08.532497899 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: recommend_feature
-  comments: 21
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 19
-  comments_resolved: 5
-  comments_to_code: 6
-  details: Apparently, cqfn/aibolit#248 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.625466966 Z
-  failed_builds: 0
-  files: 23
-  hoc: 3070
-  issue: 248
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.292242977 Z
-  what: pull-was-merged
-  when: 2020-05-06 09:28:42.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123860
-  _job: 18042761771
-  _time: 2025-09-26 16:02:13.577210668 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '195'
-  comments: 3
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 3
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#249 has been 'pull-was-closed'.
-  done: 2025-09-26 16:02:48.928218444 Z
-  failed_builds: 0
-  files: 14
-  hoc: 6885
-  issue: 249
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.312014373 Z
-  what: pull-was-closed
-  when: 2020-05-01 05:21:23.000000000 Z
-  where: github
-  who: 231433
-- _id: 123861
-  _job: 18042761771
-  _time: 2025-09-26 16:02:16.005787170 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '138'
-  comments: 9
-  comments_appreciated: 0
-  comments_by_author: 2
-  comments_by_reviewers: 7
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#250 has been 'pull-was-merged'.
-  done: 2025-09-26 16:02:48.654038675 Z
-  failed_builds: 0
-  files: 19
-  hoc: 301
-  issue: 250
-  repository: 237167507
-  succeeded_builds: 0
-  tombstone: 2025-09-26 16:03:21.329218795 Z
-  what: pull-was-merged
-  when: 2020-05-03 14:34:55.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123865
-  _job: 18044101574
-  _time: 2025-09-26 16:56:10.414859580 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: Apparently, cqfn/aibolit#229 has been 'issue-was-closed'.
-  done: 2025-09-26 16:59:54.579905153 Z
-  issue: 229
-  repository: 237167507
-  tombstone: 2025-09-26 17:00:00.572819754 Z
-  what: issue-was-closed
-  when: 2020-04-22 07:29:02.000000000 Z
-  where: github
-  who: 231433
-- _id: 123866
-  _job: 18044101574
-  _time: 2025-09-26 16:56:10.872025421 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: Apparently, cqfn/aibolit#235 has been 'issue-was-closed'.
-  done: 2025-09-26 16:59:54.610416139 Z
-  issue: 235
-  repository: 237167507
-  tombstone: 2025-09-26 17:00:00.593340633 Z
-  what: issue-was-closed
-  when: 2020-04-22 12:58:17.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123867
-  _job: 18044101574
-  _time: 2025-09-26 16:56:11.276044386 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: Apparently, cqfn/aibolit#237 has been 'issue-was-closed'.
-  done: 2025-09-26 16:59:54.639846477 Z
-  issue: 237
-  repository: 237167507
-  tombstone: 2025-09-26 17:00:00.612368384 Z
-  what: issue-was-closed
-  when: 2020-04-27 09:41:12.000000000 Z
-  where: github
-  who: 8086956
-- _id: 123868
-  _job: 18044101574
-  _time: 2025-09-26 16:56:11.678628070 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: Apparently, cqfn/aibolit#246 has been 'issue-was-closed'.
-  done: 2025-09-26 16:59:54.668170070 Z
-  issue: 246
-  repository: 237167507
-  tombstone: 2025-09-26 17:00:00.624612494 Z
-  what: issue-was-closed
-  when: 2020-05-02 15:27:23.000000000 Z
-  where: github
-  who: 231433
-- _id: 123869
-  _job: 18044101574
-  _time: 2025-09-26 16:56:12.096854369 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: Apparently, cqfn/aibolit#252 has been 'issue-was-closed'.
-  done: 2025-09-26 16:59:54.697261782 Z
-  issue: 252
-  repository: 237167507
-  tombstone: 2025-09-26 17:00:00.637333198 Z
-  what: issue-was-closed
-  when: 2020-05-25 10:15:41.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123870
-  _job: 18044101574
-  _time: 2025-09-26 16:56:12.497004574 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: Apparently, cqfn/aibolit#255 has been 'issue-was-closed'.
-  done: 2025-09-26 16:59:54.723493149 Z
-  issue: 255
-  repository: 237167507
-  tombstone: 2025-09-26 17:00:00.650081002 Z
-  what: issue-was-closed
-  when: 2020-07-14 10:22:13.000000000 Z
-  where: github
-  who: 526301
-- _id: 123872
-  _job: 18044101574
-  _time: 2025-09-26 16:57:17.877533801 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: java_files_custom_dir
-  details: The missing pull cqfn/aibolit#253 has been opened by @acheshkov.
-  is_human: 1
-  issue: 253
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.780890947 Z
-  what: pull-was-opened
-  when: 2020-04-28 21:11:49.000000000 Z
-  where: github
-  who: 231433
-- _id: 123873
-  _job: 18044101574
-  _time: 2025-09-26 16:57:18.818560533 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: master_fix_flake8
-  details: The missing pull cqfn/aibolit#254 has been opened by @acheshkov.
-  is_human: 1
-  issue: 254
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.458033343 Z
-  what: pull-was-opened
-  when: 2020-04-29 17:03:57.000000000 Z
-  where: github
-  who: 231433
-- _id: 123874
-  _job: 18044101574
-  _time: 2025-09-26 16:57:19.663447283 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: task-256
-  details: The missing pull cqfn/aibolit#257 has been opened by @acheshkov.
-  is_human: 1
-  issue: 257
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.481719932 Z
-  what: pull-was-opened
-  when: 2020-04-30 16:43:05.000000000 Z
-  where: github
-  who: 231433
-- _id: 123875
-  _job: 18044101574
-  _time: 2025-09-26 16:57:20.356154560 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: task-258
-  details: The missing pull cqfn/aibolit#259 has been opened by @acheshkov.
-  is_human: 1
-  issue: 259
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.516264503 Z
-  what: pull-was-opened
-  when: 2020-05-01 11:58:58.000000000 Z
-  where: github
-  who: 231433
-- _id: 123876
-  _job: 18044101574
-  _time: 2025-09-26 16:57:21.017758351 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: fix_part_sync
-  details: The missing pull cqfn/aibolit#261 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 261
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.542485713 Z
-  what: pull-was-opened
-  when: 2020-05-06 08:55:56.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123877
-  _job: 18044101574
-  _time: 2025-09-26 16:57:21.656773296 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: recommend_fixes
-  details: The missing pull cqfn/aibolit#266 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 266
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.569038891 Z
-  what: pull-was-opened
-  when: 2020-05-06 13:47:26.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123878
-  _job: 18044101574
-  _time: 2025-09-26 16:57:22.325648831 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: task-262
-  details: The missing pull cqfn/aibolit#267 has been opened by @acheshkov.
-  is_human: 1
-  issue: 267
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.593993165 Z
-  what: pull-was-opened
-  when: 2020-05-06 15:11:28.000000000 Z
-  where: github
-  who: 231433
-- _id: 123879
-  _job: 18044101574
-  _time: 2025-09-26 16:57:22.963111981 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: readme_change
-  details: The missing pull cqfn/aibolit#268 has been opened by @acheshkov.
-  is_human: 1
-  issue: 268
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.630047725 Z
-  what: pull-was-opened
-  when: 2020-05-06 17:16:52.000000000 Z
-  where: github
-  who: 231433
-- _id: 123880
-  _job: 18044101574
-  _time: 2025-09-26 16:57:23.572482583 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: this_finder_fix
-  details: The missing pull cqfn/aibolit#270 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 270
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.660036258 Z
-  what: pull-was-opened
-  when: 2020-05-07 08:36:02.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123881
-  _job: 18044101574
-  _time: 2025-09-26 16:57:24.203304169 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: unicode_path
-  details: The missing pull cqfn/aibolit#272 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 272
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.687998487 Z
-  what: pull-was-opened
-  when: 2020-05-07 11:23:08.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123882
-  _job: 18044101574
-  _time: 2025-09-26 16:57:25.015066643 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: calc_metrics_update
-  details: The missing pull cqfn/aibolit#274 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 274
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.735311695 Z
-  what: pull-was-opened
-  when: 2020-05-08 13:28:13.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123883
-  _job: 18044101574
-  _time: 2025-09-26 16:57:25.741154005 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '123'
-  details: The missing pull cqfn/aibolit#275 has been opened by @paulodamaso.
-  is_human: 1
-  issue: 275
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.808685473 Z
-  what: pull-was-opened
-  when: 2020-05-09 03:49:28.000000000 Z
-  where: github
-  who: 33915433
-- _id: 123884
-  _job: 18044101574
-  _time: 2025-09-26 16:57:26.429640490 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '265'
-  details: The missing pull cqfn/aibolit#276 has been opened by @paulodamaso.
-  is_human: 1
-  issue: 276
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.783141959 Z
-  what: pull-was-opened
-  when: 2020-05-09 06:01:25.000000000 Z
-  where: github
-  who: 33915433
-- _id: 123885
-  _job: 18044101574
-  _time: 2025-09-26 16:57:27.210728263 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '144'
-  details: The missing pull cqfn/aibolit#277 has been opened by @paulodamaso.
-  is_human: 1
-  issue: 277
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.836721521 Z
-  what: pull-was-opened
-  when: 2020-05-10 04:16:25.000000000 Z
-  where: github
-  who: 33915433
-- _id: 123886
-  _job: 18044101574
-  _time: 2025-09-26 16:57:27.903082036 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: acheshkov-scope-update
-  details: The missing pull cqfn/aibolit#279 has been opened by @acheshkov.
-  is_human: 1
-  issue: 279
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.810434455 Z
-  what: pull-was-opened
-  when: 2020-05-12 06:26:06.000000000 Z
-  where: github
-  who: 231433
-- _id: 123887
-  _job: 18044101574
-  _time: 2025-09-26 16:57:28.608176791 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: LCOM5
-  details: The missing pull cqfn/aibolit#288 has been opened by @cringoleg.
-  is_human: 1
-  issue: 288
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.863423289 Z
-  what: pull-was-opened
-  when: 2020-05-13 11:32:15.000000000 Z
-  where: github
-  who: 57872461
-- _id: 123888
-  _job: 18044101574
-  _time: 2025-09-26 16:57:29.357027410 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-290
-  details: The missing pull cqfn/aibolit#291 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 291
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.837957421 Z
-  what: pull-was-opened
-  when: 2020-05-13 13:10:54.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123889
-  _job: 18044101574
-  _time: 2025-09-26 16:57:30.057535210 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: '146'
-  details: The missing pull cqfn/aibolit#294 has been opened by @paulodamaso.
-  is_human: 1
-  issue: 294
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.863602473 Z
-  what: pull-was-opened
-  when: 2020-05-13 20:41:51.000000000 Z
-  where: github
-  who: 33915433
-- _id: 123890
-  _job: 18044101574
-  _time: 2025-09-26 16:57:30.825385697 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-295
-  details: The missing pull cqfn/aibolit#296 has been opened by @acheshkov.
-  is_human: 1
-  issue: 296
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.895091679 Z
-  what: pull-was-opened
-  when: 2020-05-14 07:25:11.000000000 Z
-  where: github
-  who: 231433
-- _id: 123891
-  _job: 18044101574
-  _time: 2025-09-26 16:57:31.451567938 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: fix_ILya
-  details: The missing pull cqfn/aibolit#297 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 297
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.931788129 Z
-  what: pull-was-opened
-  when: 2020-05-14 08:33:28.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123892
-  _job: 18044101574
-  _time: 2025-09-26 16:57:32.112091064 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: docs_update
-  details: The missing pull cqfn/aibolit#299 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 299
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.959583305 Z
-  what: pull-was-opened
-  when: 2020-05-14 09:57:27.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123893
-  _job: 18044101574
-  _time: 2025-09-26 16:57:32.875459854 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: patterns_docs
-  details: The missing pull cqfn/aibolit#307 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 307
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:16.987218069 Z
-  what: pull-was-opened
-  when: 2020-05-14 14:44:21.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123894
-  _job: 18044101574
-  _time: 2025-09-26 16:57:33.510064277 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: java_files_custom_dir
-  details: The missing pull cqfn/aibolit#308 has been opened by @acheshkov.
-  is_human: 1
-  issue: 308
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.012394322 Z
-  what: pull-was-opened
-  when: 2020-05-14 15:27:30.000000000 Z
-  where: github
-  who: 231433
-- _id: 123895
-  _job: 18044101574
-  _time: 2025-09-26 16:57:34.121644259 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: ml_docker
-  details: The missing pull cqfn/aibolit#309 has been opened by @acheshkov.
-  is_human: 1
-  issue: 309
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.054365122 Z
-  what: pull-was-opened
-  when: 2020-05-14 18:49:53.000000000 Z
-  where: github
-  who: 231433
-- _id: 123896
-  _job: 18044101574
-  _time: 2025-09-26 16:57:34.889576722 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-310
-  details: The missing pull cqfn/aibolit#311 has been opened by @acheshkov.
-  is_human: 1
-  issue: 311
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.082765804 Z
-  what: pull-was-opened
-  when: 2020-05-15 07:05:31.000000000 Z
-  where: github
-  who: 231433
-- _id: 123897
-  _job: 18044101574
-  _time: 2025-09-26 16:57:35.524984610 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: ml_docker
-  details: The missing pull cqfn/aibolit#312 has been opened by @acheshkov.
-  is_human: 1
-  issue: 312
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.110884633 Z
-  what: pull-was-opened
-  when: 2020-05-15 10:44:06.000000000 Z
-  where: github
-  who: 231433
-- _id: 123898
-  _job: 18044101574
-  _time: 2025-09-26 16:57:36.315859211 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: skip_collect_dataset
-  details: The missing pull cqfn/aibolit#313 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 313
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.136902642 Z
-  what: pull-was-opened
-  when: 2020-05-15 13:49:27.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123899
-  _job: 18044101574
-  _time: 2025-09-26 16:57:36.972913493 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: improve_model
-  details: The missing pull cqfn/aibolit#314 has been opened by @lukyanoffpashok.
-  is_human: 1
-  issue: 314
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.160544906 Z
-  what: pull-was-opened
-  when: 2020-05-15 14:10:31.000000000 Z
-  where: github
-  who: 46167437
-- _id: 123900
-  _job: 18044101574
-  _time: 2025-09-26 16:57:37.622264284 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: new_model
-  details: The missing pull cqfn/aibolit#317 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 317
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.200959023 Z
-  what: pull-was-opened
-  when: 2020-05-16 11:21:13.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123901
-  _job: 18044101574
-  _time: 2025-09-26 16:57:38.550795303 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: master
-  details: The missing pull cqfn/aibolit#321 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 321
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.228126353 Z
-  what: pull-was-opened
-  when: 2020-05-18 15:01:33.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123902
-  _job: 18044101574
-  _time: 2025-09-26 16:57:39.199390247 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: fix_encoding
-  details: The missing pull cqfn/aibolit#325 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 325
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.255630841 Z
-  what: pull-was-opened
-  when: 2020-05-19 16:40:10.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123903
-  _job: 18044101574
-  _time: 2025-09-26 16:57:39.901417957 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: fix_paramater
-  details: The missing pull cqfn/aibolit#326 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 326
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.281493763 Z
-  what: pull-was-opened
-  when: 2020-05-19 16:44:35.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123904
-  _job: 18044101574
-  _time: 2025-09-26 16:57:40.539217311 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: score
-  details: The missing pull cqfn/aibolit#328 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 328
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.305059724 Z
-  what: pull-was-opened
-  when: 2020-05-19 17:47:57.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123905
-  _job: 18044101574
-  _time: 2025-09-26 16:57:41.312655856 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: weight
-  details: The missing pull cqfn/aibolit#382 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 382
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.887207166 Z
-  what: pull-was-opened
-  when: 2020-06-03 10:18:04.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123906
-  _job: 18044101574
-  _time: 2025-09-26 16:57:41.949155567 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-390
-  details: The missing pull cqfn/aibolit#391 has been opened by @aravij.
-  is_human: 1
-  issue: 391
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.344649532 Z
-  what: pull-was-opened
-  when: 2020-06-04 18:26:14.000000000 Z
-  where: github
-  who: 1987026
-- _id: 123907
-  _job: 18044101574
-  _time: 2025-09-26 16:57:42.557912069 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-340
-  details: The missing pull cqfn/aibolit#392 has been opened by @aravij.
-  is_human: 1
-  issue: 392
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.372805488 Z
-  what: pull-was-opened
-  when: 2020-06-04 18:41:06.000000000 Z
-  where: github
-  who: 1987026
-- _id: 123908
-  _job: 18044101574
-  _time: 2025-09-26 16:57:43.150654345 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-365
-  details: The missing pull cqfn/aibolit#393 has been opened by @aravij.
-  is_human: 1
-  issue: 393
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.399921012 Z
-  what: pull-was-opened
-  when: 2020-06-08 08:48:56.000000000 Z
-  where: github
-  who: 1987026
-- _id: 123909
-  _job: 18044101574
-  _time: 2025-09-26 16:57:43.841748179 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-404
-  details: The missing pull cqfn/aibolit#405 has been opened by @aravij.
-  is_human: 1
-  issue: 405
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.425983819 Z
-  what: pull-was-opened
-  when: 2020-06-10 16:29:55.000000000 Z
-  where: github
-  who: 1987026
-- _id: 123910
-  _job: 18044101574
-  _time: 2025-09-26 16:57:44.746850909 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-414
-  details: The missing pull cqfn/aibolit#417 has been opened by @aravij.
-  is_human: 1
-  issue: 417
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.449616381 Z
-  what: pull-was-opened
-  when: 2020-06-17 17:05:08.000000000 Z
-  where: github
-  who: 1987026
-- _id: 123911
-  _job: 18044101574
-  _time: 2025-09-26 16:57:45.478355081 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-419
-  details: The missing pull cqfn/aibolit#420 has been opened by @aravij.
-  is_human: 1
-  issue: 420
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.487787789 Z
-  what: pull-was-opened
-  when: 2020-06-18 15:44:12.000000000 Z
-  where: github
-  who: 1987026
-- _id: 123912
-  _job: 18044101574
-  _time: 2025-09-26 16:57:46.154004151 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-418
-  details: The missing pull cqfn/aibolit#421 has been opened by @acheshkov.
-  is_human: 1
-  issue: 421
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.926300718 Z
-  what: pull-was-opened
-  when: 2020-06-18 16:27:05.000000000 Z
-  where: github
-  who: 231433
-- _id: 123913
-  _job: 18044101574
-  _time: 2025-09-26 16:57:46.887939078 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: fix_send_null
-  details: The missing pull cqfn/aibolit#423 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 423
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.514911086 Z
-  what: pull-was-opened
-  when: 2020-06-19 07:28:12.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123914
-  _job: 18044101574
-  _time: 2025-09-26 16:57:47.555897511 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: modify_instance_of
-  details: The missing pull cqfn/aibolit#424 has been opened by @lukyanoffpashok.
-  is_human: 1
-  issue: 424
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.541857520 Z
-  what: pull-was-opened
-  when: 2020-06-19 08:31:07.000000000 Z
-  where: github
-  who: 46167437
-- _id: 123915
-  _job: 18044101574
-  _time: 2025-09-26 16:57:48.210645871 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-418
-  details: The missing pull cqfn/aibolit#426 has been opened by @acheshkov.
-  is_human: 1
-  issue: 426
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.567729657 Z
-  what: pull-was-opened
-  when: 2020-06-19 10:53:46.000000000 Z
-  where: github
-  who: 231433
-- _id: 123916
-  _job: 18044101574
-  _time: 2025-09-26 16:57:48.922530468 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: exclude_folder
-  details: The missing pull cqfn/aibolit#427 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 427
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.591642862 Z
-  what: pull-was-opened
-  when: 2020-06-19 10:57:04.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123917
-  _job: 18044101574
-  _time: 2025-09-26 16:57:49.610348036 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-425
-  details: The missing pull cqfn/aibolit#428 has been opened by @aravij.
-  is_human: 1
-  issue: 428
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.632213263 Z
-  what: pull-was-opened
-  when: 2020-06-19 12:39:21.000000000 Z
-  where: github
-  who: 1987026
-- _id: 123918
-  _job: 18044101574
-  _time: 2025-09-26 16:57:50.248025421 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: fix_model
-  details: The missing pull cqfn/aibolit#441 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 441
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.660276500 Z
-  what: pull-was-opened
-  when: 2020-06-22 16:15:01.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123919
-  _job: 18044101574
-  _time: 2025-09-26 16:57:51.069207041 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: issue-439
-  details: The missing pull cqfn/aibolit#442 has been opened by @aravij.
-  is_human: 1
-  issue: 442
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.687975425 Z
-  what: pull-was-opened
-  when: 2020-06-22 16:30:35.000000000 Z
-  where: github
-  who: 1987026
-- _id: 123920
-  _job: 18044101574
-  _time: 2025-09-26 16:57:51.710451346 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: release_1.1.2
-  details: The missing pull cqfn/aibolit#444 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 444
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.714129139 Z
-  what: pull-was-opened
-  when: 2020-06-23 10:50:04.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123921
-  _job: 18044101574
-  _time: 2025-09-26 16:57:52.499698926 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  branch: modify_multiple_while
-  details: The missing pull cqfn/aibolit#448 has been opened by @lukyanoffpashok.
-  is_human: 1
-  issue: 448
-  repository: 237167507
-  tombstone: 2025-09-26 18:04:17.738319799 Z
-  what: pull-was-opened
-  when: 2020-06-25 08:31:37.000000000 Z
-  where: github
-  who: 46167437
-- _id: 123924
-  _job: 39713
-  _time: 2025-09-26 17:00:01.222207794 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  closer: 231433
-  details: 'In the repository #237167507, the user #20803206 submitted the issue #229
-    which was later closed by the user #231433 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-09-26 17:00:33.083898134 Z
-  issue: 229
-  repository: 237167507
-  tombstone: 2025-09-26 17:00:35.281363152 Z
-  what: dud-was-closed
-  when: 2020-04-20 14:32:09.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123925
-  _job: 39713
-  _time: 2025-09-26 17:00:01.257382002 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  closer: 8086956
-  details: 'In the repository #237167507, the user #43099602 submitted the issue #235
-    which was later closed by the user #8086956 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-09-26 17:00:33.098716927 Z
-  issue: 235
-  repository: 237167507
-  tombstone: 2025-09-26 17:00:35.292143106 Z
-  what: dud-was-closed
-  when: 2020-04-22 10:08:52.000000000 Z
-  where: github
-  who: 43099602
-- _id: 123926
-  _job: 39713
-  _time: 2025-09-26 17:00:01.288150728 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  closer: 8086956
-  details: 'In the repository #237167507, the user #20803206 submitted the issue #237
-    which was later closed by the user #8086956 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-09-26 17:00:33.111026115 Z
-  issue: 237
-  repository: 237167507
-  tombstone: 2025-09-26 17:00:35.302794194 Z
-  what: dud-was-closed
-  when: 2020-04-22 15:51:31.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123927
-  _job: 39713
-  _time: 2025-09-26 17:00:01.323135364 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  closer: 231433
-  details: 'In the repository #237167507, the user #20803206 submitted the issue #246
-    which was later closed by the user #231433 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-09-26 17:00:33.126524906 Z
-  issue: 246
-  repository: 237167507
-  tombstone: 2025-09-26 17:00:35.319932844 Z
-  what: dud-was-closed
-  when: 2020-04-27 09:49:38.000000000 Z
-  where: github
-  who: 20803206
-- _id: 123928
-  _job: 39713
-  _time: 2025-09-26 17:00:01.353497569 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  closer: 20803206
-  details: 'In the repository #237167507, the user #231433 submitted the issue #252
-    which was later closed by the user #20803206 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-09-26 17:00:33.137754269 Z
-  issue: 252
-  repository: 237167507
-  tombstone: 2025-09-26 17:00:35.332277568 Z
-  what: dud-was-closed
-  when: 2020-04-28 20:51:15.000000000 Z
-  where: github
-  who: 231433
-- _id: 123929
-  _job: 39713
-  _time: 2025-09-26 17:00:01.389594060 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  closer: 526301
-  details: 'In the repository #237167507, the user #33915433 submitted the issue #255
-    which was later closed by the user #526301 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-09-26 17:00:33.159570947 Z
-  issue: 255
-  repository: 237167507
-  tombstone: 2025-09-26 17:00:35.344853130 Z
-  what: dud-was-closed
-  when: *129
-  where: github
-  who: 33915433
-- _id: 123931
-  _job: 18045387427
-  _time: 2025-09-26 17:56:11.986424456 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: The issue cqfn/aibolit#654 has been earlier opened by @aravij.
-  is_human: 1
-  issue: 654
-  repository: 237167507
-  tombstone: 2025-09-26 20:01:53.191364873 Z
-  what: issue-was-opened
-  when: 2020-10-27 09:37:28.000000000 Z
-  where: github
-  who: 1987026
-- _id: 123932
-  _job: 18045387427
-  _time: 2025-09-26 17:56:12.413123151 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: The issue cqfn/aibolit#649 has been earlier opened by @aravij.
-  is_human: 1
-  issue: 649
-  repository: 237167507
-  tombstone: 2025-09-26 20:01:50.311559700 Z
-  what: issue-was-opened
-  when: &144 2020-09-18 08:30:52.000000000 Z
-  where: github
-  who: 1987026
-- _id: 123933
-  _job: 18045387427
-  _time: 2025-09-26 17:56:12.458976687 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: The issue cqfn/aibolit#648 has been earlier opened by @vitaly-protasov.
-  is_human: 1
-  issue: 648
-  repository: 237167507
-  tombstone: 2025-09-26 20:01:53.164942435 Z
-  what: issue-was-opened
-  when: 2020-09-18 07:14:50.000000000 Z
-  where: github
-  who: 43099602
-- _id: 123934
-  _job: 18045387427
-  _time: 2025-09-26 17:56:12.522835548 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: The issue cqfn/aibolit#645 has been earlier opened by @aravij.
-  is_human: 1
-  issue: 645
-  repository: 237167507
-  tombstone: 2025-09-26 20:01:53.119901640 Z
-  what: issue-was-opened
-  when: 2020-09-17 13:19:41.000000000 Z
-  where: github
-  who: 1987026
-- _id: 123935
-  _job: 18045387427
-  _time: 2025-09-26 17:56:12.588281904 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: The issue cqfn/aibolit#640 has been earlier opened by @vitaly-protasov.
-  is_human: 1
-  issue: 640
-  repository: 237167507
-  tombstone: 2025-09-26 20:01:50.367994359 Z
-  what: issue-was-opened
-  when: &145 2020-09-15 18:47:10.000000000 Z
-  where: github
-  who: 43099602
-- _id: 123936
-  _job: 18045387427
-  _time: 2025-09-26 17:56:12.632645499 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: The issue cqfn/aibolit#638 has been earlier opened by @aravij.
-  is_human: 1
-  issue: 638
-  repository: 237167507
-  tombstone: 2025-09-26 20:01:50.412547078 Z
-  what: issue-was-opened
-  when: &146 2020-09-15 14:15:52.000000000 Z
-  where: github
-  who: 1987026
 - _id: 123937
   _job: 18045387427
   _time: 2025-09-26 17:56:12.759236978 Z
@@ -16780,7 +14603,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:50.469617313 Z
   what: issue-was-opened
-  when: &147 2020-09-15 11:58:45.000000000 Z
+  when: &143 2020-09-15 11:58:45.000000000 Z
   where: github
   who: 1987026
 - _id: 123938
@@ -16793,7 +14616,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:50.526060304 Z
   what: issue-was-opened
-  when: &148 2020-08-25 19:17:08.000000000 Z
+  when: &144 2020-08-25 19:17:08.000000000 Z
   where: github
   who: 1987026
 - _id: 123939
@@ -16806,7 +14629,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:50.581487600 Z
   what: issue-was-opened
-  when: &149 2020-08-25 18:44:10.000000000 Z
+  when: &145 2020-08-25 18:44:10.000000000 Z
   where: github
   who: 1987026
 - _id: 123940
@@ -16819,7 +14642,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:50.638392531 Z
   what: issue-was-opened
-  when: &150 2020-08-25 10:14:14.000000000 Z
+  when: &146 2020-08-25 10:14:14.000000000 Z
   where: github
   who: 1987026
 - _id: 123941
@@ -16832,7 +14655,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:50.694450135 Z
   what: issue-was-opened
-  when: &151 2020-08-24 10:03:30.000000000 Z
+  when: &147 2020-08-24 10:03:30.000000000 Z
   where: github
   who: 1987026
 - _id: 123942
@@ -17166,7 +14989,7 @@
   repository: 237167507
   tombstone: 2025-09-26 18:04:18.471434657 Z
   what: issue-was-opened
-  when: &143 2020-04-01 21:02:48.000000000 Z
+  when: &142 2020-04-01 21:02:48.000000000 Z
   where: github
   who: 526301
 - _id: 123968
@@ -19130,7 +16953,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:10.766056027 Z
   what: issue-was-opened
-  when: &130 2020-05-28 11:43:20.000000000 Z
+  when: &129 2020-05-28 11:43:20.000000000 Z
   where: github
   who: 1524988
 - _id: 124079
@@ -19157,7 +16980,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:10.799735775 Z
   what: issue-was-opened
-  when: &131 2020-05-29 03:22:35.000000000 Z
+  when: &130 2020-05-29 03:22:35.000000000 Z
   where: github
   who: 526301
 - _id: 124081
@@ -19198,7 +17021,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:10.830953749 Z
   what: issue-was-opened
-  when: &132 2020-05-29 10:38:52.000000000 Z
+  when: &131 2020-05-29 10:38:52.000000000 Z
   where: github
   who: 231433
 - _id: 124084
@@ -19267,7 +17090,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:10.861911986 Z
   what: issue-was-opened
-  when: &133 2020-07-08 14:58:04.000000000 Z
+  when: &132 2020-07-08 14:58:04.000000000 Z
   where: github
   who: 20803206
 - _id: 124089
@@ -19280,7 +17103,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:10.893910591 Z
   what: issue-was-opened
-  when: &134 2020-07-13 13:43:00.000000000 Z
+  when: &133 2020-07-13 13:43:00.000000000 Z
   where: github
   who: 526301
 - _id: 124090
@@ -19293,7 +17116,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:10.925007014 Z
   what: issue-was-opened
-  when: &135 2020-07-13 16:42:09.000000000 Z
+  when: &134 2020-07-13 16:42:09.000000000 Z
   where: github
   who: 526301
 - _id: 124091
@@ -19306,7 +17129,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:10.955812706 Z
   what: issue-was-opened
-  when: &136 2020-07-14 07:26:04.000000000 Z
+  when: &135 2020-07-14 07:26:04.000000000 Z
   where: github
   who: 526301
 - _id: 124092
@@ -19319,7 +17142,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:10.986999304 Z
   what: issue-was-opened
-  when: &137 2020-07-15 12:18:43.000000000 Z
+  when: &136 2020-07-15 12:18:43.000000000 Z
   where: github
   who: 231433
 - _id: 124093
@@ -19332,7 +17155,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:11.018568243 Z
   what: issue-was-opened
-  when: &138 2020-07-16 14:58:53.000000000 Z
+  when: &137 2020-07-16 14:58:53.000000000 Z
   where: github
   who: 20803206
 - _id: 124094
@@ -19345,7 +17168,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:11.049732939 Z
   what: issue-was-opened
-  when: &139 2020-07-17 14:16:45.000000000 Z
+  when: &138 2020-07-17 14:16:45.000000000 Z
   where: github
   who: 1987026
 - _id: 124095
@@ -19358,7 +17181,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:11.080483454 Z
   what: issue-was-opened
-  when: &140 2020-07-20 09:48:47.000000000 Z
+  when: &139 2020-07-20 09:48:47.000000000 Z
   where: github
   who: 1987026
 - _id: 124096
@@ -19371,7 +17194,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:11.111492942 Z
   what: issue-was-opened
-  when: &141 2020-07-20 09:54:11.000000000 Z
+  when: &140 2020-07-20 09:54:11.000000000 Z
   where: github
   who: 1987026
 - _id: 124097
@@ -19384,7 +17207,7 @@
   repository: 237167507
   tombstone: 2025-09-26 19:02:11.141799784 Z
   what: issue-was-opened
-  when: &142 2020-07-20 09:56:03.000000000 Z
+  when: &141 2020-07-20 09:56:03.000000000 Z
   where: github
   who: 1987026
 - _id: 124098
@@ -19436,7 +17259,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:50.751233810 Z
   what: issue-was-opened
-  when: &152 2020-07-28 15:04:08.000000000 Z
+  when: &148 2020-07-28 15:04:08.000000000 Z
   where: github
   who: 20803206
 - _id: 124102
@@ -19449,7 +17272,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:50.797229607 Z
   what: issue-was-opened
-  when: &153 2020-07-29 15:21:39.000000000 Z
+  when: &149 2020-07-29 15:21:39.000000000 Z
   where: github
   who: 20803206
 - _id: 124103
@@ -19462,7 +17285,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:50.844002993 Z
   what: issue-was-opened
-  when: &154 2020-07-31 11:24:20.000000000 Z
+  when: &150 2020-07-31 11:24:20.000000000 Z
   where: github
   who: 1524988
 - _id: 124104
@@ -19475,7 +17298,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:50.889731144 Z
   what: issue-was-opened
-  when: &155 2020-08-04 13:07:59.000000000 Z
+  when: &151 2020-08-04 13:07:59.000000000 Z
   where: github
   who: 1987026
 - _id: 124105
@@ -19488,7 +17311,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:50.935029030 Z
   what: issue-was-opened
-  when: &156 2020-08-05 06:23:51.000000000 Z
+  when: &152 2020-08-05 06:23:51.000000000 Z
   where: github
   who: 231433
 - _id: 124106
@@ -19540,7 +17363,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:50.981164173 Z
   what: issue-was-opened
-  when: &157 2020-08-10 08:39:45.000000000 Z
+  when: &153 2020-08-10 08:39:45.000000000 Z
   where: github
   who: 526301
 - _id: 124110
@@ -20832,7 +18655,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.498609256 Z
   what: dud-was-closed
-  when: *130
+  when: *129
   where: github
   who: 1524988
 - _id: 124194
@@ -20848,7 +18671,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.513719323 Z
   what: dud-was-closed
-  when: *131
+  when: *130
   where: github
   who: 526301
 - _id: 124195
@@ -20864,7 +18687,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.527759742 Z
   what: dud-was-closed
-  when: *132
+  when: *131
   where: github
   who: 231433
 - _id: 124196
@@ -20880,7 +18703,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.547513817 Z
   what: dud-was-closed
-  when: *133
+  when: *132
   where: github
   who: 20803206
 - _id: 124197
@@ -20896,7 +18719,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.563516878 Z
   what: dud-was-closed
-  when: *134
+  when: *133
   where: github
   who: 526301
 - _id: 124198
@@ -20912,7 +18735,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.578041498 Z
   what: dud-was-closed
-  when: *135
+  when: *134
   where: github
   who: 526301
 - _id: 124199
@@ -20928,7 +18751,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.597629563 Z
   what: dud-was-closed
-  when: *136
+  when: *135
   where: github
   who: 526301
 - _id: 124200
@@ -20944,7 +18767,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.613298703 Z
   what: dud-was-closed
-  when: *137
+  when: *136
   where: github
   who: 231433
 - _id: 124201
@@ -20960,7 +18783,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.627648106 Z
   what: dud-was-closed
-  when: *138
+  when: *137
   where: github
   who: 20803206
 - _id: 124202
@@ -20976,7 +18799,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.647130979 Z
   what: dud-was-closed
-  when: *139
+  when: *138
   where: github
   who: 1987026
 - _id: 124203
@@ -20992,7 +18815,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.662551786 Z
   what: dud-was-closed
-  when: *140
+  when: *139
   where: github
   who: 1987026
 - _id: 124204
@@ -21008,7 +18831,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.677155722 Z
   what: dud-was-closed
-  when: *141
+  when: *140
   where: github
   who: 1987026
 - _id: 124205
@@ -21024,7 +18847,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.697116764 Z
   what: dud-was-closed
-  when: *142
+  when: *141
   where: github
   who: 1987026
 - _id: 124207
@@ -21040,7 +18863,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:55.712801963 Z
   what: dud-was-closed
-  when: *143
+  when: *142
   where: github
   who: 526301
 - _id: 124209
@@ -21053,7 +18876,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:53.237086642 Z
   what: issue-was-opened
-  when: &159 2022-05-24 17:28:26.000000000 Z
+  when: &155 2022-05-24 17:28:26.000000000 Z
   where: github
   who: 28783346
 - _id: 124210
@@ -21366,7 +19189,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:50.263731083 Z
   what: label-was-attached
-  when: &158 2020-07-24 11:29:16.000000000 Z
+  when: &154 2020-07-24 11:29:16.000000000 Z
   where: github
   who: 1987026
 - _id: 124235
@@ -23219,7 +21042,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.786888404 Z
   what: dud-was-closed
-  when: *144
+  when: 2020-09-18 08:30:52.000000000 Z
   where: github
   who: 1987026
 - _id: 124339
@@ -23235,7 +21058,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.801799257 Z
   what: dud-was-closed
-  when: *145
+  when: 2020-09-15 18:47:10.000000000 Z
   where: github
   who: 43099602
 - _id: 124340
@@ -23251,7 +21074,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.821177404 Z
   what: dud-was-closed
-  when: *146
+  when: 2020-09-15 14:15:52.000000000 Z
   where: github
   who: 1987026
 - _id: 124341
@@ -23267,7 +21090,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.836626576 Z
   what: dud-was-closed
-  when: *147
+  when: *143
   where: github
   who: 1987026
 - _id: 124342
@@ -23283,7 +21106,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.851138645 Z
   what: dud-was-closed
-  when: *148
+  when: *144
   where: github
   who: 1987026
 - _id: 124343
@@ -23299,7 +21122,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.870059310 Z
   what: dud-was-closed
-  when: *149
+  when: *145
   where: github
   who: 1987026
 - _id: 124344
@@ -23315,7 +21138,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.885960921 Z
   what: dud-was-closed
-  when: *150
+  when: *146
   where: github
   who: 1987026
 - _id: 124345
@@ -23331,7 +21154,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.900808083 Z
   what: dud-was-closed
-  when: *151
+  when: *147
   where: github
   who: 1987026
 - _id: 124346
@@ -23347,7 +21170,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.919903402 Z
   what: dud-was-closed
-  when: *152
+  when: *148
   where: github
   who: 20803206
 - _id: 124347
@@ -23363,7 +21186,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.935373631 Z
   what: dud-was-closed
-  when: *153
+  when: *149
   where: github
   who: 20803206
 - _id: 124348
@@ -23379,7 +21202,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.949992887 Z
   what: dud-was-closed
-  when: *154
+  when: *150
   where: github
   who: 1524988
 - _id: 124349
@@ -23395,7 +21218,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.969124574 Z
   what: dud-was-closed
-  when: *155
+  when: *151
   where: github
   who: 1987026
 - _id: 124350
@@ -23411,7 +21234,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.984560518 Z
   what: dud-was-closed
-  when: *156
+  when: *152
   where: github
   who: 231433
 - _id: 124351
@@ -23427,7 +21250,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:56.999160318 Z
   what: dud-was-closed
-  when: *157
+  when: *153
   where: github
   who: 526301
 - _id: 124352
@@ -23442,7 +21265,7 @@
   repository: 237167507
   tombstone: 2025-09-26 20:01:57.017885175 Z
   what: bug-was-accepted
-  when: *158
+  when: *154
   where: github
   who: 1987026
 - _id: 124354
@@ -23455,7 +21278,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:24.971923899 Z
   what: issue-was-opened
-  when: &160 2020-06-29 12:56:10.000000000 Z
+  when: &156 2020-06-29 12:56:10.000000000 Z
   where: github
   who: 1524988
 - _id: 124355
@@ -23468,7 +21291,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:25.027721092 Z
   what: issue-was-opened
-  when: &161 2020-06-30 06:18:55.000000000 Z
+  when: &157 2020-06-30 06:18:55.000000000 Z
   where: github
   who: 1987026
 - _id: 124356
@@ -23494,7 +21317,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:25.082590478 Z
   what: issue-was-opened
-  when: &162 2020-06-30 06:23:22.000000000 Z
+  when: &158 2020-06-30 06:23:22.000000000 Z
   where: github
   who: 1987026
 - _id: 124358
@@ -23520,7 +21343,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:25.137869738 Z
   what: issue-was-opened
-  when: &163 2020-06-30 10:20:26.000000000 Z
+  when: &159 2020-06-30 10:20:26.000000000 Z
   where: github
   who: 20803206
 - _id: 124360
@@ -23533,7 +21356,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:25.180960420 Z
   what: issue-was-opened
-  when: &164 2020-07-03 07:52:38.000000000 Z
+  when: &160 2020-07-03 07:52:38.000000000 Z
   where: github
   who: 20803206
 - _id: 124361
@@ -23546,7 +21369,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:25.237335243 Z
   what: issue-was-opened
-  when: &165 2020-07-06 11:13:13.000000000 Z
+  when: &161 2020-07-06 11:13:13.000000000 Z
   where: github
   who: 20803206
 - _id: 124362
@@ -23599,7 +21422,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:25.292568521 Z
   what: issue-was-opened
-  when: &166 2020-07-07 16:39:16.000000000 Z
+  when: &162 2020-07-07 16:39:16.000000000 Z
   where: github
   who: 526301
 - _id: 124366
@@ -23612,7 +21435,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:25.336159329 Z
   what: issue-was-opened
-  when: &167 2020-07-08 10:06:17.000000000 Z
+  when: &163 2020-07-08 10:06:17.000000000 Z
   where: github
   who: 20803206
 - _id: 124367
@@ -24029,7 +21852,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:01:05.192851857 Z
   what: dud-was-closed
-  when: *159
+  when: *155
   where: github
   who: 28783346
 - _id: 124403
@@ -24079,7 +21902,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:25.379230795 Z
   what: issue-was-opened
-  when: &168 2020-06-28 16:53:04.000000000 Z
+  when: &164 2020-06-28 16:53:04.000000000 Z
   where: github
   who: 231433
 - _id: 124407
@@ -24092,7 +21915,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:25.426063530 Z
   what: issue-was-opened
-  when: &169 2020-06-28 16:35:57.000000000 Z
+  when: &165 2020-06-28 16:35:57.000000000 Z
   where: github
   who: 231433
 - _id: 124408
@@ -24170,7 +21993,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:25.470829727 Z
   what: issue-was-opened
-  when: &170 2020-06-19 07:26:45.000000000 Z
+  when: &166 2020-06-19 07:26:45.000000000 Z
   where: github
   who: 20803206
 - _id: 124414
@@ -24183,7 +22006,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:25.515168066 Z
   what: issue-was-opened
-  when: &171 2020-06-18 15:41:41.000000000 Z
+  when: &167 2020-06-18 15:41:41.000000000 Z
   where: github
   who: 1987026
 - _id: 124415
@@ -24209,7 +22032,7 @@
   repository: 237167507
   tombstone: 2025-09-26 21:59:25.559853206 Z
   what: issue-was-opened
-  when: &172 2020-06-17 08:35:48.000000000 Z
+  when: &168 2020-06-17 08:35:48.000000000 Z
   where: github
   who: 1987026
 - _id: 124417
@@ -24962,7 +22785,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.360945729 Z
   what: dud-was-closed
-  when: *160
+  when: *156
   where: github
   who: 1524988
 - _id: 124474
@@ -24978,7 +22801,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.373085905 Z
   what: dud-was-closed
-  when: *161
+  when: *157
   where: github
   who: 1987026
 - _id: 124475
@@ -24994,7 +22817,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.394409714 Z
   what: dud-was-closed
-  when: *162
+  when: *158
   where: github
   who: 1987026
 - _id: 124476
@@ -25010,7 +22833,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.408131446 Z
   what: dud-was-closed
-  when: *163
+  when: *159
   where: github
   who: 20803206
 - _id: 124477
@@ -25026,7 +22849,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.424286167 Z
   what: dud-was-closed
-  when: *164
+  when: *160
   where: github
   who: 20803206
 - _id: 124478
@@ -25042,7 +22865,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.436640192 Z
   what: dud-was-closed
-  when: *165
+  when: *161
   where: github
   who: 20803206
 - _id: 124479
@@ -25058,7 +22881,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.457660661 Z
   what: dud-was-closed
-  when: *166
+  when: *162
   where: github
   who: 526301
 - _id: 124480
@@ -25074,7 +22897,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.471512114 Z
   what: dud-was-closed
-  when: *167
+  when: *163
   where: github
   who: 20803206
 - _id: 124481
@@ -25090,7 +22913,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.485118750 Z
   what: dud-was-closed
-  when: *168
+  when: *164
   where: github
   who: 231433
 - _id: 124482
@@ -25106,7 +22929,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.500909838 Z
   what: dud-was-closed
-  when: *169
+  when: *165
   where: github
   who: 231433
 - _id: 124483
@@ -25122,7 +22945,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.513547599 Z
   what: dud-was-closed
-  when: *170
+  when: *166
   where: github
   who: 20803206
 - _id: 124484
@@ -25138,7 +22961,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.534864235 Z
   what: dud-was-closed
-  when: *171
+  when: *167
   where: github
   who: 1987026
 - _id: 124485
@@ -25154,7 +22977,7 @@
   repository: 237167507
   tombstone: 2025-09-26 22:00:02.549639338 Z
   what: dud-was-closed
-  when: *172
+  when: *168
   where: github
   who: 1987026
 - _id: 124488
@@ -25206,7 +23029,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:01:08.132400284 Z
   what: issue-was-opened
-  when: &173 2020-04-30 15:16:22.000000000 Z
+  when: &169 2020-04-30 15:16:22.000000000 Z
   where: github
   who: 231433
 - _id: 124492
@@ -25245,7 +23068,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:01:08.265839884 Z
   what: issue-was-opened
-  when: &174 2020-05-06 10:02:06.000000000 Z
+  when: &170 2020-05-06 10:02:06.000000000 Z
   where: github
   who: 231433
 - _id: 124495
@@ -25284,7 +23107,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:01:08.388732911 Z
   what: issue-was-opened
-  when: &175 2020-05-06 11:09:05.000000000 Z
+  when: &171 2020-05-06 11:09:05.000000000 Z
   where: github
   who: 20803206
 - _id: 124498
@@ -25323,7 +23146,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:01:08.539752443 Z
   what: issue-was-opened
-  when: &176 2020-05-28 06:29:39.000000000 Z
+  when: &172 2020-05-28 06:29:39.000000000 Z
   where: github
   who: 526301
 - _id: 124501
@@ -25336,7 +23159,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:01:08.566868190 Z
   what: issue-was-opened
-  when: &177 2020-05-28 06:32:29.000000000 Z
+  when: &173 2020-05-28 06:32:29.000000000 Z
   where: github
   who: 526301
 - _id: 124502
@@ -25349,7 +23172,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:01:08.602674150 Z
   what: issue-was-opened
-  when: &178 2020-05-28 11:46:46.000000000 Z
+  when: &174 2020-05-28 11:46:46.000000000 Z
   where: github
   who: 1524988
 - _id: 124503
@@ -25362,7 +23185,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:01:08.651808002 Z
   what: issue-was-opened
-  when: &179 2020-05-29 02:51:39.000000000 Z
+  when: &175 2020-05-29 02:51:39.000000000 Z
   where: github
   who: 526301
 - _id: 124504
@@ -25375,7 +23198,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:01:08.687653767 Z
   what: issue-was-opened
-  when: &180 2020-05-29 03:03:01.000000000 Z
+  when: &176 2020-05-29 03:03:01.000000000 Z
   where: github
   who: 526301
 - _id: 124505
@@ -25388,7 +23211,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:01:08.723336634 Z
   what: issue-was-opened
-  when: &181 2020-05-29 03:11:44.000000000 Z
+  when: &177 2020-05-29 03:11:44.000000000 Z
   where: github
   who: 526301
 - _id: 124506
@@ -25401,7 +23224,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:01:08.750920649 Z
   what: issue-was-opened
-  when: &182 2020-05-29 03:15:07.000000000 Z
+  when: &178 2020-05-29 03:15:07.000000000 Z
   where: github
   who: 526301
 - _id: 124507
@@ -25427,7 +23250,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:01:08.866777375 Z
   what: issue-was-opened
-  when: &183 2020-06-11 10:10:14.000000000 Z
+  when: &179 2020-06-11 10:10:14.000000000 Z
   where: github
   who: 20803206
 - _id: 124509
@@ -25440,7 +23263,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:01:08.914117938 Z
   what: issue-was-opened
-  when: &184 2020-06-16 13:11:52.000000000 Z
+  when: &180 2020-06-16 13:11:52.000000000 Z
   where: github
   who: 20803206
 - _id: 124510
@@ -28543,7 +26366,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:02:17.921194035 Z
   what: dud-was-closed
-  when: *173
+  when: *169
   where: github
   who: 231433
 - _id: 124687
@@ -28559,7 +26382,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:02:17.934808565 Z
   what: dud-was-closed
-  when: *174
+  when: *170
   where: github
   who: 231433
 - _id: 124688
@@ -28575,7 +26398,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:02:17.948463772 Z
   what: dud-was-closed
-  when: *175
+  when: *171
   where: github
   who: 20803206
 - _id: 124689
@@ -28591,7 +26414,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:02:17.963008284 Z
   what: dud-was-closed
-  when: *176
+  when: *172
   where: github
   who: 526301
 - _id: 124690
@@ -28607,7 +26430,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:02:17.975440450 Z
   what: dud-was-closed
-  when: *177
+  when: *173
   where: github
   who: 526301
 - _id: 124691
@@ -28623,7 +26446,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:02:17.987703733 Z
   what: dud-was-closed
-  when: *178
+  when: *174
   where: github
   who: 1524988
 - _id: 124692
@@ -28639,7 +26462,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:02:18.009098850 Z
   what: dud-was-closed
-  when: *179
+  when: *175
   where: github
   who: 526301
 - _id: 124693
@@ -28655,7 +26478,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:02:18.023066369 Z
   what: dud-was-closed
-  when: *180
+  when: *176
   where: github
   who: 526301
 - _id: 124694
@@ -28671,7 +26494,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:02:18.037314251 Z
   what: dud-was-closed
-  when: *181
+  when: *177
   where: github
   who: 526301
 - _id: 124695
@@ -28687,7 +26510,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:02:18.050659797 Z
   what: dud-was-closed
-  when: *182
+  when: *178
   where: github
   who: 526301
 - _id: 124696
@@ -28703,7 +26526,7 @@
   repository: 237167507
   tombstone: 2025-09-27 00:02:18.064601439 Z
   what: dud-was-closed
-  when: *183
+  when: *179
   where: github
   who: 20803206
 - _id: 124697
@@ -28719,56 +26542,9 @@
   repository: 237167507
   tombstone: 2025-09-27 00:02:18.094138166 Z
   what: dud-was-closed
-  when: *184
+  when: *180
   where: github
   who: 20803206
-- _id: 124698
-  _job: 39790
-  _time: 2025-09-27 00:02:18.487234324 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  issues:
-  - 136-149
-  - 151-160
-  - 162-165
-  - 167-181
-  - 183-279
-  - '281'
-  - '284'
-  - 287-318
-  - 320-335
-  - 337-342
-  - 345-348
-  - 350-365
-  - 367-369
-  - 371-417
-  - 419-430
-  - 435-437
-  - 439-453
-  - 455-462
-  - 464-484
-  - 490-527
-  - 529-535
-  - 537-538
-  - 541-550
-  - '553'
-  - '555'
-  - 557-561
-  - 563-566
-  - 568-569
-  - 571-583
-  - 585-586
-  - 588-595
-  - 597-598
-  - 601-613
-  - 615-641
-  - 643-645
-  - 647-651
-  - 654-655
-  - 661-666
-  - '670'
-  repository: 237167507
-  what: tombstone
-  where: github
 - _id: 124700
   _job: 18053588982
   _time: 2025-09-27 02:10:03.024642931 Z
@@ -29137,6 +26913,7 @@
   is_human: 1
   issue: 252
   repository: 237167507
+  tombstone: 2025-09-27 02:12:56.813451756 Z
   what: issue-was-opened
   when: 2020-04-28 20:51:15.000000000 Z
   where: github
@@ -29149,6 +26926,7 @@
   is_human: 1
   issue: 246
   repository: 237167507
+  tombstone: 2025-09-27 02:12:56.769663651 Z
   what: issue-was-opened
   when: 2020-04-27 09:49:38.000000000 Z
   where: github
@@ -29161,6 +26939,7 @@
   is_human: 1
   issue: 237
   repository: 237167507
+  tombstone: 2025-09-27 02:12:56.724959246 Z
   what: issue-was-opened
   when: 2020-04-22 15:51:31.000000000 Z
   where: github
@@ -29173,6 +26952,7 @@
   is_human: 1
   issue: 235
   repository: 237167507
+  tombstone: 2025-09-27 02:12:56.676129006 Z
   what: issue-was-opened
   when: 2020-04-22 10:08:52.000000000 Z
   where: github
@@ -29185,6 +26965,7 @@
   is_human: 1
   issue: 229
   repository: 237167507
+  tombstone: 2025-09-27 02:12:56.636324496 Z
   what: issue-was-opened
   when: 2020-04-20 14:32:09.000000000 Z
   where: github
@@ -29225,28 +27006,13 @@
   when: 2020-04-13 15:20:17.000000000 Z
   where: github
   who: 46167437
-- _id: 124738
-  _job: 18053588982
-  _time: 2025-09-27 02:11:58.981026596 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  assignees_were_scanned: 824
-  events_were_scanned: 55268536560
-  issues_were_scanned: 0
-  labels_were_scanned: 0
-  latest_issue_was_found: 901
-  merges_were_scanned: 0
-  min_issue_was_found: 136
-  min_pull_was_found: 693
-  repository: 237167507
-  types_were_scanned: 0
-  what: iterate
-  where: github
 - _id: 124739
   _job: 18053588982
   _time: 2025-09-27 02:11:59.536735945 Z
   _version: 0.16.7/0.54.0/0.15.45
   branch: issue-634
   details: The missing pull cqfn/aibolit#635 has been opened by @aravij.
+  is_human: 1
   issue: 635
   repository: 237167507
   what: pull-was-opened
@@ -29259,6 +27025,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: issue-636
   details: The missing pull cqfn/aibolit#637 has been opened by @aravij.
+  is_human: 1
   issue: 637
   repository: 237167507
   what: pull-was-opened
@@ -29271,6 +27038,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: issue-638
   details: The missing pull cqfn/aibolit#639 has been opened by @aravij.
+  is_human: 1
   issue: 639
   repository: 237167507
   what: pull-was-opened
@@ -29283,6 +27051,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: issue-640
   details: The missing pull cqfn/aibolit#641 has been opened by @vitaly-protasov.
+  is_human: 1
   issue: 641
   repository: 237167507
   what: pull-was-opened
@@ -29295,6 +27064,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: issue-636
   details: The missing pull cqfn/aibolit#643 has been opened by @aravij.
+  is_human: 1
   issue: 643
   repository: 237167507
   what: pull-was-opened
@@ -29307,6 +27077,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: issue-638
   details: The missing pull cqfn/aibolit#644 has been opened by @aravij.
+  is_human: 1
   issue: 644
   repository: 237167507
   what: pull-was-opened
@@ -29319,6 +27090,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: issue-646
   details: The missing pull cqfn/aibolit#647 has been opened by @aravij.
+  is_human: 1
   issue: 647
   repository: 237167507
   what: pull-was-opened
@@ -29331,6 +27103,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: issue-649
   details: The missing pull cqfn/aibolit#650 has been opened by @aravij.
+  is_human: 1
   issue: 650
   repository: 237167507
   what: pull-was-opened
@@ -29343,6 +27116,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: dependabot/maven/aibolit/metrics/halsteadvolume/junit-junit-4.13.1
   details: The missing pull cqfn/aibolit#651 has been opened by @dependabot[bot].
+  is_human: 0
   issue: 651
   repository: 237167507
   what: pull-was-opened
@@ -29355,6 +27129,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: issue-654
   details: The missing pull cqfn/aibolit#655 has been opened by @aravij.
+  is_human: 1
   issue: 655
   repository: 237167507
   what: pull-was-opened
@@ -29367,6 +27142,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: dependabot/pip/aibolit/metrics/cc/lxml-4.6.2
   details: The missing pull cqfn/aibolit#661 has been opened by @dependabot[bot].
+  is_human: 0
   issue: 661
   repository: 237167507
   what: pull-was-opened
@@ -29379,6 +27155,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: dependabot/pip/aibolit/metrics/cc/lxml-4.6.3
   details: The missing pull cqfn/aibolit#662 has been opened by @dependabot[bot].
+  is_human: 0
   issue: 662
   repository: 237167507
   what: pull-was-opened
@@ -29391,6 +27168,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: dependabot/pip/lxml-4.6.3
   details: The missing pull cqfn/aibolit#663 has been opened by @dependabot[bot].
+  is_human: 0
   issue: 663
   repository: 237167507
   what: pull-was-opened
@@ -29403,6 +27181,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: dependabot/pip/aibolit/metrics/cc/lxml-4.6.5
   details: The missing pull cqfn/aibolit#664 has been opened by @dependabot[bot].
+  is_human: 0
   issue: 664
   repository: 237167507
   what: pull-was-opened
@@ -29415,6 +27194,7 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: dependabot/pip/lxml-4.6.5
   details: The missing pull cqfn/aibolit#665 has been opened by @dependabot[bot].
+  is_human: 0
   issue: 665
   repository: 237167507
   what: pull-was-opened
@@ -29427,9 +27207,3697 @@
   _version: 0.16.7/0.54.0/0.15.45
   branch: probing
   details: The missing pull cqfn/aibolit#670 has been opened by @vitaly-protasov.
+  is_human: 1
   issue: 670
   repository: 237167507
   what: pull-was-opened
   when: 2023-04-19 17:30:14.000000000 Z
   where: github
   who: 43099602
+- _id: 124755
+  _job: 39807
+  _time: 2025-09-27 02:14:20.305296301 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  issues:
+  - 136-149
+  - 151-160
+  - 162-165
+  - 167-181
+  - 183-279
+  - '281'
+  - '284'
+  - 287-318
+  - 320-335
+  - 337-342
+  - 345-348
+  - 350-365
+  - 367-369
+  - 371-417
+  - 419-430
+  - 435-437
+  - 439-453
+  - 455-462
+  - 464-484
+  - 490-527
+  - 529-535
+  - 537-538
+  - 541-550
+  - '553'
+  - '555'
+  - 557-561
+  - 563-566
+  - 568-569
+  - 571-583
+  - 585-586
+  - 588-595
+  - 597-598
+  - 601-613
+  - 615-641
+  - 643-645
+  - 647-651
+  - 654-655
+  - 661-666
+  - '670'
+  repository: 237167507
+  what: tombstone
+  where: github
+- _id: 124757
+  _job: 18054331388
+  _time: 2025-09-27 03:19:08.706705704 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: wp
+  details: The missing pull cqfn/aibolit#174 has been opened by @acheshkov.
+  issue: 174
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 10:41:23.000000000 Z
+  where: github
+  who: 231433
+- _id: 124758
+  _job: 18054331388
+  _time: 2025-09-27 03:19:09.238087312 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: log_errors_red_catch
+  details: The missing pull cqfn/aibolit#176 has been opened by @lyriccoder.
+  issue: 176
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 13:50:54.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124759
+  _job: 18054331388
+  _time: 2025-09-27 03:19:09.875388247 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: issue-177
+  details: The missing pull cqfn/aibolit#178 has been opened by @acheshkov.
+  issue: 178
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 14:04:11.000000000 Z
+  where: github
+  who: 231433
+- _id: 124760
+  _job: 18054331388
+  _time: 2025-09-27 03:19:10.639622763 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: master
+  details: The missing pull cqfn/aibolit#179 has been opened by @vitaly-protasov.
+  issue: 179
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 14:06:31.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124761
+  _job: 18054331388
+  _time: 2025-09-27 03:19:11.291300449 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: empty_rethrow_fix
+  details: The missing pull cqfn/aibolit#181 has been opened by @lyriccoder.
+  issue: 181
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 14:44:35.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124762
+  _job: 18054331388
+  _time: 2025-09-27 03:19:11.897075324 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: unittest
+  details: The missing pull cqfn/aibolit#185 has been opened by @vitaly-protasov.
+  issue: 185
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 15:50:36.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124763
+  _job: 18054331388
+  _time: 2025-09-27 03:19:12.436184134 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: diameter
+  details: The missing pull cqfn/aibolit#186 has been opened by @vitaly-protasov.
+  issue: 186
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-08 15:58:01.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124764
+  _job: 18054331388
+  _time: 2025-09-27 03:19:13.260479728 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: master
+  details: The missing pull cqfn/aibolit#187 has been opened by @cringoleg.
+  issue: 187
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-09 12:08:34.000000000 Z
+  where: github
+  who: 57872461
+- _id: 124765
+  _job: 18054331388
+  _time: 2025-09-27 03:19:13.814693347 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: issue-143
+  details: The missing pull cqfn/aibolit#188 has been opened by @acheshkov.
+  issue: 188
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-09 13:54:48.000000000 Z
+  where: github
+  who: 231433
+- _id: 124766
+  _job: 18054331388
+  _time: 2025-09-27 03:19:14.427552016 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: issue-137
+  details: The missing pull cqfn/aibolit#189 has been opened by @acheshkov.
+  issue: 189
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-09 15:44:46.000000000 Z
+  where: github
+  who: 231433
+- _id: 124767
+  _job: 18054331388
+  _time: 2025-09-27 03:19:14.996462886 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: fix_string_conat
+  details: The missing pull cqfn/aibolit#191 has been opened by @lyriccoder.
+  issue: 191
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-09 16:28:12.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124768
+  _job: 18054331388
+  _time: 2025-09-27 03:19:15.586567190 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: spaces_counter_fix
+  details: The missing pull cqfn/aibolit#193 has been opened by @lyriccoder.
+  issue: 193
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-10 09:10:16.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124769
+  _job: 18054331388
+  _time: 2025-09-27 03:19:16.171645914 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: patterns
+  details: The missing pull cqfn/aibolit#197 has been opened by @cringoleg.
+  issue: 197
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-10 12:09:47.000000000 Z
+  where: github
+  who: 57872461
+- _id: 124770
+  _job: 18054331388
+  _time: 2025-09-27 03:19:16.692716680 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: leave
+  details: The missing pull cqfn/aibolit#198 has been opened by @vitaly-protasov.
+  issue: 198
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-10 13:40:11.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124771
+  _job: 18054331388
+  _time: 2025-09-27 03:19:17.357398255 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: patterns_calc
+  details: The missing pull cqfn/aibolit#200 has been opened by @lyriccoder.
+  issue: 200
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-10 14:23:45.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124772
+  _job: 18054331388
+  _time: 2025-09-27 03:19:17.925620501 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: metrics
+  details: The missing pull cqfn/aibolit#201 has been opened by @cringoleg.
+  issue: 201
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-10 15:01:31.000000000 Z
+  where: github
+  who: 57872461
+- _id: 124773
+  _job: 18054331388
+  _time: 2025-09-27 03:19:18.506251220 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '128'
+  details: The missing pull cqfn/aibolit#203 has been opened by @paulodamaso.
+  issue: 203
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-11 04:19:19.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124774
+  _job: 18054331388
+  _time: 2025-09-27 03:19:19.154772499 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '136'
+  details: The missing pull cqfn/aibolit#204 has been opened by @paulodamaso.
+  issue: 204
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-12 02:59:12.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124775
+  _job: 18054331388
+  _time: 2025-09-27 03:19:19.795482100 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: master
+  details: The missing pull cqfn/aibolit#205 has been opened by @angusev.
+  issue: 205
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-13 11:19:15.000000000 Z
+  where: github
+  who: 44449418
+- _id: 124776
+  _job: 18054331388
+  _time: 2025-09-27 03:19:20.418630023 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: cognitive
+  details: The missing pull cqfn/aibolit#207 has been opened by @vitaly-protasov.
+  issue: 207
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-13 15:40:27.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124777
+  _job: 18054331388
+  _time: 2025-09-27 03:19:20.988215742 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: pair_wise
+  details: The missing pull cqfn/aibolit#209 has been opened by @lyriccoder.
+  issue: 209
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-13 16:06:10.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124778
+  _job: 18054331388
+  _time: 2025-09-27 03:19:21.607922409 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '141'
+  details: The missing pull cqfn/aibolit#210 has been opened by @paulodamaso.
+  issue: 210
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-14 16:59:44.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124779
+  _job: 18054331388
+  _time: 2025-09-27 03:19:22.160592650 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '148'
+  details: The missing pull cqfn/aibolit#211 has been opened by @paulodamaso.
+  issue: 211
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-14 17:54:21.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124780
+  _job: 18054331388
+  _time: 2025-09-27 03:19:22.637348523 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: cognitive
+  details: The missing pull cqfn/aibolit#213 has been opened by @vitaly-protasov.
+  issue: 213
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-15 11:14:41.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124781
+  _job: 18054331388
+  _time: 2025-09-27 03:19:23.237316520 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: metrics
+  details: The missing pull cqfn/aibolit#214 has been opened by @cringoleg.
+  issue: 214
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-15 15:41:12.000000000 Z
+  where: github
+  who: 57872461
+- _id: 124782
+  _job: 18054331388
+  _time: 2025-09-27 03:19:23.823253342 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: cognitive
+  details: The missing pull cqfn/aibolit#217 has been opened by @vitaly-protasov.
+  issue: 217
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-16 15:06:02.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124783
+  _job: 18054331388
+  _time: 2025-09-27 03:19:24.363955651 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: LCOM4
+  details: The missing pull cqfn/aibolit#218 has been opened by @cringoleg.
+  issue: 218
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-16 16:54:36.000000000 Z
+  where: github
+  who: 57872461
+- _id: 124784
+  _job: 18054331388
+  _time: 2025-09-27 03:19:24.988810165 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: cognitive
+  details: The missing pull cqfn/aibolit#220 has been opened by @vitaly-protasov.
+  issue: 220
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-17 11:53:47.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124785
+  _job: 18054331388
+  _time: 2025-09-27 03:19:25.550551003 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: leave
+  details: The missing pull cqfn/aibolit#222 has been opened by @vitaly-protasov.
+  issue: 222
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-17 14:21:12.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124786
+  _job: 18054331388
+  _time: 2025-09-27 03:19:26.096626117 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '159'
+  details: The missing pull cqfn/aibolit#223 has been opened by @paulodamaso.
+  issue: 223
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-17 16:03:11.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124787
+  _job: 18054331388
+  _time: 2025-09-27 03:19:26.645930167 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '160'
+  details: The missing pull cqfn/aibolit#224 has been opened by @paulodamaso.
+  issue: 224
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-17 16:39:29.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124788
+  _job: 18054331388
+  _time: 2025-09-27 03:19:27.182588811 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '158'
+  details: The missing pull cqfn/aibolit#227 has been opened by @paulodamaso.
+  issue: 227
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-19 21:50:05.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124789
+  _job: 18054331388
+  _time: 2025-09-27 03:19:27.764902628 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: fix_error_log
+  details: The missing pull cqfn/aibolit#230 has been opened by @lyriccoder.
+  issue: 230
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-20 14:32:34.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124790
+  _job: 18054331388
+  _time: 2025-09-27 03:19:28.781423130 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: LCOM4
+  details: The missing pull cqfn/aibolit#231 has been opened by @cringoleg.
+  issue: 231
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-20 16:07:56.000000000 Z
+  where: github
+  who: 57872461
+- _id: 124791
+  _job: 18054331388
+  _time: 2025-09-27 03:19:29.446327273 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: issue-228
+  details: The missing pull cqfn/aibolit#232 has been opened by @acheshkov.
+  issue: 232
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-21 10:27:56.000000000 Z
+  where: github
+  who: 231433
+- _id: 124792
+  _job: 18054331388
+  _time: 2025-09-27 03:19:30.550294630 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: cognitive
+  details: The missing pull cqfn/aibolit#233 has been opened by @vitaly-protasov.
+  issue: 233
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-22 06:49:23.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124793
+  _job: 18054331388
+  _time: 2025-09-27 03:19:31.091305006 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: master
+  details: The missing pull cqfn/aibolit#234 has been opened by @vitaly-protasov.
+  issue: 234
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-22 06:58:12.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124794
+  _job: 18054331388
+  _time: 2025-09-27 03:19:31.625077434 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: diameter
+  details: The missing pull cqfn/aibolit#236 has been opened by @vitaly-protasov.
+  issue: 236
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-22 10:09:35.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124795
+  _job: 18054331388
+  _time: 2025-09-27 03:19:32.256861739 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: ML_pipeline
+  details: The missing pull cqfn/aibolit#238 has been opened by @lyriccoder.
+  issue: 238
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-22 15:51:44.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124796
+  _job: 18054331388
+  _time: 2025-09-27 03:19:32.796972635 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '142'
+  details: The missing pull cqfn/aibolit#239 has been opened by @paulodamaso.
+  issue: 239
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-24 12:46:36.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124797
+  _job: 18054331388
+  _time: 2025-09-27 03:19:33.429218646 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '147'
+  details: The missing pull cqfn/aibolit#240 has been opened by @paulodamaso.
+  issue: 240
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-24 19:23:26.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124798
+  _job: 18054331388
+  _time: 2025-09-27 03:19:33.971269329 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: "#194"
+  details: The missing pull cqfn/aibolit#241 has been opened by @paulodamaso.
+  issue: 241
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-24 20:31:39.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124799
+  _job: 18054331388
+  _time: 2025-09-27 03:19:34.600318926 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '139'
+  details: The missing pull cqfn/aibolit#242 has been opened by @paulodamaso.
+  issue: 242
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-24 21:45:47.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124800
+  _job: 18054331388
+  _time: 2025-09-27 03:19:35.149250197 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '183'
+  details: The missing pull cqfn/aibolit#243 has been opened by @paulodamaso.
+  issue: 243
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-25 22:24:41.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124801
+  _job: 18054331388
+  _time: 2025-09-27 03:19:35.813620750 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '184'
+  details: The missing pull cqfn/aibolit#244 has been opened by @paulodamaso.
+  issue: 244
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-25 23:57:09.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124802
+  _job: 18054331388
+  _time: 2025-09-27 03:19:36.360239052 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '164'
+  details: The missing pull cqfn/aibolit#245 has been opened by @dz-s.
+  issue: 245
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-26 23:18:12.000000000 Z
+  where: github
+  who: 27350480
+- _id: 124803
+  _job: 18054331388
+  _time: 2025-09-27 03:19:36.987317051 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: Pavel
+  details: The missing pull cqfn/aibolit#247 has been opened by @lukyanoffpashok.
+  issue: 247
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-27 12:32:00.000000000 Z
+  where: github
+  who: 46167437
+- _id: 124804
+  _job: 18054331388
+  _time: 2025-09-27 03:19:37.519897375 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: recommend_feature
+  details: The missing pull cqfn/aibolit#248 has been opened by @lyriccoder.
+  issue: 248
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-27 14:57:44.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124805
+  _job: 18054331388
+  _time: 2025-09-27 03:19:38.170397496 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '195'
+  details: The missing pull cqfn/aibolit#249 has been opened by @paulodamaso.
+  issue: 249
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-27 23:26:26.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124806
+  _job: 18054331388
+  _time: 2025-09-27 03:19:38.735932482 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '138'
+  details: The missing pull cqfn/aibolit#250 has been opened by @paulodamaso.
+  issue: 250
+  repository: 237167507
+  what: pull-was-opened
+  when: 2020-04-28 04:01:42.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124807
+  _job: 18054331388
+  _time: 2025-09-27 03:19:39.287313130 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: The missing issue cqfn/aibolit#255 has been opened by @paulodamaso.
+  issue: 255
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-04-29 21:12:28.000000000 Z
+  where: github
+  who: 33915433
+- _id: 124808
+  _job: 18054331388
+  _time: 2025-09-27 03:19:39.523229977 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: The missing issue cqfn/aibolit#634 has been opened by @aravij.
+  issue: 634
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-09-15 08:58:09.000000000 Z
+  where: github
+  who: 1987026
+- _id: 124809
+  _job: 18054331388
+  _time: 2025-09-27 03:19:41.539065575 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#206 has been 'issue-was-closed'.
+  issue: 206
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-04-26 16:55:16.000000000 Z
+  where: github
+  who: 231433
+- _id: 124810
+  _job: 18054331388
+  _time: 2025-09-27 03:19:41.937429989 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#208 has been 'issue-was-closed'.
+  issue: 208
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-04-22 07:29:18.000000000 Z
+  where: github
+  who: 231433
+- _id: 124811
+  _job: 18054331388
+  _time: 2025-09-27 03:19:42.336921290 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#221 has been 'issue-was-closed'.
+  issue: 221
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-04-17 15:05:07.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124812
+  _job: 18054331388
+  _time: 2025-09-27 03:19:42.594805725 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#255 has been 'issue-was-closed'.
+  issue: 255
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-07-14 10:22:13.000000000 Z
+  where: github
+  who: 526301
+- _id: 124813
+  _job: 18054331388
+  _time: 2025-09-27 03:19:45.005035563 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#316 has been 'issue-was-closed'.
+  issue: 316
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-05-17 16:22:03.000000000 Z
+  where: github
+  who: 231433
+- _id: 124814
+  _job: 18054331388
+  _time: 2025-09-27 03:19:45.409625440 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#318 has been 'issue-was-closed'.
+  issue: 318
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-02 14:58:55.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124815
+  _job: 18054331388
+  _time: 2025-09-27 03:19:46.219421904 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#322 has been 'issue-was-closed'.
+  issue: 322
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-05-25 07:21:54.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124816
+  _job: 18054331388
+  _time: 2025-09-27 03:19:46.591074292 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#323 has been 'issue-was-closed'.
+  issue: 323
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-05-20 11:24:38.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124817
+  _job: 18054331388
+  _time: 2025-09-27 03:19:47.013309928 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#327 has been 'issue-was-closed'.
+  issue: 327
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-05-20 10:58:41.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124818
+  _job: 18054331388
+  _time: 2025-09-27 03:19:47.414413296 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#329 has been 'issue-was-closed'.
+  issue: 329
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-05-20 10:19:28.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124819
+  _job: 18054331388
+  _time: 2025-09-27 03:19:47.878084342 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#333 has been 'issue-was-closed'.
+  issue: 333
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-05-21 12:43:13.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124820
+  _job: 18054331388
+  _time: 2025-09-27 03:19:49.655720035 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#358 has been 'issue-was-closed'.
+  issue: 358
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-05-28 12:32:11.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124821
+  _job: 18054331388
+  _time: 2025-09-27 03:19:50.053503803 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#359 has been 'issue-was-closed'.
+  issue: 359
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-05-28 12:14:17.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124822
+  _job: 18054331388
+  _time: 2025-09-27 03:19:50.550164706 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#360 has been 'issue-was-closed'.
+  issue: 360
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-01 16:24:52.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124823
+  _job: 18054331388
+  _time: 2025-09-27 03:19:50.981545142 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#363 has been 'issue-was-closed'.
+  issue: 363
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-19 14:59:37.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124824
+  _job: 18054331388
+  _time: 2025-09-27 03:19:52.252438276 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#383 has been 'issue-was-closed'.
+  issue: 383
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-05 13:33:40.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124825
+  _job: 18054331388
+  _time: 2025-09-27 03:19:52.674399257 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#384 has been 'issue-was-closed'.
+  issue: 384
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-03 15:14:52.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124826
+  _job: 18054331388
+  _time: 2025-09-27 03:19:53.067500287 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#385 has been 'issue-was-closed'.
+  issue: 385
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-16 10:34:17.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124827
+  _job: 18054331388
+  _time: 2025-09-27 03:19:53.469673465 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#388 has been 'issue-was-closed'.
+  issue: 388
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-09 07:54:02.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124828
+  _job: 18054331388
+  _time: 2025-09-27 03:19:53.845192067 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#390 has been 'issue-was-closed'.
+  issue: 390
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-05 18:40:04.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124829
+  _job: 18054331388
+  _time: 2025-09-27 03:19:54.245350110 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#395 has been 'issue-was-closed'.
+  issue: 395
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-16 12:49:57.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124830
+  _job: 18054331388
+  _time: 2025-09-27 03:19:54.657563044 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#397 has been 'issue-was-closed'.
+  issue: 397
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-09 12:51:21.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124831
+  _job: 18054331388
+  _time: 2025-09-27 03:19:55.082060991 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#399 has been 'issue-was-closed'.
+  issue: 399
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-09 17:18:47.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124832
+  _job: 18054331388
+  _time: 2025-09-27 03:19:55.468242659 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#401 has been 'issue-was-closed'.
+  issue: 401
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-11 14:34:33.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124833
+  _job: 18054331388
+  _time: 2025-09-27 03:19:55.874126639 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#404 has been 'issue-was-closed'.
+  issue: 404
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-16 14:19:34.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124834
+  _job: 18054331388
+  _time: 2025-09-27 03:19:56.614553600 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#425 has been 'issue-was-closed'.
+  issue: 425
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-19 14:05:10.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124835
+  _job: 18054331388
+  _time: 2025-09-27 03:19:57.031608492 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#429 has been 'issue-was-closed'.
+  issue: 429
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-26 10:26:52.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124836
+  _job: 18054331388
+  _time: 2025-09-27 03:19:57.417034547 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#430 has been 'issue-was-closed'.
+  issue: 430
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-25 06:47:29.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124837
+  _job: 18054331388
+  _time: 2025-09-27 03:19:59.200599402 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#435 has been 'issue-was-closed'.
+  issue: 435
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-07-14 10:32:33.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124838
+  _job: 18054331388
+  _time: 2025-09-27 03:19:59.684423849 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#436 has been 'issue-was-closed'.
+  issue: 436
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-07-03 06:34:01.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124839
+  _job: 18054331388
+  _time: 2025-09-27 03:20:00.401324150 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#439 has been 'issue-was-closed'.
+  issue: 439
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-26 16:12:11.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124840
+  _job: 18054331388
+  _time: 2025-09-27 03:20:00.772635520 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#443 has been 'issue-was-closed'.
+  issue: 443
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-23 14:20:41.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124841
+  _job: 18054331388
+  _time: 2025-09-27 03:20:01.141950015 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#445 has been 'issue-was-closed'.
+  issue: 445
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-25 06:46:33.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124842
+  _job: 18054331388
+  _time: 2025-09-27 03:20:01.855120920 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: Apparently, cqfn/aibolit#455 has been 'issue-was-closed'.
+  issue: 455
+  repository: 237167507
+  what: issue-was-closed
+  when: 2020-06-29 06:45:11.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124844
+  _job: 18054331388
+  _time: 2025-09-27 03:20:05.272474265 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: wp
+  comments: 3
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 2
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#174 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 3
+  hoc: 20
+  issue: 174
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-08 10:42:58.000000000 Z
+  where: github
+  who: 526301
+- _id: 124845
+  _job: 18054331388
+  _time: 2025-09-27 03:20:12.797968968 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: log_errors_red_catch
+  comments: 13
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 13
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#176 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 6
+  hoc: 1313
+  issue: 176
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-09 08:41:03.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124846
+  _job: 18054331388
+  _time: 2025-09-27 03:20:16.626495981 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: issue-177
+  comments: 9
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#178 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 2
+  issue: 178
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-08 14:47:44.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124847
+  _job: 18054331388
+  _time: 2025-09-27 03:20:20.080865548 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: master
+  comments: 4
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#179 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 9
+  hoc: 278
+  issue: 179
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-08 15:44:33.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124848
+  _job: 18054331388
+  _time: 2025-09-27 03:20:22.639804272 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: empty_rethrow_fix
+  comments: 15
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 15
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#181 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 8
+  hoc: 946
+  issue: 181
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-09 11:57:49.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124849
+  _job: 18054331388
+  _time: 2025-09-27 03:20:26.534601137 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: unittest
+  comments: 13
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 11
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#185 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 1
+  hoc: 29
+  issue: 185
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-10 07:30:31.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124850
+  _job: 18054331388
+  _time: 2025-09-27 03:20:30.235972110 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: diameter
+  comments: 11
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 11
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#186 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 11
+  hoc: 325
+  issue: 186
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-10 10:06:19.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124851
+  _job: 18054331388
+  _time: 2025-09-27 03:20:33.447093342 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: master
+  comments: 7
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 2
+  details: Apparently, cqfn/aibolit#187 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 12
+  hoc: 9017
+  issue: 187
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-10 10:11:36.000000000 Z
+  where: github
+  who: 57872461
+- _id: 124852
+  _job: 18054331388
+  _time: 2025-09-27 03:20:36.657035634 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: issue-143
+  comments: 10
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#188 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 8
+  hoc: 73
+  issue: 188
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-10 13:51:14.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124853
+  _job: 18054331388
+  _time: 2025-09-27 03:20:40.368851155 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: issue-137
+  comments: 6
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 5
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#189 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 10
+  hoc: 177
+  issue: 189
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-09 16:53:33.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124854
+  _job: 18054331388
+  _time: 2025-09-27 03:20:43.147272987 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: fix_string_conat
+  comments: 10
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 10
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#191 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 11
+  hoc: 3349
+  issue: 191
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-10 09:30:06.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124855
+  _job: 18054331388
+  _time: 2025-09-27 03:20:47.041984630 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: spaces_counter_fix
+  comments: 8
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 8
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#193 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 4
+  hoc: 215
+  issue: 193
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-10 09:21:23.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124856
+  _job: 18054331388
+  _time: 2025-09-27 03:20:49.945041272 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: patterns
+  comments: 18
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 16
+  comments_resolved: 1
+  comments_to_code: 4
+  details: Apparently, cqfn/aibolit#197 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 12
+  hoc: 8995
+  issue: 197
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-15 16:34:38.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124857
+  _job: 18054331388
+  _time: 2025-09-27 03:20:54.722673448 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: leave
+  comments: 14
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 11
+  comments_resolved: 1
+  comments_to_code: 4
+  details: Apparently, cqfn/aibolit#198 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 11
+  hoc: 308
+  issue: 198
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-10 15:27:04.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124858
+  _job: 18054331388
+  _time: 2025-09-27 03:20:58.531012686 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: patterns_calc
+  comments: 22
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 22
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#200 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 15
+  hoc: 427
+  issue: 200
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-10 15:49:13.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124859
+  _job: 18054331388
+  _time: 2025-09-27 03:21:03.603118096 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: metrics
+  comments: 9
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 9
+  comments_resolved: 1
+  comments_to_code: 1
+  details: Apparently, cqfn/aibolit#201 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 8
+  hoc: 120
+  issue: 201
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-13 09:39:48.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124860
+  _job: 18054331388
+  _time: 2025-09-27 03:21:06.837614617 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '128'
+  comments: 12
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 9
+  comments_resolved: 0
+  comments_to_code: 3
+  details: Apparently, cqfn/aibolit#203 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 13
+  hoc: 197
+  issue: 203
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-14 14:40:52.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124861
+  _job: 18054331388
+  _time: 2025-09-27 03:21:10.564562091 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '136'
+  comments: 11
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 8
+  comments_resolved: 0
+  comments_to_code: 3
+  details: Apparently, cqfn/aibolit#204 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 10
+  hoc: 112
+  issue: 204
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-14 14:32:09.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124862
+  _job: 18054331388
+  _time: 2025-09-27 03:21:14.283962817 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: master
+  comments: 8
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#205 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 3
+  hoc: 12844
+  issue: 205
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-21 18:13:45.000000000 Z
+  where: github
+  who: 231433
+- _id: 124863
+  _job: 18054331388
+  _time: 2025-09-27 03:21:17.292279691 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: cognitive
+  comments: 7
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#207 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 7
+  hoc: 136
+  issue: 207
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-14 13:47:38.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124864
+  _job: 18054331388
+  _time: 2025-09-27 03:21:20.385143490 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: pair_wise
+  comments: 16
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 16
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#209 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 3
+  hoc: 2897
+  issue: 209
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-21 18:13:31.000000000 Z
+  where: github
+  who: 231433
+- _id: 124865
+  _job: 18054331388
+  _time: 2025-09-27 03:21:24.584295927 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '141'
+  comments: 6
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#210 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 6
+  hoc: 43
+  issue: 210
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-16 12:37:16.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124866
+  _job: 18054331388
+  _time: 2025-09-27 03:21:27.571668238 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '148'
+  comments: 8
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#211 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 7
+  hoc: 102
+  issue: 211
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-15 16:42:31.000000000 Z
+  where: github
+  who: 231433
+- _id: 124867
+  _job: 18054331388
+  _time: 2025-09-27 03:21:30.693829859 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: cognitive
+  comments: 42
+  comments_appreciated: 0
+  comments_by_author: 7
+  comments_by_reviewers: 35
+  comments_resolved: 8
+  comments_to_code: 16
+  details: Apparently, cqfn/aibolit#213 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 3
+  hoc: 121
+  issue: 213
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-16 08:43:21.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124868
+  _job: 18054331388
+  _time: 2025-09-27 03:21:38.516161287 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: metrics
+  comments: 14
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 12
+  comments_resolved: 2
+  comments_to_code: 6
+  details: Apparently, cqfn/aibolit#214 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 3
+  hoc: 19
+  issue: 214
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-21 18:12:57.000000000 Z
+  where: github
+  who: 231433
+- _id: 124869
+  _job: 18054331388
+  _time: 2025-09-27 03:21:42.471269784 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: cognitive
+  comments: 9
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 9
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#217 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 5
+  hoc: 121
+  issue: 217
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-17 07:26:18.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124870
+  _job: 18054331388
+  _time: 2025-09-27 03:21:45.376802453 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: LCOM4
+  comments: 15
+  comments_appreciated: 0
+  comments_by_author: 4
+  comments_by_reviewers: 11
+  comments_resolved: 3
+  comments_to_code: 7
+  details: Apparently, cqfn/aibolit#218 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 16
+  hoc: 474
+  issue: 218
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-17 16:46:09.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124871
+  _job: 18054331388
+  _time: 2025-09-27 03:21:49.437358709 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: cognitive
+  comments: 12
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 12
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#220 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 5
+  hoc: 116
+  issue: 220
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-17 13:53:11.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124872
+  _job: 18054331388
+  _time: 2025-09-27 03:21:52.939841825 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: leave
+  comments: 8
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 8
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#222 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 4
+  hoc: 71
+  issue: 222
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-17 15:05:07.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124873
+  _job: 18054331388
+  _time: 2025-09-27 03:21:56.686413201 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '159'
+  comments: 6
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#223 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 20
+  issue: 223
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-19 06:12:25.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124874
+  _job: 18054331388
+  _time: 2025-09-27 03:21:59.155778247 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '160'
+  comments: 13
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 11
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#224 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 6
+  hoc: 77
+  issue: 224
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-21 18:42:37.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124875
+  _job: 18054331388
+  _time: 2025-09-27 03:22:02.866541401 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '158'
+  comments: 8
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#227 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 3
+  hoc: 25
+  issue: 227
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-21 18:27:34.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124876
+  _job: 18054331388
+  _time: 2025-09-27 03:22:06.118985612 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: fix_error_log
+  comments: 27
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 26
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#230 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 2673
+  hoc: 1379949
+  issue: 230
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-21 17:54:05.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124877
+  _job: 18054331388
+  _time: 2025-09-27 03:22:11.708504336 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: LCOM4
+  comments: 29
+  comments_appreciated: 2
+  comments_by_author: 2
+  comments_by_reviewers: 27
+  comments_resolved: 8
+  comments_to_code: 10
+  details: Apparently, cqfn/aibolit#231 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 12
+  hoc: 604
+  issue: 231
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-05-13 17:11:34.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124878
+  _job: 18054331388
+  _time: 2025-09-27 03:22:17.798727462 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: issue-228
+  comments: 13
+  comments_appreciated: 0
+  comments_by_author: 4
+  comments_by_reviewers: 9
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#232 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 2825
+  hoc: 1472885
+  issue: 232
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-21 13:46:09.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124879
+  _job: 18054331388
+  _time: 2025-09-27 03:22:21.751616163 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: cognitive
+  comments: 10
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 8
+  comments_resolved: 0
+  comments_to_code: 5
+  details: Apparently, cqfn/aibolit#233 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 5
+  hoc: 131
+  issue: 233
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-22 07:38:49.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124880
+  _job: 18054331388
+  _time: 2025-09-27 03:22:25.252988492 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: master
+  comments: 0
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 0
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#234 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 0
+  hoc: 0
+  issue: 234
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-22 06:58:27.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124881
+  _job: 18054331388
+  _time: 2025-09-27 03:22:27.051963974 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: diameter
+  comments: 4
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#236 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 2
+  hoc: 119
+  issue: 236
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-22 12:58:17.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124882
+  _job: 18054331388
+  _time: 2025-09-27 03:22:29.351530150 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: ML_pipeline
+  comments: 19
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 16
+  comments_resolved: 1
+  comments_to_code: 1
+  details: Apparently, cqfn/aibolit#238 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 9
+  hoc: 346
+  issue: 238
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-27 09:41:12.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124883
+  _job: 18054331388
+  _time: 2025-09-27 03:22:34.058230326 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '142'
+  comments: 14
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 11
+  comments_resolved: 0
+  comments_to_code: 2
+  details: Apparently, cqfn/aibolit#239 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 6
+  hoc: 72
+  issue: 239
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-27 05:32:31.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124884
+  _job: 18054331388
+  _time: 2025-09-27 03:22:37.990993228 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '147'
+  comments: 18
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 15
+  comments_resolved: 0
+  comments_to_code: 2
+  details: Apparently, cqfn/aibolit#240 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 17
+  hoc: 225
+  issue: 240
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-29 17:20:38.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124885
+  _job: 18054331388
+  _time: 2025-09-27 03:22:42.233147909 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: "#194"
+  comments: 10
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 8
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#241 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 8
+  hoc: 2164
+  issue: 241
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-28 07:33:16.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124886
+  _job: 18054331388
+  _time: 2025-09-27 03:22:45.348739302 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '139'
+  comments: 11
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 8
+  comments_resolved: 0
+  comments_to_code: 3
+  details: Apparently, cqfn/aibolit#242 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 11
+  hoc: 146
+  issue: 242
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-29 18:18:22.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124887
+  _job: 18054331388
+  _time: 2025-09-27 03:22:48.707630317 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '183'
+  comments: 6
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#243 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 9
+  hoc: 178
+  issue: 243
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-27 16:26:30.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124888
+  _job: 18054331388
+  _time: 2025-09-27 03:22:51.391001705 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '184'
+  comments: 11
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 9
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#244 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 8
+  hoc: 207
+  issue: 244
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-29 18:01:37.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124889
+  _job: 18054331388
+  _time: 2025-09-27 03:22:54.784821271 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '164'
+  comments: 11
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 11
+  comments_resolved: 1
+  comments_to_code: 1
+  details: Apparently, cqfn/aibolit#245 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 8
+  hoc: 78
+  issue: 245
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-28 07:48:29.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124890
+  _job: 18054331388
+  _time: 2025-09-27 03:22:58.569934461 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: Pavel
+  comments: 7
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#247 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 8
+  hoc: 158
+  issue: 247
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-04-27 13:27:10.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124891
+  _job: 18054331388
+  _time: 2025-09-27 03:23:01.598357598 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: recommend_feature
+  comments: 21
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 19
+  comments_resolved: 5
+  comments_to_code: 6
+  details: Apparently, cqfn/aibolit#248 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 23
+  hoc: 3070
+  issue: 248
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-05-06 09:28:42.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124892
+  _job: 18054331388
+  _time: 2025-09-27 03:23:06.369842644 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '195'
+  comments: 3
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 3
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#249 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 14
+  hoc: 6885
+  issue: 249
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-05-01 05:21:23.000000000 Z
+  where: github
+  who: 231433
+- _id: 124893
+  _job: 18054331388
+  _time: 2025-09-27 03:23:08.567448743 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  branch: '138'
+  comments: 9
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#250 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 19
+  hoc: 301
+  issue: 250
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-05-03 14:34:55.000000000 Z
+  where: github
+  who: 8086956
+- _id: 124895
+  _job: 18054331388
+  _time: 2025-09-27 03:24:12.663688582 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: The issue cqfn/aibolit#654 has been earlier opened by @aravij.
+  issue: 654
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-10-27 09:37:28.000000000 Z
+  where: github
+  who: 1987026
+- _id: 124896
+  _job: 18054331388
+  _time: 2025-09-27 03:24:12.798272894 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: The issue cqfn/aibolit#649 has been earlier opened by @aravij.
+  issue: 649
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-09-18 08:30:52.000000000 Z
+  where: github
+  who: 1987026
+- _id: 124897
+  _job: 18054331388
+  _time: 2025-09-27 03:24:12.841134476 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: The issue cqfn/aibolit#648 has been earlier opened by @vitaly-protasov.
+  issue: 648
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-09-18 07:14:50.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124898
+  _job: 18054331388
+  _time: 2025-09-27 03:24:12.902360417 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: The issue cqfn/aibolit#645 has been earlier opened by @aravij.
+  issue: 645
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-09-17 13:19:41.000000000 Z
+  where: github
+  who: 1987026
+- _id: 124899
+  _job: 18054331388
+  _time: 2025-09-27 03:24:12.961869978 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: The issue cqfn/aibolit#640 has been earlier opened by @vitaly-protasov.
+  issue: 640
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-09-15 18:47:10.000000000 Z
+  where: github
+  who: 43099602
+- _id: 124900
+  _job: 18054331388
+  _time: 2025-09-27 03:24:13.006448538 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  details: The issue cqfn/aibolit#638 has been earlier opened by @aravij.
+  issue: 638
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-09-15 14:15:52.000000000 Z
+  where: github
+  who: 1987026
+- _id: 124902
+  _job: 18054331388
+  _time: 2025-09-27 03:24:40.857331741 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 13
+  details: The pull request cqfn/aibolit#176 with 1313 HoC created by @lyriccoder
+    was reviewed by @acheshkov after 2h0m and 0 comments.
+  hoc: 1313
+  issue: 176
+  repository: 237167507
+  review_comments: 0
+  seconds: 7249
+  what: code-was-reviewed
+  when: 2020-04-08 15:51:43.000000000 Z
+  where: github
+  who: 231433
+- _id: 124903
+  _job: 18054331388
+  _time: 2025-09-27 03:24:42.512242660 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 15
+  details: The pull request cqfn/aibolit#181 with 946 HoC created by @lyriccoder was
+    reviewed by @acheshkov after 1h8m and 0 comments.
+  hoc: 946
+  issue: 181
+  repository: 237167507
+  review_comments: 0
+  seconds: 4095
+  what: code-was-reviewed
+  when: 2020-04-08 15:52:50.000000000 Z
+  where: github
+  who: 231433
+- _id: 124904
+  _job: 18054331388
+  _time: 2025-09-27 03:24:43.489188516 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 11
+  details: The pull request cqfn/aibolit#186 with 325 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 24h9m and 0 comments.
+  hoc: 325
+  issue: 186
+  repository: 237167507
+  review_comments: 0
+  seconds: 86957
+  what: code-was-reviewed
+  when: 2020-04-09 16:07:18.000000000 Z
+  where: github
+  who: 231433
+- _id: 124905
+  _job: 18054331388
+  _time: 2025-09-27 03:24:43.967490167 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 11
+  details: The pull request cqfn/aibolit#186 with 325 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 42h1m and 0 comments.
+  hoc: 325
+  issue: 186
+  repository: 237167507
+  review_comments: 0
+  seconds: 151280
+  what: code-was-reviewed
+  when: 2020-04-10 09:59:21.000000000 Z
+  where: github
+  who: 231433
+- _id: 124906
+  _job: 18054331388
+  _time: 2025-09-27 03:24:44.692367173 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 231433
+  comments: 10
+  details: The pull request cqfn/aibolit#188 with 73 HoC created by @acheshkov was
+    reviewed by @lyriccoder after 2h41m and 0 comments.
+  hoc: 73
+  issue: 188
+  repository: 237167507
+  review_comments: 0
+  seconds: 9712
+  what: code-was-reviewed
+  when: 2020-04-09 16:36:40.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124907
+  _job: 18054331388
+  _time: 2025-09-27 03:24:45.053690706 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 231433
+  comments: 10
+  details: The pull request cqfn/aibolit#188 with 73 HoC created by @acheshkov was
+    reviewed by @fevzian after 23h25m and 0 comments.
+  hoc: 73
+  issue: 188
+  repository: 237167507
+  review_comments: 0
+  seconds: 84302
+  what: code-was-reviewed
+  when: 2020-04-10 13:19:50.000000000 Z
+  where: github
+  who: 3167940
+- _id: 124908
+  _job: 18054331388
+  _time: 2025-09-27 03:24:46.026114488 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 231433
+  comments: 6
+  details: The pull request cqfn/aibolit#189 with 177 HoC created by @acheshkov was
+    reviewed by @lyriccoder after 1h0m and 0 comments.
+  hoc: 177
+  issue: 189
+  repository: 237167507
+  review_comments: 0
+  seconds: 3602
+  what: code-was-reviewed
+  when: 2020-04-09 16:44:48.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124909
+  _job: 18054331388
+  _time: 2025-09-27 03:24:47.058398468 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 10
+  details: The pull request cqfn/aibolit#191 with 3349 HoC created by @lyriccoder
+    was reviewed by @acheshkov after 16h50m and 0 comments.
+  hoc: 3349
+  issue: 191
+  repository: 237167507
+  review_comments: 0
+  seconds: 60609
+  what: code-was-reviewed
+  when: 2020-04-10 09:18:21.000000000 Z
+  where: github
+  who: 231433
+- _id: 124910
+  _job: 18054331388
+  _time: 2025-09-27 03:24:47.983235252 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 8
+  details: The pull request cqfn/aibolit#193 with 215 HoC created by @lyriccoder was
+    reviewed by @acheshkov after 0h5m and 0 comments.
+  hoc: 215
+  issue: 193
+  repository: 237167507
+  review_comments: 0
+  seconds: 317
+  what: code-was-reviewed
+  when: 2020-04-10 09:15:33.000000000 Z
+  where: github
+  who: 231433
+- _id: 124911
+  _job: 18054331388
+  _time: 2025-09-27 03:24:48.945869395 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 14
+  details: The pull request cqfn/aibolit#197 with 8995 HoC created by @cringoleg was
+    reviewed by @lyriccoder after 70h21m and 1 comments.
+  hoc: 8995
+  issue: 197
+  repository: 237167507
+  review_comments: 1
+  seconds: 253317
+  what: code-was-reviewed
+  when: 2020-04-13 10:31:44.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124912
+  _job: 18054331388
+  _time: 2025-09-27 03:24:49.645363939 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 14
+  details: The pull request cqfn/aibolit#197 with 8995 HoC created by @cringoleg was
+    reviewed by @lyriccoder after 118h21m and 1 comments.
+  hoc: 8995
+  issue: 197
+  repository: 237167507
+  review_comments: 1
+  seconds: 426079
+  what: code-was-reviewed
+  when: 2020-04-15 10:31:06.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124913
+  _job: 18054331388
+  _time: 2025-09-27 03:24:49.874472585 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 14
+  details: The pull request cqfn/aibolit#197 with 8995 HoC created by @cringoleg was
+    reviewed by @lyriccoder after 119h44m and 0 comments.
+  hoc: 8995
+  issue: 197
+  repository: 237167507
+  review_comments: 0
+  seconds: 431093
+  what: code-was-reviewed
+  when: 2020-04-15 11:54:40.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124914
+  _job: 18054331388
+  _time: 2025-09-27 03:24:50.664190903 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 10
+  details: The pull request cqfn/aibolit#198 with 308 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 0h7m and 1 comments.
+  hoc: 308
+  issue: 198
+  repository: 237167507
+  review_comments: 1
+  seconds: 479
+  what: code-was-reviewed
+  when: 2020-04-10 13:48:10.000000000 Z
+  where: github
+  who: 231433
+- _id: 124915
+  _job: 18054331388
+  _time: 2025-09-27 03:24:51.074965231 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 10
+  details: The pull request cqfn/aibolit#198 with 308 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 0h9m and 1 comments.
+  hoc: 308
+  issue: 198
+  repository: 237167507
+  review_comments: 1
+  seconds: 589
+  what: code-was-reviewed
+  when: 2020-04-10 13:50:00.000000000 Z
+  where: github
+  who: 231433
+- _id: 124916
+  _job: 18054331388
+  _time: 2025-09-27 03:24:51.343180162 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 10
+  details: The pull request cqfn/aibolit#198 with 308 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 1h34m and 0 comments.
+  hoc: 308
+  issue: 198
+  repository: 237167507
+  review_comments: 0
+  seconds: 5674
+  what: code-was-reviewed
+  when: 2020-04-10 15:14:45.000000000 Z
+  where: github
+  who: 231433
+- _id: 124917
+  _job: 18054331388
+  _time: 2025-09-27 03:24:52.086146329 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 22
+  details: The pull request cqfn/aibolit#200 with 427 HoC created by @lyriccoder was
+    reviewed by @acheshkov after 0h10m and 0 comments.
+  hoc: 427
+  issue: 200
+  repository: 237167507
+  review_comments: 0
+  seconds: 619
+  what: code-was-reviewed
+  when: 2020-04-10 14:34:04.000000000 Z
+  where: github
+  who: 231433
+- _id: 124918
+  _job: 18054331388
+  _time: 2025-09-27 03:24:53.079935190 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 8
+  details: The pull request cqfn/aibolit#201 with 120 HoC created by @cringoleg was
+    reviewed by @acheshkov after 0h31m and 1 comments.
+  hoc: 120
+  issue: 201
+  repository: 237167507
+  review_comments: 1
+  seconds: 1899
+  what: code-was-reviewed
+  when: 2020-04-10 15:33:10.000000000 Z
+  where: github
+  who: 231433
+- _id: 124919
+  _job: 18054331388
+  _time: 2025-09-27 03:24:54.062516068 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 9
+  details: The pull request cqfn/aibolit#203 with 197 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 52h44m and 3 comments.
+  hoc: 197
+  issue: 203
+  repository: 237167507
+  review_comments: 3
+  seconds: 189845
+  what: code-was-reviewed
+  when: 2020-04-13 09:03:24.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124920
+  _job: 18054331388
+  _time: 2025-09-27 03:24:54.629566325 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 9
+  details: The pull request cqfn/aibolit#203 with 197 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 59h33m and 0 comments.
+  hoc: 197
+  issue: 203
+  repository: 237167507
+  review_comments: 0
+  seconds: 214413
+  what: code-was-reviewed
+  when: 2020-04-13 15:52:52.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124921
+  _job: 18054331388
+  _time: 2025-09-27 03:24:54.803633055 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 9
+  details: The pull request cqfn/aibolit#203 with 197 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 81h55m and 0 comments.
+  hoc: 197
+  issue: 203
+  repository: 237167507
+  review_comments: 0
+  seconds: 294910
+  what: code-was-reviewed
+  when: 2020-04-14 14:14:29.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124922
+  _job: 18054331388
+  _time: 2025-09-27 03:24:55.675820369 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 8
+  details: The pull request cqfn/aibolit#204 with 112 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 52h58m and 2 comments.
+  hoc: 112
+  issue: 204
+  repository: 237167507
+  review_comments: 2
+  seconds: 190701
+  what: code-was-reviewed
+  when: 2020-04-14 07:57:33.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124923
+  _job: 18054331388
+  _time: 2025-09-27 03:24:56.282865657 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 8
+  details: The pull request cqfn/aibolit#204 with 112 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 59h16m and 0 comments.
+  hoc: 112
+  issue: 204
+  repository: 237167507
+  review_comments: 0
+  seconds: 213402
+  what: code-was-reviewed
+  when: 2020-04-14 14:15:54.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124924
+  _job: 18054331388
+  _time: 2025-09-27 03:24:57.197872260 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 7
+  details: The pull request cqfn/aibolit#207 with 136 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 21h59m and 0 comments.
+  hoc: 136
+  issue: 207
+  repository: 237167507
+  review_comments: 0
+  seconds: 79168
+  what: code-was-reviewed
+  when: 2020-04-14 13:39:55.000000000 Z
+  where: github
+  who: 231433
+- _id: 124925
+  _job: 18054331388
+  _time: 2025-09-27 03:24:58.476083491 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 6
+  details: The pull request cqfn/aibolit#210 with 43 HoC created by @paulodamaso was
+    reviewed by @lyriccoder after 43h29m and 0 comments.
+  hoc: 43
+  issue: 210
+  repository: 237167507
+  review_comments: 0
+  seconds: 156593
+  what: code-was-reviewed
+  when: 2020-04-16 12:29:37.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124926
+  _job: 18054331388
+  _time: 2025-09-27 03:24:59.592852360 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 26
+  details: The pull request cqfn/aibolit#213 with 121 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 3h38m and 2 comments.
+  hoc: 121
+  issue: 213
+  repository: 237167507
+  review_comments: 2
+  seconds: 13080
+  what: code-was-reviewed
+  when: 2020-04-15 14:52:41.000000000 Z
+  where: github
+  who: 231433
+- _id: 124927
+  _job: 18054331388
+  _time: 2025-09-27 03:25:00.112828850 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 26
+  details: The pull request cqfn/aibolit#213 with 121 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 3h46m and 1 comments.
+  hoc: 121
+  issue: 213
+  repository: 237167507
+  review_comments: 1
+  seconds: 13575
+  what: code-was-reviewed
+  when: 2020-04-15 15:00:56.000000000 Z
+  where: github
+  who: 231433
+- _id: 124928
+  _job: 18054331388
+  _time: 2025-09-27 03:25:00.352244379 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 26
+  details: The pull request cqfn/aibolit#213 with 121 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 3h46m and 1 comments.
+  hoc: 121
+  issue: 213
+  repository: 237167507
+  review_comments: 1
+  seconds: 13614
+  what: code-was-reviewed
+  when: 2020-04-15 15:01:35.000000000 Z
+  where: github
+  who: 231433
+- _id: 124929
+  _job: 18054331388
+  _time: 2025-09-27 03:25:00.621549395 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 26
+  details: The pull request cqfn/aibolit#213 with 121 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 3h47m and 2 comments.
+  hoc: 121
+  issue: 213
+  repository: 237167507
+  review_comments: 2
+  seconds: 13666
+  what: code-was-reviewed
+  when: 2020-04-15 15:02:27.000000000 Z
+  where: github
+  who: 231433
+- _id: 124930
+  _job: 18054331388
+  _time: 2025-09-27 03:25:00.869760144 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 26
+  details: The pull request cqfn/aibolit#213 with 121 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 4h43m and 1 comments.
+  hoc: 121
+  issue: 213
+  repository: 237167507
+  review_comments: 1
+  seconds: 16998
+  what: code-was-reviewed
+  when: 2020-04-15 15:57:59.000000000 Z
+  where: github
+  who: 231433
+- _id: 124931
+  _job: 18054331388
+  _time: 2025-09-27 03:25:01.130685122 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 26
+  details: The pull request cqfn/aibolit#213 with 121 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 4h45m and 1 comments.
+  hoc: 121
+  issue: 213
+  repository: 237167507
+  review_comments: 1
+  seconds: 17123
+  what: code-was-reviewed
+  when: 2020-04-15 16:00:04.000000000 Z
+  where: github
+  who: 231433
+- _id: 124932
+  _job: 18054331388
+  _time: 2025-09-27 03:25:01.397784610 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 26
+  details: The pull request cqfn/aibolit#213 with 121 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 4h47m and 1 comments.
+  hoc: 121
+  issue: 213
+  repository: 237167507
+  review_comments: 1
+  seconds: 17251
+  what: code-was-reviewed
+  when: 2020-04-15 16:02:12.000000000 Z
+  where: github
+  who: 231433
+- _id: 124933
+  _job: 18054331388
+  _time: 2025-09-27 03:25:01.706208113 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 26
+  details: The pull request cqfn/aibolit#213 with 121 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 5h13m and 1 comments.
+  hoc: 121
+  issue: 213
+  repository: 237167507
+  review_comments: 1
+  seconds: 18817
+  what: code-was-reviewed
+  when: 2020-04-15 16:28:18.000000000 Z
+  where: github
+  who: 231433
+- _id: 124934
+  _job: 18054331388
+  _time: 2025-09-27 03:25:01.956167852 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 26
+  details: The pull request cqfn/aibolit#213 with 121 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 5h32m and 0 comments.
+  hoc: 121
+  issue: 213
+  repository: 237167507
+  review_comments: 0
+  seconds: 19973
+  what: code-was-reviewed
+  when: 2020-04-15 16:47:34.000000000 Z
+  where: github
+  who: 231433
+- _id: 124935
+  _job: 18054331388
+  _time: 2025-09-27 03:25:02.644447607 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 9
+  details: The pull request cqfn/aibolit#217 with 121 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 15h39m and 0 comments.
+  hoc: 121
+  issue: 217
+  repository: 237167507
+  review_comments: 0
+  seconds: 56373
+  what: code-was-reviewed
+  when: 2020-04-17 06:45:35.000000000 Z
+  where: github
+  who: 231433
+- _id: 124936
+  _job: 18054331388
+  _time: 2025-09-27 03:25:03.652411424 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 8
+  details: The pull request cqfn/aibolit#218 with 474 HoC created by @cringoleg was
+    reviewed by @acheshkov after 0h6m and 1 comments.
+  hoc: 474
+  issue: 218
+  repository: 237167507
+  review_comments: 1
+  seconds: 406
+  what: code-was-reviewed
+  when: 2020-04-16 17:01:22.000000000 Z
+  where: github
+  who: 231433
+- _id: 124937
+  _job: 18054331388
+  _time: 2025-09-27 03:25:04.078176121 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 8
+  details: The pull request cqfn/aibolit#218 with 474 HoC created by @cringoleg was
+    reviewed by @acheshkov after 0h16m and 1 comments.
+  hoc: 474
+  issue: 218
+  repository: 237167507
+  review_comments: 1
+  seconds: 1019
+  what: code-was-reviewed
+  when: 2020-04-16 17:11:35.000000000 Z
+  where: github
+  who: 231433
+- _id: 124938
+  _job: 18054331388
+  _time: 2025-09-27 03:25:04.323305931 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 8
+  details: The pull request cqfn/aibolit#218 with 474 HoC created by @cringoleg was
+    reviewed by @lyriccoder after 15h43m and 0 comments.
+  hoc: 474
+  issue: 218
+  repository: 237167507
+  review_comments: 0
+  seconds: 56616
+  what: code-was-reviewed
+  when: 2020-04-17 08:38:12.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124939
+  _job: 18054331388
+  _time: 2025-09-27 03:25:04.542939339 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 8
+  details: The pull request cqfn/aibolit#218 with 474 HoC created by @cringoleg was
+    reviewed by @acheshkov after 22h21m and 1 comments.
+  hoc: 474
+  issue: 218
+  repository: 237167507
+  review_comments: 1
+  seconds: 80479
+  what: code-was-reviewed
+  when: 2020-04-17 15:15:55.000000000 Z
+  where: github
+  who: 231433
+- _id: 124940
+  _job: 18054331388
+  _time: 2025-09-27 03:25:04.781095607 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 8
+  details: The pull request cqfn/aibolit#218 with 474 HoC created by @cringoleg was
+    reviewed by @acheshkov after 22h21m and 1 comments.
+  hoc: 474
+  issue: 218
+  repository: 237167507
+  review_comments: 1
+  seconds: 80494
+  what: code-was-reviewed
+  when: 2020-04-17 15:16:10.000000000 Z
+  where: github
+  who: 231433
+- _id: 124941
+  _job: 18054331388
+  _time: 2025-09-27 03:25:05.777941839 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 12
+  details: The pull request cqfn/aibolit#220 with 116 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 0h5m and 0 comments.
+  hoc: 116
+  issue: 220
+  repository: 237167507
+  review_comments: 0
+  seconds: 311
+  what: code-was-reviewed
+  when: 2020-04-17 11:58:58.000000000 Z
+  where: github
+  who: 231433
+- _id: 124942
+  _job: 18054331388
+  _time: 2025-09-27 03:25:06.769002974 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 8
+  details: The pull request cqfn/aibolit#222 with 71 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 0h36m and 0 comments.
+  hoc: 71
+  issue: 222
+  repository: 237167507
+  review_comments: 0
+  seconds: 2190
+  what: code-was-reviewed
+  when: 2020-04-17 14:57:42.000000000 Z
+  where: github
+  who: 231433
+- _id: 124943
+  _job: 18054331388
+  _time: 2025-09-27 03:25:07.651625608 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 6
+  details: The pull request cqfn/aibolit#223 with 20 HoC created by @paulodamaso was
+    reviewed by @lyriccoder after 5h19m and 0 comments.
+  hoc: 20
+  issue: 223
+  repository: 237167507
+  review_comments: 0
+  seconds: 19140
+  what: code-was-reviewed
+  when: 2020-04-17 21:22:11.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124944
+  _job: 18054331388
+  _time: 2025-09-27 03:25:08.748904536 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 13
+  details: The pull request cqfn/aibolit#224 with 77 HoC created by @paulodamaso was
+    reviewed by @lyriccoder after 64h55m and 0 comments.
+  hoc: 77
+  issue: 224
+  repository: 237167507
+  review_comments: 0
+  seconds: 233732
+  what: code-was-reviewed
+  when: 2020-04-20 09:35:01.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124945
+  _job: 18054331388
+  _time: 2025-09-27 03:25:09.689508202 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 8
+  details: The pull request cqfn/aibolit#227 with 25 HoC created by @paulodamaso was
+    reviewed by @lyriccoder after 11h45m and 0 comments.
+  hoc: 25
+  issue: 227
+  repository: 237167507
+  review_comments: 0
+  seconds: 42302
+  what: code-was-reviewed
+  when: 2020-04-20 09:35:07.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124946
+  _job: 18054331388
+  _time: 2025-09-27 03:25:11.209932342 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 19
+  details: The pull request cqfn/aibolit#231 with 604 HoC created by @cringoleg was
+    reviewed by @lyriccoder after 21h2m and 0 comments.
+  hoc: 604
+  issue: 231
+  repository: 237167507
+  review_comments: 0
+  seconds: 75726
+  what: code-was-reviewed
+  when: 2020-04-21 13:10:02.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124947
+  _job: 18054331388
+  _time: 2025-09-27 03:25:11.584692467 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 19
+  details: The pull request cqfn/aibolit#231 with 604 HoC created by @cringoleg was
+    reviewed by @acheshkov after 145h4m and 6 comments.
+  hoc: 604
+  issue: 231
+  repository: 237167507
+  review_comments: 6
+  seconds: 522278
+  what: code-was-reviewed
+  when: 2020-04-26 17:12:34.000000000 Z
+  where: github
+  who: 231433
+- _id: 124948
+  _job: 18054331388
+  _time: 2025-09-27 03:25:11.863123637 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 19
+  details: The pull request cqfn/aibolit#231 with 604 HoC created by @cringoleg was
+    reviewed by @acheshkov after 235h5m and 2 comments.
+  hoc: 604
+  issue: 231
+  repository: 237167507
+  review_comments: 2
+  seconds: 846332
+  what: code-was-reviewed
+  when: 2020-04-30 11:13:28.000000000 Z
+  where: github
+  who: 231433
+- _id: 124949
+  _job: 18054331388
+  _time: 2025-09-27 03:25:12.108083819 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 19
+  details: The pull request cqfn/aibolit#231 with 604 HoC created by @cringoleg was
+    reviewed by @acheshkov after 551h1m and 0 comments.
+  hoc: 604
+  issue: 231
+  repository: 237167507
+  review_comments: 0
+  seconds: 1983707
+  what: code-was-reviewed
+  when: 2020-05-13 15:09:43.000000000 Z
+  where: github
+  who: 231433
+- _id: 124950
+  _job: 18054331388
+  _time: 2025-09-27 03:25:13.367212405 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 231433
+  comments: 13
+  details: The pull request cqfn/aibolit#232 with 1472885 HoC created by @acheshkov
+    was reviewed by @lyriccoder after 0h2m and 0 comments.
+  hoc: 1472885
+  issue: 232
+  repository: 237167507
+  review_comments: 0
+  seconds: 129
+  what: code-was-reviewed
+  when: 2020-04-21 10:30:05.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124951
+  _job: 18054331388
+  _time: 2025-09-27 03:25:14.484419910 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 5
+  details: The pull request cqfn/aibolit#233 with 131 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 0h15m and 1 comments.
+  hoc: 131
+  issue: 233
+  repository: 237167507
+  review_comments: 1
+  seconds: 910
+  what: code-was-reviewed
+  when: 2020-04-22 07:04:33.000000000 Z
+  where: github
+  who: 231433
+- _id: 124952
+  _job: 18054331388
+  _time: 2025-09-27 03:25:14.915156686 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 5
+  details: The pull request cqfn/aibolit#233 with 131 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 0h16m and 1 comments.
+  hoc: 131
+  issue: 233
+  repository: 237167507
+  review_comments: 1
+  seconds: 968
+  what: code-was-reviewed
+  when: 2020-04-22 07:05:31.000000000 Z
+  where: github
+  who: 231433
+- _id: 124953
+  _job: 18054331388
+  _time: 2025-09-27 03:25:15.141111192 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 5
+  details: The pull request cqfn/aibolit#233 with 131 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 0h20m and 1 comments.
+  hoc: 131
+  issue: 233
+  repository: 237167507
+  review_comments: 1
+  seconds: 1214
+  what: code-was-reviewed
+  when: 2020-04-22 07:09:37.000000000 Z
+  where: github
+  who: 231433
+- _id: 124954
+  _job: 18054331388
+  _time: 2025-09-27 03:25:15.474219191 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 5
+  details: The pull request cqfn/aibolit#233 with 131 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 0h38m and 0 comments.
+  hoc: 131
+  issue: 233
+  repository: 237167507
+  review_comments: 0
+  seconds: 2318
+  what: code-was-reviewed
+  when: 2020-04-22 07:28:01.000000000 Z
+  where: github
+  who: 231433
+- _id: 124955
+  _job: 18054331388
+  _time: 2025-09-27 03:25:16.160519249 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 43099602
+  comments: 4
+  details: The pull request cqfn/aibolit#236 with 119 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 2h37m and 0 comments.
+  hoc: 119
+  issue: 236
+  repository: 237167507
+  review_comments: 0
+  seconds: 9462
+  what: code-was-reviewed
+  when: 2020-04-22 12:47:17.000000000 Z
+  where: github
+  who: 231433
+- _id: 124956
+  _job: 18054331388
+  _time: 2025-09-27 03:25:17.150356923 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 18
+  details: The pull request cqfn/aibolit#238 with 346 HoC created by @lyriccoder was
+    reviewed by @acheshkov after 20h54m and 1 comments.
+  hoc: 346
+  issue: 238
+  repository: 237167507
+  review_comments: 1
+  seconds: 75278
+  what: code-was-reviewed
+  when: 2020-04-23 12:46:22.000000000 Z
+  where: github
+  who: 231433
+- _id: 124957
+  _job: 18054331388
+  _time: 2025-09-27 03:25:17.521339503 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 18
+  details: The pull request cqfn/aibolit#238 with 346 HoC created by @lyriccoder was
+    reviewed by @acheshkov after 96h57m and 0 comments.
+  hoc: 346
+  issue: 238
+  repository: 237167507
+  review_comments: 0
+  seconds: 349062
+  what: code-was-reviewed
+  when: 2020-04-26 16:49:26.000000000 Z
+  where: github
+  who: 231433
+- _id: 124958
+  _job: 18054331388
+  _time: 2025-09-27 03:25:18.457867484 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 12
+  details: The pull request cqfn/aibolit#239 with 72 HoC created by @paulodamaso was
+    reviewed by @acheshkov after 2h35m and 2 comments.
+  hoc: 72
+  issue: 239
+  repository: 237167507
+  review_comments: 2
+  seconds: 9355
+  what: code-was-reviewed
+  when: 2020-04-24 15:22:31.000000000 Z
+  where: github
+  who: 231433
+- _id: 124959
+  _job: 18054331388
+  _time: 2025-09-27 03:25:19.010047862 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 12
+  details: The pull request cqfn/aibolit#239 with 72 HoC created by @paulodamaso was
+    reviewed by @acheshkov after 51h53m and 0 comments.
+  hoc: 72
+  issue: 239
+  repository: 237167507
+  review_comments: 0
+  seconds: 186816
+  what: code-was-reviewed
+  when: 2020-04-26 16:40:12.000000000 Z
+  where: github
+  who: 231433
+- _id: 124960
+  _job: 18054331388
+  _time: 2025-09-27 03:25:19.777990656 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 16
+  details: The pull request cqfn/aibolit#240 with 225 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 60h18m and 1 comments.
+  hoc: 225
+  issue: 240
+  repository: 237167507
+  review_comments: 1
+  seconds: 217135
+  what: code-was-reviewed
+  when: 2020-04-27 07:42:21.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124961
+  _job: 18054331388
+  _time: 2025-09-27 03:25:20.694915702 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 16
+  details: The pull request cqfn/aibolit#240 with 225 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 83h32m and 0 comments.
+  hoc: 225
+  issue: 240
+  repository: 237167507
+  review_comments: 0
+  seconds: 300754
+  what: code-was-reviewed
+  when: 2020-04-28 06:56:00.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124962
+  _job: 18054331388
+  _time: 2025-09-27 03:25:21.483606563 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 10
+  details: The pull request cqfn/aibolit#241 with 2164 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 59h25m and 0 comments.
+  hoc: 2164
+  issue: 241
+  repository: 237167507
+  review_comments: 0
+  seconds: 213923
+  what: code-was-reviewed
+  when: 2020-04-27 07:57:02.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124963
+  _job: 18054331388
+  _time: 2025-09-27 03:25:22.489121740 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 8
+  details: The pull request cqfn/aibolit#242 with 146 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 58h21m and 1 comments.
+  hoc: 146
+  issue: 242
+  repository: 237167507
+  review_comments: 1
+  seconds: 210094
+  what: code-was-reviewed
+  when: 2020-04-27 08:07:21.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124964
+  _job: 18054331388
+  _time: 2025-09-27 03:25:22.934235820 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 8
+  details: The pull request cqfn/aibolit#242 with 146 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 81h3m and 1 comments.
+  hoc: 146
+  issue: 242
+  repository: 237167507
+  review_comments: 1
+  seconds: 291786
+  what: code-was-reviewed
+  when: 2020-04-28 06:48:53.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124965
+  _job: 18054331388
+  _time: 2025-09-27 03:25:23.211280072 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 8
+  details: The pull request cqfn/aibolit#242 with 146 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 113h9m and 0 comments.
+  hoc: 146
+  issue: 242
+  repository: 237167507
+  review_comments: 0
+  seconds: 407357
+  what: code-was-reviewed
+  when: 2020-04-29 14:55:04.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124966
+  _job: 18054331388
+  _time: 2025-09-27 03:25:23.960674494 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 6
+  details: The pull request cqfn/aibolit#243 with 178 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 33h38m and 0 comments.
+  hoc: 178
+  issue: 243
+  repository: 237167507
+  review_comments: 0
+  seconds: 121135
+  what: code-was-reviewed
+  when: 2020-04-27 08:03:36.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124967
+  _job: 18054331388
+  _time: 2025-09-27 03:25:24.879348770 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 11
+  details: The pull request cqfn/aibolit#244 with 207 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 32h3m and 0 comments.
+  hoc: 207
+  issue: 244
+  repository: 237167507
+  review_comments: 0
+  seconds: 115421
+  what: code-was-reviewed
+  when: 2020-04-27 08:00:50.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124968
+  _job: 18054331388
+  _time: 2025-09-27 03:25:25.263476681 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 11
+  details: The pull request cqfn/aibolit#244 with 207 HoC created by @paulodamaso
+    was reviewed by @lyriccoder after 32h7m and 0 comments.
+  hoc: 207
+  issue: 244
+  repository: 237167507
+  review_comments: 0
+  seconds: 115622
+  what: code-was-reviewed
+  when: 2020-04-27 08:04:11.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124969
+  _job: 18054331388
+  _time: 2025-09-27 03:25:26.152008720 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 27350480
+  comments: 10
+  details: The pull request cqfn/aibolit#245 with 78 HoC created by @dz-s was reviewed
+    by @lyriccoder after 7h47m and 1 comments.
+  hoc: 78
+  issue: 245
+  repository: 237167507
+  review_comments: 1
+  seconds: 28035
+  what: code-was-reviewed
+  when: 2020-04-27 07:05:27.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124970
+  _job: 18054331388
+  _time: 2025-09-27 03:25:26.694250870 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 27350480
+  comments: 10
+  details: The pull request cqfn/aibolit#245 with 78 HoC created by @dz-s was reviewed
+    by @lyriccoder after 15h43m and 0 comments.
+  hoc: 78
+  issue: 245
+  repository: 237167507
+  review_comments: 0
+  seconds: 56593
+  what: code-was-reviewed
+  when: 2020-04-27 15:01:25.000000000 Z
+  where: github
+  who: 20803206
+- _id: 124971
+  _job: 18054331388
+  _time: 2025-09-27 03:25:27.392454613 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 46167437
+  comments: 7
+  details: The pull request cqfn/aibolit#247 with 158 HoC created by @lukyanoffpashok
+    was reviewed by @acheshkov after 0h3m and 0 comments.
+  hoc: 158
+  issue: 247
+  repository: 237167507
+  review_comments: 0
+  seconds: 225
+  what: code-was-reviewed
+  when: 2020-04-27 12:35:45.000000000 Z
+  where: github
+  who: 231433
+- _id: 124972
+  _job: 18054331388
+  _time: 2025-09-27 03:25:27.804565968 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 46167437
+  comments: 7
+  details: The pull request cqfn/aibolit#247 with 158 HoC created by @lukyanoffpashok
+    was reviewed by @acheshkov after 0h43m and 0 comments.
+  hoc: 158
+  issue: 247
+  repository: 237167507
+  review_comments: 0
+  seconds: 2609
+  what: code-was-reviewed
+  when: 2020-04-27 13:15:29.000000000 Z
+  where: github
+  who: 231433
+- _id: 124973
+  _job: 18054331388
+  _time: 2025-09-27 03:25:28.796006608 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 15
+  details: The pull request cqfn/aibolit#248 with 3070 HoC created by @lyriccoder
+    was reviewed by @acheshkov after 1h24m and 2 comments.
+  hoc: 3070
+  issue: 248
+  repository: 237167507
+  review_comments: 2
+  seconds: 5048
+  what: code-was-reviewed
+  when: 2020-04-27 16:21:52.000000000 Z
+  where: github
+  who: 231433
+- _id: 124974
+  _job: 18054331388
+  _time: 2025-09-27 03:25:29.315964858 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 15
+  details: The pull request cqfn/aibolit#248 with 3070 HoC created by @lyriccoder
+    was reviewed by @acheshkov after 50h51m and 1 comments.
+  hoc: 3070
+  issue: 248
+  repository: 237167507
+  review_comments: 1
+  seconds: 183071
+  what: code-was-reviewed
+  when: 2020-04-29 17:48:55.000000000 Z
+  where: github
+  who: 231433
+- _id: 124975
+  _job: 18054331388
+  _time: 2025-09-27 03:25:29.582582952 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 15
+  details: The pull request cqfn/aibolit#248 with 3070 HoC created by @lyriccoder
+    was reviewed by @acheshkov after 66h15m and 1 comments.
+  hoc: 3070
+  issue: 248
+  repository: 237167507
+  review_comments: 1
+  seconds: 238525
+  what: code-was-reviewed
+  when: 2020-04-30 09:13:09.000000000 Z
+  where: github
+  who: 231433
+- _id: 124976
+  _job: 18054331388
+  _time: 2025-09-27 03:25:29.861946132 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 15
+  details: The pull request cqfn/aibolit#248 with 3070 HoC created by @lyriccoder
+    was reviewed by @fevzian after 72h9m and 1 comments.
+  hoc: 3070
+  issue: 248
+  repository: 237167507
+  review_comments: 1
+  seconds: 259793
+  what: code-was-reviewed
+  when: 2020-04-30 15:07:37.000000000 Z
+  where: github
+  who: 3167940
+- _id: 124977
+  _job: 18054331388
+  _time: 2025-09-27 03:25:30.113124304 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 15
+  details: The pull request cqfn/aibolit#248 with 3070 HoC created by @lyriccoder
+    was reviewed by @acheshkov after 208h37m and 0 comments.
+  hoc: 3070
+  issue: 248
+  repository: 237167507
+  review_comments: 0
+  seconds: 751070
+  what: code-was-reviewed
+  when: 2020-05-06 07:35:34.000000000 Z
+  where: github
+  who: 231433
+- _id: 124978
+  _job: 18054331388
+  _time: 2025-09-27 03:25:30.285804631 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 15
+  details: The pull request cqfn/aibolit#248 with 3070 HoC created by @lyriccoder
+    was reviewed by @acheshkov after 208h41m and 0 comments.
+  hoc: 3070
+  issue: 248
+  repository: 237167507
+  review_comments: 0
+  seconds: 751305
+  what: code-was-reviewed
+  when: 2020-05-06 07:39:29.000000000 Z
+  where: github
+  who: 231433
+- _id: 124979
+  _job: 18054331388
+  _time: 2025-09-27 03:25:30.475221433 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 15
+  details: The pull request cqfn/aibolit#248 with 3070 HoC created by @lyriccoder
+    was reviewed by @acheshkov after 209h53m and 0 comments.
+  hoc: 3070
+  issue: 248
+  repository: 237167507
+  review_comments: 0
+  seconds: 755584
+  what: code-was-reviewed
+  when: 2020-05-06 08:50:48.000000000 Z
+  where: github
+  who: 231433
+- _id: 124980
+  _job: 18054331388
+  _time: 2025-09-27 03:25:30.645001791 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 15
+  details: The pull request cqfn/aibolit#248 with 3070 HoC created by @lyriccoder
+    was reviewed by @acheshkov after 210h22m and 0 comments.
+  hoc: 3070
+  issue: 248
+  repository: 237167507
+  review_comments: 0
+  seconds: 757367
+  what: code-was-reviewed
+  when: 2020-05-06 09:20:31.000000000 Z
+  where: github
+  who: 231433
+- _id: 124981
+  _job: 18054331388
+  _time: 2025-09-27 03:25:31.473347442 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 9
+  details: The pull request cqfn/aibolit#250 with 301 HoC created by @paulodamaso
+    was reviewed by @carlosmiranda after 93h33m and 0 comments.
+  hoc: 301
+  issue: 250
+  repository: 237167507
+  review_comments: 0
+  seconds: 336818
+  what: code-was-reviewed
+  when: 2020-05-02 01:35:20.000000000 Z
+  where: github
+  who: 1917892
+- _id: 124982
+  _job: 18054331388
+  _time: 2025-09-27 03:25:31.895726037 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 33915433
+  comments: 9
+  details: The pull request cqfn/aibolit#250 with 301 HoC created by @paulodamaso
+    was reviewed by @acheshkov after 130h21m and 0 comments.
+  hoc: 301
+  issue: 250
+  repository: 237167507
+  review_comments: 0
+  seconds: 469299
+  what: code-was-reviewed
+  when: 2020-05-03 14:23:21.000000000 Z
+  where: github
+  who: 231433
+- _id: 124983
+  _job: 18054331388
+  _time: 2025-09-27 03:25:41.378752246 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 5
+  details: The pull request cqfn/aibolit#187 with 9017 HoC created by @cringoleg was
+    reviewed by @acheshkov after 4h3m and 1 comments.
+  hoc: 9017
+  issue: 187
+  repository: 237167507
+  review_comments: 1
+  seconds: 14613
+  what: code-was-reviewed
+  when: 2020-04-09 16:12:07.000000000 Z
+  where: github
+  who: 231433
+- _id: 124984
+  _job: 18054331388
+  _time: 2025-09-27 03:25:42.980927471 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 20803206
+  comments: 16
+  details: The pull request cqfn/aibolit#209 with 2897 HoC created by @lyriccoder
+    was reviewed by @carlosmiranda after 38h35m and 0 comments.
+  hoc: 2897
+  issue: 209
+  repository: 237167507
+  review_comments: 0
+  seconds: 138917
+  what: code-was-reviewed
+  when: 2020-04-15 06:41:27.000000000 Z
+  where: github
+  who: 1917892
+- _id: 124985
+  _job: 18054331388
+  _time: 2025-09-27 03:25:44.594643218 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 8
+  details: The pull request cqfn/aibolit#214 with 19 HoC created by @cringoleg was
+    reviewed by @acheshkov after 1h15m and 1 comments.
+  hoc: 19
+  issue: 214
+  repository: 237167507
+  review_comments: 1
+  seconds: 4503
+  what: code-was-reviewed
+  when: 2020-04-15 16:56:15.000000000 Z
+  where: github
+  who: 231433
+- _id: 124986
+  _job: 18054331388
+  _time: 2025-09-27 03:25:45.058855571 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 8
+  details: The pull request cqfn/aibolit#214 with 19 HoC created by @cringoleg was
+    reviewed by @acheshkov after 1h15m and 1 comments.
+  hoc: 19
+  issue: 214
+  repository: 237167507
+  review_comments: 1
+  seconds: 4539
+  what: code-was-reviewed
+  when: 2020-04-15 16:56:51.000000000 Z
+  where: github
+  who: 231433
+- _id: 124987
+  _job: 18054331388
+  _time: 2025-09-27 03:25:45.312527688 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  author: 57872461
+  comments: 8
+  details: The pull request cqfn/aibolit#214 with 19 HoC created by @cringoleg was
+    reviewed by @fevzian after 106h16m and 2 comments.
+  hoc: 19
+  issue: 214
+  repository: 237167507
+  review_comments: 2
+  seconds: 382601
+  what: code-was-reviewed
+  when: 2020-04-20 01:57:53.000000000 Z
+  where: github
+  who: 3167940
+- _id: 124988
+  _job: 18054331388
+  _time: 2025-09-27 03:25:49.351257723 Z
+  _version: 0.16.7/0.54.0/0.15.45
+  assignees_were_scanned: 0
+  events_were_scanned: 55270650131
+  issues_were_scanned: 552
+  labels_were_scanned: 528
+  latest_issue_was_found: 901
+  merges_were_scanned: 250
+  min_issue_was_found: 136
+  min_pull_was_found: 695
+  repository: 237167507
+  types_were_scanned: 528
+  what: iterate
+  where: github
