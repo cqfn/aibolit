@@ -8,7 +8,7 @@ from typing import Dict, List, Set, Tuple
 
 class HVMetric:
      """Main Halstead Volume class."""
-    
+
     def __init__(self, filename: str):
         self.filename = filename
     
