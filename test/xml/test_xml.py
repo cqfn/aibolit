@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
+
 def test_xml_report_with_nested_results(self):
     """Test that XML report handles nested results structure correctly"""
     mock_input_with_nested = [
