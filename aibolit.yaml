@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 205.50838059
+  seconds: 315.494651404
   version: 0.54.0
   what: judges-summary
-  when: 2025-10-02 08:59:16.073315516 Z
+  when: 2025-10-02 10:00:19.859607710 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -14747,22 +14747,6 @@
   when: 2025-09-28 23:22:33.000000000 Z
   where: github
   who: 86408225
-- _id: 131372
-  _job: 40316
-  _time: 2025-09-29 12:01:53.188554547 Z
-  _version: 0.16.7/0.54.0/0.15.46!0.15.48
-  analyzers: 18
-  text: |-
-    The average reward per task (8.4 points) is decreasing (R=-0.12).
-    The average punishment per task (15.0 points) is staying still.
-    The average bugs accepted per month (13.0) is decreasing (R=-0.90).
-    The average monthly punishment (109 points) is decreasing (R=-0.88).
-    The average monthly wage (8.4 points) is decreasing (R=-0.11).
-    The average issue cycle time (4d10h) is increasing (R=0.42).
-    The average pull cycle time (1d8h) is increasing (R=0.20).
-    The average monthly turnover (19.0 developers) is decreasing (R=-0.87).
-  what: assessment
-  when: 2025-09-29 12:01:53.195707173 Z
 - _id: 131446
   _job: 18098397112
   _time: 2025-09-29 13:22:40.505512673 Z
@@ -14967,116 +14951,6 @@
   when: 2025-10-01 14:37:02.000000000 Z
   where: github
   who: 29139614
-- _id: 134420
-  _job: 40690
-  _time: 2025-10-01 15:00:05.576434066 Z
-  _version: 0.16.7/0.54.0/0.15.48!0.15.49
-  closer: 231433
-  details: 'In the repository #237167507, the user #46167437 submitted the issue #184
-    which was later closed by the user #231433 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-10-01 15:00:06.740823247 Z
-  issue: 184
-  repository: 237167507
-  tombstone: 2025-10-01 15:01:11.521638763 Z
-  what: dud-was-closed
-  when: 2020-04-08 15:38:08.000000000 Z
-  where: github
-  who: 46167437
-- _id: 134421
-  _job: 40690
-  _time: 2025-10-01 15:00:05.618418830 Z
-  _version: 0.16.7/0.54.0/0.15.48!0.15.49
-  closer: 231433
-  details: 'In the repository #237167507, the user #20803206 submitted the issue #194
-    which was later closed by the user #231433 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-10-01 15:00:06.783278285 Z
-  issue: 194
-  repository: 237167507
-  tombstone: 2025-10-01 15:01:11.536488235 Z
-  what: dud-was-closed
-  when: 2020-04-10 09:25:49.000000000 Z
-  where: github
-  who: 20803206
-- _id: 134422
-  _job: 40690
-  _time: 2025-10-01 15:00:05.659479960 Z
-  _version: 0.16.7/0.54.0/0.15.48!0.15.49
-  closer: 231433
-  details: 'In the repository #237167507, the user #20803206 submitted the issue #195
-    which was later closed by the user #231433 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-10-01 15:00:06.832494888 Z
-  issue: 195
-  repository: 237167507
-  tombstone: 2025-10-01 15:01:11.559786875 Z
-  what: dud-was-closed
-  when: 2020-04-10 09:39:50.000000000 Z
-  where: github
-  who: 20803206
-- _id: 134423
-  _job: 40690
-  _time: 2025-10-01 15:00:05.706329796 Z
-  _version: 0.16.7/0.54.0/0.15.48!0.15.49
-  closer: 231433
-  details: 'In the repository #237167507, the user #20803206 submitted the issue #199
-    which was later closed by the user #231433 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-10-01 15:00:06.912801906 Z
-  issue: 199
-  repository: 237167507
-  tombstone: 2025-10-01 15:01:11.587347331 Z
-  what: dud-was-closed
-  when: 2020-04-10 14:22:17.000000000 Z
-  where: github
-  who: 20803206
-- _id: 134424
-  _job: 40690
-  _time: 2025-10-01 15:00:05.750529965 Z
-  _version: 0.16.7/0.54.0/0.15.48!0.15.49
-  closer: 20803206
-  details: 'In the repository #237167507, the user #25896691 submitted the issue #287
-    which was later closed by the user #20803206 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-10-01 15:00:06.961879608 Z
-  issue: 287
-  repository: 237167507
-  tombstone: 2025-10-01 15:01:11.609530669 Z
-  what: dud-was-closed
-  when: 2020-05-13 09:37:13.000000000 Z
-  where: github
-  who: 25896691
-- _id: 134425
-  _job: 40690
-  _time: 2025-10-01 15:00:05.790060761 Z
-  _version: 0.16.7/0.54.0/0.15.48!0.15.49
-  closer: 20803206
-  details: 'In the repository #237167507, the user #44449418 submitted the issue #289
-    which was later closed by the user #20803206 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-10-01 15:00:07.016417479 Z
-  issue: 289
-  repository: 237167507
-  tombstone: 2025-10-01 15:01:11.633465313 Z
-  what: dud-was-closed
-  when: 2020-05-13 12:06:30.000000000 Z
-  where: github
-  who: 44449418
-- _id: 134427
-  _job: 18167957234
-  _time: 2025-10-01 15:55:48.343217875 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: Apparently, cqfn/aibolit#666 has been 'issue-was-closed'.
-  done: 2025-10-01 16:01:05.136537982 Z
-  is_human: 1
-  issue: 666
-  repository: 237167507
-  tombstone: 2025-10-01 16:01:14.540515569 Z
-  what: issue-was-closed
-  when: 2022-09-15 07:41:09.000000000 Z
-  where: github
-  who: 20803206
 - _id: 134429
   _job: 18167957234
   _time: 2025-10-01 15:57:28.342956121 Z
@@ -15162,594 +15036,6 @@
   when: &144 2025-10-01 14:53:04.000000000 Z
   where: github
   who: 526301
-- _id: 134437
-  _job: 40699
-  _time: 2025-10-01 16:01:07.980560774 Z
-  _version: 0.16.7/0.54.0/0.15.48!0.15.49
-  closer: 20803206
-  details: 'In the repository #237167507, the user #28783346 submitted the issue #666
-    which was later closed by the user #20803206 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  done: 2025-10-01 16:01:53.421317059 Z
-  issue: 666
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:00.544497349 Z
-  what: dud-was-closed
-  when: 2022-05-24 17:28:26.000000000 Z
-  where: github
-  who: 28783346
-- _id: 134440
-  _job: 18169512527
-  _time: 2025-10-01 16:56:58.138230771 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: The issue cqfn/aibolit#565 has been earlier opened by @lyriccoder.
-  is_human: 1
-  issue: 565
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.032105551 Z
-  what: issue-was-opened
-  when: &145 2020-07-24 10:54:07.000000000 Z
-  where: github
-  who: 20803206
-- _id: 134441
-  _job: 18169512527
-  _time: 2025-10-01 16:56:58.332720046 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: The issue cqfn/aibolit#550 has been earlier opened by @aravij.
-  is_human: 1
-  issue: 550
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.082666806 Z
-  what: issue-was-opened
-  when: &146 2020-07-20 15:59:54.000000000 Z
-  where: github
-  who: 1987026
-- _id: 134442
-  _job: 18169512527
-  _time: 2025-10-01 16:56:58.517128436 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: The issue cqfn/aibolit#538 has been earlier opened by @aravij.
-  is_human: 1
-  issue: 538
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.136360161 Z
-  what: issue-was-opened
-  when: &147 2020-07-20 10:18:20.000000000 Z
-  where: github
-  who: 1987026
-- _id: 134443
-  _job: 18169512527
-  _time: 2025-10-01 16:56:58.637588442 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: The issue cqfn/aibolit#534 has been earlier opened by @aravij.
-  is_human: 1
-  issue: 534
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.196288032 Z
-  what: issue-was-opened
-  when: &148 2020-07-20 09:49:30.000000000 Z
-  where: github
-  who: 1987026
-- _id: 134444
-  _job: 18169512527
-  _time: 2025-10-01 16:56:58.886866382 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: The issue cqfn/aibolit#532 has been earlier opened by @aravij.
-  is_human: 1
-  issue: 532
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.242243115 Z
-  what: issue-was-opened
-  when: &149 2020-07-20 09:44:42.000000000 Z
-  where: github
-  who: 1987026
-- _id: 134445
-  _job: 18169512527
-  _time: 2025-10-01 16:56:59.029874575 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: The issue cqfn/aibolit#530 has been earlier opened by @aravij.
-  is_human: 1
-  issue: 530
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.299740921 Z
-  what: issue-was-opened
-  when: &150 2020-07-20 09:39:46.000000000 Z
-  where: github
-  who: 1987026
-- _id: 134446
-  _job: 18169512527
-  _time: 2025-10-01 16:56:59.275603710 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: The issue cqfn/aibolit#520 has been earlier opened by @aravij.
-  is_human: 1
-  issue: 520
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.353148270 Z
-  what: issue-was-opened
-  when: &151 2020-07-15 09:55:01.000000000 Z
-  where: github
-  who: 1987026
-- _id: 134447
-  _job: 18169512527
-  _time: 2025-10-01 16:56:59.424922236 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: The issue cqfn/aibolit#510 has been earlier opened by @vitaly-protasov.
-  is_human: 1
-  issue: 510
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.537825918 Z
-  what: issue-was-opened
-  when: 2020-07-13 16:02:30.000000000 Z
-  where: github
-  who: 43099602
-- _id: 134448
-  _job: 18169512527
-  _time: 2025-10-01 16:56:59.475206641 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: The issue cqfn/aibolit#508 has been earlier opened by @vitaly-protasov.
-  is_human: 1
-  issue: 508
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.495826261 Z
-  what: issue-was-opened
-  when: 2020-07-13 15:26:45.000000000 Z
-  where: github
-  who: 43099602
-- _id: 134450
-  _job: 18169512527
-  _time: 2025-10-01 16:59:35.794482801 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: Apparently, cqfn/aibolit#508 has been 'issue-was-closed'.
-  done: 2025-10-01 17:01:04.477080593 Z
-  is_human: 1
-  issue: 508
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:41.184526536 Z
-  what: issue-was-closed
-  when: 2020-07-17 08:38:29.000000000 Z
-  where: github
-  who: 43099602
-- _id: 134451
-  _job: 18169512527
-  _time: 2025-10-01 16:59:36.336174399 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: Apparently, cqfn/aibolit#510 has been 'issue-was-closed'.
-  done: 2025-10-01 17:01:04.518611064 Z
-  is_human: 1
-  issue: 510
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:41.201624050 Z
-  what: issue-was-closed
-  when: 2020-07-17 06:35:45.000000000 Z
-  where: github
-  who: 43099602
-- _id: 134452
-  _job: 18169512527
-  _time: 2025-10-01 16:59:36.901628535 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: Apparently, cqfn/aibolit#520 has been 'issue-was-closed'.
-  is_human: 1
-  issue: 520
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.367671357 Z
-  what: issue-was-closed
-  when: 2020-07-20 06:36:33.000000000 Z
-  where: github
-  who: 43099602
-- _id: 134453
-  _job: 18169512527
-  _time: 2025-10-01 16:59:37.909763329 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: Apparently, cqfn/aibolit#530 has been 'issue-was-closed'.
-  is_human: 0
-  issue: 530
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.312369205 Z
-  what: issue-was-closed
-  when: 2020-07-20 12:25:55.000000000 Z
-  where: github
-  who: 8086956
-- _id: 134454
-  _job: 18169512527
-  _time: 2025-10-01 16:59:38.480614123 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: Apparently, cqfn/aibolit#532 has been 'issue-was-closed'.
-  is_human: 0
-  issue: 532
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.266647811 Z
-  what: issue-was-closed
-  when: 2020-07-30 07:09:51.000000000 Z
-  where: github
-  who: 8086956
-- _id: 134455
-  _job: 18169512527
-  _time: 2025-10-01 16:59:39.105302195 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: Apparently, cqfn/aibolit#534 has been 'issue-was-closed'.
-  is_human: 0
-  issue: 534
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.211421470 Z
-  what: issue-was-closed
-  when: 2020-07-20 15:19:57.000000000 Z
-  where: github
-  who: 8086956
-- _id: 134456
-  _job: 18169512527
-  _time: 2025-10-01 16:59:40.069618432 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: Apparently, cqfn/aibolit#538 has been 'issue-was-closed'.
-  is_human: 0
-  issue: 538
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.153553655 Z
-  what: issue-was-closed
-  when: 2020-07-26 14:29:57.000000000 Z
-  where: github
-  who: 8086956
-- _id: 134457
-  _job: 18169512527
-  _time: 2025-10-01 16:59:41.500649052 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: Apparently, cqfn/aibolit#550 has been 'issue-was-closed'.
-  is_human: 0
-  issue: 550
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.102886177 Z
-  what: issue-was-closed
-  when: 2020-07-22 06:31:04.000000000 Z
-  where: github
-  who: 8086956
-- _id: 134458
-  _job: 18169512527
-  _time: 2025-10-01 16:59:44.519176379 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  details: Apparently, cqfn/aibolit#565 has been 'issue-was-closed'.
-  is_human: 0
-  issue: 565
-  repository: 237167507
-  tombstone: 2025-10-01 17:01:04.045466720 Z
-  what: issue-was-closed
-  when: 2020-07-28 15:03:07.000000000 Z
-  where: github
-  who: 8086956
-- _id: 134460
-  _job: 18169512527
-  _time: 2025-10-01 16:59:55.208374464 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: master
-  details: The missing pull cqfn/aibolit#187 has been opened by @cringoleg.
-  is_human: 1
-  issue: 187
-  repository: 237167507
-  tombstone: 2025-10-01 18:03:34.971691900 Z
-  what: pull-was-opened
-  when: 2020-04-09 12:08:34.000000000 Z
-  where: github
-  who: 57872461
-- _id: 134461
-  _job: 18169512527
-  _time: 2025-10-01 16:59:56.410106974 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: pair_wise
-  details: The missing pull cqfn/aibolit#209 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 209
-  repository: 237167507
-  tombstone: 2025-10-01 18:03:35.028455640 Z
-  what: pull-was-opened
-  when: 2020-04-13 16:06:10.000000000 Z
-  where: github
-  who: 20803206
-- _id: 134462
-  _job: 18169512527
-  _time: 2025-10-01 16:59:57.721398247 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: metrics
-  details: The missing pull cqfn/aibolit#214 has been opened by @cringoleg.
-  is_human: 1
-  issue: 214
-  repository: 237167507
-  tombstone: 2025-10-01 18:03:35.080460388 Z
-  what: pull-was-opened
-  when: 2020-04-15 15:41:12.000000000 Z
-  where: github
-  who: 57872461
-- _id: 134463
-  _job: 18169512527
-  _time: 2025-10-01 16:59:58.713503270 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: java_files_custom_dir
-  details: The missing pull cqfn/aibolit#253 has been opened by @acheshkov.
-  is_human: 1
-  issue: 253
-  repository: 237167507
-  tombstone: 2025-10-01 18:03:35.157540210 Z
-  what: pull-was-opened
-  when: 2020-04-28 21:11:49.000000000 Z
-  where: github
-  who: 231433
-- _id: 134464
-  _job: 18169512527
-  _time: 2025-10-01 17:00:00.283760382 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: '123'
-  details: The missing pull cqfn/aibolit#275 has been opened by @paulodamaso.
-  is_human: 1
-  issue: 275
-  repository: 237167507
-  tombstone: 2025-10-01 18:03:35.204762285 Z
-  what: pull-was-opened
-  when: 2020-05-09 03:49:28.000000000 Z
-  where: github
-  who: 33915433
-- _id: 134465
-  _job: 18169512527
-  _time: 2025-10-01 17:00:01.535496862 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: '144'
-  details: The missing pull cqfn/aibolit#277 has been opened by @paulodamaso.
-  is_human: 1
-  issue: 277
-  repository: 237167507
-  tombstone: 2025-10-01 18:03:35.264325288 Z
-  what: pull-was-opened
-  when: 2020-05-10 04:16:25.000000000 Z
-  where: github
-  who: 33915433
-- _id: 134466
-  _job: 18169512527
-  _time: 2025-10-01 17:00:02.607025782 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: LCOM5
-  details: The missing pull cqfn/aibolit#288 has been opened by @cringoleg.
-  is_human: 1
-  issue: 288
-  repository: 237167507
-  tombstone: 2025-10-01 18:03:35.323767994 Z
-  what: pull-was-opened
-  when: 2020-05-13 11:32:15.000000000 Z
-  where: github
-  who: 57872461
-- _id: 134467
-  _job: 18169512527
-  _time: 2025-10-01 17:00:03.589428574 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: issue-537
-  details: The missing pull cqfn/aibolit#564 has been opened by @aravij.
-  is_human: 1
-  issue: 564
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.008387205 Z
-  what: pull-was-opened
-  when: 2020-07-23 14:39:23.000000000 Z
-  where: github
-  who: 1987026
-- _id: 134468
-  _job: 18169512527
-  _time: 2025-10-01 17:00:04.838453648 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: issue_528_2
-  details: The missing pull cqfn/aibolit#568 has been opened by @vitaly-protasov.
-  is_human: 1
-  issue: 568
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.052730205 Z
-  what: pull-was-opened
-  when: 2020-07-24 13:26:12.000000000 Z
-  where: github
-  who: 43099602
-- _id: 134469
-  _job: 18169512527
-  _time: 2025-10-01 17:00:06.164999700 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: issue-561
-  details: The missing pull cqfn/aibolit#569 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 569
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.093079442 Z
-  what: pull-was-opened
-  when: 2020-07-24 13:34:51.000000000 Z
-  where: github
-  who: 20803206
-- _id: 134470
-  _job: 18169512527
-  _time: 2025-10-01 17:00:07.250716133 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: issue_528_4
-  details: The missing pull cqfn/aibolit#572 has been opened by @vitaly-protasov.
-  is_human: 1
-  issue: 572
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.133920721 Z
-  what: pull-was-opened
-  when: 2020-07-27 16:24:46.000000000 Z
-  where: github
-  who: 43099602
-- _id: 134471
-  _job: 18169512527
-  _time: 2025-10-01 17:00:08.573530262 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: issue-528_9
-  details: The missing pull cqfn/aibolit#573 has been opened by @aravij.
-  is_human: 1
-  issue: 573
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.173023058 Z
-  what: pull-was-opened
-  when: 2020-07-28 12:41:13.000000000 Z
-  where: github
-  who: 1987026
-- _id: 134472
-  _job: 18169512527
-  _time: 2025-10-01 17:00:09.520726669 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: send_null
-  details: The missing pull cqfn/aibolit#576 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 576
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.211993335 Z
-  what: pull-was-opened
-  when: 2020-07-28 15:04:42.000000000 Z
-  where: github
-  who: 20803206
-- _id: 134473
-  _job: 18169512527
-  _time: 2025-10-01 17:00:10.528360003 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: issue_528_13
-  details: The missing pull cqfn/aibolit#577 has been opened by @vitaly-protasov.
-  is_human: 1
-  issue: 577
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.251974493 Z
-  what: pull-was-opened
-  when: 2020-07-28 21:00:54.000000000 Z
-  where: github
-  who: 43099602
-- _id: 134474
-  _job: 18169512527
-  _time: 2025-10-01 17:00:11.458182706 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: issue-528_5
-  details: The missing pull cqfn/aibolit#578 has been opened by @aravij.
-  is_human: 1
-  issue: 578
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.292419231 Z
-  what: pull-was-opened
-  when: 2020-07-29 15:14:19.000000000 Z
-  where: github
-  who: 1987026
-- _id: 134475
-  _job: 18169512527
-  _time: 2025-10-01 17:00:12.445271648 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: this_finder
-  details: The missing pull cqfn/aibolit#580 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 580
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.332744189 Z
-  what: pull-was-opened
-  when: 2020-07-29 15:22:04.000000000 Z
-  where: github
-  who: 20803206
-- _id: 134476
-  _job: 18169512527
-  _time: 2025-10-01 17:00:13.549007236 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: wp_update
-  details: The missing pull cqfn/aibolit#581 has been opened by @acheshkov.
-  is_human: 1
-  issue: 581
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.371896476 Z
-  what: pull-was-opened
-  when: 2020-07-30 14:29:09.000000000 Z
-  where: github
-  who: 231433
-- _id: 134477
-  _job: 18169512527
-  _time: 2025-10-01 17:00:14.759716253 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: acheshkov-patch-2
-  details: The missing pull cqfn/aibolit#582 has been opened by @acheshkov.
-  is_human: 1
-  issue: 582
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.410628814 Z
-  what: pull-was-opened
-  when: 2020-07-30 14:49:08.000000000 Z
-  where: github
-  who: 231433
-- _id: 134478
-  _job: 18169512527
-  _time: 2025-10-01 17:00:15.700067973 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: style
-  details: The missing pull cqfn/aibolit#583 has been opened by @yegor256.
-  is_human: 1
-  issue: 583
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.448901821 Z
-  what: pull-was-opened
-  when: 2020-07-30 19:32:54.000000000 Z
-  where: github
-  who: 526301
-- _id: 134479
-  _job: 18169512527
-  _time: 2025-10-01 17:00:16.914780841 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: issue-585
-  details: The missing pull cqfn/aibolit#586 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 586
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.488260578 Z
-  what: pull-was-opened
-  when: 2020-08-03 12:47:00.000000000 Z
-  where: github
-  who: 20803206
-- _id: 134480
-  _job: 18169512527
-  _time: 2025-10-01 17:00:18.211331760 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: number_of_methods
-  details: The missing pull cqfn/aibolit#589 has been opened by @lukyanoffpashok.
-  is_human: 1
-  issue: 589
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.526318345 Z
-  what: pull-was-opened
-  when: 2020-08-04 13:38:22.000000000 Z
-  where: github
-  who: 46167437
-- _id: 134481
-  _job: 18169512527
-  _time: 2025-10-01 17:00:19.437036563 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: issue-588
-  details: The missing pull cqfn/aibolit#590 has been opened by @aravij.
-  is_human: 1
-  issue: 590
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.565024662 Z
-  what: pull-was-opened
-  when: 2020-08-04 13:38:30.000000000 Z
-  where: github
-  who: 1987026
-- _id: 134482
-  _job: 18169512527
-  _time: 2025-10-01 17:00:20.370675931 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: acheshkov-patch-3
-  details: The missing pull cqfn/aibolit#592 has been opened by @acheshkov.
-  is_human: 1
-  issue: 592
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.603939469 Z
-  what: pull-was-opened
-  when: 2020-08-05 06:20:25.000000000 Z
-  where: github
-  who: 231433
-- _id: 134483
-  _job: 18169512527
-  _time: 2025-10-01 17:00:21.359400136 Z
-  _version: 0.16.7/0.54.0/0.15.48
-  branch: model_katya
-  details: The missing pull cqfn/aibolit#594 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 594
-  repository: 237167507
-  tombstone: 2025-10-01 19:01:57.637421825 Z
-  what: pull-was-opened
-  when: 2020-08-05 10:53:12.000000000 Z
-  where: github
-  who: 20803206
 - _id: 134484
   _job: 18169512527
   _time: 2025-10-01 17:00:22.348142464 Z
@@ -15939,7 +15225,7 @@
   repository: 237167507
   tombstone: 2025-10-01 17:01:41.217295841 Z
   what: dud-was-closed
-  when: *145
+  when: 2020-07-24 10:54:07.000000000 Z
   where: github
   who: 20803206
 - _id: 134497
@@ -15955,7 +15241,7 @@
   repository: 237167507
   tombstone: 2025-10-01 17:01:41.232550664 Z
   what: dud-was-closed
-  when: *146
+  when: 2020-07-20 15:59:54.000000000 Z
   where: github
   who: 1987026
 - _id: 134498
@@ -15971,7 +15257,7 @@
   repository: 237167507
   tombstone: 2025-10-01 17:01:41.256640482 Z
   what: dud-was-closed
-  when: *147
+  when: 2020-07-20 10:18:20.000000000 Z
   where: github
   who: 1987026
 - _id: 134499
@@ -15987,7 +15273,7 @@
   repository: 237167507
   tombstone: 2025-10-01 17:01:41.272970184 Z
   what: dud-was-closed
-  when: *148
+  when: 2020-07-20 09:49:30.000000000 Z
   where: github
   who: 1987026
 - _id: 134500
@@ -16003,7 +15289,7 @@
   repository: 237167507
   tombstone: 2025-10-01 17:01:41.289949616 Z
   what: dud-was-closed
-  when: *149
+  when: 2020-07-20 09:44:42.000000000 Z
   where: github
   who: 1987026
 - _id: 134501
@@ -16019,7 +15305,7 @@
   repository: 237167507
   tombstone: 2025-10-01 17:01:41.306665415 Z
   what: dud-was-closed
-  when: *150
+  when: 2020-07-20 09:39:46.000000000 Z
   where: github
   who: 1987026
 - _id: 134502
@@ -16035,7 +15321,7 @@
   repository: 237167507
   tombstone: 2025-10-01 17:01:41.324207439 Z
   what: dud-was-closed
-  when: *151
+  when: 2020-07-15 09:55:01.000000000 Z
   where: github
   who: 1987026
 - _id: 134506
@@ -16412,7 +15698,7 @@
   repository: 237167507
   tombstone: 2025-10-01 19:01:58.092820437 Z
   what: issue-was-opened
-  when: &152 2020-06-29 12:56:10.000000000 Z
+  when: &145 2020-06-29 12:56:10.000000000 Z
   where: github
   who: 1524988
 - _id: 134533
@@ -16425,7 +15711,7 @@
   repository: 237167507
   tombstone: 2025-10-01 19:01:58.133024765 Z
   what: issue-was-opened
-  when: &153 2020-06-30 06:18:55.000000000 Z
+  when: &146 2020-06-30 06:18:55.000000000 Z
   where: github
   who: 1987026
 - _id: 134534
@@ -16451,7 +15737,7 @@
   repository: 237167507
   tombstone: 2025-10-01 19:01:58.209376228 Z
   what: issue-was-opened
-  when: &154 2020-06-30 06:23:22.000000000 Z
+  when: &147 2020-06-30 06:23:22.000000000 Z
   where: github
   who: 1987026
 - _id: 134536
@@ -16477,7 +15763,7 @@
   repository: 237167507
   tombstone: 2025-10-01 19:01:58.331012482 Z
   what: issue-was-opened
-  when: &155 2020-06-30 10:20:26.000000000 Z
+  when: &148 2020-06-30 10:20:26.000000000 Z
   where: github
   who: 20803206
 - _id: 134538
@@ -16490,7 +15776,7 @@
   repository: 237167507
   tombstone: 2025-10-01 19:01:58.371939121 Z
   what: issue-was-opened
-  when: &156 2020-07-03 07:52:38.000000000 Z
+  when: &149 2020-07-03 07:52:38.000000000 Z
   where: github
   who: 20803206
 - _id: 134539
@@ -16531,7 +15817,7 @@
   repository: 237167507
   tombstone: 2025-10-01 19:01:58.412647958 Z
   what: issue-was-opened
-  when: &157 2020-07-06 11:13:13.000000000 Z
+  when: &150 2020-07-06 11:13:13.000000000 Z
   where: github
   who: 20803206
 - _id: 134542
@@ -16668,7 +15954,7 @@
   repository: 237167507
   tombstone: 2025-10-01 19:01:58.533385063 Z
   what: issue-was-opened
-  when: &158 2020-07-07 16:39:16.000000000 Z
+  when: &151 2020-07-07 16:39:16.000000000 Z
   where: github
   who: 526301
 - _id: 134552
@@ -16709,7 +15995,7 @@
   repository: 237167507
   tombstone: 2025-10-01 19:01:58.573326320 Z
   what: issue-was-opened
-  when: &159 2020-07-08 10:06:17.000000000 Z
+  when: &152 2020-07-08 10:06:17.000000000 Z
   where: github
   who: 20803206
 - _id: 134555
@@ -20040,7 +19326,7 @@
   repository: 237167507
   tombstone: 2025-10-01 20:06:40.926380282 Z
   what: dud-was-closed
-  when: *152
+  when: *145
   where: github
   who: 1524988
 - _id: 134729
@@ -20056,7 +19342,7 @@
   repository: 237167507
   tombstone: 2025-10-01 20:06:40.951100703 Z
   what: dud-was-closed
-  when: *153
+  when: *146
   where: github
   who: 1987026
 - _id: 134730
@@ -20072,7 +19358,7 @@
   repository: 237167507
   tombstone: 2025-10-01 20:06:40.970017771 Z
   what: dud-was-closed
-  when: *154
+  when: *147
   where: github
   who: 1987026
 - _id: 134731
@@ -20088,7 +19374,7 @@
   repository: 237167507
   tombstone: 2025-10-01 20:06:40.988660159 Z
   what: dud-was-closed
-  when: *155
+  when: *148
   where: github
   who: 20803206
 - _id: 134732
@@ -20104,7 +19390,7 @@
   repository: 237167507
   tombstone: 2025-10-01 20:06:41.010570739 Z
   what: dud-was-closed
-  when: *156
+  when: *149
   where: github
   who: 20803206
 - _id: 134733
@@ -20120,7 +19406,7 @@
   repository: 237167507
   tombstone: 2025-10-01 20:06:41.031130428 Z
   what: dud-was-closed
-  when: *157
+  when: *150
   where: github
   who: 20803206
 - _id: 134734
@@ -20136,7 +19422,7 @@
   repository: 237167507
   tombstone: 2025-10-01 20:06:41.050284177 Z
   what: dud-was-closed
-  when: *158
+  when: *151
   where: github
   who: 526301
 - _id: 134735
@@ -20152,7 +19438,7 @@
   repository: 237167507
   tombstone: 2025-10-01 20:06:41.072826837 Z
   what: dud-was-closed
-  when: *159
+  when: *152
   where: github
   who: 20803206
 - _id: 134738
@@ -22055,7 +21341,7 @@
   repository: 237167507
   tombstone: 2025-10-01 21:02:22.805757284 Z
   what: issue-was-opened
-  when: &160 2020-04-01 21:11:45.000000000 Z
+  when: &153 2020-04-01 21:11:45.000000000 Z
   where: github
   who: 526301
 - _id: 134843
@@ -22068,7 +21354,7 @@
   repository: 237167507
   tombstone: 2025-10-01 21:02:22.777881710 Z
   what: issue-was-opened
-  when: &161 2020-04-01 21:07:13.000000000 Z
+  when: &154 2020-04-01 21:07:13.000000000 Z
   where: github
   who: 526301
 - _id: 134844
@@ -22081,7 +21367,7 @@
   repository: 237167507
   tombstone: 2025-10-01 21:02:22.746323896 Z
   what: issue-was-opened
-  when: &162 2020-04-01 21:05:48.000000000 Z
+  when: &155 2020-04-01 21:05:48.000000000 Z
   where: github
   who: 526301
 - _id: 134845
@@ -22094,7 +21380,7 @@
   repository: 237167507
   tombstone: 2025-10-01 21:02:22.714078217 Z
   what: issue-was-opened
-  when: &163 2020-04-01 20:59:39.000000000 Z
+  when: &156 2020-04-01 20:59:39.000000000 Z
   where: github
   who: 526301
 - _id: 134846
@@ -22107,7 +21393,7 @@
   repository: 237167507
   tombstone: 2025-10-01 21:02:22.671221878 Z
   what: issue-was-opened
-  when: &164 2020-04-01 20:56:34.000000000 Z
+  when: &157 2020-04-01 20:56:34.000000000 Z
   where: github
   who: 526301
 - _id: 134848
@@ -23119,7 +22405,7 @@
   repository: 237167507
   tombstone: 2025-10-01 21:59:29.306762061 Z
   what: dud-was-closed
-  when: *160
+  when: *153
   where: github
   who: 526301
 - _id: 134910
@@ -23135,7 +22421,7 @@
   repository: 237167507
   tombstone: 2025-10-01 21:59:29.326534785 Z
   what: dud-was-closed
-  when: *161
+  when: *154
   where: github
   who: 526301
 - _id: 134911
@@ -23151,7 +22437,7 @@
   repository: 237167507
   tombstone: 2025-10-01 21:59:29.344252885 Z
   what: dud-was-closed
-  when: *162
+  when: *155
   where: github
   who: 526301
 - _id: 134912
@@ -23167,7 +22453,7 @@
   repository: 237167507
   tombstone: 2025-10-01 21:59:29.360887171 Z
   what: dud-was-closed
-  when: *163
+  when: *156
   where: github
   who: 526301
 - _id: 134913
@@ -23183,7 +22469,7 @@
   repository: 237167507
   tombstone: 2025-10-01 21:59:29.377398218 Z
   what: dud-was-closed
-  when: *164
+  when: *157
   where: github
   who: 526301
 - _id: 134915
@@ -23208,7 +22494,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.094594067 Z
   what: issue-was-opened
-  when: &177 2020-06-28 16:53:04.000000000 Z
+  when: &170 2020-06-28 16:53:04.000000000 Z
   where: github
   who: 231433
 - _id: 134917
@@ -23221,7 +22507,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.166901565 Z
   what: issue-was-opened
-  when: &178 2020-06-28 16:35:57.000000000 Z
+  when: &171 2020-06-28 16:35:57.000000000 Z
   where: github
   who: 231433
 - _id: 134918
@@ -23311,7 +22597,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:58:29.151626059 Z
   what: issue-was-opened
-  when: &165 2020-05-06 11:09:05.000000000 Z
+  when: &158 2020-05-06 11:09:05.000000000 Z
   where: github
   who: 20803206
 - _id: 134925
@@ -24304,7 +23590,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:58:29.359732314 Z
   what: issue-was-opened
-  when: &166 2020-05-28 06:29:39.000000000 Z
+  when: &159 2020-05-28 06:29:39.000000000 Z
   where: github
   who: 526301
 - _id: 134990
@@ -24317,7 +23603,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:58:29.397059148 Z
   what: issue-was-opened
-  when: &167 2020-05-28 06:32:29.000000000 Z
+  when: &160 2020-05-28 06:32:29.000000000 Z
   where: github
   who: 526301
 - _id: 134991
@@ -24330,7 +23616,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:58:29.428345990 Z
   what: issue-was-opened
-  when: &168 2020-05-28 11:46:46.000000000 Z
+  when: &161 2020-05-28 11:46:46.000000000 Z
   where: github
   who: 1524988
 - _id: 134992
@@ -24343,7 +23629,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:58:29.465456645 Z
   what: issue-was-opened
-  when: &169 2020-05-29 02:51:39.000000000 Z
+  when: &162 2020-05-29 02:51:39.000000000 Z
   where: github
   who: 526301
 - _id: 134993
@@ -24356,7 +23642,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:58:29.502095944 Z
   what: issue-was-opened
-  when: &170 2020-05-29 03:03:01.000000000 Z
+  when: &163 2020-05-29 03:03:01.000000000 Z
   where: github
   who: 526301
 - _id: 134994
@@ -24369,7 +23655,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:58:29.566742974 Z
   what: issue-was-opened
-  when: &171 2020-05-29 03:11:44.000000000 Z
+  when: &164 2020-05-29 03:11:44.000000000 Z
   where: github
   who: 526301
 - _id: 134995
@@ -24382,7 +23668,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:58:29.606419078 Z
   what: issue-was-opened
-  when: &172 2020-05-29 03:15:07.000000000 Z
+  when: &165 2020-05-29 03:15:07.000000000 Z
   where: github
   who: 526301
 - _id: 134996
@@ -24395,7 +23681,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:58:29.638687237 Z
   what: issue-was-opened
-  when: &173 2020-06-11 10:10:14.000000000 Z
+  when: &166 2020-06-11 10:10:14.000000000 Z
   where: github
   who: 20803206
 - _id: 134997
@@ -24408,7 +23694,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:58:29.676678486 Z
   what: issue-was-opened
-  when: &174 2020-06-16 13:11:52.000000000 Z
+  when: &167 2020-06-16 13:11:52.000000000 Z
   where: github
   who: 20803206
 - _id: 134998
@@ -24421,7 +23707,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:58:29.708918838 Z
   what: issue-was-opened
-  when: &175 2020-06-17 08:35:48.000000000 Z
+  when: &168 2020-06-17 08:35:48.000000000 Z
   where: github
   who: 1987026
 - _id: 134999
@@ -24434,7 +23720,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:58:29.747653665 Z
   what: issue-was-opened
-  when: &176 2020-06-18 15:41:41.000000000 Z
+  when: &169 2020-06-18 15:41:41.000000000 Z
   where: github
   who: 1987026
 - _id: 135000
@@ -24447,7 +23733,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.233499191 Z
   what: issue-was-opened
-  when: &179 2020-06-19 07:26:45.000000000 Z
+  when: &172 2020-06-19 07:26:45.000000000 Z
   where: github
   who: 20803206
 - _id: 135001
@@ -25119,7 +24405,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:59:44.153306133 Z
   what: dud-was-closed
-  when: *165
+  when: *158
   where: github
   who: 20803206
 - _id: 135056
@@ -25135,7 +24421,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:59:44.170076991 Z
   what: dud-was-closed
-  when: *166
+  when: *159
   where: github
   who: 526301
 - _id: 135057
@@ -25151,7 +24437,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:59:44.186529610 Z
   what: dud-was-closed
-  when: *167
+  when: *160
   where: github
   who: 526301
 - _id: 135058
@@ -25167,7 +24453,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:59:44.203250006 Z
   what: dud-was-closed
-  when: *168
+  when: *161
   where: github
   who: 1524988
 - _id: 135059
@@ -25183,7 +24469,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:59:44.217678079 Z
   what: dud-was-closed
-  when: *169
+  when: *162
   where: github
   who: 526301
 - _id: 135060
@@ -25199,7 +24485,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:59:44.232293401 Z
   what: dud-was-closed
-  when: *170
+  when: *163
   where: github
   who: 526301
 - _id: 135061
@@ -25215,7 +24501,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:59:44.256655687 Z
   what: dud-was-closed
-  when: *171
+  when: *164
   where: github
   who: 526301
 - _id: 135062
@@ -25231,7 +24517,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:59:44.272956368 Z
   what: dud-was-closed
-  when: *172
+  when: *165
   where: github
   who: 526301
 - _id: 135063
@@ -25247,7 +24533,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:59:44.289169667 Z
   what: dud-was-closed
-  when: *173
+  when: *166
   where: github
   who: 20803206
 - _id: 135064
@@ -25263,7 +24549,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:59:44.304297765 Z
   what: dud-was-closed
-  when: *174
+  when: *167
   where: github
   who: 20803206
 - _id: 135065
@@ -25279,7 +24565,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:59:44.318720739 Z
   what: dud-was-closed
-  when: *175
+  when: *168
   where: github
   who: 1987026
 - _id: 135066
@@ -25295,7 +24581,7 @@
   repository: 237167507
   tombstone: 2025-10-01 22:59:44.343892059 Z
   what: dud-was-closed
-  when: *176
+  when: *169
   where: github
   who: 1987026
 - _id: 135068
@@ -25308,7 +24594,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.299130611 Z
   what: issue-was-opened
-  when: &180 2020-09-15 08:58:09.000000000 Z
+  when: &173 2020-09-15 08:58:09.000000000 Z
   where: github
   who: 1987026
 - _id: 135069
@@ -25321,7 +24607,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.351028957 Z
   what: issue-was-opened
-  when: &181 2020-06-26 09:48:33.000000000 Z
+  when: &174 2020-06-26 09:48:33.000000000 Z
   where: github
   who: 1524988
 - _id: 135070
@@ -25334,7 +24620,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.402503144 Z
   what: issue-was-opened
-  when: &182 2020-06-23 13:27:49.000000000 Z
+  when: &175 2020-06-23 13:27:49.000000000 Z
   where: github
   who: 44449418
 - _id: 135071
@@ -25347,7 +24633,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.455022209 Z
   what: issue-was-opened
-  when: &183 2020-06-23 10:47:26.000000000 Z
+  when: &176 2020-06-23 10:47:26.000000000 Z
   where: github
   who: 20803206
 - _id: 135072
@@ -25360,7 +24646,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.520134221 Z
   what: issue-was-opened
-  when: &184 2020-06-22 08:44:59.000000000 Z
+  when: &177 2020-06-22 08:44:59.000000000 Z
   where: github
   who: 1987026
 - _id: 135073
@@ -25373,7 +24659,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.583026286 Z
   what: issue-was-opened
-  when: &185 2020-06-20 12:07:54.000000000 Z
+  when: &178 2020-06-20 12:07:54.000000000 Z
   where: github
   who: 231433
 - _id: 135074
@@ -25386,7 +24672,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.632356158 Z
   what: issue-was-opened
-  when: &186 2020-06-20 12:07:02.000000000 Z
+  when: &179 2020-06-20 12:07:02.000000000 Z
   where: github
   who: 231433
 - _id: 135075
@@ -25399,7 +24685,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.683461133 Z
   what: issue-was-opened
-  when: &187 2020-06-20 10:41:41.000000000 Z
+  when: &180 2020-06-20 10:41:41.000000000 Z
   where: github
   who: 231433
 - _id: 135076
@@ -25412,7 +24698,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.770224372 Z
   what: issue-was-opened
-  when: &188 2020-06-19 19:00:47.000000000 Z
+  when: &181 2020-06-19 19:00:47.000000000 Z
   where: github
   who: 526301
 - _id: 135077
@@ -25425,7 +24711,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:58:31.835568629 Z
   what: issue-was-opened
-  when: &189 2020-06-19 09:46:12.000000000 Z
+  when: &182 2020-06-19 09:46:12.000000000 Z
   where: github
   who: 526301
 - _id: 135078
@@ -25438,7 +24724,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:35.307613090 Z
   what: issue-was-opened
-  when: &218 2020-06-10 16:21:10.000000000 Z
+  when: &211 2020-06-10 16:21:10.000000000 Z
   where: github
   who: 1987026
 - _id: 135079
@@ -25451,7 +24737,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:35.370290461 Z
   what: issue-was-opened
-  when: &219 2020-06-10 11:22:12.000000000 Z
+  when: &212 2020-06-10 11:22:12.000000000 Z
   where: github
   who: 20803206
 - _id: 135080
@@ -25464,7 +24750,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:35.444496557 Z
   what: issue-was-opened
-  when: &220 2020-06-09 13:15:04.000000000 Z
+  when: &213 2020-06-09 13:15:04.000000000 Z
   where: github
   who: 20803206
 - _id: 135081
@@ -25477,7 +24763,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:35.492436991 Z
   what: issue-was-opened
-  when: &221 2020-06-08 14:45:54.000000000 Z
+  when: &214 2020-06-08 14:45:54.000000000 Z
   where: github
   who: 20803206
 - _id: 135082
@@ -25490,7 +24776,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:35.552574766 Z
   what: issue-was-opened
-  when: &222 2020-06-08 13:56:44.000000000 Z
+  when: &215 2020-06-08 13:56:44.000000000 Z
   where: github
   who: 43099602
 - _id: 135083
@@ -25503,7 +24789,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:35.602358009 Z
   what: issue-was-opened
-  when: &223 2020-06-04 18:19:28.000000000 Z
+  when: &216 2020-06-04 18:19:28.000000000 Z
   where: github
   who: 1987026
 - _id: 135084
@@ -25516,7 +24802,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:35.677019484 Z
   what: issue-was-opened
-  when: &224 2020-06-04 13:00:53.000000000 Z
+  when: &217 2020-06-04 13:00:53.000000000 Z
   where: github
   who: 20803206
 - _id: 135085
@@ -25529,7 +24815,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:35.738811660 Z
   what: issue-was-opened
-  when: &225 2020-06-03 11:42:21.000000000 Z
+  when: &218 2020-06-03 11:42:21.000000000 Z
   where: github
   who: 20803206
 - _id: 135086
@@ -25542,7 +24828,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:35.798385925 Z
   what: issue-was-opened
-  when: &226 2020-06-03 11:37:50.000000000 Z
+  when: &219 2020-06-03 11:37:50.000000000 Z
   where: github
   who: 20803206
 - _id: 135087
@@ -25555,7 +24841,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:35.847275679 Z
   what: issue-was-opened
-  when: &227 2020-06-03 11:27:50.000000000 Z
+  when: &220 2020-06-03 11:27:50.000000000 Z
   where: github
   who: 20803206
 - _id: 135088
@@ -25568,7 +24854,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:35.920071323 Z
   what: issue-was-opened
-  when: &228 2020-05-28 11:37:06.000000000 Z
+  when: &221 2020-05-28 11:37:06.000000000 Z
   where: github
   who: 1524988
 - _id: 135089
@@ -25594,7 +24880,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:35.969124683 Z
   what: issue-was-opened
-  when: &229 2020-05-06 10:02:06.000000000 Z
+  when: &222 2020-05-06 10:02:06.000000000 Z
   where: github
   who: 231433
 - _id: 135091
@@ -25633,7 +24919,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:36.041932280 Z
   what: issue-was-opened
-  when: &230 2020-04-30 15:16:22.000000000 Z
+  when: &223 2020-04-30 15:16:22.000000000 Z
   where: github
   who: 231433
 - _id: 135094
@@ -25646,7 +24932,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:36.104081864 Z
   what: issue-was-opened
-  when: &231 2020-04-28 20:51:15.000000000 Z
+  when: &224 2020-04-28 20:51:15.000000000 Z
   where: github
   who: 231433
 - _id: 135095
@@ -25672,7 +24958,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:36.178041690 Z
   what: issue-was-opened
-  when: &232 2020-04-27 09:49:38.000000000 Z
+  when: &225 2020-04-27 09:49:38.000000000 Z
   where: github
   who: 20803206
 - _id: 135097
@@ -25685,7 +24971,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:36.250435503 Z
   what: issue-was-opened
-  when: &233 2020-04-22 15:51:31.000000000 Z
+  when: &226 2020-04-22 15:51:31.000000000 Z
   where: github
   who: 20803206
 - _id: 135098
@@ -25698,7 +24984,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:36.302324332 Z
   what: issue-was-opened
-  when: &234 2020-04-22 10:08:52.000000000 Z
+  when: &227 2020-04-22 10:08:52.000000000 Z
   where: github
   who: 43099602
 - _id: 135099
@@ -25711,7 +24997,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:19:36.349800285 Z
   what: issue-was-opened
-  when: &235 2020-04-20 14:32:09.000000000 Z
+  when: &228 2020-04-20 14:32:09.000000000 Z
   where: github
   who: 20803206
 - _id: 135100
@@ -26339,7 +25625,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.155412239 Z
   what: dud-was-closed
-  when: *177
+  when: *170
   where: github
   who: 231433
 - _id: 135149
@@ -26355,7 +25641,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.181309970 Z
   what: dud-was-closed
-  when: *178
+  when: *171
   where: github
   who: 231433
 - _id: 135150
@@ -26371,7 +25657,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.197630082 Z
   what: dud-was-closed
-  when: *179
+  when: *172
   where: github
   who: 20803206
 - _id: 135151
@@ -26387,7 +25673,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.212276462 Z
   what: dud-was-closed
-  when: *180
+  when: *173
   where: github
   who: 1987026
 - _id: 135152
@@ -26403,7 +25689,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.236699238 Z
   what: dud-was-closed
-  when: *181
+  when: *174
   where: github
   who: 1524988
 - _id: 135153
@@ -26419,7 +25705,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.253488710 Z
   what: dud-was-closed
-  when: *182
+  when: *175
   where: github
   who: 44449418
 - _id: 135154
@@ -26435,7 +25721,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.268010129 Z
   what: dud-was-closed
-  when: *183
+  when: *176
   where: github
   who: 20803206
 - _id: 135155
@@ -26451,7 +25737,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.290259773 Z
   what: dud-was-closed
-  when: *184
+  when: *177
   where: github
   who: 1987026
 - _id: 135156
@@ -26467,7 +25753,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.306615060 Z
   what: dud-was-closed
-  when: *185
+  when: *178
   where: github
   who: 231433
 - _id: 135157
@@ -26483,7 +25769,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.322638772 Z
   what: dud-was-closed
-  when: *186
+  when: *179
   where: github
   who: 231433
 - _id: 135158
@@ -26499,7 +25785,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.336704960 Z
   what: dud-was-closed
-  when: *187
+  when: *180
   where: github
   who: 231433
 - _id: 135159
@@ -26515,7 +25801,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.360248020 Z
   what: dud-was-closed
-  when: *188
+  when: *181
   where: github
   who: 526301
 - _id: 135160
@@ -26531,7 +25817,7 @@
   repository: 237167507
   tombstone: 2025-10-01 23:59:39.376807265 Z
   what: dud-was-closed
-  when: *189
+  when: *182
   where: github
   who: 526301
 - _id: 135163
@@ -27289,7 +26575,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:33.843599243 Z
   what: pull-was-merged
-  when: &190 2020-02-05 14:43:54.000000000 Z
+  when: &183 2020-02-05 14:43:54.000000000 Z
   where: github
   who: 526301
 - _id: 135221
@@ -27313,7 +26599,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:33.890596575 Z
   what: pull-was-merged
-  when: &191 2020-02-07 13:19:34.000000000 Z
+  when: &184 2020-02-07 13:19:34.000000000 Z
   where: github
   who: 526301
 - _id: 135222
@@ -27361,7 +26647,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:33.942091585 Z
   what: pull-was-merged
-  when: &192 2020-02-07 13:29:56.000000000 Z
+  when: &185 2020-02-07 13:29:56.000000000 Z
   where: github
   who: 526301
 - _id: 135224
@@ -27385,7 +26671,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:33.992874844 Z
   what: pull-was-merged
-  when: &193 2020-02-07 13:43:49.000000000 Z
+  when: &186 2020-02-07 13:43:49.000000000 Z
   where: github
   who: 526301
 - _id: 135225
@@ -27409,7 +26695,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.039297943 Z
   what: pull-was-merged
-  when: &194 2020-02-10 07:12:09.000000000 Z
+  when: &187 2020-02-10 07:12:09.000000000 Z
   where: github
   who: 526301
 - _id: 135226
@@ -27433,7 +26719,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.097131739 Z
   what: pull-was-merged
-  when: &195 2020-02-10 05:59:56.000000000 Z
+  when: &188 2020-02-10 05:59:56.000000000 Z
   where: github
   who: 526301
 - _id: 135227
@@ -27457,7 +26743,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.146128997 Z
   what: pull-was-merged
-  when: &196 2020-02-10 06:00:56.000000000 Z
+  when: &189 2020-02-10 06:00:56.000000000 Z
   where: github
   who: 526301
 - _id: 135228
@@ -27481,7 +26767,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.194931222 Z
   what: pull-was-merged
-  when: &197 2020-02-10 06:00:40.000000000 Z
+  when: &190 2020-02-10 06:00:40.000000000 Z
   where: github
   who: 526301
 - _id: 135229
@@ -27505,7 +26791,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.247662415 Z
   what: pull-was-merged
-  when: &198 2020-02-10 06:28:15.000000000 Z
+  when: &191 2020-02-10 06:28:15.000000000 Z
   where: github
   who: 526301
 - _id: 135230
@@ -27529,7 +26815,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.294089962 Z
   what: pull-was-merged
-  when: &199 2020-02-10 09:25:47.000000000 Z
+  when: &192 2020-02-10 09:25:47.000000000 Z
   where: github
   who: 526301
 - _id: 135231
@@ -27553,7 +26839,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.351588566 Z
   what: pull-was-merged
-  when: &200 2020-02-10 09:28:33.000000000 Z
+  when: &193 2020-02-10 09:28:33.000000000 Z
   where: github
   who: 526301
 - _id: 135232
@@ -27625,7 +26911,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.400637894 Z
   what: pull-was-merged
-  when: &201 2020-02-12 11:16:10.000000000 Z
+  when: &194 2020-02-12 11:16:10.000000000 Z
   where: github
   who: 526301
 - _id: 135235
@@ -27649,7 +26935,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.451203395 Z
   what: pull-was-merged
-  when: &202 2020-02-18 09:42:51.000000000 Z
+  when: &195 2020-02-18 09:42:51.000000000 Z
   where: github
   who: 526301
 - _id: 135236
@@ -27673,7 +26959,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.502599217 Z
   what: pull-was-merged
-  when: &203 2020-02-18 09:55:38.000000000 Z
+  when: &196 2020-02-18 09:55:38.000000000 Z
   where: github
   who: 526301
 - _id: 135237
@@ -27697,7 +26983,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.549201821 Z
   what: pull-was-merged
-  when: &204 2020-02-20 11:45:43.000000000 Z
+  when: &197 2020-02-20 11:45:43.000000000 Z
   where: github
   who: 526301
 - _id: 135238
@@ -27721,7 +27007,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.605744893 Z
   what: pull-was-merged
-  when: &205 2020-02-20 14:02:10.000000000 Z
+  when: &198 2020-02-20 14:02:10.000000000 Z
   where: github
   who: 526301
 - _id: 135239
@@ -27769,7 +27055,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.655096526 Z
   what: pull-was-merged
-  when: &206 2020-03-04 09:44:38.000000000 Z
+  when: &199 2020-03-04 09:44:38.000000000 Z
   where: github
   who: 8086956
 - _id: 135241
@@ -27793,7 +27079,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.706675810 Z
   what: pull-was-merged
-  when: &207 2020-03-02 14:39:34.000000000 Z
+  when: &200 2020-03-02 14:39:34.000000000 Z
   where: github
   who: 526301
 - _id: 135242
@@ -27817,7 +27103,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.756572810 Z
   what: pull-was-merged
-  when: &208 2020-03-02 14:40:34.000000000 Z
+  when: &201 2020-03-02 14:40:34.000000000 Z
   where: github
   who: 526301
 - _id: 135243
@@ -27841,7 +27127,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.803687708 Z
   what: pull-was-merged
-  when: &209 2020-03-02 14:41:51.000000000 Z
+  when: &202 2020-03-02 14:41:51.000000000 Z
   where: github
   who: 526301
 - _id: 135244
@@ -27865,7 +27151,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.860346681 Z
   what: pull-was-merged
-  when: &210 2020-03-04 10:37:08.000000000 Z
+  when: &203 2020-03-04 10:37:08.000000000 Z
   where: github
   who: 8086956
 - _id: 135245
@@ -27889,7 +27175,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.910254366 Z
   what: pull-was-merged
-  when: &211 2020-03-04 12:05:15.000000000 Z
+  when: &204 2020-03-04 12:05:15.000000000 Z
   where: github
   who: 8086956
 - _id: 135246
@@ -27913,7 +27199,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:34.964344812 Z
   what: pull-was-merged
-  when: &212 2020-03-04 09:11:57.000000000 Z
+  when: &205 2020-03-04 09:11:57.000000000 Z
   where: github
   who: 8086956
 - _id: 135247
@@ -27937,7 +27223,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:35.013634401 Z
   what: pull-was-merged
-  when: &213 2020-03-04 11:58:21.000000000 Z
+  when: &206 2020-03-04 11:58:21.000000000 Z
   where: github
   who: 8086956
 - _id: 135248
@@ -27961,7 +27247,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:35.060926199 Z
   what: pull-was-merged
-  when: &214 2020-03-04 12:45:08.000000000 Z
+  when: &207 2020-03-04 12:45:08.000000000 Z
   where: github
   who: 8086956
 - _id: 135249
@@ -27985,7 +27271,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:35.119803642 Z
   what: pull-was-merged
-  when: &215 2020-03-04 13:26:05.000000000 Z
+  when: &208 2020-03-04 13:26:05.000000000 Z
   where: github
   who: 8086956
 - _id: 135250
@@ -28009,7 +27295,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:35.169861874 Z
   what: pull-was-merged
-  when: &216 2020-03-05 13:24:35.000000000 Z
+  when: &209 2020-03-05 13:24:35.000000000 Z
   where: github
   who: 8086956
 - _id: 135251
@@ -28033,7 +27319,7 @@
   succeeded_builds: 0
   tombstone: 2025-10-02 02:19:35.225671924 Z
   what: pull-was-merged
-  when: &217 2020-03-05 13:17:31.000000000 Z
+  when: &210 2020-03-05 13:17:31.000000000 Z
   where: github
   who: 8086956
 - _id: 135252
@@ -28052,7 +27338,7 @@
   seconds: 224
   tombstone: 2025-10-02 02:20:10.123954592 Z
   what: code-was-contributed
-  when: *190
+  when: *183
   where: github
   who: 231433
 - _id: 135253
@@ -28071,7 +27357,7 @@
   seconds: 1264
   tombstone: 2025-10-02 02:20:10.152442731 Z
   what: code-was-contributed
-  when: *191
+  when: *184
   where: github
   who: 9687716
 - _id: 135254
@@ -28090,7 +27376,7 @@
   seconds: 760
   tombstone: 2025-10-02 02:20:10.169979473 Z
   what: code-was-contributed
-  when: *192
+  when: *185
   where: github
   who: 20803206
 - _id: 135255
@@ -28109,7 +27395,7 @@
   seconds: 182
   tombstone: 2025-10-02 02:20:10.186968078 Z
   what: code-was-contributed
-  when: *193
+  when: *186
   where: github
   who: 9687716
 - _id: 135256
@@ -28128,7 +27414,7 @@
   seconds: 234216
   tombstone: 2025-10-02 02:20:10.203940762 Z
   what: code-was-contributed
-  when: *194
+  when: *187
   where: github
   who: 9687716
 - _id: 135257
@@ -28147,7 +27433,7 @@
   seconds: 1400
   tombstone: 2025-10-02 02:20:10.221847161 Z
   what: code-was-contributed
-  when: *195
+  when: *188
   where: github
   who: 9687716
 - _id: 135258
@@ -28166,7 +27452,7 @@
   seconds: 867
   tombstone: 2025-10-02 02:20:10.237517986 Z
   what: code-was-contributed
-  when: *196
+  when: *189
   where: github
   who: 9687716
 - _id: 135259
@@ -28185,7 +27471,7 @@
   seconds: 371
   tombstone: 2025-10-02 02:20:10.252643329 Z
   what: code-was-contributed
-  when: *197
+  when: *190
   where: github
   who: 9687716
 - _id: 135260
@@ -28204,7 +27490,7 @@
   seconds: 484
   tombstone: 2025-10-02 02:20:10.280186484 Z
   what: code-was-contributed
-  when: *198
+  when: *191
   where: github
   who: 9687716
 - _id: 135261
@@ -28223,7 +27509,7 @@
   seconds: 5984
   tombstone: 2025-10-02 02:20:10.297785615 Z
   what: code-was-contributed
-  when: *199
+  when: *192
   where: github
   who: 9687716
 - _id: 135262
@@ -28242,7 +27528,7 @@
   seconds: 6057
   tombstone: 2025-10-02 02:20:10.314953722 Z
   what: code-was-contributed
-  when: *200
+  when: *193
   where: github
   who: 9687716
 - _id: 135263
@@ -28261,7 +27547,7 @@
   seconds: 493
   tombstone: 2025-10-02 02:20:10.332191447 Z
   what: code-was-contributed
-  when: *201
+  when: *194
   where: github
   who: 231433
 - _id: 135264
@@ -28280,7 +27566,7 @@
   seconds: 508200
   tombstone: 2025-10-02 02:20:10.350414542 Z
   what: code-was-contributed
-  when: *202
+  when: *195
   where: github
   who: 231433
 - _id: 135265
@@ -28299,7 +27585,7 @@
   seconds: 1002
   tombstone: 2025-10-02 02:20:10.366063425 Z
   what: code-was-contributed
-  when: *203
+  when: *196
   where: github
   who: 231433
 - _id: 135266
@@ -28318,7 +27604,7 @@
   seconds: 81405
   tombstone: 2025-10-02 02:20:10.381187311 Z
   what: code-was-contributed
-  when: *204
+  when: *197
   where: github
   who: 20803206
 - _id: 135267
@@ -28337,7 +27623,7 @@
   seconds: 18997
   tombstone: 2025-10-02 02:20:10.407953283 Z
   what: code-was-contributed
-  when: *205
+  when: *198
   where: github
   who: 20803206
 - _id: 135268
@@ -28356,7 +27642,7 @@
   seconds: 509448
   tombstone: 2025-10-02 02:20:10.425788204 Z
   what: code-was-contributed
-  when: *206
+  when: *199
   where: github
   who: 20803206
 - _id: 135269
@@ -28375,7 +27661,7 @@
   seconds: 23873
   tombstone: 2025-10-02 02:20:10.443304731 Z
   what: code-was-contributed
-  when: *207
+  when: *200
   where: github
   who: 231433
 - _id: 135270
@@ -28394,7 +27680,7 @@
   seconds: 15002
   tombstone: 2025-10-02 02:20:10.460815595 Z
   what: code-was-contributed
-  when: *208
+  when: *201
   where: github
   who: 20803206
 - _id: 135271
@@ -28413,7 +27699,7 @@
   seconds: 1048
   tombstone: 2025-10-02 02:20:10.478938501 Z
   what: code-was-contributed
-  when: *209
+  when: *202
   where: github
   who: 231433
 - _id: 135272
@@ -28432,7 +27718,7 @@
   seconds: 104303
   tombstone: 2025-10-02 02:20:10.494831482 Z
   what: code-was-contributed
-  when: *210
+  when: *203
   where: github
   who: 231433
 - _id: 135273
@@ -28451,7 +27737,7 @@
   seconds: 101350
   tombstone: 2025-10-02 02:20:10.509994347 Z
   what: code-was-contributed
-  when: *211
+  when: *204
   where: github
   who: 46167437
 - _id: 135274
@@ -28470,7 +27756,7 @@
   seconds: 87966
   tombstone: 2025-10-02 02:20:10.536359251 Z
   what: code-was-contributed
-  when: *212
+  when: *205
   where: github
   who: 20803206
 - _id: 135275
@@ -28489,7 +27775,7 @@
   seconds: 68166
   tombstone: 2025-10-02 02:20:10.554004830 Z
   what: code-was-contributed
-  when: *213
+  when: *206
   where: github
   who: 231433
 - _id: 135276
@@ -28508,7 +27794,7 @@
   seconds: 14411
   tombstone: 2025-10-02 02:20:10.571257934 Z
   what: code-was-contributed
-  when: *214
+  when: *207
   where: github
   who: 20803206
 - _id: 135277
@@ -28527,7 +27813,7 @@
   seconds: 1280
   tombstone: 2025-10-02 02:20:10.588622606 Z
   what: code-was-contributed
-  when: *215
+  when: *208
   where: github
   who: 231433
 - _id: 135278
@@ -28546,7 +27832,7 @@
   seconds: 19141
   tombstone: 2025-10-02 02:20:10.606846771 Z
   what: code-was-contributed
-  when: *216
+  when: *209
   where: github
   who: 20803206
 - _id: 135279
@@ -28565,7 +27851,7 @@
   seconds: 18389
   tombstone: 2025-10-02 02:20:10.622643542 Z
   what: code-was-contributed
-  when: *217
+  when: *210
   where: github
   who: 20803206
 - _id: 135281
@@ -28581,7 +27867,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.637831165 Z
   what: dud-was-closed
-  when: *218
+  when: *211
   where: github
   who: 1987026
 - _id: 135282
@@ -28597,7 +27883,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.664429486 Z
   what: dud-was-closed
-  when: *219
+  when: *212
   where: github
   who: 20803206
 - _id: 135283
@@ -28613,7 +27899,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.682105926 Z
   what: dud-was-closed
-  when: *220
+  when: *213
   where: github
   who: 20803206
 - _id: 135284
@@ -28629,7 +27915,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.699028115 Z
   what: dud-was-closed
-  when: *221
+  when: *214
   where: github
   who: 20803206
 - _id: 135285
@@ -28645,7 +27931,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.716409680 Z
   what: dud-was-closed
-  when: *222
+  when: *215
   where: github
   who: 43099602
 - _id: 135286
@@ -28661,7 +27947,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.742484587 Z
   what: dud-was-closed
-  when: *223
+  when: *216
   where: github
   who: 1987026
 - _id: 135287
@@ -28677,7 +27963,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.777404656 Z
   what: dud-was-closed
-  when: *224
+  when: *217
   where: github
   who: 20803206
 - _id: 135288
@@ -28693,7 +27979,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.806930969 Z
   what: dud-was-closed
-  when: *225
+  when: *218
   where: github
   who: 20803206
 - _id: 135289
@@ -28709,7 +27995,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.824638802 Z
   what: dud-was-closed
-  when: *226
+  when: *219
   where: github
   who: 20803206
 - _id: 135290
@@ -28725,7 +28011,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.841898352 Z
   what: dud-was-closed
-  when: *227
+  when: *220
   where: github
   who: 20803206
 - _id: 135291
@@ -28741,7 +28027,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.859710818 Z
   what: dud-was-closed
-  when: *228
+  when: *221
   where: github
   who: 1524988
 - _id: 135292
@@ -28757,7 +28043,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.877472458 Z
   what: dud-was-closed
-  when: *229
+  when: *222
   where: github
   who: 231433
 - _id: 135293
@@ -28773,7 +28059,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.892901081 Z
   what: dud-was-closed
-  when: *230
+  when: *223
   where: github
   who: 231433
 - _id: 135294
@@ -28789,7 +28075,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.909407402 Z
   what: dud-was-closed
-  when: *231
+  when: *224
   where: github
   who: 231433
 - _id: 135295
@@ -28805,7 +28091,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.938875054 Z
   what: dud-was-closed
-  when: *232
+  when: *225
   where: github
   who: 20803206
 - _id: 135296
@@ -28821,7 +28107,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.956756908 Z
   what: dud-was-closed
-  when: *233
+  when: *226
   where: github
   who: 20803206
 - _id: 135297
@@ -28837,7 +28123,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.974042957 Z
   what: dud-was-closed
-  when: *234
+  when: *227
   where: github
   who: 43099602
 - _id: 135298
@@ -28853,7 +28139,7 @@
   repository: 237167507
   tombstone: 2025-10-02 02:20:10.991192678 Z
   what: dud-was-closed
-  when: *235
+  when: *228
   where: github
   who: 20803206
 - _id: 135300
@@ -29507,7 +28793,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:46.623151549 Z
   what: issue-was-opened
-  when: &236 2020-02-04 12:54:53.000000000 Z
+  when: &229 2020-02-04 12:54:53.000000000 Z
   where: github
   who: 526301
 - _id: 135351
@@ -29519,7 +28805,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:46.682452966 Z
   what: issue-was-opened
-  when: &237 2020-02-04 14:07:01.000000000 Z
+  when: &230 2020-02-04 14:07:01.000000000 Z
   where: github
   who: 9687716
 - _id: 135352
@@ -29531,7 +28817,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:46.722893410 Z
   what: issue-was-opened
-  when: &238 2020-02-05 05:37:24.000000000 Z
+  when: &231 2020-02-05 05:37:24.000000000 Z
   where: github
   who: 9687716
 - _id: 135353
@@ -29543,7 +28829,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:46.753518061 Z
   what: issue-was-opened
-  when: &239 2020-02-07 13:17:01.000000000 Z
+  when: &232 2020-02-07 13:17:01.000000000 Z
   where: github
   who: 20803206
 - _id: 135354
@@ -29555,7 +28841,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:46.794000704 Z
   what: issue-was-opened
-  when: &240 2020-02-10 06:02:46.000000000 Z
+  when: &233 2020-02-10 06:02:46.000000000 Z
   where: github
   who: 526301
 - _id: 135355
@@ -29567,7 +28853,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:46.825207137 Z
   what: issue-was-opened
-  when: &241 2020-02-10 13:31:35.000000000 Z
+  when: &234 2020-02-10 13:31:35.000000000 Z
   where: github
   who: 20803206
 - _id: 135356
@@ -29579,7 +28865,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:46.863812134 Z
   what: issue-was-opened
-  when: &242 2020-03-02 10:29:06.000000000 Z
+  when: &235 2020-03-02 10:29:06.000000000 Z
   where: github
   who: 20803206
 - _id: 135357
@@ -29591,7 +28877,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:46.895152064 Z
   what: issue-was-opened
-  when: &243 2020-03-03 10:03:02.000000000 Z
+  when: &236 2020-03-03 10:03:02.000000000 Z
   where: github
   who: 20803206
 - _id: 135358
@@ -29603,7 +28889,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:46.935013594 Z
   what: issue-was-opened
-  when: &244 2020-03-03 10:05:04.000000000 Z
+  when: &237 2020-03-03 10:05:04.000000000 Z
   where: github
   who: 20803206
 - _id: 135359
@@ -29615,7 +28901,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:46.966724346 Z
   what: issue-was-opened
-  when: &245 2020-03-15 13:35:40.000000000 Z
+  when: &238 2020-03-15 13:35:40.000000000 Z
   where: github
   who: 160975
 - _id: 135360
@@ -29627,7 +28913,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.006116964 Z
   what: issue-was-opened
-  when: &246 2020-03-18 08:32:10.000000000 Z
+  when: &239 2020-03-18 08:32:10.000000000 Z
   where: github
   who: 526301
 - _id: 135361
@@ -29639,7 +28925,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.037403815 Z
   what: issue-was-opened
-  when: &247 2020-03-18 15:15:06.000000000 Z
+  when: &240 2020-03-18 15:15:06.000000000 Z
   where: github
   who: 526301
 - _id: 135362
@@ -29651,7 +28937,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.111313170 Z
   what: issue-was-opened
-  when: &248 2020-03-18 16:01:27.000000000 Z
+  when: &241 2020-03-18 16:01:27.000000000 Z
   where: github
   who: 526301
 - _id: 135363
@@ -29663,7 +28949,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.161176899 Z
   what: issue-was-opened
-  when: &249 2020-03-18 16:07:45.000000000 Z
+  when: &242 2020-03-18 16:07:45.000000000 Z
   where: github
   who: 526301
 - _id: 135364
@@ -29675,7 +28961,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.201701266 Z
   what: issue-was-opened
-  when: &250 2020-03-18 18:10:46.000000000 Z
+  when: &243 2020-03-18 18:10:46.000000000 Z
   where: github
   who: 526301
 - _id: 135365
@@ -29687,7 +28973,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.247234922 Z
   what: issue-was-opened
-  when: &251 2020-03-18 18:19:33.000000000 Z
+  when: &244 2020-03-18 18:19:33.000000000 Z
   where: github
   who: 526301
 - _id: 135366
@@ -29699,7 +28985,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.287393672 Z
   what: issue-was-opened
-  when: &252 2020-03-18 18:28:31.000000000 Z
+  when: &245 2020-03-18 18:28:31.000000000 Z
   where: github
   who: 526301
 - _id: 135367
@@ -29711,7 +28997,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.318947622 Z
   what: issue-was-opened
-  when: &253 2020-03-18 18:30:31.000000000 Z
+  when: &246 2020-03-18 18:30:31.000000000 Z
   where: github
   who: 526301
 - _id: 135368
@@ -29723,7 +29009,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.358484458 Z
   what: issue-was-opened
-  when: &254 2020-03-18 18:38:10.000000000 Z
+  when: &247 2020-03-18 18:38:10.000000000 Z
   where: github
   who: 526301
 - _id: 135369
@@ -29735,7 +29021,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.390800838 Z
   what: issue-was-opened
-  when: &255 2020-03-18 18:56:57.000000000 Z
+  when: &248 2020-03-18 18:56:57.000000000 Z
   where: github
   who: 526301
 - _id: 135370
@@ -29747,7 +29033,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.428750366 Z
   what: issue-was-opened
-  when: &256 2020-03-18 19:01:02.000000000 Z
+  when: &249 2020-03-18 19:01:02.000000000 Z
   where: github
   who: 526301
 - _id: 135371
@@ -29759,7 +29045,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.461396046 Z
   what: issue-was-opened
-  when: &257 2020-03-20 21:46:54.000000000 Z
+  when: &250 2020-03-20 21:46:54.000000000 Z
   where: github
   who: 3613180
 - _id: 135372
@@ -29771,7 +29057,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.499278195 Z
   what: issue-was-opened
-  when: &258 2020-03-26 13:03:06.000000000 Z
+  when: &251 2020-03-26 13:03:06.000000000 Z
   where: github
   who: 526301
 - _id: 135373
@@ -29783,7 +29069,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.531904392 Z
   what: issue-was-opened
-  when: &259 2020-03-26 13:09:33.000000000 Z
+  when: &252 2020-03-26 13:09:33.000000000 Z
   where: github
   who: 526301
 - _id: 135374
@@ -29795,7 +29081,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.570995379 Z
   what: issue-was-opened
-  when: &260 2020-03-27 00:19:29.000000000 Z
+  when: &253 2020-03-27 00:19:29.000000000 Z
   where: github
   who: 3167940
 - _id: 135375
@@ -29807,7 +29093,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.603811017 Z
   what: issue-was-opened
-  when: &261 2020-03-27 13:45:41.000000000 Z
+  when: &254 2020-03-27 13:45:41.000000000 Z
   where: github
   who: 526301
 - _id: 135376
@@ -29819,7 +29105,7 @@
   repository: 237167507
   tombstone: 2025-10-02 04:02:47.642645634 Z
   what: issue-was-opened
-  when: &262 2020-05-28 06:48:02.000000000 Z
+  when: &255 2020-05-28 06:48:02.000000000 Z
   where: github
   who: 526301
 - _id: 135377
@@ -29845,7 +29131,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:19.674052274 Z
   what: issue-was-opened
-  when: &264 2020-07-28 15:04:08.000000000 Z
+  when: &257 2020-07-28 15:04:08.000000000 Z
   where: github
   who: 20803206
 - _id: 135379
@@ -29858,7 +29144,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:19.727877085 Z
   what: issue-was-opened
-  when: &265 2020-07-29 15:21:39.000000000 Z
+  when: &258 2020-07-29 15:21:39.000000000 Z
   where: github
   who: 20803206
 - _id: 135380
@@ -29871,7 +29157,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:19.780583731 Z
   what: issue-was-opened
-  when: &266 2020-07-31 11:24:20.000000000 Z
+  when: &259 2020-07-31 11:24:20.000000000 Z
   where: github
   who: 1524988
 - _id: 135381
@@ -29884,7 +29170,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:19.833436581 Z
   what: issue-was-opened
-  when: &267 2020-08-04 13:07:59.000000000 Z
+  when: &260 2020-08-04 13:07:59.000000000 Z
   where: github
   who: 1987026
 - _id: 135382
@@ -29897,7 +29183,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:19.899447870 Z
   what: issue-was-opened
-  when: &268 2020-08-05 06:23:51.000000000 Z
+  when: &261 2020-08-05 06:23:51.000000000 Z
   where: github
   who: 231433
 - _id: 135383
@@ -29936,7 +29222,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:19.952216942 Z
   what: issue-was-opened
-  when: &269 2020-08-10 08:39:45.000000000 Z
+  when: &262 2020-08-10 08:39:45.000000000 Z
   where: github
   who: 526301
 - _id: 135386
@@ -29949,7 +29235,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:20.024783371 Z
   what: issue-was-opened
-  when: &270 2020-08-10 08:44:42.000000000 Z
+  when: &263 2020-08-10 08:44:42.000000000 Z
   where: github
   who: 526301
 - _id: 135387
@@ -29962,7 +29248,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:20.080397174 Z
   what: issue-was-opened
-  when: &271 2020-08-14 06:52:22.000000000 Z
+  when: &264 2020-08-14 06:52:22.000000000 Z
   where: github
   who: 1987026
 - _id: 135388
@@ -30001,7 +29287,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:20.152956386 Z
   what: issue-was-opened
-  when: &272 2020-08-18 10:05:25.000000000 Z
+  when: &265 2020-08-18 10:05:25.000000000 Z
   where: github
   who: 20803206
 - _id: 135391
@@ -30040,7 +29326,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:20.207650636 Z
   what: issue-was-opened
-  when: &273 2020-08-24 10:03:30.000000000 Z
+  when: &266 2020-08-24 10:03:30.000000000 Z
   where: github
   who: 1987026
 - _id: 135394
@@ -30053,7 +29339,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:20.282434867 Z
   what: issue-was-opened
-  when: &274 2020-08-25 10:14:14.000000000 Z
+  when: &267 2020-08-25 10:14:14.000000000 Z
   where: github
   who: 1987026
 - _id: 135395
@@ -30066,7 +29352,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:20.357339764 Z
   what: issue-was-opened
-  when: &275 2020-08-25 18:44:10.000000000 Z
+  when: &268 2020-08-25 18:44:10.000000000 Z
   where: github
   who: 1987026
 - _id: 135396
@@ -30079,7 +29365,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:20.434599882 Z
   what: issue-was-opened
-  when: &276 2020-08-25 19:17:08.000000000 Z
+  when: &269 2020-08-25 19:17:08.000000000 Z
   where: github
   who: 1987026
 - _id: 135397
@@ -30092,7 +29378,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:20.511809246 Z
   what: issue-was-opened
-  when: &277 2020-09-15 11:58:45.000000000 Z
+  when: &270 2020-09-15 11:58:45.000000000 Z
   where: github
   who: 1987026
 - _id: 135398
@@ -30105,7 +29391,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:20.588116336 Z
   what: issue-was-opened
-  when: &278 2020-09-15 14:15:52.000000000 Z
+  when: &271 2020-09-15 14:15:52.000000000 Z
   where: github
   who: 1987026
 - _id: 135399
@@ -30118,7 +29404,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:20.663872172 Z
   what: issue-was-opened
-  when: &279 2020-09-15 18:47:10.000000000 Z
+  when: &272 2020-09-15 18:47:10.000000000 Z
   where: github
   who: 43099602
 - _id: 135400
@@ -30157,7 +29443,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:20.717052457 Z
   what: issue-was-opened
-  when: &280 2020-09-18 08:30:52.000000000 Z
+  when: &273 2020-09-18 08:30:52.000000000 Z
   where: github
   who: 1987026
 - _id: 135403
@@ -31751,7 +31037,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.103621780 Z
   what: dud-was-closed
-  when: *236
+  when: *229
   where: github
   who: 526301
 - _id: 135495
@@ -31767,7 +31053,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.126643451 Z
   what: dud-was-closed
-  when: *237
+  when: *230
   where: github
   who: 9687716
 - _id: 135496
@@ -31783,7 +31069,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.143826908 Z
   what: dud-was-closed
-  when: *238
+  when: *231
   where: github
   who: 9687716
 - _id: 135497
@@ -31799,7 +31085,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.160455656 Z
   what: dud-was-closed
-  when: *239
+  when: *232
   where: github
   who: 20803206
 - _id: 135498
@@ -31815,7 +31101,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.181129887 Z
   what: dud-was-closed
-  when: *240
+  when: *233
   where: github
   who: 526301
 - _id: 135499
@@ -31831,7 +31117,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.200314119 Z
   what: dud-was-closed
-  when: *241
+  when: *234
   where: github
   who: 20803206
 - _id: 135500
@@ -31847,7 +31133,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.217206520 Z
   what: dud-was-closed
-  when: *242
+  when: *235
   where: github
   who: 20803206
 - _id: 135501
@@ -31863,7 +31149,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.239443027 Z
   what: dud-was-closed
-  when: *243
+  when: *236
   where: github
   who: 20803206
 - _id: 135502
@@ -31879,7 +31165,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.257665381 Z
   what: dud-was-closed
-  when: *244
+  when: *237
   where: github
   who: 20803206
 - _id: 135503
@@ -31895,7 +31181,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.274177604 Z
   what: dud-was-closed
-  when: *245
+  when: *238
   where: github
   who: 160975
 - _id: 135504
@@ -31911,7 +31197,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.296284139 Z
   what: dud-was-closed
-  when: *246
+  when: *239
   where: github
   who: 526301
 - _id: 135505
@@ -31927,7 +31213,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.314126427 Z
   what: dud-was-closed
-  when: *247
+  when: *240
   where: github
   who: 526301
 - _id: 135506
@@ -31943,7 +31229,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.330941939 Z
   what: dud-was-closed
-  when: *248
+  when: *241
   where: github
   who: 526301
 - _id: 135507
@@ -31959,7 +31245,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.353240140 Z
   what: dud-was-closed
-  when: *249
+  when: *242
   where: github
   who: 526301
 - _id: 135508
@@ -31975,7 +31261,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.371094959 Z
   what: dud-was-closed
-  when: *250
+  when: *243
   where: github
   who: 526301
 - _id: 135509
@@ -31991,7 +31277,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.387937631 Z
   what: dud-was-closed
-  when: *251
+  when: *244
   where: github
   who: 526301
 - _id: 135510
@@ -32007,7 +31293,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.410636029 Z
   what: dud-was-closed
-  when: *252
+  when: *245
   where: github
   who: 526301
 - _id: 135511
@@ -32023,7 +31309,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.428243097 Z
   what: dud-was-closed
-  when: *253
+  when: *246
   where: github
   who: 526301
 - _id: 135512
@@ -32039,7 +31325,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.444843355 Z
   what: dud-was-closed
-  when: *254
+  when: *247
   where: github
   who: 526301
 - _id: 135513
@@ -32055,7 +31341,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.466918895 Z
   what: dud-was-closed
-  when: *255
+  when: *248
   where: github
   who: 526301
 - _id: 135514
@@ -32071,7 +31357,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.484027879 Z
   what: dud-was-closed
-  when: *256
+  when: *249
   where: github
   who: 526301
 - _id: 135515
@@ -32087,7 +31373,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.500877255 Z
   what: dud-was-closed
-  when: *257
+  when: *250
   where: github
   who: 3613180
 - _id: 135516
@@ -32103,7 +31389,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.523085030 Z
   what: dud-was-closed
-  when: *258
+  when: *251
   where: github
   who: 526301
 - _id: 135517
@@ -32119,7 +31405,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.540738352 Z
   what: dud-was-closed
-  when: *259
+  when: *252
   where: github
   who: 526301
 - _id: 135518
@@ -32135,7 +31421,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.557428473 Z
   what: dud-was-closed
-  when: *260
+  when: *253
   where: github
   who: 3167940
 - _id: 135519
@@ -32151,7 +31437,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.579689198 Z
   what: dud-was-closed
-  when: *261
+  when: *254
   where: github
   who: 526301
 - _id: 135520
@@ -32167,7 +31453,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:16.597234280 Z
   what: dud-was-closed
-  when: *262
+  when: *255
   where: github
   who: 526301
 - _id: 135523
@@ -33146,7 +32432,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:01:19.555811089 Z
   what: label-was-attached
-  when: &263 2020-07-24 11:29:16.000000000 Z
+  when: &256 2020-07-24 11:29:16.000000000 Z
   where: github
   who: 1987026
 - _id: 135600
@@ -33161,7 +32447,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:00.937792923 Z
   what: bug-was-accepted
-  when: *263
+  when: *256
   where: github
   who: 1987026
 - _id: 135601
@@ -33177,7 +32463,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:00.952282003 Z
   what: dud-was-closed
-  when: *264
+  when: *257
   where: github
   who: 20803206
 - _id: 135602
@@ -33193,7 +32479,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:00.974583057 Z
   what: dud-was-closed
-  when: *265
+  when: *258
   where: github
   who: 20803206
 - _id: 135603
@@ -33209,7 +32495,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:00.991733302 Z
   what: dud-was-closed
-  when: *266
+  when: *259
   where: github
   who: 1524988
 - _id: 135604
@@ -33225,7 +32511,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.008078440 Z
   what: dud-was-closed
-  when: *267
+  when: *260
   where: github
   who: 1987026
 - _id: 135605
@@ -33241,7 +32527,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.022937609 Z
   what: dud-was-closed
-  when: *268
+  when: *261
   where: github
   who: 231433
 - _id: 135606
@@ -33257,7 +32543,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.045417702 Z
   what: dud-was-closed
-  when: *269
+  when: *262
   where: github
   who: 526301
 - _id: 135607
@@ -33273,7 +32559,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.062170646 Z
   what: dud-was-closed
-  when: *270
+  when: *263
   where: github
   who: 526301
 - _id: 135608
@@ -33289,7 +32575,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.078624715 Z
   what: dud-was-closed
-  when: *271
+  when: *264
   where: github
   who: 1987026
 - _id: 135609
@@ -33305,7 +32591,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.093168669 Z
   what: dud-was-closed
-  when: *272
+  when: *265
   where: github
   who: 20803206
 - _id: 135610
@@ -33321,7 +32607,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.115456389 Z
   what: dud-was-closed
-  when: *273
+  when: *266
   where: github
   who: 1987026
 - _id: 135611
@@ -33337,7 +32623,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.132598336 Z
   what: dud-was-closed
-  when: *274
+  when: *267
   where: github
   who: 1987026
 - _id: 135612
@@ -33353,7 +32639,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.149011886 Z
   what: dud-was-closed
-  when: *275
+  when: *268
   where: github
   who: 1987026
 - _id: 135613
@@ -33369,7 +32655,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.163417485 Z
   what: dud-was-closed
-  when: *276
+  when: *269
   where: github
   who: 1987026
 - _id: 135614
@@ -33385,7 +32671,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.185218565 Z
   what: dud-was-closed
-  when: *277
+  when: *270
   where: github
   who: 1987026
 - _id: 135615
@@ -33401,7 +32687,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.202129316 Z
   what: dud-was-closed
-  when: *278
+  when: *271
   where: github
   who: 1987026
 - _id: 135616
@@ -33417,7 +32703,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.218270705 Z
   what: dud-was-closed
-  when: *279
+  when: *272
   where: github
   who: 43099602
 - _id: 135617
@@ -33433,7 +32719,7 @@
   repository: 237167507
   tombstone: 2025-10-02 05:02:01.232743938 Z
   what: dud-was-closed
-  when: *280
+  when: *273
   where: github
   who: 1987026
 - _id: 135619
@@ -33502,7 +32788,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.630579073 Z
   what: issue-was-opened
-  when: &281 2020-07-20 09:56:03.000000000 Z
+  when: &274 2020-07-20 09:56:03.000000000 Z
   where: github
   who: 1987026
 - _id: 135625
@@ -33515,7 +32801,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.601129523 Z
   what: issue-was-opened
-  when: &282 2020-07-20 09:54:11.000000000 Z
+  when: &275 2020-07-20 09:54:11.000000000 Z
   where: github
   who: 1987026
 - _id: 135626
@@ -33528,7 +32814,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.561648857 Z
   what: issue-was-opened
-  when: &283 2020-07-20 09:48:47.000000000 Z
+  when: &276 2020-07-20 09:48:47.000000000 Z
   where: github
   who: 1987026
 - _id: 135627
@@ -33554,7 +32840,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.532947886 Z
   what: issue-was-opened
-  when: &284 2020-07-17 14:16:45.000000000 Z
+  when: &277 2020-07-17 14:16:45.000000000 Z
   where: github
   who: 1987026
 - _id: 135629
@@ -33567,7 +32853,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.503812744 Z
   what: issue-was-opened
-  when: &285 2020-07-16 14:58:53.000000000 Z
+  when: &278 2020-07-16 14:58:53.000000000 Z
   where: github
   who: 20803206
 - _id: 135630
@@ -33580,7 +32866,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.475674021 Z
   what: issue-was-opened
-  when: &286 2020-07-15 12:18:43.000000000 Z
+  when: &279 2020-07-15 12:18:43.000000000 Z
   where: github
   who: 231433
 - _id: 135631
@@ -33593,7 +32879,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.435442726 Z
   what: issue-was-opened
-  when: &287 2020-07-14 07:26:04.000000000 Z
+  when: &280 2020-07-14 07:26:04.000000000 Z
   where: github
   who: 526301
 - _id: 135632
@@ -33619,7 +32905,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.410534073 Z
   what: issue-was-opened
-  when: &288 2020-07-13 16:42:09.000000000 Z
+  when: &281 2020-07-13 16:42:09.000000000 Z
   where: github
   who: 526301
 - _id: 135634
@@ -33632,7 +32918,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.382681459 Z
   what: issue-was-opened
-  when: &289 2020-07-13 13:43:00.000000000 Z
+  when: &282 2020-07-13 13:43:00.000000000 Z
   where: github
   who: 526301
 - _id: 135635
@@ -33645,7 +32931,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.354097259 Z
   what: issue-was-opened
-  when: &290 2020-07-08 14:58:04.000000000 Z
+  when: &283 2020-07-08 14:58:04.000000000 Z
   where: github
   who: 20803206
 - _id: 135636
@@ -33658,7 +32944,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.313751757 Z
   what: issue-was-opened
-  when: &291 2020-05-29 10:38:52.000000000 Z
+  when: &284 2020-05-29 10:38:52.000000000 Z
   where: github
   who: 231433
 - _id: 135637
@@ -33671,7 +32957,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.289074261 Z
   what: issue-was-opened
-  when: &292 2020-05-29 03:22:35.000000000 Z
+  when: &285 2020-05-29 03:22:35.000000000 Z
   where: github
   who: 526301
 - _id: 135638
@@ -33684,7 +32970,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:03:35.261737318 Z
   what: issue-was-opened
-  when: &293 2020-05-28 11:43:20.000000000 Z
+  when: &286 2020-05-28 11:43:20.000000000 Z
   where: github
   who: 1524988
 - _id: 135639
@@ -35594,7 +34880,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.654035368 Z
   what: dud-was-closed
-  when: *281
+  when: *274
   where: github
   who: 1987026
 - _id: 135741
@@ -35610,7 +34896,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.672376064 Z
   what: dud-was-closed
-  when: *282
+  when: *275
   where: github
   who: 1987026
 - _id: 135742
@@ -35626,7 +34912,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.691498185 Z
   what: dud-was-closed
-  when: *283
+  when: *276
   where: github
   who: 1987026
 - _id: 135743
@@ -35642,7 +34928,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.707190246 Z
   what: dud-was-closed
-  when: *284
+  when: *277
   where: github
   who: 1987026
 - _id: 135744
@@ -35658,7 +34944,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.729218768 Z
   what: dud-was-closed
-  when: *285
+  when: *278
   where: github
   who: 20803206
 - _id: 135745
@@ -35674,7 +34960,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.745963418 Z
   what: dud-was-closed
-  when: *286
+  when: *279
   where: github
   who: 231433
 - _id: 135746
@@ -35690,7 +34976,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.761401065 Z
   what: dud-was-closed
-  when: *287
+  when: *280
   where: github
   who: 526301
 - _id: 135747
@@ -35706,7 +34992,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.783292434 Z
   what: dud-was-closed
-  when: *288
+  when: *281
   where: github
   who: 526301
 - _id: 135748
@@ -35722,7 +35008,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.800205474 Z
   what: dud-was-closed
-  when: *289
+  when: *282
   where: github
   who: 526301
 - _id: 135749
@@ -35738,7 +35024,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.815775815 Z
   what: dud-was-closed
-  when: *290
+  when: *283
   where: github
   who: 20803206
 - _id: 135750
@@ -35754,7 +35040,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.836993234 Z
   what: dud-was-closed
-  when: *291
+  when: *284
   where: github
   who: 231433
 - _id: 135751
@@ -35770,7 +35056,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.854193856 Z
   what: dud-was-closed
-  when: *292
+  when: *285
   where: github
   who: 526301
 - _id: 135752
@@ -35786,7 +35072,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:17.870050003 Z
   what: dud-was-closed
-  when: *293
+  when: *286
   where: github
   who: 1524988
 - _id: 135754
@@ -36073,7 +35359,7 @@
   repository: 237167507
   tombstone: 2025-10-02 06:59:19.438863166 Z
   what: issue-was-opened
-  when: &294 2020-04-01 21:02:48.000000000 Z
+  when: &287 2020-04-01 21:02:48.000000000 Z
   where: github
   who: 526301
 - _id: 135777
@@ -36804,59 +36090,9 @@
   repository: 237167507
   tombstone: 2025-10-02 08:00:30.285949078 Z
   what: dud-was-closed
-  when: *294
+  when: *287
   where: github
   who: 526301
-- _id: 135838
-  _job: 40861
-  _time: 2025-10-02 08:00:30.960161537 Z
-  _version: 0.16.7/0.54.0/0.15.48!0.15.49
-  issues:
-  - 1-76
-  - 78-115
-  - 117-124
-  - 126-149
-  - 151-160
-  - 162-165
-  - 167-181
-  - 183-279
-  - '281'
-  - '284'
-  - 287-318
-  - 320-335
-  - 337-342
-  - 345-348
-  - 350-365
-  - 367-369
-  - 371-417
-  - 419-430
-  - 435-437
-  - 439-453
-  - 455-462
-  - 464-484
-  - 490-527
-  - 529-535
-  - 537-538
-  - 541-550
-  - '553'
-  - '555'
-  - 557-561
-  - 563-566
-  - 568-569
-  - 571-583
-  - 585-586
-  - 588-595
-  - 597-598
-  - 601-613
-  - 615-641
-  - 643-645
-  - 647-651
-  - 654-655
-  - 661-666
-  - '670'
-  repository: 237167507
-  what: tombstone
-  where: github
 - _id: 135839
   _job: 18188282316
   _time: 2025-10-02 08:55:53.383740610 Z
@@ -37319,20 +36555,1517 @@
   total_stars: 92
   what: dimensions-of-terrain
   when: 2025-10-02 08:57:57.450905041 Z
-- _id: 135875
-  _job: 18188282316
-  _time: 2025-10-02 08:58:44.081889201 Z
+- _id: 135877
+  _job: 40872
+  _time: 2025-10-02 08:59:41.367851984 Z
+  _version: 0.16.7/0.54.0/0.15.48!0.15.49
+  analyzers: 18
+  text: |-
+    The average reward per task (8.3 points) is decreasing (R=-0.15).
+    The average punishment per task (15.0 points) is staying still.
+    The average bugs accepted per month (13.0) is decreasing (R=-0.90).
+    The average monthly punishment (109 points) is decreasing (R=-0.88).
+    The average monthly wage (8.4 points) is decreasing (R=-0.11).
+    The average issue cycle time (6d3h) is increasing (R=0.40).
+    The average pull cycle time (1d7h) is increasing (R=0.17).
+    The average monthly turnover (18.0 developers) is decreasing (R=-0.77).
+  what: assessment
+  when: 2025-10-02 08:59:41.375628749 Z
+- _id: 135878
+  _job: 40872
+  _time: 2025-10-02 09:00:09.663489256 Z
+  _version: 0.16.7/0.54.0/0.15.48!0.15.49
+  issues:
+  - 1-76
+  - 78-115
+  - 117-124
+  - 126-149
+  - 151-160
+  - 162-165
+  - 167-181
+  - 183-279
+  - '281'
+  - '284'
+  - 287-318
+  - 320-335
+  - 337-342
+  - 345-348
+  - 350-365
+  - 367-369
+  - 371-417
+  - 419-430
+  - 435-437
+  - 439-453
+  - 455-462
+  - 464-484
+  - 490-527
+  - 529-535
+  - 537-538
+  - 541-550
+  - '553'
+  - '555'
+  - 557-561
+  - 563-566
+  - 568-569
+  - 571-583
+  - 585-586
+  - 588-595
+  - 597-598
+  - 601-613
+  - 615-641
+  - 643-645
+  - 647-651
+  - 654-655
+  - 661-666
+  - '670'
+  repository: 237167507
+  what: tombstone
+  where: github
+- _id: 135880
+  _job: 18189634592
+  _time: 2025-10-02 09:55:35.932670657 Z
   _version: 0.16.7/0.54.0/0.15.48
-  assignees_were_scanned: 862
+  details: The issue cqfn/aibolit#565 has been earlier opened by @lyriccoder.
+  is_human: 1
+  issue: 565
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-24 10:54:07.000000000 Z
+  where: github
+  who: 20803206
+- _id: 135881
+  _job: 18189634592
+  _time: 2025-10-02 09:55:36.226201139 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  details: The issue cqfn/aibolit#550 has been earlier opened by @aravij.
+  is_human: 1
+  issue: 550
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-20 15:59:54.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135882
+  _job: 18189634592
+  _time: 2025-10-02 09:55:36.414213863 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  details: The issue cqfn/aibolit#538 has been earlier opened by @aravij.
+  is_human: 1
+  issue: 538
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-20 10:18:20.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135883
+  _job: 18189634592
+  _time: 2025-10-02 09:55:36.738864768 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  details: The issue cqfn/aibolit#534 has been earlier opened by @aravij.
+  is_human: 1
+  issue: 534
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-20 09:49:30.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135884
+  _job: 18189634592
+  _time: 2025-10-02 09:55:36.824782306 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  details: The issue cqfn/aibolit#532 has been earlier opened by @aravij.
+  is_human: 1
+  issue: 532
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-20 09:44:42.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135885
+  _job: 18189634592
+  _time: 2025-10-02 09:55:36.905063161 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  details: The issue cqfn/aibolit#530 has been earlier opened by @aravij.
+  is_human: 1
+  issue: 530
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-20 09:39:46.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135886
+  _job: 18189634592
+  _time: 2025-10-02 09:55:37.168379369 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  details: The issue cqfn/aibolit#520 has been earlier opened by @aravij.
+  is_human: 1
+  issue: 520
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-15 09:55:01.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135887
+  _job: 18189634592
+  _time: 2025-10-02 09:55:37.317595889 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  details: The issue cqfn/aibolit#510 has been earlier opened by @vitaly-protasov.
+  is_human: 1
+  issue: 510
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-13 16:02:30.000000000 Z
+  where: github
+  who: 43099602
+- _id: 135888
+  _job: 18189634592
+  _time: 2025-10-02 09:55:37.468330542 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  details: The issue cqfn/aibolit#508 has been earlier opened by @vitaly-protasov.
+  is_human: 1
+  issue: 508
+  repository: 237167507
+  what: issue-was-opened
+  when: 2020-07-13 15:26:45.000000000 Z
+  where: github
+  who: 43099602
+- _id: 135890
+  _job: 18189634592
+  _time: 2025-10-02 09:55:57.325191650 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: master
+  comments: 4
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#179 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 9
+  hoc: 278
+  is_human: 1
+  issue: 179
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-08 15:44:33.000000000 Z
+  where: github
+  who: 43099602
+- _id: 135891
+  _job: 18189634592
+  _time: 2025-10-02 09:56:05.568175730 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: unittest
+  comments: 13
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 11
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#185 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 1
+  hoc: 29
+  is_human: 1
+  issue: 185
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-10 07:30:31.000000000 Z
+  where: github
+  who: 43099602
+- _id: 135892
+  _job: 18189634592
+  _time: 2025-10-02 09:56:09.814002966 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: master
+  comments: 8
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#205 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 3
+  hoc: 12844
+  is_human: 1
+  issue: 205
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-21 18:13:45.000000000 Z
+  where: github
+  who: 231433
+- _id: 135893
+  _job: 18189634592
+  _time: 2025-10-02 09:56:12.870311120 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: '148'
+  comments: 8
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#211 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 7
+  hoc: 102
+  is_human: 1
+  issue: 211
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-15 16:42:31.000000000 Z
+  where: github
+  who: 231433
+- _id: 135894
+  _job: 18189634592
+  _time: 2025-10-02 09:56:15.796116623 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: master
+  comments: 0
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 0
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#234 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 0
+  hoc: 0
+  is_human: 1
+  issue: 234
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-04-22 06:58:27.000000000 Z
+  where: github
+  who: 43099602
+- _id: 135895
+  _job: 18189634592
+  _time: 2025-10-02 09:56:19.693698560 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: '195'
+  comments: 3
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 3
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#249 has been 'pull-was-closed'.
+  failed_builds: 0
+  files: 14
+  hoc: 6885
+  is_human: 1
+  issue: 249
+  repository: 237167507
+  succeeded_builds: 0
+  what: pull-was-closed
+  when: 2020-05-01 05:21:23.000000000 Z
+  where: github
+  who: 231433
+- _id: 135896
+  _job: 18189634592
+  _time: 2025-10-02 09:56:22.111341783 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue_528_10
+  comments: 8
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 2
+  details: Apparently, cqfn/aibolit#547 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 24
+  is_human: 0
+  issue: 547
+  repository: 237167507
+  review_comments: 2
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-07-22 08:43:10.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135897
+  _job: 18189634592
+  _time: 2025-10-02 09:56:25.092909606 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue_528_11
+  comments: 17
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 15
+  comments_resolved: 0
+  comments_to_code: 5
+  details: Apparently, cqfn/aibolit#548 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 24
+  is_human: 0
+  issue: 548
+  repository: 237167507
+  review_comments: 5
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-07-22 08:24:59.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135898
+  _job: 18189634592
+  _time: 2025-10-02 09:56:29.220070941 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue_528_12
+  comments: 3
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 3
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#549 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 48
+  is_human: 0
+  issue: 549
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-07-21 09:25:40.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135899
+  _job: 18189634592
+  _time: 2025-10-02 09:56:31.413409146 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue_528_18
+  comments: 30
+  comments_appreciated: 1
+  comments_by_author: 11
+  comments_by_reviewers: 19
+  comments_resolved: 12
+  comments_to_code: 27
+  details: Apparently, cqfn/aibolit#553 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 84
+  is_human: 0
+  issue: 553
+  repository: 237167507
+  review_comments: 27
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-07-22 14:01:53.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135900
+  _job: 18189634592
+  _time: 2025-10-02 09:56:37.555656893 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-550
+  comments: 5
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#555 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 7
+  hoc: 141
+  is_human: 0
+  issue: 555
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-07-22 06:31:04.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135901
+  _job: 18189634592
+  _time: 2025-10-02 09:56:42.317371638 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue_528_8
+  comments: 14
+  comments_appreciated: 1
+  comments_by_author: 5
+  comments_by_reviewers: 9
+  comments_resolved: 6
+  comments_to_code: 11
+  details: Apparently, cqfn/aibolit#557 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 7
+  hoc: 172
+  is_human: 0
+  issue: 557
+  repository: 237167507
+  review_comments: 11
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-07-22 14:43:20.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135902
+  _job: 18189634592
+  _time: 2025-10-02 09:56:48.022907909 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-532
+  comments: 13
+  comments_appreciated: 0
+  comments_by_author: 5
+  comments_by_reviewers: 8
+  comments_resolved: 1
+  comments_to_code: 10
+  details: Apparently, cqfn/aibolit#558 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 10
+  hoc: 430
+  is_human: 0
+  issue: 558
+  repository: 237167507
+  review_comments: 10
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-07-30 07:09:51.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135903
+  _job: 18189634592
+  _time: 2025-10-02 09:56:51.658016912 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-538
+  comments: 5
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#559 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 6
+  hoc: 59
+  is_human: 0
+  issue: 559
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-07-26 14:29:57.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135904
+  _job: 18189634592
+  _time: 2025-10-02 09:56:53.930110396 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: acheshkov-patch-3
+  comments: 0
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 0
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#602 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 2
+  is_human: 1
+  issue: 602
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-07 09:28:45.000000000 Z
+  where: github
+  who: 231433
+- _id: 135905
+  _job: 18189634592
+  _time: 2025-10-02 09:56:55.483436937 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: acheshkov-patch-4
+  comments: 4
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 2
+  comments_resolved: 0
+  comments_to_code: 4
+  details: Apparently, cqfn/aibolit#604 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 5
+  is_human: 1
+  issue: 604
+  repository: 237167507
+  review_comments: 4
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-07 11:25:01.000000000 Z
+  where: github
+  who: 231433
+- _id: 135906
+  _job: 18189634592
+  _time: 2025-10-02 09:56:58.187954534 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: acheshkov-patch-3
+  comments: 0
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 0
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#605 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 2
+  is_human: 1
+  issue: 605
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-07 10:40:50.000000000 Z
+  where: github
+  who: 231433
+- _id: 135907
+  _job: 18189634592
+  _time: 2025-10-02 09:56:59.759646115 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: release_1.2.6
+  comments: 9
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 7
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#606 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 2
+  is_human: 0
+  issue: 606
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-13 14:28:37.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135908
+  _job: 18189634592
+  _time: 2025-10-02 09:57:02.609553500 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-570
+  comments: 3
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 3
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#607 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 15
+  hoc: 874
+  is_human: 0
+  issue: 607
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-08 09:29:33.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135909
+  _job: 18189634592
+  _time: 2025-10-02 09:57:04.761013900 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-608
+  comments: 12
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 9
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#610 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 15
+  is_human: 0
+  issue: 610
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-13 10:20:01.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135910
+  _job: 18189634592
+  _time: 2025-10-02 09:57:08.490267713 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-468
+  comments: 13
+  comments_appreciated: 1
+  comments_by_author: 4
+  comments_by_reviewers: 9
+  comments_resolved: 1
+  comments_to_code: 6
+  details: Apparently, cqfn/aibolit#611 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 91
+  hoc: 3073
+  is_human: 0
+  issue: 611
+  repository: 237167507
+  review_comments: 6
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-21 11:27:53.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135911
+  _job: 18189634592
+  _time: 2025-10-02 09:57:12.323900172 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-609
+  comments: 6
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#612 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 2
+  hoc: 13
+  is_human: 0
+  issue: 612
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-13 11:08:21.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135912
+  _job: 18189634592
+  _time: 2025-10-02 09:57:14.859819621 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: ranked_decomposed
+  comments: 11
+  comments_appreciated: 0
+  comments_by_author: 3
+  comments_by_reviewers: 8
+  comments_resolved: 1
+  comments_to_code: 2
+  details: Apparently, cqfn/aibolit#616 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 3
+  hoc: 211
+  is_human: 0
+  issue: 616
+  repository: 237167507
+  review_comments: 2
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-28 14:05:13.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135913
+  _job: 18189634592
+  _time: 2025-10-02 09:57:18.325659751 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: getter_ignore
+  comments: 13
+  comments_appreciated: 1
+  comments_by_author: 3
+  comments_by_reviewers: 10
+  comments_resolved: 1
+  comments_to_code: 2
+  details: Apparently, cqfn/aibolit#618 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 22
+  hoc: 90
+  is_human: 0
+  issue: 618
+  repository: 237167507
+  review_comments: 2
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-25 12:16:51.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135914
+  _job: 18189634592
+  _time: 2025-10-02 09:57:22.034202782 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-619
+  comments: 15
+  comments_appreciated: 0
+  comments_by_author: 4
+  comments_by_reviewers: 11
+  comments_resolved: 4
+  comments_to_code: 7
+  details: Apparently, cqfn/aibolit#620 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 12
+  hoc: 482
+  is_human: 0
+  issue: 620
+  repository: 237167507
+  review_comments: 7
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-24 11:49:33.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135915
+  _job: 18189634592
+  _time: 2025-10-02 09:57:25.756978102 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-507
+  comments: 23
+  comments_appreciated: 0
+  comments_by_author: 9
+  comments_by_reviewers: 14
+  comments_resolved: 2
+  comments_to_code: 3
+  details: Apparently, cqfn/aibolit#621 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 2
+  hoc: 35
+  is_human: 0
+  issue: 621
+  repository: 237167507
+  review_comments: 3
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-28 08:38:33.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135916
+  _job: 18189634592
+  _time: 2025-10-02 09:57:30.980045883 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: test_for_ncss
+  comments: 7
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 2
+  details: Apparently, cqfn/aibolit#624 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 11
+  hoc: 5194
+  is_human: 0
+  issue: 624
+  repository: 237167507
+  review_comments: 2
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-09-02 09:50:11.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135917
+  _job: 18189634592
+  _time: 2025-10-02 09:57:33.788983779 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-622
+  comments: 10
+  comments_appreciated: 0
+  comments_by_author: 4
+  comments_by_reviewers: 5
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#625 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 2
+  hoc: 4
+  is_human: 0
+  issue: 625
+  repository: 237167507
+  review_comments: 1
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-25 11:29:29.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135918
+  _job: 18189634592
+  _time: 2025-10-02 09:57:36.775713328 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-626
+  comments: 4
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#627 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 9
+  hoc: 298
+  is_human: 0
+  issue: 627
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-25 08:02:22.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135919
+  _job: 18189634592
+  _time: 2025-10-02 09:57:39.096396376 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-628
+  comments: 5
+  comments_appreciated: 0
+  comments_by_author: 1
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#629 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 32
+  is_human: 0
+  issue: 629
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-25 13:53:47.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135920
+  _job: 18189634592
+  _time: 2025-10-02 09:57:41.342578732 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-630
+  comments: 3
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 3
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#631 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 1
+  hoc: 12
+  is_human: 0
+  issue: 631
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-27 07:51:27.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135921
+  _job: 18189634592
+  _time: 2025-10-02 09:57:43.341659436 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  branch: issue-632
+  comments: 8
+  comments_appreciated: 1
+  comments_by_author: 2
+  comments_by_reviewers: 6
+  comments_resolved: 0
+  comments_to_code: 4
+  details: Apparently, cqfn/aibolit#633 has been 'pull-was-merged'.
+  failed_builds: 0
+  files: 8
+  hoc: 65
+  is_human: 0
+  issue: 633
+  repository: 237167507
+  review_comments: 4
+  succeeded_builds: 0
+  what: pull-was-merged
+  when: 2020-08-28 13:16:33.000000000 Z
+  where: github
+  who: 8086956
+- _id: 135922
+  _job: 18189634592
+  _time: 2025-10-02 09:58:11.242694073 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  assignees_were_scanned: 0
   earliest_issue_was_found: 1
   events_were_scanned: 55481510458
   issues_were_scanned: 0
-  labels_were_scanned: 728
+  labels_were_scanned: 0
   latest_issue_was_found: 903
   merges_were_scanned: 0
   min_issue_was_found: 136
-  min_pull_was_found: 207
+  min_pull_was_found: 210
   repository: 237167507
-  types_were_scanned: 748
+  types_were_scanned: 0
   what: iterate
   where: github
+- _id: 135923
+  _job: 18189634592
+  _time: 2025-10-02 09:59:39.629640145 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 43099602
+  comments: 6
+  details: The pull request cqfn/aibolit#547 with 24 HoC created by @vitaly-protasov
+    was reviewed by @aravij after 19h53m and 1 comments.
+  hoc: 24
+  issue: 547
+  repository: 237167507
+  review_comments: 1
+  seconds: 71610
+  what: code-was-reviewed
+  when: 2020-07-21 10:49:50.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135924
+  _job: 18189634592
+  _time: 2025-10-02 09:59:40.805644385 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 43099602
+  comments: 12
+  details: The pull request cqfn/aibolit#548 with 24 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 18h9m and 0 comments.
+  hoc: 24
+  issue: 548
+  repository: 237167507
+  review_comments: 0
+  seconds: 65349
+  what: code-was-reviewed
+  when: 2020-07-21 09:15:37.000000000 Z
+  where: github
+  who: 231433
+- _id: 135925
+  _job: 18189634592
+  _time: 2025-10-02 09:59:41.322149946 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 43099602
+  comments: 12
+  details: The pull request cqfn/aibolit#548 with 24 HoC created by @vitaly-protasov
+    was reviewed by @aravij after 19h24m and 1 comments.
+  hoc: 24
+  issue: 548
+  repository: 237167507
+  review_comments: 1
+  seconds: 69852
+  what: code-was-reviewed
+  when: 2020-07-21 10:30:40.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135926
+  _job: 18189634592
+  _time: 2025-10-02 09:59:42.030550624 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 43099602
+  comments: 3
+  details: The pull request cqfn/aibolit#549 with 48 HoC created by @vitaly-protasov
+    was reviewed by @acheshkov after 17h45m and 0 comments.
+  hoc: 48
+  issue: 549
+  repository: 237167507
+  review_comments: 0
+  seconds: 63917
+  what: code-was-reviewed
+  when: 2020-07-21 09:10:16.000000000 Z
+  where: github
+  who: 231433
+- _id: 135927
+  _job: 18189634592
+  _time: 2025-10-02 09:59:42.786112176 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 43099602
+  comments: 3
+  details: The pull request cqfn/aibolit#553 with 84 HoC created by @vitaly-protasov
+    was reviewed by @aravij after 27h3m and 12 comments.
+  hoc: 84
+  issue: 553
+  repository: 237167507
+  review_comments: 12
+  seconds: 97409
+  what: code-was-reviewed
+  when: 2020-07-22 11:14:07.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135928
+  _job: 18189634592
+  _time: 2025-10-02 09:59:43.671773207 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 1987026
+  comments: 5
+  details: The pull request cqfn/aibolit#555 with 141 HoC created by @aravij was reviewed
+    by @acheshkov after 18h17m and 0 comments.
+  hoc: 141
+  issue: 555
+  repository: 237167507
+  review_comments: 0
+  seconds: 65864
+  what: code-was-reviewed
+  when: 2020-07-22 06:14:05.000000000 Z
+  where: github
+  who: 231433
+- _id: 135929
+  _job: 18189634592
+  _time: 2025-10-02 09:59:44.474039829 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 43099602
+  comments: 3
+  details: The pull request cqfn/aibolit#557 with 172 HoC created by @vitaly-protasov
+    was reviewed by @aravij after 19h49m and 4 comments.
+  hoc: 172
+  issue: 557
+  repository: 237167507
+  review_comments: 4
+  seconds: 71385
+  what: code-was-reviewed
+  when: 2020-07-22 11:33:50.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135930
+  _job: 18189634592
+  _time: 2025-10-02 09:59:45.358628194 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 1987026
+  comments: 3
+  details: The pull request cqfn/aibolit#558 with 430 HoC created by @aravij was reviewed
+    by @acheshkov after 144h1m and 1 comments.
+  hoc: 430
+  issue: 558
+  repository: 237167507
+  review_comments: 1
+  seconds: 518488
+  what: code-was-reviewed
+  when: 2020-07-28 14:48:25.000000000 Z
+  where: github
+  who: 231433
+- _id: 135931
+  _job: 18189634592
+  _time: 2025-10-02 09:59:46.243816816 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 1987026
+  comments: 5
+  details: The pull request cqfn/aibolit#559 with 59 HoC created by @aravij was reviewed
+    by @lyriccoder after 16h56m and 0 comments.
+  hoc: 59
+  issue: 559
+  repository: 237167507
+  review_comments: 0
+  seconds: 61014
+  what: code-was-reviewed
+  when: 2020-07-23 08:09:58.000000000 Z
+  where: github
+  who: 20803206
+- _id: 135932
+  _job: 18189634592
+  _time: 2025-10-02 09:59:47.006817056 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 231433
+  comments: 0
+  details: The pull request cqfn/aibolit#602 with 2 HoC created by @acheshkov was
+    reviewed by @katgarmash after 0h15m and 0 comments.
+  hoc: 2
+  issue: 602
+  repository: 237167507
+  review_comments: 0
+  seconds: 938
+  what: code-was-reviewed
+  when: 2020-08-07 08:42:38.000000000 Z
+  where: github
+  who: 13572815
+- _id: 135933
+  _job: 18189634592
+  _time: 2025-10-02 09:59:47.838992639 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 231433
+  comments: 0
+  details: The pull request cqfn/aibolit#604 with 5 HoC created by @acheshkov was
+    reviewed by @katgarmash after 0h18m and 1 comments.
+  hoc: 5
+  issue: 604
+  repository: 237167507
+  review_comments: 1
+  seconds: 1093
+  what: code-was-reviewed
+  when: 2020-08-07 09:39:31.000000000 Z
+  where: github
+  who: 13572815
+- _id: 135934
+  _job: 18189634592
+  _time: 2025-10-02 09:59:48.686171807 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 231433
+  comments: 0
+  details: The pull request cqfn/aibolit#605 with 2 HoC created by @acheshkov was
+    reviewed by @katgarmash after 0h3m and 0 comments.
+  hoc: 2
+  issue: 605
+  repository: 237167507
+  review_comments: 0
+  seconds: 188
+  what: code-was-reviewed
+  when: 2020-08-07 09:35:48.000000000 Z
+  where: github
+  who: 13572815
+- _id: 135935
+  _job: 18189634592
+  _time: 2025-10-02 09:59:49.342341990 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 20803206
+  comments: 9
+  details: The pull request cqfn/aibolit#606 with 2 HoC created by @lyriccoder was
+    reviewed by @acheshkov after 148h9m and 0 comments.
+  hoc: 2
+  issue: 606
+  repository: 237167507
+  review_comments: 0
+  seconds: 533390
+  what: code-was-reviewed
+  when: 2020-08-13 13:42:40.000000000 Z
+  where: github
+  who: 231433
+- _id: 135936
+  _job: 18189634592
+  _time: 2025-10-02 09:59:50.072168642 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 1987026
+  comments: 3
+  details: The pull request cqfn/aibolit#607 with 874 HoC created by @aravij was reviewed
+    by @acheshkov after 8h39m and 0 comments.
+  hoc: 874
+  issue: 607
+  repository: 237167507
+  review_comments: 0
+  seconds: 31161
+  what: code-was-reviewed
+  when: 2020-08-08 08:48:55.000000000 Z
+  where: github
+  who: 231433
+- _id: 135937
+  _job: 18189634592
+  _time: 2025-10-02 09:59:50.849700131 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 20803206
+  comments: 12
+  details: The pull request cqfn/aibolit#610 with 15 HoC created by @lyriccoder was
+    reviewed by @aravij after 23h58m and 0 comments.
+  hoc: 15
+  issue: 610
+  repository: 237167507
+  review_comments: 0
+  seconds: 86313
+  what: code-was-reviewed
+  when: 2020-08-12 13:27:07.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135938
+  _job: 18189634592
+  _time: 2025-10-02 09:59:51.752958451 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 1987026
+  comments: 7
+  details: The pull request cqfn/aibolit#611 with 3073 HoC created by @aravij was
+    reviewed by @lyriccoder after 0h27m and 0 comments.
+  hoc: 3073
+  issue: 611
+  repository: 237167507
+  review_comments: 0
+  seconds: 1675
+  what: code-was-reviewed
+  when: 2020-08-12 12:25:07.000000000 Z
+  where: github
+  who: 20803206
+- _id: 135939
+  _job: 18189634592
+  _time: 2025-10-02 09:59:52.180752666 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 1987026
+  comments: 7
+  details: The pull request cqfn/aibolit#611 with 3073 HoC created by @aravij was
+    reviewed by @acheshkov after 213h53m and 0 comments.
+  hoc: 3073
+  issue: 611
+  repository: 237167507
+  review_comments: 0
+  seconds: 770023
+  what: code-was-reviewed
+  when: 2020-08-21 09:50:55.000000000 Z
+  where: github
+  who: 231433
+- _id: 135940
+  _job: 18189634592
+  _time: 2025-10-02 09:59:52.808428279 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 20803206
+  comments: 6
+  details: The pull request cqfn/aibolit#612 with 13 HoC created by @lyriccoder was
+    reviewed by @acheshkov after 20h11m and 0 comments.
+  hoc: 13
+  issue: 612
+  repository: 237167507
+  review_comments: 0
+  seconds: 72702
+  what: code-was-reviewed
+  when: 2020-08-13 10:28:34.000000000 Z
+  where: github
+  who: 231433
+- _id: 135941
+  _job: 18189634592
+  _time: 2025-10-02 09:59:53.488403935 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 20803206
+  comments: 9
+  details: The pull request cqfn/aibolit#616 with 211 HoC created by @lyriccoder was
+    reviewed by @aravij after 331h15m and 1 comments.
+  hoc: 211
+  issue: 616
+  repository: 237167507
+  review_comments: 1
+  seconds: 1192513
+  what: code-was-reviewed
+  when: 2020-08-28 09:17:46.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135942
+  _job: 18189634592
+  _time: 2025-10-02 09:59:54.436045784 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 20803206
+  comments: 11
+  details: The pull request cqfn/aibolit#618 with 90 HoC created by @lyriccoder was
+    reviewed by @aravij after 186h18m and 1 comments.
+  hoc: 90
+  issue: 618
+  repository: 237167507
+  review_comments: 1
+  seconds: 670693
+  what: code-was-reviewed
+  when: 2020-08-25 09:35:50.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135943
+  _job: 18189634592
+  _time: 2025-10-02 09:59:54.845086409 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 20803206
+  comments: 11
+  details: The pull request cqfn/aibolit#618 with 90 HoC created by @lyriccoder was
+    reviewed by @acheshkov after 187h10m and 0 comments.
+  hoc: 90
+  issue: 618
+  repository: 237167507
+  review_comments: 0
+  seconds: 673800
+  what: code-was-reviewed
+  when: 2020-08-25 10:27:37.000000000 Z
+  where: github
+  who: 231433
+- _id: 135944
+  _job: 18189634592
+  _time: 2025-10-02 09:59:55.404844475 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 20803206
+  comments: 8
+  details: The pull request cqfn/aibolit#620 with 482 HoC created by @lyriccoder was
+    reviewed by @aravij after 137h30m and 4 comments.
+  hoc: 482
+  issue: 620
+  repository: 237167507
+  review_comments: 4
+  seconds: 495033
+  what: code-was-reviewed
+  when: 2020-08-24 08:26:53.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135945
+  _job: 18189634592
+  _time: 2025-10-02 09:59:55.893610698 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 20803206
+  comments: 8
+  details: The pull request cqfn/aibolit#620 with 482 HoC created by @lyriccoder was
+    reviewed by @acheshkov after 139h3m and 0 comments.
+  hoc: 482
+  issue: 620
+  repository: 237167507
+  review_comments: 0
+  seconds: 500627
+  what: code-was-reviewed
+  when: 2020-08-24 10:00:07.000000000 Z
+  where: github
+  who: 231433
+- _id: 135946
+  _job: 18189634592
+  _time: 2025-10-02 09:59:56.438601909 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 20803206
+  comments: 20
+  details: The pull request cqfn/aibolit#621 with 35 HoC created by @lyriccoder was
+    reviewed by @aravij after 42h33m and 2 comments.
+  hoc: 35
+  issue: 621
+  repository: 237167507
+  review_comments: 2
+  seconds: 153224
+  what: code-was-reviewed
+  when: 2020-08-21 09:22:45.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135947
+  _job: 18189634592
+  _time: 2025-10-02 09:59:56.921634201 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 20803206
+  comments: 20
+  details: The pull request cqfn/aibolit#621 with 35 HoC created by @lyriccoder was
+    reviewed by @acheshkov after 193h34m and 0 comments.
+  hoc: 35
+  issue: 621
+  repository: 237167507
+  review_comments: 0
+  seconds: 696896
+  what: code-was-reviewed
+  when: 2020-08-27 16:23:57.000000000 Z
+  where: github
+  who: 231433
+- _id: 135948
+  _job: 18189634592
+  _time: 2025-10-02 09:59:57.486017610 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 20803206
+  comments: 5
+  details: The pull request cqfn/aibolit#624 with 5194 HoC created by @lyriccoder
+    was reviewed by @acheshkov after 16h27m and 1 comments.
+  hoc: 5194
+  issue: 624
+  repository: 237167507
+  review_comments: 1
+  seconds: 59221
+  what: code-was-reviewed
+  when: 2020-08-21 06:07:00.000000000 Z
+  where: github
+  who: 231433
+- _id: 135949
+  _job: 18189634592
+  _time: 2025-10-02 09:59:57.921979624 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 20803206
+  comments: 5
+  details: The pull request cqfn/aibolit#624 with 5194 HoC created by @lyriccoder
+    was reviewed by @aravij after 19h0m and 1 comments.
+  hoc: 5194
+  issue: 624
+  repository: 237167507
+  review_comments: 1
+  seconds: 68449
+  what: code-was-reviewed
+  when: 2020-08-21 08:40:48.000000000 Z
+  where: github
+  who: 1987026
+- _id: 135950
+  _job: 18189634592
+  _time: 2025-10-02 09:59:58.551284289 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 1987026
+  comments: 9
+  details: The pull request cqfn/aibolit#625 with 4 HoC created by @aravij was reviewed
+    by @lyriccoder after 60h41m and 0 comments.
+  hoc: 4
+  issue: 625
+  repository: 237167507
+  review_comments: 0
+  seconds: 218477
+  what: code-was-reviewed
+  when: 2020-08-24 07:41:53.000000000 Z
+  where: github
+  who: 20803206
+- _id: 135951
+  _job: 18189634592
+  _time: 2025-10-02 09:59:59.273640263 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 1987026
+  comments: 4
+  details: The pull request cqfn/aibolit#627 with 298 HoC created by @aravij was reviewed
+    by @acheshkov after 18h21m and 0 comments.
+  hoc: 298
+  issue: 627
+  repository: 237167507
+  review_comments: 0
+  seconds: 66066
+  what: code-was-reviewed
+  when: 2020-08-25 07:14:30.000000000 Z
+  where: github
+  who: 231433
+- _id: 135952
+  _job: 18189634592
+  _time: 2025-10-02 10:00:00.359427180 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 1987026
+  comments: 5
+  details: The pull request cqfn/aibolit#629 with 32 HoC created by @aravij was reviewed
+    by @lyriccoder after 2h23m and 0 comments.
+  hoc: 32
+  issue: 629
+  repository: 237167507
+  review_comments: 0
+  seconds: 8633
+  what: code-was-reviewed
+  when: 2020-08-25 12:42:44.000000000 Z
+  where: github
+  who: 20803206
+- _id: 135953
+  _job: 18189634592
+  _time: 2025-10-02 10:00:01.096957983 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 1987026
+  comments: 3
+  details: The pull request cqfn/aibolit#631 with 12 HoC created by @aravij was reviewed
+    by @acheshkov after 36h21m and 0 comments.
+  hoc: 12
+  issue: 631
+  repository: 237167507
+  review_comments: 0
+  seconds: 130860
+  what: code-was-reviewed
+  when: 2020-08-27 07:10:01.000000000 Z
+  where: github
+  who: 231433
+- _id: 135954
+  _job: 18189634592
+  _time: 2025-10-02 10:00:01.793018219 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 1987026
+  comments: 4
+  details: The pull request cqfn/aibolit#633 with 65 HoC created by @aravij was reviewed
+    by @acheshkov after 15h33m and 1 comments.
+  hoc: 65
+  issue: 633
+  repository: 237167507
+  review_comments: 1
+  seconds: 56012
+  what: code-was-reviewed
+  when: 2020-08-27 07:14:39.000000000 Z
+  where: github
+  who: 231433
+- _id: 135955
+  _job: 18189634592
+  _time: 2025-10-02 10:00:02.266929555 Z
+  _version: 0.16.7/0.54.0/0.15.48
+  author: 1987026
+  comments: 4
+  details: The pull request cqfn/aibolit#633 with 65 HoC created by @aravij was reviewed
+    by @lyriccoder after 16h52m and 1 comments.
+  hoc: 65
+  issue: 633
+  repository: 237167507
+  review_comments: 1
+  seconds: 60737
+  what: code-was-reviewed
+  when: 2020-08-27 08:33:24.000000000 Z
+  where: github
+  who: 20803206
