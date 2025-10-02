@@ -12,7 +12,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dynamic = ["version"]
 dependencies = [
-  "beautifulsoup4==4.13.4",
+  "beautifulsoup4==4.14.2",
   "build==1.2.2.post1",
   "catboost==1.2.8",
   "chardet==5.2.0",         # Replace cchardet with chardet for Python 3.12 compatibility
