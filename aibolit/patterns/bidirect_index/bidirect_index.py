@@ -48,6 +48,20 @@ class BidirectIndexDetector(ast.NodeVisitor):
         self.generic_visit(node)
         self._check_bidirectional_variables(node)
         self.current_method = None
+    
+    def visit_ClassDef(self, node):
+        pass
+    
+    def visit_AugAssign(self, node):
+        if self.current_method is None:
+            return        
+        if isinstance(node.target, ast.Name):
+            var_name = node.target.id
+            operation = self._get_operation_type(node.op)            
+            if operation:
+                if var_name not in self.method_operations[self.current_method]:
+                    self.method_operations[self.current_method][var_name] = set()                
+                self.method_operations[self.current_method][var_name].add(operation)
 
 
 class LineNumber:
