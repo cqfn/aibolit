@@ -84,6 +84,13 @@ class BidirectIndexDetector(ast.NodeVisitor):
         elif isinstance(op, ast.Sub):
             return "decrement"
         return None
+    
+    def _get_binop_operation_type(self, op) -> str:
+        if isinstance(op, ast.Add):
+            return "increment"
+        elif isinstance(op, ast.Sub):
+            return "decrement"
+        return None
 
 
 class LineNumber:
