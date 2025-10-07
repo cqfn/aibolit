@@ -92,6 +92,14 @@ class BidirectIndexDetector(ast.NodeVisitor):
             return "decrement"
         return None
 
+    def _check_bidirectional_variables(self, node):
+        method_ops = self.method_operations.get(self.current_method, {})
+        for var_name, operations in method_ops.items():
+            if "increment" in operations and "decrement" in operations:
+                decl_line = self._find_variable_declaration(node, var_name)
+                if decl_line:
+                    self.bidirect_variables.append(LineNumber(decl_line, var_name))
+
 
 class LineNumber:
     def __init__(self, line: int, variable: str):
