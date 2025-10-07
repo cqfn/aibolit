@@ -100,6 +100,25 @@ class BidirectIndexDetector(ast.NodeVisitor):
                 if decl_line:
                     self.bidirect_variables.append(LineNumber(decl_line, var_name))
 
+    def _find_variable_declaration(self, node, var_name: str) -> int:
+        for stmt in ast.walk(node):
+            if (isinstance(stmt, ast.Assign) or isinstance(stmt, ast.AnnAssign) or 
+                isinstance(stmt, ast.AugAssign)):                
+                targets = []
+                if isinstance(stmt, ast.Assign):
+                    targets = stmt.targets
+                elif isinstance(stmt, (ast.AnnAssign, ast.AugAssign)):
+                    targets = [stmt.target]                
+                for target in targets:
+                    if isinstance(target, ast.Name) and target.id == var_name:
+                        return stmt.lineno        
+        for stmt in ast.walk(node):
+            if isinstance(stmt, ast.Name) and stmt.id == var_name:
+                return stmt.lineno        
+        return None
+    
+    def get_bidirect_variables(self) -> List[LineNumber]:
+        return self.bidirect_variables
 
 class LineNumber:
     def __init__(self, line: int, variable: str):
