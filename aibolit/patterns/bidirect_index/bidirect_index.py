@@ -93,7 +93,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
                             self.method_operations[self.current_method][var_name] = set()
                         self.method_operations[self.current_method][var_name].add(operation)
 
-    def _peration_type(self, op) -> str | None:
+    def _operation_type(self, op) -> str | None:
         if isinstance(op, ast.Add):
             return 'increment'
         elif isinstance(op, ast.Sub):
