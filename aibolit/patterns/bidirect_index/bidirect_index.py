@@ -72,7 +72,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
             return
         if isinstance(node.target, ast.Name):
             var_name = node.target.id
-            operation = self._get_operation_type(node.op)
+            operation = self._operation_type(node.op)
             if operation:
                 if var_name not in self.method_operations[self.current_method]:
                     self.method_operations[self.current_method][var_name] = set()
@@ -87,20 +87,20 @@ class BidirectIndexDetector(ast.NodeVisitor):
                 if (isinstance(node.value, ast.BinOp) and
                         isinstance(node.value.left, ast.Name) and
                         node.value.left.id == var_name):
-                    operation = self._get_binop_operation_type(node.value.op)
+                    operation = self._binop_operation_type(node.value.op)
                     if operation:
                         if var_name not in self.method_operations[self.current_method]:
                             self.method_operations[self.current_method][var_name] = set()
                         self.method_operations[self.current_method][var_name].add(operation)
 
-    def _get_operation_type(self, op) -> str:
+    def _peration_type(self, op) -> str | None:
         if isinstance(op, ast.Add):
             return 'increment'
         elif isinstance(op, ast.Sub):
             return 'decrement'
         return None
 
-    def _get_binop_operation_type(self, op) -> str:
+    def _binop_operation_type(self, op) -> str | None:
         if isinstance(op, ast.Add):
             return 'increment'
         elif isinstance(op, ast.Sub):
@@ -115,7 +115,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
                 if decl_line:
                     self.bidirect_variables.append(LineNumber(decl_line, var_name))
 
-    def _find_variable_declaration(self, node, var_name: str) -> int:
+    def _find_variable_declaration(self, node, var_name: str) -> int | None:
         for stmt in ast.walk(node):
             if (isinstance(stmt, ast.Assign) or isinstance(stmt, ast.AnnAssign) or
                     isinstance(stmt, ast.AugAssign)):
