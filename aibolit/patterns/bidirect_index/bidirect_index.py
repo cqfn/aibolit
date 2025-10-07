@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 import os
 import ast
-from typing import List, Union, Set, Dict
+from typing import List, Set, Dict
 
 class BidirectIndex:
 
@@ -92,16 +92,16 @@ class BidirectIndexDetector(ast.NodeVisitor):
 
     def _get_operation_type(self, op) -> str:
         if isinstance(op, ast.Add):
-            return "increment"
+            return 'increment'
         elif isinstance(op, ast.Sub):
-            return "decrement"
+            return 'decrement'
         return None
     
     def _get_binop_operation_type(self, op) -> str:
         if isinstance(op, ast.Add):
-            return "increment"
+            return 'increment'
         elif isinstance(op, ast.Sub):
-            return "decrement"
+            return 'decrement'
         return None
 
     def _check_bidirectional_variables(self, node):
