@@ -78,6 +78,13 @@ class BidirectIndexDetector(ast.NodeVisitor):
                             self.method_operations[self.current_method][var_name] = set()
                         self.method_operations[self.current_method][var_name].add(operation)
 
+    def _get_operation_type(self, op) -> str:
+        if isinstance(op, ast.Add):
+            return "increment"
+        elif isinstance(op, ast.Sub):
+            return "decrement"
+        return None
+
 
 class LineNumber:
     def __init__(self, line: int, variable: str):
