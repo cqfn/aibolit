@@ -62,6 +62,21 @@ class BidirectIndexDetector(ast.NodeVisitor):
                 if var_name not in self.method_operations[self.current_method]:
                     self.method_operations[self.current_method][var_name] = set()                
                 self.method_operations[self.current_method][var_name].add(operation)
+    
+    def visit_Assign(self, node):
+        if self.current_method is None:
+            return
+        for target in node.targets:
+            if isinstance(target, ast.Name):
+                var_name = target.id
+                if (isinstance(node.value, ast.BinOp) and 
+                    isinstance(node.value.left, ast.Name) and 
+                    node.value.left.id == var_name):
+                    operation = self._get_binop_operation_type(node.value.op)
+                    if operation:
+                        if var_name not in self.method_operations[self.current_method]:
+                            self.method_operations[self.current_method][var_name] = set()
+                        self.method_operations[self.current_method][var_name].add(operation)
 
 
 class LineNumber:
