@@ -35,6 +35,18 @@ class BidirectIndex:
         detector.visit(tree)        
         return detector.get_bidirect_variables()
 
+class LineNumber:
+    def __init__(self, line: int, variable: str):
+        self.line = line
+        self.variable = variable
+    
+    def __repr__(self):
+        return f"LineNumber(line={self.line}, variable='{self.variable}')"
+    
+    def __eq__(self, other):
+        if not isinstance(other, LineNumber):
+            return False
+        return self.line == other.line and self.variable == other.variable
 
 class BidirectIndexDetector(ast.NodeVisitor):
     def __init__(self):
@@ -95,7 +107,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
     def _check_bidirectional_variables(self, node):
         method_ops = self.method_operations.get(self.current_method, {})
         for var_name, operations in method_ops.items():
-            if "increment" in operations and "decrement" in operations:
+            if 'increment' in operations and 'decrement' in operations:
                 decl_line = self._find_variable_declaration(node, var_name)
                 if decl_line:
                     self.bidirect_variables.append(LineNumber(decl_line, var_name))
@@ -119,16 +131,3 @@ class BidirectIndexDetector(ast.NodeVisitor):
     
     def get_bidirect_variables(self) -> List[LineNumber]:
         return self.bidirect_variables
-
-class LineNumber:
-    def __init__(self, line: int, variable: str):
-        self.line = line
-        self.variable = variable
-    
-    def __repr__(self):
-        return f"LineNumber(line={self.line}, variable='{self.variable}')"
-    
-    def __eq__(self, other):
-        if not isinstance(other, LineNumber):
-            return False
-        return self.line == other.line and self.variable == other.variable
