@@ -22,7 +22,17 @@ class BidirectIndex:
         of the variables that match this pattern. After implementation, activate tests in
         test_bidirect_index.py
         """
-        return []
+        if not os.path.exists(filename):
+            return []        
+        with open(filename, 'r', encoding='utf-8') as file:
+            source_code = file.read()        
+        try:
+            tree = ast.parse(source_code)
+        except SyntaxError:
+            return []        
+        detector = BidirectIndexDetector()
+        detector.visit(tree)        
+        return detector.get_bidirect_variables()
 
 
 class LineNumber:
