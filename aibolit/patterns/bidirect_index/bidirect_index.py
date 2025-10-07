@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: MIT
 import os
 import ast
+from typing import List, Union, Set, Dict
 
 class BidirectIndex:
 
@@ -33,6 +34,13 @@ class BidirectIndex:
         detector = BidirectIndexDetector()
         detector.visit(tree)        
         return detector.get_bidirect_variables()
+
+
+class BidirectIndexDetector(ast.NodeVisitor):
+    def __init__(self):
+        self.bidirect_variables: List[LineNumber] = []
+        self.current_method: str = None
+        self.method_operations: Dict[str, Dict[str, Set[str]]] = {}
 
 
 class LineNumber:
