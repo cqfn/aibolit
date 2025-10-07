@@ -4,6 +4,7 @@ import os
 import ast
 from typing import List, Set, Dict
 
+
 class BidirectIndex:
 
     def __init__(self):
@@ -24,66 +25,68 @@ class BidirectIndex:
         test_bidirect_index.py
         """
         if not os.path.exists(filename):
-            return []        
+            return []
         with open(filename, 'r', encoding='utf-8') as file:
-            source_code = file.read()        
+            source_code = file.read()
         try:
             tree = ast.parse(source_code)
         except SyntaxError:
-            return []        
+            return []
         detector = BidirectIndexDetector()
-        detector.visit(tree)        
+        detector.visit(tree)
         return detector.get_bidirect_variables()
+
 
 class LineNumber:
     def __init__(self, line: int, variable: str):
         self.line = line
         self.variable = variable
-    
+
     def __repr__(self):
         return f"LineNumber(line={self.line}, variable='{self.variable}')"
-    
+
     def __eq__(self, other):
         if not isinstance(other, LineNumber):
             return False
         return self.line == other.line and self.variable == other.variable
+
 
 class BidirectIndexDetector(ast.NodeVisitor):
     def __init__(self):
         self.bidirect_variables: List[LineNumber] = []
         self.current_method: str = None
         self.method_operations: Dict[str, Dict[str, Set[str]]] = {}
-    
+
     def visit_FunctionDef(self, node):
         self.current_method = node.name
         self.method_operations[self.current_method] = {}
         self.generic_visit(node)
         self._check_bidirectional_variables(node)
         self.current_method = None
-    
+
     def visit_ClassDef(self, node):
         pass
-    
+
     def visit_AugAssign(self, node):
         if self.current_method is None:
-            return        
+            return
         if isinstance(node.target, ast.Name):
             var_name = node.target.id
-            operation = self._get_operation_type(node.op)            
+            operation = self._get_operation_type(node.op)
             if operation:
                 if var_name not in self.method_operations[self.current_method]:
-                    self.method_operations[self.current_method][var_name] = set()                
+                    self.method_operations[self.current_method][var_name] = set()
                 self.method_operations[self.current_method][var_name].add(operation)
-    
+
     def visit_Assign(self, node):
         if self.current_method is None:
             return
         for target in node.targets:
             if isinstance(target, ast.Name):
                 var_name = target.id
-                if (isinstance(node.value, ast.BinOp) and 
-                    isinstance(node.value.left, ast.Name) and 
-                    node.value.left.id == var_name):
+                if (isinstance(node.value, ast.BinOp) and
+                        isinstance(node.value.left, ast.Name) and
+                        node.value.left.id == var_name):
                     operation = self._get_binop_operation_type(node.value.op)
                     if operation:
                         if var_name not in self.method_operations[self.current_method]:
@@ -96,7 +99,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
         elif isinstance(op, ast.Sub):
             return 'decrement'
         return None
-    
+
     def _get_binop_operation_type(self, op) -> str:
         if isinstance(op, ast.Add):
             return 'increment'
@@ -114,20 +117,20 @@ class BidirectIndexDetector(ast.NodeVisitor):
 
     def _find_variable_declaration(self, node, var_name: str) -> int:
         for stmt in ast.walk(node):
-            if (isinstance(stmt, ast.Assign) or isinstance(stmt, ast.AnnAssign) or 
-                isinstance(stmt, ast.AugAssign)):                
+            if (isinstance(stmt, ast.Assign) or isinstance(stmt, ast.AnnAssign) or
+                    isinstance(stmt, ast.AugAssign)):
                 targets = []
                 if isinstance(stmt, ast.Assign):
                     targets = stmt.targets
                 elif isinstance(stmt, (ast.AnnAssign, ast.AugAssign)):
-                    targets = [stmt.target]                
+                    targets = [stmt.target]
                 for target in targets:
                     if isinstance(target, ast.Name) and target.id == var_name:
-                        return stmt.lineno        
+                        return stmt.lineno
         for stmt in ast.walk(node):
             if isinstance(stmt, ast.Name) and stmt.id == var_name:
-                return stmt.lineno        
+                return stmt.lineno
         return None
-    
+
     def get_bidirect_variables(self) -> List[LineNumber]:
         return self.bidirect_variables
