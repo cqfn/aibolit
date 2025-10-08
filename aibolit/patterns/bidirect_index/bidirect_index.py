@@ -117,8 +117,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
 
     def _find_variable_declaration(self, node, var_name: str) -> int | None:
         for stmt in ast.walk(node):
-            if (isinstance(stmt, ast.Assign) or isinstance(stmt, ast.AnnAssign) or
-                    isinstance(stmt, ast.AugAssign)):
+            if isinstance(stmt, (ast.AnnAssign, ast.Assign, ast.AugAssign)):
                 targets = []
                 if isinstance(stmt, ast.Assign):
                     targets = stmt.targets
