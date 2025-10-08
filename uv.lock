@@ -61,7 +61,7 @@ requires-dist = [
     { name = "numpy", specifier = "==2.3.3" },
     { name = "packaging", specifier = "==25.0" },
     { name = "pandas", specifier = "==2.3.3" },
-    { name = "pebble", specifier = "==4.6.3" },
+    { name = "pebble", specifier = "==5.1.3" },
     { name = "requests", specifier = "==2.32.5" },
     { name = "scikit-learn", specifier = "==1.7.2" },
     { name = "scipy", specifier = "==1.16.2" },
@@ -1020,11 +1020,11 @@ wheels = [
 
 [[package]]
 name = "pebble"
-version = "4.6.3"
+version = "5.1.3"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/ad/a0/aa47393bf9a4c8f4c09f1736d62e9591436d8bda27d1a529d855acfd51e8/Pebble-4.6.3.tar.gz", hash = "sha256:694e1105db888f3576b8f00662f90b057cf3780e6f8b7f57955a568008d0f497", size = 25888, upload-time = "2021-08-24T20:50:15.094Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/af/aa/730e2b815fed3680629bb9c6c84c3480952fb9067939b7549c789b77a6bc/pebble-5.1.3.tar.gz", hash = "sha256:9fdf00dde4abb09907817114ad8cf822836b6d6cc8f43a3f0ec741be276086e7", size = 39027, upload-time = "2025-07-30T21:16:34.87Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e1/22/16fae923323a173c287e1a8525f2223274fbd70c7b8292d7f25d583f5028/Pebble-4.6.3-py2.py3-none-any.whl", hash = "sha256:46e02767b239a29b8150466514fabb5c6632bea8c9b7456dfdb715f4636fc8a3", size = 25365, upload-time = "2021-08-24T20:50:12.384Z" },
+    { url = "https://files.pythonhosted.org/packages/42/42/218f3d1490af0c5f781f1e54fc1e4a2ca163643807d57890d2a246bd626d/Pebble-5.1.3-py3-none-any.whl", hash = "sha256:8b28b1ede25de4b0d9249516d5fd794c330f8f03b692debe374619317ed0bdd7", size = 36868, upload-time = "2025-07-30T21:16:33.133Z" },
 ]
 
 [[package]]
