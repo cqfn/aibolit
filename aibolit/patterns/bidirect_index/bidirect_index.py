@@ -34,7 +34,7 @@ class BidirectIndex:
             return []
         detector = BidirectIndexDetector()
         detector.visit(tree)
-        return detector.bidirect_variables()
+        return detector._bidirect_variables()
 
 
 class LineNumber:
@@ -131,5 +131,5 @@ class BidirectIndexDetector(ast.NodeVisitor):
                 return stmt.lineno
         return None
 
-    def bidirect_variables(self) -> List[LineNumber]:
+    def _bidirect_variables(self) -> List[LineNumber]:
         return self.bidirect_variables
