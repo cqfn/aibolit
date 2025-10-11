@@ -101,11 +101,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
         return None
 
     def _binop_operation_type(self, op) -> str | None:
-        if isinstance(op, ast.Add):
-            return 'increment'
-        elif isinstance(op, ast.Sub):
-            return 'decrement'
-        return None
+        return self._operation_type(op)
 
     def _check_bidirectional_variables(self, node):
         method_ops = self.method_operations.get(self.current_method, {})
