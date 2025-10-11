@@ -53,9 +53,9 @@ class LineNumber:
 
 class BidirectIndexDetector(ast.NodeVisitor):
     def __init__(self):
-        self.bidirect_variables: List[LineNumber] = []
-        self.current_method: str = None
-        self.method_operations: Dict[str, Dict[str, Set[str]]] = {}
+        self.bidirect_variables = []
+        self.current_method = ""
+        self.method_operations = {}
 
     def visit_FunctionDef(self, node):
         self.current_method = node.name
