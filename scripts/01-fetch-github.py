@@ -28,12 +28,19 @@ class RepositoryDownloader:
         except requests.RequestException as e:
             print(f"Error fetching trending repositories: {e}", file=sys.stderr)
             raise
-        soup = BeautifulSoup(response.text, 'html.parser')
-        repositories = []        
-        for repo_element in soup.find_all('h1', {'class': 'h3 lh-condensed'}):
-            repo_path = repo_element.a['href']
-            repositories.append(f"https://github.com{repo_path}.git")        
-        return repositories
+         soup = BeautifulSoup(response.text, 'html.parser')
+         repositories: List[str] = []
+         anchors = soup.select('article.Box-row h2 a[href]') or soup.select('h2.h3.lh-condensed a[href]')
+         for a in anchors:
+             href = (a.get('href') or '').strip()
+             if not href:
+                 continue
+             if href.startswith('/'):
+                 href = f'https://github.com{href}'
+             if not href.endswith('.git'):
+                 href = f'{href}.git'
+             repositories.append(href)
+         return repositories
     
     def clone_repository(self, repo_url: str, owner: str, repo_name: str) -> bool:
         owner_dir = self.output_dir / owner
