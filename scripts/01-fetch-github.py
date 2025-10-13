@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: MIT
 
 import argparse
-import os
 import subprocess
 import sys
 from pathlib import Path
