@@ -12,9 +12,9 @@ from bs4 import BeautifulSoup
 
 
 class RepositoryDownloader:
-    def __init__(self, output_dir: str = 'target/01', trend_url, timeout):
-        self.output_dir = Path(output_dir)
-        self.trending_url = trend_url
+    def __init__(self, output, url, timeout):
+        self.output_dir = Path(output)
+        self.trending_url = url
         self.request_timeout = timeout
 
     def setup_directories(self) -> None:
