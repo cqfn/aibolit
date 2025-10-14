@@ -80,10 +80,12 @@ class RepositoryDownloader:
         for repo_url in repositories:
             if downloaded_count >= max_repositories:
                 break
-            path_parts = repo_url.replace('https://github.com/', '').replace('.git', '').split('/')
-            if len(path_parts) < 2:
+            parsed = urlparse(repo_url)
+            parts = [p for p in parsed.path.strip('/').split('/') if p]
+            if len(parts) < 2:
                 continue
-            owner, repo_name = path_parts[0], path_parts[1]
+            owner = parts[0]
+            repo_name = parts[1].removesuffix('.git')
             print(f'Processing {owner}/{repo_name}...')
             if self.clone_repository(repo_url, owner, repo_name):
                 downloaded_count += 1
