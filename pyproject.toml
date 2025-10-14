@@ -63,7 +63,22 @@ requires = ["setuptools>=61", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.mypy]
-mypy_path = "stubs"
+python_version = "3.11"
+show_error_codes = true
+pretty = true
+exclude = [
+    "stubs/",
+    "build/",
+    "dist/",
+    ".venv/",
+    "__pycache__/",
+]
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+ignore_missing_imports = true
 
 [tool.ruff.format]
 quote-style = "single"
