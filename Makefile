@@ -9,9 +9,11 @@
 SHELL := bash
 .PHONY: all clean requirements test it install xcop flake8 pylint sphinx mypy lint e2e build coverage
 
-all: requirements install test it lint xcop sphinx
+all: requirements install test it lint typecheck xcop sphinx
 
-lint: flake8 pylint mypy
+lint: flake8 pylint ruff
+
+typecheck: mypy
 
 requirements:
 	uv sync
@@ -48,7 +50,7 @@ sphinx:
 	uv run sphinx-build sphinx html
 
 mypy:
-	uv run mypy aibolit
+	uv run mypy ./aibolit/
 
 build: requirements
 	uv build
