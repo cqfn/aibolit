@@ -6,10 +6,10 @@ import subprocess
 import sys
 from pathlib import Path
 from typing import List
+from urllib.parse import urlparse
 
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse
 
 
 class RepositoryDownloader:
