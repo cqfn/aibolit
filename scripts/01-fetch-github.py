@@ -30,7 +30,7 @@ class RepositoryDownloader:
         soup = BeautifulSoup(response.text, 'html.parser')
         repositories: List[str] = []
         anchors = (
-            soup.select('article.Box-row h2 a[href]') or 
+            soup.select('article.Box-row h2 a[href]') or
             soup.select('h2.h3.lh-condensed a[href]') or
             soup.select('h1.h3.lh-condensed a[href]')
         )
