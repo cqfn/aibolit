@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: lint
+"on":
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  make:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/0.7.13/install.sh | sh
+          echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+      - run: make typecheck
