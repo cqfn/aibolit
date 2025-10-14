@@ -12,10 +12,10 @@ from bs4 import BeautifulSoup
 
 
 class RepositoryDownloader:
-    def __init__(self, output_dir: str = 'target/01'):
+    def __init__(self, output_dir: str = 'target/01', trend_url, timeout):
         self.output_dir = Path(output_dir)
-        self.trending_url = 'https://github.com/trending/java?since=daily'
-        self.request_timeout = 30
+        self.trending_url = trend_url
+        self.request_timeout = timeout
 
     def setup_directories(self) -> None:
         self.output_dir.mkdir(parents=True, exist_ok=True)
@@ -114,7 +114,7 @@ def parse_arguments() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_arguments()
-    downloader = RepositoryDownloader(args.output_dir)
+    downloader = RepositoryDownloader(args.output_dir, 'https://github.com/trending/java?since=daily', 30)
     downloader.setup_directories()
     downloader.download_repositories(args.nrepos)
 
