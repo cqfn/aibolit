@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 
 class RepositoryDownloader:
     def __init__(self, output, url, timeout):
-        self.output_dir = Path(output)
+        self.output_dir = output
         self.trending_url = url
         self.request_timeout = timeout
 
@@ -115,7 +115,7 @@ def parse_arguments() -> argparse.Namespace:
 def main() -> None:
     args = parse_arguments()
     downloader = RepositoryDownloader(
-        args.output_dir,
+        Path(args.output_dir),
         'https://github.com/trending/java?since=daily',
         30
     )
