@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 
 
 class RepositoryDownloader:
-    def __init__(self, output, url, timeout):
+    def __init__(self, output: Path, url: str, timeout: int):
         self.output_dir = output
         self.trending_url = url
         self.request_timeout = timeout
