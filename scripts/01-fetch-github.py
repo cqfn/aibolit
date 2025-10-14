@@ -114,7 +114,11 @@ def parse_arguments() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_arguments()
-    downloader = RepositoryDownloader(args.output_dir, 'https://github.com/trending/java?since=daily', 30)
+    downloader = RepositoryDownloader(
+        args.output_dir,
+        'https://github.com/trending/java?since=daily',
+        30
+    )
     downloader.setup_directories()
     downloader.download_repositories(args.nrepos)
 
