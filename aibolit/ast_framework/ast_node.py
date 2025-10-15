@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 from functools import cached_property
-from typing import Any, List, Iterator, Optional
+from typing import Any, List, Iterator, Optional, cast
 
-from networkx import DiGraph, dfs_preorder_nodes  # type: ignore
+from networkx import DiGraph, dfs_preorder_nodes
 
 from aibolit.ast_framework._auxiliary_data import (
     common_attributes,
@@ -68,7 +68,7 @@ class ASTNode:
             'does not have any source code line information either.'
         )
 
-    def __getattr__(self, attribute_name: str):
+    def __getattr__(self, attribute_name: str) -> Any:
         node_type = self._get_type(self._node_index)
         javalang_fields = attributes_by_node_type[node_type]
         computed_fields = computed_fields_registry.fields(node_type)
@@ -134,7 +134,7 @@ class ASTNode:
             raise NotImplementedError(msg)
         return self._graph == other._graph and self._node_index == other._node_index
 
-    def __hash__(self):
+    def __hash__(self) -> int:
         return hash(self._node_index)
 
     def _replace_references_with_nodes(
@@ -161,10 +161,10 @@ class ASTNode:
         return ASTNode(self._graph, reference.node_index)
 
     def _get_type(self, node_index: int) -> ASTNodeType:
-        return self._graph.nodes[node_index]['node_type']
+        return cast(ASTNodeType, self._graph.nodes[node_index]['node_type'])
 
     def _get_line(self, node_index: int) -> Optional[int]:
-        return self._graph.nodes[node_index]['line']
+        return cast(Optional[int], self._graph.nodes[node_index]['line'])
 
     def _get_parent(self, node_index: int) -> Optional[int]:
         # there is maximum one parent in a tree
