@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from typing import List, Optional
+from typing import List, Optional, Any
 
 from aibolit.ast_framework.ast import AST
 from aibolit.ast_framework.ast_node import ASTNode
@@ -17,7 +17,7 @@ class VarDeclarationDistance:
     def __init__(self, lines_th: int):
         self.__lines_th = lines_th
 
-    def __node_name(self, node) -> Optional[str]:
+    def __node_name(self, node: Any) -> Optional[str]:
         qualifier = node.qualifier if hasattr(node, 'qualifier') else None
         member = node.member if hasattr(node, 'member') else None
         name = node.name if hasattr(node, 'name') else None
@@ -49,7 +49,7 @@ class VarDeclarationDistance:
         name_to_declaration_line = {}
         name_to_first_usage_line = {}
 
-        def collect_declaration_or_usage(node: ASTNode):
+        def collect_declaration_or_usage(node: ASTNode) -> None:
             node_name = self.__node_name(node)
             if node_name:
                 if node.node_type == ASTNodeType.VARIABLE_DECLARATOR:

@@ -10,12 +10,12 @@ class PublicStaticMethod:
     """
     Check method with 'public static'
     """
-    def _check_public_static(self, node: ASTNode):
+    def _check_public_static(self, node: ASTNode) -> bool:
         if all(type in node.modifiers for type in ['public', 'static']):
             return True
         return False
 
-    def value(self, ast: AST):
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
         for method_declaration in ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION):
             if self._check_public_static(method_declaration):

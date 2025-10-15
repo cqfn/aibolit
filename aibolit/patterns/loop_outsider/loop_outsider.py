@@ -2,8 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 
+import os
 from typing import List, Set
-from aibolit.ast_framework import AST, ASTNodeType
+from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 from aibolit.types_decl import LineNumber
 from aibolit.utils.ast_builder import build_ast
 
@@ -14,10 +15,10 @@ class LoopOutsider:
     scope of the loop.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
-    def value(self, filename) -> List[LineNumber]:
+    def value(self, filename: str | os.PathLike) -> List[LineNumber]:
         """
         Returns the line number of loop outsiders found in file.
         """
@@ -56,8 +57,8 @@ class LoopOutsider:
             var_changes.add(node.expressionl)
         return var_changes
 
-    def _find_loop_variable_declarations(self, ast: AST, loop_statement,
-                                         loop_type) -> Set:
+    def _find_loop_variable_declarations(self, ast: AST, loop_statement: ASTNode,
+                                         loop_type: ASTNodeType) -> Set[ASTNode]:
         """Find all variable declarations within the loop scope."""
         loop_vars_declarations = set()
         subtree = ast.subtree(loop_statement)
@@ -75,7 +76,7 @@ class LoopOutsider:
 
         return loop_vars_declarations
 
-    def _variable_is_affected(self, node):
+    def _variable_is_affected(self, node: ASTNode) -> bool:
         return ('--' in node.prefix_operators or '--' in
                 node.postfix_operators or
                 '++' in node.prefix_operators or '++' in

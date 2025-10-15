@@ -1,14 +1,15 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 import os
+from typing import List
 
 
 class BidirectIndex:
 
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
-    def value(self, filename: str | os.PathLike):
+    def value(self, filename: str | os.PathLike) -> List[int]:
         """
         Finds if a variable is being incremented and decremented within the same method
 
