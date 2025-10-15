@@ -15,15 +15,15 @@ dependencies = [
   "beautifulsoup4==4.13.4",
   "build==1.2.2.post1",
   "catboost==1.2.8",
-  "chardet==5.2.0",         # Replace cchardet with chardet for Python 3.12 compatibility
+  "chardet==5.2.0", # Replace cchardet with chardet for Python 3.12 compatibility
   "deprecated==1.2.10",
   "html5lib==1.1",
   "javalang==0.13.0",
   "lxml==5.4.0",
   "matplotlib==3.10.3",
-  "networkx==3.2",          # Updated to be compatible with NumPy 2.0+
+  "networkx==3.2", # Updated to be compatible with NumPy 2.0+
   "numpy==2.2.5",
-  "packaging==25.0",        # For version parsing, updated for sphinx compatibility
+  "packaging==25.0", # For version parsing, updated for sphinx compatibility
   "pandas==2.2.3",
   "pebble==4.5.3",
   "requests==2.32.4",
