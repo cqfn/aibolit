@@ -6,9 +6,9 @@ from typing import Dict, Any, Tuple, List
 from numpy.typing import NDArray
 
 import numpy as np
-import pandas as pd  # type: ignore[import-untyped]
-from catboost import CatBoost  # type: ignore[import-untyped]
-from sklearn.base import BaseEstimator  # type: ignore[import-untyped]
+import pandas as pd
+from catboost import CatBoost
+from sklearn.base import BaseEstimator
 
 from aibolit.config import Config
 
@@ -53,7 +53,7 @@ def scale_dataset(
         df: pd.DataFrame,
         features_conf: Dict[Any, Any],
         target_metric_code: str,
-        scale_ncss=True) -> pd.DataFrame:
+        scale_ncss: bool = True) -> pd.DataFrame:
     config = Config.get_patterns_config()
     patterns_codes_set = set([x['code'] for x in config['patterns']])
     metrics_codes_set = set([x['code'] for x in config['metrics']])
@@ -88,11 +88,18 @@ class PatternRankingModel(BaseEstimator):
         features_order = self.features_conf['features_order']
         # add ncss to last column. We will normalize all patterns by that value
         input = [input_params[i] for i in features_order] + [input_params['M2']]
-        preds, importances = self.rank(input)
+        input_array = np.array(input)
+        preds, importances = self.rank(input_array)
 
         return {features_order[int(x)]: int(x) for x in preds}, list(importances)
 
-    def fit_regressor(self, X, y, features=None, display=False) -> None:
+    def fit_regressor(
+        self,
+        X: pd.DataFrame | NDArray,
+        y: NDArray,
+        features: set[str] | None = None,
+        display: bool = False
+    ) -> None:
         """
 
         :param X: X np.array with shape (number of snippets, number of patterns) or
@@ -109,9 +116,22 @@ class PatternRankingModel(BaseEstimator):
                 'depth': [4, 6, 10],
                 'l2_leaf_reg': [1, 3, 5, 7, 9]}
         if features:
-            X = X[features]
+            if isinstance(X, pd.DataFrame):
+                X = X[features]
+            else:
+                # For NDArray, convert features set to list of indices
+                feature_indices = [
+                    i for i, col in enumerate(self.features_conf.get('features_order', []))
+                    if col in features
+                ]
+                X = X[:, feature_indices] if feature_indices else X
 
-        self.features_conf = {'features_order': X.columns}
+        if isinstance(X, pd.DataFrame):
+            self.features_conf = {'features_order': X.columns.tolist()}
+        else:
+            # For NDArray, use existing features_order or create default
+            if not hasattr(self, 'features_conf') or 'features_order' not in self.features_conf:
+                self.features_conf = {'features_order': [f'feature_{i}' for i in range(X.shape[1])]}
 
         model.grid_search(
             grid,
@@ -123,10 +143,15 @@ class PatternRankingModel(BaseEstimator):
         self.model = model
         self.model.fit(X, y, logging_level='Silent')
 
-    def sigmoid(self, x):
+    def sigmoid(self, x: NDArray) -> NDArray:
         return 1 / (1 + np.exp(-x))
 
-    def __get_pairs(self, item, th: float, feature_importances=None):
+    def __get_pairs(
+        self,
+        item: NDArray,
+        th: float,
+        feature_importances: NDArray | None = None
+    ) -> Tuple[NDArray, NDArray]:
         assert isinstance(self.model, CatBoost)
         if not feature_importances:
             feature_importances = self.model.feature_importances_
@@ -137,10 +162,18 @@ class PatternRankingModel(BaseEstimator):
         order = np.arange(self.model.feature_importances_.size)
         return (pattern_importances, order)
 
-    def __vstack_arrays(self, res):
+    def __vstack_arrays(self, res: List[NDArray] | Tuple[NDArray, NDArray]) -> NDArray:
+        if isinstance(res, tuple):
+            res = list(res)
         return np.vstack(res).T
 
-    def calculate_score(self, X, quantity_func='log', th=1.0, feature_importances=None):
+    def calculate_score(
+        self,
+        X: NDArray,
+        quantity_func: str = 'log',
+        th: float = 1.0,
+        feature_importances: NDArray | None = None
+    ) -> Tuple[NDArray, List[Any]]:
         """
         Args:
             X: np.array with shape ( number of patterns).
@@ -178,7 +211,7 @@ class PatternRankingModel(BaseEstimator):
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
-    def rank(self, snippet, scale=True):
+    def rank(self, snippet: NDArray, scale: bool = True) -> Tuple[NDArray, List[Any]]:
         """
         Args:
             snippet: np.array with shape (number of snippets, number of patterns + 1),
@@ -205,7 +238,7 @@ class PatternRankingModel(BaseEstimator):
         for i in range(k):
             if snippet[i] == 0:
                 # do not need to predict if we have 0
-                importances.append((i, 0))
+                importances.append((i, 0.0))
                 continue
             temp_arr = snippet.copy()
             temp_arr[i] = temp_arr[i] - (1 / ncss)
@@ -215,13 +248,13 @@ class PatternRankingModel(BaseEstimator):
                 with localcontext() as ctx:
                     ctx.rounding = ROUND_DOWN
                     abs_diff = abs(complexity - complexity_minus)
-                    diff = Decimal(abs_diff).quantize(Decimal('0.001'))
-                    diff = float(diff * 100)
+                    decimal_diff = Decimal(abs_diff).quantize(Decimal('0.001'))
+                    diff = float(decimal_diff * 100)
             else:
                 # complexity increased, we do not need such value, set to 0,
                 # cause we need only patterns when complexity decreased
-                diff = 0
+                diff = 0.0
             importances.append((i, diff))
 
         sorted_importances = dict(sorted(importances, key=lambda x: x[1], reverse=True))
-        return sorted_importances.keys(), sorted_importances.values()
+        return np.array(list(sorted_importances.keys())), list(sorted_importances.values())
