@@ -3,7 +3,7 @@
 
 from typing import List, Dict, Set, Iterator, Any
 
-from networkx import (  # type: ignore
+from networkx import (
     DiGraph, strongly_connected_components, weakly_connected_components
 )
 
@@ -31,7 +31,7 @@ def find_patterns(tree: AST, patterns: List[Any]) -> Set[str]:
     return patterns_method_names
 
 
-def is_ast_pattern(class_ast: AST, Pattern) -> bool:
+def is_ast_pattern(class_ast: AST, Pattern: Any) -> bool:
     """
     Checks whether ast is some pattern
     :param Pattern: pattern class
@@ -44,8 +44,8 @@ def is_ast_pattern(class_ast: AST, Pattern) -> bool:
 def decompose_java_class(
         class_ast: AST,
         strength: str,
-        ignore_setters=False,
-        ignore_getters=False) -> List[AST]:
+        ignore_setters: bool = False,
+        ignore_getters: bool = False) -> List[AST]:
     '''
     Splits java_class fields and methods by their usage and
     construct for each case an AST with only those fields and methods kept.

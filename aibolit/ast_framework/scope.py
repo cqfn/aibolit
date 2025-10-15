@@ -3,7 +3,7 @@
 
 from typing import List, Iterator, Optional
 
-from networkx import DiGraph  # type: ignore
+from networkx import DiGraph
 
 from .ast import AST
 from .ast_node import ASTNode

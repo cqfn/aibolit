@@ -29,7 +29,7 @@ def _extract_scopes_from_assert(assert_node: ASTNode, method_ast: AST) -> List[S
     return _find_scopes_in_expressions(expression_ast)
 
 
-def _extract_scopes_from_block(block_node: ASTNode, _) -> List[ScopeAttributes]:
+def _extract_scopes_from_block(block_node: ASTNode, _: AST) -> List[ScopeAttributes]:
     assert block_node.node_type == ASTNodeType.BLOCK_STATEMENT
 
     return [ScopeAttributes(statements=block_node.statements, parent_node=block_node)]
@@ -109,7 +109,7 @@ def _extract_scopes_from_variable_declaration(
     )
 
 
-def _extract_scopes_from_method(method_declaration: ASTNode, _) -> List[ScopeAttributes]:
+def _extract_scopes_from_method(method_declaration: ASTNode, _: AST) -> List[ScopeAttributes]:
     assert method_declaration.node_type == ASTNodeType.METHOD_DECLARATION
 
     return [ScopeAttributes(statements=method_declaration.body, parent_node=method_declaration)]
