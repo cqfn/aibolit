@@ -5,18 +5,19 @@ import shutil
 import subprocess
 from pathlib import Path
 import pickle
-import pandas as pd  # type: ignore
+from typing import Any
+import pandas as pd
 
-from aibolit.model.model import PatternRankingModel, scale_dataset  # type: ignore
+from aibolit.model.model import PatternRankingModel, scale_dataset
 from aibolit.config import Config
 
 
-def collect_dataset(args):
+def collect_dataset(args: Any) -> None:
     """
     Run bash scripts to collect metrics and patterns for java files
     """
 
-    def make_patterns(args, cur_work_dir):
+    def make_patterns(args: Any, cur_work_dir: str) -> None:
         print('Compute patterns...')
         result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE,
                                 encoding='utf-8', cwd=cur_work_dir, check=False)
@@ -35,7 +36,7 @@ def collect_dataset(args):
                 dataset_file_path = Path(Config.dataset_file())
             print(f'dataset was saved to {str(dataset_file_path.absolute())}')
 
-    def run_cmd(metrics_cmd, cur_work_dir):
+    def run_cmd(metrics_cmd: list[str], cur_work_dir: str) -> None:
         result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE,
                                 encoding='utf-8', cwd=cur_work_dir, check=False)
         if result.returncode != 0:
@@ -65,17 +66,17 @@ def collect_dataset(args):
     if max_classes is not None:
         filter_cmd.append(f'max_classes={max_classes}')
 
-    run_cmd(filter_cmd, cur_work_dir)
-    make_patterns(args, cur_work_dir)
+    run_cmd(filter_cmd, str(cur_work_dir))
+    make_patterns(args, str(cur_work_dir))
 
     print('Merge results...')
-    run_cmd(merge_cmd, cur_work_dir)
+    run_cmd(merge_cmd, str(cur_work_dir))
 
     print('Preprocess dataset, create train and test...')
-    run_cmd(split_cmd, cur_work_dir)
+    run_cmd(split_cmd, str(cur_work_dir))
 
 
-def train_process(target_metric_code='M4'):
+def train_process(target_metric_code: str = 'M4') -> None:
     """
     Define needed columns for dataset and run model training
     """
