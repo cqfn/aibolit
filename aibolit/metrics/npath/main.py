@@ -7,7 +7,7 @@ import shutil
 import subprocess
 import tempfile
 import uuid
-from typing import Iterable
+from typing import Iterable, Union, List
 
 from bs4 import BeautifulSoup
 
@@ -19,10 +19,10 @@ class NPathMetric():
 
     input = ''
 
-    def __init__(self, input):
+    def __init__(self, input: str) -> None:
         self.input = input
 
-    def value(self, showoutput=False):
+    def value(self, showoutput: bool = False) -> dict:
         """Run NPath Complexity analaysis"""
 
         if len(self.input) == 0:
@@ -55,16 +55,18 @@ class NPathMetric():
         finally:
             shutil.rmtree(root)
 
-    def __parseFile(self, root):
-        result = {'data': [], 'errors': []}
-        content = []
+    def __parseFile(self, root: str) -> dict:
+        result: dict = {'data': [], 'errors': []}
+        content: str
         with open(f'{root}/target/pmd.xml', 'r', encoding='utf-8') as file:
             content = file.read()
             soup = BeautifulSoup(content, features='xml')
             files = soup.find_all('file')
-            for file in files:
-                out = file.violation.string
-                name = file['name']
+            for file_elem in files:
+                out = (str(file_elem.violation.string)
+                       if file_elem.violation and file_elem.violation.string
+                       else "")
+                name = str(file_elem.get('name', ''))
                 pos1 = name.find(f'{root}/src/main/java/')
                 pos1 = pos1 + len(f'{root}/src/main/java/')
                 name = name[pos1:]
@@ -75,11 +77,11 @@ class NPathMetric():
                 result['data'].append({'file': name, 'complexity': complexity})
             errors = soup.find_all('error')
             for error in errors:
-                name = error['filename']
+                name = str(error.get('filename', ''))
                 pos1 = name.find(f'{root}/src/main/java/')
                 pos1 = pos1 + len(f'{root}/src/main/java/')
                 name = name[pos1:]
-                raise Exception(error['msg'])
+                raise Exception(str(error.get('msg', 'Unknown error')))
         return result
 
 
@@ -99,7 +101,7 @@ class MvnFreeNPathMetric:
     def _method_npath(self, method_node: ASTNode) -> int:
         return self._node_npath(method_node.body)
 
-    def _node_npath(self, node: ASTNode) -> int:
+    def _node_npath(self, node: Union[ASTNode, List[ASTNode]]) -> int:
         if isinstance(node, list):
             return self._sequence_npath(node)
 
