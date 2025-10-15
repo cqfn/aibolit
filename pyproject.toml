@@ -64,6 +64,48 @@ build-backend = "setuptools.build_meta"
 
 [tool.mypy]
 mypy_path = "stubs"
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_optional = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+show_error_codes = true
+show_column_numbers = true
+pretty = true
+exclude = [
+  "stubs/",
+]
+
+# Less strict settings for stubs
+[[tool.mypy.overrides]]
+module = "stubs.*"
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+disallow_untyped_decorators = false
+warn_no_return = false
+
+# Ignore missing imports for third-party libraries
+[[tool.mypy.overrides]]
+module = [
+  "javalang.*",
+  "bs4.*",
+  "catboost.*",
+  "scipy.*",
+  "sklearn.*",
+  "matplotlib.*",
+  "networkx.*",
+  "pebble.*",
+  "tqdm.*",
+]
+ignore_missing_imports = true
 
 [tool.ruff.format]
 quote-style = "single"
