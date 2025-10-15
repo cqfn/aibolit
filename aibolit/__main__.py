@@ -19,15 +19,15 @@ from collections import defaultdict, OrderedDict
 from os import scandir
 from pathlib import Path
 from sys import stdout
-from typing import List, Any, Dict, Tuple
+from typing import List, Any, Dict, Literal, Tuple
 
 import javalang
 import javalang.tree
 from javalang.parser import JavaSyntaxError
-import numpy as np  # type: ignore
-import requests  # type: ignore[import-untyped]
+import numpy as np
+import requests
 import requests.exceptions
-from lxml import etree  # type: ignore
+from lxml import etree
 from packaging.version import parse as parse_version
 
 from aibolit import __version__
@@ -41,7 +41,7 @@ from aibolit.utils.ast_builder import build_ast
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
-def list_dir(path, files):
+def list_dir(path: str, files: List[str]) -> List[str]:
     dir_list = []
     for entry in scandir(path):
         if entry.is_dir():
@@ -54,7 +54,7 @@ def list_dir(path, files):
     return dir_list
 
 
-def run_parse_args(commands_dict):
+def run_parse_args(commands_dict: Dict[str, Any]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description='Find the pattern which has the largest impact on readability',
         usage='''aibolit <command> [<args>]
@@ -79,7 +79,7 @@ def run_parse_args(commands_dict):
     return commands_dict[args.command]()
 
 
-def train():
+def train() -> None:
     parser = argparse.ArgumentParser(
         description='Collect dataset and train model'
     )
@@ -126,7 +126,13 @@ def train():
     train_process(metric_name_to_code[args.target_metric])
 
 
-def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_metric=False):
+def __count_value(
+    value_dict: Dict[str, Any],
+    input_params: Dict[str, Any],
+    code_lines_dict: Dict[str, Any],
+    java_file: str,
+    is_metric: bool = False
+) -> None:
     """
     Count value for input dict
 
@@ -151,7 +157,7 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
         raise Exception(f"Can't count {acronym} metric: {str(type(exc_value))}")
 
 
-def flatten(lst):
+def flatten(lst: List[List[Any]]) -> List[Any]:
     return [item for sublist in lst for item in sublist]
 
 
@@ -187,7 +193,7 @@ def add_pattern_if_ignored(
 
 def find_annotation_by_node_type(
         tree: javalang.tree.CompilationUnit,
-        node_type) -> Dict[Any, Any]:
+        node_type: type) -> Dict[Any, Any]:
     """Search nodes with annotations.
 
     :param tree: javalang.tree
@@ -213,16 +219,16 @@ def find_annotation_by_node_type(
     return annonations
 
 
-def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
+def find_start_and_end_lines(node: Any) -> Tuple[int, int]:  # noqa: C901
     max_line = node.position.line
 
-    def check_max_position(node):
+    def check_max_position(node: Any) -> None:
         nonlocal max_line
         if hasattr(node, '_position'):
-            if node.position.line > max_line:  # type: ignore[unresolved-reference]
+            if node.position.line > max_line:
                 max_line = node.position.line
 
-    def traverse(node):
+    def traverse(node: Any) -> None:
         check_max_position(node)
 
         if hasattr(node, 'children'):
@@ -252,7 +258,7 @@ def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
 
 def calculate_patterns_and_metrics_with_decomposition(
         file_path: str,
-        args):
+        args: argparse.Namespace) -> Tuple[List[Dict[str, Any]], str | None]:
     error_exc = None
     patterns_to_suppress = args.suppress
     results_for_components = []
@@ -280,7 +286,7 @@ def calculate_patterns_and_metrics_with_decomposition(
             for index, component_ast in enumerate(decompose_java_class(class_ast, 'strong')):
                 result_for_component: Dict[Any, Any] = {}
                 code_lines_dict: Dict[Any, Any] = OrderedDict()
-                input_params = OrderedDict()  # type: ignore
+                input_params = OrderedDict()
 
                 for pattern_info in patterns_info:
                     if pattern_info['code'] in config['patterns_exclude']:
@@ -305,12 +311,14 @@ def calculate_patterns_and_metrics_with_decomposition(
                 result_for_component['index'] = index
                 results_for_components.append(result_for_component)
     except Exception as ex:
-        error_exc = ex
+        error_exc = str(ex)
 
     return results_for_components, error_exc
 
 
-def calculate_patterns_and_metrics(file, patterns_to_suppress: list[str]):
+def calculate_patterns_and_metrics(
+    file: str, patterns_to_suppress: list[str]
+) -> Tuple[Dict[str, Any], Dict[str, Any], str | None]:
     code_lines_dict = input_params = {}  # type: ignore
     error_exc = None
     try:
@@ -321,14 +329,14 @@ def calculate_patterns_and_metrics(file, patterns_to_suppress: list[str]):
             if pattern['code'] in patterns_to_suppress:
                 input_params[pattern['code']] = 0
             else:
-                __count_value(pattern, input_params, code_lines_dict, file)
+                __count_value(dict(pattern), input_params, code_lines_dict, file)
 
         for metric in config['metrics']:
             if metric['code'] in config['metrics_exclude']:
                 continue
-            __count_value(metric, input_params, code_lines_dict, file, is_metric=True)
+            __count_value(dict(metric), input_params, code_lines_dict, file, is_metric=True)
     except Exception as ex:
-        error_exc = ex
+        error_exc = str(ex)
         input_params = []  # type: ignore
 
     return input_params, code_lines_dict, error_exc
@@ -336,8 +344,8 @@ def calculate_patterns_and_metrics(file, patterns_to_suppress: list[str]):
 
 def inference(
         input_params: Dict[Any, Any],
-        code_lines_dict,
-        args):
+        code_lines_dict: Dict[str, Any],
+        args: argparse.Namespace) -> list:
     """
     Find a pattern which has the largest impact on target
 
@@ -388,7 +396,7 @@ def create_results(
         code_lines_dict: Dict[Any, Any],
         args: argparse.Namespace,
         classes_with_patterns_ignored: List[Any],
-        patterns_ignored: Dict[Any, Any]):
+        patterns_ignored: Dict[Any, Any]) -> List[Any]:
 
     results_list = inference(input_params, code_lines_dict, args)
     new_results: List[Any] = []
@@ -404,7 +412,9 @@ def create_results(
     return new_results
 
 
-def _extract_patterns_ignored(tree):
+def _extract_patterns_ignored(
+    tree: javalang.tree.CompilationUnit
+) -> Tuple[List[Any], Dict[Any, Any]]:
     """Extract patterns that should be ignored from annotations."""
     classes_with_annonations = find_annotation_by_node_type(
         tree, javalang.tree.ClassDeclaration)
@@ -429,12 +439,17 @@ def _extract_patterns_ignored(tree):
     return classes_with_patterns_ignored, patterns_ignored
 
 
-def _process_components(components, args, classes_with_patterns_ignored, patterns_ignored):
+def _process_components(
+    components: List[Dict[str, Any]],
+    args: argparse.Namespace,
+    classes_with_patterns_ignored: List[Any],
+    patterns_ignored: Dict[Any, Any]
+) -> List[Any]:
     """Process components to create results."""
     results_list = []
     for lcom_component in components:
-        code_lines_dict = lcom_component.get('code_lines_dict')
-        input_params = lcom_component.get('input_params')
+        code_lines_dict = lcom_component.get('code_lines_dict', {})
+        input_params = lcom_component.get('input_params', {})
         ranked_results = create_results(
             input_params,
             code_lines_dict,
@@ -447,7 +462,7 @@ def _process_components(components, args, classes_with_patterns_ignored, pattern
     return results_list
 
 
-def run_recommend_for_file(file: str, args):  # flake8: noqa
+def run_recommend_for_file(file: str, args: argparse.Namespace) -> Dict[str, Any]:  # flake8: noqa
     """
     Calculate patterns and metrics, pass values to model and suggest pattern to change
     :param file: file to analyze
@@ -464,7 +479,7 @@ def run_recommend_for_file(file: str, args):  # flake8: noqa
             java_file, args)
 
         if not components:
-            results_list = []  # type: ignore
+            results_list = []
             error_exception = 'Empty java file; ncss = 0'
         else:
             results_list = _process_components(
@@ -472,7 +487,7 @@ def run_recommend_for_file(file: str, args):  # flake8: noqa
 
         ncss = NCSSMetric().value(AST.build_from_javalang(build_ast(file)))
     except Exception as e:
-        error_exception = e
+        error_exception = str(e)
         ncss = 0
         results_list = []
 
@@ -484,7 +499,9 @@ def run_recommend_for_file(file: str, args):  # flake8: noqa
     }
 
 
-def _process_pattern(patterns_tag, pattern, i, patterns_number):
+def _process_pattern(
+    patterns_tag: etree.Element, pattern: Dict[str, Any], i: int, patterns_number: int
+) -> Any:
     """Process a single pattern and add it to the XML."""
     pattern_item = etree.SubElement(patterns_tag, 'pattern')
     pattern_name_str = pattern.get('pattern_name')
@@ -507,7 +524,7 @@ def _process_pattern(patterns_tag, pattern, i, patterns_number):
     return pattern_score
 
 
-def _process_file_result(file, result_for_file):
+def _process_file_result(file: etree.Element, result_for_file: Dict[str, Any]) -> float | None:
     """Process a single file result and add it to the XML."""
     filename = result_for_file.get('filename')
     name = etree.SubElement(file, 'path')
@@ -546,7 +563,12 @@ def _process_file_result(file, result_for_file):
         return score_for_class
 
 
-def _create_xml_header(top, results, cmd, exit_code):
+def _create_xml_header(
+    top: etree.Element,
+    results: List[Dict[str, Any]],
+    cmd: str,
+    exit_code: int
+) -> Tuple[etree.Element, etree.Element]:
     """Create XML header with metadata."""
     header_tag = etree.SubElement(top, 'header')
     importances_for_all_classes_tag = etree.SubElement(header_tag, 'score')
@@ -571,7 +593,9 @@ def _create_xml_header(top, results, cmd, exit_code):
     return importances_for_all_classes_tag, patterns_number_tag
 
 
-def create_xml_tree(results, full_report, cmd, exit_code):
+def create_xml_tree(
+    results: List[Dict[str, Any]], full_report: bool, cmd: str, exit_code: int
+) -> etree._Element:
     """
     Creates xml from output of `check` function
     :param results: output of `check` function
@@ -602,7 +626,7 @@ def create_xml_tree(results, full_report, cmd, exit_code):
     return top
 
 
-def get_exit_code(results):
+def get_exit_code(results: List[Dict[str, Any]]) -> Literal[2, 0, 1]:
     """
     Analyzed recommendation results and generate exit_code for pipeline
     """
@@ -612,11 +636,11 @@ def get_exit_code(results):
     perfect_code_number = 0
     errors_strings = []
     for result_for_file in results:
-        results = result_for_file.get('results')
+        file_results = result_for_file.get('results')  # type: List[Dict[str, Any]] | None
         ex = result_for_file.get('exception')
-        if not results and not ex:
+        if not file_results and not ex:
             perfect_code_number += 1
-        elif not results and ex:
+        elif not file_results and ex:
             if not isinstance(ex, JavaSyntaxError):
                 errors_strings.append(ex)
                 errors_number += 1
@@ -626,7 +650,7 @@ def get_exit_code(results):
 
     if len(errors_strings) == files_analyzed:
         # we have errors everywhere
-        exit_code = 2
+        exit_code: Literal[2, 0, 1] = 2
     elif perfect_code_number == files_analyzed:
         # everything is good
         exit_code = 0
@@ -637,12 +661,16 @@ def get_exit_code(results):
     return exit_code
 
 
-def create_text(results, full_report, is_long=False):
-    importances_for_all_classes = []
+def create_text(
+    results: List[Dict[str, Any]], full_report: bool, is_long: bool = False
+) -> List[str]:
+    importances_for_all_classes: List[float] = []
     buffer = []
     total_patterns = 0
     if not full_report:
-        buffer.append('Show pattern with the largest contribution to Cognitive Complexity')
+        buffer.append(
+            'Show pattern with the largest contribution to Cognitive Complexity'
+        )
     else:
         buffer.append('Show all patterns')
     for result_for_file in results:
@@ -678,7 +706,13 @@ def create_text(results, full_report, is_long=False):
     return buffer
 
 
-def show_summary(buffer, importances_for_all_classes, is_long, results, total_patterns):
+def show_summary(
+    buffer: List[str],
+    importances_for_all_classes: List[float],
+    is_long: bool,
+    results: List[Dict[str, Any]],
+    total_patterns: int
+) -> None:
     files_number = len(
         [x for x in results
          if (not x.get('errors_string') and x.get('results'))
@@ -700,8 +734,8 @@ def show_summary(buffer, importances_for_all_classes, is_long, results, total_pa
 def print_total_score_for_file(
         buffer: List[str],
         filename: str,
-        importances_for_all_classes: List[int],
-        result_for_file):
+        importances_for_all_classes: List[float],
+        result_for_file: Dict[str, Any]) -> Dict[str, float]:
     patterns_scores = {}
     for x in result_for_file['results']:
         patterns_scores[x['pattern_name']] = x['importance']
@@ -711,7 +745,7 @@ def print_total_score_for_file(
     return patterns_scores
 
 
-def check():
+def check() -> Literal[2, 0, 1]:
     """Run check pipeline."""
 
     parser = argparse.ArgumentParser(
@@ -773,7 +807,7 @@ def check():
     if args.filenames:
         files = [str(Path(x).absolute()) for x in args.filenames if x not in files_to_exclude]
     elif args.folder:
-        all_files = []
+        all_files: List[str] = []
         list_dir(args.folder, all_files)
         files = [str(Path(x).absolute()) for x in all_files if str(x) not in files_to_exclude]
 
@@ -782,7 +816,7 @@ def check():
 
     if args.format:
         if args.format == 'xml':
-            root = create_xml_tree(results, args.full, sys.argv, exit_code)
+            root = create_xml_tree(results, args.full, ' '.join(sys.argv), exit_code)
             tree = root.getroottree()
             tree.write(stdout.buffer, pretty_print=True)
         else:
@@ -815,7 +849,9 @@ def handle_exclude_command_line(args: Any) -> List[str]:
     return files_to_exclude
 
 
-def format_converter_for_pattern(results, sorted_by=None):
+def format_converter_for_pattern(
+    results: List[Dict[str, Any]], sorted_by: str | None = None
+) -> List[Dict[str, Any]]:
     """
     Reformat data where data are sorted by patterns importance
     (it is already sorted in the input).
@@ -863,7 +899,7 @@ def format_converter_for_pattern(results, sorted_by=None):
     return results
 
 
-def version():
+def version() -> None:
     """
     Parses arguments and shows current version of program.
     """
@@ -876,7 +912,7 @@ def version():
     print(f'%(prog)s {__version__}')
 
 
-def run_thread(files, args):
+def run_thread(files: List[str], args: argparse.Namespace) -> Any:
     """
     Parallel patterns/metrics calculation
     :param files: list of java files to analyze
@@ -889,7 +925,7 @@ def run_thread(files, args):
             yield future.result()
 
 
-def get_versions(pkg_name):
+def get_versions(pkg_name: str) -> list:
     url = f'https://pypi.python.org/pypi/{pkg_name}/json'
     response = requests.get(url, timeout=15)
     response.raise_for_status()
@@ -897,7 +933,7 @@ def get_versions(pkg_name):
     return sorted(releases, key=parse_version, reverse=True)
 
 
-def main():
+def main() -> None:
     try:
         max_available_version = get_versions('aibolit')[0]
         if max_available_version != __version__:
@@ -921,7 +957,10 @@ def main():
         traceback.print_exc()
         sys.exit(2)
     else:
-        sys.exit(exit_code)
+        if isinstance(exit_code, int):
+            sys.exit(exit_code)
+        else:
+            sys.exit(0)
 
 
 if __name__ == '__main__':
