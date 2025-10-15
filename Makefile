@@ -13,6 +13,8 @@ all: requirements install test it lint xcop sphinx
 
 lint: flake8 pylint mypy
 
+type: mypy
+
 requirements:
 	uv sync
 
