@@ -34,7 +34,7 @@ NEW_SCOPE_NODES = [
 
 
 class ASTNode:
-    def __init__(self, line, method_line, node, scope):
+    def __init__(self, line: int, method_line: int, node: javalang.ast.Node, scope: int) -> None:
         self.line = line  # node line number in the file
         self.method_line = method_line  # line number where parent method declared
         self.node = node  # javalang AST node object
@@ -49,11 +49,11 @@ class JavalangImproved:
     All patterns using it should start traversing the tree manually.
     """
 
-    def __init__(self, tree, lines):
+    def __init__(self, tree: javalang.ast.Node, lines: list) -> None:
         self.tree = tree
         self.lines = lines
 
-    def __find_keyword(self, lines, keyword, start):
+    def __find_keyword(self, lines: list[str], keyword: str, start: int) -> int:
         """
         Args:
             lines (List[str]): List of lines from parsed source code file
@@ -65,7 +65,7 @@ class JavalangImproved:
                 return i + 1
         return -1
 
-    def __fix_line_number_if_possible(self, node: javalang.ast.Node, line_n):
+    def __fix_line_number_if_possible(self, node: javalang.ast.Node, line_n: int) -> int:
         '''
         Try to figure out the "true" line number of AST node in the source file
         '''
@@ -84,9 +84,9 @@ class JavalangImproved:
     def __tree_to_nodes(
         self,
         tree: javalang.ast.Node,
-        line=1,
-        parent_method_line=None,
-        scope=0
+        line: int = 1,
+        parent_method_line: int = 0,
+        scope: int = 0
     ) -> List[ASTNode]:
         """
         Return AST nodes with line numbers sorted by line number
@@ -94,7 +94,7 @@ class JavalangImproved:
         Args:
             tree (javalang.ast.Node): AST node
             line (int): Supposed line number of processed AST node in the file
-            parent_method_line (int): Nearest line number of the method this node located
+            parent_method_line (int | None): Nearest line number of the method this node located
             scope (int): ID of scope processed AST node located
         """
 

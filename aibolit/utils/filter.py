@@ -16,8 +16,7 @@ AnyField = Union[FieldDeclaration, LocalVariableDeclaration]
 
 
 class Filters:
-
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def filter_node_lvl(self, node: Node, javalang_class: Type[Node]) -> List[Nodes]:
@@ -46,7 +45,7 @@ class Filters:
         # To-Fix: implement get/set detection with .body
         temp_list = []
         for path, node in method_node_list:
-            if node.name.startswith(('get', 'set')):  # type: ignore[unresolved-attribute]
+            if node.name.startswith(('get', 'set')):
                 pass
             else:
                 temp_list.append((path, node))
@@ -75,8 +74,8 @@ class Filters:
         """
 
         parameter_list = []
-        name: str = method_node.name  # type: ignore[unresolved-attribute]
-        for parameter in method_node.parameters:  # type: ignore[unresolved-attribute]
+        name: str = method_node.name
+        for parameter in method_node.parameters:
             parameter_list.append((parameter.name, parameter.type.name))
         parameter_tuple: Tuple[Tuple[str, str], ...] = tuple(parameter_list)
         return name, parameter_tuple
@@ -106,7 +105,7 @@ class Filters:
 
         list_of_funcs = []
         list_of_fields = []
-        for argument in invocation_node.arguments:  # type: ignore
+        for argument in invocation_node.arguments:
             if isinstance(argument, MethodInvocation):
                 list_of_funcs.append(argument.member)
             elif isinstance(argument, MemberReference):

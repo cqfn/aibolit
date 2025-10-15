@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from networkx import DiGraph, disjoint_union  # type: ignore
+from networkx import DiGraph, disjoint_union
 
 from aibolit.ast_framework import AST, ASTNodeType
 
