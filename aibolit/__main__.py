@@ -61,8 +61,7 @@ def run_parse_args(commands_dict: Dict[str, Any]) -> argparse.Namespace:
 
         You can run 1 command:
         train          Train model
-        check          Recommend pattern
-        recommend      Recommend pattern. The same as recommend, just another acronym''')
+        recommend      Recommend pattern''')
 
     parser.add_argument('command', help='Subcommand to run')
     parser.add_argument(
@@ -750,7 +749,7 @@ def check() -> Literal[2, 0, 1]:
 
     parser = argparse.ArgumentParser(
         description='Get recommendations for Java code',
-        usage='aibolit check < --folder | --filenames > [--model] '
+        usage='aibolit recommend < --folder | --filenames > [--model] '
               '[--threshold] [--full] [--format]')
 
     group_exclusive = parser.add_mutually_exclusive_group(required=True)
@@ -948,8 +947,7 @@ def main() -> None:
     try:
         commands = {
             'train': train,
-            'check': check,
-            'recommend': check,
+            'recommend': recommend,
             'version': version,
         }
         exit_code = run_parse_args(commands)

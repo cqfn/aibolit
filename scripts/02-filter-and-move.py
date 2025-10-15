@@ -178,7 +178,6 @@ def walk_in_parallel():
         queue.put(Path(i).absolute())
 
     cancel = Value(c_bool, False)
-    counter = Counter(0).shared()
 
     def call_back():
         if counter.value > MAX_CLASSES:

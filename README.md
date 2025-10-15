@@ -20,12 +20,6 @@ pip3 install aibolit~=1.3.0
 To analyze your Java sources, located at `src/java` (for example), run:
 
 ```bash
-aibolit check --filenames src/java/File.java src/java/AnotherFile.java
-```
-
-or
-
-```bash
 aibolit recommend --filenames src/java/File.java src/java/AnotherFile.java
 ```
 
@@ -289,7 +283,7 @@ Otherwise model will be saved into
 parameter`, the default value will be `scripts/target/01` of aibolit cloned
 repo
 
-Or you can use our docker image (link will be soon here)
+Or you can use our [docker image](https://hub.docker.com/r/yegor256/aibolit-image)
 
 Run train pipeline:
 
@@ -319,6 +313,7 @@ First, you need to install:
 * [Python 3.11+](https://www.python.org/downloads/)
 * [uv](https://docs.astral.sh/uv/)
 * [Ruby 2.6+](https://www.ruby-lang.org/en/downloads/)
+* [Maven](https://maven.apache.org/)
 * [Xcop](https://github.com/yegor256/xcop)
 * [LaTeX](https://www.latex-project.org/get/) and
   [`latexmk`](https://ctan.org/pkg/latexmk)
@@ -358,7 +353,7 @@ Using Docker recommendation pipeline
 docker run --rm -it \
   -v <absolute_path_to_folder_with_classes>:/in \
   -v <absolute_path_to_out_dir>:/out \
-  cqfn/aibolit-image
+  yegor256/aibolit-image
 ```
 
 [White Paper]: https://github.com/cqfn/aibolit/releases/download/1.2.5-post.1/aibolit_wp.pdf

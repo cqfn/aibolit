@@ -142,7 +142,7 @@ def _parse_args():
         type=float,
         default=60,
         help='Maximum time (in seconds) for single file proccessing. Default is 60 seconds. '
-        'If 0, no timout is set.',
+        'If 0, no timeout is set.',
     )
 
     parser.add_argument(

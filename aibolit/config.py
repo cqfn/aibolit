@@ -233,7 +233,7 @@ class Config(metaclass=Singleton):
                 {'name': 'Max diameter of AST', 'code': 'M6', 'make': M6},
                 {'name': 'Number of variables', 'code': 'M7', 'make': M7},  # type: ignore
                 {'name': 'Number of methods', 'code': 'M8', 'make': M8},
-                {'name': 'Responce for class', 'code': 'M9', 'make': M9},
+                {'name': 'Response for class', 'code': 'M9', 'make': M9},
                 {'name': 'Fan out', 'code': 'M10', 'make': M10},
                 {'name': 'Cyclomatic Complexity', 'code': 'M11', 'make': M11},
             ],
