@@ -9,6 +9,7 @@ providing a central registry for all available code analysis tools.
 import os
 import typing
 from pathlib import Path
+from typing import Any
 
 from aibolit.ast_framework import ASTNodeType
 
@@ -67,7 +68,7 @@ class Singleton(type):
     """Metaclass for implementing the Singleton pattern."""
     _instances = {}  # type: ignore
 
-    def __call__(cls, *args, **kwargs):
+    def __call__(cls, *args: Any, **kwargs: Any) -> Any:
         """Create or return the singleton instance."""
         if cls not in cls._instances:
             cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
@@ -110,38 +111,43 @@ class Config(metaclass=Singleton):
     """Central configuration for patterns and metrics discovery."""
 
     @staticmethod
-    def home_aibolit_folder():
+    def home_aibolit_folder() -> str:
         """Get the home folder for aibolit."""
         return os.environ.get('HOME_AIBOLIT') or '/home/jovyan/aibolit'
 
     @staticmethod
-    def folder_to_save_model_data():
+    def folder_to_save_model_data() -> Path:
         """Get the folder path for saving model data."""
         model_folder = Path(Config().home_aibolit_folder(), 'aibolit', 'binary_files')
-        return os.environ.get('SAVE_MODEL_FOLDER') or model_folder
+        env_folder = os.environ.get('SAVE_MODEL_FOLDER')
+        return Path(env_folder) if env_folder else model_folder
 
     @staticmethod
-    def folder_model_data():
+    def folder_model_data() -> Path:
         """Get the folder path for model data."""
         dir_path = os.path.dirname(os.path.realpath(__file__))
         model_file = Path(Path(dir_path), 'binary_files', 'model.pkl')
-        return os.environ.get('HOME_MODEL_FOLDER') or model_file
+        env_folder = os.environ.get('HOME_MODEL_FOLDER')
+        return Path(env_folder) if env_folder else model_file
 
     @staticmethod
-    def dataset_file():
+    def dataset_file() -> Path:
         """Get the dataset file path."""
         dataset_path = Path(Config().home_aibolit_folder(), 'scripts', 'target', 'dataset.csv')
-        return os.environ.get('HOME_DATASET_CSV') or dataset_path
+        env_path = os.environ.get('HOME_DATASET_CSV')
+        return Path(env_path) if env_path else dataset_path
 
     @staticmethod
-    def train_csv():
+    def train_csv() -> Path | None:
         """Get the training CSV file path."""
-        return os.environ.get('HOME_TRAIN_DATASET')
+        env_path = os.environ.get('HOME_TRAIN_DATASET')
+        return Path(env_path) if env_path else None
 
     @staticmethod
-    def test_csv():
+    def test_csv() -> Path | None:
         """Get the test CSV file path."""
-        return os.environ.get('HOME_TEST_DATASET')
+        env_path = os.environ.get('HOME_TEST_DATASET')
+        return Path(env_path) if env_path else None
 
     @staticmethod
     def get_patterns_config() -> PatternsConfig:
