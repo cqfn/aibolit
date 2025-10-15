@@ -1,8 +1,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from typing import Any, List
 
-from aibolit.ast_framework import AST, ASTNodeType, ASTNode
+from typing import List, cast, Any
+
+from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
 
 class HybridConstructor:
@@ -10,7 +11,8 @@ class HybridConstructor:
     def is_statement_ctor_inv(self, node: ASTNode) -> bool:
         """Is statement explicit constructor invocation."""
 
-        return node.expression.node_type == ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION
+        return (cast(ASTNodeType, node.expression.node_type) ==
+                ASTNodeType.EXPLICIT_CONSTRUCTOR_INVOCATION)
 
     def traverse_in_if(
             self,
