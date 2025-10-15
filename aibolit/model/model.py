@@ -200,7 +200,7 @@ class PatternRankingModel(BaseEstimator):
 
         return (np.array(ranked), pairs[:, 0].T.tolist()[::-1])
 
-    def rank(self, snippet: NDArray, scale: bool = True) -> Tuple[Dict[str, int], List[float]]:
+    def rank(self, snippet: NDArray, scale: bool = True) -> Tuple[List[int], List[float]]:
         """
         Args:
             snippet: np.array with shape (number of snippets, number of patterns + 1),
@@ -247,6 +247,6 @@ class PatternRankingModel(BaseEstimator):
 
         sorted_importances = dict(sorted(importances, key=lambda x: x[1], reverse=True))
         return (
-            {self.features_conf['features_order'][k]: k for k in sorted_importances.keys()},
+            list(sorted_importances.keys()),
             list(sorted_importances.values())
         )
