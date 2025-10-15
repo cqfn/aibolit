@@ -1,11 +1,12 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
+from typing import Any
 from aibolit.utils.ast_builder import build_ast
 
 
 class MDAMetric:
     @staticmethod
-    def get_depth(tree) -> int:
+    def get_depth(tree: Any) -> int:
         result = 0
         max_val = 0
 

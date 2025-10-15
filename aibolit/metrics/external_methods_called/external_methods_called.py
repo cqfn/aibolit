@@ -14,10 +14,10 @@ class ExternalMethodsCalled:
     Measure the number of external methods called by the class.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
-    def value(self, filepath: str | os.PathLike):
+    def value(self, filepath: str | os.PathLike) -> int:
         return ExternalMethodsCalledCount(AST.build_from_javalang(build_ast(filepath))).total()
 
 

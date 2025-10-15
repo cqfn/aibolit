@@ -3,19 +3,20 @@
 
 import subprocess
 import os
+from typing import Dict, List, Any, Union
 
 
 class HVMetric():
     """Main Halstead Volume class."""
 
-    input = ''
+    input: Union[str, os.PathLike] = ''
 
-    def __init__(self, input):
+    def __init__(self, input: Union[str, os.PathLike]) -> None:
         self.input = input
 
-    def value(self):
+    def value(self) -> Dict[str, List[Dict[str, Any]]]:
         """Run Halstead Volume analaysis"""
-        if len(self.input) == 0:
+        if len(str(self.input)) == 0:
             raise ValueError('Empty file for analysis')
 
         path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..',
@@ -27,5 +28,5 @@ class HVMetric():
         result = subprocess.run(['java', '-jar', path, self.input],
                                 stdout=subprocess.PIPE, check=True)
         out = result.stdout.decode('utf-8')
-        res = result = {'data': [{'file': self.input, 'halsteadvolume': float(out)}]}
+        res = {'data': [{'file': self.input, 'halsteadvolume': float(out)}]}
         return res

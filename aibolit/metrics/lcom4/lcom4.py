@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-import networkx as nx  # type: ignore
+import networkx as nx
 from aibolit.utils.ast_builder import build_ast
 
 from aibolit.utils.cohesiongraph import CohesionGraph
@@ -11,10 +11,10 @@ class LCOM4:
 
     coh = CohesionGraph()
 
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
-    def value(self, filename: str):
+    def value(self, filename: str) -> int:
 
         tree = build_ast(filename)
         G = self.coh.value(tree)

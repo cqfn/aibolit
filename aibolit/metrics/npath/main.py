@@ -7,9 +7,9 @@ import shutil
 import subprocess
 import tempfile
 import uuid
-from typing import Iterable
+from typing import Iterable, Any, cast
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
@@ -19,10 +19,10 @@ class NPathMetric():
 
     input = ''
 
-    def __init__(self, input):
+    def __init__(self, input: str) -> None:
         self.input = input
 
-    def value(self, showoutput=False):
+    def value(self, showoutput: bool = False) -> dict[str, list[Any]]:
         """Run NPath Complexity analaysis"""
 
         if len(self.input) == 0:
@@ -55,31 +55,37 @@ class NPathMetric():
         finally:
             shutil.rmtree(root)
 
-    def __parseFile(self, root):
-        result = {'data': [], 'errors': []}
-        content = []
+    def __parseFile(self, root: str) -> dict[str, list[Any]]:
+        result: dict[str, list[Any]] = {'data': [], 'errors': []}
+        content: str = ''
         with open(f'{root}/target/pmd.xml', 'r', encoding='utf-8') as file:
             content = file.read()
             soup = BeautifulSoup(content, features='xml')
             files = soup.find_all('file')
-            for file in files:
-                out = file.violation.string
-                name = file['name']
-                pos1 = name.find(f'{root}/src/main/java/')
-                pos1 = pos1 + len(f'{root}/src/main/java/')
-                name = name[pos1:]
-                s = 'NPath complexity of '
-                pos1 = out.find(s)
-                pos1 = pos1 + len(s)
-                complexity = int(out[pos1:])
-                result['data'].append({'file': name, 'complexity': complexity})
+            for xml_file in files:
+                if hasattr(xml_file, 'violation') and hasattr(xml_file, 'get'):
+                    xml_file_tag = cast(Tag, xml_file)
+                    violation = xml_file_tag.violation
+                    if violation and hasattr(violation, 'string'):
+                        out = str(violation.string)
+                        name = str(xml_file_tag.get('name', ''))
+                        pos1 = name.find(f'{root}/src/main/java/')
+                        pos1 = pos1 + len(f'{root}/src/main/java/')
+                        name = name[pos1:]
+                        s = 'NPath complexity of '
+                        pos1 = out.find(s)
+                        pos1 = pos1 + len(s)
+                        complexity = int(out[pos1:])
+                        result['data'].append({'file': name, 'complexity': complexity})
             errors = soup.find_all('error')
             for error in errors:
-                name = error['filename']
-                pos1 = name.find(f'{root}/src/main/java/')
-                pos1 = pos1 + len(f'{root}/src/main/java/')
-                name = name[pos1:]
-                raise Exception(error['msg'])
+                if hasattr(error, 'get'):
+                    error_tag = cast(Tag, error)
+                    name = str(error_tag.get('filename', ''))
+                    pos1 = name.find(f'{root}/src/main/java/')
+                    pos1 = pos1 + len(f'{root}/src/main/java/')
+                    name = name[pos1:]
+                    raise Exception(str(error_tag.get('msg', 'Unknown error')))
         return result
 
 

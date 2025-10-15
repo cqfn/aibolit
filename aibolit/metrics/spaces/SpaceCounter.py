@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
+from typing import List
 from statistics import variance
 
 from aibolit.utils.encoding_detector import read_text_with_autodetected_encoding
@@ -9,13 +10,19 @@ from aibolit.utils.utils import RemoveComments
 
 class IndentationCounter:
 
-    def __init__(self, left_var=False, right_var=False, max_left=False, max_right=False):
+    def __init__(
+        self,
+        left_var: bool = False,
+        right_var: bool = False,
+        max_left: bool = False,
+        max_right: bool = False
+    ) -> None:
         self.left_var = left_var
         self.right_var = right_var
         self.max_left = max_left
         self.max_right = max_right
 
-    def __file_to_tokens(self, filename: str):
+    def __file_to_tokens(self, filename: str) -> List[str]:
         """
         Takes path to java class file and returns tokens
 
@@ -27,7 +34,7 @@ class IndentationCounter:
         return [line.replace('\t', '    ') for line in source_code.splitlines()
                 if line]
 
-    def value(self, filename: str):
+    def value(self, filename: str) -> float | None:
         lines = self.__file_to_tokens(filename)
         if not lines or len(lines) == 1:
             return 0
