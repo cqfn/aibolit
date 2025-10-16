@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 import os
 import ast
-from typing import List, Set, Dict
+from typing import List
 
 
 class BidirectIndex:
