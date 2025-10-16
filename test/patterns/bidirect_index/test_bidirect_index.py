@@ -5,7 +5,7 @@ import os.path
 from pathlib import Path
 from unittest import TestCase
 import unittest
-from aibolit.patterns.bidirect_index import BidirectIndex
+from aibolit.patterns.bidirect_index.bidirect_index import BidirectIndex
 
 
 @unittest.skip('Not implemented')
