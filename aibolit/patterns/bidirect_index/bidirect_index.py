@@ -43,7 +43,7 @@ class LineNumber:
         self.variable = variable
 
     def __repr__(self):
-        return f"LineNumber(line={self.line}, variable='{self.variable}')"
+        return f'LineNumber(line={self.line}, variable='{self.variable}')'
 
     def __eq__(self, other):
         if not isinstance(other, LineNumber):
@@ -54,7 +54,7 @@ class LineNumber:
 class BidirectIndexDetector(ast.NodeVisitor):
     def __init__(self):
         self.bidirect_variables = []
-        self.current_method = ""
+        self.current_method = ''
         self.method_operations = {}
 
     def visit_FunctionDef(self, node):
