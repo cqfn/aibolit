@@ -96,7 +96,7 @@ def train_process(target_metric_code: str = 'M4') -> None:
 
     train_csv_path = Config.train_csv()
     if train_csv_path is None:
-        raise ValueError("Train CSV path is not configured")
+        raise ValueError('Train CSV path is not configured')
     train_dataset = pd.read_csv(train_csv_path, index_col=None)
     model = PatternRankingModel()
     # At the moment we use use patterns as features,
@@ -122,7 +122,7 @@ def train_process(target_metric_code: str = 'M4') -> None:
     print(f'Test loaded model from file {load_model_file}:')
     test_csv_path = Config.test_csv()
     if test_csv_path is None:
-        raise ValueError("Test CSV path is not configured")
+        raise ValueError('Test CSV path is not configured')
     test_dataset = pd.read_csv(test_csv_path, index_col=None)
     with open(load_model_file, 'rb') as fid:
         model_new = pickle.load(fid)

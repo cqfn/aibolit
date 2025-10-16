@@ -65,7 +65,7 @@ class NPathMetric():
             for file_elem in files:
                 out = (str(file_elem.violation.string)
                        if file_elem.violation and file_elem.violation.string
-                       else "")
+                       else '')
                 name = str(file_elem.get('name', ''))
                 pos1 = name.find(f'{root}/src/main/java/')
                 pos1 = pos1 + len(f'{root}/src/main/java/')
