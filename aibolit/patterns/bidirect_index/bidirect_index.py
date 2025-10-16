@@ -43,7 +43,7 @@ class LineNumber:
         self.variable = variable
 
     def __repr__(self):
-        return f'LineNumber(line={self.line}, variable='{self.variable}')'
+        return f"LineNumber(line={self.line}, variable='{self.variable}')"
 
     def __eq__(self, other):
         if not isinstance(other, LineNumber):
