@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 import os
 import ast
-from typing import List
+from typing import List, Dict
 
 
 class BidirectIndex:
@@ -52,10 +52,10 @@ class LineNumber:
 
 
 class BidirectIndexDetector(ast.NodeVisitor):
-    def __init__(self):
-        self.bidirect_variables = []
-        self.current_method = ''
-        self.method_operations = {}
+    def __init__(self, vars=[]: List, method='': str, ops={}: Dict):
+        self.bidirect_variables = vars
+        self.current_method = method
+        self.method_operations = ops
 
     def visit_FunctionDef(self, node):
         self.current_method = node.name
