@@ -54,6 +54,7 @@ class LoopOutsider:
             var_changes.add(node.expressionl)
         return var_changes
 
+    # TODO: loop_type parameter was removed, consider refactoring to pass loop_type if needed
     def _find_loop_variable_declarations(self, ast: AST) -> Set[str]:
         """Find all variable declarations within the loop scope."""
         loop_vars_declarations = set()
@@ -62,10 +63,6 @@ class LoopOutsider:
         for node in ast.proxy_nodes(
                 ASTNodeType.LOCAL_VARIABLE_DECLARATION):
             loop_vars_declarations.add(node.names[-1])
-
-        # Note: loop_type parameter was removed, so this check is no longer possible
-        # TODO: Consider refactoring to pass loop_type if needed
-
         return loop_vars_declarations
 
     def _variable_is_affected(self, node: Any) -> bool:
