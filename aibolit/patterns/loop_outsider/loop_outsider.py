@@ -54,7 +54,6 @@ class LoopOutsider:
             var_changes.add(node.expressionl)
         return var_changes
 
-    # TODO: #963 loop_type parameter was removed, consider refactoring to pass loop_type if needed
     def _find_loop_variable_declarations(self, ast: AST) -> Set[str]:
         """Find all variable declarations within the loop scope."""
         loop_vars_declarations = set()
