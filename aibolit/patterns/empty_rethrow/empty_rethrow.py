@@ -10,7 +10,7 @@ class EmptyRethrow:
     """
     Check if we throw the same exception as it was caught
     """
-    def _process_catch(self, ast: AST, catch_clauses: List[ASTNode]):
+    def _process_catch(self, ast: AST, catch_clauses: List[ASTNode]) -> List[int]:
         lines: List[int] = []
         for catch_clause in catch_clauses:
             throw_statements = ast.subtree(catch_clause).proxy_nodes(

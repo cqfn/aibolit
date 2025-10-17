@@ -1,9 +1,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from typing import List, Iterator, Optional
+from typing import List, Iterator, Optional, cast
 
-from networkx import DiGraph  # type: ignore
+from networkx import DiGraph
 
 from .ast import AST
 from .ast_node import ASTNode
@@ -45,15 +45,15 @@ class Scope:
 
     @property
     def statements(self) -> List[ASTNode]:
-        return self._scope_tree.nodes[self._scope_id]['statements']
+        return cast(List[ASTNode], self._scope_tree.nodes[self._scope_id]['statements'])
 
     @property
     def parent_node(self) -> ASTNode:
-        return self._scope_tree.nodes[self._scope_id]['parent_node']
+        return cast(ASTNode, self._scope_tree.nodes[self._scope_id]['parent_node'])
 
     @property
     def parameters(self) -> List[ASTNode]:
-        return self._scope_tree.nodes[self._scope_id]['parameters']
+        return cast(List[ASTNode], self._scope_tree.nodes[self._scope_id]['parameters'])
 
     @staticmethod
     def _create_scopes_from_node(node: ASTNode, method_ast: AST, scope_tree: DiGraph) -> List[int]:

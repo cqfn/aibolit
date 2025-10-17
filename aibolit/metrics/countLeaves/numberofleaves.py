@@ -16,7 +16,7 @@ class CountNumberOfLeaves:
     input: file_path
     output: sum of leaves in class by each method
     """
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def countLeaves(self, root: Node | list[Node]) -> int:

@@ -10,10 +10,10 @@ class HVMetric():
 
     input = ''
 
-    def __init__(self, input):
+    def __init__(self, input: str) -> None:
         self.input = input
 
-    def value(self):
+    def value(self) -> dict:
         """Run Halstead Volume analaysis"""
         if len(self.input) == 0:
             raise ValueError('Empty file for analysis')
@@ -27,5 +27,5 @@ class HVMetric():
         result = subprocess.run(['java', '-jar', path, self.input],
                                 stdout=subprocess.PIPE, check=True)
         out = result.stdout.decode('utf-8')
-        res = result = {'data': [{'file': self.input, 'halsteadvolume': float(out)}]}
+        res = {'data': [{'file': self.input, 'halsteadvolume': float(out)}]}
         return res

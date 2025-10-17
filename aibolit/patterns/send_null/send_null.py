@@ -7,7 +7,7 @@ from aibolit.ast_framework import ASTNodeType, AST
 
 class SendNull:
 
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def __is_null(self, val: Any) -> bool:

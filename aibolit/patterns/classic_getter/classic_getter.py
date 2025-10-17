@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
-from typing import List
+from typing import List, cast
 from aibolit.ast_framework import ASTNodeType, AST
 from aibolit.ast_framework.ast_node import ASTNode
 
@@ -43,17 +43,17 @@ class ClassicGetter:
 
 
 def _is_return(node: ASTNode) -> bool:
-    return node.node_type == ASTNodeType.RETURN_STATEMENT
+    return cast(ASTNodeType, node.node_type) == ASTNodeType.RETURN_STATEMENT
 
 
 def _is_this_reference(node: ASTNode) -> bool:
-    return node.node_type == ASTNodeType.THIS
+    return cast(ASTNodeType, node.node_type) == ASTNodeType.THIS
 
 
 def _method_invocation(node: ASTNode) -> bool:
     first_child = next(node.children)
-    return first_child.node_type == ASTNodeType.METHOD_INVOCATION
+    return cast(ASTNodeType, first_child.node_type) == ASTNodeType.METHOD_INVOCATION
 
 
 def _is_expression_memeber_ref(node: ASTNode) -> bool:
-    return node.expression.node_type == ASTNodeType.MEMBER_REFERENCE
+    return cast(ASTNodeType, node.expression.node_type) == ASTNodeType.MEMBER_REFERENCE

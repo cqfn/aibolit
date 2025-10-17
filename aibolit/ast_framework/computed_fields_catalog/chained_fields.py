@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from typing import Union, Any, Callable
+from typing import Union, Any, Callable, List
 from itertools import chain
 
 from aibolit.ast_framework import ASTNode
@@ -20,7 +20,7 @@ def chain_field_getter_factory(*steps: Union[str, int]) -> Callable[[ASTNode], A
     """
 
     def get_chain_field(node: ASTNode) -> Any:
-        field = node
+        field: Union[ASTNode, List[Any], Any] = node
         for step in steps:
             if isinstance(field, list) and \
                isinstance(step, str) and \

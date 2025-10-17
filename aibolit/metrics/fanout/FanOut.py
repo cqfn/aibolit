@@ -1,9 +1,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from typing import Set
+from typing import Set, cast
 
-from aibolit.ast_framework import AST, ASTNode, ASTNodeType
+from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 
 
 class FanOut:
@@ -42,7 +42,7 @@ class FanOut:
         while isinstance(type_reference.sub_type, ASTNode):
             type_reference = type_reference.sub_type
 
-        return type_reference.name
+        return cast(str, type_reference.name)
 
     # exception are used from checkstyle.sourceforge.io/config_metrics.html#ClassFanOutComplexity
     # basic types ('int', 'long', etc) not used - ASTNodeType.REFERENCE_TYPE match only classes

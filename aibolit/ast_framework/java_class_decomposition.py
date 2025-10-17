@@ -3,7 +3,7 @@
 
 from typing import List, Dict, Set, Iterator, Any, Literal
 
-from networkx import (  # type: ignore
+from networkx import (
     DiGraph, strongly_connected_components, weakly_connected_components
 )
 
@@ -31,7 +31,7 @@ def find_patterns(tree: AST, patterns: List[Any]) -> Set[str]:
     return patterns_method_names
 
 
-def is_ast_pattern(class_ast: AST, Pattern) -> bool:
+def is_ast_pattern(class_ast: AST, Pattern: type) -> bool:
     """
     Checks whether ast is some pattern
     :param Pattern: pattern class

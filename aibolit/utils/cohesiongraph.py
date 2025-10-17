@@ -3,7 +3,7 @@
 
 from typing import List, Tuple, Union, TypeVar
 
-import networkx as nx  # type: ignore
+import networkx as nx
 from javalang.tree import ClassDeclaration, MethodDeclaration, \
     MemberReference, FieldDeclaration, MethodInvocation, This, Node, LocalVariableDeclaration
 from networkx import Graph
@@ -225,7 +225,7 @@ class CohesionGraph:
                         self.add_vertices_edges(G, 'reference', method_exhaust, field)
 
     def add_vertices_edges(
-        self, G, edge_type: str, first_node: EdgeNode, second_node: EdgeNode
+        self, G: Graph, edge_type: str, first_node: EdgeNode, second_node: EdgeNode
     ) -> None:
         """Adds nodes to graph G
 

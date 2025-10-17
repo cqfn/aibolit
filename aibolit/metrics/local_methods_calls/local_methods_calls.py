@@ -13,10 +13,10 @@ class LocalMethodsCalls:
     Measure the number of local methods called by the class.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
-    def value(self, filepath: str | os.PathLike):
+    def value(self, filepath: str | os.PathLike) -> int:
         return LocalMethodsCallsCount(AST.build_from_javalang(build_ast(filepath))).total()
 
 

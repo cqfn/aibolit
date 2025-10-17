@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from typing import List
+from typing import List, cast
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
@@ -59,7 +59,7 @@ class NestedBlocks:
 
     def _get_block_statements_list(self, node: ASTNode) -> List[ASTNode]:
         if node.node_type == ASTNodeType.BLOCK_STATEMENT:
-            return node.statements
+            return cast(List[ASTNode], node.statements)
 
         # A single statement is treated as a block with this statement
         # This happens in following situations

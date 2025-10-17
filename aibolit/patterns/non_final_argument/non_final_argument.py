@@ -9,7 +9,7 @@ from aibolit.utils.ast_builder import build_ast
 
 
 class NonFinalArgument:
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def value(self, filename: str | os.PathLike) -> list[LineNumber]:

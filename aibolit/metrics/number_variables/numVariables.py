@@ -11,7 +11,7 @@ class NumVars:
     input: filename
     output: number of variables
     """
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def value(self, filename: str) -> int:

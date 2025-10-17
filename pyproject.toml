@@ -63,7 +63,40 @@ requires = ["setuptools>=61", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.mypy]
-mypy_path = "stubs"
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_optional = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+show_error_codes = true
+show_column_numbers = true
+pretty = true
+exclude = [
+  "stubs/",
+]
+
+# Ignore missing imports for third-party libraries
+[[tool.mypy.overrides]]
+module = [
+  "javalang.*",
+  "bs4.*",
+  "catboost.*",
+  "scipy.*",
+  "sklearn.*",
+  "matplotlib.*",
+  "networkx.*",
+  "pebble.*",
+  "tqdm.*",
+]
+ignore_missing_imports = true
 
 [tool.ruff.format]
 quote-style = "single"
@@ -85,7 +118,8 @@ dev = [
   "codecov==2.1.13",
   "flake8-elegant-objects==1.1.1",
   "flake8==7.3.0",
-  "mypy==1.18.2",                    # Update to a version compatible with Python 3.12
+  "mypy==1.18.2",
+  "pandas-stubs>=2.3.2.250926",
   "pylint==4.0.1",
   "pytest-cov==7.0.0",
   "pytest-testmon==2.1.3",

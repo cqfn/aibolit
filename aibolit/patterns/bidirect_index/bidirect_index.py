@@ -5,10 +5,10 @@ import os
 
 class BidirectIndex:
 
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
-    def value(self, filename: str | os.PathLike):
+    def value(self, filename: str | os.PathLike) -> list:
         """
         Finds if a variable is being incremented and decremented within the same method
 

@@ -14,7 +14,7 @@ class VarMiddle:
     of the method
     """
 
-    def value(self, ast: AST):
+    def value(self, ast: AST) -> List[LineNumber]:
 
         scope_status = ScopeStatus()
         lines_with_error: List[LineNumber] = []
@@ -26,7 +26,7 @@ class VarMiddle:
 
     @staticmethod
     def _on_entering_node(node: ASTNode, scope_status: ScopeStatus,
-                          lines_with_error: List[LineNumber]):
+                          lines_with_error: List[LineNumber]) -> None:
         node_type = node.node_type
 
         # if the variable is declared mark it and check the scope
@@ -57,7 +57,7 @@ class VarMiddle:
                 scope_status.enter_new_scope()
 
     @staticmethod
-    def _on_leaving_node(node: ASTNode, scope_status: ScopeStatus):
+    def _on_leaving_node(node: ASTNode, scope_status: ScopeStatus) -> None:
         node_type = node.node_type
 
         # on the end of variable declaration remove according flag

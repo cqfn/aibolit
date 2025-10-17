@@ -11,7 +11,7 @@ class InstanceOf:
     Finds instance_of operator and .isInstance() method call.
     """
 
-    def value(self, ast: AST):
+    def value(self, ast: AST) -> List[int]:
         lines: List[int] = []
         for binary_operator in ast.proxy_nodes(ASTNodeType.BINARY_OPERATION):
             if binary_operator.operator == 'instanceof':
