@@ -32,7 +32,7 @@ class BidirectIndex:
             tree = ast.parse(source_code)
         except SyntaxError:
             return []
-        detector = BidirectIndexDetector([],'',{})
+        detector = BidirectIndexDetector([], '', {})
         detector.visit(tree)
         return detector.bidirect_vars()
 
@@ -52,7 +52,7 @@ class LineNumber:
 
 
 class BidirectIndexDetector(ast.NodeVisitor):
-    def __init__(self, vars: List, method: str = '', ops: Dict = None):
+    def __init__(self, vars: List, method: str = '', ops: Dict):
         self.bidirect_variables = vars
         self.current_method = method
         self.method_operations = ops
