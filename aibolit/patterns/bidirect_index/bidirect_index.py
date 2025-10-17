@@ -52,10 +52,10 @@ class LineNumber:
 
 
 class BidirectIndexDetector(ast.NodeVisitor):
-    def __init__(self, vars=[]: List, method='': str, ops={}: Dict):
-        self.bidirect_variables = vars
+    def __init__(self, vars: List = None, method: str = '', ops: Dict = None):
+        self.bidirect_variables = vars if vars is not None else []
         self.current_method = method
-        self.method_operations = ops
+        self.method_operations = ops if ops is not None else {}
 
     def visit_FunctionDef(self, node):
         self.current_method = node.name
