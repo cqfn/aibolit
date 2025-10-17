@@ -32,7 +32,7 @@ class BidirectIndex:
             tree = ast.parse(source_code)
         except SyntaxError:
             return []
-        detector = BidirectIndexDetector()
+        detector = BidirectIndexDetector([],'',{})
         detector.visit(tree)
         return detector.bidirect_vars()
 
