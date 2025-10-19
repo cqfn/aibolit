@@ -95,9 +95,12 @@ def train_process(target_metric_code: str = 'M4') -> None:
     print('General number of features in config: ', features_number)
 
     train_csv_path = Config.train_csv()
-    if train_csv_path is None:
+    if not train_csv_path:
         raise ValueError('Train CSV path is not configured')
-    train_dataset = pd.read_csv(train_csv_path, index_col=None)
+    train_csv = Path(train_csv_path)
+    if not train_csv.exists():
+        raise FileNotFoundError(f'Train CSV not found: {train_csv}')
+    train_dataset = pd.read_csv(train_csv, index_col=None)
     model = PatternRankingModel()
     # At the moment we use use patterns as features,
     # but in future features can be also some metrics.
