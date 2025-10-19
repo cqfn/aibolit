@@ -17,7 +17,7 @@ class LoopOutsider:
     def __init__(self) -> None:
         pass
 
-    def value(self, filename: str | os.PathLike) -> List[LineNumber]:
+    def value(self, filename: str | os.PathLike[str]) -> List[LineNumber]:
         """
         Returns the line number of loop outsiders found in file.
         """
