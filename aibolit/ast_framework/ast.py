@@ -5,7 +5,7 @@ from collections import namedtuple
 from typing import Union, Any, Callable, Set, List, Iterator, Tuple, Dict, cast, Optional
 
 from javalang.tree import Node
-from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes  # type: ignore
+from networkx import DiGraph, dfs_labeled_edges, dfs_preorder_nodes
 
 from aibolit.ast_framework.ast_node_type import ASTNodeType
 from aibolit.ast_framework._auxiliary_data import (
@@ -138,8 +138,8 @@ class AST:
         on_node_entering: TraverseCallback,
         on_node_leaving: TraverseCallback = lambda node: None,
         source_node: Optional[ASTNode] = None,
-        undirected=False
-    ):
+        undirected: bool = False
+    ) -> None:
         traverse_graph = self._tree.to_undirected(as_view=True) if undirected else self._tree
         if source_node is None:
             source_node = self.root()

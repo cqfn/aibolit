@@ -5,18 +5,20 @@ import shutil
 import subprocess
 from pathlib import Path
 import pickle
-import pandas as pd  # type: ignore
+from typing import Any, List
+import numpy as np
+import pandas as pd
 
-from aibolit.model.model import PatternRankingModel, scale_dataset  # type: ignore
+from aibolit.model.model import PatternRankingModel, scale_dataset
 from aibolit.config import Config
 
 
-def collect_dataset(args):
+def collect_dataset(args: Any) -> None:
     """
     Run bash scripts to collect metrics and patterns for java files
     """
 
-    def make_patterns(args, cur_work_dir):
+    def make_patterns(args: Any, cur_work_dir: Path) -> None:
         print('Compute patterns...')
         result = subprocess.run(['make', 'patterns'], stdout=subprocess.PIPE,
                                 encoding='utf-8', cwd=cur_work_dir, check=False)
@@ -35,7 +37,7 @@ def collect_dataset(args):
                 dataset_file_path = Path(Config.dataset_file())
             print(f'dataset was saved to {str(dataset_file_path.absolute())}')
 
-    def run_cmd(metrics_cmd, cur_work_dir):
+    def run_cmd(metrics_cmd: List[str], cur_work_dir: Path) -> None:
         result = subprocess.run(metrics_cmd, stdout=subprocess.PIPE,
                                 encoding='utf-8', cwd=cur_work_dir, check=False)
         if result.returncode != 0:
@@ -75,7 +77,7 @@ def collect_dataset(args):
     run_cmd(split_cmd, cur_work_dir)
 
 
-def train_process(target_metric_code='M4'):
+def train_process(target_metric_code: str = 'M4') -> None:
     """
     Define needed columns for dataset and run model training
     """
@@ -92,7 +94,13 @@ def train_process(target_metric_code='M4'):
     features_number = len(columns_features)
     print('General number of features in config: ', features_number)
 
-    train_dataset = pd.read_csv(Config.train_csv(), index_col=None)
+    train_csv_path = Config.train_csv()
+    if not train_csv_path:
+        raise ValueError('Train CSV path is not configured')
+    train_csv = Path(train_csv_path)
+    if not train_csv.exists():
+        raise FileNotFoundError(f'Train CSV not found: {train_csv}')
+    train_dataset = pd.read_csv(train_csv, index_col=None)
     model = PatternRankingModel()
     # At the moment we use use patterns as features,
     # but in future features can be also some metrics.
@@ -106,7 +114,7 @@ def train_process(target_metric_code='M4'):
     scaled_dataset = scale_dataset(train_dataset, model.features_conf, target_metric_code)
     dataset = scaled_dataset[only_patterns]
     print('Training model...')
-    model.fit_regressor(dataset, scaled_dataset[target_metric_code])
+    model.fit_regressor(dataset.values, np.array(scaled_dataset[target_metric_code].values))
 
     save_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
     print(f'Saving model to loaded model from file {save_model_file}:')
@@ -115,7 +123,13 @@ def train_process(target_metric_code='M4'):
 
     load_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
     print(f'Test loaded model from file {load_model_file}:')
-    test_dataset = pd.read_csv(Config.test_csv(), index_col=None)
+    test_csv_path = Config.test_csv()
+    if not test_csv_path:
+        raise ValueError('Test CSV path is not configured')
+    test_csv = Path(test_csv_path)
+    if not test_csv.exists():
+        raise FileNotFoundError(f'Test CSV not found: {test_csv}')
+    test_dataset = pd.read_csv(test_csv, index_col=None)
     with open(load_model_file, 'rb') as fid:
         model_new = pickle.load(fid)
         scaled_test_dataset = scale_dataset(

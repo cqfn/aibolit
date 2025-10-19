@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 from itertools import groupby
-from typing import Iterable, Set
+from typing import Iterable, Set, cast
 
 from aibolit.ast_framework import AST, ASTNodeType, ASTNode
 
@@ -108,9 +108,9 @@ class CognitiveComplexity:
 
     def _method_name(self, node: ASTNode) -> str:
         if node.node_type == ASTNodeType.METHOD_DECLARATION:
-            return node.name
+            return cast(str, node.name)
         if node.node_type == ASTNodeType.METHOD_INVOCATION:
             if node.qualifier:
-                return node.qualifier + '.' + node.member
-            return node.member
+                return cast(str, node.qualifier) + '.' + cast(str, node.member)
+            return cast(str, node.member)
         return ''

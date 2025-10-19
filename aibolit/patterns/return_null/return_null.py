@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-from typing import List
+from typing import List, cast
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
 
@@ -32,4 +32,5 @@ class ReturnNull:
         return self._check_null_expression(return_statement.expression)
 
     def _check_null_expression(self, expression: ASTNode) -> bool:
-        return expression.node_type == ASTNodeType.LITERAL and expression.value == 'null'
+        return (cast(ASTNodeType, expression.node_type) == ASTNodeType.LITERAL and
+                expression.value == 'null')

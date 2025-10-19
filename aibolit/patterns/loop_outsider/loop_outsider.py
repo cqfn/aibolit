@@ -1,8 +1,8 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-
-from typing import List, Set
+import os
+from typing import List, Set, Any
 from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.types_decl import LineNumber
 from aibolit.utils.ast_builder import build_ast
@@ -14,10 +14,10 @@ class LoopOutsider:
     scope of the loop.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
-    def value(self, filename) -> List[LineNumber]:
+    def value(self, filename: str | os.PathLike[str]) -> List[LineNumber]:
         """
         Returns the line number of loop outsiders found in file.
         """
@@ -31,9 +31,7 @@ class LoopOutsider:
                 subtree = ast.subtree(loop_statement)
                 var_changes = self._find_variable_changes(subtree)
                 loop_vars_declarations = (
-                    self._find_loop_variable_declarations(subtree,
-                                                          loop_statement,
-                                                          loop_type))
+                    self._find_loop_variable_declarations(subtree))
 
                 # Check if affected variables are not declared in loop_vars
                 for node in var_changes:
@@ -56,26 +54,17 @@ class LoopOutsider:
             var_changes.add(node.expressionl)
         return var_changes
 
-    def _find_loop_variable_declarations(self, ast: AST, loop_statement,
-                                         loop_type) -> Set:
+    def _find_loop_variable_declarations(self, ast: AST) -> Set[str]:
         """Find all variable declarations within the loop scope."""
         loop_vars_declarations = set()
-        subtree = ast.subtree(loop_statement)
 
         # Find local variable declarations
-        for node in subtree.proxy_nodes(
+        for node in ast.proxy_nodes(
                 ASTNodeType.LOCAL_VARIABLE_DECLARATION):
             loop_vars_declarations.add(node.names[-1])
-
-        # For for-loops, also check variable declarations in the loop header
-        if loop_type == ASTNodeType.FOR_STATEMENT:
-            for node_for in subtree.proxy_nodes(
-                    ASTNodeType.VARIABLE_DECLARATION):
-                loop_vars_declarations.add(node_for.names[-1])
-
         return loop_vars_declarations
 
-    def _variable_is_affected(self, node):
+    def _variable_is_affected(self, node: Any) -> bool:
         return ('--' in node.prefix_operators or '--' in
                 node.postfix_operators or
                 '++' in node.prefix_operators or '++' in

@@ -5,15 +5,16 @@ from typing import Dict, Any, Tuple
 from numpy.typing import NDArray
 
 import numpy as np
-import pandas as pd  # type: ignore[import-untyped]
+import pandas as pd
 from aibolit.config import Config
-from aibolit.model.model import PatternRankingModel, scale_dataset, get_minimum  # noqa: F401 type: ignore
+from aibolit.model.model import (  # noqa: F401 type: ignore
+    PatternRankingModel, scale_dataset, get_minimum)
 
 
 class Stats(object):
 
     @staticmethod
-    def aibolit_stat(test_csv: pd.DataFrame, model=None) -> pd.DataFrame:
+    def aibolit_stat(test_csv: pd.DataFrame, model: Any = None) -> pd.DataFrame:
         if not model:
             load_model_file = Config.folder_model_data()
             print('Loading model from file {}:'.format(load_model_file))
@@ -70,7 +71,7 @@ class Stats(object):
             features_conf: Dict[Any, Any],
             m: NDArray[np.float64],
             p: NDArray[np.float64],
-            acts_complexity) -> pd.DataFrame:
+            acts_complexity: NDArray[np.float64]) -> pd.DataFrame:
         """
         Prints results, given with `check_impact`.
 

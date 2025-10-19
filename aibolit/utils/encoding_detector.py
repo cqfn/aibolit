@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MIT
 import os
 
-from chardet import detect  # type: ignore
+from chardet import detect
 
 
-def detect_encoding_of_file(filename: str | os.PathLike):
+def detect_encoding_of_file(filename: str | os.PathLike) -> str | None:
     with open(filename, 'rb') as target_file:
         return detect_encoding_of_data(target_file.read())
 
 
-def detect_encoding_of_data(data: bytes):
+def detect_encoding_of_data(data: bytes) -> str | None:
     return detect(data)['encoding']
 
 
-def read_text_with_autodetected_encoding(filename: str | os.PathLike):
+def read_text_with_autodetected_encoding(filename: str | os.PathLike) -> str:
     with open(filename, 'rb') as target_file:
         data = target_file.read()
 

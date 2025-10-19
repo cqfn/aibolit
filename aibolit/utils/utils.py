@@ -5,11 +5,11 @@ import re
 
 class RemoveComments:
 
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     @staticmethod
-    def remove_comments(string):
+    def remove_comments(string: str) -> str:
         # remove all occurrences streamed comments (/*COMMENT */) from string
         string = re.sub(re.compile(r'/\*.*?\*/', re.DOTALL), '',
                         string)
