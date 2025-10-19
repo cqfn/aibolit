@@ -11,7 +11,7 @@ name: style
     branches:
       - master
 jobs:
-  make:
+  style:
     timeout-minutes: 15
     runs-on: ubuntu-24.04
     steps:
