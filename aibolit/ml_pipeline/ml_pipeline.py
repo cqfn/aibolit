@@ -121,9 +121,12 @@ def train_process(target_metric_code: str = 'M4') -> None:
     load_model_file = Path(Config.folder_to_save_model_data(), 'model.pkl')
     print(f'Test loaded model from file {load_model_file}:')
     test_csv_path = Config.test_csv()
-    if test_csv_path is None:
+    if not test_csv_path:
         raise ValueError('Test CSV path is not configured')
-    test_dataset = pd.read_csv(test_csv_path, index_col=None)
+    test_csv = Path(test_csv_path)
+    if not test_csv.exists():
+        raise FileNotFoundError(f'Test CSV not found: {test_csv}')
+    test_dataset = pd.read_csv(test_csv, index_col=None)
     with open(load_model_file, 'rb') as fid:
         model_new = pickle.load(fid)
         scaled_test_dataset = scale_dataset(
