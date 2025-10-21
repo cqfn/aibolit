@@ -8,7 +8,6 @@ import unittest
 from aibolit.patterns.bidirect_index.bidirect_index import BidirectIndex
 
 
-@unittest.skip('Not implemented')
 class BidirectIndexTestCase(TestCase):
     dir_path = Path(os.path.realpath(__file__)).parent
 
