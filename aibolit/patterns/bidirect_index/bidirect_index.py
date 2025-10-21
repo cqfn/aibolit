@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 import os
 import ast
-from typing import List, Dict, Set, Optional
+from typing import List, Dict, Optional
 
 
 class BidirectIndex:
@@ -45,7 +45,7 @@ class LineNumber:
 
 
 class BidirectIndexDetector(ast.NodeVisitor):
-    def __init__(self, bvars: List, method:  Optional[str], ops, mvars: Dict):
+    def __init__(self, bvars: List, method: Optional[str], ops, mvars: Dict):
         self.bidirect_variables = bvars
         self.current_method = method
         self.method_operations = ops
@@ -56,7 +56,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
         self.current_method = node.name
         self.method_operations[self.current_method] = {}
         self.method_variables[self.current_method] = {}
-        self._find_variable_declarations(node)        
+        self._find_variable_declarations(node)
         self.generic_visit(node)
         self._check_bidirectional_variables()
         self.current_method = prev
@@ -81,7 +81,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
 
     def visit_AugAssign(self, node):
         if self.current_method is None or not isinstance(node.target, ast.Name):
-            return            
+            return
         var_name = node.target.id
         operation = self._get_aug_operation_type(node.op)
         if operation:
@@ -91,7 +91,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
 
     def visit_Assign(self, node):
         if self.current_method is None:
-            return            
+            return
         for target in node.targets:
             if isinstance(target, ast.Name):
                 var_name = target.id
@@ -103,7 +103,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
 
     def visit_UnaryOp(self, node):
         if self.current_method is None or not isinstance(node.operand, ast.Name):
-            return            
+            return
         var_name = node.operand.id
         operation = self._get_unary_operation_type(node.op)
         if operation:
@@ -127,7 +127,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
                     return 'increment'
                 elif isinstance(value.op, ast.Sub):
                     return 'decrement'
-            elif (isinstance(value.right, ast.Name) and value.right.id == var_name and 
+            elif (isinstance(value.right, ast.Name) and value.right.id == var_name and
                   isinstance(value.op, ast.Add)):
                 return 'increment'
         return None
@@ -144,10 +144,8 @@ class BidirectIndexDetector(ast.NodeVisitor):
         """Check for bidirectional variables in the current method"""
         if self.current_method not in self.method_operations:
             return
-            
         method_ops = self.method_operations[self.current_method]
         method_vars = self.method_variables[self.current_method]
-        
         for var_name, operations in method_ops.items():
             if 'increment' in operations and 'decrement' in operations:
                 if var_name in method_vars:
