@@ -130,8 +130,29 @@ class BidirectIndexDetector(ast.NodeVisitor):
             elif (isinstance(value.right, ast.Name) and value.right.id == var_name and
                   isinstance(value.op, ast.Add)):
                 return 'increment'
+            elif (isinstance(value.right, ast.Name) and value.right.id == var_name and
+                  isinstance(value.op, ast.Sub)):
+                return 'decrement'
+        elif (isinstance(value, ast.BinOp) and
+              isinstance(value.left, ast.Name) and value.left.id == var_name and
+              isinstance(value.op, ast.Add) and
+              self._is_positive_number(value.right)):
+            return 'increment'
+        elif (isinstance(value, ast.BinOp) and
+              isinstance(value.left, ast.Name) and value.left.id == var_name and
+              isinstance(value.op, ast.Sub) and
+              self._is_positive_number(value.right)):
+            return 'decrement'
         return None
 
+    def _is_positive_number(self, node) -> bool:
+        """Check if node represents a positive number"""
+        if isinstance(node, ast.Constant):
+            return isinstance(node.value, (int, float)) and node.value > 0
+        elif isinstance(node, ast.UnaryOp) and isinstance(node.op, ast.UAdd):
+            return self._is_positive_number(node.operand)
+        return False
+        
     def _get_unary_operation_type(self, op) -> Optional[str]:
         """Get operation type for unary operations"""
         if isinstance(op, ast.UAdd):
@@ -139,7 +160,7 @@ class BidirectIndexDetector(ast.NodeVisitor):
         elif isinstance(op, ast.USub):
             return 'decrement'
         return None
-
+    
     def _check_bidirectional_variables(self):
         """Check for bidirectional variables in the current method"""
         if self.current_method not in self.method_operations:
