@@ -58,11 +58,12 @@ class BidirectIndexDetector(ast.NodeVisitor):
         self.method_operations = ops
 
     def visit_FunctionDef(self, node):
+        prev = self.current_method
         self.current_method = node.name
         self.method_operations[self.current_method] = {}
         self.generic_visit(node)
         self._check_bidirectional_variables(node)
-        self.current_method = None
+        self.current_method = prev
 
     def visit_ClassDef(self, node):
         pass
