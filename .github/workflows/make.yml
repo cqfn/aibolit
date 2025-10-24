@@ -16,12 +16,12 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: 3.11
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3
+          ruby-version: 3.4.7
       - run: gem install xcop
       - name: Install uv
         run: |

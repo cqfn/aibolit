@@ -17,13 +17,13 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - uses: zerocracy/judges-action@0.15.42
+      - uses: zerocracy/judges-action@0.16.0
         with:
           token: ${{ secrets.ZEROCRACY_TOKEN }}
           github-token: ${{ secrets.PAT }}
           repositories: cqfn/aibolit
           factbase: aibolit.fb
-      - uses: zerocracy/pages-action@0.2.0
+      - uses: zerocracy/pages-action@0.5.2
         with:
           factbase: aibolit.fb
           output: pages
