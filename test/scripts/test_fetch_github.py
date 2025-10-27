@@ -1,11 +1,10 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
 # SPDX-License-Identifier: MIT
 
-import os
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, patch
 import subprocess
 import requests
 
@@ -217,20 +216,9 @@ class ArgumentParserTestCase(unittest.TestCase):
         ]
         with patch('sys.argv', test_args):
             from your_module import parse_arguments
-            args = parse_arguments()            
+            args = parse_arguments()
             self.assertEqual(args.nrepos, 50)
             self.assertEqual(args.output_dir, 'custom/directory')
-
-def test_main_execution(mock_path, mock_downloader):
-    """Test main function execution"""
-    mock_args = Mock()
-    mock_args.nrepos = 50
-    mock_args.output_dir = 'test/output'    
-    with patch('your_module.parse_arguments', return_value=mock_args):
-        with patch('your_module.main') as mock_main:
-            from your_module import main
-            main()
-            mock_downloader.assert_called_once()
 
 
 if __name__ == '__main__':
