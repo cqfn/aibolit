@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.17.0" size="515013">
+<fb version="0.17.0" size="515021">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">130.744365697</seconds>
+    <seconds t="F">205.429599422</seconds>
     <version t="S">0.58.1</version>
     <what t="S">judges-summary</what>
-    <when t="T">2025-12-09T10:59:40Z</when>
+    <when t="T">2025-12-09T11:58:37Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -28489,10 +28489,30 @@ The average weekly cost of HoC (2.28 points) is increasing (R=0.20).</text>
     <when t="T">2025-12-08T19:58:40Z</when>
   </f>
   <f>
-    <_id t="I">413770</_id>
-    <_job t="I">52788</_job>
-    <_time t="T">2025-12-09T02:31:49Z</_time>
-    <_version t="S">0.17.0/0.57.3/0.17.1</_version>
+    <_id t="I">413772</_id>
+    <_job t="I">20052451613</_job>
+    <_time t="T">2025-12-09T04:58:06Z</_time>
+    <_version t="S">0.17.1/0.58.1/0.17.2</_version>
+    <commit t="S">0ad0ba7c0cccdefb9d8bd4ddf2c6136e98305b72</commit>
+    <default_branch t="S">master</default_branch>
+    <details t="S">A new Git push #28869049223 has arrived to cqfn/aibolit, made by @yegor256 (default branch is "master"), not associated with any pull request.</details>
+    <event_id t="I">6575368938</event_id>
+    <event_type t="S">PushEvent</event_type>
+    <is_human t="I">1</is_human>
+    <push_id t="I">28869049223</push_id>
+    <ref t="S">refs/heads/master</ref>
+    <repository t="I">237167507</repository>
+    <to_master t="I">1</to_master>
+    <what t="S">git-was-pushed</what>
+    <when t="T">2025-12-09T04:51:32Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">413774</_id>
+    <_job t="I">52884</_job>
+    <_time t="T">2025-12-09T11:00:46Z</_time>
+    <_version t="S">0.17.0/0.57.3/0.17.2!0.17.3</_version>
     <cost_of_qod>
       <v t="F">8.571428571428571</v>
       <v t="F">7.507218479307026</v>
@@ -28514,44 +28534,24 @@ The average weekly cost of HoC (2.28 points) is increasing (R=0.20).</text>
       <v t="F">0.0538571429820274</v>
     </qod_per_day>
     <what t="S">learn-eva</what>
-    <when t="T">2025-12-09T02:31:49Z</when>
+    <when t="T">2025-12-09T11:00:45Z</when>
   </f>
   <f>
-    <_id t="I">413772</_id>
-    <_job t="I">20052451613</_job>
-    <_time t="T">2025-12-09T04:58:06Z</_time>
+    <_id t="I">413775</_id>
+    <_job t="I">20062553135</_job>
+    <_time t="T">2025-12-09T11:57:33Z</_time>
     <_version t="S">0.17.1/0.58.1/0.17.2</_version>
-    <commit t="S">0ad0ba7c0cccdefb9d8bd4ddf2c6136e98305b72</commit>
-    <default_branch t="S">master</default_branch>
-    <details t="S">A new Git push #28869049223 has arrived to cqfn/aibolit, made by @yegor256 (default branch is "master"), not associated with any pull request.</details>
-    <event_id t="I">6575368938</event_id>
-    <event_type t="S">PushEvent</event_type>
-    <is_human t="I">1</is_human>
-    <push_id t="I">28869049223</push_id>
-    <ref t="S">refs/heads/master</ref>
-    <repository t="I">237167507</repository>
-    <to_master t="I">1</to_master>
-    <what t="S">git-was-pushed</what>
-    <when t="T">2025-12-09T04:51:32Z</when>
-    <where t="S">github</where>
-    <who t="I">526301</who>
-  </f>
-  <f>
-    <_id t="I">413773</_id>
-    <_job t="I">20061016514</_job>
-    <_time t="T">2025-12-09T10:58:53Z</_time>
-    <_version t="S">0.17.1/0.58.1/0.17.2</_version>
-    <assignees_were_scanned t="I">0</assignees_were_scanned>
+    <assignees_were_scanned t="I">738</assignees_were_scanned>
     <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">6406299908</events_were_scanned>
+    <events_were_scanned t="I">6407410505</events_were_scanned>
     <issues_were_scanned t="I">0</issues_were_scanned>
-    <labels_were_scanned t="I">0</labels_were_scanned>
+    <labels_were_scanned t="I">826</labels_were_scanned>
     <latest_issue_was_found t="I">903</latest_issue_was_found>
     <merges_were_scanned t="I">0</merges_were_scanned>
-    <min_issue_was_found t="I">344</min_issue_was_found>
-    <min_pull_was_found t="I">982</min_pull_was_found>
+    <min_issue_was_found t="I">349</min_issue_was_found>
+    <min_pull_was_found t="I">983</min_pull_was_found>
     <repository t="I">237167507</repository>
-    <types_were_scanned t="I">715</types_were_scanned>
+    <types_were_scanned t="I">952</types_were_scanned>
     <what t="S">iterate</what>
     <where t="S">github</where>
   </f>
