@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 195.514528303
-  version: 0.58.0
+  seconds: 161.377299102
+  version: 0.58.1
   what: judges-summary
-  when: 2025-12-09 04:20:32.210083604 Z
+  when: 2025-12-09 05:00:44.603053589 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -26247,20 +26247,39 @@
   - 0.0538571429820274
   what: learn-eva
   when: 2025-12-09 02:31:49.484444276 Z
-- _id: 413771
-  _job: 20051744786
-  _time: 2025-12-09 04:19:24.625488319 Z
-  _version: 0.17.1/0.58.0/0.17.1
-  assignees_were_scanned: 738
+- _id: 413772
+  _job: 20052451613
+  _time: 2025-12-09 04:58:06.903373282 Z
+  _version: 0.17.1/0.58.1/0.17.2
+  commit: 0ad0ba7c0cccdefb9d8bd4ddf2c6136e98305b72
+  default_branch: master
+  details: 'A new Git push #28869049223 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is "master"), not associated with any pull request.'
+  event_id: 6575368938
+  event_type: PushEvent
+  is_human: 1
+  push_id: 28869049223
+  ref: refs/heads/master
+  repository: 237167507
+  to_master: 1
+  what: git-was-pushed
+  when: 2025-12-09 04:51:32.000000000 Z
+  where: github
+  who: 526301
+- _id: 413773
+  _job: 20052451613
+  _time: 2025-12-09 04:59:44.847650424 Z
+  _version: 0.17.1/0.58.1/0.17.2
+  assignees_were_scanned: 0
   earliest_issue_was_found: 1
-  events_were_scanned: 6574371571
+  events_were_scanned: 6575447530
   issues_were_scanned: 0
-  labels_were_scanned: 826
+  labels_were_scanned: 0
   latest_issue_was_found: 903
   merges_were_scanned: 0
-  min_issue_was_found: 282
-  min_pull_was_found: 975
+  min_issue_was_found: 283
+  min_pull_was_found: 976
   repository: 237167507
-  types_were_scanned: 0
+  types_were_scanned: 715
   what: iterate
   where: github
