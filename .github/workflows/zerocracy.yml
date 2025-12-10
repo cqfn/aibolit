@@ -27,7 +27,7 @@ jobs:
         with:
           factbase: aibolit.fb
           output: pages
-      - uses: JamesIves/github-pages-deploy-action@v4.7.4
+      - uses: JamesIves/github-pages-deploy-action@v4.7.6
         with:
           folder: pages
           clean: false
