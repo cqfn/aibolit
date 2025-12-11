@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 443.55102791
+  seconds: 128.053480026
   version: 0.58.1
   what: judges-summary
-  when: 2025-12-11 04:31:10.511859525 Z
+  when: 2025-12-11 05:03:41.176898375 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -26272,30 +26272,6 @@
   total_stars: 92
   what: dimensions-of-terrain
   when: 2025-12-10 19:56:33.657238203 Z
-- _id: 413794
-  _job: 53085
-  _time: 2025-12-10 19:59:43.598815491 Z
-  _version: 0.17.1/0.58.1/0.17.3
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  - -5.536332179930795
-  - -29.357798165137613
-  - -63.745019920318725
-  - -4.153686396677051
-  - -42.44031830238727
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  - 0.41285714289175585
-  - 0.07785714305026051
-  - 0.03585714296881663
-  - 0.13757142891724966
-  - 0.0538571429820274
-  what: learn-eva
-  when: 2025-12-10 19:59:43.560572063 Z
 - _id: 413796
   _job: 53090
   _time: 2025-12-10 21:02:32.706996581 Z
@@ -26372,7 +26348,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-11 03:32:08.000000000 Z
+  when: &270 2025-12-11 03:32:08.000000000 Z
   where: github
   who: 8086956
 - _id: 413804
@@ -26581,6 +26557,7 @@
   issue: 1007
   repository: 237167507
   review: 2025-12-04 16:41:11.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -26606,6 +26583,7 @@
   issue: 1008
   repository: 237167507
   review: 2025-12-06 02:52:11.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -26631,6 +26609,7 @@
   issue: 1009
   repository: 237167507
   review: 2025-12-06 08:50:54.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -26656,6 +26635,7 @@
   issue: 1010
   repository: 237167507
   review: 2025-12-07 03:24:30.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -26681,6 +26661,7 @@
   issue: 1011
   repository: 237167507
   review: 2025-12-07 16:41:50.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -26706,6 +26687,7 @@
   issue: 1012
   repository: 237167507
   review: 2025-12-08 16:43:56.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -26731,6 +26713,7 @@
   issue: 1013
   repository: 237167507
   review: 2025-12-09 02:58:27.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -26756,6 +26739,7 @@
   issue: 1014
   repository: 237167507
   review: 2025-12-10 08:56:01.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -26781,6 +26765,7 @@
   issue: 1015
   repository: 237167507
   review: 2025-12-10 08:55:58.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -26806,6 +26791,7 @@
   issue: 1016
   repository: 237167507
   review: 2025-12-10 08:55:54.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -26831,6 +26817,7 @@
   issue: 1017
   repository: 237167507
   review: 2025-12-10 08:55:50.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -26856,29 +26843,13 @@
   issue: 1018
   repository: 237167507
   review: 2025-12-10 08:55:47.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
   when: 2025-12-10 11:02:22.000000000 Z
   where: github
   who: 8086956
-- _id: 413832
-  _job: 20121878876
-  _time: 2025-12-11 04:30:07.587880779 Z
-  _version: 0.17.1/0.58.1/0.17.3
-  assignees_were_scanned: 738
-  earliest_issue_was_found: 1
-  events_were_scanned: 6482340923
-  issues_were_scanned: 0
-  labels_were_scanned: 826
-  latest_issue_was_found: 903
-  merges_were_scanned: 0
-  min_issue_was_found: 694
-  min_pull_was_found: 678
-  repository: 237167507
-  types_were_scanned: 715
-  what: iterate
-  where: github
 - _id: 413833
   _job: 20121878876
   _time: 2025-12-11 04:30:39.735798502 Z
@@ -27095,3 +27066,356 @@
   when: 2025-12-10 08:55:47.000000000 Z
   where: github
   who: 526301
+- _id: 413845
+  _job: 53131
+  _time: 2025-12-11 04:31:35.087347793 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  comments: 4
+  details: The pull request cqfn/aibolit#1019 with 100 HoC created by @renovate[bot]
+    was merged by @rultor after 3h32m of being in review and 4 comments.
+  hoc: 100
+  is_human: 0
+  issue: 1019
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 12759
+  what: code-was-contributed
+  when: *270
+  where: github
+  who: 29139614
+- _id: 413846
+  _job: 53131
+  _time: 2025-12-11 04:31:36.114333281 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1019,
+    the reward amount is 4.
+  greeting: |-
+    Thanks for the review! You've earned **+4 points** for this contribution: **+12** as the base reward, **-16** for no comments during the review process, and **+8** to ensure the minimum threshold is met per our team policy. Your running score is [+64](https://cqfn.github.io/aibolit/aibolit-vitals.html). Keep up the good work!
+
+    <!-- Thanks for the review! You've earned +4 points for this: +12 as a basis; -16 for absolutely no comments posted; +8 to give you at least something.  Your running score is [+64](https://cqfn.github.io/aibolit/aibolit-vitals.html).  -->
+  hoc: 100
+  href: https://github.com/cqfn/aibolit/issues/1019
+  is_human: 1
+  issue: 1019
+  repository: 237167507
+  review_comments: 0
+  seconds: 11487
+  what: code-review-was-rewarded
+  when: 2025-12-11 04:31:36.129666350 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1019
+- _id: 413847
+  _job: 53131
+  _time: 2025-12-11 04:31:40.174225849 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1007,
+    the reward amount is 4.
+  greeting: "Thanks for your review contribution! \U0001F389 You've earned **+4 points**
+    this round (base +12, with adjustments for review completeness). Your total score
+    has reached **[+68 points](https://cqfn.github.io/aibolit/aibolit-vitals.html)**
+    - great progress! Consider adding more detailed comments in future reviews to
+    maximize your points.\n\n<!-- Thanks for the review! You've earned +4 points for
+    this: +12 as a basis; -16 for absolutely no comments posted; +8 to give you at
+    least something.  Your running score is [+68](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  hoc: 48
+  href: https://github.com/cqfn/aibolit/issues/1007
+  is_human: 1
+  issue: 1007
+  repository: 237167507
+  review_comments: 0
+  seconds: 2014
+  what: code-review-was-rewarded
+  when: 2025-12-11 04:31:40.188276039 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1007
+- _id: 413848
+  _job: 53131
+  _time: 2025-12-11 04:31:44.648645210 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1008,
+    the reward amount is 4.
+  greeting: "**Great job on the review!** \U0001F389 You've earned **+4 points** this
+    round: +12 base points, with adjustments for review depth (-16 for comments, -8
+    for code coverage with 2 hits), plus a +16 bonus to keep you motivated. Your current
+    score stands at [+72](https://cqfn.github.io/aibolit/aibolit-vitals.html) - keep
+    up the excellent work!\n\n<!-- Thanks for the review! You've earned +4 points
+    for this: +12 as a basis; -16 for absolutely no comments posted; -8 for too few
+    (2) hits-of-code; +16 to give you at least something.  Your running score is [+72](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  hoc: 2
+  href: https://github.com/cqfn/aibolit/issues/1008
+  is_human: 1
+  issue: 1008
+  repository: 237167507
+  review_comments: 0
+  seconds: 45756
+  what: code-review-was-rewarded
+  when: 2025-12-11 04:31:44.656237120 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1008
+- _id: 413849
+  _job: 53131
+  _time: 2025-12-11 04:31:48.933292547 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1009,
+    the reward amount is 4.
+  greeting: "Thanks for the review! \U0001F3AF You've earned **+4 points** following
+    our policy: **+12** base points, **-16** for no comments (policy requires feedback),
+    **-8** for insufficient code volume (2 hits-of-code vs 16 minimum), then **+16**
+    adjustment to meet the **4-point minimum** threshold. Your running score is [**+76**](https://cqfn.github.io/aibolit/aibolit-vitals.html)
+    - keep engaging with reviews to maximize your bonus potential!\n\n<!-- Thanks
+    for the review! You've earned +4 points for this: +12 as a basis; -16 for absolutely
+    no comments posted; -8 for too few (2) hits-of-code; +16 to give you at least
+    something.  Your running score is [+76](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  hoc: 2
+  href: https://github.com/cqfn/aibolit/issues/1009
+  is_human: 1
+  issue: 1009
+  repository: 237167507
+  review_comments: 0
+  seconds: 10280
+  what: code-review-was-rewarded
+  when: 2025-12-11 04:31:48.946701966 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1009
+- _id: 413850
+  _job: 53131
+  _time: 2025-12-11 04:31:54.451458928 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1010,
+    the reward amount is 4.
+  greeting: |-
+    Thanks for the review! You've earned **+4 points** for this contribution: **+12** as the base reward, **-16** for no comments during the review process, **-8** due to insufficient hits-of-code (10), with a **+16** adjustment to meet the minimum threshold. Your running score is [**+80**](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+
+    <!-- Thanks for the review! You've earned +4 points for this: +12 as a basis; -16 for absolutely no comments posted; -8 for too few (10) hits-of-code; +16 to give you at least something.  Your running score is [+80](https://cqfn.github.io/aibolit/aibolit-vitals.html).  -->
+  hoc: 10
+  href: https://github.com/cqfn/aibolit/issues/1010
+  is_human: 1
+  issue: 1010
+  repository: 237167507
+  review_comments: 0
+  seconds: 19135
+  what: code-review-was-rewarded
+  when: 2025-12-11 04:31:54.465726859 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1010
+- _id: 413851
+  _job: 53131
+  _time: 2025-12-11 04:31:58.716363544 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1011,
+    the reward amount is 4.
+  greeting: "Great work on the review! \U0001F389 You've earned **+4 points** this
+    round (base +12, -16 for missing comments, -8 for limited code coverage with 2
+    hits, +16 bonus adjustment). Your total score now stands at **[+84](https://cqfn.github.io/aibolit/aibolit-vitals.html)**
+    - keep up the momentum!\n\n<!-- Thanks for the review! You've earned +4 points
+    for this: +12 as a basis; -16 for absolutely no comments posted; -8 for too few
+    (2) hits-of-code; +16 to give you at least something.  Your running score is [+84](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  hoc: 2
+  href: https://github.com/cqfn/aibolit/issues/1011
+  is_human: 1
+  issue: 1011
+  repository: 237167507
+  review_comments: 0
+  seconds: 24044
+  what: code-review-was-rewarded
+  when: 2025-12-11 04:31:58.728539145 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1011
+- _id: 413852
+  _job: 53131
+  _time: 2025-12-11 04:32:43.975840675 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1012,
+    the reward amount is 4.
+  greeting: "Thanks for the review! You've earned **+4 points** for this contribution:
+    +12 as a basis, -16 for absolutely no comments posted, -8 for too few (2) hits-of-code,
+    then adjusted to the minimum threshold of +4 points per policy. Your running score
+    is [+88](https://cqfn.github.io/aibolit/aibolit-vitals.html). Consider adding
+    more substantial code changes and engaging with reviewer feedback to maximize
+    your points next time! \U0001F680\n\n<!-- Thanks for the review! You've earned
+    +4 points for this: +12 as a basis; -16 for absolutely no comments posted; -8
+    for too few (2) hits-of-code; +16 to give you at least something.  Your running
+    score is [+88](https://cqfn.github.io/aibolit/aibolit-vitals.html).  -->"
+  hoc: 2
+  is_human: 1
+  issue: 1012
+  repository: 237167507
+  review_comments: 0
+  seconds: 31023
+  what: code-review-was-rewarded
+  when: 2025-12-11 04:32:43.986946922 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1012
+- _id: 413853
+  _job: 53131
+  _time: 2025-12-11 04:32:49.344832950 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1013,
+    the reward amount is 4.
+  greeting: "Thanks for the review! \U0001F4DD According to our policy, you've earned
+    **+4 points**: started with +12 base points, then -16 for no comments during review,
+    -8 for having only 10 hits-of-code (below the 16 minimum), and +16 adjustment
+    to meet the minimum reward threshold. Your running score is [+92](https://cqfn.github.io/aibolit/aibolit-vitals.html)
+    - keep up the great work!\n\n<!-- Thanks for the review! You've earned +4 points
+    for this: +12 as a basis; -16 for absolutely no comments posted; -8 for too few
+    (10) hits-of-code; +16 to give you at least something.  Your running score is
+    [+92](https://cqfn.github.io/aibolit/aibolit-vitals.html).  -->"
+  hoc: 10
+  is_human: 1
+  issue: 1013
+  repository: 237167507
+  review_comments: 0
+  seconds: 32392
+  what: code-review-was-rewarded
+  when: 2025-12-11 04:32:49.351505422 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1013
+- _id: 413854
+  _job: 53131
+  _time: 2025-12-11 04:32:54.107028555 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1014,
+    the reward amount is 4.
+  greeting: |-
+    Thanks for the review! You've earned **+4 points** for this contribution: **+12** as the base reward, **-16** for no comments during the review, **-8** for having only **2** hits-of-code (below the 16 minimum), with a final adjustment to ensure you receive the minimum **+4** points according to our policy. Your running score is [**+96**](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+
+    <!-- Thanks for the review! You've earned +4 points for this: +12 as a basis; -16 for absolutely no comments posted; -8 for too few (2) hits-of-code; +16 to give you at least something.  Your running score is [+96](https://cqfn.github.io/aibolit/aibolit-vitals.html).  -->
+  hoc: 2
+  is_human: 1
+  issue: 1014
+  repository: 237167507
+  review_comments: 0
+  seconds: 102854
+  what: code-review-was-rewarded
+  when: 2025-12-11 04:32:54.112778181 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1014
+- _id: 413855
+  _job: 53131
+  _time: 2025-12-11 04:32:59.749217687 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1015,
+    the reward amount is 4.
+  greeting: "Thanks for the review! You've earned **+4 points** for this contribution:
+    **+12** as the base reward, **-16** for no comments during the review, **-8**
+    for insufficient hits-of-code (only 2), with a **+16** adjustment to meet the
+    minimum threshold per our team policy. Your running score is [+100](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    Keep up the good work! \U0001F680\n\n<!-- Thanks for the review! You've earned
+    +4 points for this: +12 as a basis; -16 for absolutely no comments posted; -8
+    for too few (2) hits-of-code; +16 to give you at least something.  Your running
+    score is [+100](https://cqfn.github.io/aibolit/aibolit-vitals.html).  -->"
+  hoc: 2
+  is_human: 1
+  issue: 1015
+  repository: 237167507
+  review_comments: 0
+  seconds: 89820
+  what: code-review-was-rewarded
+  when: 2025-12-11 04:32:59.755296569 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1015
+- _id: 413856
+  _job: 53131
+  _time: 2025-12-11 04:33:04.325053809 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1016,
+    the reward amount is 4.
+  greeting: "Thanks for the review! You've earned **+4 points** for this contribution.
+    Here's the breakdown per our work policy: **+12** base points for authoring the
+    review, **-16** points deducted for absolutely no comments posted during review,
+    **-8** points deducted for having fewer than 16 hits-of-code (you had 4), with
+    a **+16** adjustment to ensure you receive the minimum reward of 4 points. Your
+    running score is [**+104**](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \U0001F4AA\n\n<!-- Thanks for the review! You've earned +4 points for this: +12
+    as a basis; -16 for absolutely no comments posted; -8 for too few (4) hits-of-code;
+    +16 to give you at least something.  Your running score is [+104](https://cqfn.github.io/aibolit/aibolit-vitals.html).
+    \ -->"
+  hoc: 4
+  is_human: 1
+  issue: 1016
+  repository: 237167507
+  review_comments: 0
+  seconds: 57021
+  what: code-review-was-rewarded
+  when: 2025-12-11 04:33:04.330965720 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1016
+- _id: 413857
+  _job: 53131
+  _time: 2025-12-11 04:34:09.317367253 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  - -29.357798165137613
+  - -63.745019920318725
+  - -4.153686396677051
+  - -42.44031830238727
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  - 0.07785714305026051
+  - 0.03585714296881663
+  - 0.13757142891724966
+  - 0.0538571429820274
+  what: learn-eva
+  when: 2025-12-11 04:34:09.271442368 Z
+- _id: 413858
+  _job: 20122514047
+  _time: 2025-12-11 05:02:56.798678205 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  assignees_were_scanned: 0
+  earliest_issue_was_found: 1
+  events_were_scanned: 6483144349
+  issues_were_scanned: 0
+  labels_were_scanned: 0
+  latest_issue_was_found: 903
+  merges_were_scanned: 0
+  min_issue_was_found: 696
+  min_pull_was_found: 679
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
