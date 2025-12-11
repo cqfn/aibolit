@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 245.38465591
+  seconds: 125.506727608
   version: 0.58.1
   what: judges-summary
-  when: 2025-12-11 11:02:21.490332502 Z
+  when: 2025-12-11 11:57:00.753247090 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -27590,6 +27590,8 @@
   _job: 20130751566
   _time: 2025-12-11 10:58:27.808041684 Z
   _version: 0.17.1/0.58.1/0.17.3
+  composite: 5.979
+  ffact: 137
   since: *283
   total_builds_ran: 1016
   total_commits_pushed: 20
@@ -27600,23 +27602,6 @@
   total_reviews_submitted: 14
   what: quantity-of-deliverables
   when: 2025-12-11 10:57:36.672285124 Z
-- _id: 413889
-  _job: 20130751566
-  _time: 2025-12-11 11:00:30.043308455 Z
-  _version: 0.17.1/0.58.1/0.17.3
-  assignees_were_scanned: 0
-  earliest_issue_was_found: 1
-  events_were_scanned: 6489657074
-  issues_were_scanned: 0
-  labels_were_scanned: 0
-  latest_issue_was_found: 903
-  merges_were_scanned: 0
-  min_issue_was_found: 707
-  min_pull_was_found: 693
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 413890
   _job: 20130751566
   _time: 2025-12-11 11:01:12.517697241 Z
@@ -27860,3 +27845,20 @@
   some_unmerged_pulls: 0
   what: quality-of-service
   when: 2025-12-11 10:55:36.517738029 Z
+- _id: 413891
+  _job: 20132208525
+  _time: 2025-12-11 11:56:14.663885853 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  assignees_were_scanned: 738
+  earliest_issue_was_found: 1
+  events_were_scanned: 6490765278
+  issues_were_scanned: 0
+  labels_were_scanned: 826
+  latest_issue_was_found: 903
+  merges_were_scanned: 0
+  min_issue_was_found: 709
+  min_pull_was_found: 695
+  repository: 237167507
+  types_were_scanned: 0
+  what: iterate
+  where: github
