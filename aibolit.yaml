@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 119.836171194
+  seconds: 137.456797503
   version: 0.58.1
   what: judges-summary
-  when: 2025-12-11 21:57:12.477516288 Z
+  when: 2025-12-11 22:58:02.444484271 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -26187,26 +26187,6 @@
   total_stars: 92
   what: dimensions-of-terrain
   when: 2025-12-09 19:56:13.588978649 Z
-- _id: 413780
-  _job: 52955
-  _time: 2025-12-09 20:57:50.690254808 Z
-  _version: 0.17.0/0.57.3/0.17.2!0.17.3
-  analyzers: 18
-  text: |-
-    The average reward per task (6.6 points) is decreasing (R=-0.48).
-    The average punishment per task (15.0 points) is staying still.
-    The average number of builds per week (978.3) is decreasing (R=-0.41).
-    The average number of commits per week (14.2) is decreasing (R=-0.20).
-    The average bugs accepted per month (13.0) is decreasing (R=-0.90).
-    The average monthly punishment (74 points) is decreasing (R=-0.85).
-    The average monthly wage (6.7 points) is decreasing (R=-0.61).
-    The average issue cycle time (1w) is increasing (R=0.41).
-    The average pull cycle time (2d2h) is increasing (R=0.13).
-    The average number of releases per month (0.0) is staying still.
-    The average monthly turnover (13.0 developers) is decreasing (R=-0.90).
-    The average weekly cost of HoC (2.28 points) is increasing (R=0.20).
-  what: assessment
-  when: 2025-12-09 20:57:50.707943433 Z
 - _id: 413784
   _job: 20088857914
   _time: 2025-12-10 05:55:04.196227014 Z
@@ -27804,10 +27784,46 @@
   some_unmerged_pulls: 0
   what: quality-of-service
   when: 2025-12-11 10:55:36.517738029 Z
-- _id: 413892
-  _job: 53177
-  _time: 2025-12-11 13:32:38.211095521 Z
+- _id: 413894
+  _job: 20147124794
+  _time: 2025-12-11 20:56:13.094464306 Z
   _version: 0.17.1/0.58.1/0.17.3
+  total_active_contributors: 3
+  total_commits: 2893
+  total_contributors: 28
+  total_files: 1049
+  total_forks: 40
+  total_issues: 447
+  total_pulls: 573
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 92
+  what: dimensions-of-terrain
+  when: 2025-12-11 20:56:13.104346318 Z
+- _id: 413896
+  _job: 53247
+  _time: 2025-12-11 21:57:32.291652125 Z
+  _version: 0.18.0/0.58.1/0.17.3!0.17.4
+  analyzers: 18
+  text: |-
+    The average reward per task (6.5 points) is decreasing (R=-0.50).
+    The average punishment per task (15.0 points) is staying still.
+    The average number of builds per week (981.4) is decreasing (R=-0.35).
+    The average number of commits per week (14.7) is decreasing (R=-0.13).
+    The average bugs accepted per month (13.0) is decreasing (R=-0.90).
+    The average monthly punishment (74 points) is decreasing (R=-0.85).
+    The average monthly wage (6.7 points) is decreasing (R=-0.61).
+    The average issue cycle time (1w2d) is increasing (R=0.45).
+    The average pull cycle time (1d23h) is staying still.
+    The average number of releases per month (0.0) is staying still.
+    The average monthly turnover (13.0 developers) is decreasing (R=-0.90).
+    The average weekly cost of HoC (2.14 points) is staying still.
+  what: assessment
+  when: 2025-12-11 21:57:32.309266317 Z
+- _id: 413897
+  _job: 53247
+  _time: 2025-12-11 21:58:20.773092118 Z
+  _version: 0.17.1/0.58.1/0.17.3!0.17.4
   cost_of_qod:
   - 8.571428571428571
   - 7.507218479307026
@@ -27827,37 +27843,21 @@
   - 0.13757142891724966
   - 0.0538571429820274
   what: learn-eva
-  when: 2025-12-11 13:32:38.172403999 Z
-- _id: 413894
-  _job: 20147124794
-  _time: 2025-12-11 20:56:13.094464306 Z
+  when: 2025-12-11 21:58:20.731931765 Z
+- _id: 413898
+  _job: 20150062371
+  _time: 2025-12-11 22:57:08.505205073 Z
   _version: 0.17.1/0.58.1/0.17.3
-  total_active_contributors: 3
-  total_commits: 2893
-  total_contributors: 28
-  total_files: 1049
-  total_forks: 40
-  total_issues: 447
-  total_pulls: 573
-  total_releases: 28
-  total_repositories: 1
-  total_stars: 92
-  what: dimensions-of-terrain
-  when: 2025-12-11 20:56:13.104346318 Z
-- _id: 413895
-  _job: 20148624033
-  _time: 2025-12-11 21:56:26.453850305 Z
-  _version: 0.17.1/0.58.1/0.17.3
-  assignees_were_scanned: 738
+  assignees_were_scanned: 0
   earliest_issue_was_found: 1
-  events_were_scanned: 6661251379
+  events_were_scanned: 5253053507
   issues_were_scanned: 0
-  labels_were_scanned: 826
+  labels_were_scanned: 0
   latest_issue_was_found: 903
   merges_were_scanned: 0
-  min_issue_was_found: 725
-  min_pull_was_found: 766
+  min_issue_was_found: 728
+  min_pull_was_found: 767
   repository: 237167507
-  types_were_scanned: 715
+  types_were_scanned: 952
   what: iterate
   where: github
