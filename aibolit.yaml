@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 114.82652572
+  seconds: 163.531851716
   version: 0.58.1
   what: judges-summary
-  when: 2025-12-11 05:58:03.353827918 Z
+  when: 2025-12-11 07:05:39.699376866 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -26255,6 +26255,7 @@
   _time: 2025-12-10 17:58:40.162314782 Z
   _version: 0.17.1/0.58.1/0.17.3
   area: communications
+  stealth: 'false'
   what: pmp
 - _id: 413792
   _job: 20111474285
@@ -27444,65 +27445,6 @@
   when: *282
   where: github
   who: 29139614
-- _id: 413877
-  _job: 53135
-  _time: 2025-12-11 05:04:06.519498131 Z
-  _version: 0.17.1/0.58.1/0.17.3
-  award: 4
-  comments: 4
-  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1017,
-    the reward amount is 4.
-  greeting: "Hey! Thanks for the review \U0001F44D You've earned **+4 points** for
-    this one: started with **+12** as the base reward, but had to deduct **-16** since
-    there were no comments during the review, and another **-8** for having only **2**
-    hits-of-code (we need at least 16), then added **+16** to keep you at the minimum
-    threshold. Next time, try adding some comments to boost your score - you can get
-    up to **+8** extra points just from engaging in the review discussion! Your running
-    score is [+108](https://cqfn.github.io/aibolit/aibolit-vitals.html).\n\n<!-- Thanks
-    for the review! You've earned +4 points for this: +12 as a basis; -16 for absolutely
-    no comments posted; -8 for too few (2) hits-of-code; +16 to give you at least
-    something.  Your running score is [+108](https://cqfn.github.io/aibolit/aibolit-vitals.html).
-    \ -->"
-  hoc: 2
-  href: https://github.com/cqfn/aibolit/issues/1017
-  is_human: 1
-  issue: 1017
-  repository: 237167507
-  review_comments: 0
-  seconds: 43072
-  what: code-review-was-rewarded
-  when: 2025-12-11 05:04:06.528515537 Z
-  where: github
-  who: 526301
-  why: Reviewed code in cqfn/aibolit#1017
-- _id: 413878
-  _job: 53135
-  _time: 2025-12-11 05:04:13.048475512 Z
-  _version: 0.17.1/0.58.1/0.17.3
-  award: 4
-  comments: 4
-  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1018,
-    the reward amount is 4.
-  greeting: "Hey! Thanks for jumping in on that review \U0001F44D You grabbed **+4
-    points** this time: started with the standard **+12** base award, but since there
-    were no comments during the review we had to deduct **16 points**, then added
-    **+8** to keep you above the minimum threshold. Next time, try dropping a few
-    comments during review to boost those points! Your running score is [+112](https://cqfn.github.io/aibolit-aibolit-vitals.html).\n\n<!--
-    Thanks for the review! You've earned +4 points for this: +12 as a basis; -16 for
-    absolutely no comments posted; +8 to give you at least something.  Your running
-    score is [+112](https://cqfn.github.io/aibolit/aibolit-vitals.html).  -->"
-  hoc: 71
-  href: https://github.com/cqfn/aibolit/issues/1018
-  is_human: 1
-  issue: 1018
-  repository: 237167507
-  review_comments: 0
-  seconds: 3462
-  what: code-review-was-rewarded
-  when: 2025-12-11 05:04:13.057872798 Z
-  where: github
-  who: 526301
-  why: Reviewed code in cqfn/aibolit#1018
 - _id: 413879
   _job: 53135
   _time: 2025-12-11 05:04:47.616028471 Z
@@ -27603,20 +27545,60 @@
   where: github
   who: 526301
   why: Reviewed code in cqfn/aibolit#1016
-- _id: 413884
-  _job: 20123495782
-  _time: 2025-12-11 05:57:21.152349483 Z
+- _id: 413885
+  _job: 53141
+  _time: 2025-12-11 05:58:25.420517366 Z
   _version: 0.17.1/0.58.1/0.17.3
-  assignees_were_scanned: 738
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1017,
+    the reward amount is 4.
+  hoc: 2
+  href: https://github.com/cqfn/aibolit/issues/1017
+  is_human: 1
+  issue: 1017
+  repository: 237167507
+  review_comments: 0
+  seconds: 43072
+  what: code-review-was-rewarded
+  when: 2025-12-11 05:04:06.528515537 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1017
+- _id: 413886
+  _job: 53141
+  _time: 2025-12-11 05:58:25.459534819 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1018,
+    the reward amount is 4.
+  hoc: 71
+  href: https://github.com/cqfn/aibolit/issues/1018
+  is_human: 1
+  issue: 1018
+  repository: 237167507
+  review_comments: 0
+  seconds: 3462
+  what: code-review-was-rewarded
+  when: 2025-12-11 05:04:13.057872798 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1018
+- _id: 413887
+  _job: 20124788612
+  _time: 2025-12-11 07:04:43.382451165 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  assignees_were_scanned: 0
   earliest_issue_was_found: 1
-  events_were_scanned: 6485536533
+  events_were_scanned: 6486557713
   issues_were_scanned: 0
-  labels_were_scanned: 826
+  labels_were_scanned: 0
   latest_issue_was_found: 903
   merges_were_scanned: 0
-  min_issue_was_found: 697
-  min_pull_was_found: 680
+  min_issue_was_found: 700
+  min_pull_was_found: 681
   repository: 237167507
-  types_were_scanned: 0
+  types_were_scanned: 715
   what: iterate
   where: github
