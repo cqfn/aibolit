@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 148.735136358
+  seconds: 124.176682206
   version: 0.58.1
   what: judges-summary
-  when: 2025-12-11 02:35:21.900165484 Z
+  when: 2025-12-11 03:51:28.255929319 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -26316,20 +26316,265 @@
     The average weekly cost of HoC (2.28 points) is increasing (R=0.20).
   what: assessment
   when: 2025-12-10 21:02:32.725309600 Z
-- _id: 413797
-  _job: 20119981834
-  _time: 2025-12-11 02:34:32.447779322 Z
+- _id: 413798
+  _job: 20121287577
+  _time: 2025-12-11 03:49:27.180143767 Z
   _version: 0.17.1/0.58.1/0.17.3
-  assignees_were_scanned: 738
+  comments: 4
+  commits: 1
+  details: The pull request cqfn/aibolit#1019 has been reviewed by @yegor256 with
+    100 HoC and 4 comments.
+  event_id: 5231228131
+  event_type: PullRequestReviewEvent
+  files: 2
+  hoc: 100
+  is_human: 1
+  issue: 1019
+  repository: 237167507
+  review_comments: 0
+  what: pull-was-reviewed
+  when: 2025-12-11 03:10:57.000000000 Z
+  where: github
+  who: 526301
+- _id: 413800
+  _job: 20121287577
+  _time: 2025-12-11 03:49:44.479255761 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/matplotlib-3.x
+  details: The pull cqfn/aibolit#1019 has been opened earlier by @renovate[bot].
+  is_human: 0
+  issue: 1019
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-10 23:59:29.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413802
+  _job: 20121287577
+  _time: 2025-12-11 03:50:00.288894480 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/matplotlib-3.x
+  comments: 4
+  comments_appreciated: 1
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#1019 has been "pull-was-merged".
+  failed_builds: 0
+  files: 2
+  hoc: 100
+  is_human: 0
+  issue: 1019
+  repository: 237167507
+  review: 2025-12-11 03:10:56.000000000 Z
+  succeeded_builds: 18
+  suggestions: 0
+  what: pull-was-merged
+  when: 2025-12-11 03:32:08.000000000 Z
+  where: github
+  who: 8086956
+- _id: 413804
+  _job: 20121287577
+  _time: 2025-12-11 03:50:37.940016900 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/sphinx-9.x
+  details: The missing pull cqfn/aibolit#1006 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1006
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-04 09:07:44.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413805
+  _job: 20121287577
+  _time: 2025-12-11 03:50:38.493025608 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/ruff-0.x
+  details: The missing pull cqfn/aibolit#1007 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1007
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-04 16:07:37.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413806
+  _job: 20121287577
+  _time: 2025-12-11 03:50:39.132131727 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/zerocracy-judges-action-0.x
+  details: The missing pull cqfn/aibolit#1008 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1008
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-05 14:09:35.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413807
+  _job: 20121287577
+  _time: 2025-12-11 03:50:39.636504364 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/zerocracy-judges-action-0.x
+  details: The missing pull cqfn/aibolit#1009 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1009
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-06 05:59:34.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413808
+  _job: 20121287577
+  _time: 2025-12-11 03:50:40.144611480 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/pytest-9.x
+  details: The missing pull cqfn/aibolit#1010 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1010
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-06 22:05:35.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413809
+  _job: 20121287577
+  _time: 2025-12-11 03:50:40.701771904 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/zerocracy-judges-action-0.x
+  details: The missing pull cqfn/aibolit#1011 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1011
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-07 10:01:06.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413810
+  _job: 20121287577
+  _time: 2025-12-11 03:50:41.239834358 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/org.eclipse.jdt-org.eclipse.jdt.core-3.x
+  details: The missing pull cqfn/aibolit#1012 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1012
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-08 08:06:53.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413811
+  _job: 20121287577
+  _time: 2025-12-11 03:50:41.799496881 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/networkx-3.x
+  details: The missing pull cqfn/aibolit#1013 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1013
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-08 17:58:35.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413812
+  _job: 20121287577
+  _time: 2025-12-11 03:50:42.366417381 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/zerocracy-judges-action-0.x
+  details: The missing pull cqfn/aibolit#1014 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1014
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-09 04:21:47.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413813
+  _job: 20121287577
+  _time: 2025-12-11 03:50:42.875335700 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/davidanson-markdownlint-cli2-action-22.x
+  details: The missing pull cqfn/aibolit#1015 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1015
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-09 07:58:58.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413814
+  _job: 20121287577
+  _time: 2025-12-11 03:50:43.430307016 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/jamesives-github-pages-deploy-action-4.x
+  details: The missing pull cqfn/aibolit#1016 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1016
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-09 17:05:33.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413815
+  _job: 20121287577
+  _time: 2025-12-11 03:50:43.926967403 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/peter-evans-create-pull-request-8.x
+  details: The missing pull cqfn/aibolit#1017 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1017
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-09 20:57:58.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413816
+  _job: 20121287577
+  _time: 2025-12-11 03:50:44.644207586 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  branch: renovate/scikit-learn-1.x
+  details: The missing pull cqfn/aibolit#1018 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1018
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-10 07:58:05.000000000 Z
+  where: github
+  who: 29139614
+- _id: 413817
+  _job: 20121287577
+  _time: 2025-12-11 03:50:45.063316003 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  assignees_were_scanned: 0
   earliest_issue_was_found: 1
-  events_were_scanned: 5229006400
+  events_were_scanned: 6481270519
   issues_were_scanned: 0
-  labels_were_scanned: 826
+  labels_were_scanned: 0
   latest_issue_was_found: 903
   merges_were_scanned: 0
-  min_issue_was_found: 691
-  min_pull_was_found: 676
+  min_issue_was_found: 692
+  min_pull_was_found: 677
   repository: 237167507
-  types_were_scanned: 952
+  types_were_scanned: 0
   what: iterate
   where: github
+- _id: 413818
+  _job: 20121287577
+  _time: 2025-12-11 03:51:13.695463364 Z
+  _version: 0.17.1/0.58.1/0.17.3
+  author: 29139614
+  comments: 4
+  details: The pull request cqfn/aibolit#1019 with 100 HoC created by @renovate[bot]
+    was reviewed by @yegor256 after 3h11m and 0 comments.
+  hoc: 100
+  is_human: 1
+  issue: 1019
+  repository: 237167507
+  review_comments: 0
+  seconds: 11487
+  what: code-was-reviewed
+  when: 2025-12-11 03:10:56.000000000 Z
+  where: github
+  who: 526301
