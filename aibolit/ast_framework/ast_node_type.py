@@ -13,6 +13,7 @@ class ASTNodeType(Enum):
     ARRAY_SELECTOR = auto()
     ASSERT_STATEMENT = auto()
     ASSIGNMENT = auto()
+    AUGMENTED_ASSIGNMENT = auto()
     BASIC_TYPE = auto()
     BINARY_OPERATION = auto()
     BLOCK_STATEMENT = auto()
@@ -44,6 +45,7 @@ class ASTNodeType(Enum):
     FOR_CONTROL = auto()
     FOR_STATEMENT = auto()
     FORMAL_PARAMETER = auto()
+    IDENTIFIER = auto()
     IF_STATEMENT = auto()
     IMPORT = auto()
     INFERRED_FORMAL_PARAMETER = auto()
@@ -80,6 +82,7 @@ class ASTNodeType(Enum):
     TYPE_ARGUMENT = auto()
     TYPE_DECLARATION = auto()
     TYPE_PARAMETER = auto()
+    UNARY_OPERATION = auto()
     UNKNOWN = auto()  # Custom type, used only in parsing javalang AST
     VARIABLE_DECLARATION = auto()
     VARIABLE_DECLARATOR = auto()
