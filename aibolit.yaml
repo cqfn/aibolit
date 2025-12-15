@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 159.894957165
+  seconds: 141.130479719
   version: 0.58.1
   what: judges-summary
-  when: 2025-12-15 10:03:27.497159293 Z
+  when: 2025-12-15 11:02:17.782613919 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -6772,6 +6772,7 @@
   _job: 32562
   _time: 2025-08-10 23:03:15.519182405 Z
   _version: 0.14.7/0.52.2/0.15.10
+  tombstone: 2025-12-15 10:03:50.122886562 Z
   total_active_contributors: 8
   total_commits: 2682
   total_contributors: 26
@@ -27844,19 +27845,33 @@
   - 0.0538571429820274
   what: learn-eva
   when: 2025-12-15 04:01:24.220095770 Z
-- _id: 413927
-  _job: 20228021634
-  _time: 2025-12-15 10:01:52.516201251 Z
+- _id: 413928
+  _job: 53799
+  _time: 2025-12-15 10:04:31.773568214 Z
+  _version: 0.17.1/0.58.1/0.17.6
+  ac: 1262
+  cost_of_qod: 0.1329890394866623
+  ev: 21
+  pv: 686
+  qod: 165
+  qod_per_day: 25.780857142857144
+  qod_per_sec: 9.569513782005965e-06
+  start: *117
+  what: earned-value
+  when: 2025-12-15 10:04:31.773796719 Z
+- _id: 413929
+  _job: 20229732456
+  _time: 2025-12-15 11:00:53.649451280 Z
   _version: 0.19.2/0.58.1/0.17.6
   assignees_were_scanned: 738
   earliest_issue_was_found: 1
-  events_were_scanned: 6556520336
+  events_were_scanned: 6557414824
   issues_were_scanned: 0
   labels_were_scanned: 826
   latest_issue_was_found: 903
   merges_were_scanned: 0
-  min_issue_was_found: 876
-  min_pull_was_found: 937
+  min_issue_was_found: 880
+  min_pull_was_found: 938
   repository: 237167507
   types_were_scanned: 952
   what: iterate
