@@ -7,17 +7,11 @@
   - Failed to open TCP connection to api.github.com:443 (execution expired)
   - Failed to open TCP connection to api.github.com:443 (execution expired)
   - Failed to open TCP connection to api.github.com:443 (execution expired)
-  - Failed to open TCP connection to api.github.com:443 (execution expired)
-  - Failed to open TCP connection to api.github.com:443 (execution expired)
-  - Failed to open TCP connection to api.github.com:443 (execution expired)
-  - Failed to open TCP connection to api.github.com:443 (execution expired)
-  - Failed to open TCP connection to api.github.com:443 (execution expired)
-  - Failed to open TCP connection to api.github.com:443 (execution expired)
   inserted: 8
-  seconds: 182.992381572
+  seconds: 285.091310258
   version: 0.58.1
   what: judges-summary
-  when: 2025-12-18 10:01:04.844381421 Z
+  when: 2025-12-18 11:02:39.625800980 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -27435,7 +27429,7 @@
   total_releases_published: 0
   total_reviews_submitted: 14
   what: quantity-of-deliverables
-  when: 2025-12-11 10:57:36.672285124 Z
+  when: &285 2025-12-11 10:57:36.672285124 Z
 - _id: 413890
   _job: 20130751566
   _time: 2025-12-11 11:01:12.517697241 Z
@@ -27678,7 +27672,7 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: 2025-12-11 10:55:36.517738029 Z
+  when: &286 2025-12-11 10:55:36.517738029 Z
 - _id: 413894
   _job: 20147124794
   _time: 2025-12-11 20:56:13.094464306 Z
@@ -27869,20 +27863,54 @@
     The average weekly cost of HoC (2.14 points) is staying still.
   what: assessment
   when: 2025-12-18 03:50:28.074079672 Z
-- _id: 413957
-  _job: 20333023006
-  _time: 2025-12-18 10:00:30.078993908 Z
+- _id: 413958
+  _job: 20334625968
+  _time: 2025-12-18 10:57:58.151528168 Z
+  _version: 0.19.2/0.58.1/0.17.6
+  since: *285
+  total_builds_ran: 641
+  total_commits_pushed: 4
+  total_hoc_committed: 114
+  total_issues_created: 6
+  total_pulls_submitted: 6
+  total_releases_published: 0
+  total_reviews_submitted: 4
+  what: quantity-of-deliverables
+  when: 2025-12-18 10:57:36.672285124 Z
+- _id: 413959
+  _job: 20334625968
+  _time: 2025-12-18 10:59:21.087184590 Z
   _version: 0.19.2/0.58.1/0.17.6
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 6827753198
-  issues_were_scanned: 0
+  events_were_scanned: 6829233310
+  issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
   merges_were_scanned: 959
   min_issue_was_found: 963
-  min_pull_was_found: 1007
+  min_pull_was_found: 1008
   repository: 237167507
   types_were_scanned: 952
   what: iterate
   where: github
+- _id: 413960
+  _job: 20334625968
+  _time: 2025-12-18 11:00:33.884398763 Z
+  _version: 0.19.2/0.58.1/0.17.6
+  since: *286
+  some_backlog_size:
+  - 52
+  - 52
+  - 52
+  - 52
+  - 52
+  - 52
+  - 52
+  some_pull_lifetime:
+  - 15029.0
+  - 26469.0
+  - 21775.0
+  - 93456.0
+  what: quality-of-service
+  when: 2025-12-18 10:55:36.517738029 Z
