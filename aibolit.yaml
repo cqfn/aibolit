@@ -2,16 +2,11 @@
 - added: 8
   cycles: 1
   deleted: 8
-  error:
-  - Failed to open TCP connection to api.github.com:443 (execution expired)
-  - Failed to open TCP connection to api.github.com:443 (execution expired)
-  - Failed to open TCP connection to api.github.com:443 (execution expired)
-  - Failed to open TCP connection to api.github.com:443 (execution expired)
   inserted: 8
-  seconds: 285.091310258
+  seconds: 122.565686707
   version: 0.58.1
   what: judges-summary
-  when: 2025-12-18 11:02:39.625800980 Z
+  when: 2025-12-18 11:57:20.202327638 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -6777,6 +6772,7 @@
   _job: 32796
   _time: 2025-08-12 10:04:44.632575020 Z
   _version: 0.14.7/0.52.2/0.15.10
+  tombstone: 2025-12-18 11:03:07.613548586 Z
   total_active_contributors: 8
   total_commits: 2683
   total_contributors: 26
@@ -27819,30 +27815,6 @@
   total_stars: 92
   what: dimensions-of-terrain
   when: 2025-12-17 23:56:05.865523338 Z
-- _id: 413954
-  _job: 54315
-  _time: 2025-12-18 02:31:55.840866899 Z
-  _version: 0.19.2/0.58.1/0.17.6
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  - -5.536332179930795
-  - -29.357798165137613
-  - -63.745019920318725
-  - -4.153686396677051
-  - -42.44031830238727
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  - 0.41285714289175585
-  - 0.07785714305026051
-  - 0.03585714296881663
-  - 0.13757142891724966
-  - 0.0538571429820274
-  what: learn-eva
-  when: 2025-12-18 02:31:55.802871775 Z
 - _id: 413956
   _job: 54331
   _time: 2025-12-18 03:50:28.054476667 Z
@@ -27867,6 +27839,8 @@
   _job: 20334625968
   _time: 2025-12-18 10:57:58.151528168 Z
   _version: 0.19.2/0.58.1/0.17.6
+  composite: 6.461
+  ffact: 137
   since: *285
   total_builds_ran: 641
   total_commits_pushed: 4
@@ -27877,23 +27851,6 @@
   total_reviews_submitted: 4
   what: quantity-of-deliverables
   when: 2025-12-18 10:57:36.672285124 Z
-- _id: 413959
-  _job: 20334625968
-  _time: 2025-12-18 10:59:21.087184590 Z
-  _version: 0.19.2/0.58.1/0.17.6
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 6829233310
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 959
-  min_issue_was_found: 963
-  min_pull_was_found: 1008
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 413960
   _job: 20334625968
   _time: 2025-12-18 11:00:33.884398763 Z
@@ -27907,10 +27864,205 @@
   - 52
   - 52
   - 52
+  some_build_duration:
+  - 24
+  - 202
+  - 44
+  - 27
+  - 220
+  - 45
+  - 28
+  - 233
+  - 39
+  - 28
+  - 169
+  - 39
+  - 28
+  - 233
+  - 40
+  - 26
+  - 165
+  - 41
+  - 31
+  - 235
+  - 36
+  - 214
+  - 41
+  - 26
+  - 167
+  - 38
+  - 31
+  - 167
+  - 40
+  - 10
+  - 10
+  - 10
+  - 11
+  - 11
+  - 12
+  - 12
+  - 13
+  - 14
+  - 15
+  - 15
+  - 21
+  - 28
+  - 36
+  - 42
+  - 54
+  - 394
+  - 624
+  - 27
+  - 228
+  - 35
+  - 27
+  - 184
+  - 39
+  - 27
+  - 242
+  - 40
+  - 26
+  - 306
+  - 41
+  - 24
+  some_build_success_rate:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  some_merged_pulls: 4
+  some_pull_files_size:
+  - 2
+  - 1
+  - 2
+  - 1
+  some_pull_hoc_size:
+  - 62
+  - 2
+  - 48
+  - 2
   some_pull_lifetime:
   - 15029.0
   - 26469.0
   - 21775.0
   - 93456.0
+  some_review_size:
+  - 0
+  - 0
+  - 0
+  - 0
+  some_review_time:
+  - 1635
+  - 1188
+  - 2412
+  - 1466
+  some_reviewers_per_pull:
+  - 1
+  - 1
+  - 1
+  - 1
+  some_reviews_per_pull:
+  - 1
+  - 1
+  - 1
+  - 1
+  some_unmerged_pulls: 0
   what: quality-of-service
   when: 2025-12-18 10:55:36.517738029 Z
+- _id: 413961
+  _job: 54386
+  _time: 2025-12-18 11:03:53.057291033 Z
+  _version: 0.19.2/0.58.1/0.17.6!0.17.7
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  - -29.357798165137613
+  - -63.745019920318725
+  - -4.153686396677051
+  - -42.44031830238727
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  - 0.07785714305026051
+  - 0.03585714296881663
+  - 0.13757142891724966
+  - 0.0538571429820274
+  what: learn-eva
+  when: 2025-12-18 11:03:53.027205286 Z
+- _id: 413962
+  _job: 20336074517
+  _time: 2025-12-18 11:55:39.807595672 Z
+  _version: 0.19.2/0.58.1/0.17.6
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 6830798304
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 959
+  min_issue_was_found: 963
+  min_pull_was_found: 1009
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
