@@ -80,7 +80,7 @@ dev = [
     { name = "pytest-cov", specifier = "==7.0.0" },
     { name = "pytest-testmon", specifier = "==2.2.0" },
     { name = "ruff", specifier = "==0.14.10" },
-    { name = "sphinx", specifier = "==9.0.3" },
+    { name = "sphinx", specifier = "==9.0.4" },
     { name = "types-requests", specifier = "==2.32.4.20250913" },
 ]
 
@@ -1618,7 +1618,7 @@ wheels = [
 
 [[package]]
 name = "sphinx"
-version = "9.0.3"
+version = "9.0.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "alabaster" },
@@ -1639,9 +1639,9 @@ dependencies = [
     { name = "sphinxcontrib-qthelp" },
     { name = "sphinxcontrib-serializinghtml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/7e/54/71ce749f6cc6128da1b0aaf488330ac9caeae930050afe6792cc11f360da/sphinx-9.0.3.tar.gz", hash = "sha256:98ea46e18e3fbfe222c2aebd1988b52fb20afd0dd430f8b7ce06f64d2f53300f", size = 8708982, upload-time = "2025-12-04T01:47:43.711Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/42/50/a8c6ccc36d5eacdfd7913ddccd15a9cee03ecafc5ee2bc40e1f168d85022/sphinx-9.0.4.tar.gz", hash = "sha256:594ef59d042972abbc581d8baa577404abe4e6c3b04ef61bd7fc2acbd51f3fa3", size = 8710502, upload-time = "2025-12-04T07:45:27.343Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/44/cc/930dad39c15a809c5ef758b121a7d93401c1da311174e6600bdfce8ba8f7/sphinx-9.0.3-py3-none-any.whl", hash = "sha256:0c92f6d98cac0a0adbe4edc6865ec9f6e46555aad5efaf2b8344eb4577fba874", size = 3916755, upload-time = "2025-12-04T01:47:41.518Z" },
+    { url = "https://files.pythonhosted.org/packages/c6/3f/4bbd76424c393caead2e1eb89777f575dee5c8653e2d4b6afd7a564f5974/sphinx-9.0.4-py3-none-any.whl", hash = "sha256:5bebc595a5e943ea248b99c13814c1c5e10b3ece718976824ffa7959ff95fffb", size = 3917713, upload-time = "2025-12-04T07:45:24.944Z" },
 ]
 
 [[package]]
