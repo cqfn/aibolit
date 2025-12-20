@@ -534,9 +534,9 @@ def _process_file_result(file, result_for_file):
             results = flatten(results)
         patterns_number = len(results)
         importance_for_class = []
-
+ 
         for i, pattern in enumerate(results, start=1):
-            if pattern.get('pattern_code'):
+            if isinstance(pattern, dict) and pattern.get('pattern_code'):
                 pattern_score = _process_pattern(patterns_tag, pattern, i, patterns_number)
                 importance_for_class.append(pattern_score)
 
