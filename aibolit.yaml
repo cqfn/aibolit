@@ -2,11 +2,18 @@
 - added: 8
   cycles: 1
   deleted: 8
+  error:
+  - Failed to open TCP connection to api.github.com:443 (Connection refused - connect(2)
+    for "api.github.com" port 443)
+  - Failed to open TCP connection to api.github.com:443 (Connection refused - connect(2)
+    for "api.github.com" port 443)
+  - Failed to open TCP connection to api.github.com:443 (Connection refused - connect(2)
+    for "api.github.com" port 443)
   inserted: 8
-  seconds: 77.011993337
+  seconds: 94.115861007
   version: 0.58.1
   what: judges-summary
-  when: 2025-12-27 11:56:23.897032299 Z
+  when: 2025-12-27 13:21:17.062562478 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -6649,23 +6656,6 @@
   when: 2025-06-25 09:08:09.000000000 Z
   where: github
   who: 24456188
-- _id: 37730
-  _job: 32946
-  _time: 2025-08-13 11:04:37.205341835 Z
-  _version: 0.14.7/0.52.2/0.15.10
-  tombstone: 2025-12-19 10:59:09.428759116 Z
-  total_active_contributors: 7
-  total_commits: 2683
-  total_contributors: 26
-  total_files: 1049
-  total_forks: 36
-  total_issues: 441
-  total_pulls: 448
-  total_releases: 28
-  total_repositories: 1
-  total_stars: 87
-  what: dimensions-of-terrain
-  when: 2025-08-13 10:56:50.015568594 Z
 - _id: 38285
   _job: 33097
   _time: 2025-08-14 11:07:41.108706421 Z
@@ -27963,26 +27953,6 @@
   total_stars: 92
   what: dimensions-of-terrain
   when: 2025-12-25 09:55:21.678436509 Z
-- _id: 414020
-  _job: 55280
-  _time: 2025-12-25 09:55:56.913172601 Z
-  _version: 0.19.2/0.58.1/0.17.8
-  analyzers: 18
-  text: |-
-    The average reward per task (6.5 points) is decreasing (R=-0.50).
-    The average punishment per task (15.0 points) is staying still.
-    The average number of builds per week (955.2) is decreasing (R=-0.39).
-    The average number of commits per week (13.8) is decreasing (R=-0.20).
-    The average bugs accepted per month (13.0) is decreasing (R=-0.90).
-    The average monthly punishment (74 points) is decreasing (R=-0.85).
-    The average monthly wage (6.7 points) is decreasing (R=-0.61).
-    The average issue cycle time (1w2d) is increasing (R=0.45).
-    The average pull cycle time (1d23h) is staying still.
-    The average number of releases per month (0.0) is staying still.
-    The average monthly turnover (13.0 developers) is decreasing (R=-0.90).
-    The average weekly cost of HoC (2.14 points) is staying still.
-  what: assessment
-  when: 2025-12-25 09:55:56.932624985 Z
 - _id: 414022
   _job: 20503936516
   _time: 2025-12-25 10:57:21.308821386 Z
@@ -28254,23 +28224,6 @@
   - 0.0538571429820274
   what: learn-eva
   when: 2025-12-27 07:02:12.442745155 Z
-- _id: 414039
-  _job: 20538695811
-  _time: 2025-12-27 11:55:09.219149504 Z
-  _version: 0.19.2/0.58.1/0.17.8
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 7020093753
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 959
-  min_issue_was_found: 963
-  min_pull_was_found: 1019
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414040
   _job: 20538695811
   _time: 2025-12-27 11:55:31.328690579 Z
@@ -28287,3 +28240,40 @@
   total_stars: 93
   what: dimensions-of-terrain
   when: 2025-12-27 11:55:31.341657893 Z
+- _id: 414041
+  _job: 55486
+  _time: 2025-12-27 11:56:42.436581530 Z
+  _version: 0.19.2/0.58.1/0.17.8
+  analyzers: 18
+  text: |-
+    The average reward per task (6.5 points) is decreasing (R=-0.50).
+    The average punishment per task (15.0 points) is staying still.
+    The average number of builds per week (928.6) is decreasing (R=-0.44).
+    The average number of commits per week (13.2) is decreasing (R=-0.24).
+    The average bugs accepted per month (13.0) is decreasing (R=-0.90).
+    The average monthly punishment (74 points) is decreasing (R=-0.85).
+    The average monthly wage (6.7 points) is decreasing (R=-0.61).
+    The average issue cycle time (1w2d) is increasing (R=0.45).
+    The average pull cycle time (1d23h) is staying still.
+    The average number of releases per month (0.0) is staying still.
+    The average monthly turnover (13.0 developers) is decreasing (R=-0.90).
+    The average weekly cost of HoC (2.14 points) is staying still.
+  what: assessment
+  when: 2025-12-27 11:56:42.451493302 Z
+- _id: 414042
+  _job: 20539556069
+  _time: 2025-12-27 13:19:45.812442397 Z
+  _version: 0.19.2/0.58.1/0.17.8
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 7020757418
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 959
+  min_issue_was_found: 963
+  min_pull_was_found: 1019
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
