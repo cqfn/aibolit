@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 15.894439203
+  seconds: 89.881858347
   version: 0.58.1
   what: judges-summary
-  when: 2025-12-28 13:55:46.465702069 Z
+  when: 2025-12-28 14:56:53.031407224 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -28192,47 +28192,6 @@
     The average weekly cost of HoC (2.14 points) is staying still.
   what: assessment
   when: 2025-12-27 11:56:42.451493302 Z
-- _id: 414045
-  _job: 55536
-  _time: 2025-12-28 03:01:00.410877427 Z
-  _version: 0.19.2/0.58.1/0.17.8
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  - -5.536332179930795
-  - -29.357798165137613
-  - -63.745019920318725
-  - -4.153686396677051
-  - -42.44031830238727
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  - 0.41285714289175585
-  - 0.07785714305026051
-  - 0.03585714296881663
-  - 0.13757142891724966
-  - 0.0538571429820274
-  what: learn-eva
-  when: 2025-12-28 03:01:00.381886889 Z
-- _id: 414046
-  _job: 20554353173
-  _time: 2025-12-28 13:20:58.707129350 Z
-  _version: 0.19.2/0.58.1/0.17.8
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 7035734231
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 959
-  min_issue_was_found: 963
-  min_pull_was_found: 1019
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414047
   _job: 20554353173
   _time: 2025-12-28 13:21:19.523815745 Z
@@ -28269,3 +28228,44 @@
     The average weekly cost of HoC (2.14 points) is staying still.
   what: assessment
   when: 2025-12-28 13:22:35.538625713 Z
+- _id: 414049
+  _job: 55590
+  _time: 2025-12-28 13:56:38.999518757 Z
+  _version: 0.19.2/0.58.1/0.17.8
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  - -29.357798165137613
+  - -63.745019920318725
+  - -4.153686396677051
+  - -42.44031830238727
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  - 0.07785714305026051
+  - 0.03585714296881663
+  - 0.13757142891724966
+  - 0.0538571429820274
+  what: learn-eva
+  when: 2025-12-28 13:56:38.964456027 Z
+- _id: 414050
+  _job: 20555415468
+  _time: 2025-12-28 14:55:26.125634127 Z
+  _version: 0.19.2/0.58.1/0.17.8
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 7037228453
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 959
+  min_issue_was_found: 963
+  min_pull_was_found: 1019
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
