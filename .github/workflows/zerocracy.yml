@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
-      - uses: zerocracy/judges-action@0.17.2
+      - uses: zerocracy/judges-action@0.17.9
         with:
           token: ${{ secrets.ZEROCRACY_TOKEN }}
           github-token: ${{ secrets.PAT }}
@@ -27,7 +27,7 @@ jobs:
         with:
           factbase: aibolit.fb
           output: pages
-      - uses: JamesIves/github-pages-deploy-action@v4.7.4
+      - uses: JamesIves/github-pages-deploy-action@v4.7.6
         with:
           folder: pages
           clean: false
