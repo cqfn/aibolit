@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.17.0" size="545854">
+<fb version="0.17.0" size="547081">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">175.061829636</seconds>
+    <seconds t="F">86.865559482</seconds>
     <version t="S">0.58.1</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-01-01T10:59:37Z</when>
+    <when t="T">2026-01-01T11:56:46Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -30923,5 +30923,57 @@ The average weekly cost of HoC (2.14 points) is staying still.</text>
     <some_unmerged_pulls t="I">0</some_unmerged_pulls>
     <what t="S">quality-of-service</what>
     <when t="T">2026-01-01T10:57:53Z</when>
+  </f>
+  <f>
+    <_id t="I">414066</_id>
+    <_job t="I">56025</_job>
+    <_time t="T">2026-01-01T11:00:23Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <award t="I">-16</award>
+    <commit t="S">186f6b51b3c00d6675a689f8c76b7754dd9ca064</commit>
+    <default_branch t="S">master</default_branch>
+    <details t="S">It's time to punish @yegor256 for pushing to the default branch 'master' in cqfn/aibolit, the penalty amount is -16.</details>
+    <href t="S">https://github.com/cqfn/aibolit/commit/186f6b51b3c00d6675a689f8c76b7754dd9ca064</href>
+    <is_human t="I">1</is_human>
+    <repository t="I">237167507</repository>
+    <what t="S">push-to-master-was-punished</what>
+    <when t="T">2026-01-01T10:59:59Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+    <why t="S">Pushed 186f6b51b to the default branch 'master' in cqfn/aibolit</why>
+  </f>
+  <f>
+    <_id t="I">414067</_id>
+    <_job t="I">56025</_job>
+    <_time t="T">2026-01-01T11:00:23Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <award t="I">-16</award>
+    <commit t="S">3ba43d0653e24069d658e11de54ccb7b4e51892c</commit>
+    <default_branch t="S">master</default_branch>
+    <details t="S">It's time to punish @yegor256 for pushing to the default branch 'master' in cqfn/aibolit, the penalty amount is -16.</details>
+    <href t="S">https://github.com/cqfn/aibolit/commit/3ba43d0653e24069d658e11de54ccb7b4e51892c</href>
+    <is_human t="I">1</is_human>
+    <repository t="I">237167507</repository>
+    <what t="S">push-to-master-was-punished</what>
+    <when t="T">2026-01-01T11:00:00Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+    <why t="S">Pushed 3ba43d065 to the default branch 'master' in cqfn/aibolit</why>
+  </f>
+  <f>
+    <_id t="I">414068</_id>
+    <_job t="I">20638124457</_job>
+    <_time t="T">2026-01-01T11:55:20Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <since t="T">2025-12-25T10:57:36Z</since>
+    <total_builds_ran t="I">588</total_builds_ran>
+    <total_commits_pushed t="I">6</total_commits_pushed>
+    <total_hoc_committed t="I">2495</total_hoc_committed>
+    <total_issues_created t="I">3</total_issues_created>
+    <total_pulls_submitted t="I">3</total_pulls_submitted>
+    <total_releases_published t="I">0</total_releases_published>
+    <total_reviews_submitted t="I">3</total_reviews_submitted>
+    <what t="S">quantity-of-deliverables</what>
+    <when t="T">2026-01-01T11:55:20Z</when>
   </f>
 </fb>

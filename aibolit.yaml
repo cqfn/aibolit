@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 175.061829636
+  seconds: 86.865559482
   version: 0.58.1
   what: judges-summary
-  when: 2026-01-01 10:59:37.705590525 Z
+  when: 2026-01-01 11:56:46.721825399 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -28139,7 +28139,7 @@
   total_releases_published: 0
   total_reviews_submitted: 4
   what: quantity-of-deliverables
-  when: 2025-12-25 10:57:36.672285124 Z
+  when: &290 2025-12-25 10:57:36.672285124 Z
 - _id: 414031
   _job: 20521210601
   _time: 2025-12-26 10:56:36.030005082 Z
@@ -28490,3 +28490,51 @@
   some_unmerged_pulls: 0
   what: quality-of-service
   when: 2026-01-01 10:57:53.000000000 Z
+- _id: 414066
+  _job: 56025
+  _time: 2026-01-01 11:00:23.880279301 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  award: -16
+  commit: 186f6b51b3c00d6675a689f8c76b7754dd9ca064
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  href: https://github.com/cqfn/aibolit/commit/186f6b51b3c00d6675a689f8c76b7754dd9ca064
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2026-01-01 10:59:59.980083771 Z
+  where: github
+  who: 526301
+  why: Pushed 186f6b51b to the default branch 'master' in cqfn/aibolit
+- _id: 414067
+  _job: 56025
+  _time: 2026-01-01 11:00:23.908584212 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  award: -16
+  commit: 3ba43d0653e24069d658e11de54ccb7b4e51892c
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  href: https://github.com/cqfn/aibolit/commit/3ba43d0653e24069d658e11de54ccb7b4e51892c
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2026-01-01 11:00:00.296277700 Z
+  where: github
+  who: 526301
+  why: Pushed 3ba43d065 to the default branch 'master' in cqfn/aibolit
+- _id: 414068
+  _job: 20638124457
+  _time: 2026-01-01 11:55:20.859943745 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  since: *290
+  total_builds_ran: 588
+  total_commits_pushed: 6
+  total_hoc_committed: 2495
+  total_issues_created: 3
+  total_pulls_submitted: 3
+  total_releases_published: 0
+  total_reviews_submitted: 3
+  what: quantity-of-deliverables
+  when: 2026-01-01 11:55:20.000000000 Z
