@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
 
 """The main entry point. Invoke as `aibolit' or `python -m aibolit'.
