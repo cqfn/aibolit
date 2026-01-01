@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 15.237569912
+  seconds: 175.061829636
   version: 0.58.1
   what: judges-summary
-  when: 2026-01-01 09:56:24.939666203 Z
+  when: 2026-01-01 10:59:37.705590525 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -28109,7 +28109,7 @@
   - 0
   some_unmerged_pulls: 1
   what: quality-of-service
-  when: 2025-12-25 10:55:36.517738029 Z
+  when: &289 2025-12-25 10:55:36.517738029 Z
 - _id: 414023
   _job: 55284
   _time: 2025-12-25 11:00:10.453135315 Z
@@ -28244,23 +28244,6 @@
     The average weekly cost of HoC (2.14 points) is staying still.
   what: assessment
   when: 2025-12-31 14:58:07.795022080 Z
-- _id: 414058
-  _job: 20635828617
-  _time: 2026-01-01 09:01:34.974346907 Z
-  _version: 0.19.2/0.58.1/0.17.9
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 7115872370
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 959
-  min_issue_was_found: 963
-  min_pull_was_found: 1019
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414059
   _job: 56002
   _time: 2026-01-01 09:04:07.019452889 Z
@@ -28285,3 +28268,225 @@
   - 0.0538571429820274
   what: learn-eva
   when: 2026-01-01 09:04:06.977765693 Z
+- _id: 414060
+  _job: 20637351111
+  _time: 2026-01-01 10:56:46.740144100 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  commit: 186f6b51b3c00d6675a689f8c76b7754dd9ca064
+  default_branch: master
+  details: 'A new Git push #29411566014 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is "master"), not associated with any pull request.'
+  event_id: 7116864133
+  event_type: PushEvent
+  is_human: 1
+  push_id: 29411566014
+  ref: refs/heads/master
+  repository: 237167507
+  to_master: 1
+  what: git-was-pushed
+  when: 2026-01-01 09:26:17.000000000 Z
+  where: github
+  who: 526301
+- _id: 414061
+  _job: 20637351111
+  _time: 2026-01-01 10:56:47.176455013 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  commit: 3ba43d0653e24069d658e11de54ccb7b4e51892c
+  default_branch: master
+  details: 'A new Git push #29411503774 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is "master"), not associated with any pull request.'
+  event_id: 7116802204
+  event_type: PushEvent
+  is_human: 1
+  push_id: 29411503774
+  ref: refs/heads/master
+  repository: 237167507
+  to_master: 1
+  what: git-was-pushed
+  when: 2026-01-01 09:20:54.000000000 Z
+  where: github
+  who: 526301
+- _id: 414062
+  _job: 20637351111
+  _time: 2026-01-01 10:56:47.400587072 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 7117198565
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 959
+  min_issue_was_found: 963
+  min_pull_was_found: 1019
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
+- _id: 414063
+  _job: 20637351111
+  _time: 2026-01-01 10:57:53.958486501 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  since: *289
+  some_backlog_size:
+  - 52
+  - 52
+  - 52
+  - 52
+  - 52
+  - 52
+  - 52
+  some_build_duration:
+  - 42
+  - 26
+  - 213
+  - 44
+  - 24
+  - 201
+  - 38
+  - 28
+  - 108
+  - 35
+  - 24
+  - 201
+  - 37
+  - 9
+  - 11
+  - 11
+  - 12
+  - 13
+  - 14
+  - 16
+  - 16
+  - 16
+  - 16
+  - 16
+  - 17
+  - 30
+  - 30
+  - 45
+  - 50
+  - 60
+  - 67
+  - 71
+  - 8
+  - 8
+  - 9
+  - 11
+  - 11
+  - 12
+  - 12
+  - 13
+  - 15
+  - 16
+  - 17
+  - 20
+  - 24
+  - 34
+  - 48
+  - 64
+  - 67
+  - 74
+  - 404
+  - 41
+  - 607
+  - 295
+  - 38
+  - 624
+  - 98
+  - 39
+  - 29
+  - 0
+  some_build_success_rate:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0
+  some_merged_pulls: 3
+  some_pull_files_size:
+  - 1
+  - 1
+  - 1
+  some_pull_hoc_size:
+  - 2
+  - 2
+  - 2
+  some_pull_lifetime:
+  - 3447.0
+  - 8018.0
+  - 1920.0
+  some_review_size:
+  - 0
+  - 0
+  - 0
+  some_review_time:
+  - 1416
+  - 1386
+  - 1335
+  some_reviewers_per_pull:
+  - 1
+  - 1
+  - 1
+  some_reviews_per_pull:
+  - 1
+  - 1
+  - 1
+  some_unmerged_pulls: 0
+  what: quality-of-service
+  when: 2026-01-01 10:57:53.000000000 Z
