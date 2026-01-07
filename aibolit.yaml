@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 75.384815217
+  seconds: 225.805804782
   version: 0.58.1
   what: judges-summary
-  when: 2026-01-07 14:02:53.847222165 Z
+  when: 2026-01-07 15:04:06.973081152 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -28623,23 +28623,6 @@
   - 0.0538571429820274
   what: learn-eva
   when: 2026-01-07 11:03:06.116066393 Z
-- _id: 414128
-  _job: 20783095914
-  _time: 2026-01-07 13:29:59.854959210 Z
-  _version: 0.19.2/0.58.1/0.17.9
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 7257920382
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 959
-  min_issue_was_found: 963
-  min_pull_was_found: 1019
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414129
   _job: 20783095914
   _time: 2026-01-07 13:30:25.355828242 Z
@@ -28650,3 +28633,81 @@
   when: 2025-05-29 07:01:49.954349776 Z
   where: github
   who: 84927447
+- _id: 414130
+  _job: 20785696226
+  _time: 2026-01-07 15:00:24.813204965 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 7261365396
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 959
+  min_issue_was_found: 963
+  min_pull_was_found: 1019
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
+- _id: 414131
+  _job: 20785696226
+  _time: 2026-01-07 15:00:55.755283667 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: '896'
+  comments: 13
+  comments_appreciated: 0
+  comments_by_author: 2
+  comments_by_reviewers: 11
+  comments_resolved: 3
+  comments_to_code: 10
+  details: Apparently, cqfn/aibolit#962 has been "pull-was-closed".
+  failed_builds: 0
+  files: 50
+  hoc: 695
+  is_human: 1
+  issue: 962
+  repository: 237167507
+  review: 2025-10-16 10:45:04.000000000 Z
+  succeeded_builds: 17
+  suggestions: 10
+  what: pull-was-closed
+  when: 2026-01-07 14:33:22.000000000 Z
+  where: github
+  who: 84927447
+- _id: 414132
+  _job: 20785696226
+  _time: 2026-01-07 15:02:51.279423068 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  author: 84927447
+  comments: 3
+  details: The pull request cqfn/aibolit#962 with 695 HoC created by @deyna256 was
+    reviewed by @coderabbitai[bot] after 0h6m and 0 comments.
+  hoc: 695
+  is_human: 0
+  issue: 962
+  repository: 237167507
+  review_comments: 0
+  seconds: 405
+  what: code-was-reviewed
+  when: 2025-10-16 10:45:04.000000000 Z
+  where: github
+  who: 136622811
+- _id: 414133
+  _job: 20785696226
+  _time: 2026-01-07 15:02:51.407922322 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  author: 84927447
+  comments: 3
+  details: The pull request cqfn/aibolit#962 with 695 HoC created by @deyna256 was
+    reviewed by @ivanovmg after 91h1m and 1 comments.
+  hoc: 695
+  is_human: 1
+  issue: 962
+  repository: 237167507
+  review_comments: 1
+  seconds: 327671
+  what: code-was-reviewed
+  when: 2025-10-20 05:39:30.000000000 Z
+  where: github
+  who: 41443370
