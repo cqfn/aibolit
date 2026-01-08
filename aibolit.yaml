@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 77.926640576
+  seconds: 182.763683088
   version: 0.58.1
   what: judges-summary
-  when: 2026-01-08 10:00:29.111522042 Z
+  when: 2026-01-08 11:02:49.911339885 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -28398,7 +28398,7 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: 2026-01-01 10:57:53.000000000 Z
+  when: &291 2026-01-01 10:57:53.000000000 Z
 - _id: 414066
   _job: 56025
   _time: 2026-01-01 11:00:23.880279301 Z
@@ -28711,12 +28711,12 @@
   what: learn-eva
   when: 2026-01-08 03:58:43.225986997 Z
 - _id: 414141
-  _job: 20811327342
-  _time: 2026-01-08 09:04:14.857508983 Z
+  _job: 20814502301
+  _time: 2026-01-08 10:59:49.765597592 Z
   _version: 0.19.2/0.58.1/0.17.9
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 7284125248
+  events_were_scanned: 7287274629
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
@@ -28727,3 +28727,152 @@
   types_were_scanned: 952
   what: iterate
   where: github
+- _id: 414142
+  _job: 20814502301
+  _time: 2026-01-08 11:01:01.702198998 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  since: *291
+  some_backlog_size:
+  - 52
+  - 52
+  - 52
+  - 52
+  - 52
+  - 52
+  - 52
+  some_build_duration:
+  - 42
+  - 29
+  - 190
+  - 39
+  - 28
+  - 248
+  - 42
+  - 26
+  - 165
+  - 43
+  - 9
+  - 10
+  - 11
+  - 11
+  - 11
+  - 12
+  - 12
+  - 13
+  - 15
+  - 15
+  - 16
+  - 17
+  - 27
+  - 38
+  - 46
+  - 57
+  - 327
+  - 659
+  - 26
+  - 262
+  - 38
+  - 27
+  - 169
+  - 37
+  - 31
+  - 255
+  - 40
+  - 25
+  - 236
+  - 38
+  - 25
+  - 240
+  - 40
+  - 25
+  - 164
+  - 44
+  - 24
+  - 262
+  - 96
+  - 25
+  - 150
+  - 40
+  - 22
+  - 252
+  - 39
+  - 26
+  - 165
+  - 39
+  - 24
+  - 0
+  some_build_success_rate:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0
+  some_merged_pulls: 3
+  some_pull_files_size: 2
+  some_pull_hoc_size: 10
+  some_pull_lifetime:
+  - 17910.0
+  - 7185303.0
+  - 7250174.0
+  some_review_size: 0
+  some_review_time: 1220
+  some_reviewers_per_pull: 1
+  some_reviews_per_pull: 1
+  some_unmerged_pulls: 2
+  what: quality-of-service
+  when: 2026-01-08 11:01:01.000000000 Z
