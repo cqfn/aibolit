@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 76.343518858
+  seconds: 152.714230702
   version: 0.58.1
   what: judges-summary
-  when: 2026-01-14 21:57:39.140656298 Z
+  when: 2026-01-14 23:00:08.944551956 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -28910,47 +28910,6 @@
   start: *116
   what: earned-value
   when: 2026-01-14 11:57:47.107012010 Z
-- _id: 414200
-  _job: 57537
-  _time: 2026-01-14 13:35:33.236109304 Z
-  _version: 0.19.2/0.58.1/0.17.9
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  - -5.536332179930795
-  - -29.357798165137613
-  - -63.745019920318725
-  - -4.153686396677051
-  - -42.44031830238727
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  - 0.41285714289175585
-  - 0.07785714305026051
-  - 0.03585714296881663
-  - 0.13757142891724966
-  - 0.0538571429820274
-  what: learn-eva
-  when: 2026-01-14 13:35:33.203177067 Z
-- _id: 414201
-  _job: 21009551771
-  _time: 2026-01-14 20:57:30.925949708 Z
-  _version: 0.19.2/0.58.1/0.17.9
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 7476379026
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 959
-  min_issue_was_found: 963
-  min_pull_was_found: 1019
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414202
   _job: 21009551771
   _time: 2026-01-14 20:57:59.245827522 Z
@@ -28987,3 +28946,44 @@
     The average weekly cost of HoC (2.14 points) is staying still.
   what: assessment
   when: 2026-01-14 20:59:34.395176612 Z
+- _id: 414204
+  _job: 57573
+  _time: 2026-01-14 21:58:30.611598162 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  - -29.357798165137613
+  - -63.745019920318725
+  - -4.153686396677051
+  - -42.44031830238727
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  - 0.07785714305026051
+  - 0.03585714296881663
+  - 0.13757142891724966
+  - 0.0538571429820274
+  what: learn-eva
+  when: 2026-01-14 21:58:30.571627792 Z
+- _id: 414205
+  _job: 21012858501
+  _time: 2026-01-14 22:57:39.179494070 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 7479500383
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 959
+  min_issue_was_found: 963
+  min_pull_was_found: 1019
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
