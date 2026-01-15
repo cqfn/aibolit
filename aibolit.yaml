@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 82.366776374
+  seconds: 207.257906917
   version: 0.58.1
   what: judges-summary
-  when: 2026-01-15 14:03:55.015470455 Z
+  when: 2026-01-15 15:04:15.342519689 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -10355,6 +10355,7 @@
   _job: 17584959350
   _time: 2025-09-09 13:56:45.892381459 Z
   _version: 0.16.2/0.53.6/0.15.38
+  tombstone: 2026-01-15 14:04:18.354627293 Z
   total_active_contributors: 1
   total_commits: 2698
   total_contributors: 26
@@ -28946,30 +28947,6 @@
     The average weekly cost of HoC (2.14 points) is staying still.
   what: assessment
   when: 2026-01-14 20:59:34.395176612 Z
-- _id: 414206
-  _job: 57608
-  _time: 2026-01-15 06:00:09.944796013 Z
-  _version: 0.19.2/0.58.1/0.17.9
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  - -5.536332179930795
-  - -29.357798165137613
-  - -63.745019920318725
-  - -4.153686396677051
-  - -42.44031830238727
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  - 0.41285714289175585
-  - 0.07785714305026051
-  - 0.03585714296881663
-  - 0.13757142891724966
-  - 0.0538571429820274
-  what: learn-eva
-  when: 2026-01-15 06:00:09.898307502 Z
 - _id: 414208
   _job: 21028865592
   _time: 2026-01-15 11:01:10.356654930 Z
@@ -29158,23 +29135,6 @@
   some_unmerged_pulls: 0
   what: quality-of-service
   when: 2026-01-15 11:01:10.000000000 Z
-- _id: 414209
-  _job: 21033013903
-  _time: 2026-01-15 13:30:48.093364325 Z
-  _version: 0.19.2/0.58.1/0.17.9
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 7498246861
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 959
-  min_issue_was_found: 963
-  min_pull_was_found: 1019
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414210
   _job: 21033013903
   _time: 2026-01-15 13:30:48.247336014 Z
@@ -29191,3 +29151,44 @@
   total_reviews_submitted: 6
   what: quantity-of-deliverables
   when: 2026-01-15 13:30:48.000000000 Z
+- _id: 414211
+  _job: 57644
+  _time: 2026-01-15 14:05:00.634757885 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  - -29.357798165137613
+  - -63.745019920318725
+  - -4.153686396677051
+  - -42.44031830238727
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  - 0.07785714305026051
+  - 0.03585714296881663
+  - 0.13757142891724966
+  - 0.0538571429820274
+  what: learn-eva
+  when: 2026-01-15 14:05:00.600374678 Z
+- _id: 414212
+  _job: 21035700732
+  _time: 2026-01-15 15:00:52.106631382 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 7502017260
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 959
+  min_issue_was_found: 963
+  min_pull_was_found: 1019
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
