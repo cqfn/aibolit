@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.17.0" size="561249">
+<fb version="0.17.0" size="574131">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">194.254107907</seconds>
+    <seconds t="F">634.352372002</seconds>
     <version t="S">0.58.1</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-01-20T04:38:44Z</when>
+    <when t="T">2026-01-20T05:28:39Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -31789,31 +31789,13 @@ The average weekly cost of HoC (2.14 points) is staying still.</text>
     <issue t="I">1042</issue>
     <repository t="I">237167507</repository>
     <review t="T">2026-01-20T02:58:46Z</review>
+    <review_comments t="I">0</review_comments>
     <succeeded_builds t="I">18</succeeded_builds>
     <suggestions t="I">0</suggestions>
     <what t="S">pull-was-merged</what>
     <when t="T">2026-01-20T03:21:21Z</when>
     <where t="S">github</where>
     <who t="I">8086956</who>
-  </f>
-  <f>
-    <_id t="I">414263</_id>
-    <_job t="I">21159603761</_job>
-    <_time t="T">2026-01-20T04:36:26Z</_time>
-    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
-    <assignees_were_scanned t="I">743</assignees_were_scanned>
-    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">7629963074</events_were_scanned>
-    <issues_were_scanned t="I">432</issues_were_scanned>
-    <labels_were_scanned t="I">896</labels_were_scanned>
-    <latest_issue_was_found t="I">903</latest_issue_was_found>
-    <merges_were_scanned t="I">959</merges_were_scanned>
-    <min_issue_was_found t="I">963</min_issue_was_found>
-    <min_pull_was_found t="I">1042</min_pull_was_found>
-    <repository t="I">237167507</repository>
-    <types_were_scanned t="I">952</types_were_scanned>
-    <what t="S">iterate</what>
-    <where t="S">github</where>
   </f>
   <f>
     <_id t="I">414264</_id>
@@ -32086,6 +32068,789 @@ The average weekly cost of HoC (2.14 points) is staying still.</text>
     <seconds t="I">42861</seconds>
     <what t="S">code-was-reviewed</what>
     <when t="T">2026-01-20T02:58:46Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414284</_id>
+    <_job t="I">58163</_job>
+    <_time t="T">2026-01-20T04:39:42Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <award t="I">12</award>
+    <details t="S">It's time to reward @deyna256 for the bug reported in cqfn/aibolit#955, the reward amount is 12.</details>
+    <href t="S">https://github.com/cqfn/aibolit/issues/955</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">955</issue>
+    <receipt t="I">0</receipt>
+    <repository t="I">237167507</repository>
+    <what t="S">bug-report-was-rewarded</what>
+    <when t="T">2026-01-20T04:39:07Z</when>
+    <where t="S">github</where>
+    <who t="I">84927447</who>
+    <why t="S">Reported bug in cqfn/aibolit#955</why>
+  </f>
+  <f>
+    <_id t="I">414285</_id>
+    <_job t="I">58163</_job>
+    <_time t="T">2026-01-20T04:39:42Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <award t="I">4</award>
+    <comments t="I">4</comments>
+    <details t="S">It's time to reward @yegor256 for the code review in cqfn/aibolit#1042, the reward amount is 4.</details>
+    <hoc t="I">2</hoc>
+    <href t="S">https://github.com/cqfn/aibolit/issues/1042</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">1042</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">42861</seconds>
+    <what t="S">code-review-was-rewarded</what>
+    <when t="T">2026-01-20T04:39:13Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+    <why t="S">Reviewed code in cqfn/aibolit#1042</why>
+  </f>
+  <f>
+    <_id t="I">414286</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:18:08Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/zerocracy-judges-action-0.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1020 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">1</files>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1020</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2025-12-12T16:34:16Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-12-12T16:58:42Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414287</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:18:34Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/ruff-0.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1021 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">2</files>
+    <hoc t="I">48</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1021</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2025-12-12T03:20:56Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-12-12T04:01:08Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414288</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:18:58Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/zerocracy-judges-action-0.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1022 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">1</files>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1022</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2025-12-13T03:01:20Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-12-13T03:21:08Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414289</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:19:49Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/mypy-1.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1023 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">2</files>
+    <hoc t="I">62</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1023</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2025-12-15T08:50:02Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-12-15T09:17:17Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414290</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:20:55Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/ruby-3.x</branch>
+    <comments t="I">1</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">1</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1024 has been "pull-was-closed".</details>
+    <failed_builds t="I">1</failed_builds>
+    <files t="I">1</files>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1024</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">17</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-closed</what>
+    <when t="T">2025-12-25T08:52:55Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">414291</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:21:03Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/zerocracy-judges-action-0.x</branch>
+    <comments t="I">1</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">1</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1025 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">1</files>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1025</issue>
+    <repository t="I">237167507</repository>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-12-18T13:59:41Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414292</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:21:11Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/ruff-0.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1026 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">2</files>
+    <hoc t="I">48</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1026</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2025-12-19T03:04:33Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-12-19T03:24:47Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414293</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:22:01Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/numpy-2.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1027 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">2</files>
+    <hoc t="I">156</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1027</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2025-12-21T08:42:12Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-12-21T09:04:32Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414294</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:23:10Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/zerocracy-judges-action-0.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1028 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">1</files>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1028</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2025-12-24T16:42:33Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-12-24T17:05:47Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414295</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:23:34Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/ruby-4.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1029 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">1</files>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1029</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2025-12-25T08:28:04Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-12-25T08:52:22Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414296</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:24:59Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/crate-ci-typos-1.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1030 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">1</files>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1030</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2025-12-29T16:53:10Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-12-29T17:15:25Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414297</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:25:29Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/zerocracy-judges-action-0.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1031 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">1</files>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1031</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2025-12-30T17:06:01Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-12-30T17:29:07Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414298</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:25:59Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/crate-ci-typos-1.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1032 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">1</files>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1032</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2025-12-31T16:30:44Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2025-12-31T16:54:20Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414299</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:26:23Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/types-requests-2.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1033 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">2</files>
+    <hoc t="I">10</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1033</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2026-01-07T08:38:01Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2026-01-07T08:58:21Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414300</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:00Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/crate-ci-typos-1.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1034 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">1</files>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1034</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2026-01-08T16:49:09Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2026-01-08T17:13:48Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414301</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:21Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <assignees_were_scanned t="I">743</assignees_were_scanned>
+    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
+    <events_were_scanned t="I">7629963074</events_were_scanned>
+    <issues_were_scanned t="I">432</issues_were_scanned>
+    <labels_were_scanned t="I">896</labels_were_scanned>
+    <latest_issue_was_found t="I">903</latest_issue_was_found>
+    <merges_were_scanned t="I">1034</merges_were_scanned>
+    <min_issue_was_found t="I">963</min_issue_was_found>
+    <min_pull_was_found t="I">1042</min_pull_was_found>
+    <repository t="I">237167507</repository>
+    <types_were_scanned t="I">952</types_were_scanned>
+    <what t="S">iterate</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">414302</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:23Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/jamesives-github-pages-deploy-action-4.x</branch>
+    <details t="S">The missing pull cqfn/aibolit#1037 has been opened by @renovate[bot].</details>
+    <is_human t="I">0</is_human>
+    <issue t="I">1037</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2026-01-09T21:00:33Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">414303</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:24Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/numpy-2.x</branch>
+    <details t="S">The missing pull cqfn/aibolit#1038 has been opened by @renovate[bot].</details>
+    <is_human t="I">0</is_human>
+    <issue t="I">1038</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2026-01-10T09:04:44Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">414304</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:24Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/scipy-1.x</branch>
+    <details t="S">The missing pull cqfn/aibolit#1039 has been opened by @renovate[bot].</details>
+    <is_human t="I">0</is_human>
+    <issue t="I">1039</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2026-01-10T21:57:50Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">414305</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:25Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/ruby-4.x</branch>
+    <details t="S">The missing pull cqfn/aibolit#1040 has been opened by @renovate[bot].</details>
+    <is_human t="I">0</is_human>
+    <issue t="I">1040</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2026-01-13T05:18:00Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">414306</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:26Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <branch t="S">renovate/ruff-0.x</branch>
+    <details t="S">The missing pull cqfn/aibolit#1041 has been opened by @renovate[bot].</details>
+    <is_human t="I">0</is_human>
+    <issue t="I">1041</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2026-01-15T16:26:40Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">414307</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:27Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1020 with 2 HoC created by @renovate[bot] was reviewed by @yegor256 after 25h33m and 0 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1020</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">91990</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2025-12-12T16:34:16Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414308</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:27Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1021 with 48 HoC created by @renovate[bot] was reviewed by @yegor256 after 5h22m and 0 comments.</details>
+    <hoc t="I">48</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1021</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">19363</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2025-12-12T03:20:56Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414309</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:27Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1022 with 2 HoC created by @renovate[bot] was reviewed by @yegor256 after 7h1m and 0 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1022</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">25281</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2025-12-13T03:01:20Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414310</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:27Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1023 with 62 HoC created by @renovate[bot] was reviewed by @yegor256 after 3h43m and 0 comments.</details>
+    <hoc t="I">62</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1023</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">13394</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2025-12-15T08:50:02Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414311</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:27Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1026 with 48 HoC created by @renovate[bot] was reviewed by @yegor256 after 7h4m and 0 comments.</details>
+    <hoc t="I">48</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1026</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">25490</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2025-12-19T03:04:33Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414312</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:27Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1027 with 156 HoC created by @renovate[bot] was reviewed by @yegor256 after 15h43m and 0 comments.</details>
+    <hoc t="I">156</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1027</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">56617</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2025-12-21T08:42:12Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414313</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:27Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1028 with 2 HoC created by @renovate[bot] was reviewed by @yegor256 after 0h43m and 0 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1028</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">2617</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2025-12-24T16:42:33Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414314</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:28Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1029 with 2 HoC created by @renovate[bot] was reviewed by @yegor256 after 3h23m and 0 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1029</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">12208</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2025-12-25T08:28:04Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414315</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:28Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1030 with 2 HoC created by @renovate[bot] was reviewed by @yegor256 after 0h9m and 0 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1030</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">585</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2025-12-29T16:53:10Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414316</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:28Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1031 with 2 HoC created by @renovate[bot] was reviewed by @yegor256 after 1h50m and 0 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1031</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">6632</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2025-12-30T17:06:01Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414317</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:28Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1032 with 2 HoC created by @renovate[bot] was reviewed by @yegor256 after 0h33m and 0 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1032</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">2031</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2025-12-31T16:30:44Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414318</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:28Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1033 with 10 HoC created by @renovate[bot] was reviewed by @yegor256 after 4h38m and 0 comments.</details>
+    <hoc t="I">10</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1033</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">16690</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2026-01-07T08:38:01Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414319</_id>
+    <_job t="I">21160360393</_job>
+    <_time t="T">2026-01-20T05:27:28Z</_time>
+    <_version t="S">0.19.2/0.58.1/0.17.9</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1034 with 2 HoC created by @renovate[bot] was reviewed by @yegor256 after 18h51m and 0 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1034</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">67919</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2026-01-08T16:49:09Z</when>
     <where t="S">github</where>
     <who t="I">526301</who>
   </f>
