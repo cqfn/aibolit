@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 499.063427359
+  seconds: 159.92652081
   version: 0.58.1
   what: judges-summary
-  when: 2026-01-20 06:08:38.810164910 Z
+  when: 2026-01-20 07:19:58.472665661 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -29595,7 +29595,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-12 16:58:42.000000000 Z
+  when: &296 2025-12-12 16:58:42.000000000 Z
   where: github
   who: 8086956
 - _id: 414287
@@ -29621,7 +29621,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-12 04:01:08.000000000 Z
+  when: &297 2025-12-12 04:01:08.000000000 Z
   where: github
   who: 8086956
 - _id: 414288
@@ -29647,7 +29647,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-13 03:21:08.000000000 Z
+  when: &298 2025-12-13 03:21:08.000000000 Z
   where: github
   who: 8086956
 - _id: 414289
@@ -29673,7 +29673,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-15 09:17:17.000000000 Z
+  when: &299 2025-12-15 09:17:17.000000000 Z
   where: github
   who: 8086956
 - _id: 414290
@@ -29722,7 +29722,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-18 13:59:41.000000000 Z
+  when: &300 2025-12-18 13:59:41.000000000 Z
   where: github
   who: 526301
 - _id: 414292
@@ -29748,7 +29748,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-19 03:24:47.000000000 Z
+  when: &301 2025-12-19 03:24:47.000000000 Z
   where: github
   who: 8086956
 - _id: 414293
@@ -29774,7 +29774,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-21 09:04:32.000000000 Z
+  when: &302 2025-12-21 09:04:32.000000000 Z
   where: github
   who: 8086956
 - _id: 414294
@@ -29800,7 +29800,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-24 17:05:47.000000000 Z
+  when: &303 2025-12-24 17:05:47.000000000 Z
   where: github
   who: 8086956
 - _id: 414295
@@ -29826,7 +29826,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-25 08:52:22.000000000 Z
+  when: &304 2025-12-25 08:52:22.000000000 Z
   where: github
   who: 8086956
 - _id: 414296
@@ -29852,7 +29852,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-29 17:15:25.000000000 Z
+  when: &305 2025-12-29 17:15:25.000000000 Z
   where: github
   who: 8086956
 - _id: 414297
@@ -29878,7 +29878,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-30 17:29:07.000000000 Z
+  when: &306 2025-12-30 17:29:07.000000000 Z
   where: github
   who: 8086956
 - _id: 414298
@@ -29904,7 +29904,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2025-12-31 16:54:20.000000000 Z
+  when: &307 2025-12-31 16:54:20.000000000 Z
   where: github
   who: 8086956
 - _id: 414299
@@ -29930,7 +29930,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2026-01-07 08:58:21.000000000 Z
+  when: &308 2026-01-07 08:58:21.000000000 Z
   where: github
   who: 8086956
 - _id: 414300
@@ -29956,7 +29956,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2026-01-08 17:13:48.000000000 Z
+  when: &309 2026-01-08 17:13:48.000000000 Z
   where: github
   who: 8086956
 - _id: 414302
@@ -30316,23 +30316,6 @@
   where: github
   who: 526301
   why: Reviewed code in cqfn/aibolit#1034
-- _id: 414325
-  _job: 21161156525
-  _time: 2026-01-20 06:00:22.989384729 Z
-  _version: 0.19.2/0.58.1/0.17.9
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 7632125186
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 1034
-  min_issue_was_found: 963
-  min_pull_was_found: 1042
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414326
   _job: 21161156525
   _time: 2026-01-20 06:00:48.546132242 Z
@@ -30352,6 +30335,7 @@
   issue: 1035
   repository: 237167507
   review: 2026-01-09 03:20:54.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -30377,6 +30361,7 @@
   issue: 1036
   repository: 237167507
   review: 2026-01-09 03:20:50.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -30402,6 +30387,7 @@
   issue: 1037
   repository: 237167507
   review: 2026-01-10 08:43:32.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -30427,6 +30413,7 @@
   issue: 1038
   repository: 237167507
   review: 2026-01-10 16:34:08.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -30452,6 +30439,7 @@
   issue: 1039
   repository: 237167507
   review: 2026-01-11 03:18:32.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -30477,6 +30465,7 @@
   issue: 1041
   repository: 237167507
   review: 2026-01-16 16:25:53.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -30591,3 +30580,392 @@
   when: 2026-01-16 16:25:53.000000000 Z
   where: github
   who: 526301
+- _id: 414338
+  _job: 58171
+  _time: 2026-01-20 06:09:06.431298353 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1020 with 2 HoC created by @renovate[bot]
+    was merged by @rultor after 1d1h of being in review and 4 comments.
+  hoc: 2
+  is_human: 0
+  issue: 1020
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 93456
+  what: code-was-contributed
+  when: *296
+  where: github
+  who: 29139614
+- _id: 414339
+  _job: 58171
+  _time: 2026-01-20 06:09:06.828669164 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1021 with 48 HoC created by @renovate[bot]
+    was merged by @rultor after 6h2m of being in review and 4 comments.
+  hoc: 48
+  is_human: 0
+  issue: 1021
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 21775
+  what: code-was-contributed
+  when: *297
+  where: github
+  who: 29139614
+- _id: 414340
+  _job: 58171
+  _time: 2026-01-20 06:09:06.877108366 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1022 with 2 HoC created by @renovate[bot]
+    was merged by @rultor after 7h21m of being in review and 4 comments.
+  hoc: 2
+  is_human: 0
+  issue: 1022
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 26469
+  what: code-was-contributed
+  when: *298
+  where: github
+  who: 29139614
+- _id: 414341
+  _job: 58171
+  _time: 2026-01-20 06:09:06.925264948 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1023 with 62 HoC created by @renovate[bot]
+    was merged by @rultor after 4h10m of being in review and 4 comments.
+  hoc: 62
+  is_human: 0
+  issue: 1023
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 15029
+  what: code-was-contributed
+  when: *299
+  where: github
+  who: 29139614
+- _id: 414342
+  _job: 58171
+  _time: 2026-01-20 06:09:06.973299076 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 1
+  details: The pull request cqfn/aibolit#1025 with 2 HoC created by @renovate[bot]
+    was merged by @yegor256 after 8h of being in review and 1 comments.
+  hoc: 2
+  is_human: 0
+  issue: 1025
+  merger: 526301
+  repository: 237167507
+  review_comments: 0
+  seconds: 28830
+  what: code-was-contributed
+  when: *300
+  where: github
+  who: 29139614
+- _id: 414343
+  _job: 58171
+  _time: 2026-01-20 06:09:07.083522925 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1026 with 48 HoC created by @renovate[bot]
+    was merged by @rultor after 7h25m of being in review and 4 comments.
+  hoc: 48
+  is_human: 0
+  issue: 1026
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 26704
+  what: code-was-contributed
+  when: *301
+  where: github
+  who: 29139614
+- _id: 414344
+  _job: 58171
+  _time: 2026-01-20 06:09:07.157576327 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1027 with 156 HoC created by @renovate[bot]
+    was merged by @rultor after 16h5m of being in review and 4 comments.
+  hoc: 156
+  is_human: 0
+  issue: 1027
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 57957
+  what: code-was-contributed
+  when: *302
+  where: github
+  who: 29139614
+- _id: 414345
+  _job: 58171
+  _time: 2026-01-20 06:09:07.205884473 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1028 with 2 HoC created by @renovate[bot]
+    was merged by @rultor after 1h6m of being in review and 4 comments.
+  hoc: 2
+  is_human: 0
+  issue: 1028
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 4011
+  what: code-was-contributed
+  when: *303
+  where: github
+  who: 29139614
+- _id: 414346
+  _job: 58171
+  _time: 2026-01-20 06:09:07.255515279 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1029 with 2 HoC created by @renovate[bot]
+    was merged by @rultor after 3h47m of being in review and 4 comments.
+  hoc: 2
+  is_human: 0
+  issue: 1029
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 13666
+  what: code-was-contributed
+  when: *304
+  where: github
+  who: 29139614
+- _id: 414347
+  _job: 58171
+  _time: 2026-01-20 06:09:07.305714993 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1030 with 2 HoC created by @renovate[bot]
+    was merged by @rultor after 31m59s of being in review and 4 comments.
+  hoc: 2
+  is_human: 0
+  issue: 1030
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 1920
+  what: code-was-contributed
+  when: *305
+  where: github
+  who: 29139614
+- _id: 414348
+  _job: 58171
+  _time: 2026-01-20 06:09:07.386011795 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1031 with 2 HoC created by @renovate[bot]
+    was merged by @rultor after 2h13m of being in review and 4 comments.
+  hoc: 2
+  is_human: 0
+  issue: 1031
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 8018
+  what: code-was-contributed
+  when: *306
+  where: github
+  who: 29139614
+- _id: 414349
+  _job: 58171
+  _time: 2026-01-20 06:09:07.426868784 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1032 with 2 HoC created by @renovate[bot]
+    was merged by @rultor after 57m26s of being in review and 4 comments.
+  hoc: 2
+  is_human: 0
+  issue: 1032
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 3447
+  what: code-was-contributed
+  when: *307
+  where: github
+  who: 29139614
+- _id: 414350
+  _job: 58171
+  _time: 2026-01-20 06:09:07.476886227 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1033 with 10 HoC created by @renovate[bot]
+    was merged by @rultor after 4h58m of being in review and 4 comments.
+  hoc: 10
+  is_human: 0
+  issue: 1033
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 17910
+  what: code-was-contributed
+  when: *308
+  where: github
+  who: 29139614
+- _id: 414351
+  _job: 58171
+  _time: 2026-01-20 06:09:07.524255433 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  details: The pull request cqfn/aibolit#1034 with 2 HoC created by @renovate[bot]
+    was merged by @rultor after 19h16m of being in review and 4 comments.
+  hoc: 2
+  is_human: 0
+  issue: 1034
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 69398
+  what: code-was-contributed
+  when: *309
+  where: github
+  who: 29139614
+- _id: 414358
+  _job: 58171
+  _time: 2026-01-20 06:10:00.589565879 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1035,
+    the reward amount is 4.
+  hoc: 10
+  href: https://github.com/cqfn/aibolit/issues/1035
+  is_human: 1
+  issue: 1035
+  repository: 237167507
+  review_comments: 0
+  seconds: 36368
+  what: code-review-was-rewarded
+  when: 2026-01-20 06:09:08.141881824 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1035
+- _id: 414359
+  _job: 58171
+  _time: 2026-01-20 06:10:00.628979343 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1036,
+    the reward amount is 4.
+  hoc: 48
+  href: https://github.com/cqfn/aibolit/issues/1036
+  is_human: 1
+  issue: 1036
+  repository: 237167507
+  review_comments: 0
+  seconds: 26563
+  what: code-review-was-rewarded
+  when: 2026-01-20 06:09:12.517933323 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1036
+- _id: 414360
+  _job: 58171
+  _time: 2026-01-20 06:10:00.661807563 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1037,
+    the reward amount is 4.
+  hoc: 4
+  href: https://github.com/cqfn/aibolit/issues/1037
+  is_human: 1
+  issue: 1037
+  repository: 237167507
+  review_comments: 0
+  seconds: 42179
+  what: code-review-was-rewarded
+  when: 2026-01-20 06:09:16.808240963 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1037
+- _id: 414361
+  _job: 58171
+  _time: 2026-01-20 06:10:00.703323136 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1038,
+    the reward amount is 4.
+  hoc: 154
+  href: https://github.com/cqfn/aibolit/issues/1038
+  is_human: 1
+  issue: 1038
+  repository: 237167507
+  review_comments: 0
+  seconds: 26964
+  what: code-review-was-rewarded
+  when: 2026-01-20 06:09:21.484733775 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1038
+- _id: 414362
+  _job: 58171
+  _time: 2026-01-20 06:10:00.739569584 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1039,
+    the reward amount is 4.
+  hoc: 130
+  href: https://github.com/cqfn/aibolit/issues/1039
+  is_human: 1
+  issue: 1039
+  repository: 237167507
+  review_comments: 0
+  seconds: 19242
+  what: code-review-was-rewarded
+  when: 2026-01-20 06:09:25.588921471 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1039
+- _id: 414363
+  _job: 58171
+  _time: 2026-01-20 06:10:00.774817328 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1041,
+    the reward amount is 4.
+  hoc: 48
+  href: https://github.com/cqfn/aibolit/issues/1041
+  is_human: 1
+  issue: 1041
+  repository: 237167507
+  review_comments: 0
+  seconds: 86353
+  what: code-review-was-rewarded
+  when: 2026-01-20 06:09:29.539544401 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1041
+- _id: 414364
+  _job: 21162790968
+  _time: 2026-01-20 07:17:21.560238275 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 7632949211
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 1034
+  min_issue_was_found: 963
+  min_pull_was_found: 1042
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
