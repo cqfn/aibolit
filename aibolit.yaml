@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 175.875552288
+  seconds: 194.254107907
   version: 0.58.1
   what: judges-summary
-  when: 2026-01-20 02:55:36.390359805 Z
+  when: 2026-01-20 04:38:44.264947334 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -4496,18 +4496,6 @@
   when: 2020-07-20 06:47:05.000000000 Z
   where: github
   who: 43099602
-- _id: 34879
-  _job: 32439
-  _time: 2025-08-10 10:04:16.874765577 Z
-  _version: 0.14.5/0.52.2/0.15.9
-  details: The issue cqfn/aibolit#551 has been opened by @g4s8.
-  is_human: 1
-  issue: 551
-  repository: 237167507
-  what: issue-was-opened
-  when: 2020-07-21 07:05:47.000000000 Z
-  where: github
-  who: 1524988
 - _id: 34897
   _job: 32439
   _time: 2025-08-10 10:04:18.054966462 Z
@@ -4556,18 +4544,6 @@
   when: 2020-08-14 09:37:34.000000000 Z
   where: github
   who: 231433
-- _id: 34920
-  _job: 32439
-  _time: 2025-08-10 10:04:19.565279137 Z
-  _version: 0.14.5/0.52.2/0.15.9
-  details: The issue cqfn/aibolit#642 has been opened by @lyriccoder.
-  is_human: 1
-  issue: 642
-  repository: 237167507
-  what: issue-was-opened
-  when: 2020-09-16 06:49:21.000000000 Z
-  where: github
-  who: 20803206
 - _id: 34929
   _job: 32439
   _time: 2025-08-10 10:04:20.158869917 Z
@@ -28771,51 +28747,6 @@
   total_stars: 94
   what: dimensions-of-terrain
   when: 2026-01-12 19:55:22.507087250 Z
-- _id: 414190
-  _job: 57415
-  _time: 2026-01-13 13:34:42.957887318 Z
-  _version: 0.19.2/0.58.1/0.17.9
-  issues:
-  - 1-76
-  - 78-115
-  - 117-124
-  - 126-149
-  - 151-160
-  - 162-165
-  - 167-181
-  - 183-279
-  - '281'
-  - '284'
-  - 287-318
-  - 320-335
-  - 337-342
-  - 345-348
-  - 350-365
-  - 367-369
-  - 371-417
-  - 419-430
-  - 435-437
-  - 439-453
-  - 455-462
-  - 464-484
-  - 490-527
-  - 529-535
-  - 537-538
-  - 541-550
-  - 552-569
-  - 571-583
-  - 585-595
-  - 597-598
-  - 601-613
-  - 615-641
-  - 643-652
-  - 654-655
-  - 661-666
-  - '670'
-  - '673'
-  repository: 237167507
-  what: tombstone
-  where: github
 - _id: 414193
   _job: 20970523277
   _time: 2026-01-13 19:55:25.108651541 Z
@@ -29210,23 +29141,6 @@
     The average weekly cost of HoC (2.14 points) is staying still.
   what: assessment
   when: 2026-01-19 23:57:01.356655118 Z
-- _id: 414251
-  _job: 21157795861
-  _time: 2026-01-20 02:52:43.834283672 Z
-  _version: 0.19.2/0.58.1/0.17.9
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 5917118118
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 959
-  min_issue_was_found: 963
-  min_pull_was_found: 1019
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414252
   _job: 21157795861
   _time: 2026-01-20 02:52:48.021069185 Z
@@ -29235,6 +29149,7 @@
   is_human: 1
   issue: 551
   repository: 237167507
+  tombstone: 2026-01-20 02:56:11.208080469 Z
   what: issue-was-closed
   when: 2026-01-20 01:16:31.000000000 Z
   where: github
@@ -29247,6 +29162,7 @@
   is_human: 1
   issue: 642
   repository: 237167507
+  tombstone: 2026-01-20 02:56:11.223295258 Z
   what: issue-was-closed
   when: 2026-01-20 01:15:52.000000000 Z
   where: github
@@ -29261,6 +29177,377 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: 2026-01-20 01:16:50.000000000 Z
+  when: &294 2026-01-20 01:16:50.000000000 Z
+  where: github
+  who: 526301
+- _id: 414255
+  _job: 58137
+  _time: 2026-01-20 02:56:00.509691430 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  details: "@yegor256 attached the '#bug' label to cqfn/aibolit#955 reported by @deyna256;
+    this means that a bug was accepted as valid, by the project team."
+  is_human: 1
+  issue: 955
+  reporter: 84927447
+  repository: 237167507
+  what: bug-was-accepted
+  when: *294
+  where: github
+  who: 526301
+- _id: 414258
+  _job: 58137
+  _time: 2026-01-20 02:56:15.048791378 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  issues:
+  - 1-76
+  - 78-115
+  - 117-124
+  - 126-149
+  - 151-160
+  - 162-165
+  - 167-181
+  - 183-279
+  - '281'
+  - '284'
+  - 287-318
+  - 320-335
+  - 337-342
+  - 345-348
+  - 350-365
+  - 367-369
+  - 371-417
+  - 419-430
+  - 435-437
+  - 439-453
+  - 455-462
+  - 464-484
+  - 490-527
+  - 529-535
+  - 537-538
+  - 541-569
+  - 571-583
+  - 585-595
+  - 597-598
+  - 601-613
+  - 615-652
+  - 654-655
+  - 661-666
+  - '670'
+  - '673'
+  repository: 237167507
+  what: tombstone
+  where: github
+- _id: 414259
+  _job: 21159603761
+  _time: 2026-01-20 04:35:33.212069130 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  comments: 4
+  commits: 1
+  details: The pull request cqfn/aibolit#1042 has been reviewed by @yegor256 with
+    2 HoC and 4 comments.
+  event_id: 5918201421
+  event_type: PullRequestReviewEvent
+  files: 1
+  hoc: 2
+  is_human: 1
+  issue: 1042
+  repository: 237167507
+  review_comments: 0
+  what: pull-was-reviewed
+  when: 2026-01-20 02:58:47.000000000 Z
+  where: github
+  who: 526301
+- _id: 414261
+  _job: 21159603761
+  _time: 2026-01-20 04:35:47.168533441 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/crate-ci-typos-1.x
+  details: The pull cqfn/aibolit#1042 has been opened earlier by @renovate[bot].
+  is_human: 0
+  issue: 1042
+  repository: 237167507
+  what: pull-was-opened
+  when: 2026-01-19 15:04:25.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414262
+  _job: 21159603761
+  _time: 2026-01-20 04:36:00.421670744 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/crate-ci-typos-1.x
+  comments: 4
+  comments_appreciated: 1
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#1042 has been "pull-was-merged".
+  failed_builds: 0
+  files: 1
+  hoc: 2
+  is_human: 0
+  issue: 1042
+  repository: 237167507
+  review: 2026-01-20 02:58:46.000000000 Z
+  succeeded_builds: 18
+  suggestions: 0
+  what: pull-was-merged
+  when: 2026-01-20 03:21:21.000000000 Z
+  where: github
+  who: 8086956
+- _id: 414263
+  _job: 21159603761
+  _time: 2026-01-20 04:36:26.904479949 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 7629963074
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 959
+  min_issue_was_found: 963
+  min_pull_was_found: 1042
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
+- _id: 414264
+  _job: 21159603761
+  _time: 2026-01-20 04:36:38.138236941 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/zerocracy-judges-action-0.x
+  details: The missing pull cqfn/aibolit#1020 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1020
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-11 15:01:06.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414265
+  _job: 21159603761
+  _time: 2026-01-20 04:36:38.770761691 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/ruff-0.x
+  details: The missing pull cqfn/aibolit#1021 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1021
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-11 21:58:13.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414266
+  _job: 21159603761
+  _time: 2026-01-20 04:36:39.377033032 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/zerocracy-judges-action-0.x
+  details: The missing pull cqfn/aibolit#1022 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1022
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-12 19:59:59.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414267
+  _job: 21159603761
+  _time: 2026-01-20 04:36:40.008799691 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/mypy-1.x
+  details: The missing pull cqfn/aibolit#1023 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1023
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-15 05:06:48.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414268
+  _job: 21159603761
+  _time: 2026-01-20 04:36:40.588371245 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/ruby-3.x
+  details: The missing pull cqfn/aibolit#1024 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1024
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-17 02:31:22.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414269
+  _job: 21159603761
+  _time: 2026-01-20 04:36:41.319100516 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/zerocracy-judges-action-0.x
+  details: The missing pull cqfn/aibolit#1025 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1025
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-18 05:59:11.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414270
+  _job: 21159603761
+  _time: 2026-01-20 04:36:41.905878069 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/ruff-0.x
+  details: The missing pull cqfn/aibolit#1026 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1026
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-18 19:59:43.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414271
+  _job: 21159603761
+  _time: 2026-01-20 04:36:42.568372298 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/numpy-2.x
+  details: The missing pull cqfn/aibolit#1027 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1027
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-20 16:58:35.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414272
+  _job: 21159603761
+  _time: 2026-01-20 04:36:43.148615287 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/zerocracy-judges-action-0.x
+  details: The missing pull cqfn/aibolit#1028 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1028
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-24 15:58:56.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414273
+  _job: 21159603761
+  _time: 2026-01-20 04:36:43.755764052 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/ruby-4.x
+  details: The missing pull cqfn/aibolit#1029 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1029
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-25 05:04:36.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414274
+  _job: 21159603761
+  _time: 2026-01-20 04:36:44.343587211 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/crate-ci-typos-1.x
+  details: The missing pull cqfn/aibolit#1030 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1030
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-29 16:43:25.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414275
+  _job: 21159603761
+  _time: 2026-01-20 04:36:44.898640396 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/zerocracy-judges-action-0.x
+  details: The missing pull cqfn/aibolit#1031 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1031
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-30 15:15:29.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414276
+  _job: 21159603761
+  _time: 2026-01-20 04:36:45.529083076 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/crate-ci-typos-1.x
+  details: The missing pull cqfn/aibolit#1032 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1032
+  repository: 237167507
+  what: pull-was-opened
+  when: 2025-12-31 15:56:53.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414277
+  _job: 21159603761
+  _time: 2026-01-20 04:36:46.193895512 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/types-requests-2.x
+  details: The missing pull cqfn/aibolit#1033 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1033
+  repository: 237167507
+  what: pull-was-opened
+  when: 2026-01-07 03:59:51.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414278
+  _job: 21159603761
+  _time: 2026-01-20 04:36:46.781867027 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/crate-ci-typos-1.x
+  details: The missing pull cqfn/aibolit#1034 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1034
+  repository: 237167507
+  what: pull-was-opened
+  when: 2026-01-07 21:57:10.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414279
+  _job: 21159603761
+  _time: 2026-01-20 04:36:47.535573297 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/build-1.x
+  details: The missing pull cqfn/aibolit#1035 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1035
+  repository: 237167507
+  what: pull-was-opened
+  when: 2026-01-08 17:14:46.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414280
+  _job: 21159603761
+  _time: 2026-01-20 04:36:48.178532701 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  branch: renovate/ruff-0.x
+  details: The missing pull cqfn/aibolit#1036 has been opened by @renovate[bot].
+  is_human: 0
+  issue: 1036
+  repository: 237167507
+  what: pull-was-opened
+  when: 2026-01-08 19:58:07.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414281
+  _job: 21159603761
+  _time: 2026-01-20 04:37:22.775936586 Z
+  _version: 0.19.2/0.58.1/0.17.9
+  author: 29139614
+  comments: 4
+  details: The pull request cqfn/aibolit#1042 with 2 HoC created by @renovate[bot]
+    was reviewed by @yegor256 after 11h54m and 0 comments.
+  hoc: 2
+  is_human: 1
+  issue: 1042
+  repository: 237167507
+  review_comments: 0
+  seconds: 42861
+  what: code-was-reviewed
+  when: 2026-01-20 02:58:46.000000000 Z
   where: github
   who: 526301
