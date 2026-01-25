@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="591027">
+<fb version="0.19.3" size="590738">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">151.051905429</seconds>
+    <seconds t="F">78.416736917</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-01-25T14:57:57Z</when>
+    <when t="T">2026-01-25T15:56:37Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -11246,25 +11246,6 @@
     <push_to_master_was_punished t="S">(award (explain 'When someone pushes directly to the default branch, they get a penalty') (aka (let fee -16) (give fee 'as a basis') '${fee} points'))</push_to_master_was_punished>
     <resolved_bug_was_rewarded t="S">(award (explain 'When a bug is resolved, the person who was assigned to it receives a bonus') (in hours 'how many hours it took to resolve the bug') (in self '1 if the bug was reported and resolved by the same person, otherwise zero') (set days (div hours 24)) (aka (let basis 8) (give basis 'as a basis') 'award ${basis} points') (aka (let b1 4) (let hours_threshold 24) (set b1 (if (lt hours hours_threshold) b1 0)) (give b1 'for resolving it in less than ${hours_threshold} hours') 'add ${b1} points if it was resolved in less than ${hours_threshold} hours') (aka (let self_fee 16) (set penalty_for_self (if (eq self 1) (times -1 self_fee) 0)) (give penalty_for_self 'for resolving the bug reported by you earlier') 'deduct ${self_fee} points if they resolved the bug earlier reported by themselves') (aka (let day_fee 1.0) (set b2 (times -1 (times days day_fee))) (let days_fee_max -20) (set b2 (max b2 days_fee_max)) (give b2 'for ${days} days of delay') 'deduct ${day_fee} points for each day of delay, but no more than ${days_fee_max} points') (aka (let max 16) (set over (if (gt (total) max) (minus max (total)) 0)) (give over 'to not go over the cap') (let min 4) (set least (if (lt (total) min) (minus min (total)) 0)) (give least 'to give you at least something') 'make sure the reward is not larger than ${max} points and not smaller than ${min} points'))</resolved_bug_was_rewarded>
     <what t="S">pmp</what>
-  </f>
-  <f>
-    <_id t="I">88353</_id>
-    <_job t="I">17648515762</_job>
-    <_time t="T">2025-09-11T14:55:19Z</_time>
-    <_version t="S">0.16.3/0.53.6/0.15.40</_version>
-    <tombstone t="T">2026-01-17T14:58:11Z</tombstone>
-    <total_active_contributors t="I">1</total_active_contributors>
-    <total_commits t="I">2699</total_commits>
-    <total_contributors t="I">26</total_contributors>
-    <total_files t="I">1049</total_files>
-    <total_forks t="I">36</total_forks>
-    <total_issues t="I">441</total_issues>
-    <total_pulls t="I">448</total_pulls>
-    <total_releases t="I">28</total_releases>
-    <total_repositories t="I">1</total_repositories>
-    <total_stars t="I">88</total_stars>
-    <what t="S">dimensions-of-terrain</what>
-    <when t="T">2025-09-11T14:55:19Z</when>
   </f>
   <f>
     <_id t="I">89999</_id>
