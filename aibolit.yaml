@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 82.515932893
-  version: 0.58.1
+  seconds: 189.385920659
+  version: 0.59.0
   what: judges-summary
-  when: 2026-01-23 06:00:14.992930257 Z
+  when: 2026-01-25 09:58:27.078726785 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -31253,13 +31253,32 @@
     The average weekly cost of HoC (2.25 points) is decreasing (R=0.14).
   what: assessment
   when: 2026-01-23 02:54:02.270511645 Z
-- _id: 414398
-  _job: 21275461547
-  _time: 2026-01-23 05:16:29.690942947 Z
-  _version: 0.19.2/0.58.1/0.17.9
+- _id: 414399
+  _job: 21330706184
+  _time: 2026-01-25 09:55:21.138702148 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  commit: d669a044ef95e6e8837b1897815095eda4d8632e
+  default_branch: master
+  details: 'A new Git push #30091837520 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is "master"), not associated with any pull request.'
+  event_id: 7796629723
+  event_type: PushEvent
+  is_human: 1
+  push_id: 30091837520
+  ref: refs/heads/master
+  repository: 237167507
+  to_master: 1
+  what: git-was-pushed
+  when: 2026-01-25 09:46:02.000000000 Z
+  where: github
+  who: 526301
+- _id: 414400
+  _job: 21330706184
+  _time: 2026-01-25 09:55:22.338421701 Z
+  _version: 0.19.3/0.59.0/0.17.10
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 7738555277
+  events_were_scanned: 7796718609
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
@@ -31270,3 +31289,19 @@
   types_were_scanned: 952
   what: iterate
   where: github
+- _id: 414401
+  _job: 21330706184
+  _time: 2026-01-25 09:55:58.669567005 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  total_active_contributors: 4
+  total_commits: 2929
+  total_contributors: 28
+  total_files: 1049
+  total_forks: 39
+  total_issues: 447
+  total_pulls: 603
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 95
+  what: dimensions-of-terrain
+  when: 2026-01-25 09:55:58.679389778 Z
