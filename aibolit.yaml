@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 189.385920659
+  seconds: 173.845896079
   version: 0.59.0
   what: judges-summary
-  when: 2026-01-25 09:58:27.078726785 Z
+  when: 2026-01-25 10:59:20.137432158 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -10225,40 +10225,6 @@
   where: github
   who: 526301
   why: Pushed 74d5de497 to the default branch 'master' in cqfn/aibolit
-- _id: 84566
-  _job: 17584959350
-  _time: 2025-09-09 13:56:45.892381459 Z
-  _version: 0.16.2/0.53.6/0.15.38
-  tombstone: 2026-01-15 14:04:18.354627293 Z
-  total_active_contributors: 1
-  total_commits: 2698
-  total_contributors: 26
-  total_files: 1049
-  total_forks: 36
-  total_issues: 441
-  total_pulls: 448
-  total_releases: 28
-  total_repositories: 1
-  total_stars: 87
-  what: dimensions-of-terrain
-  when: 2025-09-09 13:56:45.897782507 Z
-- _id: 86489
-  _job: 17616074530
-  _time: 2025-09-10 13:57:30.431704388 Z
-  _version: 0.16.2/0.53.6/0.15.38
-  tombstone: 2026-01-16 14:02:58.146712303 Z
-  total_active_contributors: 1
-  total_commits: 2698
-  total_contributors: 26
-  total_files: 1049
-  total_forks: 36
-  total_issues: 441
-  total_pulls: 448
-  total_releases: 28
-  total_repositories: 1
-  total_stars: 87
-  what: dimensions-of-terrain
-  when: 2025-09-10 13:57:30.437482202 Z
 - _id: 87654
   _job: 37168
   _time: 2025-09-11 05:58:15.084551172 Z
@@ -10927,6 +10893,7 @@
   _job: 17806266836
   _time: 2025-09-17 17:55:42.650453957 Z
   _version: 0.16.3/0.53.6/0.15.42
+  tombstone: 2026-01-25 09:58:54.070189220 Z
   total_active_contributors: 2
   total_commits: 2711
   total_contributors: 26
@@ -11273,6 +11240,7 @@
   _job: 17837147095
   _time: 2025-09-18 17:56:33.609685414 Z
   _version: 0.16.3/0.53.6/0.15.42
+  tombstone: 2026-01-25 09:58:54.075581674 Z
   total_active_contributors: 2
   total_commits: 2713
   total_contributors: 26
@@ -22377,25 +22345,6 @@
   total_stars: 91
   what: dimensions-of-terrain
   when: 2025-11-24 07:00:42.576767381 Z
-- _id: 348765
-  _job: 19663872411
-  _time: 2025-11-25 09:01:07.317490497 Z
-  _version: 0.16.8/0.57.2/0.16.2
-  commit: 88e7e9965086f812df2dd3da1052ae352a08a211
-  default_branch: master
-  details: 'A new Git push #28517575741 has arrived to cqfn/aibolit, made by @yegor256
-    (default branch is "master"), not associated with any pull request.'
-  event_id: 6223599390
-  event_type: PushEvent
-  is_human: 1
-  push_id: 28517575741
-  ref: refs/heads/master
-  repository: 237167507
-  to_master: 1
-  what: git-was-pushed
-  when: 2025-11-25 08:06:04.000000000 Z
-  where: github
-  who: 526301
 - _id: 348899
   _job: 19663872411
   _time: 2025-11-25 09:05:36.541640974 Z
@@ -30980,26 +30929,6 @@
   total_stars: 95
   what: dimensions-of-terrain
   when: 2026-01-21 23:59:01.186297410 Z
-- _id: 414385
-  _job: 58396
-  _time: 2026-01-22 00:00:43.490154565 Z
-  _version: 0.19.3/0.59.0/0.17.9
-  analyzers: 18
-  text: |-
-    The average reward per task (6.4 points) is decreasing (R=-0.49).
-    The average punishment per task (15.0 points) is decreasing (R=0.11).
-    The average number of builds per week (864.6) is decreasing (R=-0.53).
-    The average number of commits per week (11.6) is decreasing (R=-0.34).
-    The average bugs accepted per month (10.0) is decreasing (R=-0.82).
-    The average monthly punishment (69 points) is decreasing (R=-0.80).
-    The average monthly wage (6.9 points) is decreasing (R=-0.43).
-    The average issue cycle time (1w2d) is increasing (R=0.46).
-    The average pull cycle time (2d6h) is increasing (R=0.10).
-    The average number of releases per month (0.0) is staying still.
-    The average monthly turnover (12.0 developers) is decreasing (R=-0.91).
-    The average weekly cost of HoC (2.25 points) is decreasing (R=0.14).
-  what: assessment
-  when: 2026-01-22 00:00:43.508143521 Z
 - _id: 414389
   _job: 21247527964
   _time: 2026-01-22 11:58:56.385059933 Z
@@ -31193,30 +31122,6 @@
   total_reviews_submitted: 5
   what: quantity-of-deliverables
   when: 2026-01-22 13:36:08.000000000 Z
-- _id: 414394
-  _job: 58556
-  _time: 2026-01-22 22:01:28.263249309 Z
-  _version: 0.19.3/0.59.0/0.17.9
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  - -5.536332179930795
-  - -29.357798165137613
-  - -63.745019920318725
-  - -4.153686396677051
-  - -42.44031830238727
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  - 0.41285714289175585
-  - 0.07785714305026051
-  - 0.03585714296881663
-  - 0.13757142891724966
-  - 0.0538571429820274
-  what: learn-eva
-  when: 2026-01-22 22:01:28.225691220 Z
 - _id: 414396
   _job: 21272810206
   _time: 2026-01-23 02:52:27.675429945 Z
@@ -31272,23 +31177,6 @@
   when: 2026-01-25 09:46:02.000000000 Z
   where: github
   who: 526301
-- _id: 414400
-  _job: 21330706184
-  _time: 2026-01-25 09:55:22.338421701 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 7796718609
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 1034
-  min_issue_was_found: 963
-  min_pull_was_found: 1042
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414401
   _job: 21330706184
   _time: 2026-01-25 09:55:58.669567005 Z
@@ -31305,3 +31193,95 @@
   total_stars: 95
   what: dimensions-of-terrain
   when: 2026-01-25 09:55:58.679389778 Z
+- _id: 414402
+  _job: 58627
+  _time: 2026-01-25 09:58:51.767258893 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  analyzers: 18
+  text: |-
+    The average reward per task (6.4 points) is decreasing (R=-0.49).
+    The average punishment per task (15.0 points) is decreasing (R=0.11).
+    The average number of builds per week (853.1) is decreasing (R=-0.53).
+    The average number of commits per week (11.3) is decreasing (R=-0.35).
+    The average bugs accepted per month (10.0) is decreasing (R=-0.82).
+    The average monthly punishment (69 points) is decreasing (R=-0.80).
+    The average monthly wage (6.9 points) is decreasing (R=-0.43).
+    The average issue cycle time (1w2d) is increasing (R=0.46).
+    The average pull cycle time (2d6h) is increasing (R=0.10).
+    The average number of releases per month (0.0) is staying still.
+    The average monthly turnover (12.0 developers) is decreasing (R=-0.91).
+    The average weekly cost of HoC (2.25 points) is decreasing (R=0.14).
+  what: assessment
+  when: 2026-01-25 09:58:51.782759337 Z
+- _id: 414403
+  _job: 58627
+  _time: 2026-01-25 09:59:19.604826484 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  award: -16
+  commit: d669a044ef95e6e8837b1897815095eda4d8632e
+  default_branch: master
+  details: It's time to punish @yegor256 for pushing to the default branch 'master'
+    in cqfn/aibolit, the penalty amount is -16.
+  href: https://github.com/cqfn/aibolit/commit/d669a044ef95e6e8837b1897815095eda4d8632e/#commitcomment-175575256
+  is_human: 1
+  repository: 237167507
+  what: push-to-master-was-punished
+  when: 2026-01-25 09:58:52.954497889 Z
+  where: github
+  who: 526301
+  why: Pushed d669a044e to the default branch 'master' in cqfn/aibolit
+- _id: 414404
+  _job: 58627
+  _time: 2026-01-25 10:00:08.697217275 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  - -29.357798165137613
+  - -63.745019920318725
+  - -4.153686396677051
+  - -42.44031830238727
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  - 0.07785714305026051
+  - 0.03585714296881663
+  - 0.13757142891724966
+  - 0.0538571429820274
+  what: learn-eva
+  when: 2026-01-25 10:00:08.657445820 Z
+- _id: 414405
+  _job: 58627
+  _time: 2026-01-25 10:00:08.846391928 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  ac: 1310
+  cost_of_qod: 0.6419697192832363
+  ev: 158
+  pv: 3380
+  qod: 247
+  qod_per_day: 21.83635631459688
+  qod_per_sec: 1.188792296511821e-05
+  start: *116
+  what: earned-value
+  when: 2026-01-25 10:00:08.846596840 Z
+- _id: 414406
+  _job: 21331446250
+  _time: 2026-01-25 10:56:29.779690427 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 6046944044
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 1034
+  min_issue_was_found: 963
+  min_pull_was_found: 1042
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
