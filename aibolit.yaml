@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 147.313911709
+  seconds: 84.18001042
   version: 0.59.0
   what: judges-summary
-  when: 2026-01-26 13:36:50.451975405 Z
+  when: 2026-01-26 14:17:27.506686250 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -9752,21 +9752,6 @@
     give you at least something') 'make sure the reward is not larger than ${max}
     points and not smaller than ${min} points'))"
   what: pmp
-- _id: 89999
-  _job: 37478
-  _time: 2025-09-12 12:00:06.963285732 Z
-  _version: 0.16.4/0.53.7/0.15.40
-  ac: 870
-  cost_of_qod: 4.21806282893377
-  ev: 1556
-  pv: 3096
-  qod: 369
-  qod_per_day: 6.911714302004961
-  qod_per_sec: 4.02893518563884e-05
-  start: &113 2025-05-29 07:01:48.877523876 Z
-  tombstone: 2026-01-18 13:22:54.259145167 Z
-  what: earned-value
-  when: 2025-09-12 12:00:06.967910180 Z
 - _id: 90347
   _job: 17678085843
   _time: 2025-09-12 15:02:11.381790229 Z
@@ -10779,7 +10764,7 @@
   qod: 223
   qod_per_day: 0.0538571429820274
   qod_per_sec: 2.2201054590482362e-05
-  start: *113
+  start: &142 2025-05-29 07:01:48.877523876 Z
   what: earned-value
   when: 2025-09-22 13:26:05.117445581 Z
 - _id: 116230
@@ -10989,7 +10974,7 @@
   - 0
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &142 2025-09-25 10:55:36.517738029 Z
+  when: &141 2025-09-25 10:55:36.517738029 Z
 - _id: 120695
   _job: 18005210688
   _time: 2025-09-25 10:57:36.666485627 Z
@@ -11005,7 +10990,7 @@
   total_releases_published: 0
   total_reviews_submitted: 9
   what: quantity-of-deliverables
-  when: &141 2025-09-25 10:57:36.672285124 Z
+  when: &140 2025-09-25 10:57:36.672285124 Z
 - _id: 120744
   _job: 18005210688
   _time: 2025-09-25 10:58:42.651708240 Z
@@ -11101,7 +11086,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &114 2025-09-23 12:41:48.000000000 Z
+  when: &113 2025-09-23 12:41:48.000000000 Z
   where: github
   who: 526301
 - _id: 120894
@@ -11124,7 +11109,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &115 2025-09-23 12:41:22.000000000 Z
+  when: &114 2025-09-23 12:41:22.000000000 Z
   where: github
   who: 526301
 - _id: 120939
@@ -11160,7 +11145,7 @@
   review_comments: 0
   seconds: 47235
   what: code-was-contributed
-  when: *114
+  when: *113
   where: github
   who: 86408225
 - _id: 120985
@@ -11178,7 +11163,7 @@
   review_comments: 0
   seconds: 1094
   what: code-was-contributed
-  when: *115
+  when: *114
   where: github
   who: 86408225
 - _id: 121216
@@ -11325,7 +11310,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.837997548 Z
   what: issue-was-opened
-  when: &116 2025-07-21 09:34:06.000000000 Z
+  when: &115 2025-07-21 09:34:06.000000000 Z
   where: github
   who: 41443370
 - _id: 126455
@@ -11349,7 +11334,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.125005428 Z
   what: issue-was-opened
-  when: &117 2025-07-20 22:22:21.000000000 Z
+  when: &116 2025-07-20 22:22:21.000000000 Z
   where: github
   who: 150797125
 - _id: 126457
@@ -11373,7 +11358,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.778433908 Z
   what: issue-was-opened
-  when: &118 2025-07-19 15:59:23.000000000 Z
+  when: &117 2025-07-19 15:59:23.000000000 Z
   where: github
   who: 60609459
 - _id: 126459
@@ -11385,7 +11370,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.683687366 Z
   what: issue-was-opened
-  when: &119 2025-07-19 15:51:37.000000000 Z
+  when: &118 2025-07-19 15:51:37.000000000 Z
   where: github
   who: 60609459
 - _id: 126460
@@ -11397,7 +11382,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.618300011 Z
   what: issue-was-opened
-  when: &120 2025-07-19 15:18:28.000000000 Z
+  when: &119 2025-07-19 15:18:28.000000000 Z
   where: github
   who: 60609459
 - _id: 126461
@@ -11433,7 +11418,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.458853395 Z
   what: issue-was-opened
-  when: &121 2025-07-19 15:10:52.000000000 Z
+  when: &120 2025-07-19 15:10:52.000000000 Z
   where: github
   who: 60609459
 - _id: 126464
@@ -11445,7 +11430,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:35.996287765 Z
   what: issue-was-opened
-  when: &122 2025-07-18 11:25:27.000000000 Z
+  when: &121 2025-07-18 11:25:27.000000000 Z
   where: github
   who: 151189440
 - _id: 126465
@@ -11457,7 +11442,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.399601631 Z
   what: issue-was-opened
-  when: &123 2025-07-09 04:44:31.000000000 Z
+  when: &122 2025-07-09 04:44:31.000000000 Z
   where: github
   who: 13173649
 - _id: 126466
@@ -11481,7 +11466,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.124616927 Z
   what: issue-was-opened
-  when: &124 2025-07-07 07:35:46.000000000 Z
+  when: &123 2025-07-07 07:35:46.000000000 Z
   where: github
   who: 41443370
 - _id: 126468
@@ -11493,7 +11478,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.067973950 Z
   what: issue-was-opened
-  when: &125 2025-07-05 16:36:29.000000000 Z
+  when: &124 2025-07-05 16:36:29.000000000 Z
   where: github
   who: 13173649
 - _id: 126469
@@ -11505,7 +11490,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.008065757 Z
   what: issue-was-opened
-  when: &126 2025-07-04 07:38:04.000000000 Z
+  when: &125 2025-07-04 07:38:04.000000000 Z
   where: github
   who: 13173649
 - _id: 126470
@@ -11517,7 +11502,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.940714937 Z
   what: issue-was-opened
-  when: &127 2025-07-02 06:10:20.000000000 Z
+  when: &126 2025-07-02 06:10:20.000000000 Z
   where: github
   who: 13173649
 - _id: 126471
@@ -11529,7 +11514,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:35.940159206 Z
   what: issue-was-opened
-  when: &128 2025-06-26 14:17:20.000000000 Z
+  when: &127 2025-06-26 14:17:20.000000000 Z
   where: github
   who: 151189440
 - _id: 126472
@@ -11553,7 +11538,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:35.880838056 Z
   what: issue-was-opened
-  when: &129 2025-06-12 09:39:52.000000000 Z
+  when: &128 2025-06-12 09:39:52.000000000 Z
   where: github
   who: 104511335
 - _id: 126474
@@ -11589,7 +11574,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.825859782 Z
   what: issue-was-opened
-  when: &130 2025-06-02 08:25:15.000000000 Z
+  when: &129 2025-06-02 08:25:15.000000000 Z
   where: github
   who: 41443370
 - _id: 126477
@@ -11613,7 +11598,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.698120752 Z
   what: issue-was-opened
-  when: &131 2025-05-30 01:56:50.000000000 Z
+  when: &130 2025-05-30 01:56:50.000000000 Z
   where: github
   who: 41443370
 - _id: 126479
@@ -11625,7 +11610,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.638926900 Z
   what: issue-was-opened
-  when: &132 2025-05-29 17:59:36.000000000 Z
+  when: &131 2025-05-29 17:59:36.000000000 Z
   where: github
   who: 41443370
 - _id: 126480
@@ -11649,7 +11634,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.513418774 Z
   what: issue-was-opened
-  when: &133 2025-05-25 11:21:27.000000000 Z
+  when: &132 2025-05-25 11:21:27.000000000 Z
   where: github
   who: 41443370
 - _id: 126482
@@ -11661,7 +11646,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.455002520 Z
   what: issue-was-opened
-  when: &134 2025-05-23 13:30:21.000000000 Z
+  when: &133 2025-05-23 13:30:21.000000000 Z
   where: github
   who: 41443370
 - _id: 126483
@@ -11673,7 +11658,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.386442252 Z
   what: issue-was-opened
-  when: &135 2025-05-23 07:49:15.000000000 Z
+  when: &134 2025-05-23 07:49:15.000000000 Z
   where: github
   who: 41443370
 - _id: 126484
@@ -11685,7 +11670,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.330117048 Z
   what: issue-was-opened
-  when: &136 2025-05-23 07:33:32.000000000 Z
+  when: &135 2025-05-23 07:33:32.000000000 Z
   where: github
   who: 41443370
 - _id: 126485
@@ -11697,7 +11682,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.756014704 Z
   what: issue-was-opened
-  when: &137 2025-05-22 12:28:11.000000000 Z
+  when: &136 2025-05-22 12:28:11.000000000 Z
   where: github
   who: 41443370
 - _id: 126496
@@ -12024,7 +12009,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.373204727 Z
   what: dud-was-closed
-  when: *116
+  when: *115
   where: github
   who: 41443370
 - _id: 126529
@@ -12039,7 +12024,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.504615438 Z
   what: dud-was-closed
-  when: *117
+  when: *116
   where: github
   who: 150797125
 - _id: 126530
@@ -12054,7 +12039,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.328132345 Z
   what: dud-was-closed
-  when: *118
+  when: *117
   where: github
   who: 60609459
 - _id: 126531
@@ -12069,7 +12054,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.282257389 Z
   what: dud-was-closed
-  when: *119
+  when: *118
   where: github
   who: 60609459
 - _id: 126532
@@ -12084,7 +12069,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.235525464 Z
   what: dud-was-closed
-  when: *120
+  when: *119
   where: github
   who: 60609459
 - _id: 126533
@@ -12099,7 +12084,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.177322888 Z
   what: dud-was-closed
-  when: *121
+  when: *120
   where: github
   who: 60609459
 - _id: 126534
@@ -12114,7 +12099,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.435627581 Z
   what: dud-was-closed
-  when: *122
+  when: *121
   where: github
   who: 151189440
 - _id: 126535
@@ -12129,7 +12114,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.133012111 Z
   what: dud-was-closed
-  when: *123
+  when: *122
   where: github
   who: 13173649
 - _id: 126536
@@ -12144,7 +12129,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.084438022 Z
   what: dud-was-closed
-  when: *124
+  when: *123
   where: github
   who: 41443370
 - _id: 126537
@@ -12159,7 +12144,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.038456004 Z
   what: dud-was-closed
-  when: *125
+  when: *124
   where: github
   who: 13173649
 - _id: 126538
@@ -12174,7 +12159,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.992196913 Z
   what: dud-was-closed
-  when: *126
+  when: *125
   where: github
   who: 13173649
 - _id: 126539
@@ -12189,7 +12174,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.934605472 Z
   what: dud-was-closed
-  when: *127
+  when: *126
   where: github
   who: 13173649
 - _id: 126540
@@ -12204,7 +12189,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.386212186 Z
   what: dud-was-closed
-  when: *128
+  when: *127
   where: github
   who: 151189440
 - _id: 126541
@@ -12219,7 +12204,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.341201049 Z
   what: dud-was-closed
-  when: *129
+  when: *128
   where: github
   who: 104511335
 - _id: 126542
@@ -12234,7 +12219,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.892270967 Z
   what: dud-was-closed
-  when: *130
+  when: *129
   where: github
   who: 41443370
 - _id: 126543
@@ -12249,7 +12234,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.801601217 Z
   what: dud-was-closed
-  when: *131
+  when: *130
   where: github
   who: 41443370
 - _id: 126544
@@ -12264,7 +12249,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.755508284 Z
   what: dud-was-closed
-  when: *132
+  when: *131
   where: github
   who: 41443370
 - _id: 126545
@@ -12279,7 +12264,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.698196494 Z
   what: dud-was-closed
-  when: *133
+  when: *132
   where: github
   who: 41443370
 - _id: 126546
@@ -12294,7 +12279,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.654795818 Z
   what: dud-was-closed
-  when: *134
+  when: *133
   where: github
   who: 41443370
 - _id: 126547
@@ -12309,7 +12294,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.608331787 Z
   what: dud-was-closed
-  when: *135
+  when: *134
   where: github
   who: 41443370
 - _id: 126548
@@ -12324,7 +12309,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.563038027 Z
   what: dud-was-closed
-  when: *136
+  when: *135
   where: github
   who: 41443370
 - _id: 126549
@@ -12339,7 +12324,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.846791637 Z
   what: dud-was-closed
-  when: *137
+  when: *136
   where: github
   who: 41443370
 - _id: 127020
@@ -12640,7 +12625,7 @@
   review_comments: 1
   succeeded_builds: 18
   what: pull-was-merged
-  when: &138 2025-09-30 02:54:55.000000000 Z
+  when: &137 2025-09-30 02:54:55.000000000 Z
   where: github
   who: 526301
 - _id: 133125
@@ -12676,7 +12661,7 @@
   review_comments: 1
   seconds: 200697
   what: code-was-contributed
-  when: *138
+  when: *137
   where: github
   who: 86408225
 - _id: 133384
@@ -12830,7 +12815,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &139 2025-10-01 14:53:11.000000000 Z
+  when: &138 2025-10-01 14:53:11.000000000 Z
   where: github
   who: 526301
 - _id: 134434
@@ -12854,7 +12839,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &140 2025-10-01 14:53:04.000000000 Z
+  when: &139 2025-10-01 14:53:04.000000000 Z
   where: github
   who: 526301
 - _id: 134494
@@ -12872,7 +12857,7 @@
   review_comments: 0
   seconds: 986
   what: code-was-contributed
-  when: *139
+  when: *138
   where: github
   who: 29139614
 - _id: 134495
@@ -12890,7 +12875,7 @@
   review_comments: 0
   seconds: 963
   what: code-was-contributed
-  when: *140
+  when: *139
   where: github
   who: 29139614
 - _id: 135301
@@ -13077,7 +13062,7 @@
   _version: 0.16.7/0.54.0/0.15.48
   composite: 11.586
   ffact: 137
-  since: *141
+  since: *140
   total_builds_ran: 893
   total_commits_pushed: 10
   total_hoc_committed: 53
@@ -13091,7 +13076,7 @@
   _job: 18190920515
   _time: 2025-10-02 11:02:13.442428300 Z
   _version: 0.16.7/0.54.0/0.15.48
-  since: *142
+  since: *141
   some_backlog_size:
   - 66
   - 66
@@ -13313,7 +13298,7 @@
   qod: 175
   qod_per_day: 8.697142857142858
   qod_per_sec: 1.571870062003085e-05
-  start: *113
+  start: *142
   what: earned-value
   when: 2025-10-05 11:02:37.607529844 Z
 - _id: 138561
@@ -17549,7 +17534,7 @@
   qod: 328
   qod_per_day: 124.01714285714286
   qod_per_sec: 2.7331208297548013e-05
-  start: *113
+  start: *142
   what: earned-value
   when: 2025-10-15 11:05:41.162934244 Z
 - _id: 179814
@@ -19381,7 +19366,7 @@
   qod: 316
   qod_per_day: 124.01714285714286
   qod_per_sec: 2.4571144664211805e-05
-  start: *113
+  start: *142
   what: earned-value
   when: 2025-10-25 11:05:55.025920757 Z
 - _id: 236308
@@ -20015,7 +20000,7 @@
   qod: 275
   qod_per_day: 157.0912857142857
   qod_per_sec: 2.0019648697213587e-05
-  start: *113
+  start: *142
   what: earned-value
   when: 2025-11-04 11:07:54.570766651 Z
 - _id: 285183
@@ -21475,7 +21460,7 @@
   qod: 173
   qod_per_day: 136.29890476190477
   qod_per_sec: 1.1871097462601588e-05
-  start: *113
+  start: *142
   what: earned-value
   when: 2025-11-14 14:08:56.130839888 Z
 - _id: 328836
@@ -21782,7 +21767,7 @@
   qod: 156
   qod_per_day: 16.11154761904762
   qod_per_sec: 1.0043093608755694e-05
-  start: *113
+  start: *142
   what: earned-value
   when: 2025-11-25 09:11:21.581996858 Z
 - _id: 349008
@@ -24891,7 +24876,7 @@
   qod: 152
   qod_per_day: 19.822396825396822
   qod_per_sec: 9.309213036544923e-06
-  start: *113
+  start: *142
   what: earned-value
   when: 2025-12-05 10:03:29.678798700 Z
 - _id: 400133
@@ -26733,7 +26718,7 @@
   qod: 165
   qod_per_day: 25.780857142857144
   qod_per_sec: 9.569513782005965e-06
-  start: *113
+  start: *142
   what: earned-value
   when: 2025-12-15 10:04:31.773796719 Z
 - _id: 413934
@@ -27278,7 +27263,7 @@
   qod: 183
   qod_per_day: 25.434888888888892
   qod_per_sec: 1.0112713713449408e-05
-  start: *113
+  start: *142
   what: earned-value
   when: 2025-12-25 11:00:10.453399945 Z
 - _id: 414024
@@ -27675,7 +27660,7 @@
   qod: 349
   qod_per_day: 36.08251362057951
   qod_per_sec: 1.8358906519388834e-05
-  start: *113
+  start: *142
   what: earned-value
   when: 2026-01-04 11:57:43.426648720 Z
 - _id: 414104
@@ -28085,7 +28070,7 @@
   qod: 215
   qod_per_day: 7.8126091293362
   qod_per_sec: 1.0816920193416905e-05
-  start: *113
+  start: *142
   what: earned-value
   when: 2026-01-14 11:57:47.107012010 Z
 - _id: 414202
@@ -30588,7 +30573,7 @@
   qod: 247
   qod_per_day: 21.83635631459688
   qod_per_sec: 1.188792296511821e-05
-  start: *113
+  start: *142
   what: earned-value
   when: 2026-01-25 10:00:08.846596840 Z
 - _id: 414411

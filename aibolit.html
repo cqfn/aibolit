@@ -39,7 +39,7 @@
           <tbody>
             <tr>
               <td>
-                <span class="T">2026-01-26T13:36:50Z</span>
+                <span class="T">2026-01-26T14:17:27Z</span>
               </td>
               <td>
                 <span class="S">judges-summary</span>
@@ -47,7 +47,7 @@
               <td>
                 <span class=""/>
               </td>
-              <td> <span>added</span><span>:<span class="I">8</span></span> <span>cycles</span><span>:<span class="I">1</span></span> <span>deleted</span><span>:<span class="I">8</span></span> <span>inserted</span><span>:<span class="I">8</span></span> <span>seconds</span><span>:<span class="F">147.313911709</span></span> <span>version</span><span>:<span class="S">0.59.0</span></span>  </td>
+              <td> <span>added</span><span>:<span class="I">8</span></span> <span>cycles</span><span>:<span class="I">1</span></span> <span>deleted</span><span>:<span class="I">8</span></span> <span>inserted</span><span>:<span class="I">8</span></span> <span>seconds</span><span>:<span class="F">84.18001042</span></span> <span>version</span><span>:<span class="S">0.59.0</span></span>  </td>
             </tr>
             <tr>
               <td>
@@ -7624,18 +7624,6 @@
       but not more than ${hoc_max} points') (aka (let few_comments_fee 10) (let comments_needed 6) (set penalty_for_few_comments (if (and (lt comments comments_needed) (not (eq comments 0))) (times -1 few_comments_fee) 0)) (give penalty_for_few_comments 'for very few (${comments}) comments') 'deduct ${few_comments_fee} points if there were less than ${comments_needed} comments made during review') (aka (let silence_fee 16) (set penalty_for_silence (if (eq comments 0) (times -1 silence_fee) 0)) (give penalty_for_silence 'for absolutely no comments posted') 'deduct ${silence_fee} points if there were absolutely no comments made during review') (aka (let comments_k 0.25) (let comments_max 8) (let comments_min 5) (set bonus_for_comments (times comments comments_k)) (set bonus_for_comments (between bonus_for_comments comments_min comments_max)) (set bonus_for_comments (if (eq self 1) 0 bonus_for_comments)) (give bonus_for_comments 'for the ${comments} comment(s) that you have made') 'add ${comments_k} points for each comment during the review, but not more than ${comments_max} points') (aka (let hoc_fee 8) (let hoc_needed 16) (set penalty_for_hoc (if (lt hoc hoc_needed) (times -1 hoc_fee) 0)) (give penalty_for_hoc 'for too few (${hoc}) hits-of-code') 'deduct ${hoc_fee} points if there were less than ${hoc_needed} hits-of-code') (aka (let max 24) (set over (if (gt (total) max) (minus max (total)) 0)) (give over 'to not go over the cap') (let min 4) (set least (if (lt (total) min) (minus min (total)) 0)) (give least 'to give you at least something') 'make sure the reward is not larger than ${max} points and not smaller than ${min} points'))</span></span> <span>days_of_running_balance</span><span>:<span class="I">56</span></span> <span>days_of_running_score</span><span>:<span class="I">56</span></span> <span>days_to_reward</span><span>:<span class="I">14</span></span> <span>dud_was_punished</span><span>:<span class="S">(award (explain 'When an issue is submitted but then rejected by the team, the reporter receives a penalty') (aka (let fee -16) (give fee 'as a basis') 'deduct ${fee} points'))</span></span> <span>enhancement_suggestion_was_rewarded</span><span>:<span class="S">(award (explain 'When an enhancement is suggested and accepted by the team, the reporter receives a bonus') (aka (let bonus 12) (give bonus 'as a basis') 'award ${bonus} points'))</span></span> <span>long_pull_was_punished</span><span>:<span class="S">(award (explain 'Oversized pull requests get penalized') (aka (let fee -8) (give fee 'as a basis') 'deduct ${fee} points'))</span></span> <span>master_punish_days</span><span>:<span class="I">4</span></span> <span>published_release_was_rewarded</span><span>:<span class="S">(award (explain 'When a new release is published, everyone who contributed receives a bonus') (in hoc 'how many hits-of-code are in the release') (in contributors 'how many people contributed to the release') (aka (let basis 24) (give basis 'as a basis') 'award ${basis} points') (aka (let hoc_k 0.01) (let hoc_max 24) (let hoc_min 4) (set b1 (times hoc hoc_k)) (set b1 (between b1 hoc_min hoc_max)) (give b1 'for ${hoc} hits-of-code') 'add ${hoc_k} points for each
       [hit-of-code](https://www.yegor256.com/2014/11/14/hits-of-code.html),
       but not more than ${hoc_max} points') (aka (let max 32) (set over (if (gt (total) max) (minus max (total)) 0)) (give over 'to not go over the cap') (let min 4) (set least (if (lt (total) min) (minus min (total)) 0)) (give least 'to give you at least something') 'make sure the reward is not larger than ${max} points and not smaller than ${min} points'))</span></span> <span>push_to_master_was_punished</span><span>:<span class="S">(award (explain 'When someone pushes directly to the default branch, they get a penalty') (aka (let fee -16) (give fee 'as a basis') '${fee} points'))</span></span> <span>resolved_bug_was_rewarded</span><span>:<span class="S">(award (explain 'When a bug is resolved, the person who was assigned to it receives a bonus') (in hours 'how many hours it took to resolve the bug') (in self '1 if the bug was reported and resolved by the same person, otherwise zero') (set days (div hours 24)) (aka (let basis 8) (give basis 'as a basis') 'award ${basis} points') (aka (let b1 4) (let hours_threshold 24) (set b1 (if (lt hours hours_threshold) b1 0)) (give b1 'for resolving it in less than ${hours_threshold} hours') 'add ${b1} points if it was resolved in less than ${hours_threshold} hours') (aka (let self_fee 16) (set penalty_for_self (if (eq self 1) (times -1 self_fee) 0)) (give penalty_for_self 'for resolving the bug reported by you earlier') 'deduct ${self_fee} points if they resolved the bug earlier reported by themselves') (aka (let day_fee 1.0) (set b2 (times -1 (times days day_fee))) (let days_fee_max -20) (set b2 (max b2 days_fee_max)) (give b2 'for ${days} days of delay') 'deduct ${day_fee} points for each day of delay, but no more than ${days_fee_max} points') (aka (let max 16) (set over (if (gt (total) max) (minus max (total)) 0)) (give over 'to not go over the cap') (let min 4) (set least (if (lt (total) min) (minus min (total)) 0)) (give least 'to give you at least something') 'make sure the reward is not larger than ${max} points and not smaller than ${min} points'))</span></span> </td>
-            </tr>
-            <tr>
-              <td>
-                <span class="T">2025-09-12T12:00:06Z</span>
-              </td>
-              <td>
-                <span class="S">earned-value</span>
-              </td>
-              <td>
-                <span class=""/>
-              </td>
-              <td> <span class="hidden" title="89999">_id</span> <span>_job</span><span>:<span class="I">37478</span></span> <span class="hidden" title="2025-09-12T12:00:06Z">_time</span> <span class="hidden" title="0.16.4/0.53.7/0.15.40">_version</span> <span>ac</span><span>:<span class="I">870</span></span> <span>cost_of_qod</span><span>:<span class="F">4.21806282893377</span></span> <span>ev</span><span>:<span class="I">1556</span></span> <span>pv</span><span>:<span class="I">3096</span></span> <span>qod</span><span>:<span class="I">369</span></span> <span>qod_per_day</span><span>:<span class="F">6.911714302004961</span></span> <span>qod_per_sec</span><span>:<span class="F">4.02893518563884e-05</span></span> <span>start</span><span>:<span class="T">2025-05-29T07:01:48Z</span></span> <span class="highlighted">tombstone</span><span class="highlighted">:<span class="T">2026-01-18T13:22:54Z</span></span>  </td>
             </tr>
             <tr>
               <td>
@@ -19771,7 +19759,7 @@ The average weekly cost of HoC (2.25 points) is decreasing (R=0.14).</span></spa
         </table>
       </article>
       <footer class="smaller">
-        <p>The page was generated by the <a href="https://github.com/yegor256/judges">judges</a> tool (0.59.0) on 2026-01-26T13:36:58Z.<br/>Properties with columns: when,what,repository<br/>Hidden properties: _id,_time,_version<br/><a href="https://github.com/yegor256/factbase">Factbase</a>: 1642 facts, 580317 bytes, version 0.19.3.<br/><span id="current-time">Loading current time...</span></p>
+        <p>The page was generated by the <a href="https://github.com/yegor256/judges">judges</a> tool (0.59.0) on 2026-01-26T14:17:36Z.<br/>Properties with columns: when,what,repository<br/>Hidden properties: _id,_time,_version<br/><a href="https://github.com/yegor256/factbase">Factbase</a>: 1641 facts, 580000 bytes, version 0.19.3.<br/><span id="current-time">Loading current time...</span></p>
       </footer>
     </section>
   </body>
