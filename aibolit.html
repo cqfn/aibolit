@@ -39,7 +39,7 @@
           <tbody>
             <tr>
               <td>
-                <span class="T">2026-01-26T16:03:26Z</span>
+                <span class="T">2026-01-26T17:19:06Z</span>
               </td>
               <td>
                 <span class="S">judges-summary</span>
@@ -47,7 +47,7 @@
               <td>
                 <span class=""/>
               </td>
-              <td> <span>added</span><span>:<span class="I">8</span></span> <span>cycles</span><span>:<span class="I">1</span></span> <span>deleted</span><span>:<span class="I">8</span></span> <span>inserted</span><span>:<span class="I">8</span></span> <span>seconds</span><span>:<span class="F">84.225525137</span></span> <span>version</span><span>:<span class="S">0.59.0</span></span>  </td>
+              <td> <span>added</span><span>:<span class="I">8</span></span> <span>cycles</span><span>:<span class="I">1</span></span> <span>deleted</span><span>:<span class="I">8</span></span> <span>inserted</span><span>:<span class="I">8</span></span> <span>seconds</span><span>:<span class="F">156.458354888</span></span> <span>version</span><span>:<span class="S">0.59.0</span></span>  </td>
             </tr>
             <tr>
               <td>
@@ -7588,18 +7588,6 @@
       but not more than ${hoc_max} points') (aka (let few_comments_fee 10) (let comments_needed 6) (set penalty_for_few_comments (if (and (lt comments comments_needed) (not (eq comments 0))) (times -1 few_comments_fee) 0)) (give penalty_for_few_comments 'for very few (${comments}) comments') 'deduct ${few_comments_fee} points if there were less than ${comments_needed} comments made during review') (aka (let silence_fee 16) (set penalty_for_silence (if (eq comments 0) (times -1 silence_fee) 0)) (give penalty_for_silence 'for absolutely no comments posted') 'deduct ${silence_fee} points if there were absolutely no comments made during review') (aka (let comments_k 0.25) (let comments_max 8) (let comments_min 5) (set bonus_for_comments (times comments comments_k)) (set bonus_for_comments (between bonus_for_comments comments_min comments_max)) (set bonus_for_comments (if (eq self 1) 0 bonus_for_comments)) (give bonus_for_comments 'for the ${comments} comment(s) that you have made') 'add ${comments_k} points for each comment during the review, but not more than ${comments_max} points') (aka (let hoc_fee 8) (let hoc_needed 16) (set penalty_for_hoc (if (lt hoc hoc_needed) (times -1 hoc_fee) 0)) (give penalty_for_hoc 'for too few (${hoc}) hits-of-code') 'deduct ${hoc_fee} points if there were less than ${hoc_needed} hits-of-code') (aka (let max 24) (set over (if (gt (total) max) (minus max (total)) 0)) (give over 'to not go over the cap') (let min 4) (set least (if (lt (total) min) (minus min (total)) 0)) (give least 'to give you at least something') 'make sure the reward is not larger than ${max} points and not smaller than ${min} points'))</span></span> <span>days_of_running_balance</span><span>:<span class="I">56</span></span> <span>days_of_running_score</span><span>:<span class="I">56</span></span> <span>days_to_reward</span><span>:<span class="I">14</span></span> <span>dud_was_punished</span><span>:<span class="S">(award (explain 'When an issue is submitted but then rejected by the team, the reporter receives a penalty') (aka (let fee -16) (give fee 'as a basis') 'deduct ${fee} points'))</span></span> <span>enhancement_suggestion_was_rewarded</span><span>:<span class="S">(award (explain 'When an enhancement is suggested and accepted by the team, the reporter receives a bonus') (aka (let bonus 12) (give bonus 'as a basis') 'award ${bonus} points'))</span></span> <span>long_pull_was_punished</span><span>:<span class="S">(award (explain 'Oversized pull requests get penalized') (aka (let fee -8) (give fee 'as a basis') 'deduct ${fee} points'))</span></span> <span>master_punish_days</span><span>:<span class="I">4</span></span> <span>published_release_was_rewarded</span><span>:<span class="S">(award (explain 'When a new release is published, everyone who contributed receives a bonus') (in hoc 'how many hits-of-code are in the release') (in contributors 'how many people contributed to the release') (aka (let basis 24) (give basis 'as a basis') 'award ${basis} points') (aka (let hoc_k 0.01) (let hoc_max 24) (let hoc_min 4) (set b1 (times hoc hoc_k)) (set b1 (between b1 hoc_min hoc_max)) (give b1 'for ${hoc} hits-of-code') 'add ${hoc_k} points for each
       [hit-of-code](https://www.yegor256.com/2014/11/14/hits-of-code.html),
       but not more than ${hoc_max} points') (aka (let max 32) (set over (if (gt (total) max) (minus max (total)) 0)) (give over 'to not go over the cap') (let min 4) (set least (if (lt (total) min) (minus min (total)) 0)) (give least 'to give you at least something') 'make sure the reward is not larger than ${max} points and not smaller than ${min} points'))</span></span> <span>push_to_master_was_punished</span><span>:<span class="S">(award (explain 'When someone pushes directly to the default branch, they get a penalty') (aka (let fee -16) (give fee 'as a basis') '${fee} points'))</span></span> <span>resolved_bug_was_rewarded</span><span>:<span class="S">(award (explain 'When a bug is resolved, the person who was assigned to it receives a bonus') (in hours 'how many hours it took to resolve the bug') (in self '1 if the bug was reported and resolved by the same person, otherwise zero') (set days (div hours 24)) (aka (let basis 8) (give basis 'as a basis') 'award ${basis} points') (aka (let b1 4) (let hours_threshold 24) (set b1 (if (lt hours hours_threshold) b1 0)) (give b1 'for resolving it in less than ${hours_threshold} hours') 'add ${b1} points if it was resolved in less than ${hours_threshold} hours') (aka (let self_fee 16) (set penalty_for_self (if (eq self 1) (times -1 self_fee) 0)) (give penalty_for_self 'for resolving the bug reported by you earlier') 'deduct ${self_fee} points if they resolved the bug earlier reported by themselves') (aka (let day_fee 1.0) (set b2 (times -1 (times days day_fee))) (let days_fee_max -20) (set b2 (max b2 days_fee_max)) (give b2 'for ${days} days of delay') 'deduct ${day_fee} points for each day of delay, but no more than ${days_fee_max} points') (aka (let max 16) (set over (if (gt (total) max) (minus max (total)) 0)) (give over 'to not go over the cap') (let min 4) (set least (if (lt (total) min) (minus min (total)) 0)) (give least 'to give you at least something') 'make sure the reward is not larger than ${max} points and not smaller than ${min} points'))</span></span> </td>
-            </tr>
-            <tr>
-              <td>
-                <span class="T">2025-09-12T15:02:11Z</span>
-              </td>
-              <td>
-                <span class="S">dimensions-of-terrain</span>
-              </td>
-              <td>
-                <span class=""/>
-              </td>
-              <td> <span class="hidden" title="90347">_id</span> <span>_job</span><span>:<span class="I">17678085843</span></span> <span class="hidden" title="2025-09-12T15:02:11Z">_time</span> <span class="hidden" title="0.16.3/0.53.6/0.15.42">_version</span> <span class="highlighted">tombstone</span><span class="highlighted">:<span class="T">2026-01-18T15:57:04Z</span></span> <span>total_active_contributors</span><span>:<span class="I">1</span></span> <span>total_commits</span><span>:<span class="I">2700</span></span> <span>total_contributors</span><span>:<span class="I">26</span></span> <span>total_files</span><span>:<span class="I">1049</span></span> <span>total_forks</span><span>:<span class="I">35</span></span> <span>total_issues</span><span>:<span class="I">441</span></span> <span>total_pulls</span><span>:<span class="I">448</span></span> <span>total_releases</span><span>:<span class="I">28</span></span> <span>total_repositories</span><span>:<span class="I">1</span></span> <span>total_stars</span><span>:<span class="I">88</span></span>  </td>
             </tr>
             <tr>
               <td>
@@ -19700,18 +19688,6 @@ The average weekly cost of HoC (2.25 points) is decreasing (R=0.14).</span></spa
                 <span class=""/>
               </td>
               <td>
-                <span class="S">iterate</span>
-              </td>
-              <td>
-                <span class="I">237167507</span>
-              </td>
-              <td> <span class="hidden" title="414416">_id</span> <span>_job</span><span>:<span class="I">21362414643</span></span> <span class="hidden" title="2026-01-26T15:03:23Z">_time</span> <span class="hidden" title="0.19.3/0.59.0/0.17.10">_version</span> <span>assignees_were_scanned</span><span>:<span class="I">743</span></span> <span>earliest_issue_was_found</span><span>:<span class="I">1</span></span> <span>events_were_scanned</span><span>:<span class="I">7829777259</span></span> <span>issues_were_scanned</span><span>:<span class="I">432</span></span> <span>labels_were_scanned</span><span>:<span class="I">896</span></span> <span>latest_issue_was_found</span><span>:<span class="I">903</span></span> <span>merges_were_scanned</span><span>:<span class="I">1034</span></span> <span>min_issue_was_found</span><span>:<span class="I">963</span></span> <span>min_pull_was_found</span><span>:<span class="I">1042</span></span>  <span>types_were_scanned</span><span>:<span class="I">952</span></span>  <span>where</span><span>:<span class="S">github</span></span></td>
-            </tr>
-            <tr>
-              <td>
-                <span class=""/>
-              </td>
-              <td>
                 <span class="S">tombstone</span>
               </td>
               <td>
@@ -19719,11 +19695,23 @@ The average weekly cost of HoC (2.25 points) is decreasing (R=0.14).</span></spa
               </td>
               <td> <span class="hidden" title="414417">_id</span> <span>_job</span><span>:<span class="I">58772</span></span> <span class="hidden" title="2026-01-26T15:06:28Z">_time</span> <span class="hidden" title="0.19.3/0.59.0/0.17.10">_version</span> <span>issues</span><span>:[<span class="S">1-76</span>, <span class="S">78-115</span>, <span class="S">117-124</span>, <span class="S">126-149</span>, <span class="S">151-160</span>, <span class="S">162-165</span>, <span class="S">167-181</span>, <span class="S">183-279</span>, <span class="S">281</span>, <span class="S">284</span>, <span class="S">287-318</span>, <span class="S">320-335</span>, <span class="S">337-342</span>, <span class="S">345-348</span>, <span class="S">350-365</span>, <span class="S">367-369</span>, <span class="S">371-417</span>, <span class="S">419-430</span>, <span class="S">435-437</span>, <span class="S">439-453</span>, <span class="S">455-462</span>, <span class="S">464-484</span>, <span class="S">490-527</span>, <span class="S">529-535</span>, <span class="S">537-538</span>, <span class="S">541-569</span>, <span class="S">571-583</span>, <span class="S">585-595</span>, <span class="S">597-598</span>, <span class="S">601-613</span>, <span class="S">615-652</span>, <span class="S">654-675</span>, <span class="S">678</span>, <span class="S">680-681</span>]</span>   <span>where</span><span>:<span class="S">github</span></span></td>
             </tr>
+            <tr>
+              <td>
+                <span class=""/>
+              </td>
+              <td>
+                <span class="S">iterate</span>
+              </td>
+              <td>
+                <span class="I">237167507</span>
+              </td>
+              <td> <span class="hidden" title="414418">_id</span> <span>_job</span><span>:<span class="I">21366911279</span></span> <span class="hidden" title="2026-01-26T17:16:33Z">_time</span> <span class="hidden" title="0.19.3/0.59.0/0.17.10">_version</span> <span>assignees_were_scanned</span><span>:<span class="I">743</span></span> <span>earliest_issue_was_found</span><span>:<span class="I">1</span></span> <span>events_were_scanned</span><span>:<span class="I">7833233903</span></span> <span>issues_were_scanned</span><span>:<span class="I">432</span></span> <span>labels_were_scanned</span><span>:<span class="I">896</span></span> <span>latest_issue_was_found</span><span>:<span class="I">903</span></span> <span>merges_were_scanned</span><span>:<span class="I">1034</span></span> <span>min_issue_was_found</span><span>:<span class="I">963</span></span> <span>min_pull_was_found</span><span>:<span class="I">1042</span></span>  <span>types_were_scanned</span><span>:<span class="I">952</span></span>  <span>where</span><span>:<span class="S">github</span></span></td>
+            </tr>
           </tbody>
         </table>
       </article>
       <footer class="smaller">
-        <p>The page was generated by the <a href="https://github.com/yegor256/judges">judges</a> tool (0.59.0) on 2026-01-26T16:03:36Z.<br/>Properties with columns: when,what,repository<br/>Hidden properties: _id,_time,_version<br/><a href="https://github.com/yegor256/factbase">Factbase</a>: 1638 facts, 579020 bytes, version 0.19.3.<br/><span id="current-time">Loading current time...</span></p>
+        <p>The page was generated by the <a href="https://github.com/yegor256/judges">judges</a> tool (0.59.0) on 2026-01-26T17:19:13Z.<br/>Properties with columns: when,what,repository<br/>Hidden properties: _id,_time,_version<br/><a href="https://github.com/yegor256/factbase">Factbase</a>: 1637 facts, 578735 bytes, version 0.19.3.<br/><span id="current-time">Loading current time...</span></p>
       </footer>
     </section>
   </body>

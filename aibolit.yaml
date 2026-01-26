@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 84.225525137
+  seconds: 156.458354888
   version: 0.59.0
   what: judges-summary
-  when: 2026-01-26 16:03:26.771917490 Z
+  when: 2026-01-26 17:19:06.550978811 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -9697,23 +9697,6 @@
     give you at least something') 'make sure the reward is not larger than ${max}
     points and not smaller than ${min} points'))"
   what: pmp
-- _id: 90347
-  _job: 17678085843
-  _time: 2025-09-12 15:02:11.381790229 Z
-  _version: 0.16.3/0.53.6/0.15.42
-  tombstone: 2026-01-18 15:57:04.804584779 Z
-  total_active_contributors: 1
-  total_commits: 2700
-  total_contributors: 26
-  total_files: 1049
-  total_forks: 35
-  total_issues: 441
-  total_pulls: 448
-  total_releases: 28
-  total_repositories: 1
-  total_stars: 88
-  what: dimensions-of-terrain
-  when: 2025-09-12 15:02:11.387226240 Z
 - _id: 90357
   _job: 17679527664
   _time: 2025-09-12 15:57:27.421405324 Z
@@ -30581,23 +30564,6 @@
   - 0.0538571429820274
   what: learn-eva
   when: 2026-01-26 11:58:05.259131249 Z
-- _id: 414416
-  _job: 21362414643
-  _time: 2026-01-26 15:03:23.902510001 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 7829777259
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 1034
-  min_issue_was_found: 963
-  min_pull_was_found: 1042
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414417
   _job: 58772
   _time: 2026-01-26 15:06:28.858809631 Z
@@ -30639,4 +30605,21 @@
   - 680-681
   repository: 237167507
   what: tombstone
+  where: github
+- _id: 414418
+  _job: 21366911279
+  _time: 2026-01-26 17:16:33.433000686 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 7833233903
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 1034
+  min_issue_was_found: 963
+  min_pull_was_found: 1042
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
   where: github
