@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 133.003578476
+  seconds: 131.995321961
   version: 0.59.0
   what: judges-summary
-  when: 2026-01-29 11:22:00.714703537 Z
+  when: 2026-01-29 12:04:47.099712442 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -30146,7 +30146,7 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: 2026-01-22 11:58:56.000000000 Z
+  when: &309 2026-01-22 11:58:56.000000000 Z
 - _id: 414391
   _job: 21250480940
   _time: 2026-01-22 13:36:08.062135863 Z
@@ -30277,26 +30277,6 @@
   total_stars: 95
   what: dimensions-of-terrain
   when: 2026-01-27 11:03:26.542957407 Z
-- _id: 414426
-  _job: 58910
-  _time: 2026-01-27 11:05:06.605761466 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  analyzers: 18
-  text: |-
-    The average reward per task (6.4 points) is decreasing (R=-0.49).
-    The average punishment per task (15.0 points) is decreasing (R=0.12).
-    The average number of builds per week (853.1) is decreasing (R=-0.53).
-    The average number of commits per week (11.3) is decreasing (R=-0.35).
-    The average bugs accepted per month (10.0) is decreasing (R=-0.82).
-    The average monthly punishment (71 points) is decreasing (R=-0.77).
-    The average monthly wage (6.9 points) is decreasing (R=-0.43).
-    The average issue cycle time (1w2d) is increasing (R=0.46).
-    The average pull cycle time (2d7h) is staying still.
-    The average number of releases per month (0.0) is staying still.
-    The average monthly turnover (12.0 developers) is decreasing (R=-0.91).
-    The average weekly cost of HoC (2.25 points) is decreasing (R=0.14).
-  what: assessment
-  when: 2026-01-27 11:05:06.621099122 Z
 - _id: 414436
   _job: 59032
   _time: 2026-01-28 11:05:51.478660735 Z
@@ -30415,3 +30395,242 @@
   types_were_scanned: 952
   what: iterate
   where: github
+- _id: 414446
+  _job: 59148
+  _time: 2026-01-29 11:22:25.341845254 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  analyzers: 18
+  text: |-
+    The average reward per task (6.4 points) is decreasing (R=-0.49).
+    The average punishment per task (15.0 points) is decreasing (R=0.12).
+    The average number of builds per week (853.1) is decreasing (R=-0.53).
+    The average number of commits per week (11.3) is decreasing (R=-0.35).
+    The average bugs accepted per month (9.0) is decreasing (R=-0.82).
+    The average monthly punishment (71 points) is decreasing (R=-0.77).
+    The average monthly wage (6.9 points) is decreasing (R=-0.43).
+    The average issue cycle time (1w2d) is increasing (R=0.45).
+    The average pull cycle time (2d7h) is staying still.
+    The average number of releases per month (0.0) is staying still.
+    The average monthly turnover (12.0 developers) is decreasing (R=-0.91).
+    The average weekly cost of HoC (2.25 points) is decreasing (R=0.14).
+  what: assessment
+  when: 2026-01-29 11:22:25.360343500 Z
+- _id: 414447
+  _job: 21477350499
+  _time: 2026-01-29 12:02:39.265850790 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  total_active_contributors: 4
+  total_commits: 2933
+  total_contributors: 28
+  total_files: 1049
+  total_forks: 39
+  total_issues: 447
+  total_pulls: 607
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 95
+  what: dimensions-of-terrain
+  when: 2026-01-29 12:02:39.276230709 Z
+- _id: 414448
+  _job: 21477350499
+  _time: 2026-01-29 12:02:48.471849796 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  since: *309
+  some_backlog_size:
+  - 50
+  - 50
+  - 50
+  - 50
+  - 50
+  - 50
+  - 50
+  some_build_duration:
+  - 27
+  - 156
+  - 4
+  - 43
+  - 26
+  - 260
+  - 50
+  - 26
+  - 223
+  - 40
+  - 31
+  - 212
+  - 40
+  - 27
+  - 152
+  - 41
+  - 26
+  - 207
+  - 40
+  - 27
+  - 153
+  - 43
+  - 26
+  - 257
+  - 41
+  - 25
+  - 165
+  - 45
+  - 26
+  - 243
+  - 39
+  - 26
+  - 144
+  - 40
+  - 27
+  - 242
+  - 36
+  - 23
+  - 198
+  - 36
+  - 24
+  - 201
+  - 39
+  - 26
+  - 253
+  - 41
+  - 23
+  - 142
+  - 41
+  - 24
+  - 266
+  - 44
+  - 28
+  - 179
+  - 37
+  - 23
+  - 202
+  - 39
+  - 24
+  - 0
+  some_build_success_rate:
+  - 1
+  - 1
+  - 0
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0
+  some_merged_pulls: 9
+  some_pull_files_size:
+  - 1
+  - 1
+  - 2
+  - 2
+  - 1
+  - 2
+  - 1
+  - 1
+  some_pull_hoc_size:
+  - 2
+  - 2
+  - 10
+  - 10
+  - 2
+  - 48
+  - 6
+  - 74
+  some_pull_lifetime:
+  - 50282.0
+  - 37599.0
+  - 16855.0
+  - 13352.0
+  - 24153.0
+  - 169946.0
+  - 15826.0
+  - 28333.0
+  - 29658.0
+  some_review_size:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  some_review_time:
+  - 1393
+  - 1844
+  - 1229
+  - 1254
+  - 1249
+  - 1246
+  - 1235
+  - 2554
+  some_reviewers_per_pull:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  some_reviews_per_pull:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  some_unmerged_pulls: 1
+  what: quality-of-service
+  when: 2026-01-29 12:02:48.000000000 Z
