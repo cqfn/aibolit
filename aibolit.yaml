@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 112.146530775
+  seconds: 79.355671622
   version: 0.59.0
   what: judges-summary
-  when: 2026-01-30 13:45:48.852119542 Z
+  when: 2026-01-30 14:24:29.093754384 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -30261,26 +30261,6 @@
   total_stars: 95
   what: dimensions-of-terrain
   when: 2026-01-27 11:03:26.542957407 Z
-- _id: 414436
-  _job: 59032
-  _time: 2026-01-28 11:05:51.478660735 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  analyzers: 18
-  text: |-
-    The average reward per task (6.4 points) is decreasing (R=-0.49).
-    The average punishment per task (15.0 points) is decreasing (R=0.12).
-    The average number of builds per week (853.1) is decreasing (R=-0.53).
-    The average number of commits per week (11.3) is decreasing (R=-0.35).
-    The average bugs accepted per month (9.0) is decreasing (R=-0.82).
-    The average monthly punishment (71 points) is decreasing (R=-0.77).
-    The average monthly wage (6.9 points) is decreasing (R=-0.43).
-    The average issue cycle time (1w2d) is increasing (R=0.45).
-    The average pull cycle time (2d7h) is staying still.
-    The average number of releases per month (0.0) is staying still.
-    The average monthly turnover (12.0 developers) is decreasing (R=-0.91).
-    The average weekly cost of HoC (2.25 points) is decreasing (R=0.14).
-  what: assessment
-  when: 2026-01-28 11:05:51.496586394 Z
 - _id: 414437
   _job: 21437247143
   _time: 2026-01-28 11:57:17.151866109 Z
@@ -30593,30 +30573,6 @@
   total_reviews_submitted: 9
   what: quantity-of-deliverables
   when: 2026-01-29 13:47:34.000000000 Z
-- _id: 414454
-  _job: 59204
-  _time: 2026-01-30 03:19:57.586740795 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  - -5.536332179930795
-  - -29.357798165137613
-  - -63.745019920318725
-  - -4.153686396677051
-  - -42.44031830238727
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  - 0.41285714289175585
-  - 0.07785714305026051
-  - 0.03585714296881663
-  - 0.13757142891724966
-  - 0.0538571429820274
-  what: learn-eva
-  when: 2026-01-30 03:19:57.557130620 Z
 - _id: 414455
   _job: 21517849089
   _time: 2026-01-30 13:44:00.907741890 Z
@@ -30650,3 +30606,47 @@
   total_stars: 95
   what: dimensions-of-terrain
   when: 2026-01-30 13:44:35.750134495 Z
+- _id: 414457
+  _job: 59222
+  _time: 2026-01-30 13:46:11.263459666 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  analyzers: 18
+  text: |-
+    The average reward per task (6.4 points) is decreasing (R=-0.49).
+    The average punishment per task (15.0 points) is decreasing (R=0.12).
+    The average number of builds per week (843.3) is decreasing (R=-0.52).
+    The average number of commits per week (11.2) is decreasing (R=-0.34).
+    The average bugs accepted per month (9.0) is decreasing (R=-0.82).
+    The average monthly punishment (71 points) is decreasing (R=-0.77).
+    The average monthly wage (6.9 points) is decreasing (R=-0.43).
+    The average issue cycle time (1w2d) is increasing (R=0.45).
+    The average pull cycle time (2d7h) is staying still.
+    The average number of releases per month (0.0) is staying still.
+    The average monthly turnover (12.0 developers) is decreasing (R=-0.91).
+    The average weekly cost of HoC (2.25 points) is decreasing (R=0.14).
+  what: assessment
+  when: 2026-01-30 13:46:11.278761281 Z
+- _id: 414458
+  _job: 59222
+  _time: 2026-01-30 13:46:59.181190648 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  - -29.357798165137613
+  - -63.745019920318725
+  - -4.153686396677051
+  - -42.44031830238727
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  - 0.07785714305026051
+  - 0.03585714296881663
+  - 0.13757142891724966
+  - 0.0538571429820274
+  what: learn-eva
+  when: 2026-01-30 13:46:59.153015845 Z
