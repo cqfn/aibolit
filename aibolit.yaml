@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 172.405977033
+  seconds: 175.659634167
   version: 0.59.0
   what: judges-summary
-  when: 2026-01-30 16:22:45.190512285 Z
+  when: 2026-01-30 17:25:10.444327881 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -592,6 +592,7 @@
   repository: 237167507
   review_comments: 2
   seconds: 171780
+  tombstone: 2026-01-30 16:23:20.161953723 Z
   what: code-was-contributed
   when: &42 2025-05-20 11:58:34.000000000 Z
   where: github
@@ -4713,6 +4714,7 @@
   repository: 237167507
   review_comments: 2
   succeeded_builds: 13
+  tombstone: 2026-01-30 16:23:20.163122797 Z
   what: pull-was-merged
   when: *42
   where: github
@@ -5070,19 +5072,6 @@
   repository: 237167507
   what: pull-was-opened
   when: 2025-05-21 13:01:27.000000000 Z
-  where: github
-  who: 84927447
-- _id: 35825
-  _job: 32539
-  _time: 2025-08-10 19:06:10.463884085 Z
-  _version: 0.14.7/0.52.2/0.15.10
-  branch: '685'
-  details: cqfn/aibolit#686 has been opened by @literally-bug-creator.
-  is_human: 1
-  issue: 686
-  repository: 237167507
-  what: pull-was-opened
-  when: 2025-05-18 12:15:34.000000000 Z
   where: github
   who: 84927447
 - _id: 35826
@@ -9247,24 +9236,6 @@
   repository: 237167507
   what: label-was-attached
   when: 2025-08-30 05:39:36.000000000 Z
-  where: github
-  who: 526301
-- _id: 70903
-  _job: 17469581045
-  _time: 2025-09-04 15:58:38.937888126 Z
-  _version: 0.15.8/0.53.6
-  author: 84927447
-  comments: 3
-  details: The pull request cqfn/aibolit#686 with 12 HoC created by @literally-bug-creator
-    was reviewed by @yegor256 after 27h46m and 1 comments.
-  hoc: 12
-  is_human: 1
-  issue: 686
-  repository: 237167507
-  review_comments: 1
-  seconds: 99964
-  what: code-was-reviewed
-  when: 2025-05-19 16:01:38.000000000 Z
   where: github
   who: 526301
 - _id: 70905
@@ -30277,47 +30248,6 @@
   total_stars: 95
   what: dimensions-of-terrain
   when: 2026-01-28 11:57:17.166041288 Z
-- _id: 414442
-  _job: 59097
-  _time: 2026-01-29 00:01:16.713690685 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  issues:
-  - 1-76
-  - 78-115
-  - 117-124
-  - 126-149
-  - 151-160
-  - 162-165
-  - 167-181
-  - 183-279
-  - '281'
-  - '284'
-  - 287-318
-  - 320-335
-  - 337-342
-  - 345-348
-  - 350-365
-  - 367-369
-  - 371-417
-  - 419-430
-  - 435-437
-  - 439-453
-  - 455-462
-  - 464-484
-  - 490-527
-  - 529-535
-  - 537-538
-  - 541-569
-  - 571-583
-  - 585-595
-  - 597-598
-  - 601-613
-  - 615-652
-  - 654-675
-  - 678-685
-  repository: 237167507
-  what: tombstone
-  where: github
 - _id: 414446
   _job: 59148
   _time: 2026-01-29 11:22:25.341845254 Z
@@ -30633,13 +30563,54 @@
   - 0.0538571429820274
   what: learn-eva
   when: 2026-01-30 13:46:59.153015845 Z
-- _id: 414459
-  _job: 21522604079
-  _time: 2026-01-30 16:19:56.601565356 Z
+- _id: 414460
+  _job: 59233
+  _time: 2026-01-30 16:23:23.828335118 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  issues:
+  - 1-76
+  - 78-115
+  - 117-124
+  - 126-149
+  - 151-160
+  - 162-165
+  - 167-181
+  - 183-279
+  - '281'
+  - '284'
+  - 287-318
+  - 320-335
+  - 337-342
+  - 345-348
+  - 350-365
+  - 367-369
+  - 371-417
+  - 419-430
+  - 435-437
+  - 439-453
+  - 455-462
+  - 464-484
+  - 490-527
+  - 529-535
+  - 537-538
+  - 541-569
+  - 571-583
+  - 585-595
+  - 597-598
+  - 601-613
+  - 615-652
+  - 654-675
+  - 678-686
+  repository: 237167507
+  what: tombstone
+  where: github
+- _id: 414461
+  _job: 21524446414
+  _time: 2026-01-30 17:22:18.470733608 Z
   _version: 0.19.3/0.59.0/0.17.10
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 7980323812
+  events_were_scanned: 7982147763
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903

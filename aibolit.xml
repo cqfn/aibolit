@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="575611">
+<fb version="0.19.3" size="575096">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">172.405977033</seconds>
+    <seconds t="F">175.659634167</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-01-30T16:22:45Z</when>
+    <when t="T">2026-01-30T17:25:10Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -635,6 +635,7 @@
     <repository t="I">237167507</repository>
     <review_comments t="I">2</review_comments>
     <seconds t="I">171780</seconds>
+    <tombstone t="T">2026-01-30T16:23:20Z</tombstone>
     <what t="S">code-was-contributed</what>
     <when t="T">2025-05-20T11:58:34Z</when>
     <where t="S">github</where>
@@ -5230,6 +5231,7 @@
     <repository t="I">237167507</repository>
     <review_comments t="I">2</review_comments>
     <succeeded_builds t="I">13</succeeded_builds>
+    <tombstone t="T">2026-01-30T16:23:20Z</tombstone>
     <what t="S">pull-was-merged</what>
     <when t="T">2025-05-20T11:58:34Z</when>
     <where t="S">github</where>
@@ -5612,21 +5614,6 @@
     <repository t="I">237167507</repository>
     <what t="S">pull-was-opened</what>
     <when t="T">2025-05-21T13:01:27Z</when>
-    <where t="S">github</where>
-    <who t="I">84927447</who>
-  </f>
-  <f>
-    <_id t="I">35825</_id>
-    <_job t="I">32539</_job>
-    <_time t="T">2025-08-10T19:06:10Z</_time>
-    <_version t="S">0.14.7/0.52.2/0.15.10</_version>
-    <branch t="S">685</branch>
-    <details t="S">cqfn/aibolit#686 has been opened by @literally-bug-creator.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">686</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2025-05-18T12:15:34Z</when>
     <where t="S">github</where>
     <who t="I">84927447</who>
   </f>
@@ -10153,25 +10140,6 @@
     <repository t="I">237167507</repository>
     <what t="S">label-was-attached</what>
     <when t="T">2025-08-30T05:39:36Z</when>
-    <where t="S">github</where>
-    <who t="I">526301</who>
-  </f>
-  <f>
-    <_id t="I">70903</_id>
-    <_job t="I">17469581045</_job>
-    <_time t="T">2025-09-04T15:58:38Z</_time>
-    <_version t="S">0.15.8/0.53.6</_version>
-    <author t="I">84927447</author>
-    <comments t="I">3</comments>
-    <details t="S">The pull request cqfn/aibolit#686 with 12 HoC created by @literally-bug-creator was reviewed by @yegor256 after 27h46m and 1 comments.</details>
-    <hoc t="I">12</hoc>
-    <is_human t="I">1</is_human>
-    <issue t="I">686</issue>
-    <repository t="I">237167507</repository>
-    <review_comments t="I">1</review_comments>
-    <seconds t="I">99964</seconds>
-    <what t="S">code-was-reviewed</what>
-    <when t="T">2025-05-19T16:01:38Z</when>
     <where t="S">github</where>
     <who t="I">526301</who>
   </f>
@@ -32841,50 +32809,6 @@
     <when t="T">2026-01-28T11:57:17Z</when>
   </f>
   <f>
-    <_id t="I">414442</_id>
-    <_job t="I">59097</_job>
-    <_time t="T">2026-01-29T00:01:16Z</_time>
-    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
-    <issues>
-      <v t="S">1-76</v>
-      <v t="S">78-115</v>
-      <v t="S">117-124</v>
-      <v t="S">126-149</v>
-      <v t="S">151-160</v>
-      <v t="S">162-165</v>
-      <v t="S">167-181</v>
-      <v t="S">183-279</v>
-      <v t="S">281</v>
-      <v t="S">284</v>
-      <v t="S">287-318</v>
-      <v t="S">320-335</v>
-      <v t="S">337-342</v>
-      <v t="S">345-348</v>
-      <v t="S">350-365</v>
-      <v t="S">367-369</v>
-      <v t="S">371-417</v>
-      <v t="S">419-430</v>
-      <v t="S">435-437</v>
-      <v t="S">439-453</v>
-      <v t="S">455-462</v>
-      <v t="S">464-484</v>
-      <v t="S">490-527</v>
-      <v t="S">529-535</v>
-      <v t="S">537-538</v>
-      <v t="S">541-569</v>
-      <v t="S">571-583</v>
-      <v t="S">585-595</v>
-      <v t="S">597-598</v>
-      <v t="S">601-613</v>
-      <v t="S">615-652</v>
-      <v t="S">654-675</v>
-      <v t="S">678-685</v>
-    </issues>
-    <repository t="I">237167507</repository>
-    <what t="S">tombstone</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">414446</_id>
     <_job t="I">59148</_job>
     <_time t="T">2026-01-29T11:22:25Z</_time>
@@ -33224,13 +33148,57 @@ The average weekly cost of HoC (2.25 points) is decreasing (R=0.14).</text>
     <when t="T">2026-01-30T13:46:59Z</when>
   </f>
   <f>
-    <_id t="I">414459</_id>
-    <_job t="I">21522604079</_job>
-    <_time t="T">2026-01-30T16:19:56Z</_time>
+    <_id t="I">414460</_id>
+    <_job t="I">59233</_job>
+    <_time t="T">2026-01-30T16:23:23Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <issues>
+      <v t="S">1-76</v>
+      <v t="S">78-115</v>
+      <v t="S">117-124</v>
+      <v t="S">126-149</v>
+      <v t="S">151-160</v>
+      <v t="S">162-165</v>
+      <v t="S">167-181</v>
+      <v t="S">183-279</v>
+      <v t="S">281</v>
+      <v t="S">284</v>
+      <v t="S">287-318</v>
+      <v t="S">320-335</v>
+      <v t="S">337-342</v>
+      <v t="S">345-348</v>
+      <v t="S">350-365</v>
+      <v t="S">367-369</v>
+      <v t="S">371-417</v>
+      <v t="S">419-430</v>
+      <v t="S">435-437</v>
+      <v t="S">439-453</v>
+      <v t="S">455-462</v>
+      <v t="S">464-484</v>
+      <v t="S">490-527</v>
+      <v t="S">529-535</v>
+      <v t="S">537-538</v>
+      <v t="S">541-569</v>
+      <v t="S">571-583</v>
+      <v t="S">585-595</v>
+      <v t="S">597-598</v>
+      <v t="S">601-613</v>
+      <v t="S">615-652</v>
+      <v t="S">654-675</v>
+      <v t="S">678-686</v>
+    </issues>
+    <repository t="I">237167507</repository>
+    <what t="S">tombstone</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">414461</_id>
+    <_job t="I">21524446414</_job>
+    <_time t="T">2026-01-30T17:22:18Z</_time>
     <_version t="S">0.19.3/0.59.0/0.17.10</_version>
     <assignees_were_scanned t="I">743</assignees_were_scanned>
     <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">7980323812</events_were_scanned>
+    <events_were_scanned t="I">7982147763</events_were_scanned>
     <issues_were_scanned t="I">432</issues_were_scanned>
     <labels_were_scanned t="I">896</labels_were_scanned>
     <latest_issue_was_found t="I">903</latest_issue_was_found>
