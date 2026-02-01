@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="595217">
+<fb version="0.19.3" size="596664">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">165.561368026</seconds>
+    <seconds t="F">211.056798335</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-01T03:44:41Z</when>
+    <when t="T">2026-02-01T05:19:49Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -34146,22 +34146,104 @@ The average weekly cost of HoC (2.17 points) is staying still.</text>
     <when t="T">2026-02-01T00:00:57Z</when>
   </f>
   <f>
-    <_id t="I">414561</_id>
-    <_job t="I">21555988867</_job>
-    <_time t="T">2026-02-01T03:41:59Z</_time>
+    <_id t="I">414562</_id>
+    <_job t="I">21557224883</_job>
+    <_time t="T">2026-02-01T05:16:23Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <comments t="I">4</comments>
+    <commits t="I">1</commits>
+    <details t="S">The pull request cqfn/aibolit#1057 has been reviewed by @yegor256 with 154 HoC and 4 comments.</details>
+    <event_id t="I">6217002405</event_id>
+    <event_type t="S">PullRequestReviewEvent</event_type>
+    <files t="I">2</files>
+    <hoc t="I">154</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1057</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <what t="S">pull-was-reviewed</what>
+    <when t="T">2026-02-01T03:54:13Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414564</_id>
+    <_job t="I">21557224883</_job>
+    <_time t="T">2026-02-01T05:16:41Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <branch t="S">renovate/numpy-2.x</branch>
+    <details t="S">The pull cqfn/aibolit#1057 has been opened earlier by @renovate[bot].</details>
+    <is_human t="I">0</is_human>
+    <issue t="I">1057</issue>
+    <repository t="I">237167507</repository>
+    <what t="S">pull-was-opened</what>
+    <when t="T">2026-02-01T00:00:49Z</when>
+    <where t="S">github</where>
+    <who t="I">29139614</who>
+  </f>
+  <f>
+    <_id t="I">414565</_id>
+    <_job t="I">21557224883</_job>
+    <_time t="T">2026-02-01T05:17:00Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <branch t="S">renovate/numpy-2.x</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">4</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1057 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">2</files>
+    <hoc t="I">154</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1057</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2026-02-01T03:54:12Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2026-02-01T04:14:51Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414566</_id>
+    <_job t="I">21557224883</_job>
+    <_time t="T">2026-02-01T05:17:34Z</_time>
     <_version t="S">0.19.3/0.59.0/0.17.10</_version>
     <assignees_were_scanned t="I">743</assignees_were_scanned>
     <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">6214730773</events_were_scanned>
+    <events_were_scanned t="I">8016233663</events_were_scanned>
     <issues_were_scanned t="I">432</issues_were_scanned>
     <labels_were_scanned t="I">896</labels_were_scanned>
     <latest_issue_was_found t="I">903</latest_issue_was_found>
     <merges_were_scanned t="I">1034</merges_were_scanned>
     <min_issue_was_found t="I">963</min_issue_was_found>
-    <min_pull_was_found t="I">1056</min_pull_was_found>
+    <min_pull_was_found t="I">1057</min_pull_was_found>
     <repository t="I">237167507</repository>
     <types_were_scanned t="I">952</types_were_scanned>
     <what t="S">iterate</what>
     <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">414567</_id>
+    <_job t="I">21557224883</_job>
+    <_time t="T">2026-02-01T05:18:30Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <author t="I">29139614</author>
+    <comments t="I">4</comments>
+    <details t="S">The pull request cqfn/aibolit#1057 with 154 HoC created by @renovate[bot] was reviewed by @yegor256 after 3h53m and 0 comments.</details>
+    <hoc t="I">154</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1057</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">14003</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2026-02-01T03:54:12Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
   </f>
 </fb>
