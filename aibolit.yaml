@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 183.288116244
+  seconds: 81.381002718
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-01 15:03:48.111563053 Z
+  when: 2026-02-01 16:01:32.077043880 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -5239,19 +5239,6 @@
   tombstone: 2026-01-28 05:18:38.244051760 Z
   what: issue-was-closed
   when: 2025-05-22 10:05:56.000000000 Z
-  where: github
-  who: 526301
-- _id: 36326
-  _job: 32562
-  _time: 2025-08-10 23:03:13.082078252 Z
-  _version: 0.14.7/0.52.2/0.15.10
-  details: Apparently, cqfn/aibolit#700 has been 'issue-was-closed'.
-  is_human: 1
-  issue: 700
-  repository: 237167507
-  tombstone: 2026-02-01 14:14:56.567084012 Z
-  what: issue-was-closed
-  when: 2025-05-21 14:25:13.000000000 Z
   where: github
   who: 526301
 - _id: 36327
@@ -31287,9 +31274,26 @@
     The average weekly cost of HoC (2.17 points) is staying still.
   what: assessment
   when: 2026-02-01 14:14:43.467321979 Z
-- _id: 414581
-  _job: 59512
-  _time: 2026-02-01 14:15:00.506508136 Z
+- _id: 414582
+  _job: 21564987999
+  _time: 2026-02-01 15:00:48.905203045 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 8024393503
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 1034
+  min_issue_was_found: 963
+  min_pull_was_found: 1057
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
+- _id: 414583
+  _job: 59516
+  _time: 2026-02-01 15:04:14.970871717 Z
   _version: 0.19.3/0.59.0/0.17.10
   issues:
   - 1-76
@@ -31330,21 +31334,4 @@
   - '700'
   repository: 237167507
   what: tombstone
-  where: github
-- _id: 414582
-  _job: 21564987999
-  _time: 2026-02-01 15:00:48.905203045 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 8024393503
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 1034
-  min_issue_was_found: 963
-  min_pull_was_found: 1057
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
   where: github
