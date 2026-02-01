@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="597521">
+<fb version="0.19.3" size="596912">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">95.824863696</seconds>
+    <seconds t="F">132.556224688</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-01T07:29:09Z</when>
+    <when t="T">2026-02-01T08:03:28Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -6024,6 +6024,7 @@
     <is_human t="I">1</is_human>
     <issue t="I">694</issue>
     <repository t="I">237167507</repository>
+    <tombstone t="T">2026-02-01T07:29:45Z</tombstone>
     <what t="S">issue-was-closed</what>
     <when t="T">2025-05-21T09:36:33Z</when>
     <where t="S">github</where>
@@ -7014,21 +7015,6 @@
     <repository t="I">237167507</repository>
     <what t="S">dud-was-closed</what>
     <when t="T">2025-05-23T08:24:34Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
-    <_id t="I">53806</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:32Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <closer t="I">526301</closer>
-    <details t="S">In the repository #237167507, the user #41443370 submitted the issue #694 which was later closed by the user #526301 not becoming a bug or enhancement; this means that the issue was not valid, maybe a duplicate or simply a mistake.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">694</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">dud-was-closed</what>
-    <when t="T">2025-05-21T07:13:00Z</when>
     <where t="S">github</where>
     <who t="I">41443370</who>
   </f>
@@ -9450,20 +9436,6 @@
     <repository t="I">237167507</repository>
     <what t="S">issue-was-opened</what>
     <when t="T">2025-05-21T04:09:59Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
-    <_id t="I">54023</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:46Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <details t="S">The issue cqfn/aibolit#694 has been opened by @ivanovmg.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">694</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">issue-was-opened</what>
-    <when t="T">2025-05-21T07:13:00Z</when>
     <where t="S">github</where>
     <who t="I">41443370</who>
   </f>
@@ -34073,51 +34045,6 @@ The average weekly cost of HoC (2.17 points) is staying still.</text>
     <when t="T">2026-01-31T14:04:38Z</when>
   </f>
   <f>
-    <_id t="I">414558</_id>
-    <_job t="I">59356</_job>
-    <_time t="T">2026-01-31T18:01:02Z</_time>
-    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
-    <issues>
-      <v t="S">1-76</v>
-      <v t="S">78-115</v>
-      <v t="S">117-124</v>
-      <v t="S">126-149</v>
-      <v t="S">151-160</v>
-      <v t="S">162-165</v>
-      <v t="S">167-181</v>
-      <v t="S">183-279</v>
-      <v t="S">281</v>
-      <v t="S">284</v>
-      <v t="S">287-318</v>
-      <v t="S">320-335</v>
-      <v t="S">337-342</v>
-      <v t="S">345-348</v>
-      <v t="S">350-365</v>
-      <v t="S">367-369</v>
-      <v t="S">371-417</v>
-      <v t="S">419-430</v>
-      <v t="S">435-437</v>
-      <v t="S">439-453</v>
-      <v t="S">455-462</v>
-      <v t="S">464-484</v>
-      <v t="S">490-527</v>
-      <v t="S">529-535</v>
-      <v t="S">537-538</v>
-      <v t="S">541-569</v>
-      <v t="S">571-583</v>
-      <v t="S">585-595</v>
-      <v t="S">597-598</v>
-      <v t="S">601-613</v>
-      <v t="S">615-652</v>
-      <v t="S">654-675</v>
-      <v t="S">678-687</v>
-      <v t="S">689-691</v>
-    </issues>
-    <repository t="I">237167507</repository>
-    <what t="S">tombstone</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">414560</_id>
     <_job t="I">59390</_job>
     <_time t="T">2026-02-01T00:00:57Z</_time>
@@ -34269,13 +34196,59 @@ The average weekly cost of HoC (2.17 points) is staying still.</text>
     <who t="I">29139614</who>
   </f>
   <f>
-    <_id t="I">414571</_id>
-    <_job t="I">21558872579</_job>
-    <_time t="T">2026-02-01T07:27:45Z</_time>
+    <_id t="I">414572</_id>
+    <_job t="I">59416</_job>
+    <_time t="T">2026-02-01T07:29:48Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <issues>
+      <v t="S">1-76</v>
+      <v t="S">78-115</v>
+      <v t="S">117-124</v>
+      <v t="S">126-149</v>
+      <v t="S">151-160</v>
+      <v t="S">162-165</v>
+      <v t="S">167-181</v>
+      <v t="S">183-279</v>
+      <v t="S">281</v>
+      <v t="S">284</v>
+      <v t="S">287-318</v>
+      <v t="S">320-335</v>
+      <v t="S">337-342</v>
+      <v t="S">345-348</v>
+      <v t="S">350-365</v>
+      <v t="S">367-369</v>
+      <v t="S">371-417</v>
+      <v t="S">419-430</v>
+      <v t="S">435-437</v>
+      <v t="S">439-453</v>
+      <v t="S">455-462</v>
+      <v t="S">464-484</v>
+      <v t="S">490-527</v>
+      <v t="S">529-535</v>
+      <v t="S">537-538</v>
+      <v t="S">541-569</v>
+      <v t="S">571-583</v>
+      <v t="S">585-595</v>
+      <v t="S">597-598</v>
+      <v t="S">601-613</v>
+      <v t="S">615-652</v>
+      <v t="S">654-675</v>
+      <v t="S">678-687</v>
+      <v t="S">689-691</v>
+      <v t="S">694</v>
+    </issues>
+    <repository t="I">237167507</repository>
+    <what t="S">tombstone</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">414573</_id>
+    <_job t="I">21559289766</_job>
+    <_time t="T">2026-02-01T08:01:23Z</_time>
     <_version t="S">0.19.3/0.59.0/0.17.10</_version>
     <assignees_were_scanned t="I">743</assignees_were_scanned>
     <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">7709555677</events_were_scanned>
+    <events_were_scanned t="I">7714234930</events_were_scanned>
     <issues_were_scanned t="I">432</issues_were_scanned>
     <labels_were_scanned t="I">896</labels_were_scanned>
     <latest_issue_was_found t="I">903</latest_issue_was_found>

@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 95.824863696
+  seconds: 132.556224688
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-01 07:29:09.604497687 Z
+  when: 2026-02-01 08:03:28.546748825 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -5349,7 +5349,7 @@
   issue: 880
   repository: 237167507
   what: issue-was-opened
-  when: &254 2025-07-20 17:12:02.000000000 Z
+  when: &253 2025-07-20 17:12:02.000000000 Z
   where: github
   who: 150797125
 - _id: 36057
@@ -5428,6 +5428,7 @@
   is_human: 1
   issue: 694
   repository: 237167507
+  tombstone: 2026-02-01 07:29:45.043887122 Z
   what: issue-was-closed
   when: 2025-05-21 09:36:33.000000000 Z
   where: github
@@ -6298,7 +6299,7 @@
   review_comments: 5
   seconds: 1549442
   what: code-was-reviewed
-  when: &95 2025-06-30 07:15:11.000000000 Z
+  when: &94 2025-06-30 07:15:11.000000000 Z
   where: github
   who: 41443370
 - _id: 53770
@@ -6316,7 +6317,7 @@
   review_comments: 2
   seconds: 1135761
   what: code-was-reviewed
-  when: &96 2025-07-20 11:51:44.000000000 Z
+  when: &95 2025-07-20 11:51:44.000000000 Z
   where: github
   who: 41443370
 - _id: 53791
@@ -6367,21 +6368,6 @@
   when: &86 2025-05-23 08:24:34.000000000 Z
   where: github
   who: 41443370
-- _id: 53806
-  _job: 34187
-  _time: 2025-08-24 08:04:32.956025023 Z
-  _version: 0.15.6/0.53.3/0.15.19!0.15.21
-  closer: 526301
-  details: 'In the repository #237167507, the user #41443370 submitted the issue #694
-    which was later closed by the user #526301 not becoming a bug or enhancement;
-    this means that the issue was not valid, maybe a duplicate or simply a mistake.'
-  is_human: 1
-  issue: 694
-  repository: 237167507
-  what: dud-was-closed
-  when: &91 2025-05-21 07:13:00.000000000 Z
-  where: github
-  who: 41443370
 - _id: 53807
   _job: 34187
   _time: 2025-08-24 08:04:33.016421957 Z
@@ -6394,7 +6380,7 @@
   issue: 703
   repository: 237167507
   what: dud-was-closed
-  when: &92 2025-05-22 08:46:04.000000000 Z
+  when: &91 2025-05-22 08:46:04.000000000 Z
   where: github
   who: 41443370
 - _id: 53808
@@ -6409,7 +6395,7 @@
   issue: 705
   repository: 237167507
   what: dud-was-closed
-  when: &93 2025-05-22 10:11:25.000000000 Z
+  when: &92 2025-05-22 10:11:25.000000000 Z
   where: github
   who: 41443370
 - _id: 53809
@@ -6424,7 +6410,7 @@
   issue: 707
   repository: 237167507
   what: dud-was-closed
-  when: &94 2025-05-22 12:07:16.000000000 Z
+  when: &93 2025-05-22 12:07:16.000000000 Z
   where: github
   who: 41443370
 - _id: 53810
@@ -8621,18 +8607,6 @@
   when: 2025-05-21 04:09:59.000000000 Z
   where: github
   who: 41443370
-- _id: 54023
-  _job: 34187
-  _time: 2025-08-24 08:04:46.640469334 Z
-  _version: 0.15.6/0.53.3/0.15.19!0.15.21
-  details: The issue cqfn/aibolit#694 has been opened by @ivanovmg.
-  is_human: 1
-  issue: 694
-  repository: 237167507
-  what: issue-was-opened
-  when: *91
-  where: github
-  who: 41443370
 - _id: 54024
   _job: 34187
   _time: 2025-08-24 08:04:46.700260586 Z
@@ -8666,7 +8640,7 @@
   issue: 703
   repository: 237167507
   what: issue-was-opened
-  when: *92
+  when: *91
   where: github
   who: 41443370
 - _id: 54027
@@ -8678,7 +8652,7 @@
   issue: 705
   repository: 237167507
   what: issue-was-opened
-  when: *93
+  when: *92
   where: github
   who: 41443370
 - _id: 54028
@@ -8690,7 +8664,7 @@
   issue: 707
   repository: 237167507
   what: issue-was-opened
-  when: *94
+  when: *93
   where: github
   who: 41443370
 - _id: 54029
@@ -8873,7 +8847,7 @@
   repository: 237167507
   review_comments: 5
   what: pull-was-reviewed
-  when: *95
+  when: *94
   where: github
   who: 41443370
 - _id: 54141
@@ -8951,7 +8925,7 @@
   repository: 237167507
   review_comments: 2
   what: pull-was-reviewed
-  when: *96
+  when: *95
   where: github
   who: 41443370
 - _id: 54177
@@ -9397,7 +9371,7 @@
   issue: 892
   repository: 237167507
   what: issue-was-opened
-  when: &97 2025-09-15 13:54:10.000000000 Z
+  when: &96 2025-09-15 13:54:10.000000000 Z
   where: github
   who: 84927447
 - _id: 96667
@@ -9497,7 +9471,7 @@
   review_comments: 2
   succeeded_builds: 18
   what: pull-was-merged
-  when: &98 2025-09-17 14:15:06.000000000 Z
+  when: &97 2025-09-17 14:15:06.000000000 Z
   where: github
   who: 526301
 - _id: 100792
@@ -9520,7 +9494,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &99 2025-09-17 14:23:41.000000000 Z
+  when: &98 2025-09-17 14:23:41.000000000 Z
   where: github
   who: 526301
 - _id: 100793
@@ -9543,7 +9517,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &100 2025-09-17 14:24:17.000000000 Z
+  when: &99 2025-09-17 14:24:17.000000000 Z
   where: github
   who: 526301
 - _id: 100794
@@ -9566,7 +9540,7 @@
   review_comments: 1
   succeeded_builds: 18
   what: pull-was-merged
-  when: &101 2025-09-17 14:23:52.000000000 Z
+  when: &100 2025-09-17 14:23:52.000000000 Z
   where: github
   who: 526301
 - _id: 100801
@@ -9593,7 +9567,7 @@
   issue: 892
   repository: 237167507
   what: dud-was-closed
-  when: *97
+  when: *96
   where: github
   who: 84927447
 - _id: 100955
@@ -9736,7 +9710,7 @@
   review_comments: 2
   seconds: 178951
   what: code-was-contributed
-  when: *98
+  when: *97
   where: github
   who: 84927447
 - _id: 101381
@@ -9754,7 +9728,7 @@
   review_comments: 0
   seconds: 178102
   what: code-was-contributed
-  when: *99
+  when: *98
   where: github
   who: 84927447
 - _id: 101382
@@ -9772,7 +9746,7 @@
   review_comments: 0
   seconds: 174230
   what: code-was-contributed
-  when: *100
+  when: *99
   where: github
   who: 84927447
 - _id: 101383
@@ -9790,7 +9764,7 @@
   review_comments: 1
   seconds: 170004
   what: code-was-contributed
-  when: *101
+  when: *100
   where: github
   who: 84927447
 - _id: 101726
@@ -10009,7 +9983,7 @@
   review_comments: 3
   succeeded_builds: 18
   what: pull-was-merged
-  when: &102 2025-09-18 09:36:11.000000000 Z
+  when: &101 2025-09-18 09:36:11.000000000 Z
   where: github
   who: 526301
 - _id: 103555
@@ -10027,7 +10001,7 @@
   review_comments: 3
   seconds: 147283
   what: code-was-contributed
-  when: *102
+  when: *101
   where: github
   who: 84927447
 - _id: 103668
@@ -10187,7 +10161,7 @@
   qod: 223
   qod_per_day: 0.0538571429820274
   qod_per_sec: 2.2201054590482362e-05
-  start: &131 2025-05-29 07:01:48.877523876 Z
+  start: &130 2025-05-29 07:01:48.877523876 Z
   tombstone: 2026-01-28 13:40:09.234807774 Z
   what: earned-value
   when: 2025-09-22 13:26:05.117445581 Z
@@ -10258,7 +10232,7 @@
   total_releases_published: 0
   total_reviews_submitted: 9
   what: quantity-of-deliverables
-  when: &130 2025-09-25 10:57:36.672285124 Z
+  when: &129 2025-09-25 10:57:36.672285124 Z
 - _id: 120744
   _job: 18005210688
   _time: 2025-09-25 10:58:42.651708240 Z
@@ -10354,7 +10328,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &103 2025-09-23 12:41:48.000000000 Z
+  when: &102 2025-09-23 12:41:48.000000000 Z
   where: github
   who: 526301
 - _id: 120894
@@ -10377,7 +10351,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &104 2025-09-23 12:41:22.000000000 Z
+  when: &103 2025-09-23 12:41:22.000000000 Z
   where: github
   who: 526301
 - _id: 120939
@@ -10413,7 +10387,7 @@
   review_comments: 0
   seconds: 47235
   what: code-was-contributed
-  when: *103
+  when: *102
   where: github
   who: 86408225
 - _id: 120985
@@ -10431,7 +10405,7 @@
   review_comments: 0
   seconds: 1094
   what: code-was-contributed
-  when: *104
+  when: *103
   where: github
   who: 86408225
 - _id: 121216
@@ -10554,7 +10528,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.283885010 Z
   what: issue-was-opened
-  when: &142 2025-07-24 13:39:45.000000000 Z
+  when: &141 2025-07-24 13:39:45.000000000 Z
   where: github
   who: 150797125
 - _id: 126453
@@ -10566,7 +10540,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.231669241 Z
   what: issue-was-opened
-  when: &143 2025-07-24 13:33:32.000000000 Z
+  when: &142 2025-07-24 13:33:32.000000000 Z
   where: github
   who: 150797125
 - _id: 126454
@@ -10578,7 +10552,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.837997548 Z
   what: issue-was-opened
-  when: &105 2025-07-21 09:34:06.000000000 Z
+  when: &104 2025-07-21 09:34:06.000000000 Z
   where: github
   who: 41443370
 - _id: 126455
@@ -10590,7 +10564,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.181427227 Z
   what: issue-was-opened
-  when: &188 2025-07-20 22:28:44.000000000 Z
+  when: &187 2025-07-20 22:28:44.000000000 Z
   where: github
   who: 150797125
 - _id: 126456
@@ -10602,7 +10576,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.125005428 Z
   what: issue-was-opened
-  when: &106 2025-07-20 22:22:21.000000000 Z
+  when: &105 2025-07-20 22:22:21.000000000 Z
   where: github
   who: 150797125
 - _id: 126457
@@ -10626,7 +10600,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.778433908 Z
   what: issue-was-opened
-  when: &107 2025-07-19 15:59:23.000000000 Z
+  when: &106 2025-07-19 15:59:23.000000000 Z
   where: github
   who: 60609459
 - _id: 126459
@@ -10638,7 +10612,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.683687366 Z
   what: issue-was-opened
-  when: &108 2025-07-19 15:51:37.000000000 Z
+  when: &107 2025-07-19 15:51:37.000000000 Z
   where: github
   who: 60609459
 - _id: 126460
@@ -10650,7 +10624,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.618300011 Z
   what: issue-was-opened
-  when: &109 2025-07-19 15:18:28.000000000 Z
+  when: &108 2025-07-19 15:18:28.000000000 Z
   where: github
   who: 60609459
 - _id: 126461
@@ -10686,7 +10660,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.458853395 Z
   what: issue-was-opened
-  when: &110 2025-07-19 15:10:52.000000000 Z
+  when: &109 2025-07-19 15:10:52.000000000 Z
   where: github
   who: 60609459
 - _id: 126464
@@ -10698,7 +10672,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:35.996287765 Z
   what: issue-was-opened
-  when: &111 2025-07-18 11:25:27.000000000 Z
+  when: &110 2025-07-18 11:25:27.000000000 Z
   where: github
   who: 151189440
 - _id: 126465
@@ -10710,7 +10684,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.399601631 Z
   what: issue-was-opened
-  when: &112 2025-07-09 04:44:31.000000000 Z
+  when: &111 2025-07-09 04:44:31.000000000 Z
   where: github
   who: 13173649
 - _id: 126466
@@ -10734,7 +10708,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.124616927 Z
   what: issue-was-opened
-  when: &113 2025-07-07 07:35:46.000000000 Z
+  when: &112 2025-07-07 07:35:46.000000000 Z
   where: github
   who: 41443370
 - _id: 126468
@@ -10746,7 +10720,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.067973950 Z
   what: issue-was-opened
-  when: &114 2025-07-05 16:36:29.000000000 Z
+  when: &113 2025-07-05 16:36:29.000000000 Z
   where: github
   who: 13173649
 - _id: 126469
@@ -10758,7 +10732,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:37.008065757 Z
   what: issue-was-opened
-  when: &115 2025-07-04 07:38:04.000000000 Z
+  when: &114 2025-07-04 07:38:04.000000000 Z
   where: github
   who: 13173649
 - _id: 126470
@@ -10770,7 +10744,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.940714937 Z
   what: issue-was-opened
-  when: &116 2025-07-02 06:10:20.000000000 Z
+  when: &115 2025-07-02 06:10:20.000000000 Z
   where: github
   who: 13173649
 - _id: 126471
@@ -10782,7 +10756,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:35.940159206 Z
   what: issue-was-opened
-  when: &117 2025-06-26 14:17:20.000000000 Z
+  when: &116 2025-06-26 14:17:20.000000000 Z
   where: github
   who: 151189440
 - _id: 126472
@@ -10806,7 +10780,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:35.880838056 Z
   what: issue-was-opened
-  when: &118 2025-06-12 09:39:52.000000000 Z
+  when: &117 2025-06-12 09:39:52.000000000 Z
   where: github
   who: 104511335
 - _id: 126474
@@ -10842,7 +10816,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.825859782 Z
   what: issue-was-opened
-  when: &119 2025-06-02 08:25:15.000000000 Z
+  when: &118 2025-06-02 08:25:15.000000000 Z
   where: github
   who: 41443370
 - _id: 126477
@@ -10866,7 +10840,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.698120752 Z
   what: issue-was-opened
-  when: &120 2025-05-30 01:56:50.000000000 Z
+  when: &119 2025-05-30 01:56:50.000000000 Z
   where: github
   who: 41443370
 - _id: 126479
@@ -10878,7 +10852,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.638926900 Z
   what: issue-was-opened
-  when: &121 2025-05-29 17:59:36.000000000 Z
+  when: &120 2025-05-29 17:59:36.000000000 Z
   where: github
   who: 41443370
 - _id: 126480
@@ -10902,7 +10876,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.513418774 Z
   what: issue-was-opened
-  when: &122 2025-05-25 11:21:27.000000000 Z
+  when: &121 2025-05-25 11:21:27.000000000 Z
   where: github
   who: 41443370
 - _id: 126482
@@ -10914,7 +10888,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.455002520 Z
   what: issue-was-opened
-  when: &123 2025-05-23 13:30:21.000000000 Z
+  when: &122 2025-05-23 13:30:21.000000000 Z
   where: github
   who: 41443370
 - _id: 126483
@@ -10926,7 +10900,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.386442252 Z
   what: issue-was-opened
-  when: &124 2025-05-23 07:49:15.000000000 Z
+  when: &123 2025-05-23 07:49:15.000000000 Z
   where: github
   who: 41443370
 - _id: 126484
@@ -10938,7 +10912,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.330117048 Z
   what: issue-was-opened
-  when: &125 2025-05-23 07:33:32.000000000 Z
+  when: &124 2025-05-23 07:33:32.000000000 Z
   where: github
   who: 41443370
 - _id: 126485
@@ -10950,7 +10924,7 @@
   repository: 237167507
   tombstone: 2025-09-27 13:59:36.756014704 Z
   what: issue-was-opened
-  when: &126 2025-05-22 12:28:11.000000000 Z
+  when: &125 2025-05-22 12:28:11.000000000 Z
   where: github
   who: 41443370
 - _id: 126496
@@ -11277,7 +11251,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.373204727 Z
   what: dud-was-closed
-  when: *105
+  when: *104
   where: github
   who: 41443370
 - _id: 126529
@@ -11292,7 +11266,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.504615438 Z
   what: dud-was-closed
-  when: *106
+  when: *105
   where: github
   who: 150797125
 - _id: 126530
@@ -11307,7 +11281,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.328132345 Z
   what: dud-was-closed
-  when: *107
+  when: *106
   where: github
   who: 60609459
 - _id: 126531
@@ -11322,7 +11296,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.282257389 Z
   what: dud-was-closed
-  when: *108
+  when: *107
   where: github
   who: 60609459
 - _id: 126532
@@ -11337,7 +11311,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.235525464 Z
   what: dud-was-closed
-  when: *109
+  when: *108
   where: github
   who: 60609459
 - _id: 126533
@@ -11352,7 +11326,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.177322888 Z
   what: dud-was-closed
-  when: *110
+  when: *109
   where: github
   who: 60609459
 - _id: 126534
@@ -11367,7 +11341,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.435627581 Z
   what: dud-was-closed
-  when: *111
+  when: *110
   where: github
   who: 151189440
 - _id: 126535
@@ -11382,7 +11356,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.133012111 Z
   what: dud-was-closed
-  when: *112
+  when: *111
   where: github
   who: 13173649
 - _id: 126536
@@ -11397,7 +11371,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.084438022 Z
   what: dud-was-closed
-  when: *113
+  when: *112
   where: github
   who: 41443370
 - _id: 126537
@@ -11412,7 +11386,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:40.038456004 Z
   what: dud-was-closed
-  when: *114
+  when: *113
   where: github
   who: 13173649
 - _id: 126538
@@ -11427,7 +11401,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.992196913 Z
   what: dud-was-closed
-  when: *115
+  when: *114
   where: github
   who: 13173649
 - _id: 126539
@@ -11442,7 +11416,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.934605472 Z
   what: dud-was-closed
-  when: *116
+  when: *115
   where: github
   who: 13173649
 - _id: 126540
@@ -11457,7 +11431,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.386212186 Z
   what: dud-was-closed
-  when: *117
+  when: *116
   where: github
   who: 151189440
 - _id: 126541
@@ -11472,7 +11446,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.341201049 Z
   what: dud-was-closed
-  when: *118
+  when: *117
   where: github
   who: 104511335
 - _id: 126542
@@ -11487,7 +11461,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.892270967 Z
   what: dud-was-closed
-  when: *119
+  when: *118
   where: github
   who: 41443370
 - _id: 126543
@@ -11502,7 +11476,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.801601217 Z
   what: dud-was-closed
-  when: *120
+  when: *119
   where: github
   who: 41443370
 - _id: 126544
@@ -11517,7 +11491,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.755508284 Z
   what: dud-was-closed
-  when: *121
+  when: *120
   where: github
   who: 41443370
 - _id: 126545
@@ -11532,7 +11506,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.698196494 Z
   what: dud-was-closed
-  when: *122
+  when: *121
   where: github
   who: 41443370
 - _id: 126546
@@ -11547,7 +11521,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.654795818 Z
   what: dud-was-closed
-  when: *123
+  when: *122
   where: github
   who: 41443370
 - _id: 126547
@@ -11562,7 +11536,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.608331787 Z
   what: dud-was-closed
-  when: *124
+  when: *123
   where: github
   who: 41443370
 - _id: 126548
@@ -11577,7 +11551,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.563038027 Z
   what: dud-was-closed
-  when: *125
+  when: *124
   where: github
   who: 41443370
 - _id: 126549
@@ -11592,7 +11566,7 @@
   repository: 237167507
   tombstone: 2025-09-27 14:00:39.846791637 Z
   what: dud-was-closed
-  when: *126
+  when: *125
   where: github
   who: 41443370
 - _id: 127020
@@ -11893,7 +11867,7 @@
   review_comments: 1
   succeeded_builds: 18
   what: pull-was-merged
-  when: &127 2025-09-30 02:54:55.000000000 Z
+  when: &126 2025-09-30 02:54:55.000000000 Z
   where: github
   who: 526301
 - _id: 133125
@@ -11929,7 +11903,7 @@
   review_comments: 1
   seconds: 200697
   what: code-was-contributed
-  when: *127
+  when: *126
   where: github
   who: 86408225
 - _id: 133384
@@ -12083,7 +12057,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &128 2025-10-01 14:53:11.000000000 Z
+  when: &127 2025-10-01 14:53:11.000000000 Z
   where: github
   who: 526301
 - _id: 134434
@@ -12107,7 +12081,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &129 2025-10-01 14:53:04.000000000 Z
+  when: &128 2025-10-01 14:53:04.000000000 Z
   where: github
   who: 526301
 - _id: 134494
@@ -12125,7 +12099,7 @@
   review_comments: 0
   seconds: 986
   what: code-was-contributed
-  when: *128
+  when: *127
   where: github
   who: 29139614
 - _id: 134495
@@ -12143,7 +12117,7 @@
   review_comments: 0
   seconds: 963
   what: code-was-contributed
-  when: *129
+  when: *128
   where: github
   who: 29139614
 - _id: 135301
@@ -12330,7 +12304,7 @@
   _version: 0.16.7/0.54.0/0.15.48
   composite: 11.586
   ffact: 137
-  since: *130
+  since: *129
   total_builds_ran: 893
   total_commits_pushed: 10
   total_hoc_committed: 53
@@ -12339,7 +12313,7 @@
   total_releases_published: 0
   total_reviews_submitted: 8
   what: quantity-of-deliverables
-  when: &176 2025-10-02 10:57:36.672285124 Z
+  when: &175 2025-10-02 10:57:36.672285124 Z
 - _id: 135992
   _job: 18190920515
   _time: 2025-10-02 11:02:13.442428300 Z
@@ -12506,7 +12480,7 @@
   - 2
   some_unmerged_pulls: 2
   what: quality-of-service
-  when: &175 2025-10-02 10:55:36.517738029 Z
+  when: &174 2025-10-02 10:55:36.517738029 Z
 - _id: 136726
   _job: 18217741204
   _time: 2025-10-03 08:59:23.913454981 Z
@@ -12566,7 +12540,7 @@
   qod: 175
   qod_per_day: 8.697142857142858
   qod_per_sec: 1.571870062003085e-05
-  start: *131
+  start: *130
   what: earned-value
   when: 2025-10-05 11:02:37.607529844 Z
 - _id: 138561
@@ -12606,7 +12580,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &132 2025-10-07 05:11:03.000000000 Z
+  when: &131 2025-10-07 05:11:03.000000000 Z
   where: github
   who: 526301
 - _id: 140851
@@ -12630,7 +12604,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &133 2025-10-07 05:10:57.000000000 Z
+  when: &132 2025-10-07 05:10:57.000000000 Z
   where: github
   who: 526301
 - _id: 140852
@@ -12654,7 +12628,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &134 2025-10-07 05:10:48.000000000 Z
+  when: &133 2025-10-07 05:10:48.000000000 Z
   where: github
   who: 526301
 - _id: 140853
@@ -12678,7 +12652,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &135 2025-10-07 05:10:40.000000000 Z
+  when: &134 2025-10-07 05:10:40.000000000 Z
   where: github
   who: 526301
 - _id: 140854
@@ -12702,7 +12676,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &136 2025-10-07 05:10:31.000000000 Z
+  when: &135 2025-10-07 05:10:31.000000000 Z
   where: github
   who: 526301
 - _id: 140855
@@ -12726,7 +12700,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &137 2025-10-07 05:11:15.000000000 Z
+  when: &136 2025-10-07 05:11:15.000000000 Z
   where: github
   who: 526301
 - _id: 140856
@@ -12750,7 +12724,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &138 2025-10-07 05:10:12.000000000 Z
+  when: &137 2025-10-07 05:10:12.000000000 Z
   where: github
   who: 526301
 - _id: 140857
@@ -12774,7 +12748,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &139 2025-10-07 05:10:05.000000000 Z
+  when: &138 2025-10-07 05:10:05.000000000 Z
   where: github
   who: 526301
 - _id: 140858
@@ -12798,7 +12772,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &140 2025-10-07 05:09:58.000000000 Z
+  when: &139 2025-10-07 05:09:58.000000000 Z
   where: github
   who: 526301
 - _id: 140859
@@ -12822,7 +12796,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &141 2025-10-07 05:50:55.000000000 Z
+  when: &140 2025-10-07 05:50:55.000000000 Z
   where: github
   who: 526301
 - _id: 140999
@@ -12840,7 +12814,7 @@
   review_comments: 0
   seconds: 482927
   what: code-was-contributed
-  when: *132
+  when: *131
   where: github
   who: 29139614
 - _id: 141000
@@ -12858,7 +12832,7 @@
   review_comments: 0
   seconds: 482906
   what: code-was-contributed
-  when: *133
+  when: *132
   where: github
   who: 29139614
 - _id: 141001
@@ -12876,7 +12850,7 @@
   review_comments: 0
   seconds: 478976
   what: code-was-contributed
-  when: *134
+  when: *133
   where: github
   who: 29139614
 - _id: 141002
@@ -12894,7 +12868,7 @@
   review_comments: 0
   seconds: 478963
   what: code-was-contributed
-  when: *135
+  when: *134
   where: github
   who: 29139614
 - _id: 141003
@@ -12912,7 +12886,7 @@
   review_comments: 0
   seconds: 475713
   what: code-was-contributed
-  when: *136
+  when: *135
   where: github
   who: 29139614
 - _id: 141004
@@ -12930,7 +12904,7 @@
   review_comments: 0
   seconds: 475753
   what: code-was-contributed
-  when: *137
+  when: *136
   where: github
   who: 29139614
 - _id: 141005
@@ -12948,7 +12922,7 @@
   review_comments: 0
   seconds: 472009
   what: code-was-contributed
-  when: *138
+  when: *137
   where: github
   who: 29139614
 - _id: 141006
@@ -12966,7 +12940,7 @@
   review_comments: 0
   seconds: 471997
   what: code-was-contributed
-  when: *139
+  when: *138
   where: github
   who: 29139614
 - _id: 141007
@@ -12984,7 +12958,7 @@
   review_comments: 0
   seconds: 468468
   what: code-was-contributed
-  when: *140
+  when: *139
   where: github
   who: 29139614
 - _id: 141008
@@ -13002,7 +12976,7 @@
   review_comments: 0
   seconds: 470918
   what: code-was-contributed
-  when: *141
+  when: *140
   where: github
   who: 29139614
 - _id: 141823
@@ -13120,7 +13094,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &144 2025-10-07 17:25:08.000000000 Z
+  when: &143 2025-10-07 17:25:08.000000000 Z
   where: github
   who: 8086956
 - _id: 143173
@@ -13147,7 +13121,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &145 2025-10-07 05:50:49.000000000 Z
+  when: &144 2025-10-07 05:50:49.000000000 Z
   where: github
   who: 526301
 - _id: 143174
@@ -13174,7 +13148,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &146 2025-10-07 05:50:42.000000000 Z
+  when: &145 2025-10-07 05:50:42.000000000 Z
   where: github
   who: 526301
 - _id: 143182
@@ -13220,7 +13194,7 @@
   repository: 237167507
   tombstone: 2025-10-07 18:01:24.108578644 Z
   what: dud-was-closed
-  when: *142
+  when: *141
   where: github
   who: 150797125
 - _id: 143473
@@ -13235,7 +13209,7 @@
   repository: 237167507
   tombstone: 2025-10-07 18:01:24.044312680 Z
   what: dud-was-closed
-  when: *143
+  when: *142
   where: github
   who: 150797125
 - _id: 143531
@@ -13253,7 +13227,7 @@
   review_comments: 0
   seconds: 26205
   what: code-was-contributed
-  when: *144
+  when: *143
   where: github
   who: 29139614
 - _id: 143532
@@ -13271,7 +13245,7 @@
   review_comments: 0
   seconds: 2373
   what: code-was-contributed
-  when: *145
+  when: *144
   where: github
   who: 29139614
 - _id: 143533
@@ -13289,7 +13263,7 @@
   review_comments: 0
   seconds: 2359
   what: code-was-contributed
-  when: *146
+  when: *145
   where: github
   who: 29139614
 - _id: 143535
@@ -13316,7 +13290,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &147 2025-10-07 18:10:35.000000000 Z
+  when: &146 2025-10-07 18:10:35.000000000 Z
   where: github
   who: 8086956
 - _id: 143536
@@ -13358,7 +13332,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &148 2025-10-07 17:49:18.000000000 Z
+  when: &147 2025-10-07 17:49:18.000000000 Z
   where: github
   who: 8086956
 - _id: 143767
@@ -13607,7 +13581,7 @@
   review_comments: 0
   seconds: 25484
   what: code-was-contributed
-  when: *147
+  when: *146
   where: github
   who: 29139614
 - _id: 143867
@@ -13625,7 +13599,7 @@
   review_comments: 0
   seconds: 20617
   what: code-was-contributed
-  when: *148
+  when: *147
   where: github
   who: 29139614
 - _id: 143872
@@ -13667,7 +13641,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &149 2025-10-07 18:32:22.000000000 Z
+  when: &148 2025-10-07 18:32:22.000000000 Z
   where: github
   who: 8086956
 - _id: 143874
@@ -13738,7 +13712,7 @@
   review_comments: 0
   seconds: 33912
   what: code-was-contributed
-  when: *149
+  when: *148
   where: github
   who: 29139614
 - _id: 144192
@@ -13820,7 +13794,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &150 2025-10-07 18:52:31.000000000 Z
+  when: &149 2025-10-07 18:52:31.000000000 Z
   where: github
   who: 8086956
 - _id: 144226
@@ -13856,7 +13830,7 @@
   review_comments: 0
   seconds: 31475
   what: code-was-contributed
-  when: *150
+  when: *149
   where: github
   who: 29139614
 - _id: 144353
@@ -13898,7 +13872,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &151 2025-10-07 19:14:39.000000000 Z
+  when: &150 2025-10-07 19:14:39.000000000 Z
   where: github
   who: 8086956
 - _id: 144368
@@ -13974,7 +13948,7 @@
   review_comments: 0
   seconds: 36644
   what: code-was-contributed
-  when: *151
+  when: *150
   where: github
   who: 29139614
 - _id: 144821
@@ -14018,7 +13992,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &152 2025-10-07 08:50:42.000000000 Z
+  when: &151 2025-10-07 08:50:42.000000000 Z
   where: github
   who: 8086956
 - _id: 144963
@@ -14042,7 +14016,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &153 2025-10-07 10:20:54.000000000 Z
+  when: &152 2025-10-07 10:20:54.000000000 Z
   where: github
   who: 8086956
 - _id: 144964
@@ -14066,7 +14040,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &154 2025-10-07 10:59:53.000000000 Z
+  when: &153 2025-10-07 10:59:53.000000000 Z
   where: github
   who: 8086956
 - _id: 144965
@@ -14090,7 +14064,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &155 2025-10-07 11:39:19.000000000 Z
+  when: &154 2025-10-07 11:39:19.000000000 Z
   where: github
   who: 8086956
 - _id: 144966
@@ -14114,7 +14088,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &156 2025-10-07 12:02:36.000000000 Z
+  when: &155 2025-10-07 12:02:36.000000000 Z
   where: github
   who: 8086956
 - _id: 144967
@@ -14138,7 +14112,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &157 2025-10-07 16:54:41.000000000 Z
+  when: &156 2025-10-07 16:54:41.000000000 Z
   where: github
   who: 8086956
 - _id: 144991
@@ -14399,7 +14373,7 @@
   review_comments: 0
   seconds: 10084
   what: code-was-contributed
-  when: *152
+  when: *151
   where: github
   who: 29139614
 - _id: 145094
@@ -14417,7 +14391,7 @@
   review_comments: 0
   seconds: 15480
   what: code-was-contributed
-  when: *153
+  when: *152
   where: github
   who: 29139614
 - _id: 145095
@@ -14435,7 +14409,7 @@
   review_comments: 0
   seconds: 14068
   what: code-was-contributed
-  when: *154
+  when: *153
   where: github
   who: 29139614
 - _id: 145096
@@ -14453,7 +14427,7 @@
   review_comments: 0
   seconds: 16428
   what: code-was-contributed
-  when: *155
+  when: *154
   where: github
   who: 29139614
 - _id: 145097
@@ -14471,7 +14445,7 @@
   review_comments: 0
   seconds: 14164
   what: code-was-contributed
-  when: *156
+  when: *155
   where: github
   who: 29139614
 - _id: 145098
@@ -14489,7 +14463,7 @@
   review_comments: 0
   seconds: 12188
   what: code-was-contributed
-  when: *157
+  when: *156
   where: github
   who: 29139614
 - _id: 147752
@@ -14525,7 +14499,7 @@
   repository: 237167507
   review_comments: 0
   what: pull-was-reviewed
-  when: &158 2025-10-08 08:31:16.000000000 Z
+  when: &157 2025-10-08 08:31:16.000000000 Z
   where: github
   who: 526301
 - _id: 148125
@@ -14545,7 +14519,7 @@
   repository: 237167507
   review_comments: 0
   what: pull-was-reviewed
-  when: &159 2025-10-08 08:31:12.000000000 Z
+  when: &158 2025-10-08 08:31:12.000000000 Z
   where: github
   who: 526301
 - _id: 148126
@@ -14565,7 +14539,7 @@
   repository: 237167507
   review_comments: 0
   what: pull-was-reviewed
-  when: &160 2025-10-08 08:31:08.000000000 Z
+  when: &159 2025-10-08 08:31:08.000000000 Z
   where: github
   who: 526301
 - _id: 148127
@@ -14585,7 +14559,7 @@
   repository: 237167507
   review_comments: 0
   what: pull-was-reviewed
-  when: &161 2025-10-08 08:31:04.000000000 Z
+  when: &160 2025-10-08 08:31:04.000000000 Z
   where: github
   who: 526301
 - _id: 148128
@@ -14605,7 +14579,7 @@
   repository: 237167507
   review_comments: 0
   what: pull-was-reviewed
-  when: &162 2025-10-08 08:30:59.000000000 Z
+  when: &161 2025-10-08 08:30:59.000000000 Z
   where: github
   who: 526301
 - _id: 148129
@@ -14625,7 +14599,7 @@
   repository: 237167507
   review_comments: 0
   what: pull-was-reviewed
-  when: &163 2025-10-08 08:30:55.000000000 Z
+  when: &162 2025-10-08 08:30:55.000000000 Z
   where: github
   who: 526301
 - _id: 148130
@@ -14645,7 +14619,7 @@
   repository: 237167507
   review_comments: 0
   what: pull-was-reviewed
-  when: &164 2025-10-08 08:30:51.000000000 Z
+  when: &163 2025-10-08 08:30:51.000000000 Z
   where: github
   who: 526301
 - _id: 148371
@@ -14663,7 +14637,7 @@
   review_comments: 0
   seconds: 55952
   what: code-was-reviewed
-  when: *158
+  when: *157
   where: github
   who: 526301
 - _id: 148372
@@ -14681,7 +14655,7 @@
   review_comments: 0
   seconds: 54155
   what: code-was-reviewed
-  when: *159
+  when: *158
   where: github
   who: 526301
 - _id: 148373
@@ -14699,7 +14673,7 @@
   review_comments: 0
   seconds: 52673
   what: code-was-reviewed
-  when: *160
+  when: *159
   where: github
   who: 526301
 - _id: 148374
@@ -14717,7 +14691,7 @@
   review_comments: 0
   seconds: 51559
   what: code-was-reviewed
-  when: *161
+  when: *160
   where: github
   who: 526301
 - _id: 148375
@@ -14735,7 +14709,7 @@
   review_comments: 0
   seconds: 50249
   what: code-was-reviewed
-  when: *162
+  when: *161
   where: github
   who: 526301
 - _id: 148376
@@ -14753,7 +14727,7 @@
   review_comments: 0
   seconds: 48195
   what: code-was-reviewed
-  when: *163
+  when: *162
   where: github
   who: 526301
 - _id: 148377
@@ -14771,7 +14745,7 @@
   review_comments: 0
   seconds: 47688
   what: code-was-reviewed
-  when: *164
+  when: *163
   where: github
   who: 526301
 - _id: 148404
@@ -14830,7 +14804,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &165 2025-10-08 09:40:23.000000000 Z
+  when: &164 2025-10-08 09:40:23.000000000 Z
   where: github
   who: 8086956
 - _id: 148661
@@ -14848,7 +14822,7 @@
   review_comments: 0
   seconds: 55718
   what: code-was-contributed
-  when: *165
+  when: *164
   where: github
   who: 29139614
 - _id: 148710
@@ -14910,7 +14884,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &166 2025-10-08 10:14:08.000000000 Z
+  when: &165 2025-10-08 10:14:08.000000000 Z
   where: github
   who: 8086956
 - _id: 148926
@@ -14928,7 +14902,7 @@
   review_comments: 0
   seconds: 56438
   what: code-was-contributed
-  when: *166
+  when: *165
   where: github
   who: 29139614
 - _id: 148967
@@ -14990,7 +14964,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &167 2025-10-08 10:34:40.000000000 Z
+  when: &166 2025-10-08 10:34:40.000000000 Z
   where: github
   who: 8086956
 - _id: 149021
@@ -15014,7 +14988,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &168 2025-10-08 11:29:09.000000000 Z
+  when: &167 2025-10-08 11:29:09.000000000 Z
   where: github
   who: 8086956
 - _id: 149022
@@ -15038,7 +15012,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &169 2025-10-08 11:08:12.000000000 Z
+  when: &168 2025-10-08 11:08:12.000000000 Z
   where: github
   who: 8086956
 - _id: 149083
@@ -15056,7 +15030,7 @@
   review_comments: 0
   seconds: 61563
   what: code-was-contributed
-  when: *167
+  when: *166
   where: github
   who: 29139614
 - _id: 149084
@@ -15074,7 +15048,7 @@
   review_comments: 0
   seconds: 66625
   what: code-was-contributed
-  when: *168
+  when: *167
   where: github
   who: 29139614
 - _id: 149085
@@ -15092,7 +15066,7 @@
   review_comments: 0
   seconds: 57632
   what: code-was-contributed
-  when: *169
+  when: *168
   where: github
   who: 29139614
 - _id: 149086
@@ -15206,7 +15180,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &170 2025-10-08 17:21:47.000000000 Z
+  when: &169 2025-10-08 17:21:47.000000000 Z
   where: github
   who: 8086956
 - _id: 149427
@@ -15230,7 +15204,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &171 2025-10-08 17:44:32.000000000 Z
+  when: &170 2025-10-08 17:44:32.000000000 Z
   where: github
   who: 8086956
 - _id: 149428
@@ -15254,7 +15228,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &172 2025-10-08 16:44:54.000000000 Z
+  when: &171 2025-10-08 16:44:54.000000000 Z
   where: github
   who: 8086956
 - _id: 149552
@@ -15326,7 +15300,7 @@
   review_comments: 0
   seconds: 27642
   what: code-was-contributed
-  when: *170
+  when: *169
   where: github
   who: 29139614
 - _id: 149604
@@ -15344,7 +15318,7 @@
   review_comments: 0
   seconds: 23701
   what: code-was-contributed
-  when: *171
+  when: *170
   where: github
   who: 29139614
 - _id: 149605
@@ -15362,7 +15336,7 @@
   review_comments: 0
   seconds: 18874
   what: code-was-contributed
-  when: *172
+  when: *171
   where: github
   who: 29139614
 - _id: 149888
@@ -15446,7 +15420,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &173 2025-10-08 18:24:52.000000000 Z
+  when: &172 2025-10-08 18:24:52.000000000 Z
   where: github
   who: 8086956
 - _id: 150637
@@ -15470,7 +15444,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &174 2025-10-08 18:04:37.000000000 Z
+  when: &173 2025-10-08 18:04:37.000000000 Z
   where: github
   who: 8086956
 - _id: 150851
@@ -15488,7 +15462,7 @@
   review_comments: 0
   seconds: 29375
   what: code-was-contributed
-  when: *173
+  when: *172
   where: github
   who: 29139614
 - _id: 150852
@@ -15506,7 +15480,7 @@
   review_comments: 0
   seconds: 26907
   what: code-was-contributed
-  when: *174
+  when: *173
   where: github
   who: 29139614
 - _id: 150919
@@ -15719,7 +15693,7 @@
   _job: 18373999544
   _time: 2025-10-09 10:56:04.105183710 Z
   _version: 0.16.8/0.54.0/0.15.51
-  since: *175
+  since: *174
   some_backlog_size:
   - 66
   - 66
@@ -16110,14 +16084,14 @@
   - 0
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &186 2025-10-09 10:55:36.517738029 Z
+  when: &185 2025-10-09 10:55:36.517738029 Z
 - _id: 153005
   _job: 18373999544
   _time: 2025-10-09 10:59:33.009136211 Z
   _version: 0.16.8/0.54.0/0.15.51
   composite: 23.576
   ffact: 137
-  since: *176
+  since: *175
   total_builds_ran: 2357
   total_commits_pushed: 64
   total_hoc_committed: 1863
@@ -16126,7 +16100,7 @@
   total_releases_published: 0
   total_reviews_submitted: 31
   what: quantity-of-deliverables
-  when: &187 2025-10-09 10:57:36.672285124 Z
+  when: &186 2025-10-09 10:57:36.672285124 Z
 - _id: 153362
   _job: 18375439452
   _time: 2025-10-09 12:04:39.134728740 Z
@@ -16164,7 +16138,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &177 2025-10-09 09:35:50.000000000 Z
+  when: &176 2025-10-09 09:35:50.000000000 Z
   where: github
   who: 8086956
 - _id: 153941
@@ -16188,7 +16162,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &178 2025-10-09 09:13:44.000000000 Z
+  when: &177 2025-10-09 09:13:44.000000000 Z
   where: github
   who: 8086956
 - _id: 153985
@@ -16242,7 +16216,7 @@
   review_comments: 0
   seconds: 60581
   what: code-was-contributed
-  when: *177
+  when: *176
   where: github
   who: 29139614
 - _id: 154193
@@ -16260,7 +16234,7 @@
   review_comments: 0
   seconds: 57032
   what: code-was-contributed
-  when: *178
+  when: *177
   where: github
   who: 29139614
 - _id: 154197
@@ -16341,7 +16315,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &179 2025-10-09 17:34:56.000000000 Z
+  when: &178 2025-10-09 17:34:56.000000000 Z
   where: github
   who: 8086956
 - _id: 154202
@@ -16439,7 +16413,7 @@
   review_comments: 0
   seconds: 28679
   what: code-was-contributed
-  when: *179
+  when: *178
   where: github
   who: 29139614
 - _id: 154589
@@ -16483,7 +16457,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &180 2025-10-09 08:49:45.000000000 Z
+  when: &179 2025-10-09 08:49:45.000000000 Z
   where: github
   who: 8086956
 - _id: 155668
@@ -16519,7 +16493,7 @@
   review_comments: 0
   seconds: 29434
   what: code-was-contributed
-  when: *180
+  when: *179
   where: github
   who: 29139614
 - _id: 155956
@@ -16598,7 +16572,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &181 2025-10-12 16:56:25.000000000 Z
+  when: &180 2025-10-12 16:56:25.000000000 Z
   where: github
   who: 8086956
 - _id: 165487
@@ -16669,7 +16643,7 @@
   review_comments: 0
   seconds: 3149
   what: code-was-contributed
-  when: *181
+  when: *180
   where: github
   who: 29139614
 - _id: 165914
@@ -16802,7 +16776,7 @@
   qod: 328
   qod_per_day: 124.01714285714286
   qod_per_sec: 2.7331208297548013e-05
-  start: *131
+  start: *130
   what: earned-value
   when: 2025-10-15 11:05:41.162934244 Z
 - _id: 179814
@@ -16864,7 +16838,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &182 2025-10-15 17:58:21.000000000 Z
+  when: &181 2025-10-15 17:58:21.000000000 Z
   where: github
   who: 8086956
 - _id: 180611
@@ -16888,7 +16862,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &183 2025-10-15 17:24:05.000000000 Z
+  when: &182 2025-10-15 17:24:05.000000000 Z
   where: github
   who: 8086956
 - _id: 180687
@@ -16960,7 +16934,7 @@
   review_comments: 0
   seconds: 42669
   what: code-was-contributed
-  when: *182
+  when: *181
   where: github
   who: 29139614
 - _id: 180747
@@ -16978,7 +16952,7 @@
   review_comments: 0
   seconds: 26201
   what: code-was-contributed
-  when: *183
+  when: *182
   where: github
   who: 29139614
 - _id: 180959
@@ -17061,7 +17035,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &184 2025-10-16 03:05:01.000000000 Z
+  when: &183 2025-10-16 03:05:01.000000000 Z
   where: github
   who: 8086956
 - _id: 181950
@@ -17162,7 +17136,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &185 2025-10-15 17:02:23.000000000 Z
+  when: &184 2025-10-15 17:02:23.000000000 Z
   where: github
   who: 8086956
 - _id: 182563
@@ -17180,7 +17154,7 @@
   review_comments: 0
   seconds: 34788
   what: code-was-contributed
-  when: *184
+  when: *183
   where: github
   who: 29139614
 - _id: 182618
@@ -17236,7 +17210,7 @@
   review_comments: 0
   seconds: 2288
   what: code-was-contributed
-  when: *185
+  when: *184
   where: github
   who: 29139614
 - _id: 182822
@@ -17263,7 +17237,7 @@
   _job: 18558898218
   _time: 2025-10-16 11:00:25.799046447 Z
   _version: 0.16.8/0.54.0/0.15.51
-  since: *186
+  since: *185
   some_backlog_size:
   - 65
   - 65
@@ -17452,14 +17426,14 @@
   some_triage_time: 8402760.0
   some_unmerged_pulls: 1
   what: quality-of-service
-  when: &198 2025-10-16 10:55:36.517738029 Z
+  when: &197 2025-10-16 10:55:36.517738029 Z
 - _id: 183928
   _job: 18558898218
   _time: 2025-10-16 11:03:04.072903723 Z
   _version: 0.16.8/0.54.0/0.15.51
   composite: 15.089
   ffact: 137
-  since: *187
+  since: *186
   total_builds_ran: 1118
   total_commits_pushed: 8
   total_hoc_committed: 202
@@ -17468,7 +17442,7 @@
   total_releases_published: 0
   total_reviews_submitted: 25
   what: quantity-of-deliverables
-  when: &197 2025-10-16 10:57:36.672285124 Z
+  when: &196 2025-10-16 10:57:36.672285124 Z
 - _id: 184551
   _job: 18563703960
   _time: 2025-10-16 13:55:44.570351528 Z
@@ -17548,7 +17522,7 @@
   repository: 237167507
   tombstone: 2025-10-16 18:04:29.302507232 Z
   what: dud-was-closed
-  when: *188
+  when: *187
   where: github
   who: 150797125
 - _id: 187298
@@ -17588,7 +17562,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &189 2025-10-17 03:55:05.000000000 Z
+  when: &188 2025-10-17 03:55:05.000000000 Z
   where: github
   who: 8086956
 - _id: 188016
@@ -17624,7 +17598,7 @@
   review_comments: 0
   seconds: 67695
   what: code-was-contributed
-  when: *189
+  when: *188
   where: github
   who: 29139614
 - _id: 188154
@@ -17774,7 +17748,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &190 2025-10-17 03:34:48.000000000 Z
+  when: &189 2025-10-17 03:34:48.000000000 Z
   where: github
   who: 8086956
 - _id: 191053
@@ -17798,7 +17772,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &191 2025-10-17 08:53:13.000000000 Z
+  when: &190 2025-10-17 08:53:13.000000000 Z
   where: github
   who: 8086956
 - _id: 191054
@@ -17822,7 +17796,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &192 2025-10-17 17:32:05.000000000 Z
+  when: &191 2025-10-17 17:32:05.000000000 Z
   where: github
   who: 8086956
 - _id: 191055
@@ -17846,7 +17820,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &193 2025-10-17 17:10:12.000000000 Z
+  when: &192 2025-10-17 17:10:12.000000000 Z
   where: github
   who: 8086956
 - _id: 191281
@@ -17936,7 +17910,7 @@
   review_comments: 0
   seconds: 30669
   what: code-was-contributed
-  when: *190
+  when: *189
   where: github
   who: 29139614
 - _id: 191389
@@ -17954,7 +17928,7 @@
   review_comments: 0
   seconds: 3167
   what: code-was-contributed
-  when: *191
+  when: *190
   where: github
   who: 29139614
 - _id: 191390
@@ -17972,7 +17946,7 @@
   review_comments: 0
   seconds: 26843
   what: code-was-contributed
-  when: *192
+  when: *191
   where: github
   who: 29139614
 - _id: 191391
@@ -17990,7 +17964,7 @@
   review_comments: 0
   seconds: 13329
   what: code-was-contributed
-  when: *193
+  when: *192
   where: github
   who: 29139614
 - _id: 191934
@@ -18154,7 +18128,7 @@
   repository: 237167507
   review_comments: 0
   what: pull-was-reviewed
-  when: &194 2025-10-22 03:06:14.000000000 Z
+  when: &193 2025-10-22 03:06:14.000000000 Z
   where: github
   who: 526301
 - _id: 213868
@@ -18198,7 +18172,7 @@
   review_comments: 0
   seconds: 36290
   what: code-was-reviewed
-  when: *194
+  when: *193
   where: github
   who: 526301
 - _id: 214557
@@ -18239,7 +18213,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &195 2025-10-21 03:17:18.000000000 Z
+  when: &194 2025-10-21 03:17:18.000000000 Z
   where: github
   who: 8086956
 - _id: 214589
@@ -18264,7 +18238,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &196 2025-10-22 03:26:38.000000000 Z
+  when: &195 2025-10-22 03:26:38.000000000 Z
   where: github
   who: 8086956
 - _id: 214706
@@ -18300,7 +18274,7 @@
   review_comments: 0
   seconds: 49378
   what: code-was-contributed
-  when: *195
+  when: *194
   where: github
   who: 29139614
 - _id: 214823
@@ -18318,7 +18292,7 @@
   review_comments: 0
   seconds: 37514
   what: code-was-contributed
-  when: *196
+  when: *195
   where: github
   who: 29139614
 - _id: 214825
@@ -18383,7 +18357,7 @@
   _version: 0.16.8/0.54.0/0.16.0
   composite: 12.995
   ffact: 137
-  since: *197
+  since: *196
   total_builds_ran: 1080
   total_commits_pushed: 9
   total_hoc_committed: 72
@@ -18392,12 +18366,12 @@
   total_releases_published: 0
   total_reviews_submitted: 26
   what: quantity-of-deliverables
-  when: &205 2025-10-23 10:57:36.672285124 Z
+  when: &204 2025-10-23 10:57:36.672285124 Z
 - _id: 220816
   _job: 18746045104
   _time: 2025-10-23 11:02:42.923320085 Z
   _version: 0.16.8/0.54.0/0.16.0
-  since: *198
+  since: *197
   some_backlog_size:
   - 63
   - 62
@@ -18590,7 +18564,7 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &204 2025-10-23 10:55:36.517738029 Z
+  when: &203 2025-10-23 10:55:36.517738029 Z
 - _id: 224700
   _job: 18770975949
   _time: 2025-10-24 05:57:48.990053028 Z
@@ -18634,7 +18608,7 @@
   qod: 316
   qod_per_day: 124.01714285714286
   qod_per_sec: 2.4571144664211805e-05
-  start: *131
+  start: *130
   what: earned-value
   when: 2025-10-25 11:05:55.025920757 Z
 - _id: 236308
@@ -18707,7 +18681,7 @@
   review_comments: 0
   succeeded_builds: 17
   what: pull-was-merged
-  when: &200 2025-10-29 05:22:47.000000000 Z
+  when: &199 2025-10-29 05:22:47.000000000 Z
   where: github
   who: 526301
 - _id: 250917
@@ -18732,7 +18706,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &201 2025-10-29 05:22:25.000000000 Z
+  when: &200 2025-10-29 05:22:25.000000000 Z
   where: github
   who: 526301
 - _id: 250918
@@ -18757,7 +18731,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &202 2025-10-29 05:22:36.000000000 Z
+  when: &201 2025-10-29 05:22:36.000000000 Z
   where: github
   who: 526301
 - _id: 251039
@@ -18769,7 +18743,7 @@
   issue: 570
   repository: 237167507
   what: issue-was-closed
-  when: &199 2025-10-29 05:21:54.000000000 Z
+  when: &198 2025-10-29 05:21:54.000000000 Z
   where: github
   who: 526301
 - _id: 251040
@@ -18831,7 +18805,7 @@
   repository: 237167507
   seconds: 166047628
   what: bug-was-resolved
-  when: *199
+  when: *198
   where: github
   who: 1987026
 - _id: 251304
@@ -18849,7 +18823,7 @@
   review_comments: 0
   seconds: 1880193
   what: code-was-contributed
-  when: *200
+  when: *199
   where: github
   who: 29139614
 - _id: 251305
@@ -18867,7 +18841,7 @@
   review_comments: 0
   seconds: 1855750
   what: code-was-contributed
-  when: *201
+  when: *200
   where: github
   who: 29139614
 - _id: 251306
@@ -18885,7 +18859,7 @@
   review_comments: 0
   seconds: 1850793
   what: code-was-contributed
-  when: *202
+  when: *201
   where: github
   who: 29139614
 - _id: 251395
@@ -18931,7 +18905,7 @@
   repository: 237167507
   tombstone: 2025-10-29 21:06:17.509045610 Z
   what: issue-was-closed
-  when: &203 2025-10-29 05:21:31.000000000 Z
+  when: &202 2025-10-29 05:21:31.000000000 Z
   where: github
   who: 526301
 - _id: 254658
@@ -18949,7 +18923,7 @@
   seconds: 166125139
   tombstone: 2025-10-29 21:06:17.532373460 Z
   what: bug-was-resolved
-  when: *203
+  when: *202
   where: github
   who: 1987026
 - _id: 257063
@@ -18972,7 +18946,7 @@
   _job: 18938232347
   _time: 2025-10-30 11:01:02.479201174 Z
   _version: 0.16.8/0.54.0/0.16.0
-  since: *204
+  since: *203
   some_backlog_size:
   - 62
   - 62
@@ -19160,14 +19134,14 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &215 2025-10-30 10:55:36.517738029 Z
+  when: &214 2025-10-30 10:55:36.517738029 Z
 - _id: 257934
   _job: 18938232347
   _time: 2025-10-30 11:04:15.529466279 Z
   _version: 0.16.8/0.54.0/0.16.0
   composite: 9.387
   ffact: 137
-  since: *205
+  since: *204
   total_builds_ran: 725
   total_commits_pushed: 8
   total_hoc_committed: 273
@@ -19176,7 +19150,7 @@
   total_releases_published: 0
   total_reviews_submitted: 4
   what: quantity-of-deliverables
-  when: &216 2025-10-30 10:57:36.672285124 Z
+  when: &215 2025-10-30 10:57:36.672285124 Z
 - _id: 262874
   _job: 18967639196
   _time: 2025-10-31 09:02:06.536517264 Z
@@ -19268,7 +19242,7 @@
   qod: 275
   qod_per_day: 157.0912857142857
   qod_per_sec: 2.0019648697213587e-05
-  start: *131
+  start: *130
   what: earned-value
   when: 2025-11-04 11:07:54.570766651 Z
 - _id: 285183
@@ -19288,7 +19262,7 @@
   repository: 237167507
   review_comments: 0
   what: pull-was-reviewed
-  when: &206 2025-11-04 16:31:50.000000000 Z
+  when: &205 2025-11-04 16:31:50.000000000 Z
   where: github
   who: 526301
 - _id: 285184
@@ -19308,7 +19282,7 @@
   repository: 237167507
   review_comments: 0
   what: pull-was-reviewed
-  when: &207 2025-11-04 16:31:46.000000000 Z
+  when: &206 2025-11-04 16:31:46.000000000 Z
   where: github
   who: 526301
 - _id: 285185
@@ -19445,7 +19419,7 @@
   review_comments: 0
   seconds: 4990
   what: code-was-reviewed
-  when: *206
+  when: *205
   where: github
   who: 526301
 - _id: 285476
@@ -19463,7 +19437,7 @@
   review_comments: 0
   seconds: 1696
   what: code-was-reviewed
-  when: *207
+  when: *206
   where: github
   who: 526301
 - _id: 286357
@@ -19488,7 +19462,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &208 2025-10-24 03:45:30.000000000 Z
+  when: &207 2025-10-24 03:45:30.000000000 Z
   where: github
   who: 8086956
 - _id: 286358
@@ -19513,7 +19487,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &209 2025-10-29 03:34:54.000000000 Z
+  when: &208 2025-10-29 03:34:54.000000000 Z
   where: github
   who: 8086956
 - _id: 286479
@@ -19567,7 +19541,7 @@
   review_comments: 0
   seconds: 27592
   what: code-was-contributed
-  when: *208
+  when: *207
   where: github
   who: 29139614
 - _id: 286525
@@ -19585,7 +19559,7 @@
   review_comments: 0
   seconds: 34207
   what: code-was-contributed
-  when: *209
+  when: *208
   where: github
   who: 29139614
 - _id: 286579
@@ -19610,7 +19584,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &210 2025-10-29 17:13:46.000000000 Z
+  when: &209 2025-10-29 17:13:46.000000000 Z
   where: github
   who: 8086956
 - _id: 286580
@@ -19635,7 +19609,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &211 2025-10-30 17:22:19.000000000 Z
+  when: &210 2025-10-30 17:22:19.000000000 Z
   where: github
   who: 8086956
 - _id: 286581
@@ -19660,7 +19634,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &212 2025-10-31 03:20:17.000000000 Z
+  when: &211 2025-10-31 03:20:17.000000000 Z
   where: github
   who: 8086956
 - _id: 286582
@@ -19685,7 +19659,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &213 2025-11-04 17:14:47.000000000 Z
+  when: &212 2025-11-04 17:14:47.000000000 Z
   where: github
   who: 8086956
 - _id: 286583
@@ -19710,7 +19684,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &214 2025-11-04 16:51:54.000000000 Z
+  when: &213 2025-11-04 16:51:54.000000000 Z
   where: github
   who: 8086956
 - _id: 286585
@@ -19862,7 +19836,7 @@
   review_comments: 0
   seconds: 4184
   what: code-was-contributed
-  when: *210
+  when: *209
   where: github
   who: 29139614
 - _id: 286819
@@ -19880,7 +19854,7 @@
   review_comments: 0
   seconds: 29763
   what: code-was-contributed
-  when: *211
+  when: *210
   where: github
   who: 29139614
 - _id: 286820
@@ -19898,7 +19872,7 @@
   review_comments: 0
   seconds: 2717
   what: code-was-contributed
-  when: *212
+  when: *211
   where: github
   who: 29139614
 - _id: 286821
@@ -19916,7 +19890,7 @@
   review_comments: 0
   seconds: 7567
   what: code-was-contributed
-  when: *213
+  when: *212
   where: github
   who: 29139614
 - _id: 286822
@@ -19934,7 +19908,7 @@
   review_comments: 0
   seconds: 2904
   what: code-was-contributed
-  when: *214
+  when: *213
   where: github
   who: 29139614
 - _id: 287048
@@ -20017,7 +19991,7 @@
   _job: 19133297061
   _time: 2025-11-06 11:04:39.403822774 Z
   _version: 0.16.8/0.55.0/0.16.1
-  since: *215
+  since: *214
   some_backlog_size:
   - 58
   - 58
@@ -20193,14 +20167,14 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &220 2025-11-06 10:55:36.517738029 Z
+  when: &219 2025-11-06 10:55:36.517738029 Z
 - _id: 294267
   _job: 19134781777
   _time: 2025-11-06 11:56:45.359314309 Z
   _version: 0.16.8/0.55.0/0.16.1
   composite: 2.869
   ffact: 137
-  since: *216
+  since: *215
   total_builds_ran: 630
   total_commits_pushed: 5
   total_hoc_committed: 58
@@ -20209,7 +20183,7 @@
   total_releases_published: 0
   total_reviews_submitted: 7
   what: quantity-of-deliverables
-  when: &219 2025-11-06 10:57:36.672285124 Z
+  when: &218 2025-11-06 10:57:36.672285124 Z
 - _id: 294576
   _job: 19137058818
   _time: 2025-11-06 13:27:03.627751615 Z
@@ -20324,7 +20298,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &217 2025-11-11 03:44:32.000000000 Z
+  when: &216 2025-11-11 03:44:32.000000000 Z
   where: github
   who: 526301
 - _id: 319129
@@ -20349,7 +20323,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &218 2025-11-11 03:44:19.000000000 Z
+  when: &217 2025-11-11 03:44:19.000000000 Z
   where: github
   who: 526301
 - _id: 319182
@@ -20403,7 +20377,7 @@
   review_comments: 0
   seconds: 931170
   what: code-was-contributed
-  when: *217
+  when: *216
   where: github
   who: 29139614
 - _id: 319204
@@ -20421,7 +20395,7 @@
   review_comments: 0
   seconds: 906013
   what: code-was-contributed
-  when: *218
+  when: *217
   where: github
   who: 29139614
 - _id: 319410
@@ -20502,7 +20476,7 @@
   _version: 0.16.8/0.55.0/0.16.1
   composite: 6.576
   ffact: 137
-  since: *219
+  since: *218
   total_builds_ran: 903
   total_commits_pushed: 13
   total_hoc_committed: 186
@@ -20511,7 +20485,7 @@
   total_releases_published: 0
   total_reviews_submitted: 7
   what: quantity-of-deliverables
-  when: &222 2025-11-13 10:57:36.672285124 Z
+  when: &221 2025-11-13 10:57:36.672285124 Z
 - _id: 328184
   _job: 19366699872
   _time: 2025-11-14 14:05:16.326205728 Z
@@ -20532,7 +20506,7 @@
   _job: 19366699872
   _time: 2025-11-14 14:05:18.860813373 Z
   _version: 0.16.8/0.55.0/0.16.1
-  since: *220
+  since: *219
   some_backlog_size:
   - 58
   - 58
@@ -20716,7 +20690,7 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &221 2025-11-13 10:55:36.517738029 Z
+  when: &220 2025-11-13 10:55:36.517738029 Z
 - _id: 328234
   _job: 49175
   _time: 2025-11-14 14:08:56.130577734 Z
@@ -20728,7 +20702,7 @@
   qod: 173
   qod_per_day: 136.29890476190477
   qod_per_sec: 1.1871097462601588e-05
-  start: *131
+  start: *130
   what: earned-value
   when: 2025-11-14 14:08:56.130839888 Z
 - _id: 328836
@@ -20799,7 +20773,7 @@
   _job: 19534420252
   _time: 2025-11-20 11:05:41.976862701 Z
   _version: 0.16.8/0.55.0/0.16.1
-  since: *221
+  since: *220
   some_backlog_size:
   - 57
   - 57
@@ -20975,14 +20949,14 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &237 2025-11-20 10:55:36.517738029 Z
+  when: &236 2025-11-20 10:55:36.517738029 Z
 - _id: 347269
   _job: 19535973733
   _time: 2025-11-20 11:57:54.317236126 Z
   _version: 0.16.8/0.55.0/0.16.1
   composite: 4.995
   ffact: 137
-  since: *222
+  since: *221
   total_builds_ran: 604
   total_commits_pushed: 8
   total_hoc_committed: 434
@@ -20991,7 +20965,7 @@
   total_releases_published: 0
   total_reviews_submitted: 5
   what: quantity-of-deliverables
-  when: &238 2025-11-20 10:57:36.672285124 Z
+  when: &237 2025-11-20 10:57:36.672285124 Z
 - _id: 347418
   _job: 19625977625
   _time: 2025-11-24 07:00:42.571474397 Z
@@ -21035,7 +21009,7 @@
   qod: 156
   qod_per_day: 16.11154761904762
   qod_per_sec: 1.0043093608755694e-05
-  start: *131
+  start: *130
   what: earned-value
   when: 2025-11-25 09:11:21.581996858 Z
 - _id: 349008
@@ -21274,7 +21248,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &223 2025-11-06 03:28:33.000000000 Z
+  when: &222 2025-11-06 03:28:33.000000000 Z
   where: github
   who: 8086956
 - _id: 350658
@@ -21299,7 +21273,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &224 2025-11-07 03:23:15.000000000 Z
+  when: &223 2025-11-07 03:23:15.000000000 Z
   where: github
   who: 8086956
 - _id: 350659
@@ -21324,7 +21298,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &225 2025-11-07 16:50:03.000000000 Z
+  when: &224 2025-11-07 16:50:03.000000000 Z
   where: github
   who: 8086956
 - _id: 350660
@@ -21349,7 +21323,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &226 2025-11-10 17:06:42.000000000 Z
+  when: &225 2025-11-10 17:06:42.000000000 Z
   where: github
   who: 8086956
 - _id: 350661
@@ -21374,7 +21348,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &227 2025-11-13 03:20:34.000000000 Z
+  when: &226 2025-11-13 03:20:34.000000000 Z
   where: github
   who: 8086956
 - _id: 350662
@@ -21399,7 +21373,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &228 2025-11-14 04:21:18.000000000 Z
+  when: &227 2025-11-14 04:21:18.000000000 Z
   where: github
   who: 8086956
 - _id: 350663
@@ -21424,7 +21398,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &229 2025-11-14 03:30:24.000000000 Z
+  when: &228 2025-11-14 03:30:24.000000000 Z
   where: github
   who: 8086956
 - _id: 350664
@@ -21449,7 +21423,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &230 2025-11-14 08:57:40.000000000 Z
+  when: &229 2025-11-14 08:57:40.000000000 Z
   where: github
   who: 8086956
 - _id: 350665
@@ -21474,7 +21448,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &231 2025-11-18 03:32:52.000000000 Z
+  when: &230 2025-11-18 03:32:52.000000000 Z
   where: github
   who: 8086956
 - _id: 350666
@@ -21499,7 +21473,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &232 2025-11-18 03:11:43.000000000 Z
+  when: &231 2025-11-18 03:11:43.000000000 Z
   where: github
   who: 8086956
 - _id: 350667
@@ -21524,7 +21498,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &233 2025-11-25 09:18:30.000000000 Z
+  when: &232 2025-11-25 09:18:30.000000000 Z
   where: github
   who: 8086956
 - _id: 350668
@@ -21549,7 +21523,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &234 2025-11-21 17:22:57.000000000 Z
+  when: &233 2025-11-21 17:22:57.000000000 Z
   where: github
   who: 8086956
 - _id: 350669
@@ -21574,7 +21548,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &235 2025-11-24 08:49:00.000000000 Z
+  when: &234 2025-11-24 08:49:00.000000000 Z
   where: github
   who: 8086956
 - _id: 350774
@@ -21926,7 +21900,7 @@
   review_comments: 0
   seconds: 19585
   what: code-was-contributed
-  when: *223
+  when: *222
   where: github
   who: 29139614
 - _id: 351288
@@ -21944,7 +21918,7 @@
   review_comments: 0
   seconds: 15552
   what: code-was-contributed
-  when: *224
+  when: *223
   where: github
   who: 29139614
 - _id: 351289
@@ -21962,7 +21936,7 @@
   review_comments: 0
   seconds: 12101
   what: code-was-contributed
-  when: *225
+  when: *224
   where: github
   who: 29139614
 - _id: 351290
@@ -21980,7 +21954,7 @@
   review_comments: 0
   seconds: 32657
   what: code-was-contributed
-  when: *226
+  when: *225
   where: github
   who: 29139614
 - _id: 351291
@@ -21998,7 +21972,7 @@
   review_comments: 0
   seconds: 15464
   what: code-was-contributed
-  when: *227
+  when: *226
   where: github
   who: 29139614
 - _id: 351292
@@ -22016,7 +21990,7 @@
   review_comments: 0
   seconds: 23299
   what: code-was-contributed
-  when: *228
+  when: *227
   where: github
   who: 29139614
 - _id: 351293
@@ -22034,7 +22008,7 @@
   review_comments: 0
   seconds: 20216
   what: code-was-contributed
-  when: *229
+  when: *228
   where: github
   who: 29139614
 - _id: 351294
@@ -22052,7 +22026,7 @@
   review_comments: 0
   seconds: 19576
   what: code-was-contributed
-  when: *230
+  when: *229
   where: github
   who: 29139614
 - _id: 351295
@@ -22070,7 +22044,7 @@
   review_comments: 0
   seconds: 102658
   what: code-was-contributed
-  when: *231
+  when: *230
   where: github
   who: 29139614
 - _id: 351296
@@ -22088,7 +22062,7 @@
   review_comments: 0
   seconds: 90405
   what: code-was-contributed
-  when: *232
+  when: *231
   where: github
   who: 29139614
 - _id: 351297
@@ -22106,7 +22080,7 @@
   review_comments: 0
   seconds: 398330
   what: code-was-contributed
-  when: *233
+  when: *232
   where: github
   who: 29139614
 - _id: 351298
@@ -22124,7 +22098,7 @@
   review_comments: 0
   seconds: 10276
   what: code-was-contributed
-  when: *234
+  when: *233
   where: github
   who: 29139614
 - _id: 351299
@@ -22142,7 +22116,7 @@
   review_comments: 0
   seconds: 11397
   what: code-was-contributed
-  when: *235
+  when: *234
   where: github
   who: 29139614
 - _id: 351383
@@ -22167,7 +22141,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &236 2025-11-25 17:16:34.000000000 Z
+  when: &235 2025-11-25 17:16:34.000000000 Z
   where: github
   who: 8086956
 - _id: 351441
@@ -22303,7 +22277,7 @@
   review_comments: 0
   seconds: 29098
   what: code-was-contributed
-  when: *236
+  when: *235
   where: github
   who: 29139614
 - _id: 354360
@@ -22342,7 +22316,7 @@
   _job: 19733879020
   _time: 2025-11-27 11:06:57.691810115 Z
   _version: 0.16.8/0.57.2/0.16.2
-  since: *237
+  since: *236
   some_backlog_size:
   - 57
   - 57
@@ -22511,14 +22485,14 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &252 2025-11-27 10:55:36.517738029 Z
+  when: &251 2025-11-27 10:55:36.517738029 Z
 - _id: 359437
   _job: 19735396706
   _time: 2025-11-27 11:55:24.576981969 Z
   _version: 0.16.8/0.57.2/0.16.2
   composite: 4.963
   ffact: 137
-  since: *238
+  since: *237
   total_builds_ran: 595
   total_commits_pushed: 6
   total_hoc_committed: 108
@@ -22527,7 +22501,7 @@
   total_releases_published: 0
   total_reviews_submitted: 6
   what: quantity-of-deliverables
-  when: &253 2025-11-27 10:57:36.672285124 Z
+  when: &252 2025-11-27 10:57:36.672285124 Z
 - _id: 364318
   _job: 19763075503
   _time: 2025-11-28 12:01:04.169879400 Z
@@ -22691,7 +22665,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &239 2025-11-28 09:10:37.000000000 Z
+  when: &238 2025-11-28 09:10:37.000000000 Z
   where: github
   who: 8086956
 - _id: 376075
@@ -22716,7 +22690,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &240 2025-11-28 17:03:51.000000000 Z
+  when: &239 2025-11-28 17:03:51.000000000 Z
   where: github
   who: 8086956
 - _id: 376076
@@ -22741,7 +22715,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &241 2025-11-29 03:12:08.000000000 Z
+  when: &240 2025-11-29 03:12:08.000000000 Z
   where: github
   who: 8086956
 - _id: 376077
@@ -22766,7 +22740,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &242 2025-11-30 17:49:52.000000000 Z
+  when: &241 2025-11-30 17:49:52.000000000 Z
   where: github
   who: 8086956
 - _id: 376078
@@ -22791,7 +22765,7 @@
   review_comments: 0
   succeeded_builds: 18
   what: pull-was-merged
-  when: &243 2025-11-30 17:28:51.000000000 Z
+  when: &242 2025-11-30 17:28:51.000000000 Z
   where: github
   who: 8086956
 - _id: 376163
@@ -22899,7 +22873,7 @@
   review_comments: 0
   seconds: 61610
   what: code-was-contributed
-  when: *239
+  when: *238
   where: github
   who: 29139614
 - _id: 376346
@@ -22917,7 +22891,7 @@
   review_comments: 0
   seconds: 3346
   what: code-was-contributed
-  when: *240
+  when: *239
   where: github
   who: 29139614
 - _id: 376347
@@ -22935,7 +22909,7 @@
   review_comments: 0
   seconds: 18712
   what: code-was-contributed
-  when: *241
+  when: *240
   where: github
   who: 29139614
 - _id: 376348
@@ -22953,7 +22927,7 @@
   review_comments: 0
   seconds: 15742
   what: code-was-contributed
-  when: *242
+  when: *241
   where: github
   who: 29139614
 - _id: 376349
@@ -22971,7 +22945,7 @@
   review_comments: 0
   seconds: 12466
   what: code-was-contributed
-  when: *243
+  when: *242
   where: github
   who: 29139614
 - _id: 376353
@@ -23113,7 +23087,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &244 2025-12-02 04:07:49.000000000 Z
+  when: &243 2025-12-02 04:07:49.000000000 Z
   where: github
   who: 8086956
 - _id: 382572
@@ -23169,7 +23143,7 @@
   review_comments: 0
   seconds: 2016078
   what: code-was-contributed
-  when: *244
+  when: *243
   where: github
   who: 29139614
 - _id: 384441
@@ -23227,7 +23201,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &245 2025-12-03 13:41:55.000000000 Z
+  when: &244 2025-12-03 13:41:55.000000000 Z
   where: github
   who: 526301
 - _id: 390450
@@ -23253,7 +23227,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &246 2025-12-03 13:42:10.000000000 Z
+  when: &245 2025-12-03 13:42:10.000000000 Z
   where: github
   who: 526301
 - _id: 390511
@@ -23347,7 +23321,7 @@
   review_comments: 0
   seconds: 599758
   what: code-was-contributed
-  when: *245
+  when: *244
   where: github
   who: 29139614
 - _id: 390765
@@ -23365,7 +23339,7 @@
   review_comments: 0
   seconds: 578293
   what: code-was-contributed
-  when: *246
+  when: *245
   where: github
   who: 29139614
 - _id: 392545
@@ -23424,7 +23398,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &247 2025-12-04 03:32:15.000000000 Z
+  when: &246 2025-12-04 03:32:15.000000000 Z
   where: github
   who: 8086956
 - _id: 392707
@@ -23532,7 +23506,7 @@
   review_comments: 0
   seconds: 12365
   what: code-was-contributed
-  when: *247
+  when: *246
   where: github
   who: 29139614
 - _id: 393268
@@ -23558,7 +23532,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &248 2025-11-30 17:05:09.000000000 Z
+  when: &247 2025-11-30 17:05:09.000000000 Z
   where: github
   who: 8086956
 - _id: 393269
@@ -23584,7 +23558,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &249 2025-12-01 17:19:16.000000000 Z
+  when: &248 2025-12-01 17:19:16.000000000 Z
   where: github
   who: 8086956
 - _id: 393270
@@ -23610,7 +23584,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &250 2025-12-01 16:56:25.000000000 Z
+  when: &249 2025-12-01 16:56:25.000000000 Z
   where: github
   who: 8086956
 - _id: 393271
@@ -23636,7 +23610,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &251 2025-12-02 03:46:47.000000000 Z
+  when: &250 2025-12-02 03:46:47.000000000 Z
   where: github
   who: 8086956
 - _id: 393372
@@ -23806,7 +23780,7 @@
   review_comments: 0
   seconds: 3379
   what: code-was-contributed
-  when: *248
+  when: *247
   where: github
   who: 29139614
 - _id: 393620
@@ -23824,7 +23798,7 @@
   review_comments: 0
   seconds: 33331
   what: code-was-contributed
-  when: *249
+  when: *248
   where: github
   who: 29139614
 - _id: 393621
@@ -23842,7 +23816,7 @@
   review_comments: 0
   seconds: 31933
   what: code-was-contributed
-  when: *250
+  when: *249
   where: github
   who: 29139614
 - _id: 393622
@@ -23860,14 +23834,14 @@
   review_comments: 0
   seconds: 38954
   what: code-was-contributed
-  when: *251
+  when: *250
   where: github
   who: 29139614
 - _id: 394209
   _job: 19926547778
   _time: 2025-12-04 11:06:15.078088077 Z
   _version: 0.17.0/0.57.2/0.16.3
-  since: *252
+  since: *251
   some_backlog_size:
   - 57
   - 57
@@ -24100,14 +24074,14 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &269 2025-12-04 10:55:36.517738029 Z
+  when: &268 2025-12-04 10:55:36.517738029 Z
 - _id: 394238
   _job: 19928071635
   _time: 2025-12-04 11:55:12.222762167 Z
   _version: 0.17.0/0.57.2/0.16.3
   composite: 5.864
   ffact: 137
-  since: *253
+  since: *252
   total_builds_ran: 996
   total_commits_pushed: 19
   total_hoc_committed: 310
@@ -24116,7 +24090,7 @@
   total_releases_published: 0
   total_reviews_submitted: 11
   what: quantity-of-deliverables
-  when: &268 2025-12-04 10:57:36.672285124 Z
+  when: &267 2025-12-04 10:57:36.672285124 Z
 - _id: 395132
   _job: 19935217733
   _time: 2025-12-04 16:02:58.323970165 Z
@@ -24144,7 +24118,7 @@
   qod: 152
   qod_per_day: 19.822396825396822
   qod_per_sec: 9.309213036544923e-06
-  start: *131
+  start: *130
   what: earned-value
   when: 2025-12-05 10:03:29.678798700 Z
 - _id: 400133
@@ -24358,7 +24332,7 @@
   issue: 880
   repository: 237167507
   what: dud-was-closed
-  when: *254
+  when: *253
   where: github
   who: 150797125
 - _id: 413790
@@ -24440,7 +24414,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &255 2025-12-11 03:32:08.000000000 Z
+  when: &254 2025-12-11 03:32:08.000000000 Z
   where: github
   who: 8086956
 - _id: 413804
@@ -24653,7 +24627,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &256 2025-12-04 17:02:30.000000000 Z
+  when: &255 2025-12-04 17:02:30.000000000 Z
   where: github
   who: 8086956
 - _id: 413821
@@ -24679,7 +24653,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &257 2025-12-06 03:20:49.000000000 Z
+  when: &256 2025-12-06 03:20:49.000000000 Z
   where: github
   who: 8086956
 - _id: 413822
@@ -24705,7 +24679,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &258 2025-12-06 09:10:36.000000000 Z
+  when: &257 2025-12-06 09:10:36.000000000 Z
   where: github
   who: 8086956
 - _id: 413823
@@ -24731,7 +24705,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &259 2025-12-07 03:45:24.000000000 Z
+  when: &258 2025-12-07 03:45:24.000000000 Z
   where: github
   who: 8086956
 - _id: 413824
@@ -24757,7 +24731,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &260 2025-12-07 17:03:12.000000000 Z
+  when: &259 2025-12-07 17:03:12.000000000 Z
   where: github
   who: 8086956
 - _id: 413825
@@ -24783,7 +24757,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &261 2025-12-08 17:04:56.000000000 Z
+  when: &260 2025-12-08 17:04:56.000000000 Z
   where: github
   who: 8086956
 - _id: 413826
@@ -24809,7 +24783,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &262 2025-12-09 03:32:19.000000000 Z
+  when: &261 2025-12-09 03:32:19.000000000 Z
   where: github
   who: 8086956
 - _id: 413827
@@ -24835,7 +24809,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &263 2025-12-10 10:17:46.000000000 Z
+  when: &262 2025-12-10 10:17:46.000000000 Z
   where: github
   who: 8086956
 - _id: 413828
@@ -24861,7 +24835,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &264 2025-12-10 09:23:27.000000000 Z
+  when: &263 2025-12-10 09:23:27.000000000 Z
   where: github
   who: 8086956
 - _id: 413829
@@ -24887,7 +24861,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &265 2025-12-10 10:40:31.000000000 Z
+  when: &264 2025-12-10 10:40:31.000000000 Z
   where: github
   who: 8086956
 - _id: 413830
@@ -24913,7 +24887,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &266 2025-12-10 11:23:17.000000000 Z
+  when: &265 2025-12-10 11:23:17.000000000 Z
   where: github
   who: 8086956
 - _id: 413831
@@ -24939,7 +24913,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &267 2025-12-10 11:02:22.000000000 Z
+  when: &266 2025-12-10 11:02:22.000000000 Z
   where: github
   who: 8086956
 - _id: 413833
@@ -25173,7 +25147,7 @@
   review_comments: 0
   seconds: 12759
   what: code-was-contributed
-  when: *255
+  when: *254
   where: github
   who: 29139614
 - _id: 413859
@@ -25311,7 +25285,7 @@
   review_comments: 0
   seconds: 3293
   what: code-was-contributed
-  when: *256
+  when: *255
   where: github
   who: 29139614
 - _id: 413866
@@ -25329,7 +25303,7 @@
   review_comments: 0
   seconds: 47474
   what: code-was-contributed
-  when: *257
+  when: *256
   where: github
   who: 29139614
 - _id: 413867
@@ -25347,7 +25321,7 @@
   review_comments: 0
   seconds: 11462
   what: code-was-contributed
-  when: *258
+  when: *257
   where: github
   who: 29139614
 - _id: 413868
@@ -25365,7 +25339,7 @@
   review_comments: 0
   seconds: 20389
   what: code-was-contributed
-  when: *259
+  when: *258
   where: github
   who: 29139614
 - _id: 413869
@@ -25383,7 +25357,7 @@
   review_comments: 0
   seconds: 25326
   what: code-was-contributed
-  when: *260
+  when: *259
   where: github
   who: 29139614
 - _id: 413870
@@ -25401,7 +25375,7 @@
   review_comments: 0
   seconds: 32283
   what: code-was-contributed
-  when: *261
+  when: *260
   where: github
   who: 29139614
 - _id: 413871
@@ -25419,7 +25393,7 @@
   review_comments: 0
   seconds: 34424
   what: code-was-contributed
-  when: *262
+  when: *261
   where: github
   who: 29139614
 - _id: 413872
@@ -25437,7 +25411,7 @@
   review_comments: 0
   seconds: 107759
   what: code-was-contributed
-  when: *263
+  when: *262
   where: github
   who: 29139614
 - _id: 413873
@@ -25455,7 +25429,7 @@
   review_comments: 0
   seconds: 91469
   what: code-was-contributed
-  when: *264
+  when: *263
   where: github
   who: 29139614
 - _id: 413874
@@ -25473,7 +25447,7 @@
   review_comments: 0
   seconds: 63298
   what: code-was-contributed
-  when: *265
+  when: *264
   where: github
   who: 29139614
 - _id: 413875
@@ -25491,7 +25465,7 @@
   review_comments: 0
   seconds: 51919
   what: code-was-contributed
-  when: *266
+  when: *265
   where: github
   who: 29139614
 - _id: 413876
@@ -25509,7 +25483,7 @@
   review_comments: 0
   seconds: 11057
   what: code-was-contributed
-  when: *267
+  when: *266
   where: github
   who: 29139614
 - _id: 413879
@@ -25658,7 +25632,7 @@
   _version: 0.17.1/0.58.1/0.17.3
   composite: 5.979
   ffact: 137
-  since: *268
+  since: *267
   total_builds_ran: 1016
   total_commits_pushed: 20
   total_hoc_committed: 342
@@ -25667,12 +25641,12 @@
   total_releases_published: 0
   total_reviews_submitted: 14
   what: quantity-of-deliverables
-  when: &270 2025-12-11 10:57:36.672285124 Z
+  when: &269 2025-12-11 10:57:36.672285124 Z
 - _id: 413890
   _job: 20130751566
   _time: 2025-12-11 11:01:12.517697241 Z
   _version: 0.17.1/0.58.1/0.17.3
-  since: *269
+  since: *268
   some_backlog_size:
   - 57
   - 53
@@ -25910,7 +25884,7 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &271 2025-12-11 10:55:36.517738029 Z
+  when: &270 2025-12-11 10:55:36.517738029 Z
 - _id: 413894
   _job: 20147124794
   _time: 2025-12-11 20:56:13.094464306 Z
@@ -25986,7 +25960,7 @@
   qod: 165
   qod_per_day: 25.780857142857144
   qod_per_sec: 9.569513782005965e-06
-  start: *131
+  start: *130
   what: earned-value
   when: 2025-12-15 10:04:31.773796719 Z
 - _id: 413934
@@ -26043,7 +26017,7 @@
   _version: 0.19.2/0.58.1/0.17.6
   composite: 6.461
   ffact: 137
-  since: *270
+  since: *269
   total_builds_ran: 641
   total_commits_pushed: 4
   total_hoc_committed: 114
@@ -26052,12 +26026,12 @@
   total_releases_published: 0
   total_reviews_submitted: 4
   what: quantity-of-deliverables
-  when: &273 2025-12-18 10:57:36.672285124 Z
+  when: &272 2025-12-18 10:57:36.672285124 Z
 - _id: 413960
   _job: 20334625968
   _time: 2025-12-18 11:00:33.884398763 Z
   _version: 0.19.2/0.58.1/0.17.6
-  since: *271
+  since: *270
   some_backlog_size:
   - 52
   - 52
@@ -26226,7 +26200,7 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &272 2025-12-18 10:55:36.517738029 Z
+  when: &271 2025-12-18 10:55:36.517738029 Z
 - _id: 413965
   _job: 20357847529
   _time: 2025-12-19 02:32:53.451703788 Z
@@ -26343,7 +26317,7 @@
   _job: 20503936516
   _time: 2025-12-25 10:57:21.308821386 Z
   _version: 0.19.2/0.58.1/0.17.8
-  since: *272
+  since: *271
   some_backlog_size:
   - 52
   - 52
@@ -26519,7 +26493,7 @@
   - 0
   some_unmerged_pulls: 1
   what: quality-of-service
-  when: &274 2025-12-25 10:55:36.517738029 Z
+  when: &273 2025-12-25 10:55:36.517738029 Z
 - _id: 414023
   _job: 55284
   _time: 2025-12-25 11:00:10.453135315 Z
@@ -26531,7 +26505,7 @@
   qod: 183
   qod_per_day: 25.434888888888892
   qod_per_sec: 1.0112713713449408e-05
-  start: *131
+  start: *130
   what: earned-value
   when: 2025-12-25 11:00:10.453399945 Z
 - _id: 414024
@@ -26540,7 +26514,7 @@
   _version: 0.19.2/0.58.1/0.17.8
   composite: 5.131
   ffact: 137
-  since: *273
+  since: *272
   total_builds_ran: 582
   total_commits_pushed: 5
   total_hoc_committed: 210
@@ -26549,7 +26523,7 @@
   total_releases_published: 0
   total_reviews_submitted: 4
   what: quantity-of-deliverables
-  when: &275 2025-12-25 10:57:36.672285124 Z
+  when: &274 2025-12-25 10:57:36.672285124 Z
 - _id: 414031
   _job: 20521210601
   _time: 2025-12-26 10:56:36.030005082 Z
@@ -26656,7 +26630,7 @@
   _job: 20637351111
   _time: 2026-01-01 10:57:53.958486501 Z
   _version: 0.19.2/0.58.1/0.17.9
-  since: *274
+  since: *273
   some_backlog_size:
   - 52
   - 52
@@ -26818,7 +26792,7 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &276 2026-01-01 10:57:53.000000000 Z
+  when: &275 2026-01-01 10:57:53.000000000 Z
 - _id: 414066
   _job: 56025
   _time: 2026-01-01 11:00:23.880279301 Z
@@ -26859,7 +26833,7 @@
   _version: 0.19.2/0.58.1/0.17.9
   composite: 16.204
   ffact: 137
-  since: *275
+  since: *274
   total_builds_ran: 588
   total_commits_pushed: 6
   total_hoc_committed: 2495
@@ -26868,7 +26842,7 @@
   total_releases_published: 0
   total_reviews_submitted: 3
   what: quantity-of-deliverables
-  when: &277 2026-01-01 11:55:20.000000000 Z
+  when: &276 2026-01-01 11:55:20.000000000 Z
 - _id: 414072
   _job: 20641395263
   _time: 2026-01-01 15:56:52.552329201 Z
@@ -26928,7 +26902,7 @@
   qod: 349
   qod_per_day: 36.08251362057951
   qod_per_sec: 1.8358906519388834e-05
-  start: *131
+  start: *130
   what: earned-value
   when: 2026-01-04 11:57:43.426648720 Z
 - _id: 414104
@@ -27070,7 +27044,7 @@
   _job: 20814502301
   _time: 2026-01-08 11:01:01.702198998 Z
   _version: 0.19.2/0.58.1/0.17.9
-  since: *276
+  since: *275
   some_backlog_size:
   - 52
   - 52
@@ -27214,14 +27188,14 @@
   some_reviews_per_pull: 1
   some_unmerged_pulls: 2
   what: quality-of-service
-  when: &278 2026-01-08 11:01:01.000000000 Z
+  when: &277 2026-01-08 11:01:01.000000000 Z
 - _id: 414143
   _job: 20815937435
   _time: 2026-01-08 11:55:31.574270446 Z
   _version: 0.19.2/0.58.1/0.17.9
   composite: 1.99
   ffact: 137
-  since: *277
+  since: *276
   total_builds_ran: 502
   total_commits_pushed: 1
   total_hoc_committed: 10
@@ -27230,7 +27204,7 @@
   total_releases_published: 0
   total_reviews_submitted: 1
   what: quantity-of-deliverables
-  when: &279 2026-01-08 11:55:31.000000000 Z
+  when: &278 2026-01-08 11:55:31.000000000 Z
 - _id: 414149
   _job: 20826578702
   _time: 2026-01-08 17:59:33.841138519 Z
@@ -27338,7 +27312,7 @@
   qod: 215
   qod_per_day: 7.8126091293362
   qod_per_sec: 1.0816920193416905e-05
-  start: *131
+  start: *130
   what: earned-value
   when: 2026-01-14 11:57:47.107012010 Z
 - _id: 414202
@@ -27361,7 +27335,7 @@
   _job: 21028865592
   _time: 2026-01-15 11:01:10.356654930 Z
   _version: 0.19.2/0.58.1/0.17.9
-  since: *278
+  since: *277
   some_backlog_size:
   - 52
   - 52
@@ -27544,14 +27518,14 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &302 2026-01-15 11:01:10.000000000 Z
+  when: &301 2026-01-15 11:01:10.000000000 Z
 - _id: 414210
   _job: 21033013903
   _time: 2026-01-15 13:30:48.247336014 Z
   _version: 0.19.2/0.58.1/0.17.9
   composite: 7.832
   ffact: 137
-  since: *279
+  since: *278
   total_builds_ran: 617
   total_commits_pushed: 6
   total_hoc_committed: 356
@@ -27560,7 +27534,7 @@
   total_releases_published: 0
   total_reviews_submitted: 6
   what: quantity-of-deliverables
-  when: &303 2026-01-15 13:30:48.000000000 Z
+  when: &302 2026-01-15 13:30:48.000000000 Z
 - _id: 414213
   _job: 21046139715
   _time: 2026-01-15 21:00:04.363165394 Z
@@ -27677,7 +27651,7 @@
   label: bug
   repository: 237167507
   what: label-was-attached
-  when: &280 2026-01-20 01:16:50.000000000 Z
+  when: &279 2026-01-20 01:16:50.000000000 Z
   where: github
   who: 526301
 - _id: 414255
@@ -27691,7 +27665,7 @@
   reporter: 84927447
   repository: 237167507
   what: bug-was-accepted
-  when: *280
+  when: *279
   where: github
   who: 526301
 - _id: 414259
@@ -27750,7 +27724,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &281 2026-01-20 03:21:21.000000000 Z
+  when: &280 2026-01-20 03:21:21.000000000 Z
   where: github
   who: 8086956
 - _id: 414264
@@ -28052,7 +28026,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &282 2025-12-12 16:58:42.000000000 Z
+  when: &281 2025-12-12 16:58:42.000000000 Z
   where: github
   who: 8086956
 - _id: 414287
@@ -28078,7 +28052,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &283 2025-12-12 04:01:08.000000000 Z
+  when: &282 2025-12-12 04:01:08.000000000 Z
   where: github
   who: 8086956
 - _id: 414288
@@ -28104,7 +28078,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &284 2025-12-13 03:21:08.000000000 Z
+  when: &283 2025-12-13 03:21:08.000000000 Z
   where: github
   who: 8086956
 - _id: 414289
@@ -28130,7 +28104,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &285 2025-12-15 09:17:17.000000000 Z
+  when: &284 2025-12-15 09:17:17.000000000 Z
   where: github
   who: 8086956
 - _id: 414290
@@ -28179,7 +28153,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &286 2025-12-18 13:59:41.000000000 Z
+  when: &285 2025-12-18 13:59:41.000000000 Z
   where: github
   who: 526301
 - _id: 414292
@@ -28205,7 +28179,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &287 2025-12-19 03:24:47.000000000 Z
+  when: &286 2025-12-19 03:24:47.000000000 Z
   where: github
   who: 8086956
 - _id: 414293
@@ -28231,7 +28205,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &288 2025-12-21 09:04:32.000000000 Z
+  when: &287 2025-12-21 09:04:32.000000000 Z
   where: github
   who: 8086956
 - _id: 414294
@@ -28257,7 +28231,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &289 2025-12-24 17:05:47.000000000 Z
+  when: &288 2025-12-24 17:05:47.000000000 Z
   where: github
   who: 8086956
 - _id: 414295
@@ -28283,7 +28257,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &290 2025-12-25 08:52:22.000000000 Z
+  when: &289 2025-12-25 08:52:22.000000000 Z
   where: github
   who: 8086956
 - _id: 414296
@@ -28309,7 +28283,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &291 2025-12-29 17:15:25.000000000 Z
+  when: &290 2025-12-29 17:15:25.000000000 Z
   where: github
   who: 8086956
 - _id: 414297
@@ -28335,7 +28309,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &292 2025-12-30 17:29:07.000000000 Z
+  when: &291 2025-12-30 17:29:07.000000000 Z
   where: github
   who: 8086956
 - _id: 414298
@@ -28361,7 +28335,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &293 2025-12-31 16:54:20.000000000 Z
+  when: &292 2025-12-31 16:54:20.000000000 Z
   where: github
   who: 8086956
 - _id: 414299
@@ -28387,7 +28361,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &294 2026-01-07 08:58:21.000000000 Z
+  when: &293 2026-01-07 08:58:21.000000000 Z
   where: github
   who: 8086956
 - _id: 414300
@@ -28413,7 +28387,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &295 2026-01-08 17:13:48.000000000 Z
+  when: &294 2026-01-08 17:13:48.000000000 Z
   where: github
   who: 8086956
 - _id: 414302
@@ -28730,7 +28704,7 @@
   review_comments: 0
   seconds: 44216
   what: code-was-contributed
-  when: *281
+  when: *280
   where: github
   who: 29139614
 - _id: 414323
@@ -28796,7 +28770,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &296 2026-01-09 04:02:24.000000000 Z
+  when: &295 2026-01-09 04:02:24.000000000 Z
   where: github
   who: 8086956
 - _id: 414327
@@ -28822,7 +28796,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &297 2026-01-09 03:40:59.000000000 Z
+  when: &296 2026-01-09 03:40:59.000000000 Z
   where: github
   who: 8086956
 - _id: 414328
@@ -28848,7 +28822,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &298 2026-01-10 09:03:47.000000000 Z
+  when: &297 2026-01-10 09:03:47.000000000 Z
   where: github
   who: 8086956
 - _id: 414329
@@ -28874,7 +28848,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &299 2026-01-10 16:53:53.000000000 Z
+  when: &298 2026-01-10 16:53:53.000000000 Z
   where: github
   who: 8086956
 - _id: 414330
@@ -28900,7 +28874,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &300 2026-01-11 03:39:37.000000000 Z
+  when: &299 2026-01-11 03:39:37.000000000 Z
   where: github
   who: 8086956
 - _id: 414331
@@ -28926,7 +28900,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &301 2026-01-16 16:49:12.000000000 Z
+  when: &300 2026-01-16 16:49:12.000000000 Z
   where: github
   who: 8086956
 - _id: 414332
@@ -29052,7 +29026,7 @@
   review_comments: 0
   seconds: 93456
   what: code-was-contributed
-  when: *282
+  when: *281
   where: github
   who: 29139614
 - _id: 414339
@@ -29070,7 +29044,7 @@
   review_comments: 0
   seconds: 21775
   what: code-was-contributed
-  when: *283
+  when: *282
   where: github
   who: 29139614
 - _id: 414340
@@ -29088,7 +29062,7 @@
   review_comments: 0
   seconds: 26469
   what: code-was-contributed
-  when: *284
+  when: *283
   where: github
   who: 29139614
 - _id: 414341
@@ -29106,7 +29080,7 @@
   review_comments: 0
   seconds: 15029
   what: code-was-contributed
-  when: *285
+  when: *284
   where: github
   who: 29139614
 - _id: 414342
@@ -29124,7 +29098,7 @@
   review_comments: 0
   seconds: 28830
   what: code-was-contributed
-  when: *286
+  when: *285
   where: github
   who: 29139614
 - _id: 414343
@@ -29142,7 +29116,7 @@
   review_comments: 0
   seconds: 26704
   what: code-was-contributed
-  when: *287
+  when: *286
   where: github
   who: 29139614
 - _id: 414344
@@ -29160,7 +29134,7 @@
   review_comments: 0
   seconds: 57957
   what: code-was-contributed
-  when: *288
+  when: *287
   where: github
   who: 29139614
 - _id: 414345
@@ -29178,7 +29152,7 @@
   review_comments: 0
   seconds: 4011
   what: code-was-contributed
-  when: *289
+  when: *288
   where: github
   who: 29139614
 - _id: 414346
@@ -29196,7 +29170,7 @@
   review_comments: 0
   seconds: 13666
   what: code-was-contributed
-  when: *290
+  when: *289
   where: github
   who: 29139614
 - _id: 414347
@@ -29214,7 +29188,7 @@
   review_comments: 0
   seconds: 1920
   what: code-was-contributed
-  when: *291
+  when: *290
   where: github
   who: 29139614
 - _id: 414348
@@ -29232,7 +29206,7 @@
   review_comments: 0
   seconds: 8018
   what: code-was-contributed
-  when: *292
+  when: *291
   where: github
   who: 29139614
 - _id: 414349
@@ -29250,7 +29224,7 @@
   review_comments: 0
   seconds: 3447
   what: code-was-contributed
-  when: *293
+  when: *292
   where: github
   who: 29139614
 - _id: 414350
@@ -29268,7 +29242,7 @@
   review_comments: 0
   seconds: 17910
   what: code-was-contributed
-  when: *294
+  when: *293
   where: github
   who: 29139614
 - _id: 414351
@@ -29286,7 +29260,7 @@
   review_comments: 0
   seconds: 69398
   what: code-was-contributed
-  when: *295
+  when: *294
   where: github
   who: 29139614
 - _id: 414358
@@ -29424,7 +29398,7 @@
   review_comments: 0
   seconds: 38858
   what: code-was-contributed
-  when: *296
+  when: *295
   where: github
   who: 29139614
 - _id: 414366
@@ -29442,7 +29416,7 @@
   review_comments: 0
   seconds: 27772
   what: code-was-contributed
-  when: *297
+  when: *296
   where: github
   who: 29139614
 - _id: 414367
@@ -29460,7 +29434,7 @@
   review_comments: 0
   seconds: 43394
   what: code-was-contributed
-  when: *298
+  when: *297
   where: github
   who: 29139614
 - _id: 414368
@@ -29478,7 +29452,7 @@
   review_comments: 0
   seconds: 28149
   what: code-was-contributed
-  when: *299
+  when: *298
   where: github
   who: 29139614
 - _id: 414369
@@ -29496,7 +29470,7 @@
   review_comments: 0
   seconds: 20507
   what: code-was-contributed
-  when: *300
+  when: *299
   where: github
   who: 29139614
 - _id: 414370
@@ -29514,7 +29488,7 @@
   review_comments: 0
   seconds: 87752
   what: code-was-contributed
-  when: *301
+  when: *300
   where: github
   who: 29139614
 - _id: 414375
@@ -29553,7 +29527,7 @@
   _job: 21247527964
   _time: 2026-01-22 11:58:56.385059933 Z
   _version: 0.19.2/0.58.1/0.17.9
-  since: *302
+  since: *301
   some_backlog_size:
   - 52
   - 52
@@ -29725,14 +29699,14 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: &304 2026-01-22 11:58:56.000000000 Z
+  when: &303 2026-01-22 11:58:56.000000000 Z
 - _id: 414391
   _job: 21250480940
   _time: 2026-01-22 13:36:08.062135863 Z
   _version: 0.19.2/0.58.1/0.17.9
   composite: 7.277
   ffact: 137
-  since: *303
+  since: *302
   total_builds_ran: 658
   total_commits_pushed: 5
   total_hoc_committed: 80
@@ -29741,7 +29715,7 @@
   total_releases_published: 0
   total_reviews_submitted: 5
   what: quantity-of-deliverables
-  when: &305 2026-01-22 13:36:08.000000000 Z
+  when: &304 2026-01-22 13:36:08.000000000 Z
 - _id: 414396
   _job: 21272810206
   _time: 2026-01-23 02:52:27.675429945 Z
@@ -29821,7 +29795,7 @@
   qod: 247
   qod_per_day: 21.83635631459688
   qod_per_sec: 1.188792296511821e-05
-  start: *131
+  start: *130
   what: earned-value
   when: 2026-01-25 10:00:08.846596840 Z
 - _id: 414411
@@ -29892,7 +29866,7 @@
   _job: 21477350499
   _time: 2026-01-29 12:02:48.471849796 Z
   _version: 0.19.3/0.59.0/0.17.10
-  since: *304
+  since: *303
   some_backlog_size:
   - 50
   - 50
@@ -30097,7 +30071,7 @@
   _version: 0.19.3/0.59.0/0.17.10
   composite: 7.885
   ffact: 137
-  since: *305
+  since: *304
   total_builds_ran: 668
   total_commits_pushed: 9
   total_hoc_committed: 156
@@ -30199,7 +30173,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &306 2026-01-31 03:54:16.000000000 Z
+  when: &305 2026-01-31 03:54:16.000000000 Z
   where: github
   who: 8086956
 - _id: 414469
@@ -30432,7 +30406,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &307 2026-01-22 09:23:09.000000000 Z
+  when: &306 2026-01-22 09:23:09.000000000 Z
   where: github
   who: 8086956
 - _id: 414486
@@ -30458,7 +30432,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &308 2026-01-22 08:58:34.000000000 Z
+  when: &307 2026-01-22 08:58:34.000000000 Z
   where: github
   who: 8086956
 - _id: 414487
@@ -30484,7 +30458,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &309 2026-01-22 17:13:48.000000000 Z
+  when: &308 2026-01-22 17:13:48.000000000 Z
   where: github
   who: 8086956
 - _id: 414488
@@ -30510,7 +30484,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &310 2026-01-22 16:51:44.000000000 Z
+  when: &309 2026-01-22 16:51:44.000000000 Z
   where: github
   who: 8086956
 - _id: 414489
@@ -30536,7 +30510,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &311 2026-01-23 03:26:30.000000000 Z
+  when: &310 2026-01-23 03:26:30.000000000 Z
   where: github
   who: 8086956
 - _id: 414490
@@ -30587,7 +30561,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &312 2026-01-23 17:16:44.000000000 Z
+  when: &311 2026-01-23 17:16:44.000000000 Z
   where: github
   who: 8086956
 - _id: 414492
@@ -30613,7 +30587,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &313 2026-01-25 17:09:29.000000000 Z
+  when: &312 2026-01-25 17:09:29.000000000 Z
   where: github
   who: 8086956
 - _id: 414493
@@ -30639,7 +30613,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &314 2026-01-26 03:40:46.000000000 Z
+  when: &313 2026-01-26 03:40:46.000000000 Z
   where: github
   who: 8086956
 - _id: 414494
@@ -30665,7 +30639,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &315 2026-01-27 03:47:14.000000000 Z
+  when: &314 2026-01-27 03:47:14.000000000 Z
   where: github
   who: 8086956
 - _id: 414495
@@ -30691,7 +30665,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &316 2026-01-28 09:18:05.000000000 Z
+  when: &315 2026-01-28 09:18:05.000000000 Z
   where: github
   who: 8086956
 - _id: 414496
@@ -30717,7 +30691,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &317 2026-01-30 09:14:52.000000000 Z
+  when: &316 2026-01-30 09:14:52.000000000 Z
   where: github
   who: 8086956
 - _id: 414497
@@ -30951,7 +30925,7 @@
   review_comments: 0
   seconds: 13940
   what: code-was-contributed
-  when: *306
+  when: *305
   where: github
   who: 29139614
 - _id: 414524
@@ -31109,7 +31083,7 @@
   review_comments: 0
   seconds: 83929
   what: code-was-contributed
-  when: *307
+  when: *306
   where: github
   who: 29139614
 - _id: 414532
@@ -31127,7 +31101,7 @@
   review_comments: 0
   seconds: 41937
   what: code-was-contributed
-  when: *308
+  when: *307
   where: github
   who: 29139614
 - _id: 414533
@@ -31145,7 +31119,7 @@
   review_comments: 0
   seconds: 29658
   what: code-was-contributed
-  when: *309
+  when: *308
   where: github
   who: 49699333
 - _id: 414534
@@ -31163,7 +31137,7 @@
   review_comments: 0
   seconds: 28333
   what: code-was-contributed
-  when: *310
+  when: *309
   where: github
   who: 49699333
 - _id: 414535
@@ -31181,7 +31155,7 @@
   review_comments: 0
   seconds: 15826
   what: code-was-contributed
-  when: *311
+  when: *310
   where: github
   who: 29139614
 - _id: 414536
@@ -31199,7 +31173,7 @@
   review_comments: 0
   seconds: 24153
   what: code-was-contributed
-  when: *312
+  when: *311
   where: github
   who: 29139614
 - _id: 414537
@@ -31217,7 +31191,7 @@
   review_comments: 0
   seconds: 13352
   what: code-was-contributed
-  when: *313
+  when: *312
   where: github
   who: 29139614
 - _id: 414538
@@ -31235,7 +31209,7 @@
   review_comments: 0
   seconds: 16855
   what: code-was-contributed
-  when: *314
+  when: *313
   where: github
   who: 29139614
 - _id: 414539
@@ -31253,7 +31227,7 @@
   review_comments: 0
   seconds: 37599
   what: code-was-contributed
-  when: *315
+  when: *314
   where: github
   who: 29139614
 - _id: 414540
@@ -31271,7 +31245,7 @@
   review_comments: 0
   seconds: 50282
   what: code-was-contributed
-  when: *316
+  when: *315
   where: github
   who: 29139614
 - _id: 414541
@@ -31289,7 +31263,7 @@
   review_comments: 0
   seconds: 36529
   what: code-was-contributed
-  when: *317
+  when: *316
   where: github
   who: 29139614
 - _id: 414542
@@ -31428,48 +31402,6 @@
     The average weekly cost of HoC (2.17 points) is staying still.
   what: assessment
   when: 2026-01-31 14:04:38.887637100 Z
-- _id: 414558
-  _job: 59356
-  _time: 2026-01-31 18:01:02.105081524 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  issues:
-  - 1-76
-  - 78-115
-  - 117-124
-  - 126-149
-  - 151-160
-  - 162-165
-  - 167-181
-  - 183-279
-  - '281'
-  - '284'
-  - 287-318
-  - 320-335
-  - 337-342
-  - 345-348
-  - 350-365
-  - 367-369
-  - 371-417
-  - 419-430
-  - 435-437
-  - 439-453
-  - 455-462
-  - 464-484
-  - 490-527
-  - 529-535
-  - 537-538
-  - 541-569
-  - 571-583
-  - 585-595
-  - 597-598
-  - 601-613
-  - 615-652
-  - 654-675
-  - 678-687
-  - 689-691
-  repository: 237167507
-  what: tombstone
-  where: github
 - _id: 414560
   _job: 59390
   _time: 2026-02-01 00:00:57.483023635 Z
@@ -31550,7 +31482,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: &318 2026-02-01 04:14:51.000000000 Z
+  when: &317 2026-02-01 04:14:51.000000000 Z
   where: github
   who: 8086956
 - _id: 414567
@@ -31606,16 +31538,59 @@
   review_comments: 0
   seconds: 15242
   what: code-was-contributed
-  when: *318
+  when: *317
   where: github
   who: 29139614
-- _id: 414571
-  _job: 21558872579
-  _time: 2026-02-01 07:27:45.281283025 Z
+- _id: 414572
+  _job: 59416
+  _time: 2026-02-01 07:29:48.525570058 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  issues:
+  - 1-76
+  - 78-115
+  - 117-124
+  - 126-149
+  - 151-160
+  - 162-165
+  - 167-181
+  - 183-279
+  - '281'
+  - '284'
+  - 287-318
+  - 320-335
+  - 337-342
+  - 345-348
+  - 350-365
+  - 367-369
+  - 371-417
+  - 419-430
+  - 435-437
+  - 439-453
+  - 455-462
+  - 464-484
+  - 490-527
+  - 529-535
+  - 537-538
+  - 541-569
+  - 571-583
+  - 585-595
+  - 597-598
+  - 601-613
+  - 615-652
+  - 654-675
+  - 678-687
+  - 689-691
+  - '694'
+  repository: 237167507
+  what: tombstone
+  where: github
+- _id: 414573
+  _job: 21559289766
+  _time: 2026-02-01 08:01:23.407159825 Z
   _version: 0.19.3/0.59.0/0.17.10
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 7709555677
+  events_were_scanned: 7714234930
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
