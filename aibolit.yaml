@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 211.056798335
+  seconds: 171.325215238
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-01 05:19:49.807895012 Z
+  when: 2026-02-01 06:34:49.699582859 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -31546,29 +31546,13 @@
   issue: 1057
   repository: 237167507
   review: 2026-02-01 03:54:12.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
   when: 2026-02-01 04:14:51.000000000 Z
   where: github
   who: 8086956
-- _id: 414566
-  _job: 21557224883
-  _time: 2026-02-01 05:17:34.325079278 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 8016233663
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 1034
-  min_issue_was_found: 963
-  min_pull_was_found: 1057
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414567
   _job: 21557224883
   _time: 2026-02-01 05:18:30.040516248 Z
@@ -31587,3 +31571,40 @@
   when: 2026-02-01 03:54:12.000000000 Z
   where: github
   who: 526301
+- _id: 414568
+  _job: 59406
+  _time: 2026-02-01 05:20:54.994254957 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  award: 4
+  comments: 4
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1057,
+    the reward amount is 4.
+  hoc: 154
+  href: https://github.com/cqfn/aibolit/issues/1057/#issuecomment-3830400161
+  is_human: 1
+  issue: 1057
+  repository: 237167507
+  review_comments: 0
+  seconds: 14003
+  what: code-review-was-rewarded
+  when: 2026-02-01 05:20:20.624742835 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1057
+- _id: 414569
+  _job: 21558190302
+  _time: 2026-02-01 06:32:02.167024855 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 6217592482
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 1034
+  min_issue_was_found: 963
+  min_pull_was_found: 1057
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
