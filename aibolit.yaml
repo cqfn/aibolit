@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 169.84267229
+  seconds: 211.444502441
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-02 17:29:08.035289237 Z
+  when: 2026-02-02 23:06:22.246155818 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -30970,12 +30970,12 @@
   what: assessment
   when: 2026-02-02 14:33:25.051455909 Z
 - _id: 414598
-  _job: 21600335212
-  _time: 2026-02-02 17:26:23.028263838 Z
+  _job: 21609383667
+  _time: 2026-02-02 23:02:56.419460595 Z
   _version: 0.19.3/0.59.0/0.17.10
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 8059284904
+  events_were_scanned: 8060358796
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
@@ -30986,3 +30986,46 @@
   types_were_scanned: 952
   what: iterate
   where: github
+- _id: 414599
+  _job: 21609383667
+  _time: 2026-02-02 23:03:27.387688344 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  branch: renovate/ruby-4.x
+  comments: 4
+  comments_appreciated: 1
+  comments_by_author: 0
+  comments_by_reviewers: 4
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#1040 has been "pull-was-merged".
+  failed_builds: 0
+  files: 1
+  hoc: 2
+  is_human: 0
+  issue: 1040
+  repository: 237167507
+  review: 2026-02-02 16:45:26.000000000 Z
+  succeeded_builds: 18
+  suggestions: 0
+  what: pull-was-merged
+  when: 2026-02-02 17:31:19.000000000 Z
+  where: github
+  who: 8086956
+- _id: 414600
+  _job: 21609383667
+  _time: 2026-02-02 23:04:59.285346114 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  author: 29139614
+  comments: 4
+  details: The pull request cqfn/aibolit#1040 with 2 HoC created by @renovate[bot]
+    was reviewed by @yegor256 after 491h27m and 0 comments.
+  hoc: 2
+  is_human: 1
+  issue: 1040
+  repository: 237167507
+  review_comments: 0
+  seconds: 1769246
+  what: code-was-reviewed
+  when: 2026-02-02 16:45:26.000000000 Z
+  where: github
+  who: 526301
