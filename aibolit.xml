@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="591860">
+<fb version="0.19.3" size="591219">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">189.465631437</seconds>
+    <seconds t="F">182.009917256</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-02T08:29:54Z</when>
+    <when t="T">2026-02-02T09:35:36Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -5005,30 +5005,6 @@
     <who t="I">60981750</who>
   </f>
   <f>
-    <_id t="I">35307</_id>
-    <_job t="I">32439</_job>
-    <_time t="T">2025-08-10T10:05:00Z</_time>
-    <_version t="S">0.14.5/0.52.2/0.15.9</_version>
-    <branch t="S">697</branch>
-    <comments t="I">2</comments>
-    <comments_appreciated t="I">0</comments_appreciated>
-    <comments_by_author t="I">1</comments_by_author>
-    <comments_by_reviewers t="I">1</comments_by_reviewers>
-    <comments_resolved t="I">0</comments_resolved>
-    <comments_to_code t="I">0</comments_to_code>
-    <details t="S">Apparently, pull request cqfn/aibolit#699 has been closed by @literally-bug-creator, with 3 HoC and 2 comments.</details>
-    <failed_builds t="I">3</failed_builds>
-    <hoc t="I">3</hoc>
-    <is_human t="I">1</is_human>
-    <issue t="I">699</issue>
-    <repository t="I">237167507</repository>
-    <succeeded_builds t="I">13</succeeded_builds>
-    <what t="S">pull-was-closed</what>
-    <when t="T">2025-05-22T07:59:39Z</when>
-    <where t="S">github</where>
-    <who t="I">84927447</who>
-  </f>
-  <f>
     <_id t="I">35326</_id>
     <_job t="I">32439</_job>
     <_time t="T">2025-08-10T10:05:01Z</_time>
@@ -5277,21 +5253,6 @@
     <when t="T">2025-05-27T11:57:07Z</when>
     <where t="S">github</where>
     <who t="I">526301</who>
-  </f>
-  <f>
-    <_id t="I">35811</_id>
-    <_job t="I">32539</_job>
-    <_time t="T">2025-08-10T19:06:09Z</_time>
-    <_version t="S">0.14.7/0.52.2/0.15.10</_version>
-    <branch t="S">697</branch>
-    <details t="S">cqfn/aibolit#699 has been opened by @literally-bug-creator.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">699</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2025-05-21T13:01:27Z</when>
-    <where t="S">github</where>
-    <who t="I">84927447</who>
   </f>
   <f>
     <_id t="I">35840</_id>
@@ -33879,9 +33840,37 @@ The average weekly cost of HoC (2.17 points) is staying still.</text>
     <when t="T">2026-02-01T14:14:43Z</when>
   </f>
   <f>
-    <_id t="I">414583</_id>
-    <_job t="I">59516</_job>
-    <_time t="T">2026-02-01T15:04:14Z</_time>
+    <_id t="I">414587</_id>
+    <_job t="I">59571</_job>
+    <_time t="T">2026-02-02T03:37:14Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <cost_of_qod>
+      <v t="F">8.571428571428571</v>
+      <v t="F">7.507218479307026</v>
+      <v t="F">-0.2996030259905625</v>
+      <v t="F">-5.536332179930795</v>
+      <v t="F">-29.357798165137613</v>
+      <v t="F">-63.745019920318725</v>
+      <v t="F">-4.153686396677051</v>
+      <v t="F">-42.44031830238727</v>
+    </cost_of_qod>
+    <qod_per_day>
+      <v t="F">1.6500000001292583</v>
+      <v t="F">2.9685714288025533</v>
+      <v t="F">1.907285714434459</v>
+      <v t="F">0.41285714289175585</v>
+      <v t="F">0.07785714305026051</v>
+      <v t="F">0.03585714296881663</v>
+      <v t="F">0.13757142891724966</v>
+      <v t="F">0.0538571429820274</v>
+    </qod_per_day>
+    <what t="S">learn-eva</what>
+    <when t="T">2026-02-02T03:37:14Z</when>
+  </f>
+  <f>
+    <_id t="I">414589</_id>
+    <_job t="I">59614</_job>
+    <_time t="T">2026-02-02T08:30:31Z</_time>
     <_version t="S">0.19.3/0.59.0/0.17.10</_version>
     <issues>
       <v t="S">1-76</v>
@@ -33918,49 +33907,20 @@ The average weekly cost of HoC (2.17 points) is staying still.</text>
       <v t="S">654-675</v>
       <v t="S">678-691</v>
       <v t="S">693-695</v>
-      <v t="S">698</v>
-      <v t="S">700</v>
+      <v t="S">698-700</v>
     </issues>
     <repository t="I">237167507</repository>
     <what t="S">tombstone</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">414587</_id>
-    <_job t="I">59571</_job>
-    <_time t="T">2026-02-02T03:37:14Z</_time>
-    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
-    <cost_of_qod>
-      <v t="F">8.571428571428571</v>
-      <v t="F">7.507218479307026</v>
-      <v t="F">-0.2996030259905625</v>
-      <v t="F">-5.536332179930795</v>
-      <v t="F">-29.357798165137613</v>
-      <v t="F">-63.745019920318725</v>
-      <v t="F">-4.153686396677051</v>
-      <v t="F">-42.44031830238727</v>
-    </cost_of_qod>
-    <qod_per_day>
-      <v t="F">1.6500000001292583</v>
-      <v t="F">2.9685714288025533</v>
-      <v t="F">1.907285714434459</v>
-      <v t="F">0.41285714289175585</v>
-      <v t="F">0.07785714305026051</v>
-      <v t="F">0.03585714296881663</v>
-      <v t="F">0.13757142891724966</v>
-      <v t="F">0.0538571429820274</v>
-    </qod_per_day>
-    <what t="S">learn-eva</what>
-    <when t="T">2026-02-02T03:37:14Z</when>
-  </f>
-  <f>
-    <_id t="I">414588</_id>
-    <_job t="I">21582650219</_job>
-    <_time t="T">2026-02-02T08:26:49Z</_time>
+    <_id t="I">414590</_id>
+    <_job t="I">21584640092</_job>
+    <_time t="T">2026-02-02T09:32:38Z</_time>
     <_version t="S">0.19.3/0.59.0/0.17.10</_version>
     <assignees_were_scanned t="I">743</assignees_were_scanned>
     <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">8041663526</events_were_scanned>
+    <events_were_scanned t="I">8042877837</events_were_scanned>
     <issues_were_scanned t="I">432</issues_were_scanned>
     <labels_were_scanned t="I">896</labels_were_scanned>
     <latest_issue_was_found t="I">903</latest_issue_was_found>

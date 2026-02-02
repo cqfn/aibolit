@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 189.465631437
+  seconds: 182.009917256
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-02 08:29:54.098762902 Z
+  when: 2026-02-02 09:35:36.104053565 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -4500,29 +4500,6 @@
   when: 2025-06-18 05:59:30.443814906 Z
   where: github
   who: 60981750
-- _id: 35307
-  _job: 32439
-  _time: 2025-08-10 10:05:00.114905344 Z
-  _version: 0.14.5/0.52.2/0.15.9
-  branch: '697'
-  comments: 2
-  comments_appreciated: 0
-  comments_by_author: 1
-  comments_by_reviewers: 1
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, pull request cqfn/aibolit#699 has been closed by @literally-bug-creator,
-    with 3 HoC and 2 comments.
-  failed_builds: 3
-  hoc: 3
-  is_human: 1
-  issue: 699
-  repository: 237167507
-  succeeded_builds: 13
-  what: pull-was-closed
-  when: 2025-05-22 07:59:39.000000000 Z
-  where: github
-  who: 84927447
 - _id: 35326
   _job: 32439
   _time: 2025-08-10 10:05:01.357463137 Z
@@ -4756,19 +4733,6 @@
   when: *42
   where: github
   who: 526301
-- _id: 35811
-  _job: 32539
-  _time: 2025-08-10 19:06:09.553601466 Z
-  _version: 0.14.7/0.52.2/0.15.10
-  branch: '697'
-  details: cqfn/aibolit#699 has been opened by @literally-bug-creator.
-  is_human: 1
-  issue: 699
-  repository: 237167507
-  what: pull-was-opened
-  when: 2025-05-21 13:01:27.000000000 Z
-  where: github
-  who: 84927447
 - _id: 35840
   _job: 32539
   _time: 2025-08-10 19:06:11.443271743 Z
@@ -31250,9 +31214,33 @@
     The average weekly cost of HoC (2.17 points) is staying still.
   what: assessment
   when: 2026-02-01 14:14:43.467321979 Z
-- _id: 414583
-  _job: 59516
-  _time: 2026-02-01 15:04:14.970871717 Z
+- _id: 414587
+  _job: 59571
+  _time: 2026-02-02 03:37:14.512255947 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  - -29.357798165137613
+  - -63.745019920318725
+  - -4.153686396677051
+  - -42.44031830238727
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  - 0.07785714305026051
+  - 0.03585714296881663
+  - 0.13757142891724966
+  - 0.0538571429820274
+  what: learn-eva
+  when: 2026-02-02 03:37:14.471204557 Z
+- _id: 414589
+  _job: 59614
+  _time: 2026-02-02 08:30:31.601837075 Z
   _version: 0.19.3/0.59.0/0.17.10
   issues:
   - 1-76
@@ -31289,42 +31277,17 @@
   - 654-675
   - 678-691
   - 693-695
-  - '698'
-  - '700'
+  - 698-700
   repository: 237167507
   what: tombstone
   where: github
-- _id: 414587
-  _job: 59571
-  _time: 2026-02-02 03:37:14.512255947 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  - -5.536332179930795
-  - -29.357798165137613
-  - -63.745019920318725
-  - -4.153686396677051
-  - -42.44031830238727
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  - 0.41285714289175585
-  - 0.07785714305026051
-  - 0.03585714296881663
-  - 0.13757142891724966
-  - 0.0538571429820274
-  what: learn-eva
-  when: 2026-02-02 03:37:14.471204557 Z
-- _id: 414588
-  _job: 21582650219
-  _time: 2026-02-02 08:26:49.193026756 Z
+- _id: 414590
+  _job: 21584640092
+  _time: 2026-02-02 09:32:38.416377931 Z
   _version: 0.19.3/0.59.0/0.17.10
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 8041663526
+  events_were_scanned: 8042877837
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
