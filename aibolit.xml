@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="584716">
+<fb version="0.19.3" size="584720">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">99.359975156</seconds>
+    <seconds t="F">186.533583217</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-02T14:32:59Z</when>
+    <when t="T">2026-02-02T15:29:20Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -33296,27 +33296,6 @@
     <when t="T">2026-01-31T14:02:57Z</when>
   </f>
   <f>
-    <_id t="I">414552</_id>
-    <_job t="I">59335</_job>
-    <_time t="T">2026-01-31T14:04:38Z</_time>
-    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
-    <analyzers t="I">18</analyzers>
-    <text t="S">The average reward per task (6.2 points) is decreasing (R=-0.50).
-The average punishment per task (15.0 points) is decreasing (R=0.12).
-The average number of builds per week (842.4) is decreasing (R=-0.56).
-The average number of commits per week (11.4) is decreasing (R=-0.41).
-The average bugs accepted per month (9.0) is decreasing (R=-0.82).
-The average monthly punishment (71 points) is decreasing (R=-0.77).
-The average monthly wage (6.9 points) is decreasing (R=-0.43).
-The average issue cycle time (1w2d) is increasing (R=0.46).
-The average pull cycle time (2d4h) is staying still.
-The average number of releases per month (0.0) is staying still.
-The average monthly turnover (12.0 developers) is decreasing (R=-0.91).
-The average weekly cost of HoC (2.17 points) is staying still.</text>
-    <what t="S">assessment</what>
-    <when t="T">2026-01-31T14:04:38Z</when>
-  </f>
-  <f>
     <_id t="I">414562</_id>
     <_job t="I">21557224883</_job>
     <_time t="T">2026-02-01T05:16:23Z</_time>
@@ -33507,25 +33486,6 @@ The average weekly cost of HoC (2.17 points) is staying still.</text>
     <when t="T">2026-02-02T12:04:46Z</when>
   </f>
   <f>
-    <_id t="I">414594</_id>
-    <_job t="I">21592657210</_job>
-    <_time t="T">2026-02-02T13:50:35Z</_time>
-    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
-    <assignees_were_scanned t="I">743</assignees_were_scanned>
-    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">8049058831</events_were_scanned>
-    <issues_were_scanned t="I">432</issues_were_scanned>
-    <labels_were_scanned t="I">896</labels_were_scanned>
-    <latest_issue_was_found t="I">903</latest_issue_was_found>
-    <merges_were_scanned t="I">1034</merges_were_scanned>
-    <min_issue_was_found t="I">963</min_issue_was_found>
-    <min_pull_was_found t="I">1057</min_pull_was_found>
-    <repository t="I">237167507</repository>
-    <types_were_scanned t="I">952</types_were_scanned>
-    <what t="S">iterate</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">414595</_id>
     <_job t="I">59664</_job>
     <_time t="T">2026-02-02T13:54:21Z</_time>
@@ -33591,5 +33551,45 @@ The average weekly cost of HoC (2.17 points) is staying still.</text>
     <total_stars t="I">95</total_stars>
     <what t="S">dimensions-of-terrain</what>
     <when t="T">2026-02-02T14:31:24Z</when>
+  </f>
+  <f>
+    <_id t="I">414597</_id>
+    <_job t="I">59668</_job>
+    <_time t="T">2026-02-02T14:33:25Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <analyzers t="I">18</analyzers>
+    <text t="S">The average reward per task (6.2 points) is decreasing (R=-0.50).
+The average punishment per task (15.0 points) is decreasing (R=0.12).
+The average number of builds per week (842.4) is decreasing (R=-0.56).
+The average number of commits per week (11.4) is decreasing (R=-0.41).
+The average bugs accepted per month (9.0) is decreasing (R=-0.82).
+The average monthly punishment (71 points) is decreasing (R=-0.77).
+The average monthly wage (6.6 points) is decreasing (R=-0.51).
+The average issue cycle time (1w1d) is increasing (R=0.43).
+The average pull cycle time (2d6h) is staying still.
+The average number of releases per month (0.0) is staying still.
+The average monthly turnover (11.0 developers) is decreasing (R=-0.89).
+The average weekly cost of HoC (2.17 points) is staying still.</text>
+    <what t="S">assessment</what>
+    <when t="T">2026-02-02T14:33:25Z</when>
+  </f>
+  <f>
+    <_id t="I">414598</_id>
+    <_job t="I">21596052364</_job>
+    <_time t="T">2026-02-02T15:26:18Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <assignees_were_scanned t="I">743</assignees_were_scanned>
+    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
+    <events_were_scanned t="I">8053903171</events_were_scanned>
+    <issues_were_scanned t="I">432</issues_were_scanned>
+    <labels_were_scanned t="I">896</labels_were_scanned>
+    <latest_issue_was_found t="I">903</latest_issue_was_found>
+    <merges_were_scanned t="I">1034</merges_were_scanned>
+    <min_issue_was_found t="I">963</min_issue_was_found>
+    <min_pull_was_found t="I">1057</min_pull_was_found>
+    <repository t="I">237167507</repository>
+    <types_were_scanned t="I">952</types_were_scanned>
+    <what t="S">iterate</what>
+    <where t="S">github</where>
   </f>
 </fb>
