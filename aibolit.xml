@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="591219">
+<fb version="0.19.3" size="590606">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">182.009917256</seconds>
+    <seconds t="F">78.973029386</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-02T09:35:36Z</when>
+    <when t="T">2026-02-02T10:31:58Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -5793,6 +5793,7 @@
     <is_human t="I">1</is_human>
     <issue t="I">703</issue>
     <repository t="I">237167507</repository>
+    <tombstone t="T">2026-02-02T09:36:14Z</tombstone>
     <what t="S">issue-was-closed</what>
     <when t="T">2025-05-22T09:39:53Z</when>
     <where t="S">github</where>
@@ -6717,21 +6718,6 @@
     <repository t="I">237167507</repository>
     <what t="S">dud-was-closed</what>
     <when t="T">2025-05-23T08:24:34Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
-    <_id t="I">53807</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:33Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <closer t="I">526301</closer>
-    <details t="S">In the repository #237167507, the user #41443370 submitted the issue #703 which was later closed by the user #526301 not becoming a bug or enhancement; this means that the issue was not valid, maybe a duplicate or simply a mistake.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">703</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">dud-was-closed</what>
-    <when t="T">2025-05-22T08:46:04Z</when>
     <where t="S">github</where>
     <who t="I">41443370</who>
   </f>
@@ -9166,20 +9152,6 @@
     <repository t="I">237167507</repository>
     <what t="S">issue-was-opened</what>
     <when t="T">2025-05-22T08:41:31Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
-    <_id t="I">54026</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:46Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <details t="S">The issue cqfn/aibolit#703 has been opened by @ivanovmg.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">703</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">issue-was-opened</what>
-    <when t="T">2025-05-22T08:46:04Z</when>
     <where t="S">github</where>
     <who t="I">41443370</who>
   </f>
@@ -33868,9 +33840,28 @@ The average weekly cost of HoC (2.17 points) is staying still.</text>
     <when t="T">2026-02-02T03:37:14Z</when>
   </f>
   <f>
-    <_id t="I">414589</_id>
-    <_job t="I">59614</_job>
-    <_time t="T">2026-02-02T08:30:31Z</_time>
+    <_id t="I">414590</_id>
+    <_job t="I">21584640092</_job>
+    <_time t="T">2026-02-02T09:32:38Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <assignees_were_scanned t="I">743</assignees_were_scanned>
+    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
+    <events_were_scanned t="I">8042877837</events_were_scanned>
+    <issues_were_scanned t="I">432</issues_were_scanned>
+    <labels_were_scanned t="I">896</labels_were_scanned>
+    <latest_issue_was_found t="I">903</latest_issue_was_found>
+    <merges_were_scanned t="I">1034</merges_were_scanned>
+    <min_issue_was_found t="I">963</min_issue_was_found>
+    <min_pull_was_found t="I">1057</min_pull_was_found>
+    <repository t="I">237167507</repository>
+    <types_were_scanned t="I">952</types_were_scanned>
+    <what t="S">iterate</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">414591</_id>
+    <_job t="I">59619</_job>
+    <_time t="T">2026-02-02T09:36:18Z</_time>
     <_version t="S">0.19.3/0.59.0/0.17.10</_version>
     <issues>
       <v t="S">1-76</v>
@@ -33908,28 +33899,10 @@ The average weekly cost of HoC (2.17 points) is staying still.</text>
       <v t="S">678-691</v>
       <v t="S">693-695</v>
       <v t="S">698-700</v>
+      <v t="S">703</v>
     </issues>
     <repository t="I">237167507</repository>
     <what t="S">tombstone</what>
-    <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">414590</_id>
-    <_job t="I">21584640092</_job>
-    <_time t="T">2026-02-02T09:32:38Z</_time>
-    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
-    <assignees_were_scanned t="I">743</assignees_were_scanned>
-    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">8042877837</events_were_scanned>
-    <issues_were_scanned t="I">432</issues_were_scanned>
-    <labels_were_scanned t="I">896</labels_were_scanned>
-    <latest_issue_was_found t="I">903</latest_issue_was_found>
-    <merges_were_scanned t="I">1034</merges_were_scanned>
-    <min_issue_was_found t="I">963</min_issue_was_found>
-    <min_pull_was_found t="I">1057</min_pull_was_found>
-    <repository t="I">237167507</repository>
-    <types_were_scanned t="I">952</types_were_scanned>
-    <what t="S">iterate</what>
     <where t="S">github</where>
   </f>
 </fb>
