@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 127.85436035
+  seconds: 186.986967784
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-03 15:37:32.132263730 Z
+  when: 2026-02-03 16:39:05.885987469 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -1910,34 +1910,6 @@
   repository: 237167507
   what: issue-was-opened
   when: 2025-05-23 16:59:57.000000000 Z
-  where: github
-  who: 84927447
-- _id: 34401
-  _job: 32439
-  _time: 2025-08-10 10:03:45.787536762 Z
-  _version: 0.14.5/0.52.2/0.15.9
-  details: The issue cqfn/aibolit#718 has been closed by @literally-bug-creator.
-  event_id: 50077071042
-  event_type: IssuesEvent
-  is_human: 1
-  issue: 718
-  repository: 237167507
-  what: issue-was-closed
-  when: 2025-05-23 14:46:14.000000000 Z
-  where: github
-  who: 84927447
-- _id: 34404
-  _job: 32439
-  _time: 2025-08-10 10:03:46.004361196 Z
-  _version: 0.14.5/0.52.2/0.15.9
-  details: The issue cqfn/aibolit#718 has been opened by @literally-bug-creator.
-  event_id: 50073662791
-  event_type: IssuesEvent
-  is_human: 1
-  issue: 718
-  repository: 237167507
-  what: issue-was-opened
-  when: 2025-05-23 13:28:14.000000000 Z
   where: github
   who: 84927447
 - _id: 34421
@@ -9870,18 +9842,6 @@
   tombstone: 2025-09-27 13:59:36.766904447 Z
   what: issue-was-closed
   when: 2025-05-25 22:12:20.000000000 Z
-  where: github
-  who: 526301
-- _id: 126498
-  _job: 18060677827
-  _time: 2025-09-27 13:57:58.892100872 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: Apparently, cqfn/aibolit#712 has been 'issue-was-closed'.
-  issue: 712
-  repository: 237167507
-  tombstone: 2025-09-27 13:59:36.396975124 Z
-  what: issue-was-closed
-  when: 2025-05-23 14:16:48.000000000 Z
   where: github
   who: 526301
 - _id: 126499
@@ -30355,26 +30315,6 @@
   total_stars: 95
   what: dimensions-of-terrain
   when: 2026-02-01 14:12:54.195275228 Z
-- _id: 414580
-  _job: 59512
-  _time: 2026-02-01 14:14:43.445859174 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  analyzers: 18
-  text: |-
-    The average reward per task (6.2 points) is decreasing (R=-0.50).
-    The average punishment per task (15.0 points) is decreasing (R=0.12).
-    The average number of builds per week (842.4) is decreasing (R=-0.56).
-    The average number of commits per week (11.4) is decreasing (R=-0.41).
-    The average bugs accepted per month (9.0) is decreasing (R=-0.82).
-    The average monthly punishment (71 points) is decreasing (R=-0.77).
-    The average monthly wage (6.6 points) is decreasing (R=-0.51).
-    The average issue cycle time (1w) is increasing (R=0.43).
-    The average pull cycle time (2d5h) is staying still.
-    The average number of releases per month (0.0) is staying still.
-    The average monthly turnover (11.0 developers) is decreasing (R=-0.89).
-    The average weekly cost of HoC (2.17 points) is staying still.
-  what: assessment
-  when: 2026-02-01 14:14:43.467321979 Z
 - _id: 414596
   _job: 21594063524
   _time: 2026-02-02 14:31:24.665930429 Z
@@ -30493,33 +30433,45 @@
   when: *297
   where: github
   who: 29139614
-- _id: 414606
-  _job: 59837
-  _time: 2026-02-03 07:36:53.915492213 Z
+- _id: 414614
+  _job: 21636543624
+  _time: 2026-02-03 15:36:12.162175192 Z
   _version: 0.19.3/0.59.0/0.17.10
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  - -5.536332179930795
-  - -29.357798165137613
-  - -63.745019920318725
-  - -4.153686396677051
-  - -42.44031830238727
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  - 0.41285714289175585
-  - 0.07785714305026051
-  - 0.03585714296881663
-  - 0.13757142891724966
-  - 0.0538571429820274
-  what: learn-eva
-  when: 2026-02-03 07:36:53.877243790 Z
-- _id: 414612
-  _job: 59954
-  _time: 2026-02-03 13:54:59.759042208 Z
+  total_active_contributors: 4
+  total_commits: 2939
+  total_contributors: 28
+  total_files: 1049
+  total_forks: 39
+  total_issues: 447
+  total_pulls: 611
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 95
+  what: dimensions-of-terrain
+  when: 2026-02-03 15:36:12.185715645 Z
+- _id: 414615
+  _job: 59978
+  _time: 2026-02-03 15:37:58.206103158 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  analyzers: 18
+  text: |-
+    The average reward per task (6.2 points) is decreasing (R=-0.50).
+    The average punishment per task (15.0 points) is decreasing (R=0.12).
+    The average number of builds per week (842.4) is decreasing (R=-0.56).
+    The average number of commits per week (11.4) is decreasing (R=-0.41).
+    The average bugs accepted per month (9.0) is decreasing (R=-0.82).
+    The average monthly punishment (71 points) is decreasing (R=-0.77).
+    The average monthly wage (6.6 points) is decreasing (R=-0.51).
+    The average issue cycle time (1w1d) is increasing (R=0.44).
+    The average pull cycle time (2d9h) is staying still.
+    The average number of releases per month (0.0) is staying still.
+    The average monthly turnover (11.0 developers) is decreasing (R=-0.89).
+    The average weekly cost of HoC (2.05 points) is staying still.
+  what: assessment
+  when: 2026-02-03 15:37:58.228743777 Z
+- _id: 414616
+  _job: 59978
+  _time: 2026-02-03 15:38:14.728302197 Z
   _version: 0.19.3/0.59.0/0.17.10
   issues:
   - 1-76
@@ -30558,17 +30510,41 @@
   - 693-696
   - 698-701
   - 703-716
-  - '719'
+  - 718-719
   repository: 237167507
   what: tombstone
   where: github
-- _id: 414613
-  _job: 21636543624
-  _time: 2026-02-03 15:35:28.587362354 Z
+- _id: 414617
+  _job: 59978
+  _time: 2026-02-03 15:39:03.332737844 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  - -29.357798165137613
+  - -63.745019920318725
+  - -4.153686396677051
+  - -42.44031830238727
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  - 0.07785714305026051
+  - 0.03585714296881663
+  - 0.13757142891724966
+  - 0.0538571429820274
+  what: learn-eva
+  when: 2026-02-03 15:39:03.311622384 Z
+- _id: 414618
+  _job: 21638649456
+  _time: 2026-02-03 16:36:03.954068290 Z
   _version: 0.19.3/0.59.0/0.17.10
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 8089781589
+  events_were_scanned: 8093428672
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
@@ -30579,19 +30555,3 @@
   types_were_scanned: 952
   what: iterate
   where: github
-- _id: 414614
-  _job: 21636543624
-  _time: 2026-02-03 15:36:12.162175192 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  total_active_contributors: 4
-  total_commits: 2939
-  total_contributors: 28
-  total_files: 1049
-  total_forks: 39
-  total_issues: 447
-  total_pulls: 611
-  total_releases: 28
-  total_repositories: 1
-  total_stars: 95
-  what: dimensions-of-terrain
-  when: 2026-02-03 15:36:12.185715645 Z
