@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="580224">
+<fb version="0.19.3" size="578364">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">87.007408289</seconds>
+    <seconds t="F">140.344478992</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-03T10:26:38Z</when>
+    <when t="T">2026-02-03T11:25:25Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -4990,31 +4990,6 @@
     <who t="I">60981750</who>
   </f>
   <f>
-    <_id t="I">35331</_id>
-    <_job t="I">32439</_job>
-    <_time t="T">2025-08-10T10:05:01Z</_time>
-    <_version t="S">0.14.5/0.52.2/0.15.9</_version>
-    <branch t="S">713</branch>
-    <comments t="I">2</comments>
-    <comments_appreciated t="I">0</comments_appreciated>
-    <comments_by_author t="I">1</comments_by_author>
-    <comments_by_reviewers t="I">1</comments_by_reviewers>
-    <comments_resolved t="I">0</comments_resolved>
-    <comments_to_code t="I">0</comments_to_code>
-    <details t="S">Apparently, pull request cqfn/aibolit#714 has been merged by @yegor256, with 38 HoC and 2 comments.</details>
-    <failed_builds t="I">2</failed_builds>
-    <hoc t="I">38</hoc>
-    <is_human t="I">1</is_human>
-    <issue t="I">714</issue>
-    <repository t="I">237167507</repository>
-    <review_comments t="I">0</review_comments>
-    <succeeded_builds t="I">14</succeeded_builds>
-    <what t="S">pull-was-merged</what>
-    <when t="T">2025-05-23T09:59:23Z</when>
-    <where t="S">github</where>
-    <who t="I">526301</who>
-  </f>
-  <f>
     <_id t="I">35332</_id>
     <_job t="I">32439</_job>
     <_time t="T">2025-08-10T10:05:01Z</_time>
@@ -5615,21 +5590,6 @@
     <who t="I">150797125</who>
   </f>
   <f>
-    <_id t="I">36331</_id>
-    <_job t="I">32562</_job>
-    <_time t="T">2025-08-10T23:03:13Z</_time>
-    <_version t="S">0.14.7/0.52.2/0.15.10</_version>
-    <details t="S">Apparently, cqfn/aibolit#713 has been 'issue-was-closed'.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">713</issue>
-    <repository t="I">237167507</repository>
-    <tombstone t="T">2026-02-03T08:25:07Z</tombstone>
-    <what t="S">issue-was-closed</what>
-    <when t="T">2025-05-23T09:59:24Z</when>
-    <where t="S">github</where>
-    <who t="I">526301</who>
-  </f>
-  <f>
     <_id t="I">36332</_id>
     <_job t="I">32562</_job>
     <_time t="T">2025-08-10T23:03:13Z</_time>
@@ -5638,6 +5598,7 @@
     <is_human t="I">1</is_human>
     <issue t="I">715</issue>
     <repository t="I">237167507</repository>
+    <tombstone t="T">2026-02-03T10:27:14Z</tombstone>
     <what t="S">issue-was-closed</what>
     <when t="T">2025-05-23T12:42:47Z</when>
     <where t="S">github</where>
@@ -6291,25 +6252,6 @@
     <who t="I">13173649</who>
   </f>
   <f>
-    <_id t="I">53751</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:29Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <comments t="I">2</comments>
-    <details t="S">The pull request cqfn/aibolit#714 with 38 HoC created by @ivanovmg was merged by @yegor256 after 26m8s of being in review and 2 comments.</details>
-    <hoc t="I">38</hoc>
-    <is_human t="I">1</is_human>
-    <issue t="I">714</issue>
-    <merger t="I">526301</merger>
-    <repository t="I">237167507</repository>
-    <review_comments t="I">0</review_comments>
-    <seconds t="I">1569</seconds>
-    <what t="S">code-was-contributed</what>
-    <when t="T">2025-05-23T09:59:23Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
     <_id t="I">53752</_id>
     <_job t="I">34187</_job>
     <_time t="T">2025-08-24T08:04:29Z</_time>
@@ -6381,21 +6323,6 @@
     <seconds t="I">101348</seconds>
     <what t="S">bug-was-resolved</what>
     <when t="T">2025-06-05T09:24:20Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
-    <_id t="I">53792</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:32Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <closer t="I">526301</closer>
-    <details t="S">In the repository #237167507, the user #41443370 submitted the issue #715 which was later closed by the user #526301 not becoming a bug or enhancement; this means that the issue was not valid, maybe a duplicate or simply a mistake.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">715</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">dud-was-closed</what>
-    <when t="T">2025-05-23T10:10:11Z</when>
     <where t="S">github</where>
     <who t="I">41443370</who>
   </f>
@@ -8153,20 +8080,6 @@
     <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">53923</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:39Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <details t="S">The issue cqfn/aibolit#715 has been opened by @ivanovmg.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">715</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">issue-was-opened</what>
-    <when t="T">2025-05-23T10:10:11Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
     <_id t="I">53927</_id>
     <_job t="I">34187</_job>
     <_time t="T">2025-08-24T08:04:40Z</_time>
@@ -8828,21 +8741,6 @@
     <when t="T">2020-07-25T09:01:25Z</when>
     <where t="S">github</where>
     <who t="I">1987026</who>
-  </f>
-  <f>
-    <_id t="I">54136</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:53Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <branch t="S">713</branch>
-    <details t="S">cqfn/aibolit#714 has been opened by @ivanovmg.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">714</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2025-05-23T09:33:14Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
   </f>
   <f>
     <_id t="I">54137</_id>
@@ -33286,9 +33184,9 @@ The average weekly cost of HoC (2.17 points) is staying still.</text>
     <when t="T">2026-02-03T07:36:53Z</when>
   </f>
   <f>
-    <_id t="I">414608</_id>
-    <_job t="I">59839</_job>
-    <_time t="T">2026-02-03T08:25:11Z</_time>
+    <_id t="I">414610</_id>
+    <_job t="I">59887</_job>
+    <_time t="T">2026-02-03T10:27:18Z</_time>
     <_version t="S">0.19.3/0.59.0/0.17.10</_version>
     <issues>
       <v t="S">1-76</v>
@@ -33326,20 +33224,20 @@ The average weekly cost of HoC (2.17 points) is staying still.</text>
       <v t="S">678-691</v>
       <v t="S">693-696</v>
       <v t="S">698-701</v>
-      <v t="S">703-713</v>
+      <v t="S">703-715</v>
     </issues>
     <repository t="I">237167507</repository>
     <what t="S">tombstone</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">414609</_id>
-    <_job t="I">21624513088</_job>
-    <_time t="T">2026-02-03T09:25:25Z</_time>
+    <_id t="I">414611</_id>
+    <_job t="I">21628253149</_job>
+    <_time t="T">2026-02-03T11:23:08Z</_time>
     <_version t="S">0.19.3/0.59.0/0.17.10</_version>
     <assignees_were_scanned t="I">743</assignees_were_scanned>
     <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">8079651032</events_were_scanned>
+    <events_were_scanned t="I">8083336113</events_were_scanned>
     <issues_were_scanned t="I">432</issues_were_scanned>
     <labels_were_scanned t="I">896</labels_were_scanned>
     <latest_issue_was_found t="I">903</latest_issue_was_found>
