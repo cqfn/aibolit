@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 86.103667872
+  seconds: 137.153665947
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-03 00:03:29.911026983 Z
+  when: 2026-02-03 03:29:45.988360675 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -30928,23 +30928,6 @@
     The average weekly cost of HoC (2.17 points) is staying still.
   what: assessment
   when: 2026-02-02 14:33:25.051455909 Z
-- _id: 414598
-  _job: 21609383667
-  _time: 2026-02-02 23:02:56.419460595 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 8060358796
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 1034
-  min_issue_was_found: 963
-  min_pull_was_found: 1057
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414599
   _job: 21609383667
   _time: 2026-02-02 23:03:27.387688344 Z
@@ -30968,7 +30951,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2026-02-02 17:31:19.000000000 Z
+  when: &307 2026-02-02 17:31:19.000000000 Z
   where: github
   who: 8086956
 - _id: 414600
@@ -31033,3 +31016,38 @@
   - 0.0538571429820274
   what: learn-eva
   when: 2026-02-02 23:08:09.394890921 Z
+- _id: 414603
+  _job: 59732
+  _time: 2026-02-03 00:03:54.169054408 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  comments: 4
+  details: The pull request cqfn/aibolit#1040 with 2 HoC created by @renovate[bot]
+    was merged by @rultor after 2w6d of being in review and 4 comments.
+  hoc: 2
+  is_human: 0
+  issue: 1040
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 1771999
+  what: code-was-contributed
+  when: *307
+  where: github
+  who: 29139614
+- _id: 414604
+  _job: 21615701254
+  _time: 2026-02-03 03:27:32.109756403 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 8069011257
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 1034
+  min_issue_was_found: 963
+  min_pull_was_found: 1057
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
