@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 79.10841395
+  seconds: 157.586746203
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-04 10:26:47.345144057 Z
+  when: 2026-02-04 11:25:15.362004076 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -30448,23 +30448,6 @@
   - 0.0538571429820274
   what: learn-eva
   when: 2026-02-04 08:25:41.442031623 Z
-- _id: 414622
-  _job: 21665988649
-  _time: 2026-02-04 09:29:30.712636089 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 8117643958
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 1034
-  min_issue_was_found: 963
-  min_pull_was_found: 1057
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414623
   _job: 60116
   _time: 2026-02-04 09:32:38.785249655 Z
@@ -30509,4 +30492,35 @@
   - 718-720
   repository: 237167507
   what: tombstone
+  where: github
+- _id: 414624
+  _job: 60125
+  _time: 2026-02-04 10:27:40.231572005 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  ac: 1370
+  cost_of_qod: 0.6419697192832363
+  ev: 172
+  pv: 3436
+  qod: 269
+  qod_per_day: 21.314507304650675
+  qod_per_sec: 1.2439364765120907e-05
+  start: *109
+  what: earned-value
+  when: 2026-02-04 10:27:40.231784331 Z
+- _id: 414625
+  _job: 21669491944
+  _time: 2026-02-04 11:22:41.372153485 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 8121375096
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 1034
+  min_issue_was_found: 963
+  min_pull_was_found: 1057
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
   where: github
