@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 184.517474384
+  seconds: 87.299629603
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-06 07:40:06.912025069 Z
+  when: 2026-02-06 08:27:01.825897498 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -1842,34 +1842,6 @@
   when: 2025-05-27 07:36:25.000000000 Z
   where: github
   who: 526301
-- _id: 34388
-  _job: 32439
-  _time: 2025-08-10 10:03:44.846775874 Z
-  _version: 0.14.5/0.52.2/0.15.9
-  details: The issue cqfn/aibolit#725 has been closed by @yegor256.
-  event_id: 50134042862
-  event_type: IssuesEvent
-  is_human: 1
-  issue: 725
-  repository: 237167507
-  what: issue-was-closed
-  when: 2025-05-26 07:22:22.000000000 Z
-  where: github
-  who: 526301
-- _id: 34392
-  _job: 32439
-  _time: 2025-08-10 10:03:45.128430285 Z
-  _version: 0.14.5/0.52.2/0.15.9
-  details: The issue cqfn/aibolit#725 has been opened by @yegor256.
-  event_id: 50118513034
-  event_type: IssuesEvent
-  is_human: 1
-  issue: 725
-  repository: 237167507
-  what: issue-was-opened
-  when: 2025-05-25 15:14:52.000000000 Z
-  where: github
-  who: 526301
 - _id: 34421
   _job: 32439
   _time: 2025-08-10 10:03:47.162816493 Z
@@ -1888,19 +1860,6 @@
   name: yegor256
   what: who-has-name
   when: 2025-05-29 07:01:49.952844912 Z
-  where: github
-  who: 526301
-- _id: 34432
-  _job: 32439
-  _time: 2025-08-10 10:03:47.866099438 Z
-  _version: 0.14.5/0.52.2/0.15.9
-  details: The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#725.
-  is_human: 1
-  issue: 725
-  label: bug
-  repository: 237167507
-  what: label-was-attached
-  when: 2025-05-25 15:14:52.000000000 Z
   where: github
   who: 526301
 - _id: 34434
@@ -30526,53 +30485,6 @@
   total_stars: 95
   what: dimensions-of-terrain
   when: 2026-02-05 17:36:12.290460327 Z
-- _id: 414649
-  _job: 60290
-  _time: 2026-02-05 23:07:15.340333635 Z
-  _version: 0.19.4/0.59.0/0.17.10
-  issues:
-  - 1-76
-  - 78-115
-  - 117-124
-  - 126-149
-  - 151-160
-  - 162-165
-  - 167-181
-  - 183-279
-  - '281'
-  - '284'
-  - 287-318
-  - 320-335
-  - 337-342
-  - 345-348
-  - 350-365
-  - 367-369
-  - 371-417
-  - 419-430
-  - 435-437
-  - 439-453
-  - 455-462
-  - 464-484
-  - 490-527
-  - 529-535
-  - 537-538
-  - 541-569
-  - 571-583
-  - 585-595
-  - 597-598
-  - 601-613
-  - 615-652
-  - 654-675
-  - 678-691
-  - 693-696
-  - 698-701
-  - 703-716
-  - 718-720
-  - '722'
-  - '724'
-  repository: 237167507
-  what: tombstone
-  where: github
 - _id: 414651
   _job: 60344
   _time: 2026-02-06 05:12:01.944684670 Z
@@ -30613,4 +30525,51 @@
   repository: 237167507
   types_were_scanned: 952
   what: iterate
+  where: github
+- _id: 414653
+  _job: 60365
+  _time: 2026-02-06 07:40:44.273859017 Z
+  _version: 0.19.4/0.59.0/0.17.10
+  issues:
+  - 1-76
+  - 78-115
+  - 117-124
+  - 126-149
+  - 151-160
+  - 162-165
+  - 167-181
+  - 183-279
+  - '281'
+  - '284'
+  - 287-318
+  - 320-335
+  - 337-342
+  - 345-348
+  - 350-365
+  - 367-369
+  - 371-417
+  - 419-430
+  - 435-437
+  - 439-453
+  - 455-462
+  - 464-484
+  - 490-527
+  - 529-535
+  - 537-538
+  - 541-569
+  - 571-583
+  - 585-595
+  - 597-598
+  - 601-613
+  - 615-652
+  - 654-675
+  - 678-691
+  - 693-696
+  - 698-701
+  - 703-716
+  - 718-720
+  - '722'
+  - 724-725
+  repository: 237167507
+  what: tombstone
   where: github
