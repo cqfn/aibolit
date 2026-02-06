@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="571635">
+<fb version="0.19.3" size="571052">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">79.60255085</seconds>
+    <seconds t="F">178.286271138</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-06T14:32:02Z</when>
+    <when t="T">2026-02-06T15:29:18Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -1932,6 +1932,7 @@
     <is_human t="I">1</is_human>
     <issue t="I">728</issue>
     <repository t="I">237167507</repository>
+    <tombstone t="T">2026-02-06T14:32:36Z</tombstone>
     <what t="S">issue-was-closed</what>
     <when t="T">2025-05-27T09:10:35Z</when>
     <where t="S">github</where>
@@ -5543,21 +5544,6 @@
     <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">53658</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:24Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <closer t="I">526301</closer>
-    <details t="S">In the repository #237167507, the user #41443370 submitted the issue #728 which was later closed by the user #526301 not becoming a bug or enhancement; this means that the issue was not valid, maybe a duplicate or simply a mistake.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">728</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">dud-was-closed</what>
-    <when t="T">2025-05-26T14:13:46Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
     <_id t="I">53660</_id>
     <_job t="I">34187</_job>
     <_time t="T">2025-08-24T08:04:24Z</_time>
@@ -6552,6 +6538,7 @@
     <is_human t="I">1</is_human>
     <issue t="I">728</issue>
     <repository t="I">237167507</repository>
+    <tombstone t="T">2026-02-06T14:32:36Z</tombstone>
     <what t="S">dud-was-punished</what>
     <when t="T">2025-05-29T08:05:58Z</when>
     <where t="S">github</where>
@@ -7802,22 +7789,6 @@
     <repository t="I">237167507</repository>
     <what t="S">issue-was-opened</what>
     <when t="T">2025-05-27T05:38:56Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
-    <_id t="I">53914</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:39Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <details t="S">The issue cqfn/aibolit#728 has been opened by @ivanovmg.</details>
-    <event_id t="I">50150414156</event_id>
-    <event_type t="S">IssuesEvent</event_type>
-    <is_human t="I">1</is_human>
-    <issue t="I">728</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">issue-was-opened</what>
-    <when t="T">2025-05-26T14:13:46Z</when>
     <where t="S">github</where>
     <who t="I">41443370</who>
   </f>
@@ -32972,9 +32943,37 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
     <when t="T">2026-02-05T17:36:12Z</when>
   </f>
   <f>
-    <_id t="I">414653</_id>
-    <_job t="I">60367</_job>
-    <_time t="T">2026-02-06T08:27:35Z</_time>
+    <_id t="I">414655</_id>
+    <_job t="I">60385</_job>
+    <_time t="T">2026-02-06T13:52:46Z</_time>
+    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
+    <cost_of_qod>
+      <v t="F">8.571428571428571</v>
+      <v t="F">7.507218479307026</v>
+      <v t="F">-0.2996030259905625</v>
+      <v t="F">-5.536332179930795</v>
+      <v t="F">-29.357798165137613</v>
+      <v t="F">-63.745019920318725</v>
+      <v t="F">-4.153686396677051</v>
+      <v t="F">-42.44031830238727</v>
+    </cost_of_qod>
+    <qod_per_day>
+      <v t="F">1.6500000001292583</v>
+      <v t="F">2.9685714288025533</v>
+      <v t="F">1.907285714434459</v>
+      <v t="F">0.41285714289175585</v>
+      <v t="F">0.07785714305026051</v>
+      <v t="F">0.03585714296881663</v>
+      <v t="F">0.13757142891724966</v>
+      <v t="F">0.0538571429820274</v>
+    </qod_per_day>
+    <what t="S">learn-eva</what>
+    <when t="T">2026-02-06T13:52:46Z</when>
+  </f>
+  <f>
+    <_id t="I">414656</_id>
+    <_job t="I">60387</_job>
+    <_time t="T">2026-02-06T14:32:39Z</_time>
     <_version t="S">0.19.4/0.59.0/0.17.10</_version>
     <issues>
       <v t="S">1-76</v>
@@ -33015,19 +33014,20 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
       <v t="S">718-720</v>
       <v t="S">722</v>
       <v t="S">724-725</v>
+      <v t="S">728</v>
     </issues>
     <repository t="I">237167507</repository>
     <what t="S">tombstone</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">414654</_id>
-    <_job t="I">21752831232</_job>
-    <_time t="T">2026-02-06T13:49:16Z</_time>
+    <_id t="I">414657</_id>
+    <_job t="I">21755882360</_job>
+    <_time t="T">2026-02-06T15:26:24Z</_time>
     <_version t="S">0.19.3/0.59.0/0.17.10</_version>
     <assignees_were_scanned t="I">743</assignees_were_scanned>
     <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">8197334074</events_were_scanned>
+    <events_were_scanned t="I">8201592671</events_were_scanned>
     <issues_were_scanned t="I">432</issues_were_scanned>
     <labels_were_scanned t="I">896</labels_were_scanned>
     <latest_issue_was_found t="I">903</latest_issue_was_found>
@@ -33038,33 +33038,5 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
     <types_were_scanned t="I">952</types_were_scanned>
     <what t="S">iterate</what>
     <where t="S">github</where>
-  </f>
-  <f>
-    <_id t="I">414655</_id>
-    <_job t="I">60385</_job>
-    <_time t="T">2026-02-06T13:52:46Z</_time>
-    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
-    <cost_of_qod>
-      <v t="F">8.571428571428571</v>
-      <v t="F">7.507218479307026</v>
-      <v t="F">-0.2996030259905625</v>
-      <v t="F">-5.536332179930795</v>
-      <v t="F">-29.357798165137613</v>
-      <v t="F">-63.745019920318725</v>
-      <v t="F">-4.153686396677051</v>
-      <v t="F">-42.44031830238727</v>
-    </cost_of_qod>
-    <qod_per_day>
-      <v t="F">1.6500000001292583</v>
-      <v t="F">2.9685714288025533</v>
-      <v t="F">1.907285714434459</v>
-      <v t="F">0.41285714289175585</v>
-      <v t="F">0.07785714305026051</v>
-      <v t="F">0.03585714296881663</v>
-      <v t="F">0.13757142891724966</v>
-      <v t="F">0.0538571429820274</v>
-    </qod_per_day>
-    <what t="S">learn-eva</what>
-    <when t="T">2026-02-06T13:52:46Z</when>
   </f>
 </fb>
