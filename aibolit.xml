@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="570516">
+<fb version="0.19.3" size="569933">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">121.33878272</seconds>
+    <seconds t="F">82.782427844</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-07T06:27:02Z</when>
+    <when t="T">2026-02-07T07:23:22Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -1965,6 +1965,7 @@
     <is_human t="I">1</is_human>
     <issue t="I">730</issue>
     <repository t="I">237167507</repository>
+    <tombstone t="T">2026-02-07T06:27:35Z</tombstone>
     <what t="S">issue-was-closed</what>
     <when t="T">2025-05-27T07:37:02Z</when>
     <where t="S">github</where>
@@ -5529,21 +5530,6 @@
     <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">53657</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:24Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <closer t="I">526301</closer>
-    <details t="S">In the repository #237167507, the user #41443370 submitted the issue #730 which was later closed by the user #526301 not becoming a bug or enhancement; this means that the issue was not valid, maybe a duplicate or simply a mistake.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">730</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">dud-was-closed</what>
-    <when t="T">2025-05-27T05:38:56Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
     <_id t="I">53660</_id>
     <_job t="I">34187</_job>
     <_time t="T">2025-08-24T08:04:24Z</_time>
@@ -6521,6 +6507,7 @@
     <is_human t="I">1</is_human>
     <issue t="I">730</issue>
     <repository t="I">237167507</repository>
+    <tombstone t="T">2026-02-07T06:27:35Z</tombstone>
     <what t="S">dud-was-punished</what>
     <when t="T">2025-05-29T08:05:54Z</when>
     <where t="S">github</where>
@@ -7773,22 +7760,6 @@
     <repository t="I">237167507</repository>
     <what t="S">issue-was-opened</what>
     <when t="T">2025-05-27T06:41:11Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
-    <_id t="I">53912</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:39Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <details t="S">The issue cqfn/aibolit#730 has been opened by @ivanovmg.</details>
-    <event_id t="I">50171047351</event_id>
-    <event_type t="S">IssuesEvent</event_type>
-    <is_human t="I">1</is_human>
-    <issue t="I">730</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">issue-was-opened</what>
-    <when t="T">2025-05-27T05:38:56Z</when>
     <where t="S">github</where>
     <who t="I">41443370</who>
   </f>
@@ -32883,9 +32854,67 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
     <when t="T">2026-02-05T17:36:12Z</when>
   </f>
   <f>
-    <_id t="I">414656</_id>
-    <_job t="I">60387</_job>
-    <_time t="T">2026-02-06T14:32:39Z</_time>
+    <_id t="I">414658</_id>
+    <_job t="I">60409</_job>
+    <_time t="T">2026-02-06T17:32:25Z</_time>
+    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
+    <analyzers t="I">18</analyzers>
+    <text t="S">The average reward per task (6.2 points) is decreasing (R=-0.50).
+The average punishment per task (15.0 points) is decreasing (R=0.10).
+The average number of builds per week (835.4) is decreasing (R=-0.55).
+The average number of commits per week (11.2) is decreasing (R=-0.41).
+The average bugs accepted per month (9.0) is decreasing (R=-0.83).
+The average monthly punishment (68 points) is decreasing (R=-0.79).
+The average monthly wage (6.6 points) is decreasing (R=-0.51).
+The average issue cycle time (1w2d) is increasing (R=0.45).
+The average pull cycle time (2d9h) is staying still.
+The average number of releases per month (0.0) is staying still.
+The average monthly turnover (11.0 developers) is decreasing (R=-0.89).
+The average weekly cost of HoC (2.05 points) is staying still.</text>
+    <what t="S">assessment</what>
+    <when t="T">2026-02-06T17:32:25Z</when>
+  </f>
+  <f>
+    <_id t="I">414659</_id>
+    <_job t="I">21761427406</_job>
+    <_time t="T">2026-02-06T18:28:50Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <total_active_contributors t="I">4</total_active_contributors>
+    <total_commits t="I">2939</total_commits>
+    <total_contributors t="I">28</total_contributors>
+    <total_files t="I">1049</total_files>
+    <total_forks t="I">39</total_forks>
+    <total_issues t="I">447</total_issues>
+    <total_pulls t="I">614</total_pulls>
+    <total_releases t="I">28</total_releases>
+    <total_repositories t="I">1</total_repositories>
+    <total_stars t="I">95</total_stars>
+    <what t="S">dimensions-of-terrain</what>
+    <when t="T">2026-02-06T18:28:50Z</when>
+  </f>
+  <f>
+    <_id t="I">414662</_id>
+    <_job t="I">21775652812</_job>
+    <_time t="T">2026-02-07T06:25:03Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <assignees_were_scanned t="I">743</assignees_were_scanned>
+    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
+    <events_were_scanned t="I">8219441243</events_were_scanned>
+    <issues_were_scanned t="I">432</issues_were_scanned>
+    <labels_were_scanned t="I">896</labels_were_scanned>
+    <latest_issue_was_found t="I">903</latest_issue_was_found>
+    <merges_were_scanned t="I">1034</merges_were_scanned>
+    <min_issue_was_found t="I">963</min_issue_was_found>
+    <min_pull_was_found t="I">1057</min_pull_was_found>
+    <repository t="I">237167507</repository>
+    <types_were_scanned t="I">952</types_were_scanned>
+    <what t="S">iterate</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">414663</_id>
+    <_job t="I">60471</_job>
+    <_time t="T">2026-02-07T06:27:38Z</_time>
     <_version t="S">0.19.4/0.59.0/0.17.10</_version>
     <issues>
       <v t="S">1-76</v>
@@ -32927,54 +32956,16 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
       <v t="S">722</v>
       <v t="S">724-725</v>
       <v t="S">728</v>
+      <v t="S">730</v>
     </issues>
     <repository t="I">237167507</repository>
     <what t="S">tombstone</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">414658</_id>
-    <_job t="I">60409</_job>
-    <_time t="T">2026-02-06T17:32:25Z</_time>
-    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
-    <analyzers t="I">18</analyzers>
-    <text t="S">The average reward per task (6.2 points) is decreasing (R=-0.50).
-The average punishment per task (15.0 points) is decreasing (R=0.10).
-The average number of builds per week (835.4) is decreasing (R=-0.55).
-The average number of commits per week (11.2) is decreasing (R=-0.41).
-The average bugs accepted per month (9.0) is decreasing (R=-0.83).
-The average monthly punishment (68 points) is decreasing (R=-0.79).
-The average monthly wage (6.6 points) is decreasing (R=-0.51).
-The average issue cycle time (1w2d) is increasing (R=0.45).
-The average pull cycle time (2d9h) is staying still.
-The average number of releases per month (0.0) is staying still.
-The average monthly turnover (11.0 developers) is decreasing (R=-0.89).
-The average weekly cost of HoC (2.05 points) is staying still.</text>
-    <what t="S">assessment</what>
-    <when t="T">2026-02-06T17:32:25Z</when>
-  </f>
-  <f>
-    <_id t="I">414659</_id>
-    <_job t="I">21761427406</_job>
-    <_time t="T">2026-02-06T18:28:50Z</_time>
-    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
-    <total_active_contributors t="I">4</total_active_contributors>
-    <total_commits t="I">2939</total_commits>
-    <total_contributors t="I">28</total_contributors>
-    <total_files t="I">1049</total_files>
-    <total_forks t="I">39</total_forks>
-    <total_issues t="I">447</total_issues>
-    <total_pulls t="I">614</total_pulls>
-    <total_releases t="I">28</total_releases>
-    <total_repositories t="I">1</total_repositories>
-    <total_stars t="I">95</total_stars>
-    <what t="S">dimensions-of-terrain</what>
-    <when t="T">2026-02-06T18:28:50Z</when>
-  </f>
-  <f>
-    <_id t="I">414661</_id>
-    <_job t="I">60432</_job>
-    <_time t="T">2026-02-06T22:01:23Z</_time>
+    <_id t="I">414664</_id>
+    <_job t="I">60471</_job>
+    <_time t="T">2026-02-07T06:28:28Z</_time>
     <_version t="S">0.19.4/0.59.0/0.17.10</_version>
     <cost_of_qod>
       <v t="F">8.571428571428571</v>
@@ -32997,25 +32988,6 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
       <v t="F">0.0538571429820274</v>
     </qod_per_day>
     <what t="S">learn-eva</what>
-    <when t="T">2026-02-06T22:01:23Z</when>
-  </f>
-  <f>
-    <_id t="I">414662</_id>
-    <_job t="I">21775652812</_job>
-    <_time t="T">2026-02-07T06:25:03Z</_time>
-    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
-    <assignees_were_scanned t="I">743</assignees_were_scanned>
-    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">8219441243</events_were_scanned>
-    <issues_were_scanned t="I">432</issues_were_scanned>
-    <labels_were_scanned t="I">896</labels_were_scanned>
-    <latest_issue_was_found t="I">903</latest_issue_was_found>
-    <merges_were_scanned t="I">1034</merges_were_scanned>
-    <min_issue_was_found t="I">963</min_issue_was_found>
-    <min_pull_was_found t="I">1057</min_pull_was_found>
-    <repository t="I">237167507</repository>
-    <types_were_scanned t="I">952</types_were_scanned>
-    <what t="S">iterate</what>
-    <where t="S">github</where>
+    <when t="T">2026-02-07T06:28:28Z</when>
   </f>
 </fb>
