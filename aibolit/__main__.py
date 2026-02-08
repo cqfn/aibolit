@@ -150,7 +150,7 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
         raise Exception(f"Can't count {acronym} metric: {str(type(exc_value))}")
 
 
-def flatten(lst: List[List[T]]) -> List[T]:
+def flatten(lst: List[List[Any]]) -> List[Any]:
     return [item for sublist in lst for item in sublist]
 
 
