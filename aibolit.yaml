@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 85.284705246
+  seconds: 95.254692445
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-08 22:01:47.315168366 Z
+  when: 2026-02-08 23:05:38.736609265 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -29230,19 +29230,34 @@
   where: github
   who: 71025204
   why: Contributed code in cqfn/aibolit#1063
-- _id: 414717
-  _job: 21805316175
-  _time: 2026-02-08 21:03:39.411129228 Z
+- _id: 414718
+  _job: 21807024623
+  _time: 2026-02-08 23:04:06.259431412 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  branch: renovate/org.apache.maven.plugins-maven-dependency-plugin-3.x
+  details: The pull request cqfn/aibolit#1066 has been opened by @renovate[bot].
+  event_id: 6409918743
+  event_type: PullRequestEvent
+  is_human: 0
+  issue: 1066
+  repository: 237167507
+  what: pull-was-opened
+  when: 2026-02-08 22:02:45.000000000 Z
+  where: github
+  who: 29139614
+- _id: 414719
+  _job: 21807024623
+  _time: 2026-02-08 23:04:28.805848554 Z
   _version: 0.19.3/0.59.0/0.17.10
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 6408770860
+  events_were_scanned: 7962315303
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
   merges_were_scanned: 1034
   min_issue_was_found: 963
-  min_pull_was_found: 1065
+  min_pull_was_found: 1066
   repository: 237167507
   types_were_scanned: 952
   what: iterate
