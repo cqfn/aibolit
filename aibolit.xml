@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="545171">
+<fb version="0.19.3" size="546683">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">203.284330874</seconds>
+    <seconds t="F">115.181999724</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-08T17:15:51Z</when>
+    <when t="T">2026-02-08T18:03:18Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -31345,25 +31345,6 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
     <who t="I">29139614</who>
   </f>
   <f>
-    <_id t="I">414696</_id>
-    <_job t="I">21802061075</_job>
-    <_time t="T">2026-02-08T17:13:27Z</_time>
-    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
-    <assignees_were_scanned t="I">743</assignees_were_scanned>
-    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">7950704950</events_were_scanned>
-    <issues_were_scanned t="I">432</issues_were_scanned>
-    <labels_were_scanned t="I">896</labels_were_scanned>
-    <latest_issue_was_found t="I">903</latest_issue_was_found>
-    <merges_were_scanned t="I">1034</merges_were_scanned>
-    <min_issue_was_found t="I">963</min_issue_was_found>
-    <min_pull_was_found t="I">1062</min_pull_was_found>
-    <repository t="I">237167507</repository>
-    <types_were_scanned t="I">952</types_were_scanned>
-    <what t="S">iterate</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">414697</_id>
     <_job t="I">21802061075</_job>
     <_time t="T">2026-02-08T17:13:46Z</_time>
@@ -31452,5 +31433,116 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
     <when t="T">2026-02-08T14:21:44Z</when>
     <where t="S">github</where>
     <who t="I">71025204</who>
+  </f>
+  <f>
+    <_id t="I">414704</_id>
+    <_job t="I">21802741923</_job>
+    <_time t="T">2026-02-08T18:01:31Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <branch t="S">renovate/crate-ci-typos-1.x</branch>
+    <comments t="I">3</comments>
+    <comments_appreciated t="I">1</comments_appreciated>
+    <comments_by_author t="I">0</comments_by_author>
+    <comments_by_reviewers t="I">3</comments_by_reviewers>
+    <comments_resolved t="I">0</comments_resolved>
+    <comments_to_code t="I">0</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1058 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">1</files>
+    <hoc t="I">2</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1058</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2026-02-02T16:45:21Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">0</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2026-02-02T17:07:33Z</when>
+    <where t="S">github</where>
+    <who t="I">8086956</who>
+  </f>
+  <f>
+    <_id t="I">414705</_id>
+    <_job t="I">21802741923</_job>
+    <_time t="T">2026-02-08T18:01:56Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <branch t="S">patch-1</branch>
+    <comments t="I">4</comments>
+    <comments_appreciated t="I">0</comments_appreciated>
+    <comments_by_author t="I">1</comments_by_author>
+    <comments_by_reviewers t="I">3</comments_by_reviewers>
+    <comments_resolved t="I">2</comments_resolved>
+    <comments_to_code t="I">2</comments_to_code>
+    <details t="S">Apparently, cqfn/aibolit#1063 has been "pull-was-merged".</details>
+    <failed_builds t="I">0</failed_builds>
+    <files t="I">1</files>
+    <hoc t="I">21</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1063</issue>
+    <repository t="I">237167507</repository>
+    <review t="T">2026-02-08T13:09:27Z</review>
+    <succeeded_builds t="I">18</succeeded_builds>
+    <suggestions t="I">2</suggestions>
+    <what t="S">pull-was-merged</what>
+    <when t="T">2026-02-08T13:51:35Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414706</_id>
+    <_job t="I">21802741923</_job>
+    <_time t="T">2026-02-08T18:02:05Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <assignees_were_scanned t="I">743</assignees_were_scanned>
+    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
+    <events_were_scanned t="I">6406345598</events_were_scanned>
+    <issues_were_scanned t="I">432</issues_were_scanned>
+    <labels_were_scanned t="I">896</labels_were_scanned>
+    <latest_issue_was_found t="I">903</latest_issue_was_found>
+    <merges_were_scanned t="I">1034</merges_were_scanned>
+    <min_issue_was_found t="I">963</min_issue_was_found>
+    <min_pull_was_found t="I">1063</min_pull_was_found>
+    <repository t="I">237167507</repository>
+    <types_were_scanned t="I">952</types_were_scanned>
+    <what t="S">iterate</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">414707</_id>
+    <_job t="I">21802741923</_job>
+    <_time t="T">2026-02-08T18:02:08Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <author t="I">29139614</author>
+    <comments t="I">3</comments>
+    <details t="S">The pull request cqfn/aibolit#1058 with 2 HoC created by @renovate[bot] was reviewed by @yegor256 after 1h6m and 0 comments.</details>
+    <hoc t="I">2</hoc>
+    <is_human t="I">1</is_human>
+    <issue t="I">1058</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">3981</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2026-02-02T16:45:21Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+  </f>
+  <f>
+    <_id t="I">414708</_id>
+    <_job t="I">21802741923</_job>
+    <_time t="T">2026-02-08T18:02:08Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <author t="I">71025204</author>
+    <comments t="I">2</comments>
+    <details t="S">The pull request cqfn/aibolit#1063 with 21 HoC created by @vitalo-bit was reviewed by @coderabbitai[bot] after 0h2m and 2 comments.</details>
+    <hoc t="I">21</hoc>
+    <is_human t="I">0</is_human>
+    <issue t="I">1063</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">2</review_comments>
+    <seconds t="I">173</seconds>
+    <what t="S">code-was-reviewed</what>
+    <when t="T">2026-02-08T13:09:27Z</when>
+    <where t="S">github</where>
+    <who t="I">136622811</who>
   </f>
 </fb>
