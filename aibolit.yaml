@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 76.60139803
+  seconds: 168.584834245
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-08 10:01:23.481857486 Z
+  when: 2026-02-08 11:05:30.942947080 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -1000,36 +1000,6 @@
   where: github
   who: 526301
   why: Pushed 7f14dc44a to the default branch 'master' in cqfn/aibolit
-- _id: 34334
-  _job: 32439
-  _time: 2025-08-10 10:03:41.116794917 Z
-  _version: 0.14.5/0.52.2/0.15.9
-  details: The issue cqfn/aibolit#744 has been closed by @0pdd.
-  event_id: 50229175572
-  event_type: IssuesEvent
-  is_human: 0
-  issue: 744
-  repository: 237167507
-  tombstone: 2026-02-07 11:59:24.020669696 Z
-  what: issue-was-closed
-  when: 2025-05-28 09:22:41.000000000 Z
-  where: github
-  who: 24456188
-- _id: 34335
-  _job: 32439
-  _time: 2025-08-10 10:03:41.183857830 Z
-  _version: 0.14.5/0.52.2/0.15.9
-  details: The issue cqfn/aibolit#764 has been closed by @yegor256.
-  event_id: 50229170235
-  event_type: IssuesEvent
-  is_human: 1
-  issue: 764
-  repository: 237167507
-  tombstone: 2026-02-08 07:30:19.106723706 Z
-  what: issue-was-closed
-  when: 2025-05-28 09:22:34.000000000 Z
-  where: github
-  who: 526301
 - _id: 34421
   _job: 32439
   _time: 2025-08-10 10:03:47.162816493 Z
@@ -28905,9 +28875,33 @@
   total_stars: 95
   what: dimensions-of-terrain
   when: 2026-02-07 19:14:17.974216043 Z
-- _id: 414686
+- _id: 414687
   _job: 60592
-  _time: 2026-02-08 07:30:22.234365259 Z
+  _time: 2026-02-08 07:31:07.440942911 Z
+  _version: 0.19.4/0.59.0/0.17.10
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  - -29.357798165137613
+  - -63.745019920318725
+  - -4.153686396677051
+  - -42.44031830238727
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  - 0.07785714305026051
+  - 0.03585714296881663
+  - 0.13757142891724966
+  - 0.0538571429820274
+  what: learn-eva
+  when: 2026-02-08 07:31:07.390055856 Z
+- _id: 414689
+  _job: 60606
+  _time: 2026-02-08 10:01:45.689162457 Z
   _version: 0.19.4/0.59.0/0.17.10
   issues:
   - 1-76
@@ -28957,37 +28951,13 @@
   repository: 237167507
   what: tombstone
   where: github
-- _id: 414687
-  _job: 60592
-  _time: 2026-02-08 07:31:07.440942911 Z
-  _version: 0.19.4/0.59.0/0.17.10
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  - -5.536332179930795
-  - -29.357798165137613
-  - -63.745019920318725
-  - -4.153686396677051
-  - -42.44031830238727
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  - 0.41285714289175585
-  - 0.07785714305026051
-  - 0.03585714296881663
-  - 0.13757142891724966
-  - 0.0538571429820274
-  what: learn-eva
-  when: 2026-02-08 07:31:07.390055856 Z
-- _id: 414688
-  _job: 21795692579
-  _time: 2026-02-08 09:15:03.671312599 Z
+- _id: 414690
+  _job: 21797044043
+  _time: 2026-02-08 11:02:46.497382279 Z
   _version: 0.19.3/0.59.0/0.17.10
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 8240718819
+  events_were_scanned: 8242246453
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
