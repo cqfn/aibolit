@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 115.181999724
+  seconds: 183.471670797
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-08 18:03:18.995929745 Z
+  when: 2026-02-08 19:17:46.300448021 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -28770,26 +28770,6 @@
   total_stars: 95
   what: dimensions-of-terrain
   when: 2026-02-05 17:36:12.290460327 Z
-- _id: 414658
-  _job: 60409
-  _time: 2026-02-06 17:32:25.242665470 Z
-  _version: 0.19.4/0.59.0/0.17.10
-  analyzers: 18
-  text: |-
-    The average reward per task (6.2 points) is decreasing (R=-0.50).
-    The average punishment per task (15.0 points) is decreasing (R=0.10).
-    The average number of builds per week (835.4) is decreasing (R=-0.55).
-    The average number of commits per week (11.2) is decreasing (R=-0.41).
-    The average bugs accepted per month (9.0) is decreasing (R=-0.83).
-    The average monthly punishment (68 points) is decreasing (R=-0.79).
-    The average monthly wage (6.6 points) is decreasing (R=-0.51).
-    The average issue cycle time (1w2d) is increasing (R=0.45).
-    The average pull cycle time (2d9h) is staying still.
-    The average number of releases per month (0.0) is staying still.
-    The average monthly turnover (11.0 developers) is decreasing (R=-0.89).
-    The average weekly cost of HoC (2.05 points) is staying still.
-  what: assessment
-  when: 2026-02-06 17:32:25.254246844 Z
 - _id: 414659
   _job: 21761427406
   _time: 2026-02-06 18:28:50.192570807 Z
@@ -29069,6 +29049,7 @@
   issue: 1058
   repository: 237167507
   review: 2026-02-02 16:45:21.000000000 Z
+  review_comments: 0
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
@@ -29094,29 +29075,13 @@
   issue: 1063
   repository: 237167507
   review: 2026-02-08 13:09:27.000000000 Z
+  review_comments: 2
   succeeded_builds: 18
   suggestions: 2
   what: pull-was-merged
   when: 2026-02-08 13:51:35.000000000 Z
   where: github
   who: 526301
-- _id: 414706
-  _job: 21802741923
-  _time: 2026-02-08 18:02:05.908687630 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 6406345598
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 1034
-  min_issue_was_found: 963
-  min_pull_was_found: 1063
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414707
   _job: 21802741923
   _time: 2026-02-08 18:02:08.387984998 Z
@@ -29153,3 +29118,75 @@
   when: 2026-02-08 13:09:27.000000000 Z
   where: github
   who: 136622811
+- _id: 414709
+  _job: 60646
+  _time: 2026-02-08 18:03:40.792569964 Z
+  _version: 0.19.4/0.59.0/0.17.10
+  analyzers: 18
+  text: |-
+    The average reward per task (6.2 points) is decreasing (R=-0.50).
+    The average punishment per task (15.0 points) is staying still.
+    The average number of builds per week (832.2) is decreasing (R=-0.58).
+    The average number of commits per week (11.2) is decreasing (R=-0.45).
+    The average monthly punishment (59 points) is decreasing (R=-0.84).
+    The average monthly wage (6.6 points) is decreasing (R=-0.51).
+    The average issue cycle time (1w2d) is increasing (R=0.46).
+    The average pull cycle time (2d9h) is staying still.
+    The average number of releases per month (0.0) is staying still.
+    The average monthly turnover (11.0 developers) is decreasing (R=-0.87).
+    The average weekly cost of HoC (2.05 points) is staying still.
+  what: assessment
+  when: 2026-02-08 18:03:40.811460544 Z
+- _id: 414710
+  _job: 60646
+  _time: 2026-02-08 18:04:08.748491870 Z
+  _version: 0.19.4/0.59.0/0.17.10
+  award: 4
+  comments: 3
+  details: It's time to reward @yegor256 for the code review in cqfn/aibolit#1058,
+    the reward amount is 4.
+  hoc: 2
+  href: https://github.com/cqfn/aibolit/issues/1058/#issuecomment-3867771516
+  is_human: 1
+  issue: 1058
+  repository: 237167507
+  review_comments: 0
+  seconds: 3981
+  what: code-review-was-rewarded
+  when: 2026-02-08 18:03:42.103619610 Z
+  where: github
+  who: 526301
+  why: Reviewed code in cqfn/aibolit#1058
+- _id: 414711
+  _job: 21803782656
+  _time: 2026-02-08 19:15:20.375697109 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 7954845613
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 1034
+  min_issue_was_found: 963
+  min_pull_was_found: 1064
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
+- _id: 414712
+  _job: 21803782656
+  _time: 2026-02-08 19:15:33.277823483 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  total_active_contributors: 5
+  total_commits: 2944
+  total_contributors: 29
+  total_files: 1049
+  total_forks: 39
+  total_issues: 447
+  total_pulls: 618
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 95
+  what: dimensions-of-terrain
+  when: 2026-02-08 19:15:33.289227008 Z

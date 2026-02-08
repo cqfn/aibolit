@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="546683">
+<fb version="0.19.3" size="547351">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">115.181999724</seconds>
+    <seconds t="F">183.471670797</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-08T18:03:18Z</when>
+    <when t="T">2026-02-08T19:17:46Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -31125,27 +31125,6 @@
     <when t="T">2026-02-05T17:36:12Z</when>
   </f>
   <f>
-    <_id t="I">414658</_id>
-    <_job t="I">60409</_job>
-    <_time t="T">2026-02-06T17:32:25Z</_time>
-    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
-    <analyzers t="I">18</analyzers>
-    <text t="S">The average reward per task (6.2 points) is decreasing (R=-0.50).
-The average punishment per task (15.0 points) is decreasing (R=0.10).
-The average number of builds per week (835.4) is decreasing (R=-0.55).
-The average number of commits per week (11.2) is decreasing (R=-0.41).
-The average bugs accepted per month (9.0) is decreasing (R=-0.83).
-The average monthly punishment (68 points) is decreasing (R=-0.79).
-The average monthly wage (6.6 points) is decreasing (R=-0.51).
-The average issue cycle time (1w2d) is increasing (R=0.45).
-The average pull cycle time (2d9h) is staying still.
-The average number of releases per month (0.0) is staying still.
-The average monthly turnover (11.0 developers) is decreasing (R=-0.89).
-The average weekly cost of HoC (2.05 points) is staying still.</text>
-    <what t="S">assessment</what>
-    <when t="T">2026-02-06T17:32:25Z</when>
-  </f>
-  <f>
     <_id t="I">414659</_id>
     <_job t="I">21761427406</_job>
     <_time t="T">2026-02-06T18:28:50Z</_time>
@@ -31454,6 +31433,7 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
     <issue t="I">1058</issue>
     <repository t="I">237167507</repository>
     <review t="T">2026-02-02T16:45:21Z</review>
+    <review_comments t="I">0</review_comments>
     <succeeded_builds t="I">18</succeeded_builds>
     <suggestions t="I">0</suggestions>
     <what t="S">pull-was-merged</what>
@@ -31481,31 +31461,13 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
     <issue t="I">1063</issue>
     <repository t="I">237167507</repository>
     <review t="T">2026-02-08T13:09:27Z</review>
+    <review_comments t="I">2</review_comments>
     <succeeded_builds t="I">18</succeeded_builds>
     <suggestions t="I">2</suggestions>
     <what t="S">pull-was-merged</what>
     <when t="T">2026-02-08T13:51:35Z</when>
     <where t="S">github</where>
     <who t="I">526301</who>
-  </f>
-  <f>
-    <_id t="I">414706</_id>
-    <_job t="I">21802741923</_job>
-    <_time t="T">2026-02-08T18:02:05Z</_time>
-    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
-    <assignees_were_scanned t="I">743</assignees_were_scanned>
-    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">6406345598</events_were_scanned>
-    <issues_were_scanned t="I">432</issues_were_scanned>
-    <labels_were_scanned t="I">896</labels_were_scanned>
-    <latest_issue_was_found t="I">903</latest_issue_was_found>
-    <merges_were_scanned t="I">1034</merges_were_scanned>
-    <min_issue_was_found t="I">963</min_issue_was_found>
-    <min_pull_was_found t="I">1063</min_pull_was_found>
-    <repository t="I">237167507</repository>
-    <types_were_scanned t="I">952</types_were_scanned>
-    <what t="S">iterate</what>
-    <where t="S">github</where>
   </f>
   <f>
     <_id t="I">414707</_id>
@@ -31544,5 +31506,83 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
     <when t="T">2026-02-08T13:09:27Z</when>
     <where t="S">github</where>
     <who t="I">136622811</who>
+  </f>
+  <f>
+    <_id t="I">414709</_id>
+    <_job t="I">60646</_job>
+    <_time t="T">2026-02-08T18:03:40Z</_time>
+    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
+    <analyzers t="I">18</analyzers>
+    <text t="S">The average reward per task (6.2 points) is decreasing (R=-0.50).
+The average punishment per task (15.0 points) is staying still.
+The average number of builds per week (832.2) is decreasing (R=-0.58).
+The average number of commits per week (11.2) is decreasing (R=-0.45).
+The average monthly punishment (59 points) is decreasing (R=-0.84).
+The average monthly wage (6.6 points) is decreasing (R=-0.51).
+The average issue cycle time (1w2d) is increasing (R=0.46).
+The average pull cycle time (2d9h) is staying still.
+The average number of releases per month (0.0) is staying still.
+The average monthly turnover (11.0 developers) is decreasing (R=-0.87).
+The average weekly cost of HoC (2.05 points) is staying still.</text>
+    <what t="S">assessment</what>
+    <when t="T">2026-02-08T18:03:40Z</when>
+  </f>
+  <f>
+    <_id t="I">414710</_id>
+    <_job t="I">60646</_job>
+    <_time t="T">2026-02-08T18:04:08Z</_time>
+    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
+    <award t="I">4</award>
+    <comments t="I">3</comments>
+    <details t="S">It's time to reward @yegor256 for the code review in cqfn/aibolit#1058, the reward amount is 4.</details>
+    <hoc t="I">2</hoc>
+    <href t="S">https://github.com/cqfn/aibolit/issues/1058/#issuecomment-3867771516</href>
+    <is_human t="I">1</is_human>
+    <issue t="I">1058</issue>
+    <repository t="I">237167507</repository>
+    <review_comments t="I">0</review_comments>
+    <seconds t="I">3981</seconds>
+    <what t="S">code-review-was-rewarded</what>
+    <when t="T">2026-02-08T18:03:42Z</when>
+    <where t="S">github</where>
+    <who t="I">526301</who>
+    <why t="S">Reviewed code in cqfn/aibolit#1058</why>
+  </f>
+  <f>
+    <_id t="I">414711</_id>
+    <_job t="I">21803782656</_job>
+    <_time t="T">2026-02-08T19:15:20Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <assignees_were_scanned t="I">743</assignees_were_scanned>
+    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
+    <events_were_scanned t="I">7954845613</events_were_scanned>
+    <issues_were_scanned t="I">432</issues_were_scanned>
+    <labels_were_scanned t="I">896</labels_were_scanned>
+    <latest_issue_was_found t="I">903</latest_issue_was_found>
+    <merges_were_scanned t="I">1034</merges_were_scanned>
+    <min_issue_was_found t="I">963</min_issue_was_found>
+    <min_pull_was_found t="I">1064</min_pull_was_found>
+    <repository t="I">237167507</repository>
+    <types_were_scanned t="I">952</types_were_scanned>
+    <what t="S">iterate</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">414712</_id>
+    <_job t="I">21803782656</_job>
+    <_time t="T">2026-02-08T19:15:33Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <total_active_contributors t="I">5</total_active_contributors>
+    <total_commits t="I">2944</total_commits>
+    <total_contributors t="I">29</total_contributors>
+    <total_files t="I">1049</total_files>
+    <total_forks t="I">39</total_forks>
+    <total_issues t="I">447</total_issues>
+    <total_pulls t="I">618</total_pulls>
+    <total_releases t="I">28</total_releases>
+    <total_repositories t="I">1</total_repositories>
+    <total_stars t="I">95</total_stars>
+    <what t="S">dimensions-of-terrain</what>
+    <when t="T">2026-02-08T19:15:33Z</when>
   </f>
 </fb>
