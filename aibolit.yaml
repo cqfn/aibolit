@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 183.471670797
+  seconds: 84.571234285
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-08 19:17:46.300448021 Z
+  when: 2026-02-08 19:59:22.010211542 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -29053,7 +29053,7 @@
   succeeded_builds: 18
   suggestions: 0
   what: pull-was-merged
-  when: 2026-02-02 17:07:33.000000000 Z
+  when: &265 2026-02-02 17:07:33.000000000 Z
   where: github
   who: 8086956
 - _id: 414705
@@ -29079,7 +29079,7 @@
   succeeded_builds: 18
   suggestions: 2
   what: pull-was-merged
-  when: 2026-02-08 13:51:35.000000000 Z
+  when: &266 2026-02-08 13:51:35.000000000 Z
   where: github
   who: 526301
 - _id: 414707
@@ -29157,23 +29157,6 @@
   where: github
   who: 526301
   why: Reviewed code in cqfn/aibolit#1058
-- _id: 414711
-  _job: 21803782656
-  _time: 2026-02-08 19:15:20.375697109 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  assignees_were_scanned: 743
-  earliest_issue_was_found: 1
-  events_were_scanned: 7954845613
-  issues_were_scanned: 432
-  labels_were_scanned: 896
-  latest_issue_was_found: 903
-  merges_were_scanned: 1034
-  min_issue_was_found: 963
-  min_pull_was_found: 1064
-  repository: 237167507
-  types_were_scanned: 952
-  what: iterate
-  where: github
 - _id: 414712
   _job: 21803782656
   _time: 2026-02-08 19:15:33.277823483 Z
@@ -29190,3 +29173,56 @@
   total_stars: 95
   what: dimensions-of-terrain
   when: 2026-02-08 19:15:33.289227008 Z
+- _id: 414713
+  _job: 60652
+  _time: 2026-02-08 19:18:12.030342989 Z
+  _version: 0.19.4/0.59.0/0.17.10
+  comments: 3
+  details: The pull request cqfn/aibolit#1058 with 2 HoC created by @renovate[bot]
+    was merged by @rultor after 1h28m of being in review and 3 comments.
+  hoc: 2
+  is_human: 0
+  issue: 1058
+  merger: 8086956
+  repository: 237167507
+  review_comments: 0
+  seconds: 5313
+  what: code-was-contributed
+  when: *265
+  where: github
+  who: 29139614
+- _id: 414714
+  _job: 60652
+  _time: 2026-02-08 19:18:12.414405855 Z
+  _version: 0.19.4/0.59.0/0.17.10
+  comments: 4
+  details: The pull request cqfn/aibolit#1063 with 21 HoC created by @vitalo-bit was
+    merged by @yegor256 after 45m of being in review and 4 comments.
+  hoc: 21
+  is_human: 1
+  issue: 1063
+  merger: 526301
+  repository: 237167507
+  review_comments: 2
+  seconds: 2701
+  what: code-was-contributed
+  when: *266
+  where: github
+  who: 71025204
+- _id: 414715
+  _job: 21804392202
+  _time: 2026-02-08 19:58:06.312681043 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  assignees_were_scanned: 743
+  earliest_issue_was_found: 1
+  events_were_scanned: 6407556309
+  issues_were_scanned: 432
+  labels_were_scanned: 896
+  latest_issue_was_found: 903
+  merges_were_scanned: 1034
+  min_issue_was_found: 963
+  min_pull_was_found: 1065
+  repository: 237167507
+  types_were_scanned: 952
+  what: iterate
+  where: github
