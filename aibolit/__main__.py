@@ -718,24 +718,23 @@ def print_total_score_for_file(
     """Compute total score for a file and return per-pattern aggregated scores.
 
     Note:
-        If the same `pattern_name` appears multiple times, importances are summed
-        instead of overwritten.
+        If the same `pattern_name` appears multiple times, the latest value
+        overwrites the previous one.
     """
     patterns_scores: dict[str, float] = {}
 
-    for item in result_for_file.get("results", []):
-        pattern_name = item.get("pattern_name")
+    for item in result_for_file.get('results', []):
+        pattern_name = item.get('pattern_name')
         if not isinstance(pattern_name, str):
             continue
 
-        # Important: sum repeated patterns instead of overwriting them.
-        patterns_scores[pattern_name] = patterns_scores.get(pattern_name, 0.0) + float(item.get("importance", 0.0))
+        # Overwriting repeated patterns.
+        patterns_scores[pattern_name] = float(item.get('importance', 0.0))
 
     total_score = sum(patterns_scores.values())
     importances_for_all_classes.append(total_score)
-    buffer.append(f"{filename} score: {total_score:.2f}")
+    buffer.append(f'{filename} score: {total_score:.2f}')
     return patterns_scores
-
 
 
 def recommend():
