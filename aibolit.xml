@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="530921">
+<fb version="0.19.3" size="529546">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">136.614128561</seconds>
+    <seconds t="F">85.027854105</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-09T09:46:49Z</when>
+    <when t="T">2026-02-09T10:44:08Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -1236,23 +1236,6 @@
     <who t="I">526301</who>
   </f>
   <f>
-    <_id t="I">34481</_id>
-    <_job t="I">32439</_job>
-    <_time t="T">2025-08-10T10:03:50Z</_time>
-    <_version t="S">0.14.5/0.52.2/0.15.9</_version>
-    <details t="S">The issue cqfn/aibolit#740 has been closed by @yegor256.</details>
-    <event_id t="I">50276609325</event_id>
-    <event_type t="S">IssuesEvent</event_type>
-    <is_human t="I">1</is_human>
-    <issue t="I">740</issue>
-    <repository t="I">237167507</repository>
-    <tombstone t="T">2026-02-07T11:59:23Z</tombstone>
-    <what t="S">issue-was-closed</what>
-    <when t="T">2025-05-29T09:26:56Z</when>
-    <where t="S">github</where>
-    <who t="I">526301</who>
-  </f>
-  <f>
     <_id t="I">34483</_id>
     <_job t="I">32439</_job>
     <_time t="T">2025-08-10T10:03:51Z</_time>
@@ -1276,33 +1259,6 @@
     <succeeded_builds t="I">16</succeeded_builds>
     <what t="S">pull-was-merged</what>
     <when t="T">2025-05-29T09:54:48Z</when>
-    <where t="S">github</where>
-    <who t="I">526301</who>
-  </f>
-  <f>
-    <_id t="I">34484</_id>
-    <_job t="I">32439</_job>
-    <_time t="T">2025-08-10T10:03:51Z</_time>
-    <_version t="S">0.14.5/0.52.2/0.15.9</_version>
-    <branch t="S">740</branch>
-    <comments t="I">1</comments>
-    <comments_appreciated t="I">0</comments_appreciated>
-    <comments_by_author t="I">0</comments_by_author>
-    <comments_by_reviewers t="I">1</comments_by_reviewers>
-    <comments_resolved t="I">0</comments_resolved>
-    <comments_to_code t="I">0</comments_to_code>
-    <details t="S">The pull request cqfn/aibolit#770 has been closed by @yegor256, with 49 HoC and 1 comments.</details>
-    <event_id t="I">50276608873</event_id>
-    <event_type t="S">PullRequestEvent</event_type>
-    <failed_builds t="I">0</failed_builds>
-    <hoc t="I">49</hoc>
-    <is_human t="I">1</is_human>
-    <issue t="I">770</issue>
-    <repository t="I">237167507</repository>
-    <review_comments t="I">0</review_comments>
-    <succeeded_builds t="I">16</succeeded_builds>
-    <what t="S">pull-was-merged</what>
-    <when t="T">2025-05-29T09:26:55Z</when>
     <where t="S">github</where>
     <who t="I">526301</who>
   </f>
@@ -3993,25 +3949,6 @@
     <who t="I">41443370</who>
   </f>
   <f>
-    <_id t="I">53665</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:24Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <comments t="I">1</comments>
-    <details t="S">The pull request cqfn/aibolit#770 with 49 HoC created by @ivanovmg was merged by @yegor256 after 11m32s of being in review and 1 comments.</details>
-    <hoc t="I">49</hoc>
-    <is_human t="I">1</is_human>
-    <issue t="I">770</issue>
-    <merger t="I">526301</merger>
-    <repository t="I">237167507</repository>
-    <review_comments t="I">0</review_comments>
-    <seconds t="I">693</seconds>
-    <what t="S">code-was-contributed</what>
-    <when t="T">2025-05-29T09:26:55Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
     <_id t="I">53666</_id>
     <_job t="I">34187</_job>
     <_time t="T">2025-08-24T08:04:24Z</_time>
@@ -5621,23 +5558,6 @@
     <repository t="I">237167507</repository>
     <what t="S">pull-was-opened</what>
     <when t="T">2025-05-29T09:32:18Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
-    <_id t="I">53934</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:40Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <branch t="S">740</branch>
-    <details t="S">The pull request cqfn/aibolit#770 has been opened by @ivanovmg.</details>
-    <event_id t="I">50276172013</event_id>
-    <event_type t="S">PullRequestEvent</event_type>
-    <is_human t="I">1</is_human>
-    <issue t="I">770</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">pull-was-opened</what>
-    <when t="T">2025-05-29T09:15:22Z</when>
     <where t="S">github</where>
     <who t="I">41443370</who>
   </f>
@@ -30754,50 +30674,6 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
     <who t="I">29139614</who>
   </f>
   <f>
-    <_id t="I">414724</_id>
-    <_job t="I">60719</_job>
-    <_time t="T">2026-02-09T08:36:13Z</_time>
-    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
-    <issues>
-      <v t="S">1-76</v>
-      <v t="S">78-115</v>
-      <v t="S">117-124</v>
-      <v t="S">126-149</v>
-      <v t="S">151-160</v>
-      <v t="S">162-165</v>
-      <v t="S">167-181</v>
-      <v t="S">183-279</v>
-      <v t="S">281</v>
-      <v t="S">284</v>
-      <v t="S">287-318</v>
-      <v t="S">320-335</v>
-      <v t="S">337-342</v>
-      <v t="S">345-348</v>
-      <v t="S">350-365</v>
-      <v t="S">367-369</v>
-      <v t="S">371-417</v>
-      <v t="S">419-430</v>
-      <v t="S">435-437</v>
-      <v t="S">439-453</v>
-      <v t="S">455-462</v>
-      <v t="S">464-527</v>
-      <v t="S">529-535</v>
-      <v t="S">537-538</v>
-      <v t="S">541-569</v>
-      <v t="S">571-583</v>
-      <v t="S">585-595</v>
-      <v t="S">597-598</v>
-      <v t="S">601-613</v>
-      <v t="S">615-652</v>
-      <v t="S">654-675</v>
-      <v t="S">678-716</v>
-      <v t="S">718-769</v>
-    </issues>
-    <repository t="I">237167507</repository>
-    <what t="S">tombstone</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">414725</_id>
     <_job t="I">60719</_job>
     <_time t="T">2026-02-09T08:37:02Z</_time>
@@ -30842,6 +30718,50 @@ The average weekly cost of HoC (2.05 points) is staying still.</text>
     <repository t="I">237167507</repository>
     <types_were_scanned t="I">952</types_were_scanned>
     <what t="S">iterate</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">414727</_id>
+    <_job t="I">60725</_job>
+    <_time t="T">2026-02-09T09:47:24Z</_time>
+    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
+    <issues>
+      <v t="S">1-76</v>
+      <v t="S">78-115</v>
+      <v t="S">117-124</v>
+      <v t="S">126-149</v>
+      <v t="S">151-160</v>
+      <v t="S">162-165</v>
+      <v t="S">167-181</v>
+      <v t="S">183-279</v>
+      <v t="S">281</v>
+      <v t="S">284</v>
+      <v t="S">287-318</v>
+      <v t="S">320-335</v>
+      <v t="S">337-342</v>
+      <v t="S">345-348</v>
+      <v t="S">350-365</v>
+      <v t="S">367-369</v>
+      <v t="S">371-417</v>
+      <v t="S">419-430</v>
+      <v t="S">435-437</v>
+      <v t="S">439-453</v>
+      <v t="S">455-462</v>
+      <v t="S">464-527</v>
+      <v t="S">529-535</v>
+      <v t="S">537-538</v>
+      <v t="S">541-569</v>
+      <v t="S">571-583</v>
+      <v t="S">585-595</v>
+      <v t="S">597-598</v>
+      <v t="S">601-613</v>
+      <v t="S">615-652</v>
+      <v t="S">654-675</v>
+      <v t="S">678-716</v>
+      <v t="S">718-770</v>
+    </issues>
+    <repository t="I">237167507</repository>
+    <what t="S">tombstone</what>
     <where t="S">github</where>
   </f>
 </fb>
