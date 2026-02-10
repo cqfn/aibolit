@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 120.162414071
+  seconds: 159.735348112
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-10 06:04:57.690832563 Z
+  when: 2026-02-10 07:49:02.812344956 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -3560,60 +3560,6 @@
   when: *27
   where: github
   who: 41443370
-- _id: 53836
-  _job: 34187
-  _time: 2025-08-24 08:04:34.753924244 Z
-  _version: 0.15.6/0.53.3/0.15.19!0.15.21
-  award: 4
-  details: It's time to reward @ivanovmg for the code contributed in cqfn/aibolit#774,
-    the reward amount is 4.
-  done: 2025-08-21 12:07:30.952740368 Z
-  href: https://github.com/cqfn/aibolit/issues/774/#issuecomment-2921317151
-  is_human: 1
-  issue: 774
-  receipt: 0
-  repository: 237167507
-  what: code-contribution-was-rewarded
-  when: 2025-05-30 05:00:54.581564793 Z
-  where: github
-  who: 41443370
-  why: Contributed code in cqfn/aibolit#774
-- _id: 53837
-  _job: 34187
-  _time: 2025-08-24 08:04:34.813820338 Z
-  _version: 0.15.6/0.53.3/0.15.19!0.15.21
-  award: 12
-  details: It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#785,
-    the reward amount is 12.
-  done: 2025-08-21 12:07:31.281731621 Z
-  href: https://github.com/cqfn/aibolit/issues/785/#issuecomment-2921317178
-  is_human: 1
-  issue: 785
-  receipt: 0
-  repository: 237167507
-  what: bug-report-was-rewarded
-  when: 2025-05-30 05:00:58.018692520 Z
-  where: github
-  who: 41443370
-  why: Reported bug in cqfn/aibolit#785
-- _id: 53838
-  _job: 34187
-  _time: 2025-08-24 08:04:34.873356500 Z
-  _version: 0.15.6/0.53.3/0.15.19!0.15.21
-  award: 12
-  details: It's time to reward @ivanovmg for the bug reported in cqfn/aibolit#786,
-    the reward amount is 12.
-  done: 2025-08-21 12:07:31.493914212 Z
-  href: https://github.com/cqfn/aibolit/issues/786/#issuecomment-2921317213
-  is_human: 1
-  issue: 786
-  receipt: 0
-  repository: 237167507
-  what: bug-report-was-rewarded
-  when: 2025-05-30 05:01:02.302153464 Z
-  where: github
-  who: 41443370
-  why: Reported bug in cqfn/aibolit#786
 - _id: 53839
   _job: 34187
   _time: 2025-08-24 08:04:34.933257723 Z
@@ -27773,9 +27719,33 @@
   total_stars: 95
   what: dimensions-of-terrain
   when: 2026-02-09 19:54:05.694976366 Z
-- _id: 414742
+- _id: 414743
   _job: 60823
-  _time: 2026-02-10 04:22:41.628370256 Z
+  _time: 2026-02-10 04:23:24.426998124 Z
+  _version: 0.19.4/0.59.0/0.17.10
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  - -29.357798165137613
+  - -63.745019920318725
+  - -4.153686396677051
+  - -42.44031830238727
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  - 0.07785714305026051
+  - 0.03585714296881663
+  - 0.13757142891724966
+  - 0.0538571429820274
+  what: learn-eva
+  when: 2026-02-10 04:23:24.405098871 Z
+- _id: 414745
+  _job: 60830
+  _time: 2026-02-10 06:05:22.089287206 Z
   _version: 0.19.4/0.59.0/0.17.10
   issues:
   - 1-76
@@ -27810,43 +27780,18 @@
   - 615-652
   - 654-675
   - 678-716
-  - 718-773
-  - 775-778
+  - 718-778
   - 784-786
   repository: 237167507
   what: tombstone
   where: github
-- _id: 414743
-  _job: 60823
-  _time: 2026-02-10 04:23:24.426998124 Z
-  _version: 0.19.4/0.59.0/0.17.10
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  - -5.536332179930795
-  - -29.357798165137613
-  - -63.745019920318725
-  - -4.153686396677051
-  - -42.44031830238727
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  - 0.41285714289175585
-  - 0.07785714305026051
-  - 0.03585714296881663
-  - 0.13757142891724966
-  - 0.0538571429820274
-  what: learn-eva
-  when: 2026-02-10 04:23:24.405098871 Z
-- _id: 414744
-  _job: 21853677860
-  _time: 2026-02-10 06:03:00.428141768 Z
+- _id: 414746
+  _job: 21856148528
+  _time: 2026-02-10 07:46:27.388345396 Z
   _version: 0.19.3/0.59.0/0.17.10
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 8294124299
+  events_were_scanned: 8296124294
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
