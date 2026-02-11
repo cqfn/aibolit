@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="503634">
+<fb version="0.19.3" size="503853">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
+    <error>
+      <v t="S">GET https://api.github.com/repos/cqfn/aibolit/pulls/1061: 502 - Server Error</v>
+      <v t="S">GET https://api.github.com/repos/cqfn/aibolit/pulls/917: 502 - Server Error</v>
+    </error>
     <inserted t="I">8</inserted>
-    <seconds t="F">78.432582182</seconds>
+    <seconds t="F">118.269551153</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-11T10:36:54Z</when>
+    <when t="T">2026-02-11T11:34:48Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -8210,6 +8214,7 @@
     <_job t="I">18276984428</_job>
     <_time t="T">2025-10-06T09:59:34Z</_time>
     <_version t="S">0.16.7/0.54.0/0.15.48</_version>
+    <tombstone t="T">2026-02-11T10:37:14Z</tombstone>
     <total_active_contributors t="I">4</total_active_contributors>
     <total_commits t="I">2728</total_commits>
     <total_contributors t="I">28</total_contributors>
@@ -29520,16 +29525,16 @@ The average weekly cost of HoC (2.09 points) is staying still.</text>
   </f>
   <f>
     <_id t="I">414763</_id>
-    <_job t="I">21899857997</_job>
-    <_time t="T">2026-02-11T09:38:02Z</_time>
+    <_job t="I">21903388921</_job>
+    <_time t="T">2026-02-11T11:33:08Z</_time>
     <_version t="S">0.19.3/0.59.0/0.17.10</_version>
     <assignees_were_scanned t="I">743</assignees_were_scanned>
     <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">8336616310</events_were_scanned>
+    <events_were_scanned t="I">8340328069</events_were_scanned>
     <issues_were_scanned t="I">432</issues_were_scanned>
     <labels_were_scanned t="I">896</labels_were_scanned>
     <latest_issue_was_found t="I">903</latest_issue_was_found>
-    <merges_were_scanned t="I">1034</merges_were_scanned>
+    <merges_were_scanned t="I">1060</merges_were_scanned>
     <min_issue_was_found t="I">963</min_issue_was_found>
     <min_pull_was_found t="I">1066</min_pull_was_found>
     <repository t="I">237167507</repository>
