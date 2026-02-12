@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 122.352828948
+  seconds: 161.288568837
   version: 0.59.0
   what: judges-summary
-  when: 2026-02-12 11:32:05.820982912 Z
+  when: 2026-02-12 12:33:37.907075590 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -7630,6 +7630,7 @@
   _job: 18310355352
   _time: 2025-10-07 10:56:14.729822996 Z
   _version: 0.16.7/0.54.0/0.15.50
+  tombstone: 2026-02-12 11:32:32.065652792 Z
   total_active_contributors: 5
   total_commits: 2755
   total_contributors: 28
@@ -26427,7 +26428,7 @@
   - 1
   some_unmerged_pulls: 0
   what: quality-of-service
-  when: 2026-02-05 12:04:27.000000000 Z
+  when: &239 2026-02-05 12:04:27.000000000 Z
 - _id: 414640
   _job: 21714165306
   _time: 2026-02-05 13:55:09.257231893 Z
@@ -26973,12 +26974,12 @@
   what: learn-eva
   when: 2026-02-12 05:20:59.730558203 Z
 - _id: 414770
-  _job: 21944777922
-  _time: 2026-02-12 11:30:06.899412498 Z
+  _job: 21946670037
+  _time: 2026-02-12 12:30:59.506586863 Z
   _version: 0.19.3/0.59.0/0.17.10
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 8378298303
+  events_were_scanned: 8379980280
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
@@ -26989,3 +26990,157 @@
   types_were_scanned: 952
   what: iterate
   where: github
+- _id: 414771
+  _job: 21946670037
+  _time: 2026-02-12 12:31:37.652149232 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  since: *239
+  some_backlog_size:
+  - 50
+  - 50
+  - 50
+  - 50
+  - 50
+  - 50
+  - 50
+  some_build_duration:
+  - 16
+  - 18
+  - 18
+  - 13
+  - 15
+  - 17
+  - 27
+  - 31
+  - 24
+  - 25
+  - 25
+  - 34
+  - 15
+  - 17
+  - 29
+  - 22
+  - 42
+  - 45
+  - 32
+  - 43
+  - 53
+  - 53
+  - 47
+  - 37
+  - 38
+  - 43
+  - 64
+  - 58
+  - 69
+  - 64
+  - 54
+  - 67
+  - 76
+  - 68
+  - 72
+  - 83
+  - 96
+  - 69
+  - 90
+  - 71
+  - 72
+  - 85
+  - 78
+  - 98
+  - 92
+  - 84
+  - 91
+  - 107
+  - 101
+  - 104
+  - 27
+  - 410
+  - 455
+  - 494
+  - 653
+  - 684
+  - 194
+  - 38
+  - 32
+  - 0
+  some_build_mttr:
+  - 11
+  - 3
+  - 60
+  - 28
+  - 597
+  some_build_success_rate:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0
+  some_merged_pulls: 2
+  some_pull_files_size: 1
+  some_pull_hoc_size: 21
+  some_pull_lifetime:
+  - 2701.0
+  - 151298.0
+  some_review_size: 2
+  some_review_time: 2528
+  some_reviewers_per_pull: 1
+  some_reviews_per_pull: 1
+  some_unmerged_pulls: 1
+  what: quality-of-service
+  when: 2026-02-12 12:31:37.000000000 Z
