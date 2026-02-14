@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="495075">
+<fb version="0.19.3" size="494744">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">114.702648361</seconds>
+    <seconds t="F">132.261776833</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-14T03:19:28Z</when>
+    <when t="T">2026-02-14T05:04:08Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -4231,23 +4231,6 @@
     <when t="T">2025-06-02T21:06:06Z</when>
     <where t="S">github</where>
     <who t="I">13173649</who>
-  </f>
-  <f>
-    <_id t="I">53956</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:42Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <details t="S">The issue cqfn/aibolit#792 has been closed by @ivanovmg.</details>
-    <event_id t="I">50434995611</event_id>
-    <event_type t="S">IssuesEvent</event_type>
-    <is_human t="I">1</is_human>
-    <issue t="I">792</issue>
-    <repository t="I">237167507</repository>
-    <tombstone t="T">2026-02-12T05:20:12Z</tombstone>
-    <what t="S">issue-was-closed</what>
-    <when t="T">2025-06-03T03:03:38Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
   </f>
   <f>
     <_id t="I">53957</_id>
@@ -29134,9 +29117,37 @@ The average weekly cost of HoC (2.09 points) is staying still.</text>
     <when t="T">2026-02-13T10:28:19Z</when>
   </f>
   <f>
-    <_id t="I">414781</_id>
-    <_job t="I">61118</_job>
-    <_time t="T">2026-02-13T13:52:57Z</_time>
+    <_id t="I">414783</_id>
+    <_job t="I">61151</_job>
+    <_time t="T">2026-02-13T19:34:57Z</_time>
+    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
+    <cost_of_qod>
+      <v t="F">8.571428571428571</v>
+      <v t="F">7.507218479307026</v>
+      <v t="F">-0.2996030259905625</v>
+      <v t="F">-5.536332179930795</v>
+      <v t="F">-29.357798165137613</v>
+      <v t="F">-63.745019920318725</v>
+      <v t="F">-4.153686396677051</v>
+      <v t="F">-42.44031830238727</v>
+    </cost_of_qod>
+    <qod_per_day>
+      <v t="F">1.6500000001292583</v>
+      <v t="F">2.9685714288025533</v>
+      <v t="F">1.907285714434459</v>
+      <v t="F">0.41285714289175585</v>
+      <v t="F">0.07785714305026051</v>
+      <v t="F">0.03585714296881663</v>
+      <v t="F">0.13757142891724966</v>
+      <v t="F">0.0538571429820274</v>
+    </qod_per_day>
+    <what t="S">learn-eva</what>
+    <when t="T">2026-02-13T19:34:57Z</when>
+  </f>
+  <f>
+    <_id t="I">414785</_id>
+    <_job t="I">61184</_job>
+    <_time t="T">2026-02-14T03:19:52Z</_time>
     <_version t="S">0.19.4/0.59.0/0.17.10</_version>
     <issues>
       <v t="S">1-76</v>
@@ -29178,41 +29189,13 @@ The average weekly cost of HoC (2.09 points) is staying still.</text>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">414783</_id>
-    <_job t="I">61151</_job>
-    <_time t="T">2026-02-13T19:34:57Z</_time>
-    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
-    <cost_of_qod>
-      <v t="F">8.571428571428571</v>
-      <v t="F">7.507218479307026</v>
-      <v t="F">-0.2996030259905625</v>
-      <v t="F">-5.536332179930795</v>
-      <v t="F">-29.357798165137613</v>
-      <v t="F">-63.745019920318725</v>
-      <v t="F">-4.153686396677051</v>
-      <v t="F">-42.44031830238727</v>
-    </cost_of_qod>
-    <qod_per_day>
-      <v t="F">1.6500000001292583</v>
-      <v t="F">2.9685714288025533</v>
-      <v t="F">1.907285714434459</v>
-      <v t="F">0.41285714289175585</v>
-      <v t="F">0.07785714305026051</v>
-      <v t="F">0.03585714296881663</v>
-      <v t="F">0.13757142891724966</v>
-      <v t="F">0.0538571429820274</v>
-    </qod_per_day>
-    <what t="S">learn-eva</what>
-    <when t="T">2026-02-13T19:34:57Z</when>
-  </f>
-  <f>
-    <_id t="I">414784</_id>
-    <_job t="I">22010160140</_job>
-    <_time t="T">2026-02-14T03:17:36Z</_time>
+    <_id t="I">414786</_id>
+    <_job t="I">22011596089</_job>
+    <_time t="T">2026-02-14T05:01:59Z</_time>
     <_version t="S">0.19.3/0.59.0/0.17.10</_version>
     <assignees_were_scanned t="I">743</assignees_were_scanned>
     <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">8437261161</events_were_scanned>
+    <events_were_scanned t="I">8439956969</events_were_scanned>
     <issues_were_scanned t="I">432</issues_were_scanned>
     <labels_were_scanned t="I">896</labels_were_scanned>
     <latest_issue_was_found t="I">903</latest_issue_was_found>
