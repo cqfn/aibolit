@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="489770">
+<fb version="0.19.3" size="488875">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">105.190954432</seconds>
+    <seconds t="F">79.132501927</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-14T15:03:09Z</when>
+    <when t="T">2026-02-14T16:01:49Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -53,21 +53,6 @@
     <qod_days t="I">7</qod_days>
     <qod_interval t="I">2</qod_interval>
     <what t="S">pmp</what>
-  </f>
-  <f>
-    <_id t="I">2451</_id>
-    <_job t="I">23506</_job>
-    <_time t="T">2025-06-03T15:01:17Z</_time>
-    <_version t="S">0.10.2/0.45.0/0.9.0</_version>
-    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#799 reported by @ivanovmg; this means that a bug was accepted as valid, by the project team.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">799</issue>
-    <reporter t="I">41443370</reporter>
-    <repository t="I">237167507</repository>
-    <what t="S">bug-was-accepted</what>
-    <when t="T">2025-06-03T14:44:12Z</when>
-    <where t="S">github</where>
-    <who t="I">526301</who>
   </f>
   <f>
     <_id t="I">2484</_id>
@@ -933,21 +918,6 @@
     <who t="I">8086956</who>
   </f>
   <f>
-    <_id t="I">34562</_id>
-    <_job t="I">32439</_job>
-    <_time t="T">2025-08-10T10:03:56Z</_time>
-    <_version t="S">0.14.5/0.52.2/0.15.9</_version>
-    <details t="S">The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#799.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">799</issue>
-    <label t="S">bug</label>
-    <repository t="I">237167507</repository>
-    <what t="S">label-was-attached</what>
-    <when t="T">2025-06-03T14:44:12Z</when>
-    <where t="S">github</where>
-    <who t="I">526301</who>
-  </f>
-  <f>
     <_id t="I">34564</_id>
     <_job t="I">32439</_job>
     <_time t="T">2025-08-10T10:03:56Z</_time>
@@ -958,6 +928,7 @@
     <is_human t="I">0</is_human>
     <issue t="I">799</issue>
     <repository t="I">237167507</repository>
+    <tombstone t="T">2026-02-14T15:03:42Z</tombstone>
     <what t="S">issue-was-closed</what>
     <when t="T">2025-06-03T17:58:18Z</when>
     <where t="S">github</where>
@@ -4066,22 +4037,6 @@
     <when t="T">2025-06-01T18:00:00Z</when>
     <where t="S">github</where>
     <who t="I">13173649</who>
-  </f>
-  <f>
-    <_id t="I">53953</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:41Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <details t="S">The issue cqfn/aibolit#799 has been opened by @ivanovmg.</details>
-    <event_id t="I">50395971061</event_id>
-    <event_type t="S">IssuesEvent</event_type>
-    <is_human t="I">1</is_human>
-    <issue t="I">799</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">issue-was-opened</what>
-    <when t="T">2025-06-02T08:28:44Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
   </f>
   <f>
     <_id t="I">53958</_id>
@@ -28531,51 +28486,6 @@ The average weekly cost of HoC (2.09 points) is staying still.</text>
     <when t="T">2026-02-14T11:05:05Z</when>
   </f>
   <f>
-    <_id t="I">414794</_id>
-    <_job t="I">61237</_job>
-    <_time t="T">2026-02-14T13:36:42Z</_time>
-    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
-    <issues>
-      <v t="S">1-76</v>
-      <v t="S">78-115</v>
-      <v t="S">117-124</v>
-      <v t="S">126-149</v>
-      <v t="S">151-160</v>
-      <v t="S">162-165</v>
-      <v t="S">167-181</v>
-      <v t="S">183-279</v>
-      <v t="S">281</v>
-      <v t="S">284</v>
-      <v t="S">287-318</v>
-      <v t="S">320-335</v>
-      <v t="S">337-342</v>
-      <v t="S">345-348</v>
-      <v t="S">350-365</v>
-      <v t="S">367-369</v>
-      <v t="S">371-417</v>
-      <v t="S">419-430</v>
-      <v t="S">435-437</v>
-      <v t="S">439-453</v>
-      <v t="S">455-462</v>
-      <v t="S">464-527</v>
-      <v t="S">529-535</v>
-      <v t="S">537-538</v>
-      <v t="S">541-569</v>
-      <v t="S">571-583</v>
-      <v t="S">585-595</v>
-      <v t="S">597-598</v>
-      <v t="S">601-613</v>
-      <v t="S">615-652</v>
-      <v t="S">654-675</v>
-      <v t="S">678-716</v>
-      <v t="S">718-798</v>
-      <v t="S">800-801</v>
-    </issues>
-    <repository t="I">237167507</repository>
-    <what t="S">tombstone</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">414795</_id>
     <_job t="I">61237</_job>
     <_time t="T">2026-02-14T13:37:23Z</_time>
@@ -28620,6 +28530,50 @@ The average weekly cost of HoC (2.09 points) is staying still.</text>
     <repository t="I">237167507</repository>
     <types_were_scanned t="I">952</types_were_scanned>
     <what t="S">iterate</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">414797</_id>
+    <_job t="I">61245</_job>
+    <_time t="T">2026-02-14T15:03:45Z</_time>
+    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
+    <issues>
+      <v t="S">1-76</v>
+      <v t="S">78-115</v>
+      <v t="S">117-124</v>
+      <v t="S">126-149</v>
+      <v t="S">151-160</v>
+      <v t="S">162-165</v>
+      <v t="S">167-181</v>
+      <v t="S">183-279</v>
+      <v t="S">281</v>
+      <v t="S">284</v>
+      <v t="S">287-318</v>
+      <v t="S">320-335</v>
+      <v t="S">337-342</v>
+      <v t="S">345-348</v>
+      <v t="S">350-365</v>
+      <v t="S">367-369</v>
+      <v t="S">371-417</v>
+      <v t="S">419-430</v>
+      <v t="S">435-437</v>
+      <v t="S">439-453</v>
+      <v t="S">455-462</v>
+      <v t="S">464-527</v>
+      <v t="S">529-535</v>
+      <v t="S">537-538</v>
+      <v t="S">541-569</v>
+      <v t="S">571-583</v>
+      <v t="S">585-595</v>
+      <v t="S">597-598</v>
+      <v t="S">601-613</v>
+      <v t="S">615-652</v>
+      <v t="S">654-675</v>
+      <v t="S">678-716</v>
+      <v t="S">718-801</v>
+    </issues>
+    <repository t="I">237167507</repository>
+    <what t="S">tombstone</what>
     <where t="S">github</where>
   </f>
 </fb>
