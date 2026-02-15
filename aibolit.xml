@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="483919">
+<fb version="0.19.3" size="483626">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">86.784305964</seconds>
+    <seconds t="F">112.06188873</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-15T11:59:34Z</when>
+    <when t="T">2026-02-15T13:37:18Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -7147,25 +7147,6 @@
     <when t="T">2025-10-01T19:02:10Z</when>
     <where t="S">github</where>
     <who t="I">29139614</who>
-  </f>
-  <f>
-    <_id t="I">135990</_id>
-    <_job t="I">18190920515</_job>
-    <_time t="T">2025-10-02T10:57:49Z</_time>
-    <_version t="S">0.16.7/0.54.0/0.15.48</_version>
-    <composite t="F">11.586</composite>
-    <ffact t="I">137</ffact>
-    <since t="T">2025-09-25T10:57:36Z</since>
-    <tombstone t="T">2026-02-07T11:05:05Z</tombstone>
-    <total_builds_ran t="I">893</total_builds_ran>
-    <total_commits_pushed t="I">10</total_commits_pushed>
-    <total_hoc_committed t="I">53</total_hoc_committed>
-    <total_issues_created t="I">12</total_issues_created>
-    <total_pulls_submitted t="I">11</total_pulls_submitted>
-    <total_releases_published t="I">0</total_releases_published>
-    <total_reviews_submitted t="I">8</total_reviews_submitted>
-    <what t="S">quantity-of-deliverables</what>
-    <when t="T">2025-10-02T10:57:36Z</when>
   </f>
   <f>
     <_id t="I">136726</_id>
@@ -28254,26 +28235,6 @@
     <when t="T">2026-02-13T10:26:43Z</when>
   </f>
   <f>
-    <_id t="I">414777</_id>
-    <_job t="I">61103</_job>
-    <_time t="T">2026-02-13T10:28:19Z</_time>
-    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
-    <analyzers t="I">18</analyzers>
-    <text t="S">The average reward per task (6.2 points) is decreasing (R=-0.54).
-The average punishment per task (15.0 points) is increasing (R=0.31).
-The average number of builds per week (826.0) is decreasing (R=-0.56).
-The average number of commits per week (10.9) is decreasing (R=-0.45).
-The average monthly punishment (48 points) is decreasing (R=-0.77).
-The average monthly wage (7.3 points) is decreasing (R=-0.30).
-The average issue cycle time (2w) is increasing (R=0.52).
-The average pull cycle time (2d14h) is staying still.
-The average number of releases per month (0.0) is staying still.
-The average monthly turnover (9.0 developers) is decreasing (R=-0.82).
-The average weekly cost of HoC (2.09 points) is staying still.</text>
-    <what t="S">assessment</what>
-    <when t="T">2026-02-13T10:28:19Z</when>
-  </f>
-  <f>
     <_id t="I">414790</_id>
     <_job t="I">22016215845</_job>
     <_time t="T">2026-02-14T11:02:17Z</_time>
@@ -28418,13 +28379,33 @@ The average weekly cost of HoC (2.09 points) is staying still.</text>
     <when t="T">2026-02-15T11:02:35Z</when>
   </f>
   <f>
-    <_id t="I">414807</_id>
-    <_job t="I">22035246781</_job>
-    <_time t="T">2026-02-15T11:58:15Z</_time>
+    <_id t="I">414808</_id>
+    <_job t="I">61349</_job>
+    <_time t="T">2026-02-15T12:00:02Z</_time>
+    <_version t="S">0.19.4/0.59.0/0.17.10</_version>
+    <analyzers t="I">18</analyzers>
+    <text t="S">The average reward per task (6.2 points) is decreasing (R=-0.54).
+The average punishment per task (15.0 points) is increasing (R=0.31).
+The average number of builds per week (740.9) is decreasing (R=-0.51).
+The average number of commits per week (7.9) is decreasing (R=-0.29).
+The average monthly punishment (48 points) is decreasing (R=-0.77).
+The average monthly wage (7.3 points) is decreasing (R=-0.30).
+The average issue cycle time (2w) is increasing (R=0.53).
+The average pull cycle time (2d14h) is staying still.
+The average number of releases per month (0.0) is staying still.
+The average monthly turnover (9.0 developers) is decreasing (R=-0.82).
+The average weekly cost of HoC (2.09 points) is staying still.</text>
+    <what t="S">assessment</what>
+    <when t="T">2026-02-15T12:00:02Z</when>
+  </f>
+  <f>
+    <_id t="I">414809</_id>
+    <_job t="I">22036581332</_job>
+    <_time t="T">2026-02-15T13:35:29Z</_time>
     <_version t="S">0.19.3/0.59.0/0.17.10</_version>
     <assignees_were_scanned t="I">743</assignees_were_scanned>
     <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">8463694383</events_were_scanned>
+    <events_were_scanned t="I">8465264484</events_were_scanned>
     <issues_were_scanned t="I">432</issues_were_scanned>
     <labels_were_scanned t="I">896</labels_were_scanned>
     <latest_issue_was_found t="I">903</latest_issue_was_found>
