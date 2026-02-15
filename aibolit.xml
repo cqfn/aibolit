@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="487459">
+<fb version="0.19.3" size="483957">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">104.552291311</seconds>
+    <seconds t="F">77.856702116</seconds>
     <version t="S">0.59.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-15T06:35:38Z</when>
+    <when t="T">2026-02-15T07:29:22Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -53,21 +53,6 @@
     <qod_days t="I">7</qod_days>
     <qod_interval t="I">2</qod_interval>
     <what t="S">pmp</what>
-  </f>
-  <f>
-    <_id t="I">2484</_id>
-    <_job t="I">23552</_job>
-    <_time t="T">2025-06-04T17:04:47Z</_time>
-    <_version t="S">0.11.0/0.45.0/0.9.0</_version>
-    <details t="S">@yegor256 attached the '#bug' label to cqfn/aibolit#803 reported by @ivanovmg; this means that a bug was accepted as valid, by the project team.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">803</issue>
-    <reporter t="I">41443370</reporter>
-    <repository t="I">237167507</repository>
-    <what t="S">bug-was-accepted</what>
-    <when t="T">2025-06-04T05:15:10Z</when>
-    <where t="S">github</where>
-    <who t="I">526301</who>
   </f>
   <f>
     <_id t="I">4235</_id>
@@ -916,21 +901,6 @@
     <when t="T">2025-06-02T15:01:10Z</when>
     <where t="S">github</where>
     <who t="I">8086956</who>
-  </f>
-  <f>
-    <_id t="I">34571</_id>
-    <_job t="I">32439</_job>
-    <_time t="T">2025-08-10T10:03:56Z</_time>
-    <_version t="S">0.14.5/0.52.2/0.15.9</_version>
-    <details t="S">The '#bug' label was attached by @yegor256 to the issue cqfn/aibolit#803.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">803</issue>
-    <label t="S">bug</label>
-    <repository t="I">237167507</repository>
-    <what t="S">label-was-attached</what>
-    <when t="T">2025-06-04T05:15:10Z</when>
-    <where t="S">github</where>
-    <who t="I">526301</who>
   </f>
   <f>
     <_id t="I">34574</_id>
@@ -2722,6 +2692,7 @@
     <is_human t="I">1</is_human>
     <issue t="I">803</issue>
     <repository t="I">237167507</repository>
+    <tombstone t="T">2026-02-15T06:36:12Z</tombstone>
     <what t="S">issue-was-closed</what>
     <when t="T">2025-06-05T09:24:20Z</when>
     <where t="S">github</where>
@@ -2907,6 +2878,7 @@
     <opener t="I">41443370</opener>
     <repository t="I">237167507</repository>
     <seconds t="I">101348</seconds>
+    <tombstone t="T">2026-02-15T06:36:12Z</tombstone>
     <what t="S">bug-was-resolved</what>
     <when t="T">2025-06-05T09:24:20Z</when>
     <where t="S">github</where>
@@ -3976,22 +3948,6 @@
     <who t="I">13173649</who>
   </f>
   <f>
-    <_id t="I">53959</_id>
-    <_job t="I">34187</_job>
-    <_time t="T">2025-08-24T08:04:42Z</_time>
-    <_version t="S">0.15.6/0.53.3/0.15.19!0.15.21</_version>
-    <details t="S">The issue cqfn/aibolit#803 has been opened by @ivanovmg.</details>
-    <event_id t="I">50487333465</event_id>
-    <event_type t="S">IssuesEvent</event_type>
-    <is_human t="I">1</is_human>
-    <issue t="I">803</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">issue-was-opened</what>
-    <when t="T">2025-06-04T04:47:49Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
-  </f>
-  <f>
     <_id t="I">53964</_id>
     <_job t="I">34187</_job>
     <_time t="T">2025-08-24T08:04:42Z</_time>
@@ -4515,21 +4471,6 @@
     <push_to_master_was_punished t="S">(award (explain 'When someone pushes directly to the default branch, they get a penalty') (aka (let fee -16) (give fee 'as a basis') '${fee} points'))</push_to_master_was_punished>
     <resolved_bug_was_rewarded t="S">(award (explain 'When a bug is resolved, the person who was assigned to it receives a bonus') (in hours 'how many hours it took to resolve the bug') (in self '1 if the bug was reported and resolved by the same person, otherwise zero') (set days (div hours 24)) (aka (let basis 8) (give basis 'as a basis') 'award ${basis} points') (aka (let b1 4) (let hours_threshold 24) (set b1 (if (lt hours hours_threshold) b1 0)) (give b1 'for resolving it in less than ${hours_threshold} hours') 'add ${b1} points if it was resolved in less than ${hours_threshold} hours') (aka (let self_fee 16) (set penalty_for_self (if (eq self 1) (times -1 self_fee) 0)) (give penalty_for_self 'for resolving the bug reported by you earlier') 'deduct ${self_fee} points if they resolved the bug earlier reported by themselves') (aka (let day_fee 1.0) (set b2 (times -1 (times days day_fee))) (let days_fee_max -20) (set b2 (max b2 days_fee_max)) (give b2 'for ${days} days of delay') 'deduct ${day_fee} points for each day of delay, but no more than ${days_fee_max} points') (aka (let max 16) (set over (if (gt (total) max) (minus max (total)) 0)) (give over 'to not go over the cap') (let min 4) (set least (if (lt (total) min) (minus min (total)) 0)) (give least 'to give you at least something') 'make sure the reward is not larger than ${max} points and not smaller than ${min} points'))</resolved_bug_was_rewarded>
     <what t="S">pmp</what>
-  </f>
-  <f>
-    <_id t="I">90357</_id>
-    <_job t="I">17679527664</_job>
-    <_time t="T">2025-09-12T15:57:27Z</_time>
-    <_version t="S">0.16.3/0.53.6/0.15.42</_version>
-    <assigner t="I">526301</assigner>
-    <details t="S">cqfn/aibolit#803 was assigned to @ivanovmg by @yegor256.</details>
-    <is_human t="I">1</is_human>
-    <issue t="I">803</issue>
-    <repository t="I">237167507</repository>
-    <what t="S">issue-was-assigned</what>
-    <when t="T">2025-06-04T05:15:12Z</when>
-    <where t="S">github</where>
-    <who t="I">41443370</who>
   </f>
   <f>
     <_id t="I">90568</_id>
@@ -28406,9 +28347,28 @@ The average weekly cost of HoC (2.09 points) is staying still.</text>
     <when t="T">2026-02-14T11:05:05Z</when>
   </f>
   <f>
-    <_id t="I">414799</_id>
-    <_job t="I">61260</_job>
-    <_time t="T">2026-02-14T18:01:18Z</_time>
+    <_id t="I">414802</_id>
+    <_job t="I">22031120180</_job>
+    <_time t="T">2026-02-15T06:33:56Z</_time>
+    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
+    <assignees_were_scanned t="I">743</assignees_were_scanned>
+    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
+    <events_were_scanned t="I">8460277564</events_were_scanned>
+    <issues_were_scanned t="I">432</issues_were_scanned>
+    <labels_were_scanned t="I">896</labels_were_scanned>
+    <latest_issue_was_found t="I">903</latest_issue_was_found>
+    <merges_were_scanned t="I">1060</merges_were_scanned>
+    <min_issue_was_found t="I">963</min_issue_was_found>
+    <min_pull_was_found t="I">1066</min_pull_was_found>
+    <repository t="I">237167507</repository>
+    <types_were_scanned t="I">952</types_were_scanned>
+    <what t="S">iterate</what>
+    <where t="S">github</where>
+  </f>
+  <f>
+    <_id t="I">414803</_id>
+    <_job t="I">61315</_job>
+    <_time t="T">2026-02-15T06:36:15Z</_time>
     <_version t="S">0.19.4/0.59.0/0.17.10</_version>
     <issues>
       <v t="S">1-76</v>
@@ -28443,16 +28403,16 @@ The average weekly cost of HoC (2.09 points) is staying still.</text>
       <v t="S">615-652</v>
       <v t="S">654-675</v>
       <v t="S">678-716</v>
-      <v t="S">718-802</v>
+      <v t="S">718-803</v>
     </issues>
     <repository t="I">237167507</repository>
     <what t="S">tombstone</what>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">414801</_id>
-    <_job t="I">61281</_job>
-    <_time t="T">2026-02-14T22:00:40Z</_time>
+    <_id t="I">414804</_id>
+    <_job t="I">61315</_job>
+    <_time t="T">2026-02-15T06:36:55Z</_time>
     <_version t="S">0.19.4/0.59.0/0.17.10</_version>
     <cost_of_qod>
       <v t="F">8.571428571428571</v>
@@ -28475,25 +28435,6 @@ The average weekly cost of HoC (2.09 points) is staying still.</text>
       <v t="F">0.0538571429820274</v>
     </qod_per_day>
     <what t="S">learn-eva</what>
-    <when t="T">2026-02-14T22:00:39Z</when>
-  </f>
-  <f>
-    <_id t="I">414802</_id>
-    <_job t="I">22031120180</_job>
-    <_time t="T">2026-02-15T06:33:56Z</_time>
-    <_version t="S">0.19.3/0.59.0/0.17.10</_version>
-    <assignees_were_scanned t="I">743</assignees_were_scanned>
-    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">8460277564</events_were_scanned>
-    <issues_were_scanned t="I">432</issues_were_scanned>
-    <labels_were_scanned t="I">896</labels_were_scanned>
-    <latest_issue_was_found t="I">903</latest_issue_was_found>
-    <merges_were_scanned t="I">1060</merges_were_scanned>
-    <min_issue_was_found t="I">963</min_issue_was_found>
-    <min_pull_was_found t="I">1066</min_pull_was_found>
-    <repository t="I">237167507</repository>
-    <types_were_scanned t="I">952</types_were_scanned>
-    <what t="S">iterate</what>
-    <where t="S">github</where>
+    <when t="T">2026-02-15T06:36:55Z</when>
   </f>
 </fb>
