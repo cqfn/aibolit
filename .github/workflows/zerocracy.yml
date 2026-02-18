@@ -23,7 +23,7 @@ jobs:
           github-token: ${{ secrets.PAT }}
           repositories: cqfn/aibolit
           factbase: aibolit.fb
-      - uses: zerocracy/pages-action@0.6.4
+      - uses: zerocracy/pages-action@0.7.0
         with:
           factbase: aibolit.fb
           output: pages
