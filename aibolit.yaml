@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 116.796072761
-  version: 0.59.0
+  seconds: 168.620320799
+  version: 0.60.0
   what: judges-summary
-  when: 2026-02-18 13:59:09.260885470 Z
+  when: 2026-02-18 15:39:56.587913732 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -5175,18 +5175,6 @@
   tombstone: 2025-09-27 13:59:37.342081325 Z
   what: issue-was-opened
   when: 2025-06-07 17:41:47.000000000 Z
-  where: github
-  who: 13173649
-- _id: 126475
-  _job: 18060677827
-  _time: 2025-09-27 13:57:15.648228510 Z
-  _version: 0.16.7/0.54.0/0.15.45
-  details: The issue cqfn/aibolit#811 has been earlier opened by @antonprokopyev.
-  issue: 811
-  repository: 237167507
-  tombstone: 2025-09-27 13:59:37.299000489 Z
-  what: issue-was-opened
-  when: 2025-06-07 13:34:12.000000000 Z
   where: github
   who: 13173649
 - _id: 126504
@@ -25796,9 +25784,25 @@
   total_stars: 96
   what: dimensions-of-terrain
   when: 2026-02-16 11:30:30.895842977 Z
-- _id: 414820
-  _job: 61514
-  _time: 2026-02-16 12:30:01.785244527 Z
+- _id: 414831
+  _job: 22098442181
+  _time: 2026-02-17 12:27:51.844236624 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  total_active_contributors: 5
+  total_commits: 2944
+  total_contributors: 29
+  total_files: 1049
+  total_forks: 38
+  total_issues: 447
+  total_pulls: 621
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 96
+  what: dimensions-of-terrain
+  when: 2026-02-17 12:27:51.868304176 Z
+- _id: 414833
+  _job: 61701
+  _time: 2026-02-17 13:58:53.494088764 Z
   _version: 0.19.4/0.59.0/0.17.10!0.17.11
   analyzers: 18
   text: |-
@@ -25808,16 +25812,47 @@
     The average number of commits per week (7.9) is decreasing (R=-0.29).
     The average monthly punishment (48 points) is decreasing (R=-0.77).
     The average monthly wage (7.3 points) is decreasing (R=-0.30).
-    The average issue cycle time (2w1d) is increasing (R=0.53).
-    The average pull cycle time (2d15h) is staying still.
     The average number of releases per month (0.0) is staying still.
     The average monthly turnover (9.0 developers) is decreasing (R=-0.82).
     The average weekly cost of HoC (2.09 points) is staying still.
   what: assessment
-  when: 2026-02-16 12:30:01.806762457 Z
-- _id: 414828
-  _job: 61627
-  _time: 2026-02-17 06:42:00.902234539 Z
+  when: 2026-02-17 13:58:53.517686297 Z
+- _id: 414839
+  _job: 22139694337
+  _time: 2026-02-18 12:27:52.109984718 Z
+  _version: 0.19.3/0.59.0/0.17.10
+  total_active_contributors: 5
+  total_commits: 2944
+  total_contributors: 29
+  total_files: 1049
+  total_forks: 38
+  total_issues: 447
+  total_pulls: 621
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 96
+  what: dimensions-of-terrain
+  when: 2026-02-18 12:27:52.121019998 Z
+- _id: 414841
+  _job: 61926
+  _time: 2026-02-18 13:59:32.301610346 Z
+  _version: 0.19.4/0.59.0/0.17.10!0.17.11
+  analyzers: 18
+  text: |-
+    The average reward per task (6.2 points) is decreasing (R=-0.53).
+    The average punishment per task (15.0 points) is increasing (R=0.31).
+    The average number of builds per week (740.9) is decreasing (R=-0.51).
+    The average number of commits per week (7.9) is decreasing (R=-0.29).
+    The average monthly punishment (48 points) is decreasing (R=-0.77).
+    The average monthly wage (7.3 points) is decreasing (R=-0.30).
+    The average number of releases per month (0.0) is staying still.
+    The average monthly turnover (9.0 developers) is decreasing (R=-0.82).
+    The average weekly cost of HoC (2.09 points) is staying still.
+  what: assessment
+  when: 2026-02-18 13:59:32.319217918 Z
+- _id: 414842
+  _job: 61926
+  _time: 2026-02-18 13:59:33.854003836 Z
   _version: 0.19.4/0.59.0/0.17.10!0.17.11
   issues:
   - 1-76
@@ -25852,45 +25887,13 @@
   - 615-652
   - 654-675
   - 678-808
+  - '811'
   repository: 237167507
   what: tombstone
   where: github
-- _id: 414831
-  _job: 22098442181
-  _time: 2026-02-17 12:27:51.844236624 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  total_active_contributors: 5
-  total_commits: 2944
-  total_contributors: 29
-  total_files: 1049
-  total_forks: 38
-  total_issues: 447
-  total_pulls: 621
-  total_releases: 28
-  total_repositories: 1
-  total_stars: 96
-  what: dimensions-of-terrain
-  when: 2026-02-17 12:27:51.868304176 Z
-- _id: 414833
-  _job: 61701
-  _time: 2026-02-17 13:58:53.494088764 Z
-  _version: 0.19.4/0.59.0/0.17.10!0.17.11
-  analyzers: 18
-  text: |-
-    The average reward per task (6.2 points) is decreasing (R=-0.53).
-    The average punishment per task (15.0 points) is increasing (R=0.31).
-    The average number of builds per week (740.9) is decreasing (R=-0.51).
-    The average number of commits per week (7.9) is decreasing (R=-0.29).
-    The average monthly punishment (48 points) is decreasing (R=-0.77).
-    The average monthly wage (7.3 points) is decreasing (R=-0.30).
-    The average number of releases per month (0.0) is staying still.
-    The average monthly turnover (9.0 developers) is decreasing (R=-0.82).
-    The average weekly cost of HoC (2.09 points) is staying still.
-  what: assessment
-  when: 2026-02-17 13:58:53.517686297 Z
-- _id: 414837
-  _job: 61839
-  _time: 2026-02-18 05:17:31.281760514 Z
+- _id: 414843
+  _job: 61926
+  _time: 2026-02-18 14:00:20.470244730 Z
   _version: 0.19.4/0.59.0/0.17.10!0.17.11
   cost_of_qod:
   - 8.571428571428571
@@ -25911,30 +25914,14 @@
   - 0.13757142891724966
   - 0.0538571429820274
   what: learn-eva
-  when: 2026-02-18 05:17:31.259714286 Z
-- _id: 414839
-  _job: 22139694337
-  _time: 2026-02-18 12:27:52.109984718 Z
-  _version: 0.19.3/0.59.0/0.17.10
-  total_active_contributors: 5
-  total_commits: 2944
-  total_contributors: 29
-  total_files: 1049
-  total_forks: 38
-  total_issues: 447
-  total_pulls: 621
-  total_releases: 28
-  total_repositories: 1
-  total_stars: 96
-  what: dimensions-of-terrain
-  when: 2026-02-18 12:27:52.121019998 Z
-- _id: 414840
-  _job: 22142621707
-  _time: 2026-02-18 13:57:21.397659553 Z
-  _version: 0.19.3/0.59.0/0.17.10
+  when: 2026-02-18 14:00:20.442121721 Z
+- _id: 414844
+  _job: 22146281518
+  _time: 2026-02-18 15:37:20.072444744 Z
+  _version: 0.19.6/0.60.0/0.17.11
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 8148284897
+  events_were_scanned: 8206881247
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
@@ -25945,3 +25932,75 @@
   types_were_scanned: 952
   what: iterate
   where: github
+- _id: 414845
+  _job: 22146281518
+  _time: 2026-02-18 15:37:32.890469262 Z
+  _version: 0.19.6/0.60.0/0.17.11
+  branch: renovate/ruff-0.x
+  comments: 1
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 1
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#1061 has been "pull-was-merged".
+  failed_builds: 0
+  files: 2
+  hoc: 47
+  is_human: 1
+  issue: 1061
+  repository: 237167507
+  succeeded_builds: 18
+  suggestions: 0
+  what: pull-was-merged
+  when: 2026-02-18 14:55:12.000000000 Z
+  where: github
+  who: 526301
+- _id: 414846
+  _job: 22146281518
+  _time: 2026-02-18 15:37:55.243200640 Z
+  _version: 0.19.6/0.60.0/0.17.11
+  branch: renovate/setuptools-82.x
+  comments: 0
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 0
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#1065 has been "pull-was-merged".
+  failed_builds: 0
+  files: 2
+  hoc: 10
+  is_human: 1
+  issue: 1065
+  repository: 237167507
+  succeeded_builds: 18
+  suggestions: 0
+  what: pull-was-merged
+  when: 2026-02-18 14:56:14.000000000 Z
+  where: github
+  who: 526301
+- _id: 414847
+  _job: 22146281518
+  _time: 2026-02-18 15:38:09.656105322 Z
+  _version: 0.19.6/0.60.0/0.17.11
+  branch: renovate/org.apache.maven.plugins-maven-dependency-plugin-3.x
+  comments: 0
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 0
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#1066 has been "pull-was-merged".
+  failed_builds: 0
+  files: 1
+  hoc: 2
+  is_human: 1
+  issue: 1066
+  repository: 237167507
+  succeeded_builds: 18
+  suggestions: 0
+  what: pull-was-merged
+  when: 2026-02-18 14:56:27.000000000 Z
+  where: github
+  who: 526301
