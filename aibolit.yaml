@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 168.620320799
+  seconds: 113.323965215
   version: 0.60.0
   what: judges-summary
-  when: 2026-02-18 15:39:56.587913732 Z
+  when: 2026-02-18 16:47:26.231977989 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -3523,22 +3523,6 @@
   when: 2025-05-14 21:05:35.000000000 Z
   where: github
   who: 71025204
-- _id: 54145
-  _job: 34187
-  _time: 2025-08-24 08:04:54.033774396 Z
-  _version: 0.15.6/0.53.3/0.15.19!0.15.21
-  branch: 811-add-test
-  details: The pull request cqfn/aibolit#812 has been opened by @antonprokopyev.
-  event_id: 50630737366
-  event_type: PullRequestEvent
-  is_human: 1
-  issue: 812
-  not_merged: 2025-07-03 10:58:00.480421463 Z
-  repository: 237167507
-  what: pull-was-opened
-  when: 2025-06-07 13:57:45.000000000 Z
-  where: github
-  who: 13173649
 - _id: 54172
   _job: 34187
   _time: 2025-08-24 08:04:55.702000565 Z
@@ -3577,6 +3561,7 @@
   issue: 812
   repository: 237167507
   succeeded_builds: 16
+  tombstone: 2026-02-18 15:40:28.336947608 Z
   what: pull-was-closed
   when: 2025-07-22 09:23:11.000000000 Z
   where: github
@@ -3680,24 +3665,6 @@
   seconds: 383
   what: code-was-reviewed
   when: 2025-06-25 13:42:41.000000000 Z
-  where: github
-  who: 136622811
-- _id: 71006
-  _job: 17471077635
-  _time: 2025-09-04 16:57:42.797373302 Z
-  _version: 0.15.8/0.53.6
-  author: 13173649
-  comments: 3
-  details: The pull request cqfn/aibolit#812 with 17 HoC created by @antonprokopyev
-    was reviewed by @coderabbitai[bot] after 0h15m and 1 comments.
-  hoc: 17
-  is_human: 0
-  issue: 812
-  repository: 237167507
-  review_comments: 1
-  seconds: 932
-  what: code-was-reviewed
-  when: 2025-06-07 14:13:14.000000000 Z
   where: github
   who: 136622811
 - _id: 71138
@@ -25850,10 +25817,109 @@
     The average weekly cost of HoC (2.09 points) is staying still.
   what: assessment
   when: 2026-02-18 13:59:32.319217918 Z
-- _id: 414842
+- _id: 414843
   _job: 61926
-  _time: 2026-02-18 13:59:33.854003836 Z
+  _time: 2026-02-18 14:00:20.470244730 Z
   _version: 0.19.4/0.59.0/0.17.10!0.17.11
+  cost_of_qod:
+  - 8.571428571428571
+  - 7.507218479307026
+  - -0.2996030259905625
+  - -5.536332179930795
+  - -29.357798165137613
+  - -63.745019920318725
+  - -4.153686396677051
+  - -42.44031830238727
+  qod_per_day:
+  - 1.6500000001292583
+  - 2.9685714288025533
+  - 1.907285714434459
+  - 0.41285714289175585
+  - 0.07785714305026051
+  - 0.03585714296881663
+  - 0.13757142891724966
+  - 0.0538571429820274
+  what: learn-eva
+  when: 2026-02-18 14:00:20.442121721 Z
+- _id: 414845
+  _job: 22146281518
+  _time: 2026-02-18 15:37:32.890469262 Z
+  _version: 0.19.6/0.60.0/0.17.11
+  branch: renovate/ruff-0.x
+  comments: 1
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 1
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#1061 has been "pull-was-merged".
+  failed_builds: 0
+  files: 2
+  hoc: 47
+  is_human: 1
+  issue: 1061
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 18
+  suggestions: 0
+  what: pull-was-merged
+  when: 2026-02-18 14:55:12.000000000 Z
+  where: github
+  who: 526301
+- _id: 414846
+  _job: 22146281518
+  _time: 2026-02-18 15:37:55.243200640 Z
+  _version: 0.19.6/0.60.0/0.17.11
+  branch: renovate/setuptools-82.x
+  comments: 0
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 0
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#1065 has been "pull-was-merged".
+  failed_builds: 0
+  files: 2
+  hoc: 10
+  is_human: 1
+  issue: 1065
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 18
+  suggestions: 0
+  what: pull-was-merged
+  when: 2026-02-18 14:56:14.000000000 Z
+  where: github
+  who: 526301
+- _id: 414847
+  _job: 22146281518
+  _time: 2026-02-18 15:38:09.656105322 Z
+  _version: 0.19.6/0.60.0/0.17.11
+  branch: renovate/org.apache.maven.plugins-maven-dependency-plugin-3.x
+  comments: 0
+  comments_appreciated: 0
+  comments_by_author: 0
+  comments_by_reviewers: 0
+  comments_resolved: 0
+  comments_to_code: 0
+  details: Apparently, cqfn/aibolit#1066 has been "pull-was-merged".
+  failed_builds: 0
+  files: 1
+  hoc: 2
+  is_human: 1
+  issue: 1066
+  repository: 237167507
+  review_comments: 0
+  succeeded_builds: 18
+  suggestions: 0
+  what: pull-was-merged
+  when: 2026-02-18 14:56:27.000000000 Z
+  where: github
+  who: 526301
+- _id: 414848
+  _job: 61947
+  _time: 2026-02-18 15:40:31.152027936 Z
+  _version: 0.19.4/0.59.0/0.17.11
   issues:
   - 1-76
   - 78-115
@@ -25887,41 +25953,17 @@
   - 615-652
   - 654-675
   - 678-808
-  - '811'
+  - 811-812
   repository: 237167507
   what: tombstone
   where: github
-- _id: 414843
-  _job: 61926
-  _time: 2026-02-18 14:00:20.470244730 Z
-  _version: 0.19.4/0.59.0/0.17.10!0.17.11
-  cost_of_qod:
-  - 8.571428571428571
-  - 7.507218479307026
-  - -0.2996030259905625
-  - -5.536332179930795
-  - -29.357798165137613
-  - -63.745019920318725
-  - -4.153686396677051
-  - -42.44031830238727
-  qod_per_day:
-  - 1.6500000001292583
-  - 2.9685714288025533
-  - 1.907285714434459
-  - 0.41285714289175585
-  - 0.07785714305026051
-  - 0.03585714296881663
-  - 0.13757142891724966
-  - 0.0538571429820274
-  what: learn-eva
-  when: 2026-02-18 14:00:20.442121721 Z
-- _id: 414844
-  _job: 22146281518
-  _time: 2026-02-18 15:37:20.072444744 Z
+- _id: 414849
+  _job: 22148825983
+  _time: 2026-02-18 16:45:44.961447958 Z
   _version: 0.19.6/0.60.0/0.17.11
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 8206881247
+  events_were_scanned: 8208431755
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
@@ -25932,75 +25974,3 @@
   types_were_scanned: 952
   what: iterate
   where: github
-- _id: 414845
-  _job: 22146281518
-  _time: 2026-02-18 15:37:32.890469262 Z
-  _version: 0.19.6/0.60.0/0.17.11
-  branch: renovate/ruff-0.x
-  comments: 1
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 1
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#1061 has been "pull-was-merged".
-  failed_builds: 0
-  files: 2
-  hoc: 47
-  is_human: 1
-  issue: 1061
-  repository: 237167507
-  succeeded_builds: 18
-  suggestions: 0
-  what: pull-was-merged
-  when: 2026-02-18 14:55:12.000000000 Z
-  where: github
-  who: 526301
-- _id: 414846
-  _job: 22146281518
-  _time: 2026-02-18 15:37:55.243200640 Z
-  _version: 0.19.6/0.60.0/0.17.11
-  branch: renovate/setuptools-82.x
-  comments: 0
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 0
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#1065 has been "pull-was-merged".
-  failed_builds: 0
-  files: 2
-  hoc: 10
-  is_human: 1
-  issue: 1065
-  repository: 237167507
-  succeeded_builds: 18
-  suggestions: 0
-  what: pull-was-merged
-  when: 2026-02-18 14:56:14.000000000 Z
-  where: github
-  who: 526301
-- _id: 414847
-  _job: 22146281518
-  _time: 2026-02-18 15:38:09.656105322 Z
-  _version: 0.19.6/0.60.0/0.17.11
-  branch: renovate/org.apache.maven.plugins-maven-dependency-plugin-3.x
-  comments: 0
-  comments_appreciated: 0
-  comments_by_author: 0
-  comments_by_reviewers: 0
-  comments_resolved: 0
-  comments_to_code: 0
-  details: Apparently, cqfn/aibolit#1066 has been "pull-was-merged".
-  failed_builds: 0
-  files: 1
-  hoc: 2
-  is_human: 1
-  issue: 1066
-  repository: 237167507
-  succeeded_builds: 18
-  suggestions: 0
-  what: pull-was-merged
-  when: 2026-02-18 14:56:27.000000000 Z
-  where: github
-  who: 526301
