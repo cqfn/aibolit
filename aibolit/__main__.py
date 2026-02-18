@@ -892,13 +892,16 @@ def run_thread(files, args):
     """
     Parallel patterns/metrics calculation
     :param files: list of java files to analyze
-
     """
+    results = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
         future_results = [executor.submit(run_recommend_for_file, file, args) for file in files]
-        concurrent.futures.wait(future_results)
-        for future in future_results:
-            yield future.result()
+        for future in concurrent.futures.as_completed(future_results):
+            try:
+                results.append(future.result())
+            except Exception as e:
+                print(f'Error analyzing file: {e}')
+    return results
 
 
 def get_versions(pkg_name):
