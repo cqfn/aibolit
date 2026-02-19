@@ -709,7 +709,7 @@ def show_summary(buffer, importances_for_all_classes, is_long, results, total_pa
         buffer.append(f'You can find all information about patterns here: {url}')
 
 
-def _total_score_for_file(
+def print_total_score_for_file(
     buffer: list[str],
     filename: str,
     importances_for_all_classes: list[float],
