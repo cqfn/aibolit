@@ -1,5 +1,5 @@
-import pytest
 from aibolit.__main__ import print_total_score_for_file
+
 
 def test_print_total_score_for_file_handles_missing_results_key():
     buffer = []
