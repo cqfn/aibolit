@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
+# SPDX-License-Identifier: MIT
+
 from aibolit.__main__ import print_total_score_for_file
 
 
