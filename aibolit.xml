@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fb version="0.19.3" size="478369">
+<fb version="0.19.3" size="478396">
   <f>
     <added t="I">8</added>
     <cycles t="I">1</cycles>
     <deleted t="I">8</deleted>
     <inserted t="I">8</inserted>
-    <seconds t="F">129.557005893</seconds>
+    <seconds t="F">102.575973866</seconds>
     <version t="S">0.60.0</version>
     <what t="S">judges-summary</what>
-    <when t="T">2026-02-19T15:35:31Z</when>
+    <when t="T">2026-02-19T16:37:46Z</when>
   </f>
   <f>
     <_id t="I">131</_id>
@@ -28064,34 +28064,6 @@ The average weekly cost of HoC (2.09 points) is staying still.</text>
     <where t="S">github</where>
   </f>
   <f>
-    <_id t="I">414858</_id>
-    <_job t="I">62092</_job>
-    <_time t="T">2026-02-19T06:44:51Z</_time>
-    <_version t="S">0.19.7/0.60.0/0.17.11</_version>
-    <cost_of_qod>
-      <v t="F">8.571428571428571</v>
-      <v t="F">7.507218479307026</v>
-      <v t="F">-0.2996030259905625</v>
-      <v t="F">-5.536332179930795</v>
-      <v t="F">-29.357798165137613</v>
-      <v t="F">-63.745019920318725</v>
-      <v t="F">-4.153686396677051</v>
-      <v t="F">-42.44031830238727</v>
-    </cost_of_qod>
-    <qod_per_day>
-      <v t="F">1.6500000001292583</v>
-      <v t="F">2.9685714288025533</v>
-      <v t="F">1.907285714434459</v>
-      <v t="F">0.41285714289175585</v>
-      <v t="F">0.07785714305026051</v>
-      <v t="F">0.03585714296881663</v>
-      <v t="F">0.13757142891724966</v>
-      <v t="F">0.0538571429820274</v>
-    </qod_per_day>
-    <what t="S">learn-eva</what>
-    <when t="T">2026-02-19T06:44:51Z</when>
-  </f>
-  <f>
     <_id t="I">414860</_id>
     <_job t="I">22181771405</_job>
     <_time t="T">2026-02-19T12:29:36Z</_time>
@@ -28334,29 +28306,12 @@ The average weekly cost of HoC (2.09 points) is staying still.</text>
     <when t="T">2026-02-19T14:01:49Z</when>
   </f>
   <f>
-    <_id t="I">414864</_id>
-    <_job t="I">22188311260</_job>
-    <_time t="T">2026-02-19T15:33:34Z</_time>
-    <_version t="S">0.19.6/0.60.0/0.17.11</_version>
-    <assignees_were_scanned t="I">743</assignees_were_scanned>
-    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
-    <events_were_scanned t="I">6713121250</events_were_scanned>
-    <issues_were_scanned t="I">432</issues_were_scanned>
-    <labels_were_scanned t="I">896</labels_were_scanned>
-    <latest_issue_was_found t="I">903</latest_issue_was_found>
-    <merges_were_scanned t="I">1060</merges_were_scanned>
-    <min_issue_was_found t="I">963</min_issue_was_found>
-    <min_pull_was_found t="I">1066</min_pull_was_found>
-    <repository t="I">237167507</repository>
-    <types_were_scanned t="I">952</types_were_scanned>
-    <what t="S">iterate</what>
-    <where t="S">github</where>
-  </f>
-  <f>
     <_id t="I">414865</_id>
     <_job t="I">22188311260</_job>
     <_time t="T">2026-02-19T15:33:34Z</_time>
     <_version t="S">0.19.6/0.60.0/0.17.11</_version>
+    <composite t="F">8.958</composite>
+    <ffact t="I">137</ffact>
     <since t="T">2026-02-12T14:00:19Z</since>
     <total_builds_ran t="I">847</total_builds_ran>
     <total_commits_pushed t="I">11</total_commits_pushed>
@@ -28367,5 +28322,52 @@ The average weekly cost of HoC (2.09 points) is staying still.</text>
     <total_reviews_submitted t="I">5</total_reviews_submitted>
     <what t="S">quantity-of-deliverables</what>
     <when t="T">2026-02-19T15:33:34Z</when>
+  </f>
+  <f>
+    <_id t="I">414866</_id>
+    <_job t="I">62182</_job>
+    <_time t="T">2026-02-19T15:36:39Z</_time>
+    <_version t="S">0.19.7/0.60.0/0.17.11!0.17.12</_version>
+    <cost_of_qod>
+      <v t="F">8.571428571428571</v>
+      <v t="F">7.507218479307026</v>
+      <v t="F">-0.2996030259905625</v>
+      <v t="F">-5.536332179930795</v>
+      <v t="F">-29.357798165137613</v>
+      <v t="F">-63.745019920318725</v>
+      <v t="F">-4.153686396677051</v>
+      <v t="F">-42.44031830238727</v>
+    </cost_of_qod>
+    <qod_per_day>
+      <v t="F">1.6500000001292583</v>
+      <v t="F">2.9685714288025533</v>
+      <v t="F">1.907285714434459</v>
+      <v t="F">0.41285714289175585</v>
+      <v t="F">0.07785714305026051</v>
+      <v t="F">0.03585714296881663</v>
+      <v t="F">0.13757142891724966</v>
+      <v t="F">0.0538571429820274</v>
+    </qod_per_day>
+    <what t="S">learn-eva</what>
+    <when t="T">2026-02-19T15:36:39Z</when>
+  </f>
+  <f>
+    <_id t="I">414867</_id>
+    <_job t="I">22190705766</_job>
+    <_time t="T">2026-02-19T16:36:14Z</_time>
+    <_version t="S">0.19.6/0.60.0/0.17.11</_version>
+    <assignees_were_scanned t="I">743</assignees_were_scanned>
+    <earliest_issue_was_found t="I">1</earliest_issue_was_found>
+    <events_were_scanned t="I">8604448522</events_were_scanned>
+    <issues_were_scanned t="I">432</issues_were_scanned>
+    <labels_were_scanned t="I">896</labels_were_scanned>
+    <latest_issue_was_found t="I">903</latest_issue_was_found>
+    <merges_were_scanned t="I">1060</merges_were_scanned>
+    <min_issue_was_found t="I">963</min_issue_was_found>
+    <min_pull_was_found t="I">1066</min_pull_was_found>
+    <repository t="I">237167507</repository>
+    <types_were_scanned t="I">952</types_were_scanned>
+    <what t="S">iterate</what>
+    <where t="S">github</where>
   </f>
 </fb>
