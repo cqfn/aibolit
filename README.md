@@ -1,5 +1,6 @@
 # ML-Based Static Analyzer for Java
 
+![Docker Image Version](https://img.shields.io/docker/v/yegor256/aibolit-image)
 [![PyPi version](https://img.shields.io/pypi/v/aibolit.svg)](https://pypi.org/project/aibolit/)
 [![make](https://github.com/cqfn/aibolit/actions/workflows/make.yml/badge.svg)](https://github.com/cqfn/aibolit/actions/workflows/make.yml)
 [![Hits-of-Code](https://hitsofcode.com/github/cqfn/aibolit)](https://hitsofcode.com/view/github/cqfn/aibolit)
@@ -15,6 +16,14 @@ and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
 
 ```bash
 pip3 install aibolit~=1.3.0
+```
+
+To run the latest version in Docker:
+
+```bash
+docker run --rm -it \
+  -v <absolute_path_to_folder_with_classes>:/in \
+  yegor256/aibolit-image recommend --folder /in --format compact
 ```
 
 To analyze your Java sources, located at `src/java` (for example), run:

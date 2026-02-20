@@ -1,15 +1,19 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
+
+# NOTE:
+# Automatic execution was manually disabled in cqfn/aibolit.
+# This workflow originally ran on push/pull_request
+# (active before 15 May 2025).
+# It is now never run to avoid inconsistent behavior in forks.
+# Todo: Fix typos across the code base and re-enable it
+
 ---
 # yamllint disable rule:line-length
 name: typos
 'on':
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+  workflow_dispatch:
+
 jobs:
   typos:
     timeout-minutes: 15

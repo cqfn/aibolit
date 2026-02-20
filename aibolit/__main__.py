@@ -912,7 +912,7 @@ def get_versions(pkg_name):
 def main():
     try:
         max_available_version = get_versions('aibolit')[0]
-        if max_available_version != __version__:
+        if max_available_version != __version__ and __version__ != '0.0.0':
             print(f'Version {max_available_version} is available, but you are using {__version__}')
     except (
             requests.exceptions.HTTPError,
