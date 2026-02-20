@@ -10,7 +10,7 @@ on:
       - master
 
 concurrency:
-  group: docker-hub-${{ github.ref }}-${{ github.sha }}
+  group: docker-hub-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
