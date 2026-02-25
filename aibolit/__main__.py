@@ -715,20 +715,27 @@ def print_total_score_for_file(
     importances_for_all_classes: list[float],
     result_for_file: dict,
 ) -> dict[str, float]:
-    """Compute total score for a file and return per-pattern aggregated scores.
+    """Compute total score for a file and return per-pattern scores.
 
     Note:
         If the same `pattern_name` appears multiple times, the latest value
-        overwrites the previous one.
+        overwrites the previous one (original behavior).
     """
     patterns_scores: dict[str, float] = {}
 
-    for item in result_for_file.get('results', []):
+    results = result_for_file.get('results', [])
+
+    if results and all(isinstance(item, list) for item in results):
+        results = flatten(results)
+
+    for item in results:
+        if not isinstance(item, dict):
+            continue
+
         pattern_name = item.get('pattern_name')
         if not isinstance(pattern_name, str):
             continue
 
-        # Overwriting repeated patterns.
         patterns_scores[pattern_name] = float(item.get('importance', 0.0))
 
     total_score = sum(patterns_scores.values())
