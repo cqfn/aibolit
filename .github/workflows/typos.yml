@@ -1,19 +1,23 @@
-# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
+
+# NOTE:
+# Automatic execution was manually disabled in cqfn/aibolit.
+# This workflow originally ran on push/pull_request
+# (active before 15 May 2025).
+# It is now never run to avoid inconsistent behavior in forks.
+# Todo: Fix typos across the code base and re-enable it
+
 ---
 # yamllint disable rule:line-length
 name: typos
 'on':
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+  workflow_dispatch:
+
 jobs:
   typos:
     timeout-minutes: 15
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
-      - uses: crate-ci/typos@v1.39.2
+      - uses: actions/checkout@v6
+      - uses: crate-ci/typos@v1.43.5

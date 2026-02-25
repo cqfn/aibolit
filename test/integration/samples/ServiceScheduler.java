@@ -2,10 +2,10 @@
 // and is used inside Aibolit only for integration testing
 // purposes. The code is never compiled or executed.
 
-// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 // SPDX-License-Identifier: MIT
 
-// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 // SPDX-License-Identifier: MIT
 
 /**

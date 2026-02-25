@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
@@ -16,18 +16,18 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v5
-      - uses: zerocracy/judges-action@0.16.1
+      - uses: actions/checkout@v6
+      - uses: zerocracy/judges-action@0.17.13
         with:
           token: ${{ secrets.ZEROCRACY_TOKEN }}
           github-token: ${{ secrets.PAT }}
           repositories: cqfn/aibolit
           factbase: aibolit.fb
-      - uses: zerocracy/pages-action@0.5.3
+      - uses: zerocracy/pages-action@0.7.0
         with:
           factbase: aibolit.fb
           output: pages
-      - uses: JamesIves/github-pages-deploy-action@v4.7.4
+      - uses: JamesIves/github-pages-deploy-action@v4.8.0
         with:
           folder: pages
           clean: false
