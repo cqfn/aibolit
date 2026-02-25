@@ -736,7 +736,8 @@ def print_total_score_for_file(
         if not isinstance(pattern_name, str):
             continue
 
-        patterns_scores[pattern_name] = float(item.get('importance', 0.0))
+        importance = item.get('importance')
+        patterns_scores[pattern_name] = float(importance or 0.0)
 
     total_score = sum(patterns_scores.values())
     importances_for_all_classes.append(total_score)
