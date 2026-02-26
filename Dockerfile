@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
 
-FROM python:3.11-slim AS builder
+FROM python:3.14-slim AS builder
 COPY --from=ghcr.io/astral-sh/uv:0.10.6 /uv /uvx /bin/
 
 ENV UV_COMPILE_BYTECODE=1
@@ -17,7 +17,7 @@ RUN uv sync --frozen --no-dev --no-install-project
 COPY aibolit ./aibolit
 RUN uv sync --frozen --no-dev
 
-FROM python:3.11-slim
+FROM python:3.14-slim
 
 # Create a non-root user and group
 RUN groupadd --system appgroup \
