@@ -9,6 +9,7 @@ import argparse
 import concurrent.futures
 import json
 import multiprocessing
+import signal
 import operator
 import os
 import pickle
@@ -894,6 +895,8 @@ def run_thread(files, args):
     :param files: list of java files to analyze
 
     """
+    signal.signal(signal.SIGINT, signal.SIG_DFL)
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
         future_results = [executor.submit(run_recommend_for_file, file, args) for file in files]
         concurrent.futures.wait(future_results)
@@ -910,6 +913,7 @@ def get_versions(pkg_name):
 
 
 def main():
+    print('aibolit has been launched', flush=True)
     try:
         max_available_version = get_versions('aibolit')[0]
         if max_available_version != __version__ and __version__ != '0.0.0':
@@ -921,6 +925,8 @@ def main():
             requests.exceptions.ReadTimeout,
     ):
         print("Can't check aibolit version. Network is not available or PyPI does not respond")
+    except KeyboardInterrupt:
+        sys.exit(0)
     try:
         commands = {
             'train': train,
