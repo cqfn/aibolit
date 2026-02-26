@@ -709,20 +709,6 @@ def show_summary(buffer, importances_for_all_classes, is_long, results, total_pa
         buffer.append(f'You can find all information about patterns here: {url}')
 
 
-def print_total_score_for_file(
-        buffer: List[str],
-        filename: str,
-        importances_for_all_classes: List[int],
-        result_for_file):
-    patterns_scores = {}
-    for x in result_for_file['results']:
-        patterns_scores[x['pattern_name']] = x['importance']
-    importances_for_class = sum(patterns_scores.values())
-    importances_for_all_classes.append(importances_for_class)
-    buffer.append(f'{filename} score: {importances_for_class}')
-    return patterns_scores
-
-
 def recommend():
     """Run recommend pipeline."""
 
