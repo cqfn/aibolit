@@ -3,10 +3,10 @@
   cycles: 1
   deleted: 8
   inserted: 8
-  seconds: 90.980106468
-  version: 0.60.0
+  seconds: 203.002342956
+  version: 0.60.1
   what: judges-summary
-  when: 2026-02-19 22:05:56.708176846 Z
+  when: 2026-04-01 17:41:47.966767919 Z
 - _id: 131
   _job: 22543
   _time: 2025-05-29 07:02:26.852835270 Z
@@ -26151,7 +26151,7 @@
   - 1
   some_unmerged_pulls: 1
   what: quality-of-service
-  when: 2026-02-19 13:59:04.000000000 Z
+  when: &233 2026-02-19 13:59:04.000000000 Z
 - _id: 414863
   _job: 62171
   _time: 2026-02-19 14:01:49.661935473 Z
@@ -26184,7 +26184,7 @@
   total_releases_published: 0
   total_reviews_submitted: 5
   what: quantity-of-deliverables
-  when: 2026-02-19 15:33:34.000000000 Z
+  when: &232 2026-02-19 15:33:34.000000000 Z
 - _id: 414866
   _job: 62182
   _time: 2026-02-19 15:36:39.131462107 Z
@@ -26209,13 +26209,32 @@
   - 0.0538571429820274
   what: learn-eva
   when: 2026-02-19 15:36:39.102684268 Z
-- _id: 414867
-  _job: 22201970821
-  _time: 2026-02-19 22:04:34.796614274 Z
-  _version: 0.19.6/0.60.0/0.17.11
+- _id: 414868
+  _job: 23862195799
+  _time: 2026-04-01 17:38:28.903520287 Z
+  _version: 0.19.9/0.60.1/0.17.15
+  commit: 9e475398dbe732227486745e50808d97bd2b416e
+  default_branch: master
+  details: 'A new Git push #31272219996 has arrived to cqfn/aibolit, made by @yegor256
+    (default branch is "master"), not associated with any pull request.'
+  event_id: 8978193086
+  event_type: PushEvent
+  is_human: 1
+  push_id: 31272219996
+  ref: refs/heads/master
+  repository: 237167507
+  to_master: 1
+  what: git-was-pushed
+  when: 2026-03-03 07:36:12.000000000 Z
+  where: github
+  who: 526301
+- _id: 414869
+  _job: 23862195799
+  _time: 2026-04-01 17:38:31.092416600 Z
+  _version: 0.19.9/0.60.1/0.17.15
   assignees_were_scanned: 743
   earliest_issue_was_found: 1
-  events_were_scanned: 8612995919
+  events_were_scanned: 7924398026
   issues_were_scanned: 432
   labels_were_scanned: 896
   latest_issue_was_found: 903
@@ -26226,3 +26245,274 @@
   types_were_scanned: 952
   what: iterate
   where: github
+- _id: 414870
+  _job: 23862195799
+  _time: 2026-04-01 17:38:31.161140593 Z
+  _version: 0.19.9/0.60.1/0.17.15
+  since: *232
+  total_builds_ran: 3063
+  total_commits_pushed: 33
+  total_hoc_committed: 900
+  total_issues_created: 26
+  total_pulls_submitted: 22
+  total_releases_published: 0
+  total_reviews_submitted: 15
+  what: quantity-of-deliverables
+  when: 2026-04-01 17:38:31.000000000 Z
+- _id: 414871
+  _job: 23862195799
+  _time: 2026-04-01 17:39:10.146323860 Z
+  _version: 0.19.9/0.60.1/0.17.15
+  total_active_contributors: 2
+  total_commits: 2994
+  total_contributors: 30
+  total_files: 1051
+  total_forks: 37
+  total_issues: 451
+  total_pulls: 648
+  total_releases: 28
+  total_repositories: 1
+  total_stars: 98
+  what: dimensions-of-terrain
+  when: 2026-04-01 17:39:10.163793241 Z
+- _id: 414872
+  _job: 23862195799
+  _time: 2026-04-01 17:39:40.598577341 Z
+  _version: 0.19.9/0.60.1/0.17.15
+  since: *233
+  some_backlog_size:
+  - 54
+  - 54
+  - 54
+  - 54
+  - 54
+  - 54
+  - 54
+  some_build_duration:
+  - 53
+  - 31
+  - 50
+  - 30
+  - 52
+  - 26
+  - 44
+  - 22
+  - 50
+  - 22
+  - 49
+  - 21
+  - 45
+  - 24
+  - 49
+  - 30
+  - 45
+  - 28
+  - 54
+  - 52
+  - 28
+  - 41
+  - 30
+  - 56
+  - 29
+  - 62
+  - 31
+  - 51
+  - 24
+  - 48
+  - 28
+  - 52
+  - 33
+  - 54
+  - 27
+  - 48
+  - 26
+  - 50
+  - 23
+  - 54
+  - 25
+  - 46
+  - 29
+  - 49
+  - 26
+  - 49
+  - 25
+  - 58
+  - 24
+  - 43
+  - 32
+  - 49
+  - 29
+  - 50
+  - 31
+  - 47
+  - 31
+  - 52
+  - 30
+  - 0
+  some_build_success_rate:
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 0
+  some_merged_pulls: 17
+  some_pull_files_size:
+  - 1
+  - 1
+  - 1
+  - 2
+  - 1
+  - 1
+  - 2
+  - 2
+  - 2
+  - 5
+  - 2
+  - 1
+  - 1
+  - 2
+  - 2
+  some_pull_hoc_size:
+  - 1
+  - 2
+  - 2
+  - 46
+  - 14
+  - 2
+  - 130
+  - 10
+  - 10
+  - 111
+  - 46
+  - 2
+  - 2
+  - 38
+  - 10
+  some_pull_lifetime:
+  - 188837.0
+  - 254161.0
+  - 272532.0
+  - 344962.0
+  - 1635650.0
+  - 73457.0
+  - 519791.0
+  - 83630.0
+  - 266718.0
+  - 411943.0
+  - 197043.0
+  - 454670.0
+  - 495059.0
+  - 593809.0
+  - 576918.0
+  - 660697.0
+  - 1862891.0
+  some_review_size:
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 9
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  some_review_time:
+  - 24050
+  - 7732
+  - 196722
+  some_reviewers_per_pull:
+  - 1
+  - 0
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  some_reviews_per_pull:
+  - 2
+  - 0
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 6
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  some_unmerged_pulls: 2
+  what: quality-of-service
+  when: 2026-04-01 17:39:40.000000000 Z
