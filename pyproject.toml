@@ -82,6 +82,7 @@ multiline-quotes = "single"
 
 [dependency-groups]
 dev = [
+  "bandit==1.9.4",
   "codecov==2.1.13",
   "flake8-elegant-objects==1.1.1",
   "flake8==7.3.0",
