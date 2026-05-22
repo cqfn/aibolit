@@ -21,7 +21,7 @@ jobs:
           python-version: 3.14
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 4.0.4
+          ruby-version: 4.0.5
       - run: gem install xcop
       - name: Install uv
         run: |
