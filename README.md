@@ -263,6 +263,14 @@ aibolit recommend --help
 
 Train works only with cloned git repository.
 
+The training files referenced below under `target/01/...`,
+`target/08/08-train.csv`, and `target/08/08-test.csv` are not shipped with
+the repository. They are produced by the pipeline in `scripts/`:
+`01-fetch-github.py` populates `target/01/`, and `08-split.py` writes
+`target/08/08-train.csv` and `target/08/08-test.csv`. Run `make` inside
+`scripts/` first, or supply your own dataset under the same layout,
+before invoking `aibolit train`.
+
 1. Clone aibolit repository
 2. Go to `cloned_aibolit_path`
 3. Run `pip install .`
@@ -314,6 +322,7 @@ located in `TARGET_FOLDER/target`.*
 8. **Java Files Directory** (optional):
    * To use a custom folder with Java files, use the `--java_folder` parameter
    * Default value: `scripts/target/01` of the aibolit cloned repository
+     (populated by `scripts/01-fetch-github.py`; absent on a fresh clone)
    * Usage example:
 
      ```bash
