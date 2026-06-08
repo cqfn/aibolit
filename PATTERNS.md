@@ -82,6 +82,32 @@ class Book {
 ```
 
 ***
+*Title*: Getter
+
+Description: The method's name starts with `get`, and the only statement in the body is a `return`. Asserts before the return are ignored. The pattern is implemented in `aibolit/patterns/classic_getter/classic_getter.py` and exercised by `test/patterns/classic_getter/test_classic_getter.py`.
+
+*Example*:
+
+```java
+class Book {
+  private String title;
+  public String getTitle() {
+    return this.title;
+  }
+}
+```
+
+```java
+class Book {
+  private int value;
+  public int getValue() {
+    assert this.value >= 0;
+    return value;
+  }
+}
+```
+
+***
 *Title*: Empty Rethrow
 
 *Code*: **P3**
