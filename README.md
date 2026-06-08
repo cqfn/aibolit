@@ -1,5 +1,6 @@
 # ML-Based Static Analyzer for Java
 
+![Docker Image Version](https://img.shields.io/docker/v/yegor256/aibolit-image)
 [![PyPi version](https://img.shields.io/pypi/v/aibolit.svg)](https://pypi.org/project/aibolit/)
 [![make](https://github.com/cqfn/aibolit/actions/workflows/make.yml/badge.svg)](https://github.com/cqfn/aibolit/actions/workflows/make.yml)
 [![Hits-of-Code](https://hitsofcode.com/github/cqfn/aibolit)](https://hitsofcode.com/view/github/cqfn/aibolit)
@@ -15,6 +16,14 @@ and [Pip](https://pip.pypa.io/en/stable/installing/) installed):
 
 ```bash
 pip3 install aibolit~=1.3.0
+```
+
+To run the latest version in Docker:
+
+```bash
+docker run --rm -it \
+  -v <absolute_path_to_folder_with_classes>:/in \
+  yegor256/aibolit-image recommend --folder /in --format compact
 ```
 
 To analyze your Java sources, located at `src/java` (for example), run:
@@ -261,27 +270,55 @@ Train works only with cloned git repository.
 Linux).
 5. Set env variable `TARGET_FOLDER` if you need to save all dataset files to
 another directory.
-6. You have to specify train and test dataset: set the `HOME_TRAIN_DATASET`
-environment variable
-for train dataset and the `HOME_TEST_DATASET` environment variable for test
-dataset.
+*Please note that if you set `TARGET_FOLDER`, your dataset files will be
+located in `TARGET_FOLDER/target`.*
+6. **Dataset Paths** (required when using `TARGET_FOLDER`):
+   * Set the training dataset path:
 
-Usually, these files are in `scripts/target/08` directory after dataset
-collection (if you have not skipped it).
-But you can use your own datasets.
+     ```bash
+     # Linux/Mac
+     export HOME_TRAIN_DATASET="$TARGET_FOLDER/target/08/08-train.csv"
+     
+     # Windows
+     set HOME_TRAIN_DATASET=%TARGET_FOLDER%\target\08\08-train.csv
+     ```
 
-Please notice, that if you set `TARGET_FOLDER`, your dataset files will be
-in `TARGET_FOLDER/target`.
-That is why it is necessary to
-set HOME_TRAIN_DATASET=`TARGET_FOLDER`\target\08\08-train.csv,
-HOME_TEST_DATASET =`TARGET_FOLDER`\target\08\08-test.csv
-7. If you need to set up own directory where model will be saved, set up also
-`SAVE_MODEL_FOLDER` environment variable.
-Otherwise model will be saved into
-`cloned_aibolit_path/aibolit/binary_files/model.pkl`
-8. If you need to set up own folder with Java files, use `--java_folder
-parameter`, the default value will be `scripts/target/01` of aibolit cloned
-repo
+   * Set the test dataset path:
+
+     ```bash
+     # Linux/Mac
+     export HOME_TEST_DATASET="$TARGET_FOLDER/target/08/08-test.csv"
+     
+     # Windows
+     set HOME_TEST_DATASET=%TARGET_FOLDER%\target\08\08-test.csv
+     ```
+
+7. **Model Save Directory** (optional):
+   * To specify a custom directory for saving the model,
+      set the `SAVE_MODEL_FOLDER` environment variable:
+
+     ```bash
+     # Linux/Mac
+     export SAVE_MODEL_FOLDER="/your/custom/path"
+     
+     # Windows
+     set SAVE_MODEL_FOLDER=C:\your\custom\path
+     ```
+
+   * If not set, the model will be saved to the default location:
+
+     ```bash
+     cloned_aibolit_path/aibolit/binary_files/model.pkl
+     ```
+
+8. **Java Files Directory** (optional):
+   * To use a custom folder with Java files, use the `--java_folder` parameter
+   * Default value: `scripts/target/01` of the aibolit cloned repository
+   * Usage example:
+
+     ```bash
+     python script.py --java_folder /path/to/your/java/files
+     ```
 
 Or you can use our [docker image](https://hub.docker.com/r/yegor256/aibolit-image)
 

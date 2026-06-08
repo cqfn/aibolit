@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
 from bs4.formatter import Formatter as Formatter, HTMLFormatter as HTMLFormatter, XMLFormatter as XMLFormatter
 from typing import Any, Optional

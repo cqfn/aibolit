@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+// SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 // SPDX-License-Identifier: MIT
 
 /** An abstract IPC service.  IPC calls take a single {@link Writable} as a
