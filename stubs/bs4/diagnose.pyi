@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
 from bs4 import BeautifulSoup as BeautifulSoup
 from bs4.builder import builder_registry as builder_registry

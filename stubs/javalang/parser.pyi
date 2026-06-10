@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
 from . import tree as tree, util as util
 from .tokenizer import Annotation as Annotation, BasicType as BasicType, EndOfInput as EndOfInput, Identifier as Identifier, JavaToken as JavaToken, Keyword as Keyword, Literal as Literal, Modifier as Modifier, Operator as Operator

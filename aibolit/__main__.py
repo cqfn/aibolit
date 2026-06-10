@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# SPDX-FileCopyrightText: Copyright (c) 2019-2025 Aibolit
+# SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
 
 """The main entry point. Invoke as `aibolit' or `python -m aibolit'.
@@ -150,7 +150,7 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
         raise Exception(f"Can't count {acronym} metric: {str(type(exc_value))}")
 
 
-def flatten(lst):
+def flatten(lst: List[List[Any]]) -> List[Any]:
     return [item for sublist in lst for item in sublist]
 
 
@@ -212,16 +212,29 @@ def find_annotation_by_node_type(
     return annonations
 
 
-def find_start_and_end_lines(node) -> Tuple[int, int]:  # noqa: C901
+def find_start_and_end_lines(node: javalang.tree.Node) -> Tuple[int, int]:  # noqa: C901
+    """Find the start and end line numbers for a given AST node.
+
+    Args:
+        node: A javalang AST node to analyze
+
+    Returns:
+        A tuple containing (start_line, end_line) where:
+        - start_line is the line number where the node begins
+        - end_line is the line number where the node ends
+
+    Note:
+        This function traverses the entire AST subtree to find the maximum line number.
+    """
     max_line = node.position.line
 
-    def check_max_position(node):
+    def check_max_position(node: javalang.tree.Node) -> None:
         nonlocal max_line
         if hasattr(node, '_position'):
             if node.position.line > max_line:  # type: ignore[unresolved-reference]
                 max_line = node.position.line
 
-    def traverse(node):
+    def traverse(node: javalang.tree.Node) -> None:
         check_max_position(node)
 
         if hasattr(node, 'children'):
@@ -696,20 +709,6 @@ def show_summary(buffer, importances_for_all_classes, is_long, results, total_pa
         buffer.append(f'You can find all information about patterns here: {url}')
 
 
-def print_total_score_for_file(
-        buffer: List[str],
-        filename: str,
-        importances_for_all_classes: List[int],
-        result_for_file):
-    patterns_scores = {}
-    for x in result_for_file['results']:
-        patterns_scores[x['pattern_name']] = x['importance']
-    importances_for_class = sum(patterns_scores.values())
-    importances_for_all_classes.append(importances_for_class)
-    buffer.append(f'{filename} score: {importances_for_class}')
-    return patterns_scores
-
-
 def recommend():
     """Run recommend pipeline."""
 
@@ -899,7 +898,7 @@ def get_versions(pkg_name):
 def main():
     try:
         max_available_version = get_versions('aibolit')[0]
-        if max_available_version != __version__:
+        if max_available_version != __version__ and __version__ != '0.0.0':
             print(f'Version {max_available_version} is available, but you are using {__version__}')
     except (
             requests.exceptions.HTTPError,

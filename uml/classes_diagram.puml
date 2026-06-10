@@ -55,7 +55,6 @@ class aibolit::__main__ {
 {method} {static} + get_exit_code(results):
 {method} {static} + create_text(results, full_report, is_long=False):
 {method} {static} + show_summary(buffer, importances_for_all_classes, is_long, results, total_patterns)
-{method} {static} + print_total_score_for_file
 {method} {static} +  check()
 {method} {static} + handle_exclude_command_line(args)
 {method} {static} + format_converter_for_pattern(results, sorted_by=None)
