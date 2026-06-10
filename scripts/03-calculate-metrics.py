@@ -11,7 +11,7 @@ DIR_TO_CREATE = 'target/03'
 
 
 def create_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description='Filter important java files')
+    parser = argparse.ArgumentParser(description='Calculate metrics for Java files')
     parser.add_argument(
         '--dir',
         help='dir for Java files search',
@@ -50,22 +50,10 @@ def run_pmd(dir_to_analyze: Path) -> list[str]:
 
 
 def read_pmd_frames(csv_files: list[str]) -> list[pd.DataFrame]:
-    cur_df = pd.DataFrame(
-        [['-555', 'com.google.samples',
-          'Fake.java', '3', '11', 'The class AdViewIdlingResource', 'Design',
-          'NcssCount']],
-        columns=[
-            'Problem', 'Package', 'File', 'Priority', 'Line', 'Description',
-            'Rule set', 'Rule'
-        ]
-    )
-    cur_df.set_index('Problem')
-
     frames = []
     for csv_file in csv_files:
         try:
             new_frame = pd.read_csv(csv_file)
-            cur_df.set_index('Problem')
             frames.append(new_frame)
         except Exception:
             pass
@@ -75,7 +63,6 @@ def read_pmd_frames(csv_files: list[str]) -> list[pd.DataFrame]:
 def build_metrics(frames: list[pd.DataFrame]) -> pd.DataFrame:
     df = pd.concat(frames)
     df = df[df.Problem != -555]
-    df.set_index('Problem')
     df.to_csv('./_tmp/pmd_out.csv')
 
     df = pd.read_csv('./_tmp/pmd_out.csv')
@@ -86,8 +73,6 @@ def build_metrics(frames: list[pd.DataFrame]) -> pd.DataFrame:
         .groupby(['File', 'Rule']).filter(lambda x: len(x) > 1)['File']\
         .unique().tolist()
 
-    df[df.Rule == 'CyclomaticComplexity']['Description'].str\
-        .extract(r'complexity of (\d+)', expand=True)
     df['cyclo'] = df['Description'].str\
         .extract(r'cyclomatic complexity of (\d+)', expand=True).astype(float)
     df['ncss'] = df['Description'].str\
