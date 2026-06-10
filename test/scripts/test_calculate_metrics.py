@@ -1,0 +1,34 @@
+import importlib.util
+from pathlib import Path
+
+
+def load_calculate_metrics_module():
+    script_path = Path(__file__).resolve().parents[2] / 'scripts' / '03-calculate-metrics.py'
+    spec = importlib.util.spec_from_file_location('calculate_metrics', script_path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_collect_analysis_targets_includes_top_level_java_files(tmp_path):
+    module = load_calculate_metrics_module()
+    root_java = tmp_path / 'TopLevel.java'
+    root_java.write_text('class TopLevel {}', encoding='utf-8')
+
+    targets = module.collect_analysis_targets(tmp_path)
+
+    assert targets == [root_java]
+
+
+def test_collect_analysis_targets_keeps_directories_and_root_java_files(tmp_path):
+    module = load_calculate_metrics_module()
+    nested_dir = tmp_path / 'project'
+    nested_dir.mkdir()
+    root_java = tmp_path / 'TopLevel.java'
+    root_java.write_text('class TopLevel {}', encoding='utf-8')
+    (tmp_path / 'README.md').write_text('ignore me', encoding='utf-8')
+
+    targets = module.collect_analysis_targets(tmp_path)
+
+    assert [path.name for path in targets] == ['TopLevel.java', 'project']
