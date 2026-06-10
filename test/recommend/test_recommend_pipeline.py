@@ -9,6 +9,7 @@ from unittest.mock import patch
 import javalang
 import javalang.tree
 
+from aibolit import __main__ as aibolit_main
 from aibolit.config import Config
 
 from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, \
@@ -161,8 +162,6 @@ class TestRecommendPipeline(TestCase):
         create_xml_tree(mock_input, full_report=True, cmd=mock_cmd, exit_code=2)
 
     def test_count_value_keeps_original_exception_context(self):
-        from aibolit import __main__ as aibolit_main
-
         value_dict = {
             'code': 'P99',
             'make': lambda: None,
