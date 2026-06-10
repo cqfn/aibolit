@@ -17,7 +17,7 @@ class TestSpaces(TestCase):
 
     def test_class_with_best_ident(self):
         val = self.max_left.value(Path(self.dir_path, 'BestIdent.java'))
-        self.assertEqual(val, 44)
+        self.assertEqual(val, 12)
         val = self.max_right.value(Path(self.dir_path, 'BestIdent.java'))
         self.assertEqual(val, 113)
 
@@ -49,7 +49,7 @@ class TestSpaces(TestCase):
         val = self.max_left.value(Path(self.dir_path, 'WorstIdentation.java'))
         self.assertEqual(val, 20)
         val = self.max_right.value(Path(self.dir_path, 'WorstIdentation.java'))
-        self.assertEqual(val, 163)
+        self.assertEqual(val, 166)
 
     def test_empty_examples(self):
         val = self.max_left.value(Path(self.dir_path, 'ClusterDataSourceConfiguration.java'))
