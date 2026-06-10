@@ -12,25 +12,25 @@ readme = "README.md"
 requires-python = ">=3.11"
 dynamic = ["version"]
 dependencies = [
-  "beautifulsoup4==4.14.3",
-  "build==1.4.0",
-  "catboost==1.2.8",
+  "beautifulsoup4==4.15.0",
+  "build==1.5.0",
+  "catboost==1.2.10",
   "chardet==6.0.0.post1",         # Replace cchardet with chardet for Python 3.12 compatibility
   "deprecated==1.3.1",
   "html5lib==1.1",
   "javalang==0.13.0",
-  "lxml==6.0.2",
-  "matplotlib==3.10.8",
+  "lxml==6.1.1",
+  "matplotlib==3.10.9",
   "networkx==3.6.1",          # Updated to be compatible with NumPy 2.0+
-  "numpy==2.4.2",
-  "packaging==26.0",        # For version parsing, updated for sphinx compatibility
-  "pandas==3.0.1",
+  "numpy==2.4.6",
+  "packaging==26.2",        # For version parsing, updated for sphinx compatibility
+  "pandas==3.0.3",
   "pebble==5.2.0",
-  "requests==2.32.5",
-  "scikit-learn==1.8.0",
-  "scipy==1.17.0",
-  "setuptools==82.0.0",
-  "tqdm==4.67.3",
+  "requests==2.34.2",
+  "scikit-learn==1.9.0",
+  "scipy==1.17.1",
+  "setuptools==82.0.1",
+  "tqdm==4.68.2",
 ]
 
 classifiers = [
@@ -82,15 +82,16 @@ multiline-quotes = "single"
 
 [dependency-groups]
 dev = [
+  "bandit==1.9.4",
   "codecov==2.1.13",
   "flake8-elegant-objects==1.1.1",
   "flake8==7.3.0",
-  "mypy==1.19.1",                    # Update to a version compatible with Python 3.12
+  "mypy==2.1.0",                    # Update to a version compatible with Python 3.12
   "pylint==4.0.5",
-  "pytest-cov==7.0.0",
+  "pytest-cov==7.1.0",
   "pytest-testmon==2.2.0",
-  "pytest==9.0.2",
-  "ruff==0.15.2",
+  "pytest==9.0.3",
+  "ruff==0.15.16",
   "sphinx==9.0.3",
-  "types-requests==2.32.4.20260107",
+  "types-requests==2.33.0.20260518",
 ]
