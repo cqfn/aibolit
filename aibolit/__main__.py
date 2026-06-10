@@ -137,6 +137,7 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
     :return: None, it has side-effect
     """
     acronym = value_dict['code']
+    entity = 'metric' if is_metric else 'pattern'
     try:
         ast = AST.build_from_javalang(build_ast(java_file))
         val = value_dict['make']().value(ast)
@@ -145,9 +146,10 @@ def __count_value(value_dict, input_params, code_lines_dict, java_file: str, is_
             code_lines_dict['lines_' + acronym] = val
         else:
             input_params[acronym] = val
-    except Exception:
-        exc_type, exc_value, exc_tb = sys.exc_info()
-        raise Exception(f"Can't count {acronym} metric: {str(type(exc_value))}")
+    except Exception as exc:
+        raise RuntimeError(
+            f"Can't count {acronym} {entity} on {java_file}: {exc}"
+        ) from exc
 
 
 def flatten(lst: List[List[Any]]) -> List[Any]:
