@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
+# SPDX-License-Identifier: MIT
 import importlib.util
 from pathlib import Path
 
@@ -5,8 +7,11 @@ from pathlib import Path
 def load_calculate_metrics_module():
     script_path = Path(__file__).resolve().parents[2] / 'scripts' / '03-calculate-metrics.py'
     spec = importlib.util.spec_from_file_location('calculate_metrics', script_path)
+    if spec is None:
+        raise RuntimeError(f'Failed to load module spec from {script_path}')
+    if spec.loader is None:
+        raise RuntimeError(f'Failed to load module loader from {script_path}')
     module = importlib.util.module_from_spec(spec)
-    assert spec.loader is not None
     spec.loader.exec_module(module)
     return module
 
