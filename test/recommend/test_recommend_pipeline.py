@@ -4,6 +4,7 @@ import os
 from hashlib import md5
 from pathlib import Path
 from unittest import TestCase, skip
+from unittest.mock import patch
 
 import javalang
 import javalang.tree
@@ -158,6 +159,29 @@ class TestRecommendPipeline(TestCase):
         mock_input = self.__create_mock_input()
         mock_cmd = self.__create_mock_cmd()
         create_xml_tree(mock_input, full_report=True, cmd=mock_cmd, exit_code=2)
+
+    def test_count_value_keeps_original_exception_context(self):
+        from aibolit import __main__ as aibolit_main
+
+        value_dict = {
+            'code': 'P99',
+            'make': lambda: None,
+        }
+
+        with patch('aibolit.__main__.build_ast', side_effect=KeyError('missing node')):
+            with self.assertRaises(RuntimeError) as err:
+                getattr(aibolit_main, '__count_value')(
+                    value_dict,
+                    {},
+                    {},
+                    'broken/File.java',
+                )
+
+        self.assertEqual(
+            str(err.exception),
+            "Can't count P99 pattern on broken/File.java: 'missing node'",
+        )
+        self.assertIsInstance(err.exception.__cause__, KeyError)
 
     def test_text_format(self):
         mock_input = self.__create_mock_input()
