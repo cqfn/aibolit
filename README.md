@@ -278,7 +278,7 @@ located in `TARGET_FOLDER/target`.*
      ```bash
      # Linux/Mac
      export HOME_TRAIN_DATASET="$TARGET_FOLDER/target/08/08-train.csv"
-     
+
      # Windows
      set HOME_TRAIN_DATASET=%TARGET_FOLDER%\target\08\08-train.csv
      ```
@@ -288,7 +288,7 @@ located in `TARGET_FOLDER/target`.*
      ```bash
      # Linux/Mac
      export HOME_TEST_DATASET="$TARGET_FOLDER/target/08/08-test.csv"
-     
+
      # Windows
      set HOME_TEST_DATASET=%TARGET_FOLDER%\target\08\08-test.csv
      ```
@@ -300,7 +300,7 @@ located in `TARGET_FOLDER/target`.*
      ```bash
      # Linux/Mac
      export SAVE_MODEL_FOLDER="/your/custom/path"
-     
+
      # Windows
      set SAVE_MODEL_FOLDER=C:\your\custom\path
      ```
