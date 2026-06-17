@@ -5,6 +5,7 @@ from pathlib import Path
 
 
 def load_calculate_metrics_module():
+    """Load the metrics script as a Python module for direct testing."""
     script_path = Path(__file__).resolve().parents[2] / 'scripts' / '03-calculate-metrics.py'
     spec = importlib.util.spec_from_file_location('calculate_metrics', script_path)
     if spec is None:
@@ -17,6 +18,7 @@ def load_calculate_metrics_module():
 
 
 def test_collect_analysis_targets_includes_top_level_java_files(tmp_path):
+    """Top-level Java files should be included in analysis targets."""
     module = load_calculate_metrics_module()
     root_java = tmp_path / 'TopLevel.java'
     root_java.write_text('class TopLevel {}', encoding='utf-8')
@@ -27,6 +29,7 @@ def test_collect_analysis_targets_includes_top_level_java_files(tmp_path):
 
 
 def test_collect_analysis_targets_keeps_directories_and_root_java_files(tmp_path):
+    """Directories and root-level Java files should both be analyzed."""
     module = load_calculate_metrics_module()
     nested_dir = tmp_path / 'project'
     nested_dir.mkdir()

@@ -11,6 +11,7 @@ DIR_TO_CREATE = 'target/03'
 
 
 def create_parser() -> argparse.ArgumentParser:
+    """Build the CLI parser for the metrics calculation script."""
     parser = argparse.ArgumentParser(description='Calculate metrics for Java files')
     parser.add_argument(
         '--dir',
@@ -21,6 +22,7 @@ def create_parser() -> argparse.ArgumentParser:
 
 
 def collect_analysis_targets(dir_to_analyze: Path) -> list[Path]:
+    """Collect top-level directories and Java files that should be analyzed."""
     return [
         path for path in sorted(dir_to_analyze.iterdir(), key=lambda path: path.name)
         if path.is_dir() or path.suffix == '.java'
@@ -28,12 +30,14 @@ def collect_analysis_targets(dir_to_analyze: Path) -> list[Path]:
 
 
 def csv_filename_for_path(path: Path) -> str:
+    """Return a temporary PMD report filename for the given analysis target."""
     if path.is_dir():
         return f'./_tmp/{path.name}_pmd_out.csv'
     return f'./_tmp/file_{path.stem}_pmd_out.csv'
 
 
 def run_pmd(dir_to_analyze: Path) -> list[str]:
+    """Run PMD for each collected target and return generated CSV paths."""
     csv_files = []
     for path_to_analyze in collect_analysis_targets(dir_to_analyze):
         print(f'Start metrics calculation for path {path_to_analyze.name}')
@@ -50,6 +54,7 @@ def run_pmd(dir_to_analyze: Path) -> list[str]:
 
 
 def read_pmd_frames(csv_files: list[str]) -> list[pd.DataFrame]:
+    """Read all successfully generated PMD CSV files into data frames."""
     frames = []
     for csv_file in csv_files:
         try:
@@ -61,6 +66,7 @@ def read_pmd_frames(csv_files: list[str]) -> list[pd.DataFrame]:
 
 
 def build_metrics(frames: list[pd.DataFrame]) -> pd.DataFrame:
+    """Aggregate raw PMD reports into the final metrics table."""
     df = pd.concat(frames)
     df = df[df.Problem != -555]
     df.to_csv('./_tmp/pmd_out.csv')
@@ -137,6 +143,7 @@ def build_metrics(frames: list[pd.DataFrame]) -> pd.DataFrame:
 
 
 def main() -> None:
+    """Execute the metrics calculation pipeline from CLI arguments."""
     args = create_parser().parse_args()
     dir_to_analyze = Path(args.dir or './target/01')
     csv_files = run_pmd(dir_to_analyze)
