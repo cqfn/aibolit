@@ -56,6 +56,21 @@ def test_getter_using_this_reference() -> None:
     assert _offending_lines(content) == [3]
 
 
+def test_getter_with_leading_assert() -> None:
+    content = dedent(
+        '''\
+        class Dummy {
+            private int value;
+            public int getValue() {
+                assert this.value >= 0;
+                return this.value;
+            }
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [3]
+
+
 def test_getSomething_method_that_does_not_return() -> None:
     content = dedent(
         '''\

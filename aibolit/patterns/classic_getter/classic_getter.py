@@ -17,6 +17,9 @@ class ClassicGetter:
         (in self.suitable_nodes) or not.
         """
         for node in check_getter_body:
+            if node.node_type == ASTNodeType.ASSERT_STATEMENT:
+                continue
+
             if not hasattr(node, 'expression'):
                 return False
 
