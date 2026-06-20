@@ -65,6 +65,12 @@ build-backend = "setuptools.build_meta"
 [tool.mypy]
 mypy_path = "stubs"
 
+[tool.bandit]
+# B301: pickle.load is used only to deserialize the bundled model file
+# (aibolit/binary_files/model.pkl) that ships with the package, not
+# untrusted input. The risk addressed by B301 does not apply here.
+skips = ["B301"]
+
 [tool.ruff.format]
 quote-style = "single"
 

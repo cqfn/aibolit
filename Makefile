@@ -40,7 +40,7 @@ pylint:
 	uv run pylint aibolit test scripts --ignore=scripts/target
 
 bandit:
-	uv run bandit -r aibolit -lll
+	uv run bandit -c pyproject.toml -r aibolit -ll
 
 ruff:
 	uv run ruff check .
