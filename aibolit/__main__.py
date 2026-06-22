@@ -871,7 +871,7 @@ def version():
     parser.add_argument(
         '--version',
     )
-    print(f'%(prog)s {__version__}')
+    print(f'aibolit {__version__}')
 
 
 def run_thread(files, args):
