@@ -863,13 +863,8 @@ def format_converter_for_pattern(results, sorted_by=None):
 
 def version():
     """
-    Parses arguments and shows current version of program.
+    Shows current version of program.
     """
-
-    parser = argparse.ArgumentParser(
-        description='Show version')
-    parser.add_argument(
-        '--version',
     )
     print(f'aibolit {__version__}')
 
