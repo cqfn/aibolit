@@ -865,7 +865,6 @@ def version():
     """
     Shows current version of program.
     """
-    )
     print(f'aibolit {__version__}')
 
 
