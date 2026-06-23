@@ -26,7 +26,7 @@ class VarSiblingsTestCase(unittest.TestCase):
         lines = pattern.value(ast)
         self.assertEqual(lines, [6, 8])
 
-        def test_find_length_4_var_siblings(self):
+    def test_find_length_4_var_siblings(self):
         filepath = self.current_directory / 'ShortVarSiblings.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = VarSiblings()
