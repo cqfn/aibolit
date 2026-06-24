@@ -26,7 +26,7 @@ filter:
 
 # Here we go through the list of all Java classes in target/02,
 # and calculate a few metrics per each of them. The result of
-# calculation we store into target/03-metrics.csv
+# calculation we store into target/03/pmd_metrics.csv
 
 ./_tmp/pmd-bin/bin/run.sh:
 	mkdir -p _tmp
