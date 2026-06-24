@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
+# SPDX-License-Identifier: MIT
+
 import io
 import sys
 from contextlib import redirect_stdout
