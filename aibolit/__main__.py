@@ -59,9 +59,10 @@ def run_parse_args(commands_dict):
         description='Find the pattern which has the largest impact on readability',
         usage='''aibolit <command> [<args>]
 
-        You can run 1 command:
+        You can run 3 commands:
         train          Train model
-        recommend      Recommend pattern''')
+        recommend      Recommend pattern
+        version        Show version''')
 
     parser.add_argument('command', help='Subcommand to run')
     parser.add_argument(
