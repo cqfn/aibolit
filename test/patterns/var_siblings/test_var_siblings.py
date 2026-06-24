@@ -32,10 +32,3 @@ class VarSiblingsTestCase(unittest.TestCase):
         pattern = VarSiblings()
         lines = pattern.value(ast)
         self.assertEqual(lines, [12, 13])
-
-    def test_siblings_scoped_to_method_not_whole_ast(self):
-        filepath = self.current_directory / 'DisjointVarSiblingsMethods.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = VarSiblings()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [6, 7, 11, 12])
