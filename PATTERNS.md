@@ -310,8 +310,6 @@ class Foo {
 }
 ```
 
-***
-
 *Title*: Non final attributes
 
 *Code*: **P12**
@@ -625,6 +623,21 @@ class Foo {
     int fileSize = 10;
     Date fileDate = new Date();
   }
+}
+```
+
+***
+
+*Title*: Class inheritance
+
+*Code*: **P34**
+
+*Description*: Once a class extends another class via `extends`, it's a pattern.
+
+*Example*:
+
+```java
+class MyList extends AbstractList { // here
 }
 ```
 
