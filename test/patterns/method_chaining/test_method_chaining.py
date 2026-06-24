@@ -6,7 +6,7 @@ from pathlib import Path
 
 from aibolit.patterns.method_chaining.method_chaining import MethodChainFind
 from aibolit.ast_framework import AST
-from aibolit.utils.ast_builder import build_ast
+from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 
 
 class MethodChainTestCase(TestCase):
@@ -120,3 +120,19 @@ class MethodChainTestCase(TestCase):
         pattern = MethodChainFind()
         lines = pattern.value(ast)
         self.assertGreater(len(lines), 300)
+
+    def test_jdk_class_chain_is_ignored(self):
+        ast = AST.build_from_javalang(
+            build_ast_from_string(
+                '''
+                class Example {
+                    String canonicalName(Object foo) {
+                        return foo.getClass().getCanonicalName();
+                    }
+                }
+                '''
+            )
+        )
+        pattern = MethodChainFind()
+        lines = pattern.value(ast)
+        self.assertEqual(lines, [])

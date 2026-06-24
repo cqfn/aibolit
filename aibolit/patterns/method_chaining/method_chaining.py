@@ -16,6 +16,8 @@ class MethodChainFind:
         for node in ast.proxy_nodes(ASTNodeType.CLASS_CREATOR,
                                     ASTNodeType.METHOD_INVOCATION,
                                     ASTNodeType.THIS):
+            if self._is_jdk_class_chain(node):
+                continue
             selectors_qty = self._get_selectors_qty(node)
             if selectors_qty > MethodChainFind._allowed_number_of_selectord[node.node_type]:
                 lines.append(node.line)
@@ -27,6 +29,11 @@ class MethodChainFind:
             return 0
 
         return len(node.selectors)
+
+    def _is_jdk_class_chain(self, node: ASTNode) -> bool:
+        return node.node_type == ASTNodeType.METHOD_INVOCATION and node.member == 'getClass' and (
+            self._get_selectors_qty(node) > 0
+        )
 
     _allowed_number_of_selectord = {
         # found node already is a method invocation, so no further invocations are allowed
