@@ -6,7 +6,7 @@ from unittest import TestCase
 
 from aibolit.patterns.force_type_casting_finder import force_type_casting_finder
 from aibolit.ast_framework import AST
-from aibolit.utils.ast_builder import build_ast
+from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 
 
 class ForceTypeCastingFinderTestCase(TestCase):
@@ -28,5 +28,24 @@ class ForceTypeCastingFinderTestCase(TestCase):
         pattern = force_type_casting_finder.ForceTypeCastingFinder()
         path = os.path.dirname(os.path.realpath(__file__)) + '/3.java'
         ast = AST.build_from_javalang(build_ast(path))
+        lines = pattern.value(ast)
+        self.assertEqual(lines, [])
+
+    def test_lambda_cast_is_ignored(self):
+        pattern = force_type_casting_finder.ForceTypeCastingFinder()
+        ast = AST.build_from_javalang(build_ast_from_string(
+            '''
+            class Example {
+                public void mapsToSameObjects() {
+                    final Iterable<Scalar<Integer>> list = new Solid<>(
+                        new org.cactoos.list.Mapped<>(
+                            i -> (Scalar<Integer>) () -> i,
+                            new IterableOf<>(1, -1, 0, 1)
+                        )
+                    );
+                }
+            }
+            '''
+        ))
         lines = pattern.value(ast)
         self.assertEqual(lines, [])
