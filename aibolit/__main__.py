@@ -874,6 +874,7 @@ def version():
     )
     print(f'%(prog)s {__version__}')
 
+
 def run_thread(files, args):
     """
     Parallel patterns/metrics calculation
