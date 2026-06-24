@@ -267,11 +267,12 @@ Train works only with cloned git repository.
 2. Go to `cloned_aibolit_path`
 3. Run `pip install .`
 4. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for
-Linux).
+   Linux).
 5. Set env variable `TARGET_FOLDER` if you need to save all dataset files to
-another directory.
-*Please note that if you set `TARGET_FOLDER`, your dataset files will be
-located in `TARGET_FOLDER/target`.*
+   another directory.
+
+   *Please note that if you set `TARGET_FOLDER`, your dataset files will be
+   located in `TARGET_FOLDER/target`.*
 6. **Dataset Paths** (required when using `TARGET_FOLDER`):
    * Set the training dataset path:
 
