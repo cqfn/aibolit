@@ -11,6 +11,7 @@ from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 
 class ForceTypeCastingFinderTestCase(TestCase):
     def test_simple(self):
+        """Regular casts should still be reported."""
         pattern = force_type_casting_finder.ForceTypeCastingFinder()
         path = os.path.dirname(os.path.realpath(__file__)) + '/1.java'
         ast = AST.build_from_javalang(build_ast(path))
@@ -18,6 +19,7 @@ class ForceTypeCastingFinderTestCase(TestCase):
         self.assertEqual(lines, [8])
 
     def test_several_casts(self):
+        """Multiple ordinary casts should all be reported."""
         pattern = force_type_casting_finder.ForceTypeCastingFinder()
         path = os.path.dirname(os.path.realpath(__file__)) + '/2.java'
         ast = AST.build_from_javalang(build_ast(path))
@@ -25,6 +27,7 @@ class ForceTypeCastingFinderTestCase(TestCase):
         self.assertEqual(lines, [8, 14, 20])
 
     def test_zero_lines(self):
+        """Files without casts should produce no findings."""
         pattern = force_type_casting_finder.ForceTypeCastingFinder()
         path = os.path.dirname(os.path.realpath(__file__)) + '/3.java'
         ast = AST.build_from_javalang(build_ast(path))
@@ -32,6 +35,7 @@ class ForceTypeCastingFinderTestCase(TestCase):
         self.assertEqual(lines, [])
 
     def test_lambda_cast_is_ignored(self):
+        """Casts applied to lambda expressions should not be reported."""
         pattern = force_type_casting_finder.ForceTypeCastingFinder()
         ast = AST.build_from_javalang(build_ast_from_string(
             '''
