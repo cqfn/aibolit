@@ -159,7 +159,10 @@ class TestRecommendPipeline(TestCase):
     def test_xml(self):
         mock_input = self.__create_mock_input()
         mock_cmd = self.__create_mock_cmd()
-        create_xml_tree(mock_input, full_report=True, cmd=mock_cmd, exit_code=2)
+        root = create_xml_tree(mock_input, full_report=True, cmd=mock_cmd, exit_code=2)
+
+        self.assertEqual(root.findtext('./header/patterns'), '5')
+        self.assertEqual(len(root.findall('./files/file/patterns/pattern')), 5)
 
     def test_count_value_keeps_original_exception_context(self):
         value_dict = {
