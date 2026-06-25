@@ -49,38 +49,46 @@ class NPathMetric():
                                stdout=subprocess.DEVNULL,
                                stderr=subprocess.DEVNULL)
             if os.path.isfile(f'{root}/target/pmd.xml'):
-                res = self.__parseFile(root)
-                return res
+                return self._parse_report_file(f'{root}/target/pmd.xml', root)
             raise Exception(' '.join(['File', self.input, 'analyze failed']))
         finally:
             shutil.rmtree(root)
 
-    def __parseFile(self, root):
+    @staticmethod
+    def _parse_report_file(report_path: str, root: str):
+        """Read a PMD XML report from disk and parse its NPath results."""
+        with open(report_path, 'r', encoding='utf-8') as file:
+            return NPathMetric.parse_report(file.read(), root)
+
+    @staticmethod
+    def parse_report(content: str, root: str):
+        """Parse PMD XML output into the metric result structure."""
         result = {'data': [], 'errors': []}
-        content = []
-        with open(f'{root}/target/pmd.xml', 'r', encoding='utf-8') as file:
-            content = file.read()
-            soup = BeautifulSoup(content, features='xml')
-            files = soup.find_all('file')
-            for file in files:
-                out = file.violation.string
-                name = file['name']
-                pos1 = name.find(f'{root}/src/main/java/')
-                pos1 = pos1 + len(f'{root}/src/main/java/')
-                name = name[pos1:]
-                s = 'NPath complexity of '
-                pos1 = out.find(s)
-                pos1 = pos1 + len(s)
-                complexity = int(out[pos1:])
-                result['data'].append({'file': name, 'complexity': complexity})
-            errors = soup.find_all('error')
-            for error in errors:
-                name = error['filename']
-                pos1 = name.find(f'{root}/src/main/java/')
-                pos1 = pos1 + len(f'{root}/src/main/java/')
-                name = name[pos1:]
-                raise Exception(error['msg'])
+        soup = BeautifulSoup(content, features='xml')
+        files = soup.find_all('file')
+        for file in files:
+            out = file.violation.string
+            name = NPathMetric._relative_source_name(file['name'], root)
+            s = 'NPath complexity of '
+            pos1 = out.find(s)
+            pos1 = pos1 + len(s)
+            complexity = int(out[pos1:])
+            result['data'].append({'file': name, 'complexity': complexity})
+        errors = soup.find_all('error')
+        for error in errors:
+            NPathMetric._relative_source_name(error['filename'], root)
+            raise Exception(error['msg'])
         return result
+
+    @staticmethod
+    def _relative_source_name(path: str, root: str) -> str:
+        """Trim the generated PMD source prefix from a reported file path."""
+        source_prefix = f'{root}/src/main/java/'
+        pos1 = path.find(source_prefix)
+        if pos1 == -1:
+            return path
+        pos1 = pos1 + len(source_prefix)
+        return path[pos1:]
 
 
 class MvnFreeNPathMetric:
