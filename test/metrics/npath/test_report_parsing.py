@@ -3,6 +3,7 @@
 
 import pytest
 
+from aibolit.metrics.npath import main as npath_main
 from aibolit.metrics.npath.main import NPathMetric
 
 
@@ -37,3 +38,50 @@ def test_parse_report_raises_pmd_error():
             ''',
             '/tmp/npath',
         )
+
+
+def test_parse_report_raises_on_malformed_violation():
+    """Unexpected violation text should fail with a descriptive parser error."""
+    with pytest.raises(ValueError, match='Unexpected PMD violation format'):
+        NPathMetric.parse_report(
+            '''
+            <pmd>
+              <file name="/tmp/npath/src/main/java/test/metrics/npath/Foo.java">
+                <violation>unexpected</violation>
+              </file>
+            </pmd>
+            ''',
+            '/tmp/npath',
+        )
+
+
+def test_parse_report_normalizes_windows_source_paths():
+    """Windows-style PMD paths should still be trimmed to source-relative names."""
+    result = NPathMetric.parse_report(
+        '''
+        <pmd>
+          <file name="C:\\tmp\\npath\\src\\main\\java\\test\\metrics\\npath\\Foo.java">
+            <violation>NPath complexity of 200</violation>
+          </file>
+        </pmd>
+        ''',
+        'C:\\tmp\\npath',
+    )
+
+    assert result == {
+        'data': [{'file': 'test/metrics/npath/Foo.java', 'complexity': 200}],
+        'errors': [],
+    }
+
+
+def test_value_preserves_root_initialization_error(monkeypatch):
+    """Temporary-root setup errors should not be masked by cleanup."""
+    metric = NPathMetric('Foo.java')
+
+    def fail_gettempdir():
+        raise RuntimeError('temp root failed')
+
+    monkeypatch.setattr(npath_main.tempfile, 'gettempdir', fail_gettempdir)
+
+    with pytest.raises(RuntimeError, match='temp root failed'):
+        metric.value()

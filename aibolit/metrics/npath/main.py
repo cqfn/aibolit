@@ -3,6 +3,7 @@
 
 import math
 import os
+import re
 import shutil
 import subprocess
 import tempfile
@@ -27,6 +28,7 @@ class NPathMetric():
 
         if len(self.input) == 0:
             raise ValueError('Empty file for analysis')
+        root = None
         try:
             root = os.path.join(tempfile.gettempdir(), uuid.uuid4().hex)
             dirName = os.path.join(root, 'src/main/java')
@@ -52,7 +54,8 @@ class NPathMetric():
                 return self._parse_report_file(f'{root}/target/pmd.xml', root)
             raise Exception(' '.join(['File', self.input, 'analyze failed']))
         finally:
-            shutil.rmtree(root)
+            if root and os.path.isdir(root):
+                shutil.rmtree(root)
 
     @staticmethod
     def _parse_report_file(report_path: str, root: str):
@@ -65,14 +68,15 @@ class NPathMetric():
         """Parse PMD XML output into the metric result structure."""
         result = {'data': [], 'errors': []}
         soup = BeautifulSoup(content, features='xml')
-        files = soup.find_all('file')
-        for file in files:
-            out = file.violation.string
-            name = NPathMetric._relative_source_name(file['name'], root)
-            s = 'NPath complexity of '
-            pos1 = out.find(s)
-            pos1 = pos1 + len(s)
-            complexity = int(out[pos1:])
+        for file_tag in soup.find_all('file'):
+            out = file_tag.violation.get_text(strip=True) if file_tag.violation else ''
+            match = re.search(r'NPath complexity of\s+(\d+)', out)
+            if not match:
+                raise ValueError(
+                    f'Unexpected PMD violation format for {file_tag["name"]}: {out}'
+                )
+            name = NPathMetric._relative_source_name(file_tag['name'], root)
+            complexity = int(match.group(1))
             result['data'].append({'file': name, 'complexity': complexity})
         errors = soup.find_all('error')
         for error in errors:
@@ -83,12 +87,15 @@ class NPathMetric():
     @staticmethod
     def _relative_source_name(path: str, root: str) -> str:
         """Trim the generated PMD source prefix from a reported file path."""
-        source_prefix = f'{root}/src/main/java/'
-        pos1 = path.find(source_prefix)
+        normalized_path = os.path.normpath(path).replace('\\', '/')
+        normalized_prefix = os.path.normpath(
+            os.path.join(root, 'src', 'main', 'java')
+        ).replace('\\', '/') + '/'
+        pos1 = normalized_path.find(normalized_prefix)
         if pos1 == -1:
             return path
-        pos1 = pos1 + len(source_prefix)
-        return path[pos1:]
+        pos1 = pos1 + len(normalized_prefix)
+        return normalized_path[pos1:]
 
 
 class MvnFreeNPathMetric:
