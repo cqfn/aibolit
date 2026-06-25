@@ -4,22 +4,68 @@
 import os
 import pathlib
 from textwrap import dedent
+from types import SimpleNamespace
 
 import pytest
 
 from aibolit.ast_framework import AST
+from aibolit.metrics.npath import main as npath_main
 from aibolit.metrics.npath.main import MvnFreeNPathMetric, NPathMetric
 from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 
 
-def testIncorrectFormat():
+def _patch_maven_run(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: pathlib.Path,
+    pmd_xml_template: str,
+) -> None:
+    """Replace the Maven invocation with a stub that writes a PMD XML report."""
+    root = tmp_path / 'fake-run'
+    monkeypatch.setattr(npath_main.tempfile, 'gettempdir', lambda: str(tmp_path))
+    monkeypatch.setattr(npath_main.uuid, 'uuid4', lambda: SimpleNamespace(hex='fake-run'))
+
+    def fake_run(*args, **kwargs):
+        target = pathlib.Path(kwargs['cwd']) / 'target'
+        target.mkdir(parents=True, exist_ok=True)
+        (target / 'pmd.xml').write_text(
+            pmd_xml_template.format(root=root.as_posix()),
+            encoding='utf-8',
+        )
+        return SimpleNamespace(stdout=b'')
+
+    monkeypatch.setattr(npath_main.subprocess, 'run', fake_run)
+
+
+def testIncorrectFormat(monkeypatch: pytest.MonkeyPatch, tmp_path: pathlib.Path):
+    """PMD parsing failures should still surface without invoking Maven."""
+    _patch_maven_run(
+        monkeypatch,
+        tmp_path,
+        '''\
+        <pmd>
+          <error filename="{root}/src/main/java/test/metrics/npath/ooo.java" msg="PMDException" />
+        </pmd>
+        ''',
+    )
     with pytest.raises(Exception, match='PMDException'):
         file = 'test/metrics/npath/ooo.java'
         metric = NPathMetric(file)
         metric.value(True)
 
 
-def testLowScore():
+def testLowScore(monkeypatch: pytest.MonkeyPatch, tmp_path: pathlib.Path):
+    """The low-score fixture should be parsed from a stubbed PMD report."""
+    _patch_maven_run(
+        monkeypatch,
+        tmp_path,
+        '''\
+        <pmd>
+          <file name="{root}/src/main/java/test/metrics/npath/OtherClass.java">
+            <violation>NPath complexity of 3</violation>
+          </file>
+        </pmd>
+        ''',
+    )
     file = 'test/metrics/npath/OtherClass.java'
     metric = NPathMetric(file)
     res = metric.value(True)
@@ -27,7 +73,19 @@ def testLowScore():
     assert res['data'][0]['file'] == file
 
 
-def testHighScore():
+def testHighScore(monkeypatch: pytest.MonkeyPatch, tmp_path: pathlib.Path):
+    """The high-score fixture should be parsed from a stubbed PMD report."""
+    _patch_maven_run(
+        monkeypatch,
+        tmp_path,
+        '''\
+        <pmd>
+          <file name="{root}/src/main/java/test/metrics/npath/Foo.java">
+            <violation>NPath complexity of 200</violation>
+          </file>
+        </pmd>
+        ''',
+    )
     file = 'test/metrics/npath/Foo.java'
     metric = NPathMetric(file)
     res = metric.value(True)
@@ -36,6 +94,7 @@ def testHighScore():
 
 
 def testNonExistedFile():
+    """Missing files should still fail before any PMD execution happens."""
     match = 'File test/metrics/npath/ooo1.java does not exist'
     with pytest.raises(Exception, match=match):
         file = 'test/metrics/npath/ooo1.java'
@@ -43,7 +102,19 @@ def testNonExistedFile():
         metric.value(True)
 
 
-def testMediumScore():
+def testMediumScore(monkeypatch: pytest.MonkeyPatch, tmp_path: pathlib.Path):
+    """The medium-score fixture should be parsed from a stubbed PMD report."""
+    _patch_maven_run(
+        monkeypatch,
+        tmp_path,
+        '''\
+        <pmd>
+          <file name="{root}/src/main/java/test/metrics/npath/Complicated.java">
+            <violation>NPath complexity of 12</violation>
+          </file>
+        </pmd>
+        ''',
+    )
     file = 'test/metrics/npath/Complicated.java'
     metric = NPathMetric(file)
     res = metric.value(True)
