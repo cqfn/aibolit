@@ -38,6 +38,10 @@ Also, you can set a folder with Java files:
 aibolit recommend --folder src/java
 ```
 
+CLI usage example:
+
+![Aibolit CLI usage example](assets/aibolit-cli-demo.gif)
+
 It will run recommendation function for the model (model is located in
 [aibolit/binary_files/model.pkl][model]).
 The model finds a pattern which contribution is the largest to the
@@ -263,24 +267,15 @@ aibolit recommend --help
 
 Train works only with cloned git repository.
 
-The training files referenced below under `target/01/...`,
-`target/08/08-train.csv`, and `target/08/08-test.csv` are not shipped with
-the repository. They are produced by the pipeline in `scripts/`:
-`01-fetch-github.py` populates `target/01/`, and `08-split.py` writes
-`target/08/08-train.csv` and `target/08/08-test.csv`. Run `make` inside
-`scripts/` first, or supply your own dataset under the same layout,
-before invoking `aibolit train`.
-
 1. Clone aibolit repository
 2. Go to `cloned_aibolit_path`
 3. Run `pip install .`
 4. Set env variable `export HOME_AIBOLIT=cloned_aibolit_path` (example for
-   Linux).
+Linux).
 5. Set env variable `TARGET_FOLDER` if you need to save all dataset files to
-   another directory.
-
-   *Please note that if you set `TARGET_FOLDER`, your dataset files will be
-   located in `TARGET_FOLDER/target`.*
+another directory.
+*Please note that if you set `TARGET_FOLDER`, your dataset files will be
+located in `TARGET_FOLDER/target`.*
 6. **Dataset Paths** (required when using `TARGET_FOLDER`):
    * Set the training dataset path:
 
@@ -323,7 +318,6 @@ before invoking `aibolit train`.
 8. **Java Files Directory** (optional):
    * To use a custom folder with Java files, use the `--java_folder` parameter
    * Default value: `scripts/target/01` of the aibolit cloned repository
-     (populated by `scripts/01-fetch-github.py`; absent on a fresh clone)
    * Usage example:
 
      ```bash
