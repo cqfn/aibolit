@@ -29,6 +29,7 @@ from aibolit.patterns.assert_in_code.assert_in_code import AssertInCode as P1
 from aibolit.patterns.assign_null_finder.assign_null_finder import NullAssignment as P28
 from aibolit.patterns.classic_setter.classic_setter import ClassicSetter as P2
 from aibolit.patterns.class_inheritance.class_inheritance import ClassInheritance as P34
+from aibolit.patterns.class_variable.class_variable import ClassVariable as P35
 from aibolit.patterns.empty_rethrow.empty_rethrow import EmptyRethrow as P3
 from aibolit.patterns.er_class.er_class import ErClass as P4
 from aibolit.patterns.force_type_casting_finder.force_type_casting_finder import \
@@ -200,6 +201,7 @@ class Config(metaclass=Singleton):
                                      ASTNodeType.WHILE_STATEMENT)},
                 {'name': 'Incomplete For', 'code': 'P33', 'make': P33},
                 {'name': 'Class inheritance', 'code': 'P34', 'make': P34},
+                {'name': 'Class variable', 'code': 'P35', 'make': P35},
             ],
             'metrics': [
                 {'name': 'Entropy', 'code': 'M1', 'make': M1},  # type: ignore
