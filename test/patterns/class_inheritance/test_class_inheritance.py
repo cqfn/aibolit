@@ -17,7 +17,7 @@ class ClassInheritanceTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ClassInheritance()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [4])
+        self.assertEqual(lines, [7])
 
     def test_ignore_implements_only(self):
         filepath = self.current_directory / 'OnlyImplements.java'
@@ -38,4 +38,4 @@ class ClassInheritanceTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ClassInheritance()
         lines = pattern.value(ast)
-        self.assertEqual(lines, [7])
+        self.assertEqual(lines, [10])
