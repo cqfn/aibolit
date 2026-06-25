@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: MIT
 
 from pathlib import Path
+from tempfile import TemporaryDirectory
 from unittest import TestCase
 
 from aibolit.metrics.max_diameter.max_diameter import MaxDiameter
@@ -47,3 +48,19 @@ class MaxDiameterTestCase(TestCase):
         metric = MaxDiameter()
         metric_value = metric.value(ast)
         self.assertEqual(metric_value, 8)
+
+    def test_non_utf8_file(self):
+        with TemporaryDirectory() as tmpdir:
+            filename = Path(tmpdir, 'NonUtf8.java')
+            filename.write_bytes(
+                b'class NonUtf8 {\n'
+                b'    // Byte 0xb6 reproduces the non-UTF8 inputs from issue #280.\n'
+                b'    void method() {}\n'
+                b'}\n'
+            )
+
+            ast = AST.build_from_javalang(build_ast(filename))
+
+        metric = MaxDiameter()
+        metric_value = metric.value(ast)
+        self.assertEqual(metric_value, 3)

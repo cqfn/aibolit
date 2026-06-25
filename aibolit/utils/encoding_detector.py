@@ -21,5 +21,11 @@ def read_text_with_autodetected_encoding(filename: str | os.PathLike):
     if not data:
         return ''  # In case of empty file, return empty string
 
-    encoding = detect_encoding_of_data(data) or 'utf-8'
-    return data.decode(encoding)
+    encodings = [detect_encoding_of_data(data), 'utf-8', 'latin-1']
+    for encoding in dict.fromkeys(filter(None, encodings)):
+        try:
+            return data.decode(encoding)
+        except (LookupError, UnicodeDecodeError):
+            continue
+
+    return data.decode('utf-8', errors='replace')
