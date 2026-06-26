@@ -304,8 +304,6 @@ def calculate_patterns_and_metrics_with_decomposition(
                 input_params = OrderedDict()  # type: ignore
 
                 for pattern_info in patterns_info:
-                    if pattern_info['code'] in config['patterns_exclude']:
-                        continue
                     if pattern_info['code'] in patterns_to_suppress:
                         input_params[pattern_info['code']] = 0
                         code_lines_dict['lines_' + pattern_info['code']] = []
