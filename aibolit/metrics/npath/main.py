@@ -66,7 +66,8 @@ class NPathMetric():
     @staticmethod
     def parse_report(content: str, root: str):
         """Parse PMD XML output into the metric result structure."""
-        result = {'data': [], 'errors': []}
+        data: list[dict[str, int | str]] = []
+        errors: list[str] = []
         soup = BeautifulSoup(content, features='xml')
         for file_tag in soup.find_all('file'):
             out = file_tag.violation.get_text(strip=True) if file_tag.violation else ''
@@ -77,12 +78,12 @@ class NPathMetric():
                 )
             name = NPathMetric._relative_source_name(file_tag['name'], root)
             complexity = int(match.group(1))
-            result['data'].append({'file': name, 'complexity': complexity})
-        errors = soup.find_all('error')
-        for error in errors:
+            data.append({'file': name, 'complexity': complexity})
+        error_tags = soup.find_all('error')
+        for error in error_tags:
             NPathMetric._relative_source_name(error['filename'], root)
             raise Exception(error['msg'])
-        return result
+        return {'data': data, 'errors': errors}
 
     @staticmethod
     def _relative_source_name(path: str, root: str) -> str:
