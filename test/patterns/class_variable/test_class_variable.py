@@ -23,7 +23,7 @@ class ClassVariableTestCase(TestCase):
 
     def test_find_class_variable(self):
         lines = self._find_lines(
-            """\
+            '''\
             import java.util.ArrayList;
 
             class Book {
@@ -31,13 +31,13 @@ class ClassVariableTestCase(TestCase):
                     ArrayList<Integer> list = new ArrayList<>();
                 }
             }
-            """
+            '''
         )
         self.assertEqual(lines, [5])
 
     def test_ignore_interface_variable(self):
         lines = self._find_lines(
-            """\
+            '''\
             import java.util.ArrayList;
             import java.util.List;
 
@@ -46,18 +46,18 @@ class ClassVariableTestCase(TestCase):
                     List<Integer> list = new ArrayList<>();
                 }
             }
-            """
+            '''
         )
         self.assertEqual(lines, [])
 
     def test_ignore_primitive_variable(self):
         lines = self._find_lines(
-            """\
+            '''\
             class Book {
                 void foo() {
                     int number = 42;
                 }
             }
-            """
+            '''
         )
         self.assertEqual(lines, [])
