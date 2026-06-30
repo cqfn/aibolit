@@ -607,7 +607,10 @@ def create_xml_tree(results, full_report, cmd, exit_code):
         file = etree.SubElement(files, 'file')
         score_for_file = _process_file_result(file, result_for_file)
         if score_for_file is not None:
-            total_patterns += len(result_for_file['results'])
+            file_results = result_for_file['results']
+            if file_results and all(isinstance(item, list) for item in file_results):
+                file_results = flatten(file_results)
+            total_patterns += len(file_results)
             importances_for_all_classes.append(score_for_file)
 
     patterns_number_tag.text = str(total_patterns)
