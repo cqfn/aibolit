@@ -3,7 +3,7 @@
 import os
 from hashlib import md5
 from pathlib import Path
-from unittest import TestCase, skip
+from unittest import TestCase
 from unittest.mock import patch
 
 import javalang
@@ -198,13 +198,12 @@ class TestRecommendPipeline(TestCase):
         md5_hash = md5('\n'.join(text).encode('utf-8'))
         self.assertEqual(md5_hash.hexdigest(), 'bc22beda46ca18267a677eb32361a2aa')
 
-    @skip('It is flaky')
     def test_text_format_sort_by_code_line(self):
         mock_input = self.__create_mock_input()
         new_mock = format_converter_for_pattern(mock_input, 'code_line')
         text = create_text(new_mock, full_report=True)
         md5_hash = md5('\n'.join(text).encode('utf-8'))
-        self.assertEqual(md5_hash.hexdigest(), '62c794a9fad74c64eea7eb9a5e42e4c8')
+        self.assertEqual(md5_hash.hexdigest(), 'ae5af20f85585c64ba514783c6e0f3de')
 
     def test_find_start_end_line_function(self):
         # Check start and end line for MethodDeclaration,

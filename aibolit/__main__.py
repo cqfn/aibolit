@@ -462,7 +462,7 @@ def _process_components(components, args, classes_with_patterns_ignored, pattern
     return results_list
 
 
-def run_recommend_for_file(file: str, args):  # flake8: noqa
+def run_recommend_for_file(file: str, args):  # noqa: C901
     """
     Calculate patterns and metrics, pass values to model and suggest pattern to change
     :param file: file to analyze
