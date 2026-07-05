@@ -12,6 +12,7 @@ from typing import Iterable
 from bs4 import BeautifulSoup
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
+from aibolit.utils.ast_builder import build_ast
 
 
 class NPathMetric():
@@ -27,6 +28,8 @@ class NPathMetric():
 
         if len(self.input) == 0:
             raise ValueError('Empty file for analysis')
+        if shutil.which('mvn') is None:
+            return self._value_without_maven()
         try:
             root = os.path.join(tempfile.gettempdir(), uuid.uuid4().hex)
             dirName = os.path.join(root, 'src/main/java')
@@ -54,6 +57,13 @@ class NPathMetric():
             raise Exception(' '.join(['File', self.input, 'analyze failed']))
         finally:
             shutil.rmtree(root)
+
+    def _value_without_maven(self):
+        if not os.path.isfile(self.input):
+            raise Exception(' '.join(['File', self.input, 'does not exist']))
+        ast = AST.build_from_javalang(build_ast(self.input))
+        complexity = MvnFreeNPathMetric(ast).value()
+        return {'data': [{'file': self.input, 'complexity': complexity}], 'errors': []}
 
     def __parseFile(self, root):
         result = {'data': [], 'errors': []}
