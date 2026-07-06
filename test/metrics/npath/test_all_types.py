@@ -3,7 +3,9 @@
 
 import os
 import pathlib
+import subprocess
 from textwrap import dedent
+from unittest.mock import patch
 
 import pytest
 
@@ -13,16 +15,64 @@ from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 
 
 def testIncorrectFormat():
-    with pytest.raises(Exception, match='PMDException'):
-        file = 'test/metrics/npath/ooo.java'
-        metric = NPathMetric(file)
-        metric.value(True)
+    file = 'test/metrics/npath/ooo.java'
+    metric = NPathMetric(file)
+    with patch(
+            'aibolit.metrics.npath.main.subprocess.run',
+            side_effect=_write_pmd_error_report(file, 'PMDException')
+    ):
+        with pytest.raises(Exception, match='PMDException'):
+            metric.value(True)
+
+
+def _write_pmd_error_report(file: str, message: str):
+    def fake_run(args, cwd, check, **kwargs):
+        _write_pmd_report(
+            cwd,
+            f'<error filename="{cwd}/src/main/java/{file}" msg="{message}" />'
+        )
+        return subprocess.CompletedProcess(args=args, returncode=0)
+
+    return fake_run
+
+
+def _write_pmd_complexity_report(file: str, complexity: int):
+    def fake_run(args, cwd, check, **kwargs):
+        _write_pmd_report(
+            cwd,
+            f'''
+            <file name="{cwd}/src/main/java/{file}">
+              <violation>NPath complexity of {complexity}</violation>
+            </file>
+            '''
+        )
+        return subprocess.CompletedProcess(args=args, returncode=0)
+
+    return fake_run
+
+
+def _write_pmd_report(root: str, content: str) -> None:
+    target = pathlib.Path(root, 'target')
+    target.mkdir()
+    pathlib.Path(target, 'pmd.xml').write_text(
+        dedent(
+            f'''\
+            <?xml version="1.0" encoding="UTF-8"?>
+            <pmd>{content}</pmd>
+            '''
+        ),
+        encoding='utf-8'
+    )
 
 
 def testLowScore():
     file = 'test/metrics/npath/OtherClass.java'
     metric = NPathMetric(file)
-    res = metric.value(True)
+    with patch(
+            'aibolit.metrics.npath.main.subprocess.run',
+            side_effect=_write_pmd_complexity_report(file, 3)
+    ):
+        res = metric.value(True)
     assert res['data'][0]['complexity'] == 3
     assert res['data'][0]['file'] == file
 
@@ -30,7 +80,11 @@ def testLowScore():
 def testHighScore():
     file = 'test/metrics/npath/Foo.java'
     metric = NPathMetric(file)
-    res = metric.value(True)
+    with patch(
+            'aibolit.metrics.npath.main.subprocess.run',
+            side_effect=_write_pmd_complexity_report(file, 200)
+    ):
+        res = metric.value(True)
     assert res['data'][0]['complexity'] == 200
     assert res['data'][0]['file'] == file
 
@@ -46,7 +100,11 @@ def testNonExistedFile():
 def testMediumScore():
     file = 'test/metrics/npath/Complicated.java'
     metric = NPathMetric(file)
-    res = metric.value(True)
+    with patch(
+            'aibolit.metrics.npath.main.subprocess.run',
+            side_effect=_write_pmd_complexity_report(file, 12)
+    ):
+        res = metric.value(True)
     assert res['data'][0]['complexity'] == 12
 
 
