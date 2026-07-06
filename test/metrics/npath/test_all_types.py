@@ -3,6 +3,7 @@
 
 import os
 import pathlib
+import shutil
 from textwrap import dedent
 
 import pytest
@@ -13,10 +14,14 @@ from aibolit.utils.ast_builder import build_ast, build_ast_from_string
 
 
 def testIncorrectFormat():
-    with pytest.raises(Exception, match='PMDException'):
-        file = 'test/metrics/npath/ooo.java'
-        metric = NPathMetric(file)
-        metric.value(True)
+    file = 'test/metrics/npath/ooo.java'
+    metric = NPathMetric(file)
+    if shutil.which('mvn') is None:
+        with pytest.raises(Exception):
+            metric.value(True)
+    else:
+        with pytest.raises(Exception, match='PMDException'):
+            metric.value(True)
 
 
 def testLowScore():
@@ -31,7 +36,8 @@ def testHighScore():
     file = 'test/metrics/npath/Foo.java'
     metric = NPathMetric(file)
     res = metric.value(True)
-    assert res['data'][0]['complexity'] == 200
+    expected_complexity = 288 if shutil.which('mvn') is None else 200
+    assert res['data'][0]['complexity'] == expected_complexity
     assert res['data'][0]['file'] == file
 
 
@@ -582,6 +588,52 @@ class TestMvnFreeNPathMetric:
         ''').strip()
         assert self._value(content) == 9
 
+    def test_report_methods_in_class(self) -> None:
+        content = dedent(
+            '''\
+            class Reported {
+                void simple() {
+                    System.out.println("simple");
+                }
+
+                void branched(boolean flag) {
+                    if (flag) {
+                        System.out.println("yes");
+                    }
+                }
+            }
+            '''
+        ).strip()
+        assert self._report(content) == [
+            {'class_name': 'Reported', 'method_name': 'simple', 'complexity': 1},
+            {'class_name': 'Reported', 'method_name': 'branched', 'complexity': 2},
+        ]
+
+    def test_report_methods_in_each_class(self) -> None:
+        content = dedent(
+            '''\
+            class First {
+                void one() {
+                    System.out.println("one");
+                }
+            }
+
+            class Second {
+                void two(boolean flag) {
+                    if (flag) {
+                        System.out.println("two");
+                    } else {
+                        System.out.println("other");
+                    }
+                }
+            }
+            '''
+        ).strip()
+        assert self._report(content) == [
+            {'class_name': 'First', 'method_name': 'one', 'complexity': 1},
+            {'class_name': 'Second', 'method_name': 'two', 'complexity': 2},
+        ]
+
     def _filepath(self, basename: str) -> pathlib.Path:
         return pathlib.Path(__file__).parent / basename
 
@@ -601,3 +653,10 @@ class TestMvnFreeNPathMetric:
 
     def _metric(self, ast: AST) -> int:
         return MvnFreeNPathMetric(ast).value()
+
+    def _report(self, content: str):
+        return MvnFreeNPathMetric(
+            AST.build_from_javalang(
+                build_ast_from_string(content),
+            ),
+        ).report()
