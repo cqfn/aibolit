@@ -329,14 +329,14 @@ Or you can use our [docker image](https://hub.docker.com/r/yegor256/aibolit-imag
 Run train pipeline:
 
 ```bash
-aibolit train --java_folder=/home/jovyan/in [--max_classes=100] [--dataset_file]
+aibolit train --java_folder=src/java [--max_classes=100] [--dataset_file]
 ```
 
 If you need to save the dataset with all calculated metrics to a different
 directory, you need to use `dataset_file` parameter
 
 ```bash
-aibolit train --java_folder=/home/jovyan/in --dataset_file /home/jovyan/out/dataset.csv
+aibolit train --java_folder=src/java --dataset_file mnt/d/new_dir/dataset.csv
 ```
 
 You can skip dataset collection with `skip_collect_dataset` parameter. In
@@ -344,7 +344,7 @@ this case
 the model will be trained with predefined dataset (see 5 point):
 
 ```bash
-aibolit train --java_folder=/home/jovyan/in --skip_collect_dataset
+aibolit train --java_folder=src/java --skip_collect_dataset
 ```
 
 ## How to contribute?
