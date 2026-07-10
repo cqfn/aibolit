@@ -325,18 +325,31 @@ located in `TARGET_FOLDER/target`.*
      ```
 
 Or you can use our [docker image](https://hub.docker.com/r/yegor256/aibolit-image)
+to run the ML pipeline without installing the full toolchain locally.
+
+Start the development image with input and output directories mounted:
+
+```bash
+docker run --rm -it --name aibolit-train-model \
+  -v <absolute_path_to_dataset_folder>:/home/jovyan/in \
+  -v <absolute_path_to_output_folder>:/home/jovyan/out \
+  -m=4g --user root -e NB_UID=`id -u` yegor256/aibolit-image-dev
+```
+
+Inside the container, use `/home/jovyan/in` for input Java sources or prepared
+datasets and `/home/jovyan/out` for generated datasets and model files.
 
 Run train pipeline:
 
 ```bash
-aibolit train --java_folder=src/java [--max_classes=100] [--dataset_file]
+aibolit train --java_folder=/home/jovyan/in [--max_classes=100] [--dataset_file]
 ```
 
 If you need to save the dataset with all calculated metrics to a different
 directory, you need to use `dataset_file` parameter
 
 ```bash
-aibolit train --java_folder=src/java --dataset_file /mnt/d/new_dir/dataset.csv
+aibolit train --java_folder=/home/jovyan/in --dataset_file /home/jovyan/out/dataset.csv
 ```
 
 You can skip dataset collection with `skip_collect_dataset` parameter. In
@@ -344,7 +357,7 @@ this case
 the model will be trained with predefined dataset (see 5 point):
 
 ```bash
-aibolit train --java_folder=src/java --skip_collect_dataset
+aibolit train --java_folder=/home/jovyan/in --skip_collect_dataset
 ```
 
 ## How to contribute?
