@@ -325,19 +325,6 @@ located in `TARGET_FOLDER/target`.*
      ```
 
 Or you can use our [docker image](https://hub.docker.com/r/yegor256/aibolit-image)
-to run the ML pipeline without installing the full toolchain locally.
-
-Start the development image with input and output directories mounted:
-
-```bash
-docker run --rm -it --name aibolit-train-model \
-  -v <absolute_path_to_dataset_folder>:/home/jovyan/in \
-  -v <absolute_path_to_output_folder>:/home/jovyan/out \
-  -m=4g --user root -e NB_UID=`id -u` yegor256/aibolit-image-dev
-```
-
-Inside the container, use `/home/jovyan/in` for input Java sources or prepared
-datasets and `/home/jovyan/out` for generated datasets and model files.
 
 Run train pipeline:
 
