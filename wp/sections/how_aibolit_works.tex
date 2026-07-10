@@ -59,6 +59,16 @@ In the current release of Aibolit, we use Cognitive Complexity \citep{10.1145/31
 the maintainability metric. We refer to it as the maintainability metric or just
 metric in the remainder of the text.
 
+For a class $C$, the raw metric value $M(C)$ is computed by traversing the AST
+of each method and summing Cognitive Complexity increments. Control-flow nodes
+such as \texttt{if}, \texttt{switch}, \texttt{for}, \texttt{while},
+\texttt{do}, and \texttt{catch} add $1$ plus the current nesting level.
+Other flow-breaking constructs, including \texttt{break}, \texttt{continue},
+ternary expressions, recursion calls, and sequences of logical operators, add
+$1$ without an extra nesting penalty. The class metric is the sum of these
+values over all methods. During dataset preprocessing, the target value is
+normalized by class size as $t^C = M(C) / \textit{NCSS}(C)$.
+
 \subsection{Maintainability prediction model}
 
 \label{sec:maint_pred_model}
