@@ -336,7 +336,7 @@ If you need to save the dataset with all calculated metrics to a different
 directory, you need to use `dataset_file` parameter
 
 ```bash
-aibolit train --java_folder=src/java --dataset_file mnt/d/new_dir/dataset.csv
+aibolit train --java_folder=src/java --dataset_file /mnt/d/new_dir/dataset.csv
 ```
 
 You can skip dataset collection with `skip_collect_dataset` parameter. In
