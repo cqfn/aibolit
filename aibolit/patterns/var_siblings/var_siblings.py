@@ -15,7 +15,6 @@ class VarSiblings:
     def _collect_method_variables_names(self, ast: AST, node: ASTNode) -> Dict[str, int]:
         assert node.node_type == ASTNodeType.METHOD_DECLARATION
         vars_lines: Dict[str, int] = {}
-        method_ast = ast.subtree(node)
         for local_var_node in method_ast.proxy_nodes(ASTNodeType.LOCAL_VARIABLE_DECLARATION):
             for var_declaration in local_var_node.declarators:
                 var_name = var_declaration.name
