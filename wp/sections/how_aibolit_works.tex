@@ -80,7 +80,7 @@ non-abstract Java class.
 %We chose this level of granularity because it is intuitive and because we
 %wanted to narrow down our scope for the first stage of development. Thus one
 %datapoint in our dataset is one Java class.
-We filtered out classes with fewer than 50 and more than 300 lines of code.
+We filtered out classes with NCSS below 50 or above 300.
 The resulting filtered dataset consists of 124 repositories and
 29,065 classes. Before filtering, we split the dataset into test and train sets randomly by files with
 approximately 0.7:0.3 ratio. The filtered train set contains 20,049 classes,
