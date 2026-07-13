@@ -18,7 +18,8 @@ of the input Java class.
 \vspace{1 cm}
 \caption{How Aibolit works: (1) Inspect the source code for patterns.
 (2) Count the pattern occurrences and put them in a vector representation.
-Compute the maintainability metric value for the vector.
+Compute the maintainability metric value for the original class; in our dataset,
+this value is Cognitive Complexity divided by NCSS.
 (3) Consider changes to the vector representation by subtracting pattern counts.
 Predict the corresponding maintainability metric score.
 (4) Rank all the alternative vectors with respect to how much they improve the original
