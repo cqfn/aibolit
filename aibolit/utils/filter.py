@@ -1,8 +1,21 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
 from typing import List, Tuple, Any, Union, TypeVar, Type
-from javalang.tree import ClassDeclaration, InterfaceDeclaration, MethodDeclaration, \
-    MemberReference, FieldDeclaration, MethodInvocation, This, Node, LocalVariableDeclaration
+from javalang.tree import (
+    AssertStatement,
+    Assignment,
+    ClassDeclaration,
+    FieldDeclaration,
+    InterfaceDeclaration,
+    LocalVariableDeclaration,
+    MemberReference,
+    MethodDeclaration,
+    MethodInvocation,
+    Node,
+    ReturnStatement,
+    This,
+    StatementExpression,
+)
 
 FldExh = Tuple[str, Tuple[str, str]]
 MthExh = Tuple[str, Tuple[Tuple[str, str], ...]]
@@ -35,22 +48,60 @@ class Filters:
 
     @staticmethod
     def filter_getters_setters(method_node_list: List[MthNodes]) -> List[MthNodes]:
-        '''Filters nodes by name.
+        """Filter actual getter and setter methods.
 
-        Gets list of nodes of "MethodDeclaration" type and filters it by
-        name, so that no methods with name starting with "set" or "get"
-        go to return list.
-        Returns a generator with (path, node) inside.
-        '''
+        Methods whose names merely start with ``get`` or ``set`` remain
+        in the returned list unless their bodies match accessor behavior.
+        """
+        return [
+            (path, node)
+            for path, node in method_node_list
+            if not Filters._is_getter(node) and not Filters._is_setter(node)
+        ]
 
-        # To-Fix: implement get/set detection with .body
-        temp_list = []
-        for path, node in method_node_list:
-            if node.name.startswith(('get', 'set')):  # type: ignore[unresolved-attribute]
-                pass
-            else:
-                temp_list.append((path, node))
-        return temp_list
+    @staticmethod
+    def _is_getter(method_node: MethodDeclaration) -> bool:
+        """Check whether a method is a getter."""
+        if not method_node.name.startswith('get'):  # type: ignore[unresolved-attribute]
+            return False
+        body = [
+            statement
+            for statement in (method_node.body or [])  # type: ignore[unresolved-attribute]
+            if not isinstance(statement, AssertStatement)
+        ]
+        if len(body) != 1 or not isinstance(body[0], ReturnStatement):
+            return False
+        expression = getattr(body[0], 'expression', None)
+        direct_member = isinstance(expression, MemberReference)
+        this_member = (
+            isinstance(expression, This) and
+            len(expression.selectors or []) == 1 and
+            isinstance(expression.selectors[0], MemberReference)
+        )
+        return direct_member or this_member
+
+    @staticmethod
+    def _is_setter(method_node: MethodDeclaration) -> bool:
+        """Check whether a method is a setter."""
+        if (
+            not method_node.name.startswith('set') or  # type: ignore[unresolved-attribute]
+            method_node.return_type is not None or  # type: ignore[unresolved-attribute]
+            len(method_node.parameters) != 1  # type: ignore[unresolved-attribute]
+        ):
+            return False
+        body = [
+            statement
+            for statement in (method_node.body or [])  # type: ignore[unresolved-attribute]
+            if not isinstance(statement, AssertStatement)
+        ]
+        if len(body) != 1 or not isinstance(body[0], StatementExpression):
+            return False
+        expression = body[0].expression
+        if not isinstance(expression, Assignment):
+            return False
+        value = expression.value
+        parameter = method_node.parameters[0].name  # type: ignore[unresolved-attribute]
+        return isinstance(value, MemberReference) and value.member == parameter
 
     @staticmethod
     def get_class_depth(path: tuple) -> int:
