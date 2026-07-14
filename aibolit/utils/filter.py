@@ -14,6 +14,7 @@ from javalang.tree import (
     Node,
     ReturnStatement,
     This,
+    StatementExpression,
 )
 
 FldExh = Tuple[str, Tuple[str, str]]
@@ -85,15 +86,22 @@ class Filters:
         if (
             not method_node.name.startswith('set') or  # type: ignore[unresolved-attribute]
             method_node.return_type is not None or  # type: ignore[unresolved-attribute]
-            not method_node.parameters  # type: ignore[unresolved-attribute]
+            len(method_node.parameters) != 1  # type: ignore[unresolved-attribute]
         ):
             return False
+        body = [
+            statement
+            for statement in (method_node.body or [])  # type: ignore[unresolved-attribute]
+            if not isinstance(statement, AssertStatement)
+        ]
+        if len(body) != 1 or not isinstance(body[0], StatementExpression):
+            return False
+        expression = body[0].expression
+        if not isinstance(expression, Assignment):
+            return False
+        value = expression.value
         parameter = method_node.parameters[0].name  # type: ignore[unresolved-attribute]
-        for _, assignment in method_node.filter(Assignment):
-            value = assignment.value
-            if isinstance(value, MemberReference) and value.member == parameter:
-                return True
-        return False
+        return isinstance(value, MemberReference) and value.member == parameter
 
     @staticmethod
     def get_class_depth(path: tuple) -> int:
