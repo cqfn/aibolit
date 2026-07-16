@@ -296,7 +296,10 @@ def calculate_patterns_and_metrics_with_decomposition(
             class_level_pattern_results = {
                 pattern_info['code']: pattern_info['make']().value(class_ast)
                 for pattern_info in patterns_info
-                if pattern_info['code'] in CLASS_LEVEL_PATTERN_CODES
+                if (
+                    pattern_info['code'] in CLASS_LEVEL_PATTERN_CODES and
+                    pattern_info['code'] not in patterns_to_suppress
+                )
             }
             for index, component_ast in enumerate(decompose_java_class(class_ast, 'strong')):
                 result_for_component: Dict[Any, Any] = {}

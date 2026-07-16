@@ -6,7 +6,7 @@ from hashlib import md5
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from types import SimpleNamespace
-from unittest import TestCase, skip
+from unittest import TestCase
 from unittest.mock import patch
 
 import javalang
@@ -146,7 +146,7 @@ class TestRecommendPipeline(TestCase):
             import java.util.HashMap;
             import java.util.Map;
 
-            public class ConfigManager {
+            public class ConfigManager implements Runnable, AutoCloseable {
                 private Map<String, String> data = new HashMap<>();
                 private int counter = 0;
                 private String name = "default";
@@ -160,6 +160,8 @@ class TestRecommendPipeline(TestCase):
                 public void reset() { data.clear(); counter = 0; name = "default"; }
                 public boolean hasKey(String key) { return data.containsKey(key); }
                 public int size() { return data.size(); }
+                public void run() { counter++; }
+                public void close() { data.clear(); }
             }
         '''
         with TemporaryDirectory() as temp_dir:
@@ -173,13 +175,54 @@ class TestRecommendPipeline(TestCase):
         self.assertIsNone(error)
         self.assertGreater(len(components), 1)
         self.assertEqual(sum(component['input_params']['P4'] for component in components), 1)
+        self.assertEqual(sum(component['input_params']['P7'] for component in components), 1)
         self.assertEqual(sum(component['input_params']['P24'] for component in components), 1)
         self.assertEqual(len(components[0]['code_lines_dict']['lines_P4']), 1)
+        self.assertEqual(len(components[0]['code_lines_dict']['lines_P7']), 1)
+        self.assertEqual(len(components[0]['code_lines_dict']['lines_P24']), 1)
         self.assertTrue(
             all(component['code_lines_dict']['lines_P4'] == [] for component in components[1:])
         )
         self.assertTrue(
+            all(component['code_lines_dict']['lines_P7'] == [] for component in components[1:])
+        )
+        self.assertTrue(
             all(component['code_lines_dict']['lines_P24'] == [] for component in components[1:])
+        )
+
+    def test_decomposition_skips_suppressed_class_level_patterns_before_precompute(self):
+        class FailingPattern:
+            def value(self, _):
+                raise AssertionError('suppressed pattern should not be evaluated')
+
+        config = {
+            'patterns': [
+                {'name': 'Failing class-level pattern', 'code': 'P4', 'make': FailingPattern},
+            ],
+            'metrics': [],
+            'patterns_exclude': [],
+            'metrics_exclude': [],
+        }
+        java_code = '''
+            public class SuppressedPatternSample {
+                public void first() {}
+                public void second() {}
+            }
+        '''
+        with TemporaryDirectory() as temp_dir:
+            file_path = Path(temp_dir, 'SuppressedPatternSample.java')
+            file_path.write_text(java_code, encoding='utf-8')
+            with patch('aibolit.__main__.Config.get_patterns_config', return_value=config):
+                components, error = aibolit_main.calculate_patterns_and_metrics_with_decomposition(
+                    str(file_path),
+                    SimpleNamespace(suppress=['P4']),
+                )
+
+        self.assertIsNone(error)
+        self.assertGreater(len(components), 0)
+        self.assertTrue(all(component['input_params']['P4'] == 0 for component in components))
+        self.assertTrue(
+            all(component['code_lines_dict']['lines_P4'] == [] for component in components)
         )
 
     def test_list_dir_no_java_files(self):
