@@ -18,7 +18,8 @@ of the input Java class.
 \vspace{1 cm}
 \caption{How Aibolit works: (1) Inspect the source code for patterns.
 (2) Count the pattern occurrences and put them in a vector representation.
-Compute the maintainability metric value for the vector.
+Compute the maintainability metric value for the original class; in our dataset,
+this value is Cognitive Complexity divided by NCSS.
 (3) Consider changes to the vector representation by subtracting pattern counts.
 Predict the corresponding maintainability metric score.
 (4) Rank all the alternative vectors with respect to how much they improve the original
@@ -59,6 +60,16 @@ In the current release of Aibolit, we use Cognitive Complexity \citep{10.1145/31
 the maintainability metric. We refer to it as the maintainability metric or just
 metric in the remainder of the text.
 
+For a class $C$, the raw metric value $M(C)$ is computed by traversing the AST
+of each method and summing Cognitive Complexity increments. Control-flow nodes
+such as \texttt{if}, \texttt{switch}, \texttt{for}, \texttt{while},
+\texttt{do}, and \texttt{catch} add $1$ plus the current nesting level.
+Other flow-breaking constructs, including \texttt{break}, \texttt{continue},
+ternary expressions, recursion calls, and sequences of logical operators, add
+$1$ without an extra nesting penalty. The class metric is the sum of these
+values over all methods. During dataset preprocessing, the target value is
+normalized by class size as $t^C = M(C) / \textit{NCSS}(C)$.
+
 \subsection{Maintainability prediction model}
 
 \label{sec:maint_pred_model}
@@ -80,7 +91,7 @@ non-abstract Java class.
 %We chose this level of granularity because it is intuitive and because we
 %wanted to narrow down our scope for the first stage of development. Thus one
 %datapoint in our dataset is one Java class.
-We filtered out classes with fewer than 50 and more than 300 lines of code.
+We filtered out classes with NCSS below 50 or above 300.
 The resulting filtered dataset consists of 124 repositories and
 29,065 classes. Before filtering, we split the dataset into test and train sets randomly by files with
 approximately 0.7:0.3 ratio. The filtered train set contains 20,049 classes,
@@ -145,7 +156,9 @@ Our recommendation algorithm ranks
 patterns observed in the user's source class according to their individual
 impact on the code's maintainability metric value. It then outputs a pattern
 with the \textit{most negative impact} as a recommendation to the user to remove
-it from their code.
+it from their code. In other words, rank 1 corresponds to the pattern whose
+count decreased by one yields the largest predicted improvement of the
+maintainability score.
 
 For each pattern $p$ we compute the \textbf{impact factor} $I_{\textit{neg}}(p, C)$
 on code $C$, which is intended to capture the \textit{negative
