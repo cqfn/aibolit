@@ -27,8 +27,8 @@ def test_parse_report_reads_complexity_from_xml():
 
 
 def test_parse_report_raises_pmd_error():
-    """PMD error entries should still surface as exceptions."""
-    with pytest.raises(Exception, match='PMDException'):
+    """PMD error entries should surface with source-relative filenames."""
+    with pytest.raises(Exception, match='test/metrics/npath/ooo.java: PMDException'):
         NPathMetric.parse_report(
             '''
             <pmd>
