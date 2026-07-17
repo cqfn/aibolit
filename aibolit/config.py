@@ -43,6 +43,7 @@ from aibolit.patterns.method_chaining.method_chaining import MethodChainFind as 
 from aibolit.patterns.multiple_try.multiple_try import MultipleTry as P11
 from aibolit.patterns.multiple_while.multiple_while import MultipleWhile as P29
 from aibolit.patterns.nested_blocks.nested_blocks import NestedBlocks as P32
+from aibolit.patterns.non_final_argument.non_final_argument import NonFinalArgument as P35
 from aibolit.patterns.non_final_attribute.non_final_attribute import NonFinalAttribute as P12
 from aibolit.patterns.non_final_class.non_final_class import NonFinalClass as P24
 from aibolit.patterns.null_check.null_check import NullCheck as P13
@@ -200,6 +201,7 @@ class Config(metaclass=Singleton):
                                      ASTNodeType.WHILE_STATEMENT)},
                 {'name': 'Incomplete For', 'code': 'P33', 'make': P33},
                 {'name': 'Class inheritance', 'code': 'P34', 'make': P34},
+                {'name': 'Non final argument', 'code': 'P35', 'make': P35},
             ],
             'metrics': [
                 {'name': 'Entropy', 'code': 'M1', 'make': M1},  # type: ignore

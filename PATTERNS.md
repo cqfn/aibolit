@@ -642,6 +642,23 @@ class MyList extends AbstractList { // here
 ```
 
 ***
+
+*Title*: Non final argument
+
+*Code*: **P35**
+
+*Description*: Once a method or constructor argument is not declared as `final`, it's a pattern.
+
+*Example*:
+
+```java
+class Book {
+  void read(String title) { // here
+  }
+}
+```
+
+***
 *Title*: Assign null
 
 *Code*: **P28**
