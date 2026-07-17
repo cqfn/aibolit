@@ -31,7 +31,7 @@ it:
 xcop:
 	while IFS= read -r f; do
 		xcop "$${f}"
-	done < <(find . -name '*.xml' -not -path './.venv/**' -not -path './wp/**')
+	done < <(find . \( -path './.venv' -o -path './.env' -o -path './wp' \) -prune -o -name '*.xml' -type f -print)
 
 flake8:
 	uv run flake8 aibolit test scripts --exclude scripts/target/*
