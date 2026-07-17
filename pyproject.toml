@@ -52,7 +52,8 @@ include-package-data = true
 [tool.setuptools.package-data]
 aibolit = [
   "binary_files/halstead.jar",
-  "binary_files/model.dat"
+  "binary_files/model.dat",
+  "report.xsd",
 ]
 
 [tool.setuptools.dynamic]

@@ -9,6 +9,7 @@ from unittest.mock import patch
 
 import javalang
 import javalang.tree
+from lxml import etree
 
 from aibolit import __main__ as aibolit_main
 from aibolit.config import Config
@@ -16,7 +17,7 @@ from aibolit.config import Config
 from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, \
     create_xml_tree, create_text, format_converter_for_pattern, find_start_and_end_lines, \
     find_annotation_by_node_type, add_pattern_if_ignored, _process_components, \
-    run_recommend_for_file
+    run_recommend_for_file, validate_xml_report
 
 
 class TestRecommendPipeline(TestCase):
@@ -152,19 +153,26 @@ class TestRecommendPipeline(TestCase):
     def test_xml_create_full_report(self):
         mock_input = self.__create_input_for_xml()
         mock_cmd = self.__create_mock_cmd()
-        create_xml_tree(mock_input, full_report=True, cmd=mock_cmd, exit_code=0)
+        root = create_xml_tree(mock_input, full_report=True, cmd=mock_cmd, exit_code=0)
+        validate_xml_report(root)
 
     def test_xml_empty_results(self):
         mock_cmd = self.__create_mock_cmd()
-        create_xml_tree([], full_report=True, cmd=mock_cmd, exit_code=0)
+        root = create_xml_tree([], full_report=True, cmd=mock_cmd, exit_code=0)
+        validate_xml_report(root)
 
     def test_xml(self):
         mock_input = self.__create_mock_input()
         mock_cmd = self.__create_mock_cmd()
         root = create_xml_tree(mock_input, full_report=True, cmd=mock_cmd, exit_code=2)
+        validate_xml_report(root)
 
         self.assertEqual(root.findtext('./header/patterns'), '5')
         self.assertEqual(len(root.findall('./files/file/patterns/pattern')), 5)
+
+    def test_xml_validation_rejects_invalid_report(self):
+        with self.assertRaises(Exception):
+            validate_xml_report(etree.Element('report'))
 
     def test_count_value_keeps_original_exception_context(self):
         value_dict = {

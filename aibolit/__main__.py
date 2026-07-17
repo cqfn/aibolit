@@ -16,6 +16,7 @@ import sys
 import time
 import traceback
 from collections import defaultdict, OrderedDict
+from importlib import resources
 from os import scandir
 from pathlib import Path
 from sys import stdout
@@ -39,6 +40,7 @@ from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
 from aibolit.utils.ast_builder import build_ast
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
+REPORT_SCHEMA = 'report.xsd'
 
 
 def list_dir(path, files):
@@ -637,6 +639,13 @@ def create_xml_tree(results, full_report, cmd, exit_code):
     return top
 
 
+def validate_xml_report(root):
+    """Validate an XML report against the bundled XSD schema."""
+    schema_path = resources.files('aibolit').joinpath(REPORT_SCHEMA)
+    schema = etree.XMLSchema(etree.parse(str(schema_path)))
+    schema.assertValid(root)
+
+
 def get_exit_code(results):
     """
     Analyzed recommendation results and generate exit_code for pipeline
@@ -804,6 +813,7 @@ def recommend():
     if args.format:
         if args.format == 'xml':
             root = create_xml_tree(results, args.full, sys.argv, exit_code)
+            validate_xml_report(root)
             tree = root.getroottree()
             tree.write(stdout.buffer, pretty_print=True)
         else:
