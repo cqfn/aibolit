@@ -65,6 +65,24 @@ build-backend = "setuptools.build_meta"
 [tool.mypy]
 mypy_path = "stubs"
 
+[tool.pyright]
+include = ["aibolit"]
+exclude = ["stubs", "test", "scripts/target"]
+reportArgumentType = "none"
+reportAttributeAccessIssue = "none"
+reportAssignmentType = "none"
+reportCallIssue = "none"
+reportGeneralTypeIssues = "none"
+reportIndexIssue = "none"
+reportMissingImports = "none"
+reportMissingModuleSource = "none"
+reportOperatorIssue = "none"
+reportOptionalMemberAccess = "none"
+reportOptionalSubscript = "none"
+reportReturnType = "none"
+reportUnhashable = "none"
+typeCheckingMode = "basic"
+
 [tool.bandit]
 # B301: pickle.load is used only to deserialize the bundled model file
 # (aibolit/binary_files/model.pkl) that ships with the package, not
