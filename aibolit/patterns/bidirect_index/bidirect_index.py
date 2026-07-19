@@ -1,184 +1,153 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
+import dataclasses
 import os
-from dataclasses import dataclass
-from typing import Any
+from typing import Callable, Dict, Iterable, List, Optional, Set
 
-from aibolit.ast_framework import AST, ASTNode, ASTNodeType
+from aibolit.ast_framework.ast import AST
+from aibolit.ast_framework.ast_node import ASTNode
+from aibolit.ast_framework.ast_node_type import ASTNodeType
+from aibolit.types_decl import LineNumber
 from aibolit.utils.ast_builder import build_ast
 
+_INCREMENT = 'increment'
+_DECREMENT = 'decrement'
 
-@dataclass
-class _VariableState:
-    line: int
-    increments: int = 0
-    decrements: int = 0
+
+@dataclasses.dataclass
+class _VarState:
+    """Tracks how a single variable is mutated inside one scope."""
+
+    declaration_line: Optional[int] = None
+    directions: Set[str] = dataclasses.field(default_factory=set)
+    first_line: Optional[int] = None
+
+    def record(self, direction: Optional[str], line: int) -> None:
+        if direction is not None:
+            self.directions.add(direction)
+        if self.first_line is None or line < self.first_line:
+            self.first_line = line
+
+    def is_bidirectional(self) -> bool:
+        return _INCREMENT in self.directions and _DECREMENT in self.directions
+
+    def report_line(self) -> int:
+        # Report the declaration when the variable is declared, otherwise the
+        # first line where it is used (e.g. a field assigned inside the method).
+        line = self.declaration_line if self.declaration_line is not None else self.first_line
+        assert line is not None  # set whenever a direction was recorded
+        return line
+
+
+@dataclasses.dataclass
+class _Scope:
+    variables: Dict[str, _VarState] = dataclasses.field(default_factory=dict)
 
 
 class BidirectIndex:
-    _scoped_node_types = {
-        ASTNodeType.BLOCK_STATEMENT,
-        ASTNodeType.FOR_STATEMENT,
-    }
-    _declaration_node_types = {
-        ASTNodeType.LOCAL_VARIABLE_DECLARATION,
-        ASTNodeType.VARIABLE_DECLARATION,
-    }
+    """
+    Finds numeric variables that are both incremented and decremented within the
+    same method. A counter/index should consistently grow or shrink; mixing both
+    directions makes the index confusing to follow.
+    """
 
-    def value(self, filename: str | os.PathLike | AST):
+    _scope_node_types = frozenset({
+        ASTNodeType.METHOD_DECLARATION,
+        ASTNodeType.CONSTRUCTOR_DECLARATION,
+        ASTNodeType.LAMBDA_EXPRESSION,
+        ASTNodeType.FOR_STATEMENT,
+        ASTNodeType.WHILE_STATEMENT,
+        ASTNodeType.DO_STATEMENT,
+        ASTNodeType.BLOCK_STATEMENT,
+        ASTNodeType.TRY_STATEMENT,
+        ASTNodeType.SWITCH_STATEMENT,
+        ASTNodeType.CATCH_CLAUSE,
+    })
+
+    def __init__(self):
+        pass
+
+    def value(self, filename: str | os.PathLike) -> List[LineNumber]:
         """
         Finds if a variable is being incremented and decremented within the same method
 
         :param filename: filename or AST to be analyzed
         :return: list of LineNumber with the variable declaration lines
         """
-        ast = self._ast(filename)
-        lines: list[int] = []
-        for method in ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION):
-            lines.extend(self._bidirect_lines_in_method(method))
-        return sorted(lines)
+        ast = AST.build_from_javalang(build_ast(filename))
+        result: Set[LineNumber] = set()
+        for method in ast.proxy_nodes(
+            ASTNodeType.METHOD_DECLARATION, ASTNodeType.CONSTRUCTOR_DECLARATION
+        ):
+            result.update(self._analyze_method(ast.subtree(method)))
+        return sorted(result)
 
-    def _ast(self, source: str | os.PathLike | AST) -> AST:
-        if isinstance(source, AST):
-            return source
-        return AST.build_from_javalang(build_ast(source))
+    def _analyze_method(self, method_ast: AST) -> Set[LineNumber]:
+        scopes: List[_Scope] = []
+        free: Dict[str, _VarState] = {}
+        flagged: Set[LineNumber] = set()
 
-    def _bidirect_lines_in_method(self, method: ASTNode) -> list[int]:
-        states: list[_VariableState] = []
-        scopes: list[dict[str, _VariableState]] = [{}]
-        self._walk_nodes(method.body, states, scopes)
-        return self._collect_bidirect_lines(states)
+        def resolve(name: str) -> _VarState:
+            for scope in reversed(scopes):
+                if name in scope.variables:
+                    return scope.variables[name]
+            return free.setdefault(name, _VarState())
 
-    def _walk_nodes(
-        self,
-        node_or_nodes: Any,
-        states: list[_VariableState],
-        scopes: list[dict[str, _VariableState]],
+        def on_enter(node: ASTNode) -> None:
+            if node.node_type in self._scope_node_types:
+                scopes.append(_Scope())
+            elif node.node_type == ASTNodeType.VARIABLE_DECLARATOR:
+                scopes[-1].variables[node.name] = _VarState(declaration_line=node.line)
+            else:
+                self._register_operation(node, resolve)
+
+        def on_leave(node: ASTNode) -> None:
+            if node.node_type in self._scope_node_types:
+                self._collect(scopes.pop().variables.values(), flagged)
+
+        method_ast.traverse(on_enter, on_leave)
+        self._collect(free.values(), flagged)
+        return flagged
+
+    @staticmethod
+    def _collect(states: Iterable[_VarState], flagged: Set[LineNumber]) -> None:
+        for state in states:
+            if state.is_bidirectional():
+                flagged.add(state.report_line())
+
+    def _register_operation(
+        self, node: ASTNode, resolve: Callable[[str], _VarState]
     ) -> None:
-        if isinstance(node_or_nodes, list):
-            for node in node_or_nodes:
-                self._walk_nodes(node, states, scopes)
-            return
-
-        node = node_or_nodes
-        creates_scope = node.node_type in self._scoped_node_types
-        if creates_scope:
-            scopes.append({})
-        try:
-            self._process_node(node, states, scopes)
-            for child in node.children:
-                self._walk_nodes(child, states, scopes)
-        finally:
-            if creates_scope:
-                scopes.pop()
-
-    def _process_node(
-        self,
-        node: ASTNode,
-        states: list[_VariableState],
-        scopes: list[dict[str, _VariableState]],
-    ) -> None:
-        if node.node_type in self._declaration_node_types:
-            self._declare(node, states, scopes)
-        elif node.node_type == ASTNodeType.MEMBER_REFERENCE:
-            self._mark_unary(node, states, scopes)
+        if node.node_type == ASTNodeType.MEMBER_REFERENCE:
+            operators = set(node.prefix_operators) | set(node.postfix_operators)
+            if '++' in operators:
+                resolve(node.member).record(_INCREMENT, node.line)
+            elif '--' in operators:
+                resolve(node.member).record(_DECREMENT, node.line)
         elif node.node_type == ASTNodeType.ASSIGNMENT:
-            self._mark_assignment(node, states, scopes)
+            target = node.expressionl
+            if target.node_type == ASTNodeType.MEMBER_REFERENCE:
+                resolve(target.member).record(
+                    self._assignment_direction(node, target.member), node.line
+                )
 
-    def _declare(
-        self,
-        node: ASTNode,
-        states: list[_VariableState],
-        scopes: list[dict[str, _VariableState]],
-    ) -> None:
-        for name in node.names:
-            state = _VariableState(node.line)
-            scopes[-1][name] = state
-            states.append(state)
-
-    def _lookup(
-        self,
-        scopes: list[dict[str, _VariableState]],
-        name: str,
-    ) -> _VariableState | None:
-        for scope in reversed(scopes):
-            if name in scope:
-                return scope[name]
-        return None
-
-    def _candidate(
-        self,
-        states: list[_VariableState],
-        scopes: list[dict[str, _VariableState]],
-        name: str,
-        line: int,
-    ) -> _VariableState:
-        state = self._lookup(scopes, name)
-        if state is None:
-            state = _VariableState(line)
-            scopes[-1][name] = state
-            states.append(state)
-        return state
-
-    def _mark_unary(
-        self,
-        node: ASTNode,
-        states: list[_VariableState],
-        scopes: list[dict[str, _VariableState]],
-    ) -> None:
-        name = self._member_name(node)
-        if name is None:
-            return
-        operators = set(node.prefix_operators + node.postfix_operators)
-        state = self._candidate(states, scopes, name, node.line)
-        if '++' in operators:
-            state.increments += 1
-        if '--' in operators:
-            state.decrements += 1
-
-    def _mark_assignment(
-        self,
-        node: ASTNode,
-        states: list[_VariableState],
-        scopes: list[dict[str, _VariableState]],
-    ) -> None:
-        name = self._member_name(node.expressionl)
-        if name is None:
-            return
-        state = self._candidate(states, scopes, name, node.line)
+    def _assignment_direction(self, node: ASTNode, name: str) -> Optional[str]:
         if node.type == '+=':
-            state.increments += 1
-            return
+            return _INCREMENT
         if node.type == '-=':
-            state.decrements += 1
-            return
-        if node.type == '=':
-            self._mark_self_update(state, name, node.value)
-
-    @staticmethod
-    def _member_name(node: ASTNode) -> str | None:
-        if node.node_type == ASTNodeType.MEMBER_REFERENCE and node.qualifier is None:
-            return node.member
+            return _DECREMENT
+        value = node.value
+        if node.type == '=' and value is not None and \
+                value.node_type == ASTNodeType.BINARY_OPERATION:
+            if value.operator == '+' and (
+                self._is_member(value.operandl, name) or self._is_member(value.operandr, name)
+            ):
+                return _INCREMENT
+            if value.operator == '-' and self._is_member(value.operandl, name):
+                return _DECREMENT
         return None
 
-    def _mark_self_update(self, state: _VariableState, name: str, value: ASTNode) -> None:
-        if value.node_type != ASTNodeType.BINARY_OPERATION:
-            return
-        if value.operator == '+' and self._is_same_variable(name, value):
-            state.increments += 1
-        elif value.operator == '-' and self._member_name(value.operandl) == name:
-            state.decrements += 1
-
-    def _is_same_variable(self, name: str, value: ASTNode) -> bool:
-        return (
-            self._member_name(value.operandl) == name or
-            self._member_name(value.operandr) == name
-        )
-
     @staticmethod
-    def _collect_bidirect_lines(states: list[_VariableState]) -> list[int]:
-        return [
-            state.line
-            for state in states
-            if state.increments > 0 and state.decrements > 0
-        ]
+    def _is_member(node: Optional[ASTNode], name: str) -> bool:
+        return node is not None and \
+            node.node_type == ASTNodeType.MEMBER_REFERENCE and node.member == name

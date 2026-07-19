@@ -29,8 +29,8 @@ dependencies = [
   "requests==2.34.2",
   "scikit-learn==1.9.0",
   "scipy==1.17.1",
-  "setuptools==82.0.1",
-  "tqdm==4.68.3",
+  "setuptools==83.0.0",
+  "tqdm==4.68.4",
 ]
 
 classifiers = [
@@ -92,12 +92,12 @@ dev = [
   "codecov==2.1.13",
   "flake8-elegant-objects==1.1.1",
   "flake8==7.3.0",
-  "mypy==2.1.0",                    # Update to a version compatible with Python 3.12
+  "mypy==2.3.0",                    # Update to a version compatible with Python 3.12
   "pylint==4.0.6",
   "pytest-cov==7.1.0",
   "pytest-testmon==2.2.0",
   "pytest==9.1.1",
-  "ruff==0.15.20",
+  "ruff==0.15.22",
   "sphinx==9.0.3",
-  "types-requests==2.33.0.20260518",
+  "types-requests==2.33.0.20260712",
 ]

@@ -445,8 +445,18 @@ def _extract_patterns_ignored(tree):
 
 
 def _process_components(components, args, classes_with_patterns_ignored, patterns_ignored):
-    """Process components to create results."""
+    """Process components to create results, dropping duplicate findings.
+
+    A class is decomposed into several components, each of which still holds the
+    original class-level node. Class-level patterns (e.g. ``er_class``,
+    ``non_final_class``) therefore fire once per component, reporting the same
+    violation many times and inflating its importance (see issue #1217). We keep
+    only the first finding for every ``(pattern_code, code_lines)`` pair, so an
+    identical violation is reported once while genuinely distinct findings on
+    other lines are preserved.
+    """
     results_list = []
+    seen = set()
     for lcom_component in components:
         code_lines_dict = lcom_component.get('code_lines_dict')
         input_params = lcom_component.get('input_params')
@@ -457,8 +467,15 @@ def _process_components(components, args, classes_with_patterns_ignored, pattern
             classes_with_patterns_ignored,
             patterns_ignored
         )
-        if ranked_results:
-            results_list.append(ranked_results)
+        unique_results = []
+        for pattern_item in ranked_results:
+            key = (pattern_item['pattern_code'], tuple(pattern_item['code_lines']))
+            if key in seen:
+                continue
+            seen.add(key)
+            unique_results.append(pattern_item)
+        if unique_results:
+            results_list.append(unique_results)
     return results_list
 
 

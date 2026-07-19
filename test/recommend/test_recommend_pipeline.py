@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
 import os
+from argparse import Namespace
 from hashlib import md5
 from pathlib import Path
 from unittest import TestCase
@@ -14,7 +15,8 @@ from aibolit.config import Config
 
 from aibolit.__main__ import list_dir, calculate_patterns_and_metrics, \
     create_xml_tree, create_text, format_converter_for_pattern, find_start_and_end_lines, \
-    find_annotation_by_node_type, add_pattern_if_ignored
+    find_annotation_by_node_type, add_pattern_if_ignored, _process_components, \
+    run_recommend_for_file
 
 
 class TestRecommendPipeline(TestCase):
@@ -354,3 +356,65 @@ class TestRecommendPipeline(TestCase):
         pattern_ignored = {'P14': [[60, 100]]}
         add_pattern_if_ignored(pattern_ignored, pattern_item, results)
         self.assertEqual(results[0]['code_lines'], pattern_item['code_lines'])
+
+    def test_process_components_deduplicates_class_level_findings(self):
+        # A class-level pattern (e.g. P4 "Prohibited class name") re-fires in
+        # every decomposed component, reporting the same line repeatedly with
+        # different importance values (issue #1217). Only one finding should
+        # survive.
+        component_findings = [
+            [{'code_lines': [6], 'pattern_code': 'P4',
+              'pattern_name': 'Prohibited class name', 'importance': 6.40}],
+            [{'code_lines': [6], 'pattern_code': 'P4',
+              'pattern_name': 'Prohibited class name', 'importance': 3.20}],
+            [{'code_lines': [6], 'pattern_code': 'P4',
+              'pattern_name': 'Prohibited class name', 'importance': 6.40}],
+        ]
+        components = [{'code_lines_dict': {}, 'input_params': {}, 'index': i}
+                      for i in range(len(component_findings))]
+        with patch('aibolit.__main__.create_results', side_effect=component_findings):
+            results = _process_components(components, args=None,
+                                          classes_with_patterns_ignored=[],
+                                          patterns_ignored={})
+        flat = [item for sublist in results for item in sublist]
+        self.assertEqual(len(flat), 1)
+        self.assertEqual(flat[0]['pattern_code'], 'P4')
+        self.assertEqual(flat[0]['code_lines'], [6])
+        self.assertEqual(flat[0]['importance'], 6.40)
+
+    def test_recommend_reports_class_level_pattern_once(self):
+        # End-to-end check for issue #1217: a class that decomposes into many
+        # components must not report the same class-level violation per
+        # component. No (pattern_code, code_lines) pair may appear twice.
+        file = Path(self.cur_file_dir, 'decomposition/ConfigManager.java')
+        args = Namespace(suppress=[], model=None, full=True)
+        result = run_recommend_for_file(str(file), args)
+
+        self.assertIsNone(result['exception'])
+        findings = [item for sublist in result['results'] for item in sublist]
+        keys = [(item['pattern_code'], tuple(item['code_lines'])) for item in findings]
+        self.assertEqual(sorted(keys), sorted(set(keys)), f'duplicate findings: {keys}')
+
+    def test_process_components_keeps_distinct_findings(self):
+        # The same pattern firing on different lines, or different patterns on
+        # the same line, are genuinely distinct and must be preserved.
+        component_findings = [
+            [{'code_lines': [10], 'pattern_code': 'P2',
+              'pattern_name': 'Assert in code', 'importance': 5.67}],
+            [{'code_lines': [20], 'pattern_code': 'P2',
+              'pattern_name': 'Assert in code', 'importance': 4.36}],
+            [{'code_lines': [10], 'pattern_code': 'P5',
+              'pattern_name': 'Force type casting', 'importance': 1.23}],
+        ]
+        components = [{'code_lines_dict': {}, 'input_params': {}, 'index': i}
+                      for i in range(len(component_findings))]
+        with patch('aibolit.__main__.create_results', side_effect=component_findings):
+            results = _process_components(components, args=None,
+                                          classes_with_patterns_ignored=[],
+                                          patterns_ignored={})
+        flat = [item for sublist in results for item in sublist]
+        self.assertEqual(len(flat), 3)
+        self.assertEqual(
+            {(item['pattern_code'], tuple(item['code_lines'])) for item in flat},
+            {('P2', (10,)), ('P2', (20,)), ('P5', (10,))},
+        )
