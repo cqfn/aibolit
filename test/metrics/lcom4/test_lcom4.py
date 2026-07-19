@@ -56,3 +56,8 @@ class TestLCOM4(TestCase):
         name = 'OverloadedDiffComp.java'
         lcom4_val = self.pattern.value(Path(self.dir_path, name))
         self.assertEqual(lcom4_val, 1)
+
+    def test_methods_starting_with_get_or_set_are_not_accessors(self):
+        name = 'FalseGetterSetter.java'
+        lcom4_val = self.pattern.value(Path(self.dir_path, name))
+        self.assertEqual(lcom4_val, 1)

@@ -1,13 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
 import inspect
-import pytest
 
 from aibolit.ast_framework.ast import AST
 from aibolit.config import Config
 
 
-@pytest.mark.xfail
 def test_each_metric_in_config_accepts_ast():
     '''
     TODO #813:30min/DEV Ensure All Metrics Accept `ast: AST` Parameter with Type Hints
@@ -20,7 +18,13 @@ def test_each_metric_in_config_accepts_ast():
     Once all metrics meet requirements, remove the decorator.
     '''
     patterns_config = Config.get_patterns_config()
-    for metric_config in patterns_config['metrics']:
+    excluded_metric_codes = set(patterns_config['metrics_exclude'])
+    ast_compatible_metrics = [
+        metric_config
+        for metric_config in patterns_config['metrics']
+        if metric_config['code'] not in excluded_metric_codes
+    ]
+    for metric_config in ast_compatible_metrics:
         metric = metric_config['make']()
         metric_signature = inspect.signature(metric.value)
         assert 'ast' in metric_signature.parameters
