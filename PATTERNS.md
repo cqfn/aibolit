@@ -141,6 +141,15 @@ Manager, Controller, Router, Dispatcher, Printer, Writer,
 Reader, Parser, Generator, Renderer, Listener, Producer,
 Holder, Interceptor
 
+*Example*:
+
+```java
+class Foo {
+  protected void calculate() { // here
+  }
+}
+```
+
 ***
 
 *Title*: Force type casting.
