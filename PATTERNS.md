@@ -688,6 +688,14 @@ class Book {
 
 Description:  Once we find a protected method in a class, it's a pattern.
 
+*Example*:
+
+```java
+class Foo {
+  protected void calculate() { // here
+  }
+}
+```
 
 ***
 
