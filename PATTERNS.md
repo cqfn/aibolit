@@ -600,7 +600,7 @@ class Book {
 
 ```java
 class Book {
-  puplic static void foo() {
+  public static void foo() {
     //something
   }
 }
@@ -720,7 +720,7 @@ class Foo {
 ```java
 class Foo {
   void foo() {
-    white (true) {
+    while (true) {
       for (;;) { // here
       }
     }
