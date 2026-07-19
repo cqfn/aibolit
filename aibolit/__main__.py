@@ -38,6 +38,8 @@ from aibolit.metrics.ncss.ncss import NCSSMetric
 from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
 from aibolit.utils.ast_builder import build_ast
 
+import lxml.etree as ET
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
@@ -804,6 +806,19 @@ def recommend():
     if args.format:
         if args.format == 'xml':
             root = create_xml_tree(results, args.full, sys.argv, exit_code)
+    
+            # === НОВЫЙ КОД: ВАЛИДАЦИЯ ===
+            # Преобразуем XML в строку для валидации
+            xml_str = ET.tostring(root, pretty_print=True, encoding='unicode')
+    
+            # Вызываем валидацию
+            try:
+                validate_xml_report(xml_str)
+            except ValueError as e:
+                print(f"ERROR: XML validation failed: {e}", file=sys.stderr)
+                sys.exit(2)  # По правилам проекта — exit code 2 при ошибке
+            # ===========================
+    
             tree = root.getroottree()
             tree.write(stdout.buffer, pretty_print=True)
         else:
@@ -910,6 +925,22 @@ def get_versions(pkg_name):
     response.raise_for_status()
     releases = json.loads(response.content)['releases']
     return sorted(releases, key=parse_version, reverse=True)
+    
+
+def validate_xml_report(xml_content: str) -> None:
+    """Validate XML report against XSD schema."""
+    schema_path = Path(__file__).parent / "schemas" / "report.xsd"
+    if not schema_path.exists():
+        print("Warning: report.xsd not found, skipping validation")
+        return
+    
+    schema = ET.XMLSchema(ET.parse(str(schema_path)))
+    try:
+        xml = ET.fromstring(xml_content.encode('utf-8'))
+        if not schema.validate(xml):
+            raise ValueError(f"XML report validation failed:\n{schema.error_log}")
+    except Exception as e:
+        raise ValueError(f"XML validation error: {e}") from e
 
 
 def main():
