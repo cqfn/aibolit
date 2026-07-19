@@ -7,11 +7,11 @@
 .SHELLFLAGS := -e -o pipefail -c
 .SECONDARY:
 SHELL := bash
-.PHONY: all clean requirements test it install xcop flake8 pylint bandit sphinx mypy lint e2e build coverage ruff
+.PHONY: all clean requirements test it install xcop flake8 pylint bandit sphinx mypy lint e2e build coverage ruff ty
 
-all: requirements install test it lint xcop sphinx
+all: requirements install test it lint sphinx
 
-lint: flake8 pylint mypy ruff
+lint: flake8 pylint mypy ruff bandit ty xcop
 
 requirements:
 	uv sync
@@ -44,6 +44,9 @@ bandit:
 
 ruff:
 	uv run ruff check .
+
+ty:
+	uvx ty==0.0.1-alpha.8 check
 
 sphinx:
 	rm -rf sphinx html

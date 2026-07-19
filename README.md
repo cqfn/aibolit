@@ -332,6 +332,18 @@ Run train pipeline:
 aibolit train --java_folder=src/java [--max_classes=100] [--dataset_file]
 ```
 
+The same training pipeline can be executed in Docker:
+
+```bash
+docker run --rm -it --name aibolit-train-model \
+  -v <absolute_path_to_dataset_folder>:/home/jovyan/in \
+  -v <absolute_path_to_output_folder>:/home/jovyan/out \
+  -m=4g --user root -e NB_UID=`id -u` yegor256/aibolit-image-dev
+```
+
+Inside the container, use `/home/jovyan/in` as the input dataset directory and
+`/home/jovyan/out` as the output directory for generated artifacts.
+
 If you need to save the dataset with all calculated metrics to a different
 directory, you need to use `dataset_file` parameter
 
