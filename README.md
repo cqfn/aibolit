@@ -160,7 +160,7 @@ mode, but xml will be created:
           <score>10.76</score>
           <order>2/4</order>
         </pattern>
-          <pattern code="P21">
+        <pattern code="P21">
           <details>Var in the middle</details>
           <lines>
             <number>235</number>
@@ -168,7 +168,7 @@ mode, but xml will be created:
           <score>2.056</score>
           <order>3/4</order>
         </pattern>
-          <pattern code="P28">
+        <pattern code="P28">
           <details>Null Assignment</details>
           <lines>
             <number>2411</number>
