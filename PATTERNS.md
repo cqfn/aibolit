@@ -749,3 +749,21 @@ class Foo {
 ```
 
 ***
+
+*Title*: Return Empty String
+
+*Code*: **P33**
+
+*Description*: If a return statement returns an empty string literal "" directly or via a ternary operator, it is considered a pattern.
+
+*Example*:
+
+```java
+public class Simple {
+    public String getEmpty() {
+        return "";
+    }
+}
+```
+
+***
