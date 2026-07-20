@@ -12,6 +12,17 @@ class EmptyFinally:
     """
 
     def value(self, ast: AST) -> List[int]:
+        """
+        Calculate line numbers of empty finally blocks in the given AST.
+
+        Args:
+            ast: The AST of the Java file to analyze.
+
+        Returns:
+            A list of line numbers where empty finally blocks are found.
+            Since the AST wrapper unwraps empty blocks, the line of the
+            parent 'try' statement is returned.
+        """
         lines: List[int] = []
         for try_statement in ast.proxy_nodes(ASTNodeType.TRY_STATEMENT):
             # Check if the 'finally' block exists for this try statement
