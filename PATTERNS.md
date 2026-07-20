@@ -749,3 +749,22 @@ class Foo {
 ```
 
 ***
+
+*Title*: Empty Finally Block
+
+*Code*: **P35**
+
+*Description*: If a try block has a finally clause that contains no statements (an empty block finally { }), it is considered a pattern.
+
+*Example*:
+
+```java
+public class Empty {
+    void test() {
+        try {
+            System.out.println("try");
+        } finally {
+        }
+    }
+}
+```
