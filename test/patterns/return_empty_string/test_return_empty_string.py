@@ -17,8 +17,8 @@ class ReturnEmptyStringPatternTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ReturnEmptyString()
         lines = pattern.value(ast)
-        # В файле Simple.java return "" на 3-й строке
-        self.assertEqual(lines, [3])
+        # В файле Simple.java return "" на 6-й строке
+        self.assertEqual(lines, [6])
 
     def test_not_empty(self):
         filepath = self.current_directory / 'NotEmpty.java'
@@ -34,4 +34,4 @@ class ReturnEmptyStringPatternTestCase(TestCase):
         pattern = ReturnEmptyString()
         lines = pattern.value(ast)
         # В файле Multiple.java return "" на 3-й и 11-й строках
-        self.assertEqual(lines, [3, 12])
+        self.assertEqual(lines, [6, 15])
