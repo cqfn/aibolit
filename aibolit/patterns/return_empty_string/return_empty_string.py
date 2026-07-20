@@ -26,7 +26,7 @@ class ReturnEmptyString:
         if return_statement.expression is None:
             return False
 
-        # Проверяем, является ли выражение тернарным оператором (a ? b : c)
+        # Check if the expression is a ternary operator (a ? b : c)
         if return_statement.expression.node_type == ASTNodeType.TERNARY_EXPRESSION:
             return self._check_empty_string_expression(return_statement.expression.if_true) or \
                 self._check_empty_string_expression(return_statement.expression.if_false)
@@ -34,6 +34,6 @@ class ReturnEmptyString:
         return self._check_empty_string_expression(return_statement.expression)
 
     def _check_empty_string_expression(self, expression: ASTNode) -> bool:
-        # Проверяем, что это литерал и его значение строго '""'
-        # (javalang сохраняет кавычки как часть значения строки)
+        # Check that it is a literal and its value is strictly '""'
+        # (javalang preserves the quotes as part of the string value)
         return expression.node_type == ASTNodeType.LITERAL and expression.value == '""'
