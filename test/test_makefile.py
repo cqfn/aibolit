@@ -13,7 +13,7 @@ def test_xcop_find_prunes_excluded_directories(tmp_path):
         (excluded / 'launcher manifest.xml').write_text('<xml/>', encoding='utf-8')
 
     result = subprocess.run(
-        ['bash', '-lc', _xcop_find_command()],
+        ['bash', '-c', _xcop_find_command()],
         cwd=tmp_path,
         check=True,
         stdout=subprocess.PIPE,
