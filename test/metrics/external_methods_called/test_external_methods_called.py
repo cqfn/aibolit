@@ -29,7 +29,9 @@ class ExternalMethodsCalledTest(TestCase):
 
     def test_external_method_calls_from_filepath(self):
         self.assertEqual(
-            ExternalMethodsCalled().value(Path(self.dir_path, 'ExternalMethodCalls.java')),
+            ExternalMethodsCalled().value(
+                Path(self.dir_path, 'ExternalMethodCalls.java')  # ty: ignore[invalid-argument-type]
+            ),
             2,
             'Could not calculate external methods from a file path'
         )
@@ -53,6 +55,13 @@ class ExternalMethodsCalledTest(TestCase):
             ExternalMethodsCalled().value(self._ast('LocalMethodCall.java')),
             0,
             'Could not ignore local method calls'
+        )
+
+    def test_super_method_call_is_external(self):
+        self.assertEqual(
+            ExternalMethodsCalled().value(self._ast('SuperMethodCall.java')),
+            1,
+            'Could not count super method calls as external'
         )
 
     def _ast(self, filename):

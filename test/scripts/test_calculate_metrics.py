@@ -12,8 +12,9 @@ def load_calculate_metrics_module():
         raise RuntimeError(f'Failed to load module spec from {script_path}')
     if spec.loader is None:
         raise RuntimeError(f'Failed to load module loader from {script_path}')
+    loader = spec.loader
     module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    loader.exec_module(module)
     return module
 
 

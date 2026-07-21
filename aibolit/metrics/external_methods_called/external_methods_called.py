@@ -29,7 +29,10 @@ class ExternalMethodsCalledCount:
         local_methods = self._local_method_names()
         return set(
             node.member
-            for node in self.ast.proxy_nodes(ASTNodeType.METHOD_INVOCATION)
+            for node in self.ast.proxy_nodes(
+                ASTNodeType.METHOD_INVOCATION,
+                ASTNodeType.SUPER_METHOD_INVOCATION,
+            )
             if node.member not in local_methods
         )
 
