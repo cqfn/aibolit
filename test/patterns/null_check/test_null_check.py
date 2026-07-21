@@ -46,3 +46,9 @@ class NullCheckTestCase(TestCase):
         pattern = NullCheck()
         lines = pattern.value(ast)
         self.assertEqual(lines, [7])
+    def test_null_check_in_lambda(self):
+        filepath = self.current_directory / '6.java'
+        ast = AST.build_from_javalang(build_ast(filepath))
+        pattern = NullCheck()
+        lines = pattern.value(ast)
+        self.assertEqual(lines, [8])
