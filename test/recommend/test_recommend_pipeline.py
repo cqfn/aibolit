@@ -9,7 +9,7 @@ from unittest.mock import patch
 
 import javalang
 import javalang.tree
-from lxml import etree
+from lxml import etree  # type: ignore[import-untyped]
 
 from aibolit import __main__ as aibolit_main
 from aibolit.config import Config
