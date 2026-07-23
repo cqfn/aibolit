@@ -25,7 +25,7 @@ sched_getaffinity = getattr(os, "sched_getaffinity", None)
 MAYBE_ON_MACOS = sched_getaffinity is None
 
 
-class FileProcessingError(RuntimeError)::
+class FileProcessingError(RuntimeError):
     def __init__(self, filepath: str, pattern_name: str, cause: Exception):
         super().__init__(f'Failed calculating {pattern_name} on file {filepath}.\nReason: {cause}')
 
