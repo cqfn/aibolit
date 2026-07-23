@@ -6,16 +6,13 @@ from collections import defaultdict
 from concurrent.futures import TimeoutError
 from csv import DictWriter, QUOTE_MINIMAL
 from functools import partial
-from logging import basicConfig, INFO, warning
+from logging import INFO, basicConfig, warning
+import json
 import os
 from os import cpu_count, getenv, makedirs
-
-sched_getaffinity = getattr(os, "sched_getaffinity", None)
-MAYBE_ON_MACOS = sched_getaffinity is None
 from pathlib import Path
 from sys import stderr
 from typing import Any, Dict, List
-import json
 
 from pebble import ProcessPool
 from tqdm import tqdm
@@ -25,6 +22,8 @@ from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
 from aibolit.utils.ast_builder import build_ast
 
+sched_getaffinity = getattr(os, "sched_getaffinity", None)
+MAYBE_ON_MACOS = sched_getaffinity is None
 
 class FileProcessingError(RuntimeError):
     def __init__(self, filepath: str, pattern_name: str, cause: Exception):
