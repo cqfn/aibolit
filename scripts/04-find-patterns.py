@@ -7,13 +7,11 @@ from concurrent.futures import TimeoutError
 from csv import DictWriter, QUOTE_MINIMAL
 from functools import partial
 from logging import basicConfig, INFO, warning
+import os
 from os import cpu_count, getenv, makedirs
-try:
-    from os import sched_getaffinity
-except ImportError:
-    MAYBE_ON_MACOS = True
-else:
-    MAYBE_ON_MACOS = False
+
+sched_getaffinity = getattr(os, "sched_getaffinity", None)
+MAYBE_ON_MACOS = sched_getaffinity is None
 from pathlib import Path
 from sys import stderr
 from typing import Any, Dict, List
