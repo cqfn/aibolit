@@ -754,7 +754,7 @@ class Foo {
 
 *Code*: **P35**
 
-*Description*: If a return statement returns an empty string literal "" directly or via a ternary operator, it is considered a pattern.
+*Description*: If a return statement returns an empty string literal "" directly or in either branch of a single-level ternary operator, it is considered a pattern. Nested ternary operators are not checked.
 
 *Example*:
 
