@@ -754,7 +754,7 @@ class Foo {
 
 *Code*: **P36**
 
-*Description*: If a try block has a catch clause that contains no statements (an empty block catch (Exception e) { }), it is considered a pattern.
+*Description*: If a try block has a catch clause that contains no statements (an empty catch block such as `catch (Exception e) {}`), it is considered a pattern.
 
 *Example*:
 
