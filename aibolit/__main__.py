@@ -39,6 +39,7 @@ from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
 from aibolit.utils.ast_builder import build_ast
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
+CLASS_LEVEL_PATTERN_CODES = frozenset({'P4', 'P7', 'P9', 'P24'})
 
 
 def list_dir(path, files):
@@ -292,20 +293,31 @@ def calculate_patterns_and_metrics_with_decomposition(
             if node.node_type == ASTNodeType.CLASS_DECLARATION
         ]
         for class_ast in classes_ast:
+            class_level_pattern_results = {
+                pattern_info['code']: pattern_info['make']().value(class_ast)
+                for pattern_info in patterns_info
+                if (
+                    pattern_info['code'] in CLASS_LEVEL_PATTERN_CODES and
+                    pattern_info['code'] not in patterns_to_suppress
+                )
+            }
             for index, component_ast in enumerate(decompose_java_class(class_ast, 'strong')):
                 result_for_component: Dict[Any, Any] = {}
                 code_lines_dict: Dict[Any, Any] = OrderedDict()
                 input_params = OrderedDict()  # type: ignore
 
                 for pattern_info in patterns_info:
-                    if pattern_info['code'] in config['patterns_exclude']:
-                        continue
                     if pattern_info['code'] in patterns_to_suppress:
                         input_params[pattern_info['code']] = 0
                         code_lines_dict['lines_' + pattern_info['code']] = []
                     else:
-                        pattern = pattern_info['make']()
-                        pattern_result = pattern.value(component_ast)
+                        if pattern_info['code'] in CLASS_LEVEL_PATTERN_CODES:
+                            pattern_result = class_level_pattern_results[pattern_info['code']]
+                            if index > 0:
+                                pattern_result = []
+                        else:
+                            pattern = pattern_info['make']()
+                            pattern_result = pattern.value(component_ast)
                         input_params[pattern_info['code']] = len(pattern_result)
                         code_lines_dict['lines_' + pattern_info['code']] = pattern_result
 
