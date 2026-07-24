@@ -10,9 +10,15 @@ from aibolit.utils.ast_builder import build_ast
 
 
 class ReturnEmptyStringPatternTestCase(TestCase):
+    """
+    Test cases for the P33 (Return Empty String) pattern.
+    """
     current_directory = Path(__file__).absolute().parent
 
     def test_simple(self):
+        """
+        Verify that a simple 'return "";' statement is detected.
+        """
         filepath = self.current_directory / 'Simple.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ReturnEmptyString()
@@ -21,14 +27,20 @@ class ReturnEmptyStringPatternTestCase(TestCase):
         self.assertEqual(lines, [6])
 
     def test_not_empty(self):
+        """
+        Verify that a return statement with a normal string is ignored.
+        """
         filepath = self.current_directory / 'NotEmpty.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ReturnEmptyString()
         lines = pattern.value(ast)
-        # The NotEmpty.java file contains no empty lines.
+        # The NotEmpty.java file contains no empty strings.
         self.assertEqual(lines, [])
 
     def test_multiple(self):
+        """
+        Verify that multiple empty string returns in one file are all detected.
+        """
         filepath = self.current_directory / 'Multiple.java'
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ReturnEmptyString()
