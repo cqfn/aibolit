@@ -142,12 +142,12 @@ Reader, Parser, Generator, Renderer, Listener, Producer,
 Holder, Interceptor
 
 *Example*:
-
+ 
 ```java
-class Foo {
-  protected void calculate() { // here
-  }
-}
+class FooManager { // here
+  protected void calculate() {
+   }
+ }
 ```
 
 ***
