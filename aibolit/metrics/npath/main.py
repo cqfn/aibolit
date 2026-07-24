@@ -28,11 +28,12 @@ class NPathMetric():
     input = ''
 
     def __init__(self, input):
-        self.input = os.fspath(input)
+        self.input = input
 
     def value(self, showoutput=False):
         """Run NPath Complexity analaysis"""
 
+        self.input = os.fspath(self.input)
         if len(self.input) == 0:
             raise ValueError('Empty file for analysis')
         if shutil.which('mvn') is None:
