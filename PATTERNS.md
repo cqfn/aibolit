@@ -600,7 +600,7 @@ class Book {
 
 ```java
 class Book {
-  puplic static void foo() {
+  public static void foo() {
     //something
   }
 }
@@ -720,7 +720,7 @@ class Foo {
 ```java
 class Foo {
   void foo() {
-    white (true) {
+    while (true) {
       for (;;) { // here
       }
     }
@@ -745,6 +745,24 @@ class Foo {
       ++i;
     }
   }
+}
+```
+
+***
+
+*Title*: Return Empty String
+
+*Code*: **P34**
+
+*Description*: If a return statement returns an empty string literal "" directly or via a ternary operator, it is considered a pattern.
+
+*Example*:
+
+```java
+public class Simple {
+    public String getEmpty() {
+        return "";
+    }
 }
 ```
 
