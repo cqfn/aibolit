@@ -31,7 +31,7 @@ class NPathMetric():
         self.input = input
 
     def value(self, showoutput=False):
-        """Run NPath Complexity analaysis"""
+        """Run NPath Complexity analysis."""
 
         self.input = os.fspath(self.input)
         if len(self.input) == 0:
