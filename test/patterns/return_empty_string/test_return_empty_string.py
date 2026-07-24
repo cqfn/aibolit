@@ -11,7 +11,7 @@ from aibolit.utils.ast_builder import build_ast
 
 class ReturnEmptyStringPatternTestCase(TestCase):
     """
-    Test cases for the P33 (Return Empty String) pattern.
+    Test cases for the P35 (Return Empty String) pattern.
     """
     current_directory = Path(__file__).absolute().parent
 
