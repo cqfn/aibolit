@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
+SPDX-License-Identifier: MIT
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="report">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="headerType"/>
+        <xs:element name="files" type="filesType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="headerType">
+    <xs:sequence>
+      <xs:element name="score" type="xs:string"/>
+      <xs:element name="datetime" type="xs:nonNegativeInteger"/>
+      <xs:element name="version" type="xs:string"/>
+      <xs:element name="files" type="xs:nonNegativeInteger"/>
+      <xs:element name="patterns" type="xs:nonNegativeInteger"/>
+      <xs:element name="ncss" type="xs:nonNegativeInteger"/>
+      <xs:element name="cmd" type="xs:string"/>
+      <xs:element name="exit_code" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="filesType">
+    <xs:sequence>
+      <xs:element name="file" type="fileType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="fileType">
+    <xs:sequence>
+      <xs:element name="path" type="xs:string"/>
+      <xs:element name="summary" type="xs:string"/>
+      <xs:element name="score" type="xs:string" minOccurs="0"/>
+      <xs:element name="patterns" type="patternsType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="patternsType">
+    <xs:sequence>
+      <xs:element name="pattern" type="patternType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="patternType">
+    <xs:sequence>
+      <xs:element name="details" type="xs:string"/>
+      <xs:element name="score" type="xs:decimal"/>
+      <xs:element name="order" type="xs:string"/>
+      <xs:element name="lines" type="linesType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="code" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="linesType">
+    <xs:sequence>
+      <xs:element name="number" type="xs:integer" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
