@@ -81,6 +81,7 @@ def test_value_preserves_root_initialization_error(monkeypatch):
     def fail_gettempdir():
         raise RuntimeError('temp root failed')
 
+    monkeypatch.setattr(npath_main.shutil, 'which', lambda _: 'mvn')
     monkeypatch.setattr(npath_main.tempfile, 'gettempdir', fail_gettempdir)
 
     with pytest.raises(RuntimeError, match='temp root failed'):

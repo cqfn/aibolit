@@ -71,7 +71,7 @@ class BidirectIndex:
         """
         Finds if a variable is being incremented and decremented within the same method
 
-        :param filename: filename to be analyzed
+        :param filename: filename or AST to be analyzed
         :return: list of LineNumber with the variable declaration lines
         """
         ast = AST.build_from_javalang(build_ast(filename))

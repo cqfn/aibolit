@@ -21,6 +21,7 @@ def _patch_maven_run(
 ) -> None:
     """Replace the Maven invocation with a stub that writes a PMD XML report."""
     root = tmp_path / 'fake-run'
+    monkeypatch.setattr(npath_main.shutil, 'which', lambda _: 'mvn')
     monkeypatch.setattr(npath_main.tempfile, 'gettempdir', lambda: str(tmp_path))
     monkeypatch.setattr(npath_main.uuid, 'uuid4', lambda: SimpleNamespace(hex='fake-run'))
 
@@ -103,6 +104,33 @@ def testNonExistedFile():
         file = 'test/metrics/npath/ooo1.java'
         metric = NPathMetric(file)
         metric.value(True)
+
+
+def test_directory_without_maven(monkeypatch: pytest.MonkeyPatch, tmp_path: pathlib.Path):
+    """Directory inputs should be accepted by the Maven-free fallback."""
+    java_file = tmp_path / 'Sample.java'
+    java_file.write_text(
+        dedent(
+            '''\
+            class Sample {
+                void check(boolean flag) {
+                    if (flag) {
+                        System.out.println("OK");
+                    }
+                }
+            }
+            '''
+        ),
+        encoding='utf-8',
+    )
+    monkeypatch.setattr(npath_main.shutil, 'which', lambda _: None)
+
+    result = NPathMetric(tmp_path).value()
+
+    assert result == {
+        'data': [{'file': str(java_file), 'complexity': 2}],
+        'errors': [],
+    }
 
 
 def testMediumScore(monkeypatch: pytest.MonkeyPatch, tmp_path: pathlib.Path):

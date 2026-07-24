@@ -13,6 +13,7 @@ from typing import Iterable, TypedDict
 from bs4 import BeautifulSoup
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
+from aibolit.utils.ast_builder import build_ast
 
 
 class NPathMethodReport(TypedDict):
@@ -30,10 +31,13 @@ class NPathMetric():
         self.input = input
 
     def value(self, showoutput=False):
-        """Run NPath Complexity analaysis"""
+        """Run NPath Complexity analysis."""
 
+        self.input = os.fspath(self.input)
         if len(self.input) == 0:
             raise ValueError('Empty file for analysis')
+        if shutil.which('mvn') is None:
+            return self._value_without_maven()
         root = None
         try:
             root = os.path.join(tempfile.gettempdir(), uuid.uuid4().hex)
@@ -62,6 +66,30 @@ class NPathMetric():
         finally:
             if root and os.path.isdir(root):
                 shutil.rmtree(root)
+
+    def _value_without_maven(self):
+        if os.path.isdir(self.input):
+            data = [
+                self._mvn_free_file_result(path)
+                for path in self._java_files(self.input)
+            ]
+            return {'data': data, 'errors': []}
+        if not os.path.isfile(self.input):
+            raise Exception(' '.join(['File', self.input, 'does not exist']))
+        return {'data': [self._mvn_free_file_result(self.input)], 'errors': []}
+
+    @staticmethod
+    def _java_files(directory):
+        for root, _, files in os.walk(directory):
+            for filename in sorted(files):
+                if filename.endswith('.java'):
+                    yield os.path.join(root, filename)
+
+    @staticmethod
+    def _mvn_free_file_result(path):
+        ast = AST.build_from_javalang(build_ast(path))
+        complexity = MvnFreeNPathMetric(ast).value()
+        return {'file': path, 'complexity': complexity}
 
     @staticmethod
     def _parse_report_file(report_path: str, root: str):
