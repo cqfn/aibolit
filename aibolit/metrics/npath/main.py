@@ -7,11 +7,17 @@ import shutil
 import subprocess
 import tempfile
 import uuid
-from typing import Iterable
+from typing import Iterable, TypedDict
 
 from bs4 import BeautifulSoup
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
+
+
+class NPathMethodReport(TypedDict):
+    class_name: str
+    method_name: str
+    complexity: int
 
 
 class NPathMetric():
@@ -91,10 +97,19 @@ class MvnFreeNPathMetric:
         self.ast = ast
 
     def value(self) -> int:
-        return sum(
-            self._method_npath(method)
-            for method in self.ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION)
-        )
+        return sum(method['complexity'] for method in self.report())
+
+    def report(self) -> list[NPathMethodReport]:
+        return [
+            {
+                'class_name': class_declaration.name,
+                'method_name': method.name,
+                'complexity': self._method_npath(method),
+            }
+            for class_ast in self.ast.subtrees(ASTNodeType.CLASS_DECLARATION)
+            for class_declaration in [class_ast.root()]
+            for method in class_declaration.methods
+        ]
 
     def _method_npath(self, method_node: ASTNode) -> int:
         return self._node_npath(method_node.body)

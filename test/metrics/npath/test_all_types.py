@@ -640,6 +640,52 @@ class TestMvnFreeNPathMetric:
         ''').strip()
         assert self._value(content) == 9
 
+    def test_report_methods_in_class(self) -> None:
+        content = dedent(
+            '''\
+            class Reported {
+                void simple() {
+                    System.out.println("simple");
+                }
+
+                void branched(boolean flag) {
+                    if (flag) {
+                        System.out.println("yes");
+                    }
+                }
+            }
+            '''
+        ).strip()
+        assert self._report(content) == [
+            {'class_name': 'Reported', 'method_name': 'simple', 'complexity': 1},
+            {'class_name': 'Reported', 'method_name': 'branched', 'complexity': 2},
+        ]
+
+    def test_report_methods_in_each_class(self) -> None:
+        content = dedent(
+            '''\
+            class First {
+                void one() {
+                    System.out.println("one");
+                }
+            }
+
+            class Second {
+                void two(boolean flag) {
+                    if (flag) {
+                        System.out.println("two");
+                    } else {
+                        System.out.println("other");
+                    }
+                }
+            }
+            '''
+        ).strip()
+        assert self._report(content) == [
+            {'class_name': 'First', 'method_name': 'one', 'complexity': 1},
+            {'class_name': 'Second', 'method_name': 'two', 'complexity': 2},
+        ]
+
     def _filepath(self, basename: str) -> pathlib.Path:
         return pathlib.Path(__file__).parent / basename
 
@@ -656,6 +702,13 @@ class TestMvnFreeNPathMetric:
                 build_ast(filepath),
             ),
         )
+
+    def _report(self, content: str):
+        return MvnFreeNPathMetric(
+            AST.build_from_javalang(
+                build_ast_from_string(content),
+            ),
+        ).report()
 
     def _metric(self, ast: AST) -> int:
         return MvnFreeNPathMetric(ast).value()
