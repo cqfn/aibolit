@@ -23,7 +23,7 @@ class ReturnEmptyString:
 
     def _check_empty_string_return_statement(self, return_statement: ASTNode) -> bool:
         """
-        Check if a return statement returns an empty string, 
+        Check if a return statement returns an empty string,
         including via a single-level ternary operator.
         """
         # return statement with no expression `return;` does not return an empty string
