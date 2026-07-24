@@ -33,5 +33,5 @@ class ReturnEmptyStringPatternTestCase(TestCase):
         ast = AST.build_from_javalang(build_ast(filepath))
         pattern = ReturnEmptyString()
         lines = pattern.value(ast)
-        # In the Multiple.java file, return "" on lines 6 and 15.
-        self.assertEqual(lines, [6, 15])
+        # In the Multiple.java file, return "" on lines 6, 15, 20.
+        self.assertEqual(lines, [6, 15, 20])

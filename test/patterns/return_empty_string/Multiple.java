@@ -14,4 +14,9 @@ public class Multiple {
     public String third() {
         return "";
     }
+    
+    // Added to cover ternary operator with empty strings in both branches
+    public String ternaryBothEmpty(boolean condition) {
+        return condition ? "" : "";
+    }
 }

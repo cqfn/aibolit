@@ -22,18 +22,22 @@ class ReturnEmptyString:
         return lines
 
     def _check_empty_string_return_statement(self, return_statement: ASTNode) -> bool:
+        """
+        Check if a return statement returns an empty string, 
+        including via a single-level ternary operator.
+        """
         # return statement with no expression `return;` does not return an empty string
         if return_statement.expression is None:
             return False
-
         # Check if the expression is a ternary operator (a ? b : c)
         if return_statement.expression.node_type == ASTNodeType.TERNARY_EXPRESSION:
             return self._check_empty_string_expression(return_statement.expression.if_true) or \
                 self._check_empty_string_expression(return_statement.expression.if_false)
-
         return self._check_empty_string_expression(return_statement.expression)
 
     def _check_empty_string_expression(self, expression: ASTNode) -> bool:
-        # Check that it is a literal and its value is strictly '""'
-        # (javalang preserves the quotes as part of the string value)
+        """
+        Check that the expression is a string literal strictly equal to '""'.
+        (javalang preserves the quotes as part of the string value).
+        """
         return expression.node_type == ASTNodeType.LITERAL and expression.value == '""'
