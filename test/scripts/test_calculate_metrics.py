@@ -3,6 +3,8 @@
 import importlib.util
 from pathlib import Path
 
+import pandas as pd
+
 
 def load_calculate_metrics_module():
     """Load the metrics script as a Python module for direct testing."""
@@ -12,8 +14,9 @@ def load_calculate_metrics_module():
         raise RuntimeError(f'Failed to load module spec from {script_path}')
     if spec.loader is None:
         raise RuntimeError(f'Failed to load module loader from {script_path}')
+    loader = spec.loader
     module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    loader.exec_module(module)
     return module
 
 
@@ -40,3 +43,22 @@ def test_collect_analysis_targets_keeps_directories_and_root_java_files(tmp_path
     targets = module.collect_analysis_targets(tmp_path)
 
     assert [path.name for path in targets] == ['TopLevel.java', 'project']
+
+
+def test_aggregate_method_metric_ignores_class_rows():
+    """Method metric aggregation should skip class-level PMD rows."""
+    module = load_calculate_metrics_module()
+    frame = pd.DataFrame({
+        'File': ['Book.java', 'Book.java', 'Book.java'],
+        'class': [0, 0, 1],
+        'cyclo': [2.0, 4.0, 100.0],
+    })
+
+    metrics = module.aggregate_method_metric(
+        frame,
+        'cyclo',
+        'mean',
+        'cyclo_method_avg',
+    )
+
+    assert metrics.to_dict('index') == {'Book.java': {'cyclo_method_avg': 3.0}}

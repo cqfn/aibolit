@@ -3,15 +3,23 @@
 
 import math
 import os
+import re
 import shutil
 import subprocess
 import tempfile
 import uuid
-from typing import Iterable
+from typing import Iterable, TypedDict
 
 from bs4 import BeautifulSoup
 
 from aibolit.ast_framework import AST, ASTNode, ASTNodeType
+from aibolit.utils.ast_builder import build_ast
+
+
+class NPathMethodReport(TypedDict):
+    class_name: str
+    method_name: str
+    complexity: int
 
 
 class NPathMetric():
@@ -23,10 +31,14 @@ class NPathMetric():
         self.input = input
 
     def value(self, showoutput=False):
-        """Run NPath Complexity analaysis"""
+        """Run NPath Complexity analysis."""
 
+        self.input = os.fspath(self.input)
         if len(self.input) == 0:
             raise ValueError('Empty file for analysis')
+        if shutil.which('mvn') is None:
+            return self._value_without_maven()
+        root = None
         try:
             root = os.path.join(tempfile.gettempdir(), uuid.uuid4().hex)
             dirName = os.path.join(root, 'src/main/java')
@@ -49,38 +61,75 @@ class NPathMetric():
                                stdout=subprocess.DEVNULL,
                                stderr=subprocess.DEVNULL)
             if os.path.isfile(f'{root}/target/pmd.xml'):
-                res = self.__parseFile(root)
-                return res
+                return self._parse_report_file(f'{root}/target/pmd.xml', root)
             raise Exception(' '.join(['File', self.input, 'analyze failed']))
         finally:
-            shutil.rmtree(root)
+            if root and os.path.isdir(root):
+                shutil.rmtree(root)
 
-    def __parseFile(self, root):
-        result = {'data': [], 'errors': []}
-        content = []
-        with open(f'{root}/target/pmd.xml', 'r', encoding='utf-8') as file:
-            content = file.read()
-            soup = BeautifulSoup(content, features='xml')
-            files = soup.find_all('file')
-            for file in files:
-                out = file.violation.string
-                name = file['name']
-                pos1 = name.find(f'{root}/src/main/java/')
-                pos1 = pos1 + len(f'{root}/src/main/java/')
-                name = name[pos1:]
-                s = 'NPath complexity of '
-                pos1 = out.find(s)
-                pos1 = pos1 + len(s)
-                complexity = int(out[pos1:])
-                result['data'].append({'file': name, 'complexity': complexity})
-            errors = soup.find_all('error')
-            for error in errors:
-                name = error['filename']
-                pos1 = name.find(f'{root}/src/main/java/')
-                pos1 = pos1 + len(f'{root}/src/main/java/')
-                name = name[pos1:]
-                raise Exception(error['msg'])
-        return result
+    def _value_without_maven(self):
+        if os.path.isdir(self.input):
+            data = [
+                self._mvn_free_file_result(path)
+                for path in self._java_files(self.input)
+            ]
+            return {'data': data, 'errors': []}
+        if not os.path.isfile(self.input):
+            raise Exception(' '.join(['File', self.input, 'does not exist']))
+        return {'data': [self._mvn_free_file_result(self.input)], 'errors': []}
+
+    @staticmethod
+    def _java_files(directory):
+        for root, _, files in os.walk(directory):
+            for filename in sorted(files):
+                if filename.endswith('.java'):
+                    yield os.path.join(root, filename)
+
+    @staticmethod
+    def _mvn_free_file_result(path):
+        ast = AST.build_from_javalang(build_ast(path))
+        complexity = MvnFreeNPathMetric(ast).value()
+        return {'file': path, 'complexity': complexity}
+
+    @staticmethod
+    def _parse_report_file(report_path: str, root: str):
+        """Read a PMD XML report from disk and parse its NPath results."""
+        with open(report_path, 'r', encoding='utf-8') as file:
+            return NPathMetric.parse_report(file.read(), root)
+
+    @staticmethod
+    def parse_report(content: str, root: str):
+        """Parse PMD XML output into the metric result structure."""
+        data: list[dict[str, int | str]] = []
+        soup = BeautifulSoup(content, features='xml')
+        for file_tag in soup.find_all('file'):
+            out = file_tag.violation.get_text(strip=True) if file_tag.violation else ''
+            match = re.search(r'NPath complexity of\s+(\d+)', out)
+            if not match:
+                raise ValueError(
+                    f'Unexpected PMD violation format for {file_tag["name"]}: {out}'
+                )
+            name = NPathMetric._relative_source_name(file_tag['name'], root)
+            complexity = int(match.group(1))
+            data.append({'file': name, 'complexity': complexity})
+        error_tags = soup.find_all('error')
+        for error in error_tags:
+            name = NPathMetric._relative_source_name(error['filename'], root)
+            raise Exception(f'{name}: {error["msg"]}')
+        return {'data': data, 'errors': []}
+
+    @staticmethod
+    def _relative_source_name(path: str, root: str) -> str:
+        """Trim the generated PMD source prefix from a reported file path."""
+        normalized_path = os.path.normpath(path).replace('\\', '/')
+        normalized_prefix = os.path.normpath(
+            os.path.join(root, 'src', 'main', 'java')
+        ).replace('\\', '/') + '/'
+        pos1 = normalized_path.find(normalized_prefix)
+        if pos1 == -1:
+            return path
+        pos1 = pos1 + len(normalized_prefix)
+        return normalized_path[pos1:]
 
 
 class MvnFreeNPathMetric:
@@ -91,10 +140,19 @@ class MvnFreeNPathMetric:
         self.ast = ast
 
     def value(self) -> int:
-        return sum(
-            self._method_npath(method)
-            for method in self.ast.proxy_nodes(ASTNodeType.METHOD_DECLARATION)
-        )
+        return sum(method['complexity'] for method in self.report())
+
+    def report(self) -> list[NPathMethodReport]:
+        return [
+            {
+                'class_name': class_declaration.name,
+                'method_name': method.name,
+                'complexity': self._method_npath(method),
+            }
+            for class_ast in self.ast.subtrees(ASTNodeType.CLASS_DECLARATION)
+            for class_declaration in [class_ast.root()]
+            for method in class_declaration.methods
+        ]
 
     def _method_npath(self, method_node: ASTNode) -> int:
         return self._node_npath(method_node.body)

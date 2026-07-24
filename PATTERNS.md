@@ -643,9 +643,9 @@ class MyList extends AbstractList { // here
 
 ***
 
-*Title*: Non final argument
+*Title*: Non-final argument
 
-*Code*: **P35**
+*Code*: **P36**
 
 *Description*: Once a method or constructor argument is not declared as `final`, it's a pattern.
 

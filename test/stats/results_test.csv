@@ -1,5 +1,5 @@
 ,pattern, -1(top1),+1(top1),p-c-,p+c+,p-c+,p+c-,p-c=,p+c=
-0,Asserts,1,7,1,1,8,8,0,0
+0,Asserts,1,6,1,1,8,8,0,0
 1,Setters,1,0,2,2,8,8,0,0
 2,Empty Rethrow,0,0,2,2,8,8,0,0
 3,Prohibited class name,0,0,2,2,8,8,0,0
@@ -26,13 +26,14 @@
 24,Joined validation,0,0,2,2,8,8,0,0
 25,Non final class,0,0,2,2,8,8,0,0
 26,Private static method,0,0,2,2,8,8,0,0
-27,Public static method,0,0,2,2,8,8,0,0
+27,Public static method,0,1,2,2,8,8,0,0
 28,Var siblings,0,0,2,2,8,8,0,0
 29,Null Assignment,0,0,2,2,8,8,0,0
 30,Multiple While,0,0,2,2,8,8,0,0
 31,Protected Method,0,0,2,2,8,8,0,0
 32,Send Null,0,0,2,2,8,8,0,0
 33,Nested Loop,0,0,2,2,8,8,0,0
-34,Incomplete For,0,1,2,2,8,8,0,0
+34,Incomplete For,0,0,2,2,8,8,0,0
 35,Class inheritance,0,0,2,2,8,8,0,0
-36,Non final argument,0,0,2,2,8,8,0,0
+36,Class variable,0,0,2,2,8,8,0,0
+37,Non-final argument,0,1,2,2,8,8,0,0
