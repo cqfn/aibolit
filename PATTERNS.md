@@ -749,3 +749,24 @@ class Foo {
 ```
 
 ***
+
+*Title*: Empty Catch Block
+
+*Code*: **P36**
+
+*Description*: If a try block has a catch clause that contains no statements (an empty block catch (Exception e) { }), it is considered a pattern.
+
+*Example*:
+
+```java
+public class Empty {
+    void test() {
+        try {
+            System.out.println("try");
+        } catch (Exception e) {
+        }
+    }
+}
+```
+
+***
