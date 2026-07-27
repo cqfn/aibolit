@@ -609,7 +609,7 @@ class Book {
 ***
 *Title*: Var siblings
 
-*Code*: **27**
+*Code*: **P27**
 
 *Description*: Here fileSize and fileDate are "siblings" because they both have file as first part of their compound names. It's better to rename them to size and date.
 
@@ -625,23 +625,8 @@ class Foo {
   }
 }
 ```
-
 ***
 
-*Title*: Class inheritance
-
-*Code*: **P34**
-
-*Description*: Once a class extends another class via `extends`, it's a pattern.
-
-*Example*:
-
-```java
-class MyList extends AbstractList { // here
-}
-```
-
-***
 *Title*: Assign null
 
 *Code*: **P28**
@@ -745,6 +730,21 @@ class Foo {
       ++i;
     }
   }
+}
+```
+
+***
+
+*Title*: Class inheritance
+
+*Code*: **P34**
+
+*Description*: Once a class extends another class via `extends`, it's a pattern.
+
+*Example*:
+
+```java
+class MyList extends AbstractList { // here
 }
 ```
 
