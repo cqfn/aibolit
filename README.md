@@ -49,7 +49,7 @@ Cyclomatic Complexity.
 If anything is found, you will see all recommendations for the mentioned
 patterns.
 You can see the list of all patterns in
-[Patterns.md](https://github.com/cqfn/aibolit/blob/master/PATTERNS.md).
+[PATTERNS.md](https://github.com/cqfn/aibolit/blob/master/PATTERNS.md).
 The output of recommendation will be redirected to the stdout.
 If the program has the `0` exit code, it means that all analyzed files do
 not have any issues.
