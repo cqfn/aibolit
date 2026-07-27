@@ -310,6 +310,8 @@ class Foo {
 }
 ```
 
+***
+
 *Title*: Non final attributes
 
 *Code*: **P12**
@@ -407,7 +409,6 @@ class Book {
 }
 ```
 
-
 ***
 
 *Title*: String concatenation using ```+``` operator.
@@ -428,7 +429,6 @@ public void start() {
         list.add(Boolean.FALSE);
 }
 ```
-
 
 ***
 
@@ -554,7 +554,6 @@ class Book {
 }
 ```
 
-
 ***
 
 *Title*: Class declaration must always be `final`
@@ -609,7 +608,7 @@ class Book {
 ***
 *Title*: Var siblings
 
-*Code*: **27**
+*Code*: **P27**
 
 *Description*: Here fileSize and fileDate are "siblings" because they both have file as first part of their compound names. It's better to rename them to size and date.
 
@@ -623,21 +622,6 @@ class Foo {
     int fileSize = 10;
     Date fileDate = new Date();
   }
-}
-```
-
-***
-
-*Title*: Class inheritance
-
-*Code*: **P34**
-
-*Description*: Once a class extends another class via `extends`, it's a pattern.
-
-*Example*:
-
-```java
-class MyList extends AbstractList { // here
 }
 ```
 
@@ -687,7 +671,6 @@ class Book {
 *Code*: **P30**
 
 Description:  Once we find a protected method in a class, it's a pattern.
-
 
 ***
 
@@ -745,6 +728,21 @@ class Foo {
       ++i;
     }
   }
+}
+```
+
+***
+
+*Title*: Class inheritance
+
+*Code*: **P34**
+
+*Description*: Once a class extends another class via `extends`, it's a pattern.
+
+*Example*:
+
+```java
+class MyList extends AbstractList { // here
 }
 ```
 
