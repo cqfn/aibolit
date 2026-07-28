@@ -12,7 +12,7 @@ name: latexmk
       - master
 jobs:
   latexmk:
-    timeout-minutes: 15
+    timeout-minutes: 30
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
@@ -22,7 +22,11 @@ jobs:
         with:
           path: wp
           opts: -pdf
-          depends: DEPENDS.txt
+          before: |
+            tlmgr option repository https://mirror.ctan.org/systems/texlive/tlnet
+            tlmgr --verify-repo=none update --self
+            tlmgr --verify-repo=none install $(cut -d ' ' -f2 ../DEPENDS.txt | sort -u)
+            fmtutil-sys --all
       - run: |
           mkdir gh-pages
           cp wp/wp.pdf gh-pages
