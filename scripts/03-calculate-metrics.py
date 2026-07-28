@@ -88,41 +88,20 @@ def build_metrics(frames: list[pd.DataFrame]) -> pd.DataFrame:
 
     class_cyclo = df[df['class'] == 1][['File', 'cyclo']].copy().dropna()\
         .reset_index().set_index('File')
-    avg_method_cyclo = df[df['class'] == 0][['File', 'cyclo']].copy()\
-        .dropna().groupby('File').mean() \
-        .reset_index() \
-        .set_index('File') \
-        .rename({'cyclo': 'cyclo_method_avg'}, axis='columns')
+    avg_method_cyclo = aggregate_method_metric(df, 'cyclo', 'mean', 'cyclo_method_avg')
+    min_method_cyclo = aggregate_method_metric(df, 'cyclo', 'min', 'cyclo_method_min')
+    max_method_cyclo = aggregate_method_metric(df, 'cyclo', 'max', 'cyclo_method_max')
 
-    min_method_cyclo = df[df['class'] == 0][['File', 'cyclo']].copy().dropna()\
-        .groupby('File').min().reset_index().set_index('File')\
-        .rename({'cyclo': 'cyclo_method_min'}, axis='columns')
-    max_method_cyclo = df[df['class'] == 0][['File', 'cyclo']].copy().dropna()\
-        .groupby('File').max().reset_index().set_index('File')\
-        .rename({'cyclo': 'cyclo_method_max'}, axis='columns')
-
-    avg_method_npath = df[df['class'] == 0][['File', 'npath']].copy().dropna()\
-        .groupby('File').mean().reset_index().set_index('File')\
-        .rename({'npath': 'npath_method_avg'}, axis='columns')
-    min_method_npath = df[df['class'] == 0][['File', 'npath']].copy().dropna()\
-        .groupby('File').min().reset_index().set_index('File')\
-        .rename({'npath': 'npath_method_min'}, axis='columns')
-    max_method_npath = df[df['class'] == 0][['File', 'npath']].copy().dropna()\
-        .groupby('File').max().reset_index().set_index('File')\
-        .rename({'npath': 'npath_method_max'}, axis='columns')
+    avg_method_npath = aggregate_method_metric(df, 'npath', 'mean', 'npath_method_avg')
+    min_method_npath = aggregate_method_metric(df, 'npath', 'min', 'npath_method_min')
+    max_method_npath = aggregate_method_metric(df, 'npath', 'max', 'npath_method_max')
 
     class_ncss = df[df['class'] == 1][['File', 'ncss']].copy().dropna()\
         .groupby('File').sum().reset_index().set_index('File')
 
-    avg_method_ncss = df[df['class'] == 0][['File', 'ncss']].copy().dropna()\
-        .groupby('File').mean().reset_index().set_index('File')\
-        .rename({'ncss': 'ncss_method_avg'}, axis='columns')
-    min_method_ncss = df[df['class'] == 0][['File', 'ncss']].copy().dropna()\
-        .groupby('File').min().reset_index().set_index('File')\
-        .rename({'ncss': 'ncss_method_min'}, axis='columns')
-    max_method_ncss = df[df['class'] == 0][['File', 'ncss']].copy().dropna()\
-        .groupby('File').max().reset_index().set_index('File')\
-        .rename({'ncss': 'ncss_method_max'}, axis='columns')
+    avg_method_ncss = aggregate_method_metric(df, 'ncss', 'mean', 'ncss_method_avg')
+    min_method_ncss = aggregate_method_metric(df, 'ncss', 'min', 'ncss_method_min')
+    max_method_ncss = aggregate_method_metric(df, 'ncss', 'max', 'ncss_method_max')
 
     keys = pd.DataFrame(df.File.unique(), columns=['File']).set_index('File')
     keys = keys.drop(rows_to_remove, axis=0)
@@ -140,6 +119,18 @@ def build_metrics(frames: list[pd.DataFrame]) -> pd.DataFrame:
         .join(max_method_ncss, how='left')\
         .reset_index()\
         .rename({'File': 'filename'}, axis='columns')
+
+
+def aggregate_method_metric(
+    df: pd.DataFrame,
+    metric_name: str,
+    aggregation: str,
+    output_column: str,
+) -> pd.DataFrame:
+    """Aggregate one method-level metric and rename it for the final report."""
+    return df[df['class'] == 0][['File', metric_name]].copy().dropna()\
+        .groupby('File').agg(aggregation).reset_index().set_index('File')\
+        .rename({metric_name: output_column}, axis='columns')
 
 
 def main() -> None:
