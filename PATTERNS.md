@@ -767,15 +767,34 @@ class Foo {
 
 ***
 
+*Title*: Empty Finally Block
+
+*Code*: **P34**
+
+*Description*: If a try block has a finally clause that contains no statements (an empty block finally { }), it is considered a pattern.
+
+*Example*:
+
+```java
+public class Empty {
+    void test() {
+        try {
+            System.out.println("try");
+        } finally {
+        }
+    }
+}
+```
+
+***
+
 *Title*: Return Empty String
 
 *Code*: **P35**
 
 *Description*: If a return statement returns an empty string literal "" directly or in either branch of a single-level ternary operator, it is considered a pattern. Nested ternary operators are not checked.
 
-*Example*:
-
-```java
+```
 public class Simple {
     public String getEmpty() {
         return "";
