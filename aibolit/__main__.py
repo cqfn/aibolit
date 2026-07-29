@@ -36,7 +36,6 @@ from aibolit.ast_framework import AST, ASTNodeType
 from aibolit.ast_framework.java_class_decomposition import decompose_java_class
 from aibolit.config import Config, Metric
 from aibolit.metrics.ncss.ncss import NCSSMetric
-from aibolit.ml_pipeline.ml_pipeline import train_process, collect_dataset
 from aibolit.utils.ast_builder import build_ast
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -116,6 +115,8 @@ def train():
              'Default is cognitive.'
     )
     args = parser.parse_args(sys.argv[2:])
+    from aibolit.ml_pipeline.ml_pipeline import collect_dataset, train_process
+
     if not args.skip_collect_dataset:
         collect_dataset(args)
 
@@ -172,19 +173,22 @@ def add_pattern_if_ignored(
     """
     ignored_lines = dct.get(pattern_item['pattern_code'])
     if ignored_lines:
+        remaining_code_lines = pattern_item['code_lines']
         for place in ignored_lines:
             # get lines range of ignored code
             start_line_to_ignore = place[0]
             end_line_to_ignore = place[1]
             new_code_lines = []
-            for line in pattern_item['code_lines']:
+            for line in remaining_code_lines:
                 if start_line_to_ignore <= line <= end_line_to_ignore:
                     continue
                 else:
                     new_code_lines.append(line)
-            pattern_item['code_lines'] = new_code_lines
-            if len(pattern_item['code_lines']) > 0:
-                results_list.append(pattern_item)
+            remaining_code_lines = new_code_lines
+        if remaining_code_lines:
+            updated_item = dict(pattern_item)
+            updated_item['code_lines'] = remaining_code_lines
+            results_list.append(updated_item)
     else:
         results_list.append(pattern_item)
 
