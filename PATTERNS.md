@@ -767,8 +767,6 @@ class Foo {
 
 ***
 
-***
-
 *Title*: Empty Finally Block
 
 *Code*: **P35**
