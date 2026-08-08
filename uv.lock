@@ -85,7 +85,7 @@ dev = [
     { name = "bandit", specifier = "==1.9.4" },
     { name = "codecov", specifier = "==2.1.13" },
     { name = "flake8", specifier = "==7.3.0" },
-    { name = "flake8-elegant-objects", specifier = "==1.1.1" },
+    { name = "flake8-elegant-objects", specifier = "==2.0.1" },
     { name = "mypy", specifier = "==2.3.0" },
     { name = "pylint", specifier = "==4.0.6" },
     { name = "pytest", specifier = "==9.1.1" },
@@ -528,11 +528,11 @@ wheels = [
 
 [[package]]
 name = "flake8-elegant-objects"
-version = "1.1.1"
+version = "2.0.1"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/27/24/a3701349adfcfe465f95d2615d1e6c9f48224c1633dc8504ff96c4b3c84a/flake8_elegant_objects-1.1.1.tar.gz", hash = "sha256:60accdb5b45e4a96b5affbd98fa660f7df8ebfaee59ed18acff459336b93870d", size = 54537, upload-time = "2025-06-30T04:30:32.528Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f1/ac/f4779bbae9c0ac93f800d04a428226be6e5f1dd4f3661bae83a4794ade7d/flake8_elegant_objects-2.0.1.tar.gz", hash = "sha256:e072fc9a439cafc45bc87001cce59b922630292c166a8b4f1151187b58ad00a4", size = 65512, upload-time = "2026-07-22T21:15:37.416Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/60/d3/37ff58b143d1b8a76feb1d22733c25e087e31fb83cc03022c2ec888b3bfc/flake8_elegant_objects-1.1.1-py3-none-any.whl", hash = "sha256:aec6895ac6e83eb0ad22ac59fd7270fbb76f8925d0315d854b13e5002af3ff19", size = 31233, upload-time = "2025-06-30T04:30:31.085Z" },
+    { url = "https://files.pythonhosted.org/packages/c9/f5/37a5a85c8b6ed93dde07dea2c4e16be097163e10df40d2af5b84d5a33ee3/flake8_elegant_objects-2.0.1-py3-none-any.whl", hash = "sha256:59d498bddf87271216462dc46fefc0764fc6e835fed2ad3e4b77912707d26a32", size = 35489, upload-time = "2026-07-22T21:15:36.245Z" },
 ]
 
 [[package]]
