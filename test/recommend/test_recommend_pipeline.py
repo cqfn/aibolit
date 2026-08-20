@@ -365,6 +365,17 @@ class TestRecommendPipeline(TestCase):
         add_pattern_if_ignored(pattern_ignored, pattern_item, results)
         self.assertEqual(results[0]['code_lines'], pattern_item['code_lines'])
 
+    def test_pattern_ignore_with_multiple_ranges_does_not_duplicate_result(self):
+        pattern_item = {'code_lines': [20, 30],
+                        'pattern_code': 'P14',
+                        'pattern_name': 'Null check',
+                        'importance': 30.95612931128819}
+        results = []
+        pattern_ignored = {'P14': [[1, 10], [40, 50]]}
+        add_pattern_if_ignored(pattern_ignored, pattern_item, results)
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0]['code_lines'], [20, 30])
+
     def test_process_components_deduplicates_class_level_findings(self):
         # A class-level pattern (e.g. P4 "Prohibited class name") re-fires in
         # every decomposed component, reporting the same line repeatedly with
