@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
 import importlib.util
+import os
 from pathlib import Path
 
 import pandas as pd
@@ -16,6 +17,7 @@ def load_calculate_metrics_module():
         raise RuntimeError(f'Failed to load module loader from {script_path}')
     loader = spec.loader
     module = importlib.util.module_from_spec(spec)
+    assert loader is not None
     loader.exec_module(module)
     return module
 
@@ -62,3 +64,39 @@ def test_aggregate_method_metric_ignores_class_rows():
     )
 
     assert metrics.to_dict('index') == {'Book.java': {'cyclo_method_avg': 3.0}}
+
+
+def test_run_pmd_creates_tmp_directory(tmp_path, monkeypatch):
+    """run_pmd should create ./_tmp before opening PMD output files."""
+    module = load_calculate_metrics_module()
+    root_java = tmp_path / 'TopLevel.java'
+    root_java.write_text('class TopLevel {}', encoding='utf-8')
+
+    calls = []
+
+    def fake_subprocess_call(cmd, stdout):
+        calls.append(cmd)
+        stdout.write('File,Problem,Description,Rule\n')
+        return 0
+
+    monkeypatch.setattr(module.subprocess, 'call', fake_subprocess_call)
+    cwd = Path.cwd()
+    os.chdir(tmp_path)
+    try:
+        csv_files = module.run_pmd(tmp_path)
+    finally:
+        os.chdir(cwd)
+
+    assert csv_files == ['./_tmp/file_TopLevel_pmd_out.csv']
+    assert (tmp_path / '_tmp').is_dir()
+    assert len(calls) == 1
+
+
+def test_build_metrics_returns_empty_frame_for_empty_input():
+    """An empty PMD run should yield an empty metrics table, not crash."""
+    module = load_calculate_metrics_module()
+
+    metrics = module.build_metrics([])
+
+    assert list(metrics.columns) == module.METRICS_COLUMNS
+    assert metrics.empty
