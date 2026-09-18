@@ -11,7 +11,7 @@ name: titles
 jobs:
   titles:
     timeout-minutes: 15
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       - uses: horw/issue-title-ai@v0.1.8b
         with:
