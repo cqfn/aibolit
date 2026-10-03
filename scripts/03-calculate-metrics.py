@@ -8,6 +8,21 @@ from pathlib import Path
 import pandas as pd
 
 DIR_TO_CREATE = 'target/03'
+TMP_DIR = Path('./_tmp')
+METRICS_COLUMNS = [
+    'filename',
+    'cyclo',
+    'cyclo_method_avg',
+    'cyclo_method_min',
+    'cyclo_method_max',
+    'npath_method_avg',
+    'npath_method_min',
+    'npath_method_max',
+    'ncss',
+    'ncss_method_avg',
+    'ncss_method_min',
+    'ncss_method_max',
+]
 
 
 def create_parser() -> argparse.ArgumentParser:
@@ -25,7 +40,7 @@ def collect_analysis_targets(dir_to_analyze: Path) -> list[Path]:
     """Collect top-level directories and Java files that should be analyzed."""
     return [
         path for path in sorted(dir_to_analyze.iterdir(), key=lambda path: path.name)
-        if path.is_dir() or path.suffix == '.java'
+        if (path.is_dir() or path.suffix == '.java') and path.name != TMP_DIR.name
     ]
 
 
@@ -39,6 +54,7 @@ def csv_filename_for_path(path: Path) -> str:
 def run_pmd(dir_to_analyze: Path) -> list[str]:
     """Run PMD for each collected target and return generated CSV paths."""
     csv_files = []
+    TMP_DIR.mkdir(parents=True, exist_ok=True)
     for path_to_analyze in collect_analysis_targets(dir_to_analyze):
         print(f'Start metrics calculation for path {path_to_analyze.name}')
         csv_filename = csv_filename_for_path(path_to_analyze)
@@ -67,8 +83,13 @@ def read_pmd_frames(csv_files: list[str]) -> list[pd.DataFrame]:
 
 def build_metrics(frames: list[pd.DataFrame]) -> pd.DataFrame:
     """Aggregate raw PMD reports into the final metrics table."""
+    if not frames:
+        return pd.DataFrame(columns=METRICS_COLUMNS)
+
     df = pd.concat(frames)
     df = df[df.Problem != -555]
+    if df.empty:
+        return pd.DataFrame(columns=METRICS_COLUMNS)
     df.to_csv('./_tmp/pmd_out.csv')
 
     df = pd.read_csv('./_tmp/pmd_out.csv')
