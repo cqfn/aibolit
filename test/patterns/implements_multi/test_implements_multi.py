@@ -1,97 +1,137 @@
 # SPDX-FileCopyrightText: Copyright (c) 2019-2026 Aibolit
 # SPDX-License-Identifier: MIT
 
-from unittest import TestCase
-from pathlib import Path
+from textwrap import dedent
 
 from aibolit.patterns.implements_multi.implements_multi import ImplementsMultiFinder
 from aibolit.ast_framework import AST
-from aibolit.utils.ast_builder import build_ast
+from aibolit.utils.ast_builder import build_ast_from_string
 
 
-class ImplementsMultiTestCase(TestCase):
-    current_directory = Path(__file__).absolute().parent
+def test_one_class_with_types() -> None:
+    content = dedent(
+        '''\
+        class AnimatableSplit implements AnimatableValue {
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == []
 
-    def test_one_class_with_types(self):
-        filepath = self.current_directory / 'AnimatableSplitDimensionPathValue.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ImplementsMultiFinder()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [])
 
-    def test_two_classes(self):
-        filepath = self.current_directory / 'AnimatableTransform.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ImplementsMultiFinder()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [15])
+def test_two_classes() -> None:
+    content = dedent(
+        '''\
+        class AnimatableTransform implements ModifierContent, ContentModel {
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [1]
 
-    def test_implements_in_string(self):
-        filepath = self.current_directory / 'AuditEventModelProcessor.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ImplementsMultiFinder()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [])
 
-    def test_implements_with_parantheses(self):
-        filepath = self.current_directory / 'BaseKeyframeAnimation.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ImplementsMultiFinder()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [])
+def test_implements_in_string() -> None:
+    content = dedent(
+        '''\
+        class Dummy {
+            String text = "implements Foo, Bar";
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == []
 
-    def test_implements_with_nested_parantheses(self):
-        filepath = self.current_directory / 'Configuration.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ImplementsMultiFinder()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [228])
 
-    def test_implements_multi_classes(self):
-        filepath = self.current_directory / 'FillContent.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ImplementsMultiFinder()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [32])
+def test_implements_with_parantheses() -> None:
+    content = dedent(
+        '''\
+        class BaseKeyframe implements KeyframesWrapper<T> {
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == []
 
-    def test_implements_with_parantheses_multi(self):
-        filepath = self.current_directory / 'FJIterateTest.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ImplementsMultiFinder()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [597])
 
-    def test_implements_with_parantheses_before(self):
-        filepath = self.current_directory / 'FJListProcedureRunner.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ImplementsMultiFinder()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [])
+def test_implements_with_nested_parantheses() -> None:
+    content = dedent(
+        '''\
+        class Configuration implements Iterable<Map.Entry<String, String>>, Writable {
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [1]
 
-    def test_implements_in_comments(self):
-        filepath = self.current_directory / 'KeyProviderCryptoExtension.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ImplementsMultiFinder()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [])
 
-    def test_implements_multi(self):
-        filepath = self.current_directory / 'OsSecureRandom.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ImplementsMultiFinder()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [45])
+def test_implements_multi_classes() -> None:
+    content = dedent(
+        '''\
+        class FillContent implements DrawingContent, AnimationListener, KeyPathElementContent {
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [1]
 
-    def test_implements_three(self):
-        filepath = self.current_directory / 'RectangleContent.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ImplementsMultiFinder()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [25])
 
-    def test_implements_many(self):
-        filepath = self.current_directory / 'SequenceFile.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = ImplementsMultiFinder()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [840])
+def test_implements_with_parantheses_multi() -> None:
+    content = dedent(
+        '''\
+        class SumProcedure implements Procedure<Integer>, Function2<A, B, C>, Factory<SumProcedure> {
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [1]
+
+
+def test_implements_with_parantheses_before() -> None:
+    content = dedent(
+        '''\
+        class Dummy implements Procedure<Integer> {
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == []
+
+
+def test_implements_in_comments() -> None:
+    content = dedent(
+        '''\
+        class Dummy {
+            // implements Closeable, Configurable
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == []
+
+
+def test_implements_multi() -> None:
+    content = dedent(
+        '''\
+        class OsSecureRandom extends Random implements Closeable, Configurable {
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [1]
+
+
+def test_implements_three() -> None:
+    content = dedent(
+        '''\
+        class RectangleContent implements AnimationListener, KeyPathElementContent, PathContent {
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [1]
+
+
+def test_implements_many() -> None:
+    content = dedent(
+        '''\
+        class SequenceFile {
+            public static class Writer implements Closeable, Syncable {
+            }
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [2]
+
+
+def _offending_lines(content: str) -> list[int]:
+    ast = AST.build_from_javalang(build_ast_from_string(content))
+    return ImplementsMultiFinder().value(ast)
