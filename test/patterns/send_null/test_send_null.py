@@ -2,75 +2,143 @@
 # SPDX-License-Identifier: MIT
 
 from textwrap import dedent
-from pathlib import Path
-from unittest import TestCase
 
 from aibolit.patterns.send_null.send_null import SendNull
 from aibolit.ast_framework import AST
-from aibolit.utils.ast_builder import build_ast, build_ast_from_string
+from aibolit.utils.ast_builder import build_ast_from_string
 
 
-class SendNullTestCase(TestCase):
-    current_directory = Path(__file__).absolute().parent
+def test_one_send() -> None:
+    content = dedent(
+        '''\
+        class BaseKeyframeAnimation {
+            public void setValueCallback(Object valueCallback) {
+                this.valueCallback.setAnimation(null);
+            }
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [3]
 
-    def test_one_send(self):
-        filepath = self.current_directory / 'BaseKeyframeAnimation.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = SendNull()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [149])
 
-    def test_multi_level_invocation(self):
-        filepath = self.current_directory / 'Configuration.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = SendNull()
-        lines = pattern.value(ast)
-        self.assertEqual(
-            lines,
-            [382, 445, 552, 641, 659, 833, 869, 1365, 2396, 2877, 2991, 3083, 3495, 3761, 3858]
-        )
+def test_multi_level_invocation() -> None:
+    content = dedent(
+        '''\
+        class Configuration {
+            private String getWarningMessage(String key) {
+                return getWarningMessage(key, null);
+            }
+            public void addDeprecation(String key, String[] newKeys) {
+                addDeprecation(key, newKeys, null);
+            }
+            public void set(String name, String value) {
+                set(name, value, null);
+            }
+            public void writeXml(Writer out) {
+                writeXml(null, out);
+            }
+            public void register() {
+                REGISTRY.put(this, null);
+            }
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [3, 6, 9, 12, 15]
 
-    def test_no_null_methods(self):
-        filepath = self.current_directory / 'FillContent.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = SendNull()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [])
 
-    def test_simple_invocation(self):
-        filepath = self.current_directory / 'FJIterateTest.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = SendNull()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [489])
+def test_no_null_methods() -> None:
+    content = dedent(
+        '''\
+        class FillContent {
+            public void draw() {
+                paint.setColor(color);
+            }
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == []
 
-    def test_constructor_send_null(self):
-        filepath = self.current_directory / 'Constructor.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = SendNull()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [8, 17, 18, 19, 20, 21])
 
-    def test_super_in_constructor_with_ternary_operator(self):
-        filepath = self.current_directory / 'AclPermissionParam.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = SendNull()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [49, 53])
+def test_simple_invocation() -> None:
+    content = dedent(
+        '''\
+        class FJIterateTest {
+            public void groupByNulls() {
+                FJIterate.groupBy(null, null, 1);
+            }
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [3]
 
-    def test_this_with_ternary_operator(self):
-        filepath = self.current_directory / 'AddOp.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = SendNull()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [31, 35])
 
-    def test_super_in_constructor_with_method_inv(self):
-        filepath = self.current_directory / 'ByteArrayMultipartFileEditor.java'
-        ast = AST.build_from_javalang(build_ast(filepath))
-        pattern = SendNull()
-        lines = pattern.value(ast)
-        self.assertEqual(lines, [51])
+def test_constructor_send_null() -> None:
+    content = dedent(
+        '''\
+        class CompressionOption {
+            CompressionOption(CompressionType value) {
+                this(value, null);
+            }
+            CompressionOption(CompressionType value, CompressionCodec codec) {
+                this.value = value;
+            }
+            CompressionType getValue() {
+                a.method_call(2, b.method_call(null));
+                a.method_call().method_call(b).method_call(null);
+                doSomething(myString = ((myString != 5) ? null : myString), obj);
+                doSomething(myString = ((myString != 5) ? myString.toLowerCase() : null), obj);
+                new Object(null);
+                return value;
+            }
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [3, 9, 10, 11, 12, 13]
+
+
+def test_super_in_constructor_with_ternary_operator() -> None:
+    content = dedent(
+        '''\
+        class AclPermissionParam extends StringParam {
+            public AclPermissionParam(final String str) {
+                super(DOMAIN, str == null || str.equals(DEFAULT) ? null : str);
+            }
+            public AclPermissionParam(List acl) {
+                super(DOMAIN, parseAclSpec(acl).equals(DEFAULT) ? null : parseAclSpec(acl));
+            }
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [3, 6]
+
+
+def test_this_with_ternary_operator() -> None:
+    content = dedent(
+        '''\
+        class AddOp {
+            public AddOp(INDArray first, INDArray second, INDArray result) {
+                this(new INDArray[]{first, second}, result == null ? null : new INDArray[]{result});
+            }
+            public AddOp(INDArray x, INDArray y) {
+                this(new INDArray[]{x, y}, null);
+            }
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [3, 6]
+
+
+def test_super_in_constructor_with_method_inv() -> None:
+    content = dedent(
+        '''\
+        class ByteArrayMultipartFileEditor {
+            public void setValue(Object value) {
+                super.setValue(value != null ? value.toString().getBytes() : null);
+            }
+        }
+        '''
+    ).strip()
+    assert _offending_lines(content) == [3]
 
 
 def test_pass_null_as_the_only_parameter_into_another_private_method() -> None:
